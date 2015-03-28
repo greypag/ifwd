@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/decorators">
+
+	<!-- <excludes>
+		<pattern>/themes/*</pattern>
+		<pattern>/scripts/*</pattern>
+		<pattern>/images/*</pattern>
+	</excludes> -->
+
+	<decorator name="default" page="template_default.jsp">
+		<pattern>/*</pattern>
+		
+	</decorator>
+	
+	<!-- <decorator name="only_body" page="template_anonymous.jsp">
+		<pattern>/content/**</pattern>
+		<pattern>/*</pattern>
+	</decorator> -->
+</decorators>
