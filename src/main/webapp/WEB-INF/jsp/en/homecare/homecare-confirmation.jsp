@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<title>FWD</title>
+<title>Home Insurance Confirmation| FWD Hong Kong</title>
 <meta name="description"
 	content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 
@@ -132,7 +132,7 @@
 				<form>
 					<ol class="breadcrumb pad-none">
 						<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#">Home </a> <i
+						<li><a href="#">Easy HomeCare </a> <i
 							class="fa fa-caret-right"></i></li>
 						<li><a href="#">Your options</a> <i
 							class="fa fa-caret-right"></i></li>
@@ -189,15 +189,15 @@
 						<div class="col-sm-12 gray-bg1">
 							<h3>
 								You have successfully completed your purchase of <strong>Easy HomeCare</strong>
-								insurance with <strong>FWD</strong>.  An email has been sent to  <strong>${emailID}</strong>
-								 with the details of your policy.
+								insurance with <strong>FWD</strong>.<br>
+								An email has been sent to  <strong>${emailID}</strong> with the details of your policy.
 							</h3>
 							<h4>
 								Policy Number: <span> ${policy }</span>
 							</h4>
 							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 								<h5>
-									Your unique promotion code is:<span> ${referenceNo }</span>
+									Your unique promotion code is:<span> ${referralCode}</span>
 								</h5>
 								<div class="h4-3-b margin-left">
 								Share with your friends and get discounts from our partners!*
@@ -215,11 +215,10 @@
 
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
 								<div class=" wht-bg1 text-center">
-									<a class="padding6 h4-5-b " href="">http i.fwd.com.hk
-										travel referal? ${referenceNo}</a>
+									<a class="padding6 h4-5-b " href="">http://i.fwd.com.hk/en/home-insurance/quote?${referralCode}</a>
 								</div>
 								<div class=" text-left">
-									<a class="sub-link other-share">Other sharing options</a>
+									<!--<a class="sub-link other-share">Other sharing options</a>-->
 								</div>
 							</div>
 
@@ -280,7 +279,7 @@
 										- 5% discount from Agoda <br>
 										- 30% discount on your next purchase of TravelCare <br>
 										Referee will enjoy 8% discount on Easy HomeCare purchase. <br>
-										Please review the detailed terms and conditions of the referral program.
+										Please review the detailed <a href="http://i.fwd.com.hk/downloads/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.
 									</p>
 									<br>
 								</div>
@@ -301,7 +300,7 @@
 								<div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
 									<div>
 										<div class="h2-32">TravelCare</div>
-										<p class="h4-5">XXXX</p>
+										<p class="h4-5">Embark on an adventure abroad with a comprehensive travel protection companion</p>
 										<a href="index.html"
 											class="border-radius btn btn-primary  get-btn">Get Quote</a>
 									</div>

@@ -118,18 +118,14 @@
 									</span> <span id="fullnameinvalid" class="text-red"></span></td>
 								</tr>
 								<tr>
-									<td class="pad-none">
-									<div class="col-md-10 col-lg-10 pad-none">
-									<select id="selectHkidPass" class="soflow" name="selectedHkidPassApplicant">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
-									</select>
-									</div>
-									</td>
-									<td class="pad-none">
-									<input type="text" name="hkid"	class="form-control numberinput textUpper btm-pad-10"	id="inputTxtAppHkid" placeholder="X1234567">
-									 <span	id="errAppHkid" class="text-red"> </span>
-									 </td>
+									<td class="pad-none"><select id="selectHkidPass" class="form-control soflow" name="selectedHkidPassApplicant">
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
+									</select></td>
+									<td class="pad-none"><input type="text" name="hkid"
+										class="form-control numberinput textUpper"
+										id="inputTxtAppHkid" placeholder="X1234567"> <span
+										id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
 									<td class="pad-none"><label for="inputMobileNo"
@@ -239,9 +235,9 @@
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
-											<select id="selectAdHkidPass${inx}" class="soflow" name="selectedAdHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
+											<select id="selectAdHkidPass${inx}" class="form-control soflow" name="selectedAdHkidPass">
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
 									</select> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -252,8 +248,9 @@
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">Age Range</label>
-											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
+											<label class="bold-500">Age Range</label> <select
+												name="adultAgeRange" class="form-control soflow"
+												id="selectAgeRange${inx}">
 												<option value="0">Select One</option>
 												<c:forEach var="ageList" items="${mapAgeType}">
 													<option value="${ageList.key}"><c:out
@@ -276,7 +273,7 @@
 											</select> <span id="erradultsselectBenificiary${inx}" class="text-red">
 											</span>
 										</div>
-<%request.setAttribute("mapRelationshipCode","${relationshipCodeList.key}"); %>
+
 										<div id="adultsbenificiaryId${inx}" class="hide">
 											<div class="col-xs-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
@@ -291,8 +288,8 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 												<select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedAdBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
 									</select> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -331,8 +328,8 @@
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectChldHkidPass${inx}" class="form-control soflow" name="selectedChldHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
 									</select> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -379,8 +376,8 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label>  -->
 												<select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedChldBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
 									</select><input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -414,17 +411,11 @@
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
 										</div>
-										
-										
-										
-										
-										
-										<div class="pad-none">
-										<div class="col-md-10 col-lg-10 pad-none">
+										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectOtHkidPass${inx}" class="form-control soflow" name="selectedOtHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
 									</select> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -473,8 +464,8 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 												<select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedOtherBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
-									<option value="passport">Passport</option>
+									<option selected="selected">hkId</option>
+									<option>Passport</option>
 									</select> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -489,56 +480,70 @@
 							</c:forEach>
 							<!--Till this Line  -->
 
+
 						</div>
 
-<div class="clearfix"></div>
+
+						<div class="clearfix"></div>
 						<div class="spacer3"></div>
-						<h4 class="h4-2 padding3">Declaration:-</h4>
+						<h4 class="h4-2 padding3">Declaration</h4>
 						<div class="declaration-content">
 							<div class="checkbox">
 								<input name="checkbox1" id="checkbox1" type="checkbox">
-								<label for="checkbox1"> I have read and understand the policy provisions and hereby declare that:-
-								 <br>
-									i. <span class="margin-left-2"></span> The particulars and statements given above are, to the best of my knowledge and belief, true and complete; <br> 
-									ii. <span class="margin-left-2"></span> To the best of my knowledge and belief no Insured Person is travelling contrary to the advice of any medical practitioner or for the purpose of obtaining medical treatment and that I understand that treatment of any pre-existing, recurring or congenital medical conditions are not insured. I am not aware of any condition cause or circumstance that may necessitate the cancellation or curtailment of the journey as planned; and  <br>
-									iii. <span class="margin-left-2"></span>This application shall be the basis of the contract between me and FWD.
-							     	iv. <span class="margin-left-2"></span>This Proposal Form is applied and signed at HKSAR, in case of fraud or factual misrepresentation, the cover for me or for the Insured Person(s) may be invalidated.
-								    v. <span class="margin-left-2"></span>I have obtained the consent from the Insured Person(s) for passing the above information to FWD General Insurance Company Limited for the purpose of carrying out the TravelCare Insurance.
-									<br/>
-								
-									I have read and understood <a href="<%=request.getContextPath() %>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
-									class="sub-link" target="_blank">Personal Information Collection Statement</a> and agree to be bound by the same.
-										<br>
-										
+								<label for="checkbox1"> I/we hereby declare that:- <br>
+									i. <span class="margin-left-2"></span> the particulars and
+									statements given above are, to the best of my/our knowledge and
+									belief, true and complete; <br> ii. <span
+									class="margin-left-2"></span> to the best of my/our knowledge
+									and belief no Insured Person is travelling contrary to the
+									advice of any medical practitioner or for the purpose of
+									obtaining medical treatment and that I/we understands that
+									treatment of any pre-existing, recurring or congenital medical
+									conditions are not insured. I am/We are not aware of any
+									condition cause or circumstance that may necessitate the
+									cancellation or curtailment of the journey as planned; and <br>
+									iii. <span class="margin-left-2"></span>this application shall
+									be the basis of the contract between me and FWD.
+								</label>
+							</div>
+							<span id="chk1" class="text-red"> </span>
+							<div class="checkbox">
+								<input name="checkbox1" id="checkbox2" type="checkbox">
+								<label for="checkbox2"> I/We have read and understood <a
+									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
+									class="sub-link" target="_blank"> Personal Information
+										Collection Statement</a> and agree to be bound by the same. <br>
+									<br> If you do NOT wish The Company to use Your Personal
+									Data in direct marketing or provide Your Personal Data to other
+									persons or companies for their use in direct marketing, please
+									tick the appropriate box(es) below to exercise
 								</label>
 							</div>
 							<span id="chk2" class="text-red"></span>
-							<hr/>
-							<div>
-								If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise
-							</div>
-							<div class="checkbox">
-								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2">Please do not send direct marketing information to me.<br>
-								</label>
-							</div>
 							<div class="checkbox">
 								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not provide my personal data to other persons or companies for their use in direct marketing. <br> <br>
+									for="checkbox3"> Please do not send direct marketing
+									information to me.<br>
 								</label>
 							</div>
-							<!-- <div class="checkbox">
+							<div class="checkbox">
+								<input id="checkbox4" type="checkbox"> <label
+									for="checkbox4"> Please do not provide my personal data
+									to other persons or companies for their use in direct
+									marketing. <br> <br>
+								</label>
+							</div>
+							<div class="checkbox">
 								<input id="checkbox5" type="checkbox"> <label
 									for="checkbox5"> I have obtained the consent from the
 									Insured Traveller(s) for passing the above information to FWD
 									General Insurance Company Limited for the purpose of carrying
 									out the TravelCare Travel Insurance. <br> <br>
 								</label>
-							</div> -->
+							</div>
 						</div>
 					</div>
 
-						
 					<div
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none wht-bg3">
 						<!--mob-hidden-->
@@ -546,8 +551,7 @@
 							<div class="wd2">
 								<div class="pull-left">
 									<h2 class="h2-3-choose">TravelCare</h2>
-									<h4>${planName}-Summary</h4>
-									<input type="hidden" name="selectedPlanName" value="${planName }">
+									<h4>${planName}-PlanSummary</h4>
 								</div>
 								<div class="pull-right">
 									<div class="text-left pad-right1 h2-2 h2">
@@ -580,15 +584,13 @@
 										class="span2 uline">Change</span></a>
 								</h3>
 								<h4>
-								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}"> Travellers ${travelQuote.getTotalPersonalTraveller()}
-								 </c:if>
-									<c:if test="${  travelQuote.getTotalAdultTraveller()!=0}"> Parent ${travelQuote.getTotalAdultTraveller()}
-										</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"> ,Child	${travelQuote.getTotalChildTraveller()}
-								  
+									<c:if test="${not empty travelQuote.getTotalAdultTraveller()}">	${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}
+								Adults,		</c:if>
+									<c:if test="${not empty travelQuote.getTotalChildTraveller()}">	${travelQuote.getTotalChildTraveller()}
+								Childs,
 								</c:if>
-									<c:if test="${  travelQuote.getTotalOtherTraveller()!=0}"> ,Others	${travelQuote.getTotalOtherTraveller()}
-								 </c:if>
+									<c:if test="${not empty travelQuote.getTotalOtherTraveller()}">	${travelQuote.getTotalOtherTraveller()}
+								Others</c:if>
 								</h4>
 								<br>
 								<h3 class="txt-bold">
@@ -597,20 +599,20 @@
 										value="${travelQuote.getTotalTravellingDays()}">
 								</h3>
 								<input type="hidden" name="planSelected" value="${travelQuote.getPlanSelected()}">
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<div class="input-group">
 										<input type="text" class="form-control placeholder-fl"
 											value="eg.FWD789" readonly placeholder="eg.FWD789"> <span
 											class="input-group-addon in black-bold"><span>APPLY</span></span>
 									</div>
-								</div> -->
-								<!-- <div class="travel-italic">
+								</div>
+								<div class="travel-italic">
 									<a href="#" class="sub-link" data-toggle="modal"
 										data-target=".bs-promo-modal-lg"><i> How do I get a
 											promotion code? </i></a>
 								</div>
 
- -->
+
 
 								<br>
 							</div>
@@ -647,7 +649,7 @@
 						class="sub-link"
 						href="policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
 						target="_blank">Policy Provisions</a> for details.<br> For a
-					complete explanation of the terms and conditions. Please contact
+					complete explanation of the terms and conditions. please contact
 					your adviser or our customer service at 3123 3123 for more details.
 				</p>
 			</form:form>
@@ -674,7 +676,7 @@
 						<div id="login-err-msg" class="alert alert-danger" role="alert"></div>
 					</div>
 					<div class="form-container">
-						<h2>Log in to FWD</h2>
+						<h2>Sign in to FWD</h2>
 						<h4>
 							Username <a href="forgotUserName" class="pull-right sub-link">Forgot
 								username?</a>
@@ -694,13 +696,11 @@
 						</div>
 						<span id="errPass" style="color: red"></span> <br>
 						<div class="row">
-							<div class="text-left col-lg-6 col-md-6">
-								<button class="bdr-curve-none btn btn-primary btn-lg  wd5"
-									type="button" onclick="return userLoginFnc();" tabindex="3">Log
-									In</button>
-							</div>
+							<button class="bdr-curve-none btn btn-primary btn-lg "
+								type="button" onclick="return userLoginFnc();" tabindex="3">Log
+								In</button>
 							<h3 class="text-left col-lg-6 col-md-6 pad-none margin-none">
-								<span> New Member?</span><br> <a href="joinus"
+								<span> New user?</span><br> <a href="joinus"
 									class="sub-link"> Register here</a>
 							</h3>
 							<div class="clearfix"></div>

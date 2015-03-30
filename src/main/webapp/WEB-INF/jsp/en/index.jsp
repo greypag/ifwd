@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<title>Find affordable home insurance | FWD Hong Kong</title>
+<title>Find affordable insurance |FWD Hong Kong </title>
 <meta name="description"
 	content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 <link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>FWD</title>
+	<title>Become our member | FWD Hong Kong</title>
 	<script src="resources/js/fwd.js">
 
 	</script>
@@ -124,7 +124,7 @@
 									<tr>
 										<td class="col-sm-4 col-xs-4 pad-none"><label
 											for="txtFullName" class="join-us-label"> Full name<br>
-											<small>(As appears on HKID Card/Passport)</small>
+											<small>(as appears on HKID Card/Passport)</small>
 										</label></td>
 										<td class="pad-none"><input type="text"
 											class="form-control btm-pad-10" name="fullName"
@@ -141,7 +141,7 @@
 												 class="join-us-label">Mobile no</label></td>
 												<td class="pad-none"><input type="text" name="mobileNo"
 													class="form-control" id="txtMobileNo"
-													placeholder="Mobile Number"
+													placeholder="Mobile number"
 													onkeypress="return isNumeric(event)" onblur="replaceNumeric(this);" maxlength="8"> 
 													<span id="errorEmptyMob" class="text-red"></span></td>
 
@@ -252,42 +252,11 @@
 					<div class="declaration-content ">
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label
-							for="checkbox1"> I/we hereby declare that:- <br> i.
-							<span class="margin-left-2"></span> the particulars and
-							statements given above are, to the best of my/our knowledge and
-							belief, true and complete; <br> ii. <span
-							class="margin-left-2"></span> to the best of my/our knowledge
-							and belief no Insured Person is travelling contrary to the
-							advice of any medical practitioner or for the purpose of
-							obtaining medical treatment and that I/we understands that
-							treatment of any pre-existing, recurring or congenital medical
-							conditions are not insured. I am/We are not aware of any
-							condition cause or circumstance that may necessitate the
-							cancellation or curtailment of the journey as planned; and <br>
-							iii. <span class="margin-left-2"></span>this application shall
-							be the basis of the contract between me and FWD. <br> iv.<span
-							class="margin-left-2"></span> I declare that this Proposal Form
-							is applied and signed at HKSAR, in case of fraud or factual
-							misrepresentation, the cover for me or for the Insured Person(s)
-							may be invalidated.
-
-
-						</label>
-					</div>
-
-					<span id="chk1" class="text-red">
-					</span>
-					<div class="checkbox">
-						<input id="checkbox2" type="checkbox"> <label
-						for="checkbox2"> I/We have read and understood <a
+							for="checkbox1"> I have read and understood  <a
 						href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
-						target="_blank" class="sub-link"> Personal Information
-						Collection Statement</a> and agree to be bound by the same. 
-						<hr>
-						 If you do NOT wish The Company to use Your Personal
-						Data in direct marketing or provide Your Personal Data to other
-						persons or companies for their use in direct marketing, please
-						tick the appropriate box(es) below to exercise
+						target="_blank" class="sub-link"> Personal Information Collection Statement</a> and agree to be bound by the same. 
+						<hr />
+						If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise.
 					</label>
 				</div>
 

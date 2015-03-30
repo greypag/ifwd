@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Account</title>
+<title>會員帳戶資料 | 富衛香港</title>
 </head>
 
 <!--Tooltip-->
@@ -112,9 +112,9 @@ Tag Manager -->
 </h2></td>
                   </tr>
                   <tr>
-                    <td  class="col-sm-4 col-md-4 col-xs-4 col-lg-4 pad-none "><label class="control-label h4-4-b">個人全名
+                    <td  class="col-sm-4 col-md-4 col-xs-4 col-lg-4 pad-none "><label class="control-label h4-4-b">英文全名
 </label></td>
-                    <td class="pad-none"><input type="text" class="form-control btm-pad-10" value="${userDetails.getFullName() }" id="fullname" placeholder="個人全名
+                    <td class="pad-none"><input type="text" class="form-control btm-pad-10" value="${userDetails.getFullName() }" id="fullname" placeholder="英文全名
 " readonly></td>
                   </tr>
                   <tr>
@@ -306,7 +306,7 @@ Tag Manager -->
 
                <p>
              
-請参閱推薦計劃之 <a href="../policy-provisions-pdf/iFWD_HK_Referral_Campaign_T_Cs.pdf" class="sub-link" target="_blank">條款及細則</a>。
+請参閱推薦計劃之 <a href="../policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" class="sub-link" target="_blank">條款及細則</a>。
 
               </p>
 

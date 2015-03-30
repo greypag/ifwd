@@ -68,12 +68,12 @@
 
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="<%=request.getContextPath()%>">主頁</a></li>
-							<li><a>|</a></li>
-							<li><a href="#"
+							<li> | </li>
+							<li><a href="http://www.fwd.com.hk/zh-HK/about/index.html"
 								target="_blank">關於我們</a></li>
-							<li><a>|</a></li>
+							<li> | </li>
 							<li><a href="joinus">加入我們</a></li>
-							<li><a>|</a></li>
+							<li> | </li>
 							<li><a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a></li>
 							<li><a id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a></li>
 
@@ -129,7 +129,7 @@
 													</h3>
 													<div class="clearfix"></div>
 												</div>
-												<p>>本人在此同意通過本網站（以下簡稱“計劃”）購買指定保險計劃，將我的個人資料從富衛電子服務轉移到計劃的簽發人。</p>
+												<p>本人在此同意通過本網站（以下簡稱“計劃”）購買指定保險計劃，將我的個人資料從富衛電子服務轉移到計劃的簽發人。</p>
 											</div>
 										</div>
 									</form>
@@ -199,7 +199,7 @@
 								}else{%>
 									<li class="dropdown logout-btn margin-left1" id="myDropdown">
 								<a href="#" class="dropdown-toggle" id="fwd-login"
-								data-toggle="dropdown">Welcome <%=session.getAttribute("username")%> <i
+								data-toggle="dropdown">歡迎 <%=session.getAttribute("username")%> <i
 									class="fa fa-caret-right"></i>
 							</a>
 								<div class="dropdown-menu drop-width">
@@ -207,9 +207,9 @@
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
 										<li><a href="getAccByUsernaneAndPassword" class="color1">
-												Manage User Account</a></li>
+												富衛會員帳戶</a></li>
 												<%} %>
-										<li><a href="userLogout" class="color1">Log Out</a></li>
+										<li><a href="userLogout" class="color1">登出</a></li>
 									</ul>
 								</div>
 							</li>
@@ -261,7 +261,7 @@
 <!--Mobile-header-->
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
-		<span class="callus top-number">3213 3213 给我们打电话  </span> <a href="#"
+		<span class="callus top-number">24小時熱線 3123 3123  </span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right">即時對話</span></a> <a href="#" class="lang pull-right">中文</a>
 		<div class="clearfix"></div>
 	</div>
@@ -286,7 +286,7 @@
 	style="">
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
 		<button type="button" onclick="return submitLoginForm();"
-			class="dropdown-toggle color-wht log-to-acc">登录</button>
+			class="dropdown-toggle color-wht log-to-acc">登入</button>
 
 		<div class="dropdown-menu drop-width">
 			<div class="moblogin">
@@ -325,9 +325,9 @@
 	<ul class="nav navmenu-nav sidepanel-menu">
 		<li><a href="indexPage">Home</a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
-			href="flight">Flight Insurance</a></li>
-		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel">Travel Insurance</a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="homecare">Home Insurance</a></li>
+			href="flight">航空保險</a></li>
+		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel">旅遊保險</a></li>
+		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="homecare">家居保險</a></li>
 	</ul>
 </div>
 <!--End Mobile header-->

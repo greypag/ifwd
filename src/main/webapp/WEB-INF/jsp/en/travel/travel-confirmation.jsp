@@ -66,7 +66,7 @@
          <div class="h4-2 margin-left">Share your promotion code now to earn discounts and rewards</div>
          
          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http i.fwd.com.hk travel referal?${referralCode}</a></div>
+         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http//i.fwd.com.hk/en/travel-insurance/quote?${referralCode}</a></div>
               </div>
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
               
@@ -89,7 +89,7 @@
                   - 5% discount from Agoda<br>
                   - 30% discount on your next purchase of TravelCare<br>
                   Referee will enjoy 25% discount on TravelCare purchase.<br>
-                  	Please review the detailed <a href="http://i.fwd.com.hk/downloads/iFWD_HK_Referral_Campaign_T_Cs.pdf" target="_blank">terms and conditions</a> of the referral program.<br>
+                  	Please review the detailed <a href="http://i.fwd.com.hk/downloads/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.<br>
                  </p>
                  </div>
               </div>

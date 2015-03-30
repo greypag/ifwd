@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<title>FWD</title>
-<meta name="description" content="Get affordable home insurance with protection for emergencies and accidents â24/7 support â 'A' rated secure & stable financial strength â Rewards & benefits" />
+<title>Home Insurance Quote | FWD Hong Kong</title>
+<meta name="description" content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      
         <ol class="breadcrumb pad-none">
           <li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="#">Home Insurance </a > </li>
+          <li><a href="#">Easy HomeCare </a > </li>
           <li class="active "><i class="fa fa-caret-right"></i> Your options </li>
         </ol>
         <div class="container ">
@@ -151,7 +151,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </div>
                       
                       <div class="fwdpanel-body" style="display: none;">
-                        <p class="color-wht">XXXXXX</p>
+                        <p class="color-wht"><i class="fa fa-plus"></i> Window, Door Lock & Key Replacement $3,000 per year<br>
+										<i class="fa fa-plus"></i> Temporary Removal $50,000 per year <br>
+										<i class="fa fa-plus"></i> Home Removal $50,000 per year<br>
+										<i class="fa fa-plus"></i>
+										Personal Accident $50,000 per person <br></p>
                       </div>
                       
                        <div class="clearfix"></div>
@@ -221,9 +225,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <table id="Premium" class="table table-bordred">
 	<tbody>
 		<tr>
-			<td><strong>é ç®</strong></td>
-			<td><strong>ä¿éç¯å</strong></td>
-			<td><strong>æé«è³ åéé¡(æ¸¯å¹£)</strong></td>
+			<td><strong>Item</strong></td>
+			<td><strong>Benefit</strong></td>
+			<td><strong>Maximum Limits<br>(HK$)</strong></td>
 		</tr>
 		<tr>
 			<td>1</td>
@@ -267,17 +271,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</tr>
 		<tr>
 			<td rowspan="2">7</td>
-			<td><strong>Domestic Helper&#39;s Property</strong></td>
+			<td><strong>Domestic Helper's Property</strong></td>
 			<td>1,000 per item</td>
 		</tr>
 		<tr>
-			<td><strong>Accidental loss of or damage to domestic helper&#39;s property at home</strong></td>
+			<td><strong>Accidental loss of or damage to domestic helper's property at home</strong></td>
 			<td>5,000 per year</td>
 		</tr>
 		<tr>
 			<td>8</td>
 			<td><strong>Tenants Improvement<br />
-			Accidental loss of or damage to tenant&#39;s improvements at home</strong></td>
+			Accidental loss of or damage to tenant's improvements at home</strong></td>
 			<td>100,000 per item</td>
 		</tr>
 		<tr>
@@ -298,7 +302,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<tr>
 			<td rowspan="2">11</td>
 			<td rowspan="2"><strong>Personal Accident<br />
-			Accidental death of Insured or Insured&#39;s family members as a result of fire or theft at home</strong></td>
+			Accidental death of Insured or Insured's family members as a result of fire or theft at home</strong></td>
 			<td>50,000 per person</td>
 		</tr>
 		<tr>
@@ -441,7 +445,7 @@ Easy HomeCare provides worldwide cover of your legal liability up to HK$5,000,00
             <div class="wd2">
               <div class="pull-left">
                 <h2 class="h2-3-choose">${planQuote.getPlanCode() } Insurance</h2>
-                <h4>Plan summary</h4>
+                <h4>Plan Summary</h4>
               </div>
               <div class="pull-right">
                 <div class="text-left pad-right1 h2-2 h2">

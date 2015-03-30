@@ -5,7 +5,7 @@
       <div class="col-sm-6 pad-none">
         <ul class="pull-left foot-links">
           <li class="divider margin-left-none"><a href="http://www.fwd.com.hk" target="_blank">富衛主頁</a></li>
-          <li  class="divider"><a href="http://www.fwd.com.hk/en-US/about/index.html" target="_blank">關於我們</a></li>
+          <li  class="divider"><a href="http://www.fwd.com.hk/zh-HK/about/index.html" target="_blank">關於我們</a></li>
           <li><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></li>
         </ul>
       </div>
@@ -31,11 +31,11 @@
     <div class="row">
       <div class="col-lg-7 col-md-7 pull-left pad-none">
         <ul class="nav nav-pills">
-          <li><a href="http://www.fwd.com.hk/en-US/home/security.html" target="_blank">網上保安</a></li>
-          <li><a>|</a></li>
-          <li><a href="http://www.fwd.com.hk/en-US/home/disclaimer.html" target="_blank"> 免責聲明 </a></li>
-          <li><a>|</a></li>
-          <li><a href="http://www.fwd.com.hk/en-US/home/pdo.html" target="_blank"> 個人資料保護政策及執行</a></li>
+          <li><a href="http://www.fwd.com.hk/zh-HK/home/security.html" target="_blank">網上保安</a></li>
+          <li> | </li>
+          <li><a href="http://www.fwd.com.hk/zh-HK/home/disclaimer.html" target="_blank"> 免責聲明 </a></li>
+          <li> | </li>
+          <li><a href="http://www.fwd.com.hk/zh-HK/home/pdo.html" target="_blank"> 個人資料保護政策及執行</a></li>
         </ul>
       </div>
       <div class="col-lg-5 col-md-5 pull-right text-right">

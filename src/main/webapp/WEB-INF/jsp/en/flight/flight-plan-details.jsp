@@ -500,34 +500,36 @@ Myself
 									passing the above information to FWD General Insurance Company
 									Limited for the purpose of carrying out the FlightCare
 									Insurance. <br />
-								</label>
-							</div>
-							<span id="chk1" class="text-red"> </span>
-							<div class="checkbox">
-								<input id="checkbox2" name="checkbox2" type="checkbox">
-								<label for="checkbox2"> I have read and understood <a
+								
+							
+							
+									I have read and understood <a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
 									target="_blank" class="sub-link"> Personal Information
 										Collection Statement</a> and agree to be bound by the same. <br>
-									If you do NOT wish The Company to use Your Personal Data in
-									direct marketing or provide Your Personal Data to other persons
-									or companies for their use in direct marketing, please tick the
-									appropriate box(es) below to exercise
+									
 								</label>
 							</div>
 
 							<span id="chk2" class="text-red"> </span>
+
 							<hr />
+							<div>
+								If you do NOT wish The Company to use Your Personal Data in
+									direct marketing or provide Your Personal Data to other persons
+									or companies for their use in direct marketing, please tick the
+									appropriate box(es) below to exercise
+							</div>
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not send direct marketing
+								<input id="checkbox2" type="checkbox"> <label
+									for="checkbox2"> Please do not send direct marketing
 									information to me. <br>
 								</label>
 							</div>
 
 							<div class="checkbox">
-								<input id="checkbox4" type="checkbox"> <label
-									for="checkbox4"> Please do not provide my personal data
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3"> Please do not provide my personal data
 									to other persons or companies for their use in direct
 									marketing. <br> <br>
 								</label>

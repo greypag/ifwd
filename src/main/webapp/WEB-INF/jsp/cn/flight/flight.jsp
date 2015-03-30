@@ -304,7 +304,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container pad-none">
     <div class="center"> 
       <!--desktop-->
-      <h2 class="hidden-sm hidden-xs">享受由香港出發來回及中轉航班的航空意外保險，費用全免！</h2>
+      <h2 class="hidden-sm hidden-xs">享受由香港出發來回及中轉航班<br>的航空意外保險，費用全免！</h2>
 
 
       <!--end-desktop--> 

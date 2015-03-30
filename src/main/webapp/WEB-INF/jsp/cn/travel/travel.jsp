@@ -32,7 +32,7 @@
 			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk">
 			              </div>
 			              <span id="startDateDeskIn" class="text-red"> </span></td>
-			            <td class="col-md-3 "><h3>返回日期</h3>
+			            <td class="col-md-3 "><h3>回程日期</h3>
 			              <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
 			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk">
 			              </div>
@@ -161,7 +161,7 @@
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
-    <h4>返回日期</h4>
+    <h4>回程日期</h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
         <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob">
@@ -643,7 +643,7 @@
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm">
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
-              <td class="col-md-3 "><h3>返回日期</h3>
+              <td class="col-md-3 "><h3>回程日期</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm">
                 </div>

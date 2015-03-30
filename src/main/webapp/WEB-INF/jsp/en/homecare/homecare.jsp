@@ -11,7 +11,7 @@
 <meta name="author" content="">
 <title>Find affordable home insurance | FWD Hong Kong</title>
 <meta name="description"
-	content="Get affordable home insurance with protection for emergencies and accidents â24/7 support â 'A' rated secure & stable financial strength â Rewards & benefits" />
+	content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 <!-- core CSS -->
 
 <!--Google Code for SEO-->
@@ -260,9 +260,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							
 							</h2>
 							<p class="h4-3">
-								Easy HomeCare’s personal liability coverage provides protection for you and your family. If someone sustains a accidential bodily injury or accidental property damage and you, or your family members, are responsible, we’ll pay up to HK$5 million on legal expenses*...anywhere in the world!
+								Easy HomeCare's personal liability coverage provides protection for you and your family. If someone sustains a accidential bodily injury or accidental property damage and you, or your family members, are responsible, we’ll pay up to HK$5 million on legal expenses*...anywhere in the world!
 							<br><br>
-								*provided that the legal proceedings is submitted to the Hong Kong court.
+								<small>*provided that the legal proceedings is submitted to the Hong Kong court.</small>
 							</p>
 							<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 						</div>
@@ -322,9 +322,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							Protection that covers your <br> home, you and your family
 						</h2>
 						<p class="h4-3">
-							Easy HomeCare’s personal liability coverage provides protection for you and your family. If someone sustains a accidential bodily injury or accidental property damage and you, or your family members, are responsible, we’ll pay up to HK$5 million on legal expenses*...anywhere in the world! 
-							<br> *provided that the
-							legal proceedings is submitted to the Hong Kong court.
+							Easy HomeCare's personal liability coverage provides protection for you and your family. If someone sustains a accidential bodily injury or accidental property damage and you, or your family members, are responsible, we’ll pay up to HK$5 million on legal expenses*...anywhere in the world! 
+							<br><small>*provided that the legal proceedings is submitted to the Hong Kong court.</small>
 
 						</p>
 						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
@@ -341,7 +340,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<p class="h4-6">
 				The features above are indicative only. Please refer to the <a
 						href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-						target="_blank" class="sub-link"> Policy Provisions </a> for details. 
+						target="_blank" class="sub-link"> Policy Provisions </a> for details.<br> 
 For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
 
 				
@@ -371,7 +370,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								Here When<br> You Need Us
 							</h1>
 							<p>
-							Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"> app <a>ensures you get the support you need, when you need it.
+							Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank">app</a> ensures you get the support you need, when you need it.
 							</p>
 						</div>
 					</div>
@@ -381,7 +380,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="recent-work-inner">
 							<img src="resources/images/secure.png" alt="" />
 							<h1>
-								Secure & Stable
+								Secure &amp; Stable
 							</h1>
 							<p>
 								We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch. <br>
@@ -397,9 +396,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								Rewards &amp;<br> Benefits
 							</h1>
 							<p>
-							We continue to find you great rewards and benefits that let you get more from your insurance - discounts on future insurance, special offers from partners and more.
+							We continue to find you great rewards and benefits that let you get more from your insurance -- discounts on future insurance, special offers from partners and more.
 							</p>
-							<img src="resources/images/agoda-logo.png" alt="" />
+							
 						</div>
 					</div>
 				</div>
@@ -424,7 +423,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 										Here When<br> You Need Us
 									</h1>
 									<p>
-							Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"> app <a>ensures you get the support you need, when you need it.
+							Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank">app</a> ensures you get the support you need, when you need it.
 							</p>
 								</div>
 							</div>
@@ -460,10 +459,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 										Rewards &amp;<br> Benefits
 									</h1>
 									<p>
-									We continue to find you great rewards and benefits that let you get more from your insurance - discounts on future insurance, special offers from partners and more.
+									We continue to find you great rewards and benefits that let you get more from your insurance -- discounts on future insurance, special offers from partners and more.
 									
 									</p>
-									<img src="resources/images/agoda-logo.png" alt="" />
+									
 								</div>
 							</div>
 						</div>
@@ -500,12 +499,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</div>
 							<p class="pad-none">
 								I immediately switched my home insurance to FWD Easy HomeCare plan when I realized that it was probably the best plan in town yet the cheapest I can find so far. The process was quick and easy; it only took me a few minutes to complete the process.
-Michelle
 							</p>
 							<br>
 							<div class="hr1"></div>
 							<h2>Michelle</h2>
-							<h4><!-- aged 30 --></h4>
+							<h4></h4>
 						</div>
 					</div>
 				</div>
@@ -560,7 +558,7 @@ Michelle
 									<p>I immediately switched my home insurance to FWD Easy HomeCare plan when I realized that it was probably the best plan in town yet the cheapest I can find so far. The process was quick and easy; it only took me a few minutes to complete the process.</p>
 									<div class="hr1"></div>
 									<h2>Michelle</h2>
-									<h4><!-- aged 30 --></h4>
+									<h4></h4>
 								</div>
 							</div>
 						</div>
@@ -637,7 +635,7 @@ Michelle
 								src="resources/images/home10.png" alt="">
 							<h3>
 								<a href="http://blog.fwd.com.hk/" target="_blank">
-									Preventing Household <br/> Accidents <i	class="fa fa-caret-right"></i>
+									Preventing household <br/> accidents <i	class="fa fa-caret-right"></i>
 								</a>
 							</h3>
 
@@ -649,7 +647,7 @@ Michelle
 			</div>
 
 			<p>
-			The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information
+			The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information.
 			</p>
 
 

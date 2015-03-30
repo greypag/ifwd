@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Account</title>
+<title>Member account details | FWD Hong Kong</title>
 </head>
 
 <!--Tooltip-->
@@ -70,21 +70,19 @@ Tag Manager -->
 		<div class="row">
 			<ol class="breadcrumb pad-none">
 				<li><a href="#">Home</a></li>
-				<li class="active"><i class="fa fa-caret-right"></i> FWD
-					Account Activation</li>
+				<li class="active"><i class="fa fa-caret-right"></i> FWD Member Account</li>
 			</ol>
-			<h2 class="page-title">FWD Account</h2>
+			<h2 class="page-title">FWD Member Account</h2>
 			<!-- <div class="status alert alert-success" style="display: none"></div>-->
 			<div class="wd2 bdr">
 
 				<div class="col-lg-4 pad-none gry-bg">
 					<nav class="nav-sidebar">
 					<ul class="nav tabs">
-						<li class="active"><a href="#tab1" data-toggle="tab">User
-								Profile</a></li>
+						<li class="active"><a href="#tab1" data-toggle="tab">Member Details</a></li>
 						<li class=""><a href="#tab2" data-toggle="tab">Purchase
 								History</a></li>
-						<li class=""><a href="#tab3" data-toggle="tab">Promotional
+						<li class=""><a href="#tab3" data-toggle="tab">Promotion
 								Code</a></li>
 					</ul>
 					</nav>
@@ -97,7 +95,7 @@ Tag Manager -->
 							<tbody>
 								<tr>
 									<td colspan="2" class="pad-none"><h2
-											class="black-bold pad-none">User Details</h2></td>
+											class="black-bold pad-none">Member Details</h2></td>
 								</tr>
 								<tr>
 									<td valign="middle" class="col-sm-4 pad-none"><label
@@ -108,11 +106,11 @@ Tag Manager -->
 								</tr>
 								<tr>
 									<td valign="middle" class="pad-none"><label for="mobileNo"
-										class="control-label">Mobile No.</label></td>
+										class="control-label">Mobile no</label></td>
 									<td class="pad-none"><input type="text"
 										class="form-control" id="mobileNo" name="mobileNo"
 										value="${userDetails.getMobileNo() }"
-										placeholder="Mobile Number"></td>
+										placeholder="Mobile number"></td>
 								</tr>
 								<tr>
 									<td valign="middle" class="pad-none"><label
@@ -130,7 +128,7 @@ Tag Manager -->
 										id="userName" placeholder="Username" name="userName"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"
-										title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id ">
+										title="Username must be between 6 and 50 characters. ">
 											<img src="resources/images/ic.png">
 									</a></td>
 								</tr>
@@ -142,7 +140,7 @@ Tag Manager -->
 										id="inputEmail3" placeholder="Password"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"
-										title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id ">
+										title="Password must be at least 8 characters and alphanumeric (both upper AND lower cases). ">
 											<img src="resources/images/ic.png">
 									</a></td>
 								</tr>
@@ -165,18 +163,13 @@ Tag Manager -->
 								<input id="checkbox1" type="checkbox"> <label
 									for="checkbox1">I have read and understood the above <a
 									href="#" class="sub-link-underline">Terms and Conditions</a>
-									and "Personal Information cOLLECTION Statement" and agree to be
+									and "Personal Information Collection Statement" and agree to be
 									bound by the same.
 								</label>
 							</div>
 							<div class="checkbox">
 								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2"> If you do NOT wish FWD Life Insurance
-									Company (Bermuda) Limited to use Your Personal Data in direct
-									marketing or provide Your Personal Data to other persons or
-									companies for their use in direct marketing. Please tick the
-									appropriate box(es) below to excercise your opt-out right.
-									Please do not send direct marketing information to me. </label>
+									for="checkbox2"> If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise </label>
 							</div>
 
 
@@ -204,7 +197,7 @@ Tag Manager -->
 								<tbody>
 									<tr>
 										<td colspan="2" class="pad-none"><h2
-												class="black-bold pad-none">User Details</h2></td>
+												class="black-bold pad-none">Member Details</h2></td>
 									</tr>
 									<tr>
 										<td valign="middle" class="col-sm-4 pad-none "><label

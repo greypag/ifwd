@@ -7,19 +7,18 @@
 				onsubmit="confirmPayment(this);" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Home Insurance </a> <i
+					<li><a href="#">Easy HomeCare </a> <i
 						class="fa fa-caret-right"></i></li>
 					<li><a href="#">Your options </a><i class="fa fa-caret-right"></i>
 					</li>
 					<li><a href="#">Your details </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> Your
-						summary & payment</li>
+					<li class="active "><i class="fa fa-caret-right"></i> Summary & payment</li>
 				</ol>
 				<div class="container ">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
 						<div class="center" style="visibility: visible;">
-							<h2>Your summary & payment</h2>
+							<h2>Summary & payment</h2>
 						</div>
 						<br> <br>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -32,23 +31,23 @@
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle">
-										<span class="status color3">Your options</span>
+										<span class="status color3">Your Options</span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
 										class="image-order-status image-order-status-intransit  img-circle ">
-										<span class="status color3">Your details</span>
+										<span class="status color3">Your Details</span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle act">
-										<span class="status color2">Your summary & payment</span>
+										<span class="status color2">Summary & Payment</span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle disabled">
-										<span class="status lst-status">Your confirmation</span>
+										<span class="status lst-status">Confirmation</span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -83,8 +82,10 @@
 									<tr>
 										<td class="h2-1 ">Correspondence <br>Address
 										</td>
-										<td class=" h4-5 ">${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},${homeCareDetails.getApplicantBlock()},<br>
-											${homeCareDetails.getApplicantBuilding() },${homeCareDetails.getApplicantEstate() },<br>
+										<td class=" h4-5 ">${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},
+										${homeCareDetails.getApplicantBlock()},<br>
+											${homeCareDetails.getApplicantBuilding() },
+											${homeCareDetails.getApplicantEstate() },<br>
 											${homeCareDetails.getApplicantStreetName()}
 											${homeCareDetails.getApplicantDistrict()}
 										</td>
@@ -233,8 +234,8 @@
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Expiry
 										Date</label></td>
-								<td><select class="input-block-level soflow select-style"
-									name="epMonth" id="month">
+								<td><select class="pay-details-select" id="month"
+									name="epMonth">
 										<option>Month</option>
 										<option VALUE="01">1</option>
 										<option VALUE="02">2</option>
@@ -249,8 +250,8 @@
 										<option VALUE="11">11</option>
 										<option VALUE="12">12</option>
 								</select></td>
-								<td><select class="input-block-level soflow select-style"
-									id="year" name="epYear">
+								<td><select class="pay-details-select" id="year"
+									name="epYear">
 										<option>Year</option>
 										<option VALUE="2015">2015</option>
 										<option VALUE="2016">2016</option>
@@ -296,8 +297,8 @@
 
 							<tr class="control-group">
 								<td></td>
-								<td colspan="2"><a class="sub-link" href="#">What is my
-										security code?</a></td>
+								<td colspan="2"><!--<a class="sub-link" href="#">What is my
+										security code?</a>--></td>
 							</tr>
 
 
@@ -316,15 +317,15 @@
 							<div class="clearfix"></div>
 						</div>
 						<span id="errchk1" class="error-msg"></span>
-						<div class="checkbox">
+						<!-- <div class="checkbox">
 							<input id="checkbox2" type="checkbox"> <label
 								for="checkbox2"> I/We have read and understand the<a
 								href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-								target="_blank" class="sub-link"> policy coverage</a> <!--and <a href="#" class="sub-link">terms and conditions.</a>-->
+								target="_blank" class="sub-link"> policy coverage</a> and <a href="#" class="sub-link">terms and conditions.</a>
 							</label>
 							<div class="clearfix"></div>
 						</div>
-						<span id="errchk2" class="error-msg"></span>
+						<span id="errchk2" class="error-msg"></span>-->
 						<div class="clearfix"></div>
 						<div class="hidden-sm hidden-xs pad-none">
 

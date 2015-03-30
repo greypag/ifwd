@@ -440,7 +440,7 @@
 							<label class="bold-500">英文全名</label> <input
 								type="text" name="childBenificiaryFullName"
 								id="childBenefitiaryName${inx}" value=""
-								class="form-control " placeholder="Full Name"
+								class="form-control " placeholder="英文全名"
 								onblur="replaceAlpha(this);"
 								onkeypress="    return alphaOnly(event);" maxlength="100" />
 							<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
@@ -532,7 +532,7 @@
 							<label class="bold-500">英文全名</label> <input type="text"
 								name="otherBenificiaryFullName" id="otherBenefitiaryName${inx}"
 
-								value="" class="form-control " placeholder="Full Name"
+								value="" class="form-control " placeholder="英文全名"
 								onblur="replaceAlpha(this);"
 								onkeypress="    return alphaOnly(event);" maxlength="100" />
 							<span id="errotherBenefitiaryName${inx}" class="text-red"></span>
@@ -569,37 +569,29 @@
                   iii. <span class="margin-left-2"></span>同意此申請書及聲明將構成本人與富衛之間的合約根據。<br> 
                   iv. <span class="margin-left-2"></span>本投保書是在香港特別行政區內簽署， 如有任何訛騙或資料失實，本人或受保人之保障有失效之虞。<br/>
                   v. <span class="margin-left-2"></span>本人已得到其他受保人之同意把上述資料交予富衛保險用作申請航空意外保險之用。<br/>
+                  <br/>
+
+
                   
                   
+                  本人已參閱及明白 "<a href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" class="sub-link" target="_blank">收集個人資料聲明</a>"，並同意接受其約束。
                   </label>
               </div>
-              <span id="chk1" style="display:none">
-              <label class="text-red">遞交申請表前，請先閱讀及接受聲明、條款及細則。</label>
-              </span>
+              
+			         <hr/>
+               <div>
+                  若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。
+               </div>
+              
               <div class="checkbox">
-                <input id="checkbox2" type="checkbox" name="checkbox1">
-                <label for="checkbox2"> 
-                本人已參閱及明白 "<a href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" class="sub-link" target="_blank">收集個人資料聲明</a>"，並同意接受其約束。
-     </label>
-              </div>
-              <span id="chk2" style="display:none">
-              <label class="text-red">遞交申請表前，請先閱讀及接受收集個人資料聲明。</label>
-              </span>
-			  <hr/>
-              <div class="checkbox">
-                <input id="checkbox3" type="checkbox">
-                <label for="checkbox3"> 若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。  <br>
-                </label>
-              </div>
-              <div class="checkbox">
-                <input id="checkbox4" type="checkbox">
-                <label for="checkbox4"> 請不要將直接促銷資料發給本人。<br>
+                <input id="checkbox2" type="checkbox">
+                <label for="checkbox2"> 請不要將直接促銷資料發給本人。<br>
                   <br>
                 </label>
               </div>
               <div class="checkbox">
-                <input id="checkbox5" type="checkbox">
-                <label for="checkbox5"> 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。<br>
+                <input id="checkbox3" type="checkbox">
+                <label for="checkbox3"> 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。<br>
                   <br>
                 </label>
               </div>

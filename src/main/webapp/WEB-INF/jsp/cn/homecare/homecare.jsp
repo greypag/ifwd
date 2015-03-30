@@ -5,7 +5,7 @@
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
 
-<title>Find affordable home insurance | FWD Hong Kong</title>
+<title>找尋適合您的家居保險 | 富衛香港</title>
 <meta name="description"
 	content="Get affordable home insurance with protection for emergencies and accidents â24/7 support â 'A' rated secure & stable financial strength â Rewards & benefits" />
 <!-- core CSS -->
@@ -357,7 +357,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    </section>
 
 
-<%-- 
+
 
 <!--/#testiomonials-->
  <section id="testimonials" class="hidden-sm hidden-xs">
@@ -373,8 +373,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
             <p class="pad-none">富衛易安心家居保的保障全面，而且性價比也是全城數一數二，於是我便立即轉用。申請過程簡單快捷，只需數分鐘便完成所有手續。</p><br>
             <div class="hr1"></div>
-            <h2>葉小姐</h2>
-            <h4>(30歲)</h4>
+            <h2>葉小姐</h2>
+            <h4></h4>
           </div>
         </div>
       </div>
@@ -546,7 +546,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </section> 
 
- --%>
+
 </body>
 </html>
 

@@ -18,7 +18,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<title>Home User Details | FWD Hong Kong</title>
+<title>Home Insurance User Details |  FWD Hong Kong</title>
 <meta name="description"
 	content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 
@@ -309,7 +309,7 @@
 					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
 						<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#">Home Insurance </a> <i
+						<li><a href="#">Easy HomeCare </a> <i
 							class="fa fa-caret-right"></i></li>
 						<li><a href="#">Your options </a></li>
 						<li class="active "><i class="fa fa-caret-right"></i> Your
@@ -402,12 +402,12 @@
 
 										<td class="pad-none"><select name="apphkidandpassport"
 											id="selectHkidPass" class="form-control soflow">
-												<option value="appHkid" selected="selected">hkId</option>
+												<option value="appHkid" selected="selected">HKID</option>
 												<option value="appPassport">Passport</option>
 										</select></td>
 										<td class="pad-none"><input type="text" name="hkId"
 											class="form-control numberinput textUpper" id="txtAppHkid"
-											placeholder="X1234567"> <span id="errAppHkid"
+											placeholder="X1234567/Passport No"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
 
@@ -422,18 +422,18 @@
 									</tr>
 									<tr>
 										<td class="pad-none"><label
-											class="control-label bold-500">Mobile Number</label></td>
+											class="control-label bold-500">Mobile number</label></td>
 										<td class="pad-none"><input type="text"
 											class="form-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
-											placeholder="Mobile Number"
+											placeholder="Mobile number"
 											onkeypress="return isNumeric(event)"
 											onblur="replaceNumeric(this);" maxlength="20" /> <span
 											id="errMobileNo" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label
-											class="control-label bold-500">Email Address</label></td>
+											class="control-label bold-500">Email address</label></td>
 										<td class="pad-none"><input class="form-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
@@ -589,7 +589,7 @@
 								<tbody>
 									<tr>
 										<td class="pad-none"><h3 class="black-bold pad-none">
-												Insured Address</h3></td>
+												Address Details</h3></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><div class="checkbox">
@@ -606,7 +606,7 @@
 									<tr>
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
-											class="control-label bold-500">Corresponding Address</label></td>
+											class="control-label bold-500">Insured Address</label></td>
 										<td colspan="2"><input type="text"
 											class="form-control wd2" id="inputARoom" name="aRoom"
 											placeholder="Room/Flat" onblur="replaceAlphaNumeric(this);"
@@ -762,34 +762,33 @@
 										is applied and signed at HKSAR, in case of fraud or factual
 										misrepresentation, the cover for me or for the Insured
 										Person(s) may be invalidated.
+										<br/>
+										
+										 I have read and understood <a
+										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+										 class="sub-link"> Personal Information Collection
+											Statement</a> and agree to be bound by the same. <br> 
 									</label>
 								</div>
-								<span id="chk1" class="text-red"></span>
-								<div class="checkbox">
-									<input id="checkbox2" type="checkbox" name="readAndUnderstood">
-									<label for="checkbox2"> I have read and understood <a
-										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-										" class="sub-link"> Personal Information Collection
-											Statement</a> and agree to be bound by the same. <br> If you
-										do NOT wish The Company to use Your Personal Data in direct
+								<hr/>
+								<div>
+									If you do NOT wish The Company to use Your Personal Data in direct
 										marketing or provide Your Personal Data to other persons or
 										companies for their use in direct marketing, please tick the
 										appropriate box(es) below to exercise
-									</label>
 								</div>
-
 								<span id="chk2" class="text-red"></span>
 								<div class="checkbox">
-									<input id="checkbox3" type="checkbox"
+									<input id="checkbox2" type="checkbox"
 										name="donotWishDirectMarketing"> <label
-										for="checkbox3"> Please do not send direct marketing
+										for="checkbox2"> Please do not send direct marketing
 										information to me. <br> <br>
 									</label>
 								</div>
 								<div class="checkbox">
-									<input id="checkbox4" type="checkbox"
+									<input id="checkbox3" type="checkbox"
 										name="donotWishDirectMarketing"> <label
-										for="checkbox4"> Please do not provide my personal
+										for="checkbox3"> Please do not provide my personal
 										data to other persons or companies for their use in direct
 										marketing. <br>
 									</label>

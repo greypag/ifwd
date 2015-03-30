@@ -34,9 +34,9 @@
       <div class="col-sm-7 pull-left">
         <ul class="nav nav-pills">
           <li><a href="http://www.fwd.com.hk/en-US/home/security.html" target="_blank">Online Security</a></li>
-          <li><a>|</a></li>
+          <li> | </li>
           <li><a href="http://www.fwd.com.hk/en-US/home/disclaimer.html" target="_blank">Disclaimer</a></li>
-          <li><a>|</a></li>
+          <li> | </li>
           <li><a href="http://www.fwd.com.hk/en-US/home/pdo.html" target="_blank">Personal Data Protection Policy and Practices</a></li>
         </ul>
       </div>

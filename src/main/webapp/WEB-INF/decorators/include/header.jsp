@@ -87,12 +87,12 @@
 
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="indexPage">HOME</a></li>
-							<li><a>|</a></li>
-							<li><a href="#"
+							<li> | </li>
+							<li><a href="http://www.fwd.com.hk/en-US/about/index.html"
 								target="_blank">ABOUT</a></li>
-							<li><a>|</a></li>
+							<li> | </li>
 							<li><a href="joinus">JOIN US</a></li>
-							<li><a>|</a></li>
+							<li> | </li>
 							<li><!-- <button id="anchor-lang" onclick="changeLang();">中文</button> -->
 							<a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a></li>
 							<li><a id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a></li>
@@ -234,7 +234,7 @@
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
 										<li><a href="getAccByUsernaneAndPassword" class="color1">
-												Manage User Account</a></li>
+												Manage FWD Member Account</a></li>
 												<%} %>
 										<li><a href="userLogout" class="color1">Log Out</a></li>
 									</ul>
@@ -317,7 +317,7 @@
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> Login to account  </a>
+		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> Log in to account  </a>
 
 
 
@@ -351,7 +351,7 @@
 
 								<a class="bdr-curve btn btn-primary btn-lg btn-block" href="#" onclick="return validUser()"> Log In </a>
 							</div>
-							<h3 class="text-left col-xs-7 col-sm-7 margin-none"> <span> New user?</span><br>
+							<h3 class="text-left col-xs-7 col-sm-7 margin-none"> <span> New Member?</span><br>
 								<a href="joinus"> Register here</a> 
 
 							</h3>
