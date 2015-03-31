@@ -80,7 +80,7 @@ public class HomeCareController {
 		 * username = session.getAttribute("username").toString();
 		 */
 		List<HomeCareQuetionaries> homeCareQuetionariesList = homecareService
-				.getHomeQuetionaries(token, username);
+				.getHomeQuetionaries(token, username, UserRestURIConstants.getLanaguage(request));
 
 		request.setAttribute("homeCareQuetionariesList",
 				homeCareQuetionariesList);

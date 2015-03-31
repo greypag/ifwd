@@ -64,15 +64,19 @@ public class FlightController {
 		HttpSession session = request.getSession();
 		String viewName = "";
 		if(action.equals("/flight") || action.equals("/travel") || action.equals("/homecare") || action.equals("/indexPage")|| action.equals("/home")){
-			if ("CN".equals(selectLang)){
-				session.setAttribute("language", selectLang );
-				viewName = action.replace("/", "");
-				return new ModelAndView("redirect:" + viewName);
-			} else{
-				session.setAttribute("language", selectLang);
-				viewName = action.replace("/", "");
-				return new ModelAndView("redirect:" + viewName);
-			}
+			session.setAttribute("language", selectLang );
+			viewName = action.replace("/", "");
+			return new ModelAndView("redirect:" + viewName);
+//			
+//			if ("CN".equals(selectLang)){
+//				session.setAttribute("language", selectLang );
+//				viewName = action.replace("/", "");
+//				return new ModelAndView("redirect:" + viewName);
+//			} else{
+//				session.setAttribute("language", selectLang);
+//				viewName = action.replace("/", "");
+//				return new ModelAndView("redirect:" + viewName);
+//			}
 		} else{
 			return new ModelAndView("../index");
 		}
@@ -519,7 +523,7 @@ public class FlightController {
 		header.put("token", tokenInSession);
 		System.out.println("Create Flight  header" + header);
 		System.out.println("Create Flight parameters" + parameters);
-
+		
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.CREATEFLIGHTPOLICY, header, parameters);
 		System.out.println("createFilghr response" + responsObject);
@@ -559,6 +563,11 @@ public class FlightController {
 
 			request.getSession().setAttribute("setReferenceNoForConfirmation", checkJsonObjNull(responsObject,
 					"referenceNo"));
+			
+			request.getSession().setAttribute("policyNo", checkJsonObjNull(responsObject,
+					"policyNo"));
+			
+			
 			request.getSession().setAttribute("setEmailForConfirmation", request.getParameter("emailAddress"));
 			model.addAttribute(createFlightPolicy);
 			model.addAttribute("planDetailsForm", planDetailsForm);

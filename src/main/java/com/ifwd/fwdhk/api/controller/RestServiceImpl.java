@@ -40,6 +40,7 @@ public class RestServiceImpl implements RestServiceDao {
 		realMap.put("country", "HK");
 		realMap.put("language", "EN");
 		realMap.put("Accept", "application/json");
+		
 		COMMON_HEADERS = Collections.unmodifiableMap(realMap);
 	}
 

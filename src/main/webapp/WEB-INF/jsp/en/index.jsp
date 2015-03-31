@@ -118,7 +118,7 @@
 	<!--   Main Content-->
 	<section id="main-slider" class="no-margin">
 		<!--Mobile-logo-->
-		<img src="resources/images/slider/homecare-bg.jpg" alt=""
+		<img src="resources/images/slider/main_en.jpg" alt=""
 			class="img-responsive hidden-lg hidden-md" />
 		<!--Mobile-logo-->
 		<div class="carousel slide hidden-xs hidden-sm">
@@ -139,7 +139,7 @@
 					</div>
 
 
-					<img src="resources/images/slider/homecare-bg.jpg" alt="" />
+					<img src="resources/images/slider/main_en.jpg" alt="" />
 				</div>
 				<!--/.item-->
 			</div>

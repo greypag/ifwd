@@ -87,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						
 						<h4>
 							保單編號：<span><%=request.getSession().getAttribute(
-						"setReferenceNoForConfirmation")%></span>
+						"policyNo")%></span>
 						</h4>
 
 						<div class="gray-bg1-content hidden-sm hidden-xs">

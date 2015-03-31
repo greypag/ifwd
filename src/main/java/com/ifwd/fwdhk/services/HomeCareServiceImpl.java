@@ -28,6 +28,7 @@ import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 /**
@@ -41,7 +42,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	SendEmailDao sendEmail;
 
 	public List<HomeCareQuetionaries> getHomeQuetionaries(String token,
-			String userName) {
+			String userName, String language) {
 		// TODO Auto-generated method stub
 
 		String Url = UserRestURIConstants.GET_HOMECARE_UW_QUESTIONS;
@@ -52,7 +53,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		header.put("username", userName);
 		header.put("token", token);
-
+		header.put("language", WebServiceUtils.transformLanaguage(language));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 				Url, header, null);
 		if (responseJsonObj.get("errMsgs") == null) {
@@ -110,7 +111,9 @@ public class HomeCareServiceImpl implements HomeCareService {
 		{
 			ans2="N";
 		}
-		
+		//NAT TEMPORARILY SET BEFORE THE LANGUAGE PROBLEM SOLVED IN API
+		ans1="N";
+		ans2="N";
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
 		RestServiceDao restService = new RestServiceImpl();	
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE

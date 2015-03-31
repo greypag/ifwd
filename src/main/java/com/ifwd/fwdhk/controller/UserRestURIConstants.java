@@ -106,6 +106,15 @@ public class UserRestURIConstants {
 		return result;
 	}
 	
+	public static String getLanaguage(HttpServletRequest request) {
+		HttpSession session = request.getSession();	
+		String lang = "EN";
+		if(session.getAttribute("language")!=null){
+			lang = session.getAttribute("language").toString();
+		}
+		return lang;
+	}
+	
 	public static String checkLangSetPage(HttpServletRequest request){
 		HttpSession session = request.getSession();	
 		String lang = "EN";

@@ -20,25 +20,79 @@
 	<iframe src="//www.googletagmanager.com/ns.html?id=GTMK7TX8B"
 		height="0" width="0" style="display: none; visibility: hidden"></iframe>
 </noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTMK7TX8B')
-;</script>
+<script>
+	(function(w, d, s, l, i) {
+		w[l] = w[l] || [];
+		w[l].push({
+			'gtm.start' : new Date().getTime(),
+			event : 'gtm.js'
+		});
+		var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
+				+ l
+				: '';
+		j.async = true;
+		j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+		f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTMK7TX8B');
+</script>
 
 <!--END -Google Code for SEO-->
 
 <!--VWO-->
 <!-- Start Visual Website Optimizer Asynchronous Code -->
 <script type='text/javascript'>
-var _vwo_code=(function(){
-var account_id=95373,
-settings_tolerance=2000,
-library_tolerance=2500,
-use_existing_jquery=false,
-// DO NOT EDIT BELOW THIS LINE
-f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+	var _vwo_code = (function() {
+		var account_id = 95373, settings_tolerance = 2000, library_tolerance = 2500, use_existing_jquery = false,
+		// DO NOT EDIT BELOW THIS LINE
+		f = false, d = document;
+		return {
+			use_existing_jquery : function() {
+				return use_existing_jquery;
+			},
+			library_tolerance : function() {
+				return library_tolerance;
+			},
+			finish : function() {
+				if (!f) {
+					f = true;
+					var a = d.getElementById('_vis_opt_path_hides');
+					if (a)
+						a.parentNode.removeChild(a);
+				}
+			},
+			finished : function() {
+				return f;
+			},
+			load : function(a) {
+				var b = d.createElement('script');
+				b.src = a;
+				b.type = 'text/javascript';
+				b.innerText;
+				b.onerror = function() {
+					_vwo_code.finish();
+				};
+				d.getElementsByTagName('head')[0].appendChild(b);
+			},
+			init : function() {
+				settings_timer = setTimeout('_vwo_code.finish()',
+						settings_tolerance);
+				this.load('//dev.visualwebsiteoptimizer.com/j.php?a='
+						+ account_id + '&u=' + encodeURIComponent(d.URL)
+						+ '&r=' + Math.random());
+				var a = d.createElement('style'), b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}', h = d
+						.getElementsByTagName('head')[0];
+				a.setAttribute('id', '_vis_opt_path_hides');
+				a.setAttribute('type', 'text/css');
+				if (a.styleSheet)
+					a.styleSheet.cssText = b;
+				else
+					a.appendChild(d.createTextNode(b));
+				h.appendChild(a);
+				return settings_timer;
+			}
+		};
+	}());
+	_vwo_settings_timer = _vwo_code.init();
 </script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
@@ -50,11 +104,21 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWPF25"
 			height="0" width="0" style="display: none; visibility: hidden"></iframe>
 	</noscript>
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MWPF25');</script>
+	<script>
+		(function(w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start' : new Date().getTime(),
+				event : 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
+					+ l
+					: '';
+			j.async = true;
+			j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-MWPF25');
+	</script>
 	<!-- End Google Tag Manager-->
 
 
@@ -80,39 +144,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<h2>Get your Easy HomeCare insurance now</h2>
 
 										<%
-                      List lst= (List)request.getAttribute("homeCareQuetionariesList");
-                      
-                      
-                      Iterator itr = lst.iterator();int i=1;
-						while (itr.hasNext()) {
-							
-							HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr.next();
-                %>
+											List lst = (List) request
+														.getAttribute("homeCareQuetionariesList");
+
+												Iterator itr = lst.iterator();
+												int i = 1;
+												while (itr.hasNext()) {
+
+													HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr
+															.next();
+										%>
 
 										<div class="col-lg-4 col-md-4">
 											<h4>
-												<%=quetionList.getQuetion() %>
+												<%=quetionList.getQuetion()%>
 											</h4>
-											<input type="hidden" id="lblCount" value="<%=lst.size() %>"></input>
+											<input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
 											<label class="radio radio-warning radio-inline"> <input
-												name="home_situated<%=quetionList.getQid() %>"
-												id="inlineDeskRadio1<%=quetionList.getQid() %>"
-												data-id="btm" class="plan" value="<%=quetionList.getAnswer1() %>" checked=""
-												type="radio">
-												 <label for="inlineDeskRadio1<%=quetionList.getQid() %>">
-												  <span><%=quetionList.getAnswer1() %></span>
+												name="home_situated<%=quetionList.getQid()%>"
+												id="inlineDeskRadio1<%=quetionList.getQid()%>"
+												data-id="btm" class="plan"
+												value="<%=quetionList.getAnswer1()%>" checked=""
+												type="radio"> <label
+												for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
 											</label>
 											</label> <label class="radio radio-warning radio-inline"> <input
-												name="home_situated<%=quetionList.getQid() %>"
-												id="inlineDeskRadio2<%=quetionList.getQid() %>"
-												data-id="btm" class="plan" value="<%=quetionList.getAnswer2() %>" checked=""
+												name="home_situated<%=quetionList.getQid()%>"
+												id="inlineDeskRadio2<%=quetionList.getQid()%>"
+												data-id="btm" class="plan"
+												value="<%=quetionList.getAnswer2()%>" checked=""
 												type="radio"> <label
-												for="inlineDeskRadio2<%=quetionList.getQid() %>"> <span>
-														<%=quetionList.getAnswer2() %></span>
+												for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
+														<%=quetionList.getAnswer2()%></span>
 											</label>
 											</label>
 										</div>
-										<%} i++; %>
+										<%
+											}
+												i++;
+										%>
 										<div class="col-lg-4 col-md-4">
 
 											<button type="submit"
@@ -122,8 +192,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										</div>
 										<div class="clearfix"></div>
 										<p class="pad-none">
-										FWD Easy HomeCare*<br><br>
-										*applicable to any home below gross	area of 1,000 sq. ft.</p>
+											FWD Easy HomeCare*<br>
+											<br> *applicable to any home below gross area of 1,000
+											sq. ft.
+										</p>
 									</div>
 								</form:form>
 
@@ -144,38 +216,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">
 				<h2 class="center">Get your Easy HomeCare insurance now</h2>
 				<%
-                      List lst= (List)request.getAttribute("homeCareQuetionariesList");
-                      
-                      
-                      Iterator itr = lst.iterator();int i=1;
-						while (itr.hasNext()) {
-							
-							HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr.next();
-                %>
+					List lst = (List) request
+								.getAttribute("homeCareQuetionariesList");
 
-				 <div class="col-lg-3 col-md-3  col-xs-offset-1 ">
+						Iterator itr = lst.iterator();
+						int i = 1;
+						while (itr.hasNext()) {
+
+							HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr
+									.next();
+				%>
+
+				<div class="col-lg-3 col-md-3  col-xs-offset-1 ">
 					<h4>
-						<%=quetionList.getQuetion() %>
+						<%=quetionList.getQuetion()%>
 					</h4>
-					<input type="hidden" name="questionCount" id="lblCount" value="<%=lst.size() %>"></input>
-					<label class="radio radio-warning radio-inline"> <input
-						name="home_situated<%=quetionList.getQid() %>"
-						id="inlineDeskRadio1<%=quetionList.getQid() %>" data-id="btm"
-						class="plan" value="<%=quetionList.getAnswer1() %>" checked="" type="radio"> <label
-						for="inlineDeskRadio1<%=quetionList.getQid() %>"> <span>
-								<%=quetionList.getAnswer1() %>
+					<input type="hidden" name="questionCount" id="lblCount"
+						value="<%=lst.size()%>"></input> <label
+						class="radio radio-warning radio-inline"> <input
+						name="home_situated<%=quetionList.getQid()%>"
+						id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
+						class="plan" value="<%=quetionList.getAnswer1()%>" checked=""
+						type="radio"> <label
+						for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span>
+								<%=quetionList.getAnswer1()%>
 						</span>
 					</label>
 					</label> <label class="radio radio-warning radio-inline"> <input
-						name="home_situated<%=quetionList.getQid() %>"
-						id="inlineDeskRadio2<%=quetionList.getQid() %>" data-id="btm"
-						class="plan" value="<%=quetionList.getAnswer2() %>" checked="" type="radio"> <label
-						for="inlineDeskRadio2<%=quetionList.getQid() %>"> <span>
-								<%=quetionList.getAnswer2() %></span>
+						name="home_situated<%=quetionList.getQid()%>"
+						id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
+						class="plan" value="<%=quetionList.getAnswer2()%>" checked=""
+						type="radio"> <label
+						for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
+								<%=quetionList.getAnswer2()%></span>
 					</label>
 					</label>
 				</div>
-				<%} i++; %>
+				<%
+					}
+						i++;
+				%>
 
 				<!--<div class=" col-sm-12  col-xs-12">
                 <a href="homecare-plan.html" type="button" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return flightValidateBtmTravel()">Get Quote</a>
@@ -202,15 +282,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			<div class="center">
 				<div class="spacer3"></div>
 				<!--desktop-->
-				<h2 class="hidden-sm hidden-xs">
-					Protect your home for around HK$1 a day, against loss or damage from fire, flood, bursting pipes, typhoon, theft, and accidents.
-				</h2>
+				<h2 class="hidden-sm hidden-xs">Protect your home for around
+					HK$1 a day, against loss or damage from fire, flood, bursting
+					pipes, typhoon, theft, and accidents.</h2>
 				<!--end desktop-->
 
 				<!--Mobile-->
-				<h2 class="hidden-lg hidden-md feature-ttl">
-					Protect your home for around HK$1 a day, against loss or damage from fire, flood, bursting pipes, typhoon, theft, and accidents.
-				</h2>
+				<h2 class="hidden-lg hidden-md feature-ttl">Protect your home
+					for around HK$1 a day, against loss or damage from fire, flood,
+					bursting pipes, typhoon, theft, and accidents.</h2>
 				<!--end Mobile-->
 			</div>
 
@@ -225,9 +305,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							<h2>
 								Protection for everything <br> that matters to you
 							</h2>
-							<p class="h4-3">
-							You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items, with a maximum of $10,000 per item. So with us, from your furniture to your freezer food you are protected.
-							</p>
+							<p class="h4-3">You'll receive extensive 'All Risks' cover:
+								up to HK$500,000 on Household Contents as well as up to
+								HK$100,000 for personal items, with a maximum of $10,000 per
+								item. So with us, from your furniture to your freezer food you
+								are protected.</p>
 							<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 						</div>
 					</div>
@@ -237,11 +319,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<div class="content">
 							<h2>
 								Protection that goes <br> beyond just replacements
-								
+
 							</h2>
-							<p class="h4-3">
-							In an event where your home becomes uninhabitable as a result of accidental loss or damage, we will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year so things can get back on track.
-							</p>
+							<p class="h4-3">In an event where your home becomes
+								uninhabitable as a result of accidental loss or damage, we will
+								help you with the costs of alternative accommodation of up to
+								HK$1,000 per day / HK$50,000 per year so things can get back on
+								track.</p>
 							<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 						</div>
 					</div>
@@ -256,13 +340,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
 							<h2>
-							Protection that covers your <br> home, you and your family
-							
+								Protection that covers your <br> home, you and your family
+
 							</h2>
 							<p class="h4-3">
-								Easy HomeCare's personal liability coverage provides protection for you and your family. If someone sustains a accidential bodily injury or accidental property damage and you, or your family members, are responsible, we’ll pay up to HK$5 million on legal expenses*...anywhere in the world!
-							<br><br>
-								<small>*provided that the legal proceedings is submitted to the Hong Kong court.</small>
+								Easy HomeCare's personal liability coverage provides protection
+								for you and your family. If someone sustains a accidential
+								bodily injury or accidental property damage and you, or your
+								family members, are responsible, we’ll pay up to HK$5 million on
+								legal expenses*...anywhere in the world! <br>
+								<br> <small>*provided that the legal proceedings is
+									submitted to the Hong Kong court.</small>
 							</p>
 							<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 						</div>
@@ -286,9 +374,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<h2 class="h2-3">
 							Protection for everything <br> that matters to you
 						</h2>
-						<p class="h4-3">
-						You’ll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items, with a maximum of $10,000 per item. So with us, from your furniture to your freezer food you are protected.
-						</p>
+						<p class="h4-3">You’ll receive extensive 'All Risks' cover: up
+							to HK$500,000 on Household Contents as well as up to HK$100,000
+							for personal items, with a maximum of $10,000 per item. So with
+							us, from your furniture to your freezer food you are protected.</p>
 						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 					</div>
 				</div>
@@ -303,10 +392,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<h2 class="h2-3">
 							Protection that goes <br> beyond just replacements
 						</h2>
-						<p class="h4-3">
-						In an event where your home becomes uninhabitable as a result of accidental loss or damage, we will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year so things can get back on track.
-						
-						</p>
+						<p class="h4-3">In an event where your home becomes
+							uninhabitable as a result of accidental loss or damage, we will
+							help you with the costs of alternative accommodation of up to
+							HK$1,000 per day / HK$50,000 per year so things can get back on
+							track.</p>
 						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 					</div>
 				</div>
@@ -322,8 +412,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							Protection that covers your <br> home, you and your family
 						</h2>
 						<p class="h4-3">
-							Easy HomeCare's personal liability coverage provides protection for you and your family. If someone sustains a accidential bodily injury or accidental property damage and you, or your family members, are responsible, we’ll pay up to HK$5 million on legal expenses*...anywhere in the world! 
-							<br><small>*provided that the legal proceedings is submitted to the Hong Kong court.</small>
+							Easy HomeCare's personal liability coverage provides protection
+							for you and your family. If someone sustains a accidential bodily
+							injury or accidental property damage and you, or your family
+							members, are responsible, we’ll pay up to HK$5 million on legal
+							expenses*...anywhere in the world! <br>
+							<small>*provided that the legal proceedings is submitted
+								to the Hong Kong court.</small>
 
 						</p>
 						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
@@ -338,12 +433,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 				<p class="h4-6">
-				The features above are indicative only. Please refer to the <a
+					The features above are indicative only. Please refer to the <a
 						href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-						target="_blank" class="sub-link"> Policy Provisions </a> for details.<br> 
-For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
+						target="_blank" class="sub-link"> Policy Provisions </a> for
+					details.<br> For a complete explanation of the terms and
+					conditions, feel free to contact an adviser or our 24-hour hotline
+					at 3123 3123 for more details.
 
-				
+
 				</p>
 				<!-- <p class="h4-6">
 				The features above are indicative only. Please refer to the <a
@@ -370,7 +467,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								Here When<br> You Need Us
 							</h1>
 							<p>
-							Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank">app</a> ensures you get the support you need, when you need it.
+								Our 24x7 call centre support, 5 drop-in locations across Hong
+								Kong and our <a
+									href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
+									target="_blank">app</a> ensures you get the support you need,
+								when you need it.
 							</p>
 						</div>
 					</div>
@@ -379,11 +480,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap-mid wrap text-center">
 						<div class="recent-work-inner">
 							<img src="resources/images/secure.png" alt="" />
-							<h1>
-								Secure &amp; Stable
-							</h1>
+							<h1>Secure &amp; Stable</h1>
 							<p>
-								We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch. <br>
+								We have been assigned strong financial strength ratings by
+								international rating agencies -- we have been rated "A3" by
+								Moody's and "A" by Fitch. <br>
 							</p>
 						</div>
 					</div>
@@ -395,10 +496,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<h1>
 								Rewards &amp;<br> Benefits
 							</h1>
-							<p>
-							We continue to find you great rewards and benefits that let you get more from your insurance -- discounts on future insurance, special offers from partners and more.
-							</p>
-							
+							<p>We continue to find you great rewards and benefits that
+								let you get more from your insurance -- discounts on future
+								insurance, special offers from partners and more.</p>
+
 						</div>
 					</div>
 				</div>
@@ -423,8 +524,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 										Here When<br> You Need Us
 									</h1>
 									<p>
-							Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank">app</a> ensures you get the support you need, when you need it.
-							</p>
+										Our 24x7 call centre support, 5 drop-in locations across Hong
+										Kong and our <a
+											href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
+											target="_blank">app</a> ensures you get the support you need,
+										when you need it.
+									</p>
 								</div>
 							</div>
 						</div>
@@ -441,7 +546,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 										Secure &amp; <br> Stable
 									</h1>
 									<p>
-										We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch. <br>
+										We have been assigned strong financial strength ratings by
+										international rating agencies -- we have been rated "A3" by
+										Moody's and "A" by Fitch. <br>
 									</p>
 								</div>
 							</div>
@@ -458,11 +565,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									<h1>
 										Rewards &amp;<br> Benefits
 									</h1>
-									<p>
-									We continue to find you great rewards and benefits that let you get more from your insurance -- discounts on future insurance, special offers from partners and more.
-									
-									</p>
-									
+									<p>We continue to find you great rewards and benefits that
+										let you get more from your insurance -- discounts on future
+										insurance, special offers from partners and more.</p>
+
 								</div>
 							</div>
 						</div>
@@ -497,9 +603,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none">
-								I immediately switched my home insurance to FWD Easy HomeCare plan when I realized that it was probably the best plan in town yet the cheapest I can find so far. The process was quick and easy; it only took me a few minutes to complete the process.
-							</p>
+							<p class="pad-none">I immediately switched my home insurance
+								to FWD Easy HomeCare plan when I realized that it was probably
+								the best plan in town yet the cheapest I can find so far. The
+								process was quick and easy; it only took me a few minutes to
+								complete the process.</p>
 							<br>
 							<div class="hr1"></div>
 							<h2>Michelle</h2>
@@ -513,9 +621,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none">
-							FWD HomeCare is my first insurance with FWD.  At first, I just planned to find a simple product with personal liability coverage but I found a comprehensive product from FWD with “All Risks” coverage online, that could even protect my valuables at home! I would recommend this Home Insurance plan to anyone!
-							</p>
+							<p class="pad-none">FWD HomeCare is my first insurance with
+								FWD. At first, I just planned to find a simple product with
+								personal liability coverage but I found a comprehensive product
+								from FWD with “All Risks” coverage online, that could even
+								protect my valuables at home! I would recommend this Home
+								Insurance plan to anyone!</p>
 							<div class="hr1"></div>
 							<h2>Adrian</h2>
 							<h4>(One very happy customer)</h4>
@@ -527,9 +638,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 				<br>
 				<P class="pad-none p1">
-					<br> 
-					The opinion and view expressed here are entirely the writer's own and do not represent the views of FWD Life Insurance Company (Bermuda) Limited or its affiliates (“FWD”). FWD does not take any responsibility for that opinion and view, nor endorse their accuracy or completeness.
-					
+					<br> The opinion and view expressed here are entirely the
+					writer's own and do not represent the views of FWD Life Insurance
+					Company (Bermuda) Limited or its affiliates (“FWD”). FWD does not
+					take any responsibility for that opinion and view, nor endorse
+					their accuracy or completeness.
+
 				</P>
 			</div>
 			<!--/.row-->
@@ -555,7 +669,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									<div class="h1-1">
 										<blockquote class="testimonial"></blockquote>
 									</div>
-									<p>I immediately switched my home insurance to FWD Easy HomeCare plan when I realized that it was probably the best plan in town yet the cheapest I can find so far. The process was quick and easy; it only took me a few minutes to complete the process.</p>
+									<p>I immediately switched my home insurance to FWD Easy
+										HomeCare plan when I realized that it was probably the best
+										plan in town yet the cheapest I can find so far. The process
+										was quick and easy; it only took me a few minutes to complete
+										the process.</p>
 									<div class="hr1"></div>
 									<h2>Michelle</h2>
 									<h4></h4>
@@ -573,7 +691,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									<div class="h1-1">
 										<blockquote class="testimonial"></blockquote>
 									</div>
-									<p>FWD HomeCare is my first insurance with FWD.  At first, I just planned to find a simple product with personal liability coverage but I found a comprehensive product from FWD with “All Risks” coverage online, that could even protect my valuables at home! I would recommend this Home Insurance plan to anyone!</p>
+									<p>FWD HomeCare is my first insurance with FWD. At first, I
+										just planned to find a simple product with personal liability
+										coverage but I found a comprehensive product from FWD with
+										“All Risks” coverage online, that could even protect my
+										valuables at home! I would recommend this Home Insurance plan
+										to anyone!</p>
 									<div class="hr1"></div>
 									<h2>Adrian</h2>
 									<h4>(One very happy customer)</h4>
@@ -607,7 +730,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home8.png" alt="">
 							<h3>
 								<a href="http://blog.fwd.com.hk/" target="_blank">
-								Protecting your family <br/> heirlooms <i class="fa fa-caret-right"></i>
+									Protecting your family <br /> heirlooms <i
+									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
 
@@ -620,8 +744,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<img class="img-responsive bdr-img"
 								src="resources/images/home9.png" alt="">
 							<h3>
-								<a href="http://blog.fwd.com.hk/" target="_blank">
-								Top tips to make a small flat stylish <i class="fa fa-caret-right"></i>
+								<a href="http://blog.fwd.com.hk/" target="_blank"> Top tips
+									to make a small flat stylish <i class="fa fa-caret-right"></i>
 								</a>
 							</h3>
 
@@ -635,7 +759,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home10.png" alt="">
 							<h3>
 								<a href="http://blog.fwd.com.hk/" target="_blank">
-									Preventing household <br/> accidents <i	class="fa fa-caret-right"></i>
+									Preventing household <br /> accidents <i
+									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
 
@@ -646,9 +771,16 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="clearfix"></div>
 			</div>
 
-			<p>
-			The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information.
-			</p>
+			<p>The information provided in the blogs is for reference only.
+				While FWD Life Insurance Company (Bermuda) Limited and its
+				affiliates (“FWD”) use reasonable efforts to ensure the information
+				is accurate, FWD makes no warranties or representations as to the
+				accuracy or completeness of any of the information and assumes no
+				liability for any errors or omissions thereof. FWD shall not be
+				liable for any direct, incidental, consequential, indirect or
+				punitive damages arising out of access to, use of or inability to
+				use the information, or any errors or omissions in the content of
+				this material. Users should carefully evaluate the information.</p>
 
 
 			<!--/.row-->
@@ -665,40 +797,45 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					action="getHomePlan" method="post" modelAttribute="homeCarelPlan">
 					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare">
 						<h2>Get your Easy HomeCare insurance now</h2>
-				<%
-                      List blst= (List)request.getAttribute("homeCareQuetionariesList");
-                      
-                      
-                      Iterator bitr = blst.iterator();int i=1;
-						while (bitr.hasNext()) {
-							
-							HomeCareQuetionaries bQuetionList = (HomeCareQuetionaries) bitr.next();
-                %>
+						<%
+							List blst = (List) request
+										.getAttribute("homeCareQuetionariesList");
+
+								Iterator bitr = blst.iterator();
+								int i = 1;
+								while (bitr.hasNext()) {
+
+									HomeCareQuetionaries bQuetionList = (HomeCareQuetionaries) bitr
+											.next();
+						%>
 
 						<div class="col-lg-4 col-md-4 pad-none">
 							<h4>
-								<%=bQuetionList.getQuetion() %>
+								<%=bQuetionList.getQuetion()%>
 							</h4>
-							<label class="radio radio-warning radio-inline"> 
-							<input	type="hidden" id="lblCount" value="<%=blst.size() %>"></input> <input
-								name="home_situated2<%=bQuetionList.getQid() %>"
-								id="inlineDeskRadio5<%=bQuetionList.getQid() %>" data-id="btm"
-								class="plan" value="personal" checked="checked" type="radio"> 
-								<label for="inlineDeskRadio5<%=bQuetionList.getQid() %>"> <span>
-										<%=bQuetionList.getAnswer1() %>
+							<label class="radio radio-warning radio-inline"> <input
+								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
+								name="home_situated2<%=bQuetionList.getQid()%>"
+								id="inlineDeskRadio5<%=bQuetionList.getQid()%>" data-id="btm"
+								class="plan" value="personal" checked="checked" type="radio">
+								<label for="inlineDeskRadio5<%=bQuetionList.getQid()%>">
+									<span> <%=bQuetionList.getAnswer1()%>
 								</span>
 							</label>
 							</label> <label class="radio radio-warning radio-inline"> <input
-								name="home_situated2<%=bQuetionList.getQid() %>"
-								id="inlineDeskRadio6<%=bQuetionList.getQid() %>" data-id="btm"
+								name="home_situated2<%=bQuetionList.getQid()%>"
+								id="inlineDeskRadio6<%=bQuetionList.getQid()%>" data-id="btm"
 								class="plan" value="personal" checked="" type="radio"> <label
-								for="inlineDeskRadio6<%=bQuetionList.getQid() %>"> <span>
-										<%=bQuetionList.getAnswer2() %>
+								for="inlineDeskRadio6<%=bQuetionList.getQid()%>"> <span>
+										<%=bQuetionList.getAnswer2()%>
 								</span>
 							</label>
 							</label>
 						</div>
-						<%}i++; %>
+						<%
+							}
+								i++;
+						%>
 						<div class="col-lg-4 col-md-2 ">
 							<button type="submit"
 								class="border-radius btn btn-primary  get-btn get-btn-home"
@@ -706,8 +843,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						</div>
 						<div class="clearfix"></div>
 						<p class="pad-none">
-							FWD Easy HomeCare*<br><br>
-							*applicable to any home below gross	area of 1,000 sq. ft.
+							FWD Easy HomeCare*<br>
+							<br> *applicable to any home below gross area of 1,000 sq.
+							ft.
 						</p>
 					</div>
 				</form:form>

@@ -55,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!--   Main Content-->
     <section id="main-slider" class="no-margin">
         <!--Mobile-logo-->
-        <img src="resources/images/slider/homecare-bg.jpg" alt="" class="img-responsive hidden-lg hidden-md" />
+        <img src="resources/images/slider/main_cn.jpg" alt="" class="img-responsive hidden-lg hidden-md" />
         <!--Mobile-logo-->
         <div class="carousel slide hidden-xs hidden-sm">
             <div class="carousel-inner">
@@ -71,7 +71,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
 
-                    <img src="resources/images/slider/homecare-bg.jpg" alt="" />
+                    <img src="resources/images/slider/main_cn.jpg" alt="" />
                 </div>
                 <!--/.item-->
             </div>

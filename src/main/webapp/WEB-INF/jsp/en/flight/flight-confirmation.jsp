@@ -68,7 +68,7 @@ sent to <strong> <%-- <%=request.getAttribute("email")%> --%>
 <%-- <h4>Reference Number :<span>${createFlightPolicy.getReferenceNo()}</span></h4> --%>
 <h4>
 Policy Number: <span><%=request.getSession().getAttribute(
-"setReferenceNoForConfirmation")%></span>
+"policyNo")%></span>
 </h4>
 
 <div class="gray-bg1-content hidden-sm hidden-xs">

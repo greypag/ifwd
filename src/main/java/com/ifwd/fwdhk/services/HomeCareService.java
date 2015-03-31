@@ -21,7 +21,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.UserDetails;
 
 public interface  HomeCareService {
-	public List< HomeCareQuetionaries> getHomeQuetionaries(String token, String userName);
+	public List< HomeCareQuetionaries> getHomeQuetionaries(String token, String userName, String language);
 	public HomeQuoteBean getHomePlan(String token, String userName, String userReferralCode , String answer1, String answer2);
 	public List<DistrictBean>getDistrict(String userName, String token); 
 	
