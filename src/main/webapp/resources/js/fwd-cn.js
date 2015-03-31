@@ -1041,6 +1041,7 @@ function validatecardnumber(cardnumber) {
 		} else {
 			document.getElementById("chkMaster").checked=true;
 		}
+        document.getElementById('errcardno').innerHTML = '';
         break;
       }
     }

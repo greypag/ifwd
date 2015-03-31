@@ -288,7 +288,7 @@
 
 					<table class="table-responsive travel-tb">
 						<tbody>
-							<tr class="control-group">
+							<tr class="control-group" style="display: none;">
 								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡類型</label></td>
 								<td class="col-lg-8" colspan="2">
 									<div class="controls">

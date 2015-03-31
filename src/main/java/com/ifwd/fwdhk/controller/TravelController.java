@@ -89,11 +89,11 @@ public class TravelController {
 
 			if (responsObject.get("errMsgs") == null) {
 
-				String emailId = session.getAttribute("emailAddress")
-						.toString();
-
-				sendEmail.sendEmail(emailId,
-						checkJsonObjNull(responsObject, "referenceNo"), header);
+//				String emailId = session.getAttribute("emailAddress")
+//						.toString();
+//
+//				sendEmail.sendEmail(emailId,
+//						checkJsonObjNull(responsObject, "referenceNo"), header);
 
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("emailAddress",
