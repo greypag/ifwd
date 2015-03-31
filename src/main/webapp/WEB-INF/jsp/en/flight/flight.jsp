@@ -52,7 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
              	<span id="endDateDeskIn"  class="text-red" > </span>
              </td>
-              <td class="col-md-3 pad-none"><h3>Who's travelling?</h3>
+              <td class="col-md-3 pad-none"><h3>Who's travelling?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>

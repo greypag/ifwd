@@ -36,7 +36,9 @@
                 </div>
               <span id="endDateDeskIn"  class="text-red" > </span>
              </td>
-<td class="col-md-3 pad-none"><h3>Who's travelling?</h3>
+             
+             
+			<td class="col-md-3 pad-none"><h3>Who's travelling?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3> 
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -129,7 +131,11 @@
                 <label style="color:red">Please enter Treveller's information</label>
               </span>
                 </td>
-              <td class="col-md-2 pad-none"><div id="divPersonsDesk" style="visibility:hidden;">
+                
+                
+                
+              <td class="col-md-2 pad-none"> 
+              <div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i">
                     <label id="lblPeopleDesk">0</label>
                     people <br>
@@ -664,12 +670,16 @@ Embark on an adventure<br>
                   <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm">
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
+              
+                
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm">
                 </div>
                 <span id="endDateBtmIn" style="color:red"> </span></td>
-              <td class="col-md-3 pad-none"><h3>Who's travelling?</h3>
+            
+            
+              <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountBtm"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -762,6 +772,8 @@ Embark on an adventure<br>
                 <label class="text-red">Please enter Treveller's information</label>
                 </span>
                 </td>
+                
+                
               <td class="col-md-2 pad-none"><div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i">
                     <label id="lblPeopleBtm">0</label>
