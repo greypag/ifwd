@@ -3169,7 +3169,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	clear: both
 }
 
-@media(min-width:768px) {
+@media(min-width:992px) {
 .navbar-header {
 	float: left
 }
