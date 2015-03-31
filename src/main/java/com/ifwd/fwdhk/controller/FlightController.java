@@ -283,7 +283,9 @@ public class FlightController {
 		}
 
 		model.addAttribute("planDetailsForm", planDetails);
-		return UserRestURIConstants.checkLangSetPage(request)+"flight/flight-plan-details";
+		String returnUrl = UserRestURIConstants.checkLangSetPage(request)+"flight/flight-plan-details";
+		System.out.println("returnUrl " + returnUrl);
+		return returnUrl;
 	}
 
 	@RequestMapping(value = "/flight-confirmation")
@@ -636,7 +638,7 @@ public class FlightController {
 					+ "&spouseCover="+ spouseCover +"&childInput=" + childCount
 					+ "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&promoCode=" + userReferralCode;
+					+ expiryDate + "&referralCode=" + userReferralCode;
 
 			System.out.println("Travel Quote user " + Url);
 

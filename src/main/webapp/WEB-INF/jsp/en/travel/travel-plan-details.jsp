@@ -121,7 +121,7 @@
 									<td class="pad-none">
 									<div class="col-md-10 col-lg-10 pad-none">
 									<select id="selectHkidPass" class="soflow" name="selectedHkidPassApplicant">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="HKID" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select>
 									</div>
@@ -240,7 +240,7 @@
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectAdHkidPass${inx}" class="soflow" name="selectedAdHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="HKID" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
@@ -291,7 +291,7 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 												<select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedAdBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="hkId" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
@@ -331,7 +331,7 @@
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectChldHkidPass${inx}" class="form-control soflow" name="selectedChldHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="hkId" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
@@ -379,7 +379,7 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label>  -->
 												<select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedChldBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="hkId" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select><input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
@@ -423,7 +423,7 @@
 										<div class="col-md-10 col-lg-10 pad-none">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectOtHkidPass${inx}" class="form-control soflow" name="selectedOtHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="hkId" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
@@ -473,7 +473,7 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 												<select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedOtherBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">hkId</option>
+									<option value="hkId" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
 									</select> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"

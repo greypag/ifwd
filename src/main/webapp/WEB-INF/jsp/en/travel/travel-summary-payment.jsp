@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script>
 	function confirmPayment() {
-		var geteWayUrl = $('#gateway').val();
+		var gateWayUrl = $('#gateway').val();
 		$
 				.ajax({
 					type : "POST",
@@ -12,7 +12,7 @@
 						if (data == 'success') {
 							/* document.paymentForm.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
 							/* document.paymentForm.action = "https://test.paydollar.com/b2cDemo/eng/payment/payComp.jsp"; */
-							 document.paymentForm.action = geteWayUrl;
+							 document.paymentForm.action = gateWayUrl;
 						}
 					}
 				});
@@ -316,15 +316,15 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
-							 <td><label class="control-label h4-5">Payment Method</label></td> 
+							<tr style="display: none;">
+							 <td ><label class="control-label h4-5">Payment Method</label></td> 
 								<td colspan="2">
 								<div class="controls">
 								<label class="radio-inline">							
-								 <input type="radio" name="pMethod" checked="checked" value="VISA"> VISA
+								 <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
 								</label>	
 								<label class="radio-inline">		
-									<input type="radio" name="pMethod" value="Master"> MasterCard 
+									<input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
 								</label>
 								</div>
 									<!-- <input type="radio" name="pMethod" value="Diners">Diners

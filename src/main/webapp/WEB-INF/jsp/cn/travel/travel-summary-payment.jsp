@@ -292,11 +292,9 @@
 								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡類型</label></td>
 								<td class="col-lg-8" colspan="2">
 									<div class="controls">
-										<input type="radio" name="pMethod" value="VISA" checked>VISA
-										<input type="radio" name="pMethod" value="Master">MasterCard
-										<!-- <input type="radio" name="pMethod" value="Diners">Diners
-										Club <input type="radio" name="pMethod" value="JCB">JCB
-										<input type="radio" name="pMethod" value="AMEX">AMEX -->
+										<input type="radio" name="pMethod" value="VISA" id="chkVisa" checked>VISA
+										<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard
+										
 										<div>
 											<img src="resources/images/payment.png" alt="">
 										</div>

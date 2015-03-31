@@ -1035,7 +1035,12 @@ function validatecardnumber(cardnumber) {
     for (var i = 1; i < match.length; i++) {
       if (match[i]) {
         // Display the card type for that group
-        document.getElementById('errcardno').innerHTML = types[i - 1];
+//        document.getElementById('errcardno').innerHTML = types[i - 1];
+        if (i == 1) {
+			document.getElementById("chkVisa").checked=true;
+		} else {
+			document.getElementById("chkMaster").checked=true;
+		}
         break;
       }
     }

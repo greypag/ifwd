@@ -35,7 +35,7 @@ return false;
 action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 			<form:form name="freeFlightForm" id="freeFlightForm"
 				modelAttribute="createFlightPolicy" method="post"
-				onsubmit="return createFlightFnc(this);">
+				onsubmit="return createFlightFnc(this);" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">FlightCare </a> <i class="fa fa-caret-right"></i></li>
@@ -756,27 +756,28 @@ return false;
 }
 /* Function for create flight policy */
 function createFlightFnc(form) {
-var flag = false;
-if(fPlanValid()){
-$.ajax({
-type : "POST",
-url : "flight-confirmation",
-data : $("#freeFlightForm").serialize(),
-async : false,
-success : function(data) {
-if (data == 'success') {
-$('#errorMessages').hide();
-flag= true;
-form.action = "flight-confrimation-page";
-} else{
-flag= false;
-$('#errorMessages').removeClass('hide');
-$('#errorMessages').html(data);
-}
-
-}
-});
-}	
-return flag;
+	var flag = false;
+	if(fPlanValid()){
+		console.log("ajax called");
+		$.ajax({
+			type : "POST",
+			url : "flight-confirmation",
+			data : $("#freeFlightForm").serialize(),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					$('#errorMessages').hide();
+					flag= true;
+					form.action = "flight-confrimation-page";
+				} else{
+					flag= false;
+					$('#errorMessages').removeClass('hide');
+					$('#errorMessages').html(data);
+				}
+		
+			}
+		});
+	}	
+	return flag;
 }
 </script>

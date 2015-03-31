@@ -243,9 +243,9 @@ function fPlanValid()
 	document.getElementById("errAppHkid").innerHTML = "";
 	document.getElementById("emailid").innerHTML = "";    
 	document.getElementById("mobileNo").innerHTML = "";
-	document.getElementById("chk1").innerHTML = "";
+	
 	document.getElementById("chk2").innerHTML = "";
-
+	
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
@@ -256,10 +256,10 @@ function fPlanValid()
 		document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		flag = false;
 	}
-	if (document.getElementById("checkbox2").checked == false) {
-		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
-		flag = false;
-	}
+//	if (document.getElementById("checkbox2").checked == false) {
+//		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
+//		flag = false;
+//	}
 
 	if (fullname.trim() == "") {
 		document.getElementById("fullnameinvalid").innerHTML = "Please enter your Name in English.";
@@ -305,10 +305,10 @@ function fPlanValid()
 		document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		flag = false;
 	}
-	if (document.getElementById("checkbox2").checked == false) {
-		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
-		flag = false;
-	}
+//	if (document.getElementById("checkbox2").checked == false) {
+//		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
+//		flag = false;
+//	}
 
 	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
@@ -1707,7 +1707,14 @@ function validatecardnumber(cardnumber) {
 		for (var i = 1; i < match.length; i++) {
 			if (match[i]) {
 				// Display the card type for that group
-				document.getElementById('errcardno').innerHTML = types[i - 1];
+//				document.getElementById('errcardno').innerHTML = types[i - 1];
+				if (i == 1) {
+					document.getElementById("chkVisa").checked=true;
+				} else {
+					document.getElementById("chkMaster").checked=true;
+					
+				}
+				document.getElementById('errcardno').innerHTML = '';
 				break;
 			}
 		}

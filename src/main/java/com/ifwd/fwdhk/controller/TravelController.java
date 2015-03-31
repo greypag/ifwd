@@ -301,9 +301,9 @@ public class TravelController {
 			isAdults = true;
 		}
 
-		String promocode = "";
-		if (request.getParameter("promoCode") != null) {
-			promocode = request.getParameter("promoCode");
+		String referralCode = "";
+		if (request.getParameter("referralCode") != null) {
+			referralCode = request.getParameter("referralCode");
 		}
 
 		try {
@@ -312,21 +312,13 @@ public class TravelController {
 
 			travelQuote.setTotalTravellingDays(days + 1);
 
-			/*
-			 * String Url = UserRestURIConstants.TRAVEL_GET_QUOTE +
-			 * "?planCode=TravelCare" +
-			 * "&selfCover=true&spouseCover=true&childInput=" +
-			 * travelQuote.getTotalChildTraveller() + "&otherInput=0" +
-			 * "&commencementDate=" + commencementDate + "&expiryDate=" +
-			 * expiryDate + "&promoCode=" + promocode;
-			 */
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE
-					+ "?planCode=TravelCare" + "&selfCover=" + isAdults
+					+ "?planCode=A" + "&selfCover=" + isAdults
 					+ "&spouseCover=true&childInput="
 					+ travelQuote.getTotalChildTraveller() + "&otherInput="
 					+ travelQuote.getTotalPersonalTraveller()
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&promoCode=" + promocode;
+					+ expiryDate + "&referralCode=" + referralCode;
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);

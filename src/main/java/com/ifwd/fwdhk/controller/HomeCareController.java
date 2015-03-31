@@ -162,10 +162,10 @@ public class HomeCareController {
 		String answer1 = request.getParameter("answer1");
 		String answer2 = request.getParameter("answer2");
 
-		String promoCode = request.getParameter("promoCode");
+		String referralCode = request.getParameter("referralCode");
 
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
-				promoCode, answer1, answer2);
+				referralCode, answer1, answer2);
 
 		System.out.println("planQuote.getErrormsg()===>>>>"
 				+ planQuote.getErrormsg());

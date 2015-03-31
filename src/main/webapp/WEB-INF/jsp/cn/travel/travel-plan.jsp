@@ -38,7 +38,7 @@
 			url : 'applyPromoCode',
 			data : $('#frmTravelPlan input').serialize(),
 			success : function(data) {
-				alert(data);
+				
 				var json = JSON.parse(data);
 				setValue(json);
 			}
@@ -53,6 +53,8 @@
 		if (selValue == "priceInfoA") {
 			var totalDue = parseInt(result["priceInfoA"].totalDue);
 			$("#subtotal").html(result["priceInfoA"].totalDue);
+			$("#discountAmt").html(result["priceInfoA"].discountAmount);
+			
 			document.getElementById("subtotal").innerHtml = result["priceInfoA"].setDiscountAmount;
 			document.getElementById("amountdue").innerHtml = result["priceInfoA"].totalDue;
 			document.getElementById("selectedAmountDue").value = result["priceInfoA"].totalDue;
@@ -62,6 +64,7 @@
 		{
 			var totalDue = parseInt(result["priceInfoB"].totalDue);
 			$("#subtotal").html(result["priceInfoB"].totalDue);
+			$("#discountAmt").html(result["priceInfoB"].discountAmount);
 			$("#amountdue").html(result["priceInfoB"].totalDue);
 			document.getElementById("selectedAmountDue").value = result["priceInfoB"].totalDue;
 			document.getElementById("amountdue").innerHtml = result["priceInfoB"].totalDue;
