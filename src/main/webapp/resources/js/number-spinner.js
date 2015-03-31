@@ -183,7 +183,7 @@ $('.btn-number').click(function(e){
 
             } 
             if(parseInt(input.val()) == input.attr('data-min')) {
-                $(this).attr('disabled', true);
+                $(this).attr('disabled', false);
             }
 
         } else if(type == 'plus') {
@@ -267,7 +267,7 @@ $('.btn-number').click(function(e){
 
             }
             if(parseInt(input.val()) == input.attr('data-max')) {
-                $(this).attr('disabled', true);
+                $(this).attr('disabled', false);
             }
 
         }
