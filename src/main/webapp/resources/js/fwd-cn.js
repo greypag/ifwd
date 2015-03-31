@@ -1546,7 +1546,7 @@ function fPlanValid()
 	document.getElementById("errAppHkid").innerHTML = "";
 	document.getElementById("emailid").innerHTML = "";    
 	document.getElementById("mobileNo").innerHTML = "";
-	document.getElementById("chk1").innerHTML = "";
+	
 	document.getElementById("chk2").innerHTML = "";
 	
 	var fullname = document.getElementById("inputFullName").value;
@@ -1561,10 +1561,10 @@ function fPlanValid()
         document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
         flag = false;
     }
-    if (document.getElementById("checkbox2").checked == false) {
-        document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
-        flag = false;
-    }
+//    if (document.getElementById("checkbox2").checked == false) {
+//        document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
+//        flag = false;
+//    }
 	
 	if (fullname.trim() == "") {
 		document.getElementById("fullnameinvalid").innerHTML = "Please enter Full Name and please enter in English";
@@ -1836,8 +1836,8 @@ function fcPlanValid()
 	    document.getElementById("emailid").style.display = "none"; 
 	    document.getElementById("mobileNo").style.display = "none";
 	    document.getElementById("emailidinvalid").style.display = "none";
-	    document.getElementById("chk1").style.display = "none";
-	    document.getElementById("chk2").style.display = "none"; 
+	    
+	    document.getElementById("chk1").style.display = "none"; 
 	    document.getElementById("mobilenoinvalid").style.display = "none"; 
 	   
 	    var appHkid = document.getElementById("txtAppHkid").value;
@@ -1892,10 +1892,7 @@ function fcPlanValid()
 	        document.getElementById("chk1").style.display = "block";
 	        flag = false;
 	    }
-	    if (document.getElementById("checkbox2").checked == false) {
-	        document.getElementById("chk2").style.display = "block";
-	        flag = false;
-	    }
+	    
 	    
 	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
 	var rowCountChild=document.getElementById("totalCountOfChild").value;

@@ -530,7 +530,7 @@
 
 										</label>
 								</div>
-								<span id="chk2" class="text-red"></span>
+								<span id="chk1" class="text-red"></span>
 								<hr/>
 								<div class="checkbox">
 									<input id="checkbox3" type="checkbox"> <label

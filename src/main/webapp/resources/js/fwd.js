@@ -244,7 +244,7 @@ function fPlanValid()
 	document.getElementById("emailid").innerHTML = "";    
 	document.getElementById("mobileNo").innerHTML = "";
 	
-	document.getElementById("chk2").innerHTML = "";
+	document.getElementById("chk1").innerHTML = "";
 	
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
@@ -256,10 +256,7 @@ function fPlanValid()
 		document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		flag = false;
 	}
-//	if (document.getElementById("checkbox2").checked == false) {
-//		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
-//		flag = false;
-//	}
+
 
 	if (fullname.trim() == "") {
 		document.getElementById("fullnameinvalid").innerHTML = "Please enter your Name in English.";
@@ -301,10 +298,7 @@ function fPlanValid()
 	}
 
 
-	if (document.getElementById("checkbox1").checked == false) {
-		document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
-		flag = false;
-	}
+	
 //	if (document.getElementById("checkbox2").checked == false) {
 //		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
 //		flag = false;
