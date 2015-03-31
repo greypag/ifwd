@@ -64,15 +64,16 @@ public class FlightController {
 		HttpSession session = request.getSession();
 		String viewName = "";
 		if(action.equals("/flight") || action.equals("/travel") || action.equals("/homecare") || action.equals("/indexPage")|| action.equals("/home")){
-		if("CN".equals(selectLang)){
-			session.setAttribute("language", selectLang );
-			viewName = action.replace("/", "");
-			return new ModelAndView("redirect:" + viewName);
-		}else{
-			session.setAttribute("language", selectLang);
-			viewName = action.replace("/", "");
-			return new ModelAndView("redirect:" + viewName);
-		}}else{
+			if ("CN".equals(selectLang)){
+				session.setAttribute("language", selectLang );
+				viewName = action.replace("/", "");
+				return new ModelAndView("redirect:" + viewName);
+			} else{
+				session.setAttribute("language", selectLang);
+				viewName = action.replace("/", "");
+				return new ModelAndView("redirect:" + viewName);
+			}
+		} else{
 			return new ModelAndView("../index");
 		}
 	}

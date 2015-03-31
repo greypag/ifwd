@@ -89,11 +89,11 @@ public class TravelController {
 
 			if (responsObject.get("errMsgs") == null) {
 
-				String emailId = session.getAttribute("emailAddress")
-						.toString();
-
-				sendEmail.sendEmail(emailId,
-						checkJsonObjNull(responsObject, "referenceNo"), header);
+//				String emailId = session.getAttribute("emailAddress")
+//						.toString();
+//
+//				sendEmail.sendEmail(emailId,
+//						checkJsonObjNull(responsObject, "referenceNo"), header);
 
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("emailAddress",
@@ -1093,7 +1093,7 @@ public class TravelController {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();
 		} else {
-			return "null";
+			return "";
 		}
 	}
 
@@ -1101,7 +1101,7 @@ public class TravelController {
 		if (checkByStr != null) {
 			return checkByStr.toString();
 		} else {
-			return "null";
+			return "";
 		}
 	}
 

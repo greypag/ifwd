@@ -512,7 +512,7 @@
 										
 								</label>
 							</div>
-							<span id="chk2" class="text-red"></span>
+							<span id="chk1" class="text-red"></span>
 							<hr/>
 							<div>
 								If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise

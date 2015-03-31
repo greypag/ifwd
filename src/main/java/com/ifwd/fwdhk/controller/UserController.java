@@ -319,15 +319,17 @@ public class UserController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homePage(HttpServletRequest req) {
 		HttpSession session = req.getSession(true);
-		session.setAttribute("language", "EN");
-		return "../jsp/en/index";
+		String dir = UserRestURIConstants.checkLangSetPage(req);
+		
+//		session.setAttribute("language", "EN");
+		return "../jsp/" + dir + "/index";
 	}
 
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();
 		} else {
-			return "null";
+			return "";
 		}
 	}
 

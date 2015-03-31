@@ -305,7 +305,7 @@ public class RestServiceImpl implements RestServiceDao {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();
 		} else {
-			return "null";
+			return "";
 		}
 	}
 
