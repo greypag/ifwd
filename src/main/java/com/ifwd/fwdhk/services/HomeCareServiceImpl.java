@@ -280,15 +280,15 @@ public class HomeCareServiceImpl implements HomeCareService {
 			dec=true;
 		}else{dec=false;}
 		
-		if (strReadAndUnderstood.equalsIgnoreCase("on"))
-		{
-			readAndUnderStood=true;
-		}
-		else
-		{
-			readAndUnderStood=false;
-		}
-		
+//		if (strReadAndUnderstood.equalsIgnoreCase("on"))
+//		{
+//			readAndUnderStood=true;
+//		}
+//		else
+//		{
+//			readAndUnderStood=false;
+//		}
+//		
 		parameters.put("commencementDate",edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
 		parameters.put("planCode", homeCareDetails.getPlanCode());
@@ -318,7 +318,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("mobileNo", userDetails.getMobileNo());
 		applicant.put("occupation","");
 		applicant.put("optIn1",dec);
-		applicant.put("optIn2",readAndUnderStood);
+//		applicant.put("optIn2",readAndUnderStood);
 
 		parameters.put("applicant", applicant);
 		

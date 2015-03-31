@@ -1079,7 +1079,7 @@ public class TravelController {
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
 		model.addAttribute("path",
-				path.replace("prepareUserSummary", UserRestURIConstants.checkLangSetPage(request)+"travel-confirmation"));
+				path.replace("prepareUserSummary", "travel-confirmation"));
 
 		System.out.println(path.replace("prepareUserSummary", UserRestURIConstants.checkLangSetPage(request)+"travel-confirmation"));
 		model.addAttribute("failurePath",
