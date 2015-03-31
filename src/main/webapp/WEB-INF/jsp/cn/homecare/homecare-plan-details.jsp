@@ -319,6 +319,7 @@
                 </tr> -->
 									<tr>
 
+
 										<td class="pad-none"><select name="apphkidandpassport"
 											id="selectHkidPass" class="form-control soflow">
 												<option value="appHkid" selected="selected">香港身份證號碼</option>
@@ -326,7 +327,7 @@
 										</select></td>
 										<td class="pad-none"><input type="text" name="hkId"
 											class="form-control numberinput textUpper" id="txtAppHkid"
-											placeholder="X1234567"> <span id="errAppHkid"
+											placeholder="X1234567/Passport No"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 									</tr>
 

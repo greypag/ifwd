@@ -1016,6 +1016,12 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 }
 
 //travel Payment Summary Payment details//
+function chkMinLength(creditCard) {
+	
+}
+
+
+
 
 function validatecardnumber(cardnumber) {
   // Strip spaces and dashes
@@ -2612,5 +2618,26 @@ function tPlanValid()
 
 
 	return flag;
+
+}
+
+function confirmHomeCarePayment(form) {
+
+	if (cpayValid()) {
+		var geteWayUrl = $('#gateway').val();
+		$.ajax({
+			type : "POST",
+			url : "processHomeCarePayment",
+			data : $("#homeCarepaymentForm").serialize(),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					//  form.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp";
+					form.action = geteWayUrl;
+					;
+				}
+			}
+		});
+	}
 
 }
