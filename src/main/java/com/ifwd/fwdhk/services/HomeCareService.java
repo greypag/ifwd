@@ -23,6 +23,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 public interface  HomeCareService {
 	public List< HomeCareQuetionaries> getHomeQuetionaries(String token, String userName, String language);
 	public HomeQuoteBean getHomePlan(String token, String userName, String userReferralCode , String answer1, String answer2, String language);
+	public String getHomePlanToString(String token, String userName, String userReferralCode , String answer1, String answer2, String language);
 	public List<DistrictBean>getDistrict(String userName, String token, String language); 
 	
 	public Map<String, String> getNetFloorArea(String userName, String token, String language); 

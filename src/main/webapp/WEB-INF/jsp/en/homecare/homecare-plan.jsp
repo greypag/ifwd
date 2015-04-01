@@ -110,13 +110,24 @@
 			url : 'applyHomePromoCode',
 			data : $('#frmHomeCarePlan input').serialize(),
 			success : function(data) {
-				document.getElementById("errPromoCode").innerHTML = data;
+				
 				var json = JSON.parse(data);
-				//  alert(json);
-				// setValue(json);
+				  
+				console.log("json " + json );
+				setValue(json);
 			}
 
 		});
+	}
+
+	function setValue(result) {
+
+				
+		var totalDue = parseInt(result["priceInfo"].totalDue);
+		$("#subtotal").html(result["priceInfo"].grossPremium);
+		$("#discountAmt").html(result["priceInfo"].discountAmount);
+		$("#amountdue").html(result["priceInfo"].totalDue);
+
 	}
 </script>
 </head>
@@ -655,17 +666,17 @@
 								</div>
 							</div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
+							<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								${planQuote.getTotalDue()}</h3>
 
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t">Discount
 							</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">-${planQuote.getDiscountAmount()}
+							<h3 id="discountAmt" class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">-${planQuote.getDiscountAmount()}
 							</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
+							<h3 id="amountdue" class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
 
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
