@@ -583,11 +583,15 @@
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<div class="form-container">
+								
+								
 								<h3 class="txt-bold">
 									出發日期 <a href="travel"> <span
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrLeavingDate()}</h4>
+								
+								
 								<input type="hidden" name="departureDate" id="departureDate"
 									value="01-01-2015">
 

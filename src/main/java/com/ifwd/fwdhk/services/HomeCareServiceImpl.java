@@ -98,11 +98,14 @@ public class HomeCareServiceImpl implements HomeCareService {
 	}
 
 	public HomeQuoteBean getHomePlan(String token, String userName,
-			String userReferralCode, String answer1, String answer2) {
+			String userReferralCode, String answer1, String answer2, String language) {
 		
 		String ans1="";;
 		String ans2="";
 		System.out.println("Ans 1 in Controller==="+answer1+"Answer2 in Servicr impl==="+answer2);
+		
+		
+		
 		if(answer1.equalsIgnoreCase("NO"))
 		{
 			ans1="N";
@@ -119,7 +122,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="
-				+ "&building=building1&estate=estate1&streetNo="
+				+ "&building=&estate=&streetNo="
 				+ "&streetName=&district=&area=&answer1="+ans1+"&answer2="+ans2;
 
 		HashMap<String, String> header = new HashMap<String, String>(
@@ -176,7 +179,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		return quoteDetails;
 	}
 
-	public List<DistrictBean> getDistrict(String userName, String token) {
+	public List<DistrictBean> getDistrict(String userName, String token, String language) {
 		// TODO Auto-generated method stub
 		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
 
@@ -221,7 +224,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	}
 
 	@Override
-	public Map<String, String> getNetFloorArea(String userName, String token) {
+	public Map<String, String> getNetFloorArea(String userName, String token, String language) {
 		// TODO Auto-generated method stub
 
 		String url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA
@@ -258,7 +261,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	public CreatePolicy createHomeCarePolicy(String userName,
-			String token, HomeCareDetailsBean homeCareDetails, UserDetails userDetails) {
+			String token, HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language) {
 		
 		
 		JSONObject parameters = new JSONObject();
@@ -368,7 +371,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 	@Override
 	public CreatePolicy confirmHomeCarePolicy(String userName, String token,
-			String referenceNo) {
+			String referenceNo, String language) {
 		// TODO Auto-generated method stub
 		
 		HashMap<String, String> header = new HashMap<String, String>(
@@ -449,7 +452,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId) {
+	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId, String language) {
 		
 		
 		RestServiceDao restService = new RestServiceImpl();

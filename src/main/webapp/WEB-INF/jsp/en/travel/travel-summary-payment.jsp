@@ -316,6 +316,7 @@
 									</div>
 								</td>
 							</tr>
+<!-- 							<tr style="display: none;"> -->
 							<tr style="display: none;">
 							 <td ><label class="control-label h4-5">Payment Method</label></td> 
 								<td colspan="2">

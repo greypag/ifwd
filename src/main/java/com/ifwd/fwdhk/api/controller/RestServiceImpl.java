@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -20,6 +21,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -28,6 +30,7 @@ import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.util.StringHelper;
 
 @Component
 public class RestServiceImpl implements RestServiceDao {
@@ -169,6 +172,7 @@ public class RestServiceImpl implements RestServiceDao {
 		return responseJsonObj;
 	}
 
+	@SuppressWarnings("deprecation")
 	public JSONObject callByGetMethod(String url, Map<String, String> header) {
 		JSONObject responseJsonObj = new JSONObject();
 		try {
@@ -187,13 +191,22 @@ public class RestServiceImpl implements RestServiceDao {
 					method.addHeader(headParam.getKey(), headParam.getValue());
 				});
 			}
+			method.addHeader("Content-Type", "text/html; charset=UTF-8");
+			
+			method.addHeader("Accept-Charset", "UTF-8");
+//			restClient.getParams().setParameter("http.protocol.content-charset", "UTF-8");
 			responseJsonObj = restClient.execute(method,
 					new ResponseHandler<JSONObject>() {
 						@Override
 						public JSONObject handleResponse(HttpResponse response)
 								throws ClientProtocolException, IOException {
-							String responseStr = IOUtils.toString(response
-									.getEntity().getContent());
+//							String responseStr = IOUtils.toString(response
+//									.getEntity().getContent());
+							
+//							encoding = encoding == null ? "UTF-8" : encoding;
+							String encoding = "UTF-8";
+							String responseStr = IOUtils.toString(response.getEntity().getContent(), encoding);
+							
 							JSONParser parser = new JSONParser();
 							try {
 								return (JSONObject) parser.parse(responseStr);
@@ -221,6 +234,8 @@ public class RestServiceImpl implements RestServiceDao {
 
 			CloseableHttpClient restClient = (HttpClientBuilder.create())
 					.build();
+			request.setCharacterEncoding("UTF-8");
+			
 			HttpPost method = new HttpPost();
 			URI uri = new URI(UserRestURIConstants.USER_LOGIN);
 			method.setURI(uri);
