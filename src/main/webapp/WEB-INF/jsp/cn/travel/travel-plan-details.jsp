@@ -724,7 +724,7 @@
               <h2>尚未擁有推廣編號？輸入您的電郵地址，你將收到我們送給你的尊屬推廣編號。</h2>
               <h4>電郵地址 </h4>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="" id="txtPromoEmail">
+                <input type="text" class="form-control" placeholder="" id="emailToSendPromoCode">
               </div>
               <span id="errPromoEmail" class="text-red"></span>
                <br>

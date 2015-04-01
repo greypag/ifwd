@@ -300,7 +300,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<h4>Email</h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
-								name="emailToSendPromoCode" id="txtPromoEmail">
+								name="emailToSendPromoCode" id="emailToSendPromoCode">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">

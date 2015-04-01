@@ -665,30 +665,37 @@
 		aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
-				<div class="login-form">
+				<div class="login-form" id="sendmailofpromocode">
+					<form>
 					<div class="form-container">
-						<h2>Get promotion code</h2>
-						<h4>Email</h4>
+						<h2>不要有一个促销代码？输入您的电子邮件地址，我们会送你一个</h2>
+						<h4>电子邮件 </h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
-								id="txtPromoEmail">
+								name="emailToSendPromoCode" id="emailToSendPromoCode">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
-
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
 								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return get_promo_val()">Submit</a>
+									onclick="return sendEmail()">Submit</a>
 							</div>
 							<div class="col-md-2">
 								<br>
 							</div>
-
+							<div class="col-lg-4 col-md-4">
+								<!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
+							</div>
 							<br> <br>
-							<p>我同意提交我的電子郵件地址作為接收富衛的推廣編號之用，並在未來接收其他優惠資訊。</p>
+							<div class="col-lg-12 col-md-12">
+								<p>我同意提交我的電子郵件地址作為接收富衛的推廣編號之用，並在未來接收其他優惠資訊。</p>
+							</div>
 						</div>
 					</div>
+				</form>
 				</div>
+				
+				
 			</div>
 		</div>
 	</div>
