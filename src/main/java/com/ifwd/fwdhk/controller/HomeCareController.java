@@ -119,7 +119,7 @@ public class HomeCareController {
 		String userReferralCode = null;
 
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
-				userReferralCode, answer1, answer2);
+				userReferralCode, answer1, answer2, UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("planQuote", planQuote);
 		model.addAttribute("answer1", answer1);
 		model.addAttribute("answer2", answer2);
@@ -143,9 +143,9 @@ public class HomeCareController {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		try {
 			List<DistrictBean> districtList = homecareService.getDistrict(
-					userName, token);
+					userName, token, UserRestURIConstants.getLanaguage(request));
 			Map<String, String> mapNetFloorArea = homecareService
-					.getNetFloorArea(userName, token);
+					.getNetFloorArea(userName, token, UserRestURIConstants.getLanaguage(request));
 			request.setAttribute("districtList", districtList);
 			if (homeQuoteDetails.getTotalDue() != null) {
 				session.setAttribute("homeQuoteDetails", homeQuoteDetails);				
@@ -184,7 +184,7 @@ public class HomeCareController {
 		String referralCode = request.getParameter("referralCode");
 
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
-				referralCode, answer1, answer2);
+				referralCode, answer1, answer2, UserRestURIConstants.getLanaguage(request));
 
 		System.out.println("planQuote.getErrormsg()===>>>>"
 				+ planQuote.getErrormsg());
@@ -240,14 +240,14 @@ public class HomeCareController {
 		CreatePolicy createdPolicy = (CreatePolicy) session.getAttribute("createdPolicy");
 		if (createdPolicy == null) {
 			createdPolicy = homecareService.createHomeCarePolicy(
-					userName, token, homeCareDetails, userDetails);
+					userName, token, homeCareDetails, userDetails, UserRestURIConstants.getLanaguage(request));
 		} 
 		
 		model.addAttribute("createdPolicy", createdPolicy);
 
 		if (createdPolicy.getReferenceNo() != null) {
 			CreatePolicy confirm = homecareService.confirmHomeCarePolicy(
-					userName, token, createdPolicy.getReferenceNo());
+					userName, token, createdPolicy.getReferenceNo(), UserRestURIConstants.getLanaguage(request));
 			session.setAttribute("HomeCareTransactionDate",
 					confirm.getTransactionDate());
 			model.addAttribute("confirm", confirm);
@@ -350,7 +350,7 @@ public class HomeCareController {
 		
 		CreatePolicy finalize = homecareService.finalizeHomeCarePolicy(
 				userName, token, referenceNo, transactionNumber,
-				transactionDate, creditCardNo, expiryDate, emailId);
+				transactionDate, creditCardNo, expiryDate, emailId, UserRestURIConstants.getLanaguage(request));
 		 if (finalize.getPolicyNo()!=null) {
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);

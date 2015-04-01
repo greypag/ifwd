@@ -37,6 +37,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
@@ -189,6 +190,7 @@ public class FlightController {
 				COMMON_HEADERS);
 		header.put("token", token);
 		header.put("userName", username);
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
 		System.out.println(jsonObject);
@@ -249,6 +251,7 @@ public class FlightController {
 			header.put("token", request.getSession().getAttribute("token")
 					.toString());
 		}
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 				Url, header, null);
 
@@ -533,6 +536,7 @@ public class FlightController {
 				COMMON_HEADERS);
 		header.put("userName", usernameInSession);
 		header.put("token", tokenInSession);
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		System.out.println("Create Flight  header" + header);
 		System.out.println("Create Flight parameters" + parameters);
 		
@@ -677,6 +681,7 @@ public class FlightController {
 				header.put("userName", username);
 				header.put("token", token);
 			}
+			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -760,13 +765,16 @@ public class FlightController {
 		header.put("userName",
 				(String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
-
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		/*
 		 * System.out.println("headers=====>>>>>" + header);
 
 		 */
 		// Comment for to avoid over load Data
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
+		
+		
+		
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 
