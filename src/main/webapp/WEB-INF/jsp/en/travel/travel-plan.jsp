@@ -1184,7 +1184,7 @@
 						<h4>Email</h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
-								name="emailToSendPromoCode" id="txtPromoEmail">
+								name="emailToSendPromoCode" id="emailToSendPromoCode">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">
@@ -1272,7 +1272,7 @@
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
-					alert(data);
+					
 					if (data == 'success') {
 					} else {
 

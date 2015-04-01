@@ -1530,7 +1530,7 @@ function get_promo_val()
 {
 
     var valid = true;
-    var emailId = document.getElementById("txtPromoEmail").value; 
+    var emailId = document.getElementById("emailToSendPromoCode").value; 
     document.getElementById("errPromoEmail").style.display = "none";
     // Email Address Validation
     if (emailId.trim() == "") {

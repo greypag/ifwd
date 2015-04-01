@@ -1221,14 +1221,14 @@ public class TravelController {
 	// @Link(label="Flight", family="FlightController", parent = "" )
 	@RequestMapping(value = "/sendEmail")
 	@ResponseBody
-	public String sendEmail(@RequestParam String emailToSendPromoCode,
-			HttpServletRequest request) {
+	public String sendEmail(HttpServletRequest request) {
 
 		boolean mailed = false;
 		HttpSession session = request.getSession();
 
 		String usernameInSession = null;
 		String tokenInSession = null;
+		String emailToSendPromoCode = request.getParameter("emailToSendPromoCode");
 		if (request.getSession().getAttribute("username") != null
 				&& request.getSession().getAttribute("token") != null) {
 			usernameInSession = request.getSession().getAttribute("username")
@@ -1242,8 +1242,8 @@ public class TravelController {
 		header.put("userName", usernameInSession);
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		String referalCOde = session.getAttribute("referralCode").toString();
-		mailed = sendEmail.sendEmail(emailToSendPromoCode, referalCOde, header);
+//		String referalCOde = session.getAttribute("referralCode").toString();
+		mailed = sendEmail.sendEmail(emailToSendPromoCode, "", header);
 		if (mailed) {
 			return "success";
 		} else {

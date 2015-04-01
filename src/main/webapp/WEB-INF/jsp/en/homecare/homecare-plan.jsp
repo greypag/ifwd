@@ -19,6 +19,8 @@
 <!--<script src="js/jquery.min.js"></script>
 <script>
    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+   
+   
 </script>-->
 
 <!--Google Code for SEO-->
@@ -41,6 +43,28 @@
 		j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
 		f.parentNode.insertBefore(j, f);
 	})(window, document, 'script', 'dataLayer', 'GTMK7TX8B');
+
+	function sendEmail() {
+		if (get_promo_val()) {
+			$.ajax({
+				type : "POST",
+				url : "sendEmail",
+				data : $("#sendmailofpromocode form").serialize(),
+				async : false,
+				success : function(data) {
+
+					if (data == 'success') {
+					} else {
+
+					}
+
+				},
+				error : function() {
+				}
+			});
+		}
+		return false;
+	}
 </script>
 
 <!--END -Google Code for SEO-->
@@ -110,10 +134,10 @@
 			url : 'applyHomePromoCode',
 			data : $('#frmHomeCarePlan input').serialize(),
 			success : function(data) {
-				
+
 				var json = JSON.parse(data);
-				  
-				console.log("json " + json );
+
+				console.log("json " + json);
 				setValue(json);
 			}
 
@@ -122,7 +146,6 @@
 
 	function setValue(result) {
 
-				
 		var totalDue = parseInt(result["priceInfo"].totalDue);
 		$("#subtotal").html(result["priceInfo"].grossPremium);
 		$("#discountAmt").html(result["priceInfo"].discountAmount);
@@ -581,8 +604,8 @@
 														<tr>
 															<td><strong> Section 2 - Personal Liability
 															</strong></td>
-															<td colspan="2" rowspan="1">the first HK$500 of
-																each claim for third party property damage</td>
+															<td colspan="2" rowspan="1">the first HK$500 of each
+																claim for third party property damage</td>
 														</tr>
 													</tbody>
 												</table>
@@ -666,17 +689,20 @@
 								</div>
 							</div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
-							<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right">
+							<h3 id="subtotal"
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								${planQuote.getTotalDue()}</h3>
 
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t">Discount
 							</h3>
-							<h3 id="discountAmt" class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">-${planQuote.getDiscountAmount()}
+							<h3 id="discountAmt"
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">-${planQuote.getDiscountAmount()}
 							</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
-							<h3 id="amountdue" class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
+							<h3 id="amountdue"
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
 
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
@@ -780,35 +806,36 @@
 		aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
-				<div class="login-form">
+				<div class="login-form" id="sendmailofpromocode">
+					<form>
 					<div class="form-container">
 						<h2>Don't have a promotion code? Enter your email address and
 							we'll send you one.</h2>
-						<h4>Email address</h4>
+						<h4>Email</h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
-								id="txtPromoEmail">
+								name="emailToSendPromoCode" id="emailToSendPromoCode">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
-
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
 								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return get_promo_val()">Submit</a>
+									onclick="return sendEmail()">Submit</a>
 							</div>
 							<div class="col-md-2">
 								<br>
 							</div>
 							<div class="col-lg-4 col-md-4">
-								<a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5"
-									href="#" data-dismiss="modal">Close </a>
+								<!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
 							</div>
 							<br> <br>
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 top-mrg-10">
-								By submitting my email address I agree to receive FWD's
-								promotion code and other offers in the future.</div>
+							<div class="col-lg-12 col-md-12">
+								<p>By submitting my email address I agree to receive FWD's
+									promotion code and other offers in the future.</p>
+							</div>
 						</div>
 					</div>
+				</form>
 				</div>
 			</div>
 		</div>
@@ -816,3 +843,7 @@
 
 </body>
 </html>
+
+<script>
+	
+</script>

@@ -805,14 +805,14 @@
 		aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
-				<div class="login-form">
+				<div class="login-form" id="sendmailofpromocode">
 					<form:form name="frmGetPromoCode" id="frmGetPromoCode">
 						<div class="form-container">
 							<h2>Get promotion code</h2>
 							<h4>Email</h4>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder=""
-									id="txtPromoEmail">
+									id="emailToSendPromoCode">
 							</div>
 							<span id="errPromoEmail" class="text-red"></span> <br>
 
