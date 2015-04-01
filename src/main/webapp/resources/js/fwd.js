@@ -1774,6 +1774,7 @@ function payValid()
 		document.getElementById("errchk2").innerHTML = "Please read and accept the Policy Coverage and Terms & Conditions before submitting the application.";
 		flag = false;
 	}*/
+
 	return flag;
 }
 

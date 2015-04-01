@@ -711,60 +711,65 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<section id="bottom-form" class="hidden-sm hidden-xs">
 		<div class="container">
 			<div class="row">
-				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom"
-					action="getHomePlan" method="post" modelAttribute="homeCarelPlan">
-					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare">
-						<h2>立即取得易安心家居保</h2>
-						<%
-							List blst = (List) request
-										.getAttribute("homeCareQuetionariesList");
+				<form:form name="getHomeQuote" id="getHomeQuote"
+									action="getHomePlan" method="post"
+									modelAttribute="homeCarelPlan">
 
-								Iterator bitr = blst.iterator();
-								int i = 1;
-								while (bitr.hasNext()) {
 
-									HomeCareQuetionaries bQuetionList = (HomeCareQuetionaries) bitr
-											.next();
-						%>
+									<div class="col-lg-12 col-md-12 hidden-xs hidden-sm pad-none">
+										<h2>立即取得易安心家居保</h2>
 
-						<div class="col-lg-4 col-md-4 pad-none">
-							<h4>
-								<%=bQuetionList.getQuetion()%>
-							</h4>
-							<label class="radio radio-warning radio-inline"> <input
-								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
-								name="home_situated2<%=bQuetionList.getQid()%>"
-								id="inlineDeskRadio5<%=bQuetionList.getQid()%>" data-id="btm"
-								class="plan" value="personal" checked="checked" type="radio">
-								<label for="inlineDeskRadio5<%=bQuetionList.getQid()%>">
-									<span> <%=bQuetionList.getAnswer1()%>
-								</span>
-							</label>
-							</label> <label class="radio radio-warning radio-inline"> <input
-								name="home_situated2<%=bQuetionList.getQid()%>"
-								id="inlineDeskRadio6<%=bQuetionList.getQid()%>" data-id="btm"
-								class="plan" value="personal" checked="" type="radio"> <label
-								for="inlineDeskRadio6<%=bQuetionList.getQid()%>"> <span>
-										<%=bQuetionList.getAnswer2()%>
-								</span>
-							</label>
-							</label>
-						</div>
-						<%
-							}
-								i++;
-						%>
-						<div class="col-lg-4 col-md-2 ">
-							<button type="submit"
-								class="border-radius btn btn-primary  get-btn get-btn-home"
-								onclick="return msgAlertDesk()">Get Quote</button>
-						</div>
-						<div class="clearfix"></div>
-						<p class="pad-none">
-							FWD Easy HomeCare*<br> <br> *適用於實用面積一千尺以下單位
-						</p>
-					</div>
-				</form:form>
+										<%
+											List lst = (List) request
+														.getAttribute("homeCareQuetionariesList");
+
+												Iterator itr = lst.iterator();
+												int i = 1;
+												while (itr.hasNext()) {
+
+													HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr
+															.next();
+										%>
+
+										<div class="col-lg-4 col-md-4">
+											<h4>
+												<%=quetionList.getQuetion()%>
+											</h4>
+											<input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
+											<label class="radio radio-warning radio-inline"> <input
+												name="home_situated<%=quetionList.getQid()%>"
+												id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
+												class="plan" value="<%=quetionList.getAnswer1()%>"
+												checked="" type="radio"> <label
+												for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
+											</label>
+											</label> <label class="radio radio-warning radio-inline"> <input
+												name="home_situated<%=quetionList.getQid()%>"
+												id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
+												class="plan" value="<%=quetionList.getAnswer2()%>"
+												checked="" type="radio"> <label
+												for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
+														<%=quetionList.getAnswer2()%></span>
+											</label>
+											</label>
+										</div>
+										<%
+											}
+												i++;
+										%>
+										<div class="col-lg-4 col-md-4">
+
+											<button type="submit"
+												class="bdr-curve btn btn-primary nxt-btn"
+												onclick="return msgAlertDesk()">Get Quote</button>
+											<!-- <a href="homecare-plan.html" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return msgAlertDesk()">Get Quote</a> -->
+										</div>
+										<div class="clearfix"></div>
+										<p class="pad-none">
+											FWD Easy HomeCare*<br> <br> *適用於實用面積一千尺以下單位
+										</p>
+									</div>
+								</form:form>
 			</div>
 		</div>
 	</section>

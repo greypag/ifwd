@@ -39,6 +39,7 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
@@ -99,8 +100,18 @@ public class HomeCareController {
 		String username = session.getAttribute("username").toString();
 		String answer1 = request.getParameter("home_situated1");
 		String answer2 = request.getParameter("home_situated2");
-
-		/*
+		
+		
+		
+		if (answer1 == null) {
+			answer1 = (String)session.getAttribute("answer1");
+			answer2 = (String)session.getAttribute("answer2");
+		}
+		else {
+			session.setAttribute("answer1", answer1);
+			session.setAttribute("answer2", answer2);	
+		}
+				/*
 		 * String userReferralCode = (String) request.getSession().getAttribute(
 		 * "referralCode");
 		 */
@@ -136,7 +147,13 @@ public class HomeCareController {
 			Map<String, String> mapNetFloorArea = homecareService
 					.getNetFloorArea(userName, token);
 			request.setAttribute("districtList", districtList);
-
+			if (homeQuoteDetails.getTotalDue() != null) {
+				session.setAttribute("homeQuoteDetails", homeQuoteDetails);				
+			} else {
+				homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
+			}
+				
+			
 			model.addAttribute("homeQuoteDetails", homeQuoteDetails);
 			model.addAttribute("districtList", districtList);
 			model.addAttribute("mapNetFloorArea", mapNetFloorArea);
@@ -147,7 +164,9 @@ public class HomeCareController {
 		}
 
 		catch (Exception e) {
+			
 			e.printStackTrace();
+			
 		}
 		return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare-plan-details";
 	}
@@ -187,31 +206,43 @@ public class HomeCareController {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		UserDetails userDetails = new UserDetails();
-
-		String passportORhkid = request.getParameter("apphkidandpassport");
+		HttpSession session = request.getSession();
+		String passportORhkid = WebServiceUtils.getParameterValue("apphkidandpassport", session, request);
+		String hkId = WebServiceUtils.getParameterValue("hkId", session, request);
+		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
+		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
+		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
+		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
+		
+		if (homeCareDetails.getTotalDue() != null) {
+			session.setAttribute("homeCareDetails", homeCareDetails);				
+		} else {
+			homeCareDetails = (HomeCareDetailsBean) session.getAttribute("homeCareDetails");
+		}
+			
+		
 		System.out.println("***************passportORhkid********************");
 		if (passportORhkid.equalsIgnoreCase("appHkid")) {
-			userDetails.setHkid(request.getParameter("hkId"));
+			userDetails.setHkid(hkId);
 		} else {
-			userDetails.setPassport(request.getParameter("hkId"));
+			userDetails.setPassport(hkId);
 
 		}
-		userDetails.setFullName(request.getParameter("applicantName"));
-
-		userDetails.setEmailAddress(request.getParameter("emailAddress"));
-		userDetails.setMobileNo(request.getParameter("mobileNo"));
-
-		HttpSession session = request.getSession();
+		userDetails.setFullName(applicantName);
+		userDetails.setEmailAddress(emailAddress);
+		userDetails.setMobileNo(mobileNo);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
-		String totalDue = request.getParameter("totalDue");
-		String planCode = request.getParameter("planCode");
-
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		/* API not Working thats why code commented */
 
-		CreatePolicy createdPolicy = homecareService.createHomeCarePolicy(
-				userName, token, homeCareDetails, userDetails);
+		CreatePolicy createdPolicy = (CreatePolicy) session.getAttribute("createdPolicy");
+		if (createdPolicy == null) {
+			createdPolicy = homecareService.createHomeCarePolicy(
+					userName, token, homeCareDetails, userDetails);
+		} 
+		
 		model.addAttribute("createdPolicy", createdPolicy);
 
 		if (createdPolicy.getReferenceNo() != null) {

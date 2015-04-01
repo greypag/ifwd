@@ -43,7 +43,7 @@ public class UserRestURIConstants {
 			+ "/gi/travel/quote";
 	public static final String TRAVEL_CREATE_POLICY = SERVICE_URL
 			+ "/gi/travel/policies";
-	public static final String TRAVEL_CINFIRM_POLICY = SERVICE_URL
+	public static final String TRAVEL_CONFIRM_POLICY = SERVICE_URL
 			+ "/gi/travel/payments/make";
 	public static final String TRAVEL_FINALIZE_POLICY = SERVICE_URL
 			+ "/gi/travel/policies";

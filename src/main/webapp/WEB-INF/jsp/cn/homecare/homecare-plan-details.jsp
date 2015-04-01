@@ -128,10 +128,9 @@
 			var applicantStreetNo = $('#inputCAStreetNo').val();
 			var applicantStreetName = $('#inputCAStreetName').val();
 			var selectCADist = $('#selectCADist').val();
-			var applicantAreaCode = $('#inlineCARadio3').val();
+			/* var applicantAreaCode = $('#applicantArea').checked */
 
-			
-
+			//alert(applicantAreaCode);
 			// Set Values
 			$('#inputARoom').val(applicantRoom);
 			$('#inputAFloor').val(applicantFloor);
@@ -141,6 +140,15 @@
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);
 			$('#selectADist').val(selectCADist);
+
+			if (document.getElementById("inlineCARadio3").checked) {
+				document.getElementById("inlineDeskRadio3").checked = true;
+			} else if (document.getElementById("inlineCARadio4").checked) {
+				document.getElementById("inlineDeskRadio4").checked = true;
+			} else {
+				document.getElementById("inlineDeskRadio5").checked = true;
+			}
+
 		} else {
 			$('#inputARoom').val();
 			$('#inputAFloor').val();
@@ -543,8 +551,10 @@
 											maxlength="100" /></td>
 									</tr>
 									<tr>
-										<td height="60" colspan="4"><select name=""
-											class="form-control soflow" id="selectAgeRange">
+										<td height="60" colspan="4">
+										
+										<select onchange="setDropArea2(this.value)" id="selectADist" class="form-control soflow" name="aDistrict">
+										
 												<option value="">地區</option>
 												<%
                       List list= (List)request.getAttribute("districtList");
@@ -629,6 +639,10 @@
 
 									</label>
 								</div>
+								
+								
+								
+								
 								<span id="chk2" class="text-red"></span>
 
 								<div class="checkbox">

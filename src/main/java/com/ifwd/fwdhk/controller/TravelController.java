@@ -34,6 +34,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
@@ -153,6 +154,13 @@ public class TravelController {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
+		if (travelQuote.getTrLeavingDate() != null) {
+			session.setAttribute("travelQuote", travelQuote);
+		} else {
+			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		}
+		
+		
 		try {
 			String token = null, username = null;
 
@@ -392,15 +400,20 @@ public class TravelController {
 
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
-		String planName = (String) request.getParameter("planName");
-		String planSummary = (String) request.getParameter("selectedAmountDue");
-		String selectPlanName = (String) request.getParameter("selectPlanName");
+		HttpSession session = request.getSession();
+		String planName = WebServiceUtils.getParameterValue("planName", session, request);
+		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
 		System.out.println("Seeeeeee"+selectPlanName);
+		if (travelQuote.getTrLeavingDate() != null) {
+			session.setAttribute("travelQuote", travelQuote);
+		} else {
+			travelQuote = (TravelQuoteBean)session.getAttribute("travelQuote");
+		}
 		try {
 
 			request.setAttribute("travelQuote", travelQuote);
-
+			
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("selectPlanName", selectPlanName);
@@ -420,9 +433,9 @@ public class TravelController {
 					COMMON_HEADERS);
 			if (request.getSession().getAttribute("username") != null) {
 				header.put("userName",
-						request.getSession().getAttribute("username")
+						session.getAttribute("username")
 								.toString());
-				header.put("token", request.getSession().getAttribute("token")
+				header.put("token", session.getAttribute("token")
 						.toString());
 			}
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
@@ -509,22 +522,23 @@ public class TravelController {
 		String returnDate = dateApi.pickDate((String) session
 				.getAttribute("returnDate"));
 
-		String applicantFullName = request.getParameter("fullName");
-		String applicantHKID = request.getParameter("hkid");
-		String applicantMobNo = request.getParameter("mobileNo");
-		String emailAddress = request.getParameter("emailAddress");
-		String totalTravallingDays = request.getParameter("totalTrDays");
-		String totalTravallers = request.getParameter("totalTravallingDays");
+		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
+		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
+		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
+		String totalTravallingDays = WebServiceUtils.getParameterValue("totalTrDays", session, request);
+		String totalTravallers = WebServiceUtils.getParameterValue("totalTravallingDays", session, request);
 		/* System.out.println("applicantHKID=="+applicantHKID); */
-		String strChildCount = request.getParameter("totalChildTraveller");
-		String strAdultCount = request.getParameter("totalAdultTraveller");
-		String strOtherCount = request.getParameter("totalOtherTraveller");
-		/*
-		 * System.out.println("strChildCount==>>"+strChildCount+"strAdultCount===>"
-		 * +strAdultCount+"strOtherCount"+strOtherCount);
-		 */
-
-		int totalChild;
+		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
+		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
+		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
+		
+		if (planDetailsForm.getDepartureDate() != null) {
+			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
+		} else {
+			planDetailsForm = (PlanDetailsForm)session.getAttribute("travelPlanDetailsForm");
+		}
+				int totalChild;
 		int totalAdults;
 		int totalOthers;
 		if (strChildCount != "" || strChildCount != null) {
@@ -996,19 +1010,21 @@ public class TravelController {
 		 */
 		// Comment for to avoid over load Data
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
+		
+		
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 
 		System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
 
 		String finalizeReferenceNo = "";
-		JSONObject resultObj = new JSONObject();
-		if (resultObj.get("errMsgs") == null) {
-			resultObj.get("referralCode");
-			resultObj.get("referralName");
-			resultObj.get("priceInfoA");
+		
+		if (responsObject.get("errMsgs") == null) {
+			responsObject.get("referralCode");
+			responsObject.get("referralName");
+			responsObject.get("priceInfoA");
 			@SuppressWarnings("unused")
-			JSONObject jsonPriceInfoA = (JSONObject) resultObj
+			JSONObject jsonPriceInfoA = (JSONObject) responsObject
 					.get("priceInfoA");
 			CreatePolicy createPolicy = new CreatePolicy();
 			finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
@@ -1033,7 +1049,7 @@ public class TravelController {
 			System.out.println("Header Object for Confirm"
 					+ confirmPolicyParameter);
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_CINFIRM_POLICY, header,
+					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 
 			System.out.println("Response From Confirm Travel Policy "

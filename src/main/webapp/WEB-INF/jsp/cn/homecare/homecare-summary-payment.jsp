@@ -1,24 +1,24 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--/#main-Content-->
 <section>
-	<div class="container">
+	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm"
-				onsubmit="confirmPayment(this);" method="post">
+			<form name="homeCarepaymentForm" id="homeCarepaymentForm"
+				onsubmit="confirmHomeCarePayment(this);" method="post">			
 				<ol class="breadcrumb pad-none">
-					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Easy HomeCare </a> <i
-						class="fa fa-caret-right"></i></li>
-					<li><a href="#">Your options </a><i class="fa fa-caret-right"></i>
-					</li>
-					<li><a href="#">Your details </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> Summary & payment</li>
+					<li><a href="#">主頁</a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#">家居保險 </a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#">您的選擇 </a><i class="fa fa-caret-right"></i></li>
+					<li><a href="#">您的保單 </a></li>
+					<li class="active "><i class="fa fa-caret-right"></i>您的賬單</li>
 				</ol>
 				<div class="container ">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
-						<div class="center" style="visibility: visible;">
-							<h2>Summary & payment</h2>
+						<div class="center wow fadeInDown animated"
+							style="visibility: visible;">
+							<h2>您的賬單</h2>
 						</div>
 						<br> <br>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -31,23 +31,23 @@
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle">
-										<span class="status color3">Your Options</span>
+										<span class="status color3">您的選擇</span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
 										class="image-order-status image-order-status-intransit  img-circle ">
-										<span class="status color3">Your Details</span>
+										<span class="status color3">您的保單</span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle act">
-										<span class="status color2">Summary & Payment</span>
+										<span class="status color2">您的賬單</span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle disabled">
-										<span class="status lst-status">Confirmation</span>
+										<span class="status lst-status">確認保單</span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -63,36 +63,31 @@
 
 
 						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
-							<h3 class="margin-left-2 h2-3-existing-fwd-head">Plan
-								Summary</h3>
+							<h3 class="margin-left-2 h2-3-existing-fwd-head">摘要</h3>
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="h2-1 pad-left1 col-lg-5">Request No.</td>
-										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
-											type="hidden" name="referenceNo"
-											value="${createdPolicy.getReferenceNo()}"></td>
+										<td class="h2-1 pad-left1 col-lg-5">申請號碼</td>
+										<td class=" h4-5">${createdPolicy.getReferenceNo() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Plan</td>
-										<td class="h4-5 ">Standard Cover<br> Household
-											Contents<br>
-											<h4 class="h4-4-full"><!-- + Full coverage details --></h4></td>
+										<td class="h2-1 ">保險計劃</td>
+										<td class="h4-5 ">基本保障<br> 家居保障<br>
+											<h4 class="h4-4-full">+ 承保範圍</h4></td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Correspondence <br>Address
-										</td>
-										<td class=" h4-5 ">${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},
-										${homeCareDetails.getApplicantBlock()},<br>
-											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() },<br>
+										<td class="h2-1 ">通訊地址</td>
+										<td class=" h4-5 ">
+											${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},${homeCareDetails.getApplicantBlock()},<br>
+											${homeCareDetails.getApplicantBuilding() },${homeCareDetails.getApplicantEstate() },<br>
 											${homeCareDetails.getApplicantStreetName()}
 											${homeCareDetails.getApplicantDistrict()}
 										</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Insured Address</td>
-										<td class=" h4-5 ">${homeCareDetails.getaRoom()}/${homeCareDetails.getaFloor()},
+										<td class="h2-1 ">投保居所地址</td>
+										<td class=" h4-5 ">
+											${homeCareDetails.getaRoom()}/${homeCareDetails.getaFloor()},
 											${homeCareDetails.getaBlock() },
 											${homeCareDetails.getaBuilding()},
 											${homeCareDetails.getaEstate() },${homeCareDetails.getaStreetNo() }
@@ -101,25 +96,22 @@
 											${homeCareDetails.getaArea() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Net Floor<br>Area(square feet)
-										</td>
+										<td class="h2-1 ">實用面積(平方尺)</td>
 										<td class=" h4-5 ">${homeCareDetails.getNetFloorArea()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Period of Insurance</td>
+										<td class="h2-1 ">保障期</td>
 										<td class=" h4-5 ">Yearly</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Effective Date of <br>Coverage
-										</td>
+										<td class="h2-1 ">保單生效日期</td>
 										<td class=" h4-5 ">From ${effectiveDate } to
 											${effectiveEndDate}</td>
 									</tr>
 									<tr>
-										<td class="pad-none"><span class="h4-4-orange-b pad-none">Amount
-												due </span></td>
-										<td class=" "><span class="h4-4-orange-b pad-none">HK$
-												${totalDue} </span></td>
+										<td class="pad-none"><span class="h4-4-orange-b pad-none">所需保費
+										</span></td>
+										<td><span class="h4-4-orange-b ">${totalDue}</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -127,28 +119,28 @@
 						<div
 							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
 							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="#" onclick="BackMe()">Change details</a>
+								<a href="homecare-plan-details.html">更改資料</a>
 							</h4>
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="pad-none h2-3-existing-fwd-head ">Applicant</td>
+										<td class="pad-none h2-3-existing-fwd-head ">申請人資料</td>
 										<td class="pad-none h4-5 "></td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">Full name</td>
+										<td class="h2-1 pad-none ">中文全名</td>
 										<td class="pad-none h4-5 ">${userDetails.getFullName()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">HKID</td>
+										<td class="h2-1 pad-none ">香港身份證號碼</td>
 										<td class="pad-none h4-5 ">${userDetails.getHkid() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">Email Address</td>
+										<td class="h2-1 pad-none ">電郵地址</td>
 										<td class="pad-none h4-5 ">${userDetails.getEmailAddress()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">Mobile Number</td>
+										<td class="h2-1 pad-none ">手提電話</td>
 										<td class="pad-none h4-5 ">${userDetails.getMobileNo()}</td>
 									</tr>
 								</tbody>
@@ -159,7 +151,11 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<input type="hidden" name="merchantId"
+				<div class="gray-bg1">
+					<div class="clearfix"></div>
+					<h2 class="from-control">付款</h2>
+					<table class="table-responsive travel-tb">
+						<input type="hidden" name="merchantId"
 							value="${createdPolicy.getMerchantId()}">
 						<input type="hidden" name="amount" value="${totalDue.trim()}">
 						<input type="hidden" name="orderRef"
@@ -181,97 +177,82 @@
 							value="${effectiveDate}">
 						<input type="hidden" id="gateway" name="gateway"
 							value="${createdPolicy.getPaymentGateway()}">
-				<div class="gray-bg1">
-					<div class="clearfix"></div>
-					<h2 class="from-control">Payment Details</h2>
-
-					<table class="table-responsive travel-tb">
 						<tbody>
-
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5">Card
-										Type</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡類型</label></td>
 								<td class="col-lg-8" colspan="2"><div class="controls">
 										<div>
 											<img src="resources/images/payment.png" alt="">
 										</div>
 									</div></td>
 							</tr>
-
 							<tr>
-								
-								<td class="col-lg-4 ht1">
-								<label class="control-label h4-5">Payment Method</label></td>
-								<td><input type="radio" name="pMethod" value="VISA">VISA
-									<input type="radio" name="pMethod" value="Master">MasterCard
-									<!-- <input type="radio" name="pMethod" value="Diners">Diners
-									Club <input type="radio" name="pMethod" value="JCB">JCB
-									<input type="radio" name="pMethod" value="AMEX">AMEX --></td>
+								<td align="right">Payment Method</td>
+								<td><input type="radio" name="pMethod" value="VISA" id="chkVisa">VISA
+									<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard
+								</td>
 							</tr>
-
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5">Credit
-										card number</label></td>
-								<td colspan="2"><div class="controls">
-										<!-- <input id="cardnumber" name="cardnumber" type="text"
+								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡號碼</label></td>
+								<td colspan="2">
+									<div class="controls">
+										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" min="16" title=""
 											onkeyup="validatecardnumber(this.value)"
 											onBlur="chkMinLength(this.value);"
-											onkeypress="return isNumeric(event)"> -->
-										<input id="cardnumber" name="cardNo" type="text"
-											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="Credit card number"
-											onkeyup="validatecardnumber(this.value)"
-											onBlur="chkMinLength(this.value);"
-											onkeypress="return isNumeric(event)"> <span
-											id="errcardno" class="error-msg"></span>
-
-									</div></td>
+											onkeypress="return isNumeric(event)" placeholder="信用卡號碼">
+										<span id="errcardno" class="error-msg"></span>
+									</div>
+								</td>
 							</tr>
 
 
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Expiry
-										Date</label></td>
-								<td><select class="pay-details-select" id="month"
-									name="epMonth">
-										<option>Month</option>
-										<option VALUE="01">1</option>
-										<option VALUE="02">2</option>
-										<option VALUE="03">3</option>
-										<option VALUE="04">4</option>
-										<option VALUE="05">5</option>
-										<option VALUE="06">6</option>
-										<option VALUE="07">7</option>
-										<option VALUE="08">8</option>
-										<option VALUE="09">9</option>
-										<option VALUE="10">10</option>
-										<option VALUE="11">11</option>
-										<option VALUE="12">12</option>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5">到期日</label></td>
+								<td><select class="input-block-level soflow select-style"
+									id="month" name="epMonth">
+										<option>月</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
 								</select></td>
-								<td><select class="pay-details-select" id="year"
-									name="epYear">
-										<option>Year</option>
-										<option VALUE="2015">2015</option>
-										<option VALUE="2016">2016</option>
-										<option VALUE="2017">2017</option>
-										<option VALUE="2018">2018</option>
-										<option VALUE="2019">2019</option>
-										<option VALUE="2020">2020</option>
+								<td><select class="input-block-level soflow select-style"
+									id="year" name="epYear">
+										<option>月</option>
+										<option>2015</option>
+										<option>2016</option>
+										<option>2017</option>
+										<option>2018</option>
+										<option>2019</option>
+										<option>2020</option>
 								</select></td>
-								<div>
-									<span id="errmonth" class="error-msg"></span> <span
-										id="erryear" class="error-msg"></span>
-								</div>
 							</tr>
+
+
+
+
+							<tr>
+								<td></td>
+								<td><span id="errmonth" class="error-msg"></span></td>
+								<td><span id="erryear" class="error-msg"></span></td>
+							</tr>
+
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Name
-										on credit card</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5">持卡人名稱</label></td>
 								<td colspan="2">
 									<div class="controls">
-										<input id="holdername" type="text" name="cardHolder" class="input-block-level"
-											title="" placeholder="Name on credit card"
+										<input id="holdername" name="cardHolder" type="text"
+											class="input-block-level" placeholder="持卡人名稱"
 											onblur="replaceAlpha(this);"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -279,27 +260,33 @@
 								</td>
 							</tr>
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Security
-										Code</label></td>
-								<td><div class="controls">
-										<input id="seccode" name="securityCode" type="password" class="input-block-level"
-											autocomplete="off" maxlength="3" title="" placeholder="CVV"
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5">驗證碼</label></td>
+								<td>
+									<div class="controls">
+										<input id="seccode" type="password" name="securityCode"
+											class="input-block-level" autocomplete="off" maxlength="3"
+											title="" placeholder="驗證碼"
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="return isAlphaNumeric(event);">
+											onkeypress="return isAlphaNumeric(event);" placeholder="驗證碼">
 
-									</div></td>
+									</div>
+								</td>
 								<td><img src="resources/images/cards.png" alt=""></td>
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<span id="errcode" class="error-msg"></span>
-								</div>
 							</tr>
+							<tr>
+								<td></td>
+								<td><span id="errcode" class="error-msg"></span></td>
+								<td></td>
+							</tr>
+
 
 
 							<tr class="control-group">
 								<td></td>
-								<td colspan="2"><!--<a class="sub-link" href="#">What is my
-										security code?</a>--></td>
+								<td colspan="2"><a class="sub-link" href="#">這是什麼？</a></td>
 							</tr>
+
+
 
 
 
@@ -311,59 +298,48 @@
 					<div class="declaration-content margin-left-small">
 						<div class="checkbox">
 							<input id="checkbox3" type="checkbox"> <label
-								for="checkbox3"> I hereby authorize FWD General
-								Insurance Company Limited to debit my Credit Card Account for
-								the premium of this insurance. </label>
+								for="checkbox3"> 本人現授權富衛保險有限公司從我上述指定的信用卡賬戶扣除此保險所應繳之保費。 </label>
 							<div class="clearfix"></div>
 						</div>
 						<span id="errchk1" class="error-msg"></span>
-						<!-- <div class="checkbox">
-							<input id="checkbox2" type="checkbox"> <label
-								for="checkbox2"> I/We have read and understand the<a
-								href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-								target="_blank" class="sub-link"> policy coverage</a> and <a href="#" class="sub-link">terms and conditions.</a>
-							</label>
-							<div class="clearfix"></div>
-						</div>
-						<span id="errchk2" class="error-msg"></span>-->
+						<!--   <div class="checkbox">
+              <input id="checkbox2" type="checkbox">
+              <label for="checkbox2"> 本人(等) 已參閱及明白保障範圍，並同意接受其約束。</a> </label>
+                 <div class="clearfix"></div>
+            </div>
+            <span id="errchk2" class="error-msg"></span> -->
 						<div class="clearfix"></div>
 						<div class="hidden-sm hidden-xs pad-none">
-
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
-								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()"
-									value="Back">
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								
-								<input type="submit"
-									class="bdr-curve btn btn-primary nxt-btn margin-left"
-									value="Confirm Payment">
-							</div>
-
+							<input type="button" class="bdr-curve btn btn-primary bck-btn"
+								value="返回">
+							<!--<a href="homecare-plan-details-cn.html" class="bdr-curve btn btn-primary bck-btn">返回 </a>-->
+							<!--<a href="homecare-confirmation-cn.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a>-->
+							<input type="submit"
+								class="bdr-curve btn btn-primary nxt-btn margin-left"
+								value="確認付款">
 
 						</div>
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
+
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad-none">
-								<a href="#" onclick="BackMe()"
-									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">Back
+								<a href="travel-plan-details-cn.html"
+									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
 								</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
-
 								<input type="submit"
 									class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center"
 									value="Pay Now">
 							</div>
 
-							<!--  <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center" onclick="return payValid();">Pay Now</a> </div>
-             -->
+
 
 							<div class="clearfix"></div>
 
 						</div>
-						<br> <br>
+						<br>
+						<br>
 
 					</div>
 
@@ -374,32 +350,6 @@
 	</div>
 	<!--/.container-->
 </section>
-<!--/end Main Content-->
 
-<script>
-	function confirmPayment(form) {
-		alert('home care confirm payment');
-		if (payValid()) {
-			var geteWayUrl = $('#gateway').val();
-			$
-					.ajax({
-						type : "POST",
-						url : "processHomeCarePayment",
-						data : $("#paymentForm").serialize(),
-						async : false,
-						success : function(data) {
-							if (data == 'success') {
-								/* form.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
-								/* form.action = "https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp"; */
-								form.action = geteWayUrl;
-							}
-						}
-					});
-		}
+<!--/end- Main Content-->
 
-	}
-	
-	function BackMe() {
-		window.history.back();
-	}
-</script>

@@ -63,23 +63,28 @@ public class FlightController {
 	public ModelAndView changeLang(HttpServletRequest request, @RequestParam String selectLang, @RequestParam String action) {
 		HttpSession session = request.getSession();
 		String viewName = "";
-		if(action.equals("/flight") || action.equals("/travel") || action.equals("/homecare") || action.equals("/indexPage")|| action.equals("/home")){
-			session.setAttribute("language", selectLang );
-			viewName = action.replace("/", "");
-			return new ModelAndView("redirect:" + viewName);
-//			
-//			if ("CN".equals(selectLang)){
-//				session.setAttribute("language", selectLang );
-//				viewName = action.replace("/", "");
-//				return new ModelAndView("redirect:" + viewName);
-//			} else{
-//				session.setAttribute("language", selectLang);
-//				viewName = action.replace("/", "");
-//				return new ModelAndView("redirect:" + viewName);
-//			}
-		} else{
-			return new ModelAndView("../index");
-		}
+		session.setAttribute("language", selectLang );
+		viewName = action.replace("/", "");
+		return new ModelAndView("redirect:" + viewName);
+		
+//		
+//		if(action.equals("/flight") || action.equals("/travel") || action.equals("/homecare") || action.equals("/indexPage")|| action.equals("/home")){
+//			session.setAttribute("language", selectLang );
+//			viewName = action.replace("/", "");
+//			return new ModelAndView("redirect:" + viewName);
+////			
+////			if ("CN".equals(selectLang)){
+////				session.setAttribute("language", selectLang );
+////				viewName = action.replace("/", "");
+////				return new ModelAndView("redirect:" + viewName);
+////			} else{
+////				session.setAttribute("language", selectLang);
+////				viewName = action.replace("/", "");
+////				return new ModelAndView("redirect:" + viewName);
+////			}
+//		} else{
+//			return new ModelAndView("../index");
+//		}
 	}
 	
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
@@ -94,6 +99,13 @@ public class FlightController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
 		HttpSession session = request.getSession();
+		if (planDetails.getDepartureDate() != null) {
+			session.setAttribute("flightPlanDetails", planDetails);
+		} else {
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+		}
+			
+		
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
 				+ planDetails.getReturnDate());
@@ -219,7 +231,7 @@ public class FlightController {
 
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	// "Flight Plan" )
-	@RequestMapping(value = "/flight-plan-details", method = RequestMethod.POST)
+	@RequestMapping(value = "/flight-plan-details")
 	public String flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
@@ -558,9 +570,7 @@ public class FlightController {
 			System.out.println("Email address"
 					+ request.getParameter("emailAddress"));
 
-			sendEmail.sendEmail(emailId, checkJsonObjNull(responsObject,
-					"referenceNo"), header);
-
+			
 			request.getSession().setAttribute("setReferenceNoForConfirmation", checkJsonObjNull(responsObject,
 					"referenceNo"));
 			
@@ -592,8 +602,12 @@ public class FlightController {
 
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		
 		HttpSession session = request.getSession();
+		
+			
+		
+		
 		/* Get Travel Policies */
 		try {
 			
@@ -611,7 +625,12 @@ public class FlightController {
 			}
 
 			int days = 0;
-
+			if (createFlightPolicy.getDepartureDate() != null) {
+				session.setAttribute("createFlightPolicy", createFlightPolicy);
+			} else {
+				createFlightPolicy = (CreateFlightPolicy) session.getAttribute("createFlightPolicy");
+			}
+			
 			/* Calculate total Days */
 
 			Date dateD1 = new Date(createFlightPolicy.getDepartureDate());
@@ -622,9 +641,9 @@ public class FlightController {
 			createFlightPolicy.setDays(days + 1);
 
 			String userReferralCode = "";
-			if(request.getSession().getAttribute(
+			if(session.getAttribute(
 					"referralCode")!=null){
-				userReferralCode = (String) request.getSession().getAttribute(
+				userReferralCode = (String) session.getAttribute(
 						"referralCode");
 			}
 
@@ -785,7 +804,7 @@ public class FlightController {
 			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 			System.out.println("Header Object for Confirm" + confirmPolicyParameter);
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_CINFIRM_POLICY, header,
+					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 			
 			  System.out.println("Response From Confirm Travel Policy " +

@@ -410,15 +410,6 @@
 											placeholder="X1234567/Passport No"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
-
-										<!-- <td class="pad-none"><label
-											class="control-label bold-500">HKID/Passport</label></td>
-										<td class="pad-none"><input type="text"
-											class="form-control numberinput" id="txtAppHkid" name="hkId"
-											placeholder="X123456(7)" maxlength="20"> <span
-											id="errAppHkid" class="text-red"> </span></td>
-											 -->
-
 									</tr>
 									<tr>
 										<td class="pad-none"><label
@@ -786,9 +777,9 @@
 									</label>
 								</div>
 								<div class="checkbox">
-									<input id="checkbox3" type="checkbox"
-										name="donotWishDirectMarketing"> <label
-										for="checkbox3"> Please do not provide my personal
+									<input id="checkbox34" type="checkbox"
+										name="donotWishDirectMarketing3"> <label
+										for="checkbox34"> Please do not provide my personal
 										data to other persons or companies for their use in direct
 										marketing. <br>
 									</label>

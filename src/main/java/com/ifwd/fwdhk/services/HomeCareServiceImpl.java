@@ -103,6 +103,9 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1="";;
 		String ans2="";
 		System.out.println("Ans 1 in Controller==="+answer1+"Answer2 in Servicr impl==="+answer2);
+		
+		
+		
 		if(answer1.equalsIgnoreCase("NO"))
 		{
 			ans1="N";
