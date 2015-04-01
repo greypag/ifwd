@@ -507,7 +507,8 @@ Myself
 									Insurance. <br />
 								
 							
-							
+								<input id="checkbox2" name="checkbox1" type="checkbox">
+								<label for="checkbox2">
 									I have read and understood <a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
 									target="_blank" class="sub-link"> Personal Information
@@ -526,15 +527,15 @@ Myself
 									appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2"> Please do not send direct marketing
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3"> Please do not send direct marketing
 									information to me. <br>
 								</label>
 							</div>
 
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not provide my personal data
+								<input id="checkbox4" type="checkbox"> <label
+									for="checkbox4"> Please do not provide my personal data
 									to other persons or companies for their use in direct
 									marketing. <br> <br>
 								</label>

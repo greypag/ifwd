@@ -178,25 +178,28 @@ public class HomeCareController {
 		HttpSession session = request.getSession();
 		String token = session.getAttribute("token").toString();
 		String username = session.getAttribute("username").toString();
-		String answer1 = request.getParameter("answer1");
-		String answer2 = request.getParameter("answer2");
+		
 
 		String referralCode = request.getParameter("referralCode");
 
-		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
-				referralCode, answer1, answer2, UserRestURIConstants.getLanaguage(request));
-
-		System.out.println("planQuote.getErrormsg()===>>>>"
-				+ planQuote.getErrormsg());
-
-		planQuote.setErrormsg(planQuote.getErrormsg().replace("[\"", ""));
-		planQuote.setErrormsg(planQuote.getErrormsg().replace("\"]", ""));
 		
-		System.out.println("Error Message");
-		String errorMessage = planQuote.getErrormsg();
-		model.addAttribute("errorMessage", errorMessage);
-		model.addAttribute("planQuote", planQuote);
-		return errorMessage;
+		//HARD CODE "NO" AS IT SHOULD HAVE ANSWERED
+//		String planQuote = homecareService.getHomePlanString(token, username,
+//				referralCode, "NO", "NO", UserRestURIConstants.getLanaguage(request));
+		String planQuote = homecareService.getHomePlanToString(token, username, referralCode, "NO", "NO", UserRestURIConstants.getLanaguage(request));
+
+//		System.out.println("planQuote.getErrormsg()===>>>>"
+//				+ planQuote.getErrormsg());
+//
+//		planQuote.setErrormsg(planQuote.getErrormsg().replace("[\"", ""));
+//		planQuote.setErrormsg(planQuote.getErrormsg().replace("\"]", ""));
+//		
+//		System.out.println("Error Message");
+//		String errorMessage = planQuote.getErrormsg();
+//		model.addAttribute("errorMessage", errorMessage);
+//		model.addAttribute("planQuote", planQuote);
+		System.out.println("planQuote " + planQuote);
+		return planQuote;
 	}
 
 	@RequestMapping(value = "/prepareUserSummaryForHome")
