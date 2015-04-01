@@ -332,6 +332,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 
 <script type="text/javascript">
+
 	function sendEmail() {
 		if (get_promo_val()) {
 			$.ajax({

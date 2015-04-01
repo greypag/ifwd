@@ -11,3 +11,4 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>	
