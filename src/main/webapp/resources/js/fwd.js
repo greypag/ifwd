@@ -2052,6 +2052,9 @@ String.format = function() {
     
     return theString;
 }
+function IsNumeric(input){
+   return (input - 0) == input && input.length > 0;
+}
 
 // get language
 function getBundleLanguage(){
@@ -2101,12 +2104,23 @@ function chkNotNullApplicantName(element, errElementId){
 		resetErrElement(errElementId);
 	}
 }
-function chkValidApplicantHkId(element, errElementId){
+function chkValidApplicantHkId(element, errElementId, typeId){
+	var type = "";
+	if(typeId != ""){	//idType is id of control
+		var e = document.getElementById(typeId);  
+		var type = e.options[e.selectedIndex].text;
+	}
+	if(type == ""){
+		type="HKID";
+	}
+
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 	}else if(!IsHKID(element.value)){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notValid.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 	}else{
 		resetErrElement(errElementId);
@@ -2143,12 +2157,23 @@ function chkNotNullInsuredName(element, errElementId){
 		resetErrElement(errElementId);
 	}
 }
-function chkValidInsuredHkId(element, errElementId){
-	if(isNull(element)){
+function chkValidInsuredHkId(element, errElementId, typeId){
+	var type = "";
+	if(typeId != ""){	//idType is id of control
+		var e = document.getElementById(typeId);  
+		var type = e.options[e.selectedIndex].text;
+	}
+	if(type == ""){
+		type="HKID";
+	}
+	
+	if(isNull(element)){	
 		var msg = getBundle(getBundleLanguage, "insured.hkId.notNull.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 	}else if(!IsHKID(element.value)){
 		var msg = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 	}
 	else{
@@ -2199,9 +2224,86 @@ function chkNotNullBeneficiaryHkId(element, errElementId, beneficiary){
 		
 	}
 }
+// validation - other
+function chkValidCreditCard(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else if(element.value.length<16){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}	
+}
+function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthElementId){
+	var month = 0;
+	var year = 0;
+	var now = new Date();
+	var nowYear = now.getFullYear();
+	var nowMonth = now.getMonth();
+	if(monthId != ""){	//idType is id of control
+		var e = document.getElementById(monthId);  
+		month = e.options[e.selectedIndex].value;
 
-
-
+		if(!IsNumeric(month)){
+			var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notNull.message");
+			document.getElementById(errMonthElementId).innerHTML = msg;
+		}else if (month < 1){
+			var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notValid.message");
+			document.getElementById(errMonthElementId).innerHTML = msg;
+		}else{
+			resetErrElement(errMonthElementId);
+		}
+			
+		
+	}
+	
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{	
+		year = element.value;
+		
+		if(!IsNumeric(year)){
+			var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
+			document.getElementById(errElementId).innerHTML = msg;
+		} else {
+			year = parseInt(year);
+			nowYear = parseInt(nowYear);
+			
+			month = parseInt(month);
+			nowMonth = parseInt(nowMonth);
+			
+			
+			if(year < nowYear){	
+				var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid1.message");
+				document.getElementById(errElementId).innerHTML = msg;
+				
+			} else if(year <= nowYear && month <= nowMonth){
+			
+				var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notValid.message");
+				document.getElementById(errMonthElementId).innerHTML = msg;
+				
+				var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid2.message");
+				document.getElementById(errElementId).innerHTML = msg;
+				
+			} else{
+				resetErrElement(errElementId);
+				resetErrElement(errMonthElementId);
+			}			
+		}
+			
+	}		
+}
+function chkNotNullCreditCareName(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}	
+}
 
 
 // get resource bundle

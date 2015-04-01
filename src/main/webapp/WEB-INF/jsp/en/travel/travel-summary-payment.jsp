@@ -342,38 +342,38 @@
 											class="input-block-level" maxlength="16" min="16" title=""
 											onkeyup="validatecardnumber(this.value)"
 											placeholder="Credit card number"
-											onBlur="chkMinLength(this.value);"
+											onBlur="chkValidCreditCard(this, 'errcardno');"
 											onkeypress="return isNumeric(event)"> <span
-											id="errcardno" class="error-msg"></span>
+											id="errcardno" class="error-msg"></span>	<!-- chkMinLength(this.value); -->
 									</div></td>
 							</tr>
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Expiry Date</label></td>
 								<td><select class="pay-details-select" id="month"
 									name="epMonth">
-										<option>Month</option>
-										<option>01</option>
-										<option>02</option>
-										<option>03</option>
-										<option>04</option>
-										<option>05</option>
-										<option>06</option>
-										<option>07</option>
-										<option>08</option>
-										<option>09</option>
-										<option>10</option>
-										<option>11</option>
-										<option>12</option>
+										<option value="0">Month</option>
+										<option value="1">01</option>
+										<option value="2">02</option>
+										<option value="3">03</option>
+										<option value="4">04</option>
+										<option value="5">05</option>
+										<option value="6">06</option>
+										<option value="7">07</option>
+										<option value="8">08</option>
+										<option value="9">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
 								</select></td>
 								<td><select class="pay-details-select" id="year"
-									name="epYear">
-										<option>Year</option>
-										<option>2015</option>
-										<option>2016</option>
-										<option>2017</option>
-										<option>2018</option>
-										<option>2019</option>
-										<option>2020</option>
+									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+										<option value="0">Year</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
 								</select></td>
 							</tr>
 							<tr>
@@ -389,7 +389,7 @@
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder"
 											class="input-block-level" placeholder="Name on credit card"
-											onblur="replaceAlpha(this);"
+											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
 									</div>

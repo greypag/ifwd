@@ -110,7 +110,7 @@
 										value="${userDetails.getFullName()}" class="form-control"
 										id="inputFullName" name="fullName"
 										placeholder="As appears on HKID Card"
-										onblur="replaceAlpha(this);"
+										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'fullnameinvalid');"
 										onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
 										id="fullname" style="display: none"> <label
 											class="text-red">Please enter Full Name and please
@@ -127,7 +127,9 @@
 									</div>
 									</td>
 									<td class="pad-none">
-									<input type="text" name="hkid"	class="form-control numberinput textUpper btm-pad-10"	id="inputTxtAppHkid" placeholder="X1234567">
+									<input type="text" name="hkid"	class="form-control numberinput textUpper btm-pad-10"	id="inputTxtAppHkid" 
+									placeholder="X1234567"
+									onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');">
 									 <span	id="errAppHkid" class="text-red"> </span>
 									 </td>
 								</tr>
@@ -138,7 +140,7 @@
 										value="${userDetails.getMobileNo()}" class="form-control"
 										id="inputMobileNo" placeholder="Mobile number"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8" /> <span
+										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'mobileNo');" maxlength="8" /> <span
 										id="mobileNo" class="text-red"></span></td>
 								</tr>
 								<tr>
@@ -146,7 +148,8 @@
 										class="control-label bold-500">Email address</label></td>
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress()}" name="emailAddress" id="inputEmailId"
-										placeholder="Email address" maxlength="50"> <span
+										placeholder="Email address" 
+										onblur="chkValidApplicantEmail(this, 'emailid');" maxlength="50"> <span
 										id="emailid" class="text-red"></span></td>
 								</tr>
 							</tbody>
@@ -233,7 +236,7 @@
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="adultName" id="txtAdFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
-												onblur="replaceAlpha(this);"
+												onblur="replaceAlpha(this); chkNotNullInsuredName(this, 'errtxtAdFullName${inx}');"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
@@ -244,7 +247,7 @@
 									<option value="passport">Passport</option>
 									</select> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="X1234567"
+												class="form-control textUpper" placeholder="X1234567" onblur="chkValidInsuredHkId(this, 'errtxtInvalidInsuHkid${inx}', 'selectAdHkidPass${inx}');"
 												value="" /> <span id="errtxtInsuHkid${inx}"
 												class="text-red"> </span> <span
 												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -266,7 +269,7 @@
 											<label class="pad-left1 bold-500">Beneficiary</label> <select
 												id="adultsselectBenificiary${inx}"
 												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" class="form-control soflow">
+												name="adultBeneficiary" onblur="chkNotNullBeneficiary(this, 'erradultsselectBenificiary${inx}');" class="form-control soflow">
 												<option value="SE">Own Estate</option>
 												<c:forEach var="relationshipCodeList"
 													items="${mapRelationshipCode}">
@@ -284,7 +287,7 @@
 													id="adultBenefitiaryId${inx}" value=""
 													class="form-control " placeholder="As appears on HKID Card"
 													onblur="replaceAlpha(this);"
-													onkeypress="    return alphaOnly(event);" maxlength="100" />
+													onkeypress="    return alphaOnly(event); chkNotNullBeneficiaryName(this, 'erradultBenefitiaryId${inx}', 'adultBeneficiary');" maxlength="100" />
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
 												</span>
 											</div>
@@ -295,7 +298,7 @@
 									<option value="passport">Passport</option>
 									</select> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
-													class="form-control textUpper" placeholder="X1234567"
+													class="form-control textUpper" placeholder="X1234567" onblur="chkNotNullBeneficiaryHkId(this, 'erradultBenefitiaryHKId${inx}', 'adultBeneficiary');"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
