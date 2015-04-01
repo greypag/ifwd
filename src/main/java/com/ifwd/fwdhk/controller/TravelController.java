@@ -326,23 +326,30 @@ public class TravelController {
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
-
+		String planSelected = request.getParameter("planSelected");
+		int adults = travelQuote.getTotalAdultTraveller();
 		int child = travelQuote.getTotalChildTraveller();
-		int adults = travelQuote.getTotalChildTraveller();
-		boolean isChild = false;
-		boolean isAdults = false;
-		if (child > 0) {
-			isChild = true;
-		}
-		if (adults > 0) {
-			isAdults = true;
-		}
-
+		int others =  travelQuote.getTotalPersonalTraveller();
+		boolean isSpouseCover = false;
 		String referralCode = "";
-		if (request.getParameter("referralCode") != null) {
-			referralCode = request.getParameter("referralCode");
+		if (planSelected.equals("personal"))
+		{
+			if (adults > 1)
+			{
+				others = travelQuote.getTotalPersonalTraveller() - 1;
+				isSpouseCover = false;
+				child = 0;
+			}
+		} else {
+			if (adults > 1) {
+				isSpouseCover = true;
+			} else {
+				isSpouseCover = false;
+				others = travelQuote.getTotalPersonalTraveller();
+				child = travelQuote.getTotalChildTraveller();
+			}
 		}
-
+		referralCode = request.getParameter("referralCode");
 		try {
 
 			/* Calculate total Days */
@@ -350,10 +357,10 @@ public class TravelController {
 			travelQuote.setTotalTravellingDays(days + 1);
 
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-					+ "&selfCover=" + isAdults
-					+ "&spouseCover=true&childInput="
-					+ travelQuote.getTotalChildTraveller() + "&otherInput="
-					+ travelQuote.getTotalPersonalTraveller()
+					+ "&selfCover=true"
+					+ "&spouseCover=" + isSpouseCover + "&childInput="
+					+ child + "&otherInput="
+					+ others
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + referralCode;
 
