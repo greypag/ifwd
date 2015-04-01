@@ -1059,61 +1059,66 @@ function validatecardnumber(cardnumber) {
 
 function cpayValid()
 {
-	
 	var flag=true;
+	return true;
 	var cardno=document.getElementById("cardnumber").value;
 	
 	var month=document.getElementById("month").value;
 	
-	
 	var year=document.getElementById("year").value;
 	var seccode=document.getElementById("seccode").value;
 	var holdername=document.getElementById("holdername").value;
-
 	document.getElementById('errcardno').innerHTML="";
 	document.getElementById('errmonth').innerHTML="";
 	document.getElementById('erryear').innerHTML="";
 	document.getElementById('errname').innerHTML="";	
 	document.getElementById('errcode').innerHTML="";
 	document.getElementById('errchk1').innerHTML="";
-	document.getElementById('errchk2').innerHTML="";
 	
 	if(cardno.length<16)
   	{
 		flag=false;
 		document.getElementById('errcardno').innerHTML="請輸入完整的信用咭號碼";
+		return false;
   	}
 	if(month=="Month")
 	{
 		flag=false;
 		document.getElementById('errmonth').innerHTML="請輸入信用卡的有效月份";
+		return false;
 	}
 	if(year=="Year")
 	{
 		flag=false;
 		document.getElementById('erryear').innerHTML="請輸入信用卡的有效年份";
+		return false;
 	}
 	if(holdername.trim()=="")
 	{
 		flag=false;
 		document.getElementById('errname').innerHTML="請以英文輸入持卡人名稱";
+		return false;
 	}
 	if(seccode.trim()=="")
 	{
 		flag=false;
 		document.getElementById('errcode').innerHTML="請輸入信用卡驗證碼";
+		return false;
 	}
 	if (document.getElementById("checkbox3").checked == false)
     {
         document.getElementById("errchk1").innerHTML ="請閱讀及同意付款授權書";
         flag = false;
+        return false;
     }
     if (document.getElementById("checkbox2").checked == false)
     {
         document.getElementById("errchk2").innerHTML = "請閱讀及同意付款授權書";
         flag = false;
+        return false;
     }
-	return flag;
+    alert("flag " + flag);
+    return true;
 }
 
 
@@ -1314,6 +1319,7 @@ function hc_planValid() {
         document.getElementById("chk2").innerHTML = "遞交申請表前，請閱讀及接受收集個人資料聲明";
         flag = false;
     }
+    console.log("this it to debug");
    
     return flag;
 }
@@ -1545,293 +1551,6 @@ function get_promo_val()
 }
 
 
-function fPlanValid()
-{
-	
-	var flag=true;
-	document.getElementById("fullnameinvalid").innerHTML = "";
-	document.getElementById("errAppHkid").innerHTML = "";
-	document.getElementById("emailid").innerHTML = "";    
-	document.getElementById("mobileNo").innerHTML = "";
-	
-	document.getElementById("chk2").innerHTML = "";
-	
-	var fullname = document.getElementById("inputFullName").value;
-	var emailId = document.getElementById("inputEmailId").value;
-	var mobileNo = document.getElementById("inputMobileNo").value;
-	var appHkid = document.getElementById("txtAppHkid").value;
-	
-	
-
-	
-	if (document.getElementById("checkbox1").checked == false) {
-        document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
-        flag = false;
-    }
-//    if (document.getElementById("checkbox2").checked == false) {
-//        document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
-//        flag = false;
-//    }
-	
-	if (fullname.trim() == "") {
-		document.getElementById("fullnameinvalid").innerHTML = "Please enter Full Name and please enter in English";
-		flag = false;
-	}
-
-	if (emailId.trim() == "") {
-		document.getElementById("emailid").innerHTML = "Please enter Email address";
-		flag = false;
-	} else {
-		if (emailreg.test(emailId) == false) {
-
-			document.getElementById("emailid").innerHTML = "Please enter valid Email address";
-			flag = false;
-		}
-	}
-
-	if (appHkid.trim() == "") {
-		document.getElementById("errAppHkid").innerHTML = "Please enter HKID No. in English";
-		flag = false;
-	}else {
-		var tr=IsHKID(appHkid.trim());
-		if(tr==false)
-		{
-			document.getElementById("errAppHkid").innerHTML = "Please enter valid HKID No. in English";
-			flag = false;
-		}
-	}
-
-
-	if (mobileNo.trim() == "") {
-		document.getElementById("mobileNo").innerHTML = "Please enter Mobile number";
-		flag = false;
-	}else {        
-		if (mobile_pattern.test(mobileNo) == false) {
-			document.getElementById("mobileNo").innerHTML = "Mobile No which is invalid";
-			flag = false;
-		}
-	}
-
-
-	if (document.getElementById("checkbox1").checked == false) {
-		document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
-		flag = false;
-	}
-	if (document.getElementById("checkbox2").checked == false) {
-		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
-		flag = false;
-	}
-	
-	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
-	var rowCountChild=document.getElementById("totalCountOfChild").value;
-	var rowCountOther=document.getElementById("totalCountOther").value;
-
-	/* Adult Beneficiary validation */
-	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
-	{
-		
-			var fullname = document.getElementById("txtAdFullName" + i).value;
-			if (fullname.trim() == "") {
-				document.getElementById("errtxtAdFullName" + i).innerHTML = "Please enter Name";
-				flag = false;
-			}else{
-				document.getElementById("errtxtAdFullName" + i).innerHTML = "";
-			}
-			
-			var age = document.getElementById("selectAgeRange" + i).value;
-			if (age.trim() == "") {
-				document.getElementById("errselectAgeRange" + i).innerHTML = "Please Select Age Range";
-				flag = false;
-			}else{
-				document.getElementById("errselectAgeRange" + i).innerHTML = "";
-			}
-			
-			var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
-			if (benefitiary.trim() == "") {
-				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "Please enter Name";
-				flag = false;
-			}else{
-				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
-			}
-			
-			
-			var hkid = document.getElementById("txtInsuHkid" + i).value;
-			document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-			document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
-			if (hkid.trim() == "") {
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = "Please enter HKID No. in English";
-				flag = false;
-			}else
-			{
-				var tr=IsHKID(hkid.trim());
-				if(tr==false)
-				{
-					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "Please enter valid HKID No. in English";
-					flag = false;
-				}
-			}
-
-			var selectedValue = document.getElementById("adultsselectBenificiary" + i).value;
-			
-			if(selectedValue != "0"){
-				if (document.getElementById("adultBenefitiaryId" + i).value == "")
-				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML="Please enter Full Name (i) and please enter in English";
-					flag = false;             
-				}
-				else
-				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
-				}
-				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "Beneficiary which is blank";
-					flag = false;
-				}
-				else {
-					
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "";
-				}
-			}
-			
-		
-	}
-	
-	/* Child Beneficiary validation */
-	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
-	{
-		var hkid = document.getElementById("txtChldInsuHkid" + i).value;
-		var fullname = document.getElementById("txtChldFullName" + i).value;
-		var age = document.getElementById("selectchildAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
-		if (fullname.trim() == "") {
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}else{
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
-		}
-		
-		if (age.trim() == "") {
-			document.getElementById("errchildRange" + i).innerHTML = "Please Select Age Range";
-			flag = false;
-		}else{
-			document.getElementById("errchildRange" + i).innerHTML = "";
-		}
-		
-		/*if (benefitiary.trim() == "") {
-			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}*/
-		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
-		document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
-		
-		if (hkid.trim() == "") {
-			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Please enter HKID No. in English";
-			flag = false;
-		}
-		else
-		{
-			var tr=IsHKID(hkid.trim());
-			if(tr==false)
-			{
-				document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "Please enter valid HKID No. in English";
-				flag = false;
-			}
-		}
-		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
-		if(selectedValue != "0"){
-			if (document.getElementById("childBenefitiaryName" + i).value == "")
-			{
-				document.getElementById("errchildBenefitiaryName" + i).innerHTML="Please enter Full Name (i) and please enter in English";
-				flag = false;             
-			}
-			else
-			{
-				document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
-			}
-
-			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "Beneficiary which is blank";
-				flag = false;
-			}
-			else {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "";
-			}
-		}
-		
-	}
-	
-	/* Other Beneficiary validation */
-	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
-	{
-		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
-		var fullname = document.getElementById("txtOtherFullName" + i).value;
-		var age = document.getElementById("selectOtherAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
-		
-		if (fullname.trim() == "") {
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}else{
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "";
-		}
-		
-		
-		if (age.trim() == "") {
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "Please Select Age Range";
-			flag = false;
-		}else{
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
-		}
-		
-		/*if (benefitiary.trim() == "") {
-			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}*/
-		
-		document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
-		document.getElementById("errtxtChildInsuHkid" + i).innerHTML = "";
-
-		if (hkid.trim() == "") {
-			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Please enter HKID No. in English";
-			flag = false;
-		}
-		else
-		{
-			var tr=IsHKID(hkid.trim());
-			if(tr==false)
-			{
-				document.getElementById("errtxtChildInsuHkid" + i).innerHTML = "Please enter valid HKID No. in English";
-				flag = false;
-			}
-		}
-		
-		var selectedValue = document.getElementById("otherSelectBenificiary" + i).value;
-		if(selectedValue != "0"){
-			if (document.getElementById("otherBenefitiaryName" + i).value == "")
-			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML="Please enter Full Name (i) and please enter in English";
-				flag = false;             
-			}
-			else
-			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML = "";
-				flag = false;
-			}
-
-			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "Beneficiary which is blank";
-				flag = false;
-			}
-			else {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "";
-			}
-		}
-	}
-
-
-	return flag;
-
-}
 
 
 

@@ -37,6 +37,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
@@ -63,23 +64,28 @@ public class FlightController {
 	public ModelAndView changeLang(HttpServletRequest request, @RequestParam String selectLang, @RequestParam String action) {
 		HttpSession session = request.getSession();
 		String viewName = "";
-		if(action.equals("/flight") || action.equals("/travel") || action.equals("/homecare") || action.equals("/indexPage")|| action.equals("/home")){
-			session.setAttribute("language", selectLang );
-			viewName = action.replace("/", "");
-			return new ModelAndView("redirect:" + viewName);
-//			
-//			if ("CN".equals(selectLang)){
-//				session.setAttribute("language", selectLang );
-//				viewName = action.replace("/", "");
-//				return new ModelAndView("redirect:" + viewName);
-//			} else{
-//				session.setAttribute("language", selectLang);
-//				viewName = action.replace("/", "");
-//				return new ModelAndView("redirect:" + viewName);
-//			}
-		} else{
-			return new ModelAndView("../index");
-		}
+		session.setAttribute("language", selectLang );
+		viewName = action.replace("/", "");
+		return new ModelAndView("redirect:" + viewName);
+		
+//		
+//		if(action.equals("/flight") || action.equals("/travel") || action.equals("/homecare") || action.equals("/indexPage")|| action.equals("/home")){
+//			session.setAttribute("language", selectLang );
+//			viewName = action.replace("/", "");
+//			return new ModelAndView("redirect:" + viewName);
+////			
+////			if ("CN".equals(selectLang)){
+////				session.setAttribute("language", selectLang );
+////				viewName = action.replace("/", "");
+////				return new ModelAndView("redirect:" + viewName);
+////			} else{
+////				session.setAttribute("language", selectLang);
+////				viewName = action.replace("/", "");
+////				return new ModelAndView("redirect:" + viewName);
+////			}
+//		} else{
+//			return new ModelAndView("../index");
+//		}
 	}
 	
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
@@ -94,6 +100,13 @@ public class FlightController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
 		HttpSession session = request.getSession();
+		if (planDetails.getDepartureDate() != null) {
+			session.setAttribute("flightPlanDetails", planDetails);
+		} else {
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+		}
+			
+		
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
 				+ planDetails.getReturnDate());
@@ -177,6 +190,7 @@ public class FlightController {
 				COMMON_HEADERS);
 		header.put("token", token);
 		header.put("userName", username);
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
 		System.out.println(jsonObject);
@@ -219,7 +233,7 @@ public class FlightController {
 
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	// "Flight Plan" )
-	@RequestMapping(value = "/flight-plan-details", method = RequestMethod.POST)
+	@RequestMapping(value = "/flight-plan-details")
 	public String flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
@@ -237,6 +251,7 @@ public class FlightController {
 			header.put("token", request.getSession().getAttribute("token")
 					.toString());
 		}
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 				Url, header, null);
 
@@ -521,6 +536,7 @@ public class FlightController {
 				COMMON_HEADERS);
 		header.put("userName", usernameInSession);
 		header.put("token", tokenInSession);
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		System.out.println("Create Flight  header" + header);
 		System.out.println("Create Flight parameters" + parameters);
 		
@@ -558,9 +574,7 @@ public class FlightController {
 			System.out.println("Email address"
 					+ request.getParameter("emailAddress"));
 
-			sendEmail.sendEmail(emailId, checkJsonObjNull(responsObject,
-					"referenceNo"), header);
-
+			
 			request.getSession().setAttribute("setReferenceNoForConfirmation", checkJsonObjNull(responsObject,
 					"referenceNo"));
 			
@@ -592,8 +606,12 @@ public class FlightController {
 
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		
 		HttpSession session = request.getSession();
+		
+			
+		
+		
 		/* Get Travel Policies */
 		try {
 			
@@ -611,7 +629,12 @@ public class FlightController {
 			}
 
 			int days = 0;
-
+			if (createFlightPolicy.getDepartureDate() != null) {
+				session.setAttribute("createFlightPolicy", createFlightPolicy);
+			} else {
+				createFlightPolicy = (CreateFlightPolicy) session.getAttribute("createFlightPolicy");
+			}
+			
 			/* Calculate total Days */
 
 			Date dateD1 = new Date(createFlightPolicy.getDepartureDate());
@@ -622,9 +645,9 @@ public class FlightController {
 			createFlightPolicy.setDays(days + 1);
 
 			String userReferralCode = "";
-			if(request.getSession().getAttribute(
+			if(session.getAttribute(
 					"referralCode")!=null){
-				userReferralCode = (String) request.getSession().getAttribute(
+				userReferralCode = (String) session.getAttribute(
 						"referralCode");
 			}
 
@@ -658,6 +681,7 @@ public class FlightController {
 				header.put("userName", username);
 				header.put("token", token);
 			}
+			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -741,13 +765,16 @@ public class FlightController {
 		header.put("userName",
 				(String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
-
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		/*
 		 * System.out.println("headers=====>>>>>" + header);
 
 		 */
 		// Comment for to avoid over load Data
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
+		
+		
+		
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 
@@ -785,7 +812,7 @@ public class FlightController {
 			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 			System.out.println("Header Object for Confirm" + confirmPolicyParameter);
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_CINFIRM_POLICY, header,
+					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 			
 			  System.out.println("Response From Confirm Travel Policy " +

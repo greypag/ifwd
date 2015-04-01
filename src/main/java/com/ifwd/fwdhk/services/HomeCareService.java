@@ -22,15 +22,16 @@ import com.ifwd.fwdhk.model.UserDetails;
 
 public interface  HomeCareService {
 	public List< HomeCareQuetionaries> getHomeQuetionaries(String token, String userName, String language);
-	public HomeQuoteBean getHomePlan(String token, String userName, String userReferralCode , String answer1, String answer2);
-	public List<DistrictBean>getDistrict(String userName, String token); 
+	public HomeQuoteBean getHomePlan(String token, String userName, String userReferralCode , String answer1, String answer2, String language);
+	public String getHomePlanToString(String token, String userName, String userReferralCode , String answer1, String answer2, String language);
+	public List<DistrictBean>getDistrict(String userName, String token, String language); 
 	
-	public Map<String, String> getNetFloorArea(String userName, String token); 
+	public Map<String, String> getNetFloorArea(String userName, String token, String language); 
 	
-	public CreatePolicy createHomeCarePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails );
+	public CreatePolicy createHomeCarePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language);
 	public CreatePolicy confirmHomeCarePolicy(String userName, String token,
-			String referenceNo);
+			String referenceNo, String language);
 	/*public List<String>confirmHomeCare(String userName, String token, String referenceNo, String transactionNumber,String transactionDate, String creditCardNo, String expiryDate);*/ 
-	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId);
+	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId, String language);
 
 }

@@ -63,9 +63,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="col-lg-12 col-md-12 hidden-xs pad-none homecare home-main homecare-hei center">
                         <h2>嶄新保險體驗 盡在富衛</h2>
                         
-                        <a href="flight-cn.html" class="border-radius btn btn-primary  home-btn">航空保險</a>
-                        <a href="travel-cn.html" class="border-radius btn btn-primary  home-btn">旅遊保險</a>
-                         <a href="homecare-cn.html" class="border-radius btn btn-primary  home-btn">家居保險</a>
+                        <a href="flight" class="border-radius btn btn-primary  home-btn">航空保險</a>
+                        <a href="traveL" class="border-radius btn btn-primary  home-btn">旅遊保險</a>
+                         <a href="homecare" class="border-radius btn btn-primary  home-btn">家居保險</a>
                         <div class="clearfix"></div>
                      
                     </div>

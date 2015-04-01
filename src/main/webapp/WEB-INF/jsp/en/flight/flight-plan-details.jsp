@@ -15,6 +15,8 @@
 
 <script>
 
+	var UILANGUAGE = '<%=session.getAttribute("language")%>';
+
 /* Commented because login is not compulsory */ 
 <%-- function flightPlanValidation() {
  <%if (authenticate.equalsIgnoreCase("false")) {%>
@@ -136,7 +138,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										value="${userDetails.getFullName()}" class="form-control"
 										id="inputFullName" name="fullName"
 										placeholder="as appears on HKID Card/Passport"
-										onblur="replaceAlpha(this);"
+										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'fullnameinvalid');"
 										onkeypress="return alphaOnly(event);" maxlength="100" /> <span
 										id="fullnameinvalid" class="text-red"></span></td>
 								</tr>
@@ -145,7 +147,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										for="inputEmail3" class="control-label bold-500">HKID</label></td>
 									<td class="pad-none"><input type="text" name="hkid"
 										class="form-control numberinput textUpper"
-										id="inputTxtAppHkid" placeholder="X1234567"> <span
+										id="inputTxtAppHkid" placeholder="X1234567"
+										onblur="chkValidApplicantHkId(this, 'errAppHkid');"> <span
 										id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
@@ -156,7 +159,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										value="${userDetails.getMobileNo()}" class="form-control"
 										name="mobileNo" id="inputMobileNo" placeholder="Mobile Number"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8" /> <span
+										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'mobileNo');" maxlength="8" /> <span
 										id="mobileNo" class="text-red"></span></td>
 								</tr>
 								<tr>
@@ -165,7 +168,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 											Address</label></td>
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress()}" name="emailAddress"
-										id="inputEmailId" placeholder="Email address" maxlength="50">
+										id="inputEmailId" placeholder="Email address" 
+										onblur="chkValidApplicantEmail(this, 'emailid');" maxlength="50">
 										<span id="emailid" class="text-red"></span></td>
 								</tr>
 							</tbody>

@@ -56,7 +56,7 @@ public class UserController {
 				JSONObject params = new JSONObject();
 				params.put("userName", userLogin.getUserName());
 				params.put("password", userLogin.getPassword());
-
+				
 				JSONObject response = restService.consumeApi(HttpMethod.POST,
 						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
 						params);

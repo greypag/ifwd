@@ -10,7 +10,7 @@
 	}
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("promoCode").innerHTML;
+		var promoCode = document.getElementById("referralCode").innerHTML;
 
 		if (promoCode == "") {
 			document.getElementById("errPromoCode").innerHTML = "Please Enter Promocode";
@@ -38,7 +38,7 @@
 			url : 'applyPromoCode',
 			data : $('#frmTravelPlan input').serialize(),
 			success : function(data) {
-				alert(data);
+				
 				var json = JSON.parse(data);
 				setValue(json);
 			}
@@ -52,20 +52,16 @@
 
 		if (selValue == "priceInfoA") {
 			var totalDue = parseInt(result["priceInfoA"].totalDue);
-			$("#subtotal").html(result["priceInfoA"].totalDue);
-			document.getElementById("subtotal").innerHtml = result["priceInfoA"].setDiscountAmount;
-			document.getElementById("amountdue").innerHtml = result["priceInfoA"].totalDue;
-			document.getElementById("selectedAmountDue").value = result["priceInfoA"].totalDue;
-			document.getElementById("grossPremium").value = result["priceInfoA"].totalDue;
-		} else
-
-		{
+			$("#subtotal").html(result["priceInfoA"].grossPremium);
+			$("#discountAmt").html(result["priceInfoA"].discountAmount);
+			$("#amountdue").html(result["priceInfoA"].totalDue);
+			
+		} else {
 			var totalDue = parseInt(result["priceInfoB"].totalDue);
-			$("#subtotal").html(result["priceInfoB"].totalDue);
+			$("#subtotal").html(result["priceInfoB"].grossPremium);
+			$("#discountAmt").html(result["priceInfoB"].discountAmount);
 			$("#amountdue").html(result["priceInfoB"].totalDue);
-			document.getElementById("selectedAmountDue").value = result["priceInfoB"].totalDue;
-			document.getElementById("amountdue").innerHtml = result["priceInfoB"].totalDue;
-			document.getElementById("grossPremium").value = result["priceInfoB"].totalDue;
+			
 		}
 	}
 </script>
@@ -155,19 +151,26 @@
 								<h2>
 									<%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
-									<br> <%if (travelQuote.getPlanName()[i].equals("Plan A"))
-									{%> Premium Cover<br> HK$ 1,000,000 Medical
-								<%}	else{ %>
-								Economy Cover<br> HK$	500,000 Medical
-									<%} %>
-									
+									<br>
+									<%
+										if (travelQuote.getPlanName()[i].equals("Plan A")) {
+									%>
+									Premium Cover<br> HK$ 1,000,000 Medical
+									<%
+										} else {
+									%>
+									Economy Cover<br> HK$ 500,000 Medical
+									<%
+										}
+									%>
+
 								</h2>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 								<br>
 								<h3>HK$</h3>
 								<h6>
-									<span id="grossPremium"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span id="grossPremium"<%=i%> ><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
 							</div>
 							<div class="clearfix"></div>
@@ -203,11 +206,7 @@
 							type="hidden" name="txtGrossPremium"
 							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount[i]"
-							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
-							type="hidden" name="referralCode"
-							value="<%=travelQuote.getReferralCode()%>"> <input
-							type="hidden" name="referralName"
-							value="<%=travelQuote.getReferralName()%>">
+							value="<%=travelQuote.getDiscountAmount()[i]%>"> 
 						<%
 							}
 								}
@@ -737,7 +736,7 @@
 																<td>470</td>
 															</tr>
 															<tr>
-																<td>8</td>
+																<7td>8</td>
 																<td>290</td>
 																<td>200</td>
 																<td>508</td>
@@ -1101,8 +1100,8 @@
 							<div class="form-group">
 								<div class="input-group">
 									<span class="text-red" id="errPromoCode"></span> <input
-										type="text" class="form-control" name="promoCode"
-										id="promoCode" placeholder="eg.FWD789"> <span
+										type="text" class="form-control" name="referralCode"
+										id="referralCode" placeholder="eg.FWD789"> <span
 										class="input-group-addon in black-bold pointer"
 										onclick="applyPromoCode()"><span>APPLY</span></span>
 								</div>

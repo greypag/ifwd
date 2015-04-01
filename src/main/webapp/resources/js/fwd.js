@@ -1774,6 +1774,7 @@ function payValid()
 		document.getElementById("errchk2").innerHTML = "Please read and accept the Policy Coverage and Terms & Conditions before submitting the application.";
 		flag = false;
 	}*/
+
 	return flag;
 }
 
@@ -2032,4 +2033,100 @@ for(var i=1;i<=parseInt(cnt);i++)
 	}
     return flag;
     
+}
+
+
+
+// get language
+function getBundleLanguage(){
+	var lang = UILANGUAGE;
+	if("EN".equals(lang)){
+		return "";
+	}else if("CN".equals(lang)){
+		return "zh-HK";
+	} else{
+		return "";
+	}
+}
+
+// validation
+function resetErrElement(errElementId){
+	if(errElementId != null && document.getElementById(errElementId) != null){
+		document.getElementById(errElementId).innerHTML = "";
+	}
+}
+function isNull(element){
+	if(element != null){
+		if(element.value == null || element.value.trim() == ""){
+			return true;
+		}else{
+			return false
+		}
+	}
+}
+
+function chkNotNullApplicantName(element, errElementId){
+	alert(errElementId);
+	if(isNull(element)){
+		alert("null value");
+		var msg = getBundle(getBundleLanguage, "applicant.name.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}
+}
+function chkValidApplicantHkId(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else if(!IsHKID(element.value)){
+		var msg = getBundle(getBundleLanguage, "applicant.hkId.notValid.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}		
+}
+function chkValidApplicantMobileNo(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else if(!mobile_pattern.test(element.value)){
+		var msg = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}	
+}
+function chkValidApplicantEmail(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.email.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else if(!emailreg.test(element.value)){
+		var msg = getBundle(getBundleLanguage, "applicant.email.notValid.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}	
+}
+
+
+// get resource bundle
+function getBundle(lang, key) {
+	var rtn; 
+	loadBundles(lang, key, function(value){
+		rtn = value;
+	});
+	
+	return rtn;
+}
+function loadBundles(lang, key, fn) {
+   	$.i18n.properties({
+        name: 'Messages',
+        path: 'resources/bundle/',
+        mode: 'both',
+        language: lang,
+        callback: function() {
+        	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
+        }
+    });
 }
