@@ -2036,6 +2036,22 @@ for(var i=1;i<=parseInt(cnt);i++)
 }
 
 
+// common function
+String.format = function() {
+    // The string containing the format items (e.g. "{0}")
+    // will and always has to be the first argument.
+    var theString = arguments[0];
+    
+    // start with the second argument (i = 1)
+    for (var i = 1; i < arguments.length; i++) {
+        // "gm" = RegEx options for Global search (more than one instance)
+        // and for Multiline search
+        var regEx = new RegExp("\\{" + (i - 1) + "\\}", "gm");
+        theString = theString.replace(regEx, arguments[i]);
+    }
+    
+    return theString;
+}
 
 // get language
 function getBundleLanguage(){
@@ -2065,10 +2081,20 @@ function isNull(element){
 	}
 }
 
-function chkNotNullApplicantName(element, errElementId){
-	alert(errElementId);
+// validation - date
+function chkValidDate(element, errElementId, name){
 	if(isNull(element)){
-		alert("null value");
+		var msg = getBundle(getBundleLanguage, "date.notNull.message");
+		msg = String.format(msg, name);		
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}
+}
+
+// validation - applicant  
+function chkNotNullApplicantName(element, errElementId){
+	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
 	}else{
@@ -2108,6 +2134,74 @@ function chkValidApplicantEmail(element, errElementId){
 		resetErrElement(errElementId);
 	}	
 }
+//validation - insured
+function chkNotNullInsuredName(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "insured.name.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}
+}
+function chkValidInsuredHkId(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "insured.hkId.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else if(!IsHKID(element.value)){
+		var msg = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}
+	else{
+		resetErrElement(errElementId);
+	}
+}
+function chkNotNullBeneficiary(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "insured.beneficiary.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+	}else{
+		resetErrElement(errElementId);
+	}	
+}
+//validation - beneficiary
+function chkNotNullBeneficiaryName(element, errElementId, beneficiary){
+	if(beneficiary != null){
+		var selectedValue = beneficiary.value;
+		if(selectedValue != "SE"){
+			if(isNull(element)){
+				var msg = getBundle(getBundleLanguage, "beneficiary.name.notNull.message");
+				document.getElementById(errElementId).innerHTML = msg;
+			}else{
+				resetErrElement(errElementId);
+			}			
+		}else{
+			resetErrElement(errElementId);
+		}
+	}
+}
+function chkNotNullBeneficiaryHkId(element, errElementId, beneficiary){
+	if(beneficiary != null){
+		var selectedValue = beneficiary.value;
+		if(selectedValue != "SE"){
+			if(isNull(element)){
+				var msg = getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message");
+				document.getElementById(errElementId).innerHTML = msg;
+			}else if(!IsHKID(element.value)){
+				var msg = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");
+				document.getElementById(errElementId).innerHTML = msg;
+			}
+			else{
+				resetErrElement(errElementId);
+			}			
+		}else{
+			resetErrElement(errElementId);
+		}
+		
+	}
+}
+
+
+
 
 
 // get resource bundle

@@ -321,7 +321,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        <div class="col-lg-12 col-md-12 home-features pad-none"  >
         <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight1.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
-          <div>
+          <div class="content">
             <h2>零保費，全面安心</h2>
             <p class="h4-3">假如您在航程中不幸意外身亡，我們將為您的摯親免費提供港幣$500,000體恤金。能夠讓家人有此穩靠保障，四圍飛都無後顧之憂。</p>
 
@@ -345,7 +345,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <br>
         <div class="col-md-6 col-lg-6 text-center">  <img src="resources/images/home-flight3.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
-          <div>
+          <div class="content">
             <h2>瞬間提升保險組合</h2>
             <p class="h4-3">富衛的航空意外保與您現有的任何旅遊保險計劃都同樣匹配！不論您已購買旅遊保險與否，亦可免費申請從而獲得額外保障！</p>
 

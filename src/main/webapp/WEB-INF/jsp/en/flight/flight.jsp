@@ -42,13 +42,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');">
                 </div>
                 <span id="startDateDeskIn" class="text-red" > </span>
                 </td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');">
                 </div>
              	<span id="endDateDeskIn"  class="text-red" > </span>
              </td>
@@ -183,14 +183,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob">
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidDate(this, 'startDateMobIn', 'Depature Date');">
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
     <h4>When will you be back? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob">
+        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidDate(this, 'endDateMobIn', 'Return Date');">
       </div>
     </div>
     <span id="endDateMobIn" class="text-red"> </span>
@@ -325,7 +325,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="clearfix"></div>
         <br>
         <div class="col-md-6 col-lg-6 pad-none">
-          <div>
+          <div class="content">
             <h2>As Simple As 1, 2, Fly!</h2>
             <p class="h4-3">Our application is quick & easy. Just tell us when you’re travelling and you’re done! If you’re the spontaneous kind, you can even apply just before boarding!</p>
             <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
@@ -335,7 +335,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <br>
         <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home-flight3.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
-          <div>
+          <div class="content">
             <h2>Make It A Combo In A Snap</h2>
             <p class="h4-3">FWD FlightCare fits well with any travel insurance plan you might already have, and if you don’t, a top-up to a comprehensive TravelCare is just one click away!</p>
             <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
@@ -550,12 +550,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Depature Date');">
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Depature Date');">
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none"><h3>Who's travelling?</h3>

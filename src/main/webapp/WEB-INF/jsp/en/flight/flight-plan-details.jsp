@@ -253,14 +253,14 @@ Myself
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="adultName" id="txtAdFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
-												onblur="replaceAlpha(this);"
+												onblur="replaceAlpha(this); chkNotNullInsuredName(this, 'errtxtAdFullName${inx}');"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="X1234567"
+												class="form-control textUpper" placeholder="X1234567" onblur="chkValidInsuredHkId(this, 'errtxtInvalidInsuHkid${inx}');"
 												value="" /> <span id="errtxtInsuHkid${inx}"
 												class="text-red"> </span> <span
 												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -283,7 +283,7 @@ Myself
 											<label class="pad-left1 bold-500">Beneficiary</label> <select
 												id="adultsselectBenificiary${inx}"
 												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" class="form-control soflow">
+												name="adultBeneficiary" onblur="chkNotNullBeneficiary(this, 'erradultsselectBenificiary${inx}');" class="form-control soflow">
 												<option value="SE">Own Estate</option>
 												<c:forEach var="relationshipCodeList"
 													items="${mapRelationshipCode}">
@@ -300,7 +300,7 @@ Myself
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value="" class="form-control"
 													placeholder="As appears on HKID Card"
-													onblur="replaceAlpha(this);"
+													onblur="replaceAlpha(this); chkNotNullBeneficiaryName(this, 'erradultBenefitiaryId${inx}', 'adultBeneficiary');"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
 												</span>
@@ -309,6 +309,7 @@ Myself
 												<label class="pad-left1 bold-500">HKID</label> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
+													onblur="chkNotNullBeneficiaryHkId(this, 'erradultBenefitiaryHKId${inx}', 'adultBeneficiary');"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
 											</div>
@@ -506,7 +507,8 @@ Myself
 									Insurance. <br />
 								
 							
-							
+								<input id="checkbox2" name="checkbox1" type="checkbox">
+								<label for="checkbox2">
 									I have read and understood <a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
 									target="_blank" class="sub-link"> Personal Information
@@ -525,15 +527,15 @@ Myself
 									appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2"> Please do not send direct marketing
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3"> Please do not send direct marketing
 									information to me. <br>
 								</label>
 							</div>
 
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not provide my personal data
+								<input id="checkbox4" type="checkbox"> <label
+									for="checkbox4"> Please do not provide my personal data
 									to other persons or companies for their use in direct
 									marketing. <br> <br>
 								</label>
