@@ -268,7 +268,7 @@
 	<div class="logobox">
 		<div class="navbar-header">
 			<button type="button"
-				class="navbar-toggle pull-right col-xs-2 col-sm-2"
+				class="navbar-toggle pull-right col-xs-1 col-sm-1"
 				data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
