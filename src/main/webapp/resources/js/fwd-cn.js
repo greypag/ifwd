@@ -1134,13 +1134,17 @@ $(window).load(function(){
 });//]]> 
 
 //// home care page validation
+
+
+
+
 function msgAlertDesk() {
     var flag = true;
 
     if (document.getElementById("inlineDeskRadio1").checked) {
         flag = false;
     }
-    if (document.getElementById("inlineDeskRadio3").checked) {
+    if (document.getElementById("inlineDeskRadio2").checked) {
         flag = false;
     }
     if (flag == false) {

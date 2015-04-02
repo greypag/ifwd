@@ -14,7 +14,6 @@
     <![endif]-->
 
 <!--<script src="js/jquery.min.js"></script>
-<script>
    $(function () { $("[data-toggle='tooltip']").tooltip(); });
 </script>-->
 

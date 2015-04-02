@@ -33,10 +33,8 @@ import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 /**
- * The HomeCareServiceImpl implementation Class for HomecareService
- * for HOME care Module
- *  * @author Prakash
- * Added @since 2015-03-18
+ * The HomeCareServiceImpl implementation Class for HomecareService for HOME
+ * care Module * @author Prakash Added @since 2015-03-18
  */
 public class HomeCareServiceImpl implements HomeCareService {
 	@Autowired
@@ -99,30 +97,32 @@ public class HomeCareServiceImpl implements HomeCareService {
 	}
 
 	public HomeQuoteBean getHomePlan(String token, String userName,
-			String userReferralCode, String answer1, String answer2, String language) {
-		
-		String ans1="";;
-		String ans2="";
-		System.out.println("Ans 1 in Controller==="+answer1+"Answer2 in Servicr impl==="+answer2);
-//		answer1 = StringHelper.convertToUTF8(answer1);
+			String userReferralCode, String answer1, String answer2,
+			String language) {
 
-		if(answer1.equalsIgnoreCase("NO") || answer1.equals("å¦"))
-		{
-			ans1="N";
+		String ans1 = "";
+		;
+		String ans2 = "";
+		System.out.println("Ans 1 in Controller===" + answer1
+				+ "Answer2 in Servicr impl===" + answer2);
+		// answer1 = StringHelper.convertToUTF8(answer1);
+
+		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
+			ans1 = "N";
 		}
-		if(answer2.equalsIgnoreCase("NO")|| answer2.equals("å¦"))
-		{
-			ans2="N";
+		if (answer2.equalsIgnoreCase("NO") || answer2.equals("å¦")) {
+			ans2 = "N";
 		}
-		//NAT TEMPORARILY SET BEFORE THE LANGUAGE PROBLEM SOLVED IN API
+		// NAT TEMPORARILY SET BEFORE THE LANGUAGE PROBLEM SOLVED IN API
 
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
-		RestServiceDao restService = new RestServiceImpl();	
+		RestServiceDao restService = new RestServiceImpl();
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="
 				+ "&building=building1&estate=estate1&streetNo="
-				+ "&streetName=&district=&area=&answer1="+ans1+"&answer2="+ans2;
+				+ "&streetName=&district=&area=&answer1=" + ans1 + "&answer2="
+				+ ans2;
 
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
@@ -130,79 +130,81 @@ public class HomeCareServiceImpl implements HomeCareService {
 			header.put("userName", userName);
 			header.put("token", token);
 		}
-		
+
 		System.out.println("******************URL==>" + url);
 		System.out.println("******************Header ===>>" + header);
 
 		JSONObject jsonGetPlanResponse = restService.consumeApi(HttpMethod.GET,
 				url, header, null);
-		System.out.println("WS Response===>>>" + jsonGetPlanResponse);
-		JSONArray jsonArrayMsg = (JSONArray) jsonGetPlanResponse
-				.get("errMsgs");
-		
-	//	if (jsonGetPlanResponse.get("errMsgs") == null) {
-		String referralCode = (String) jsonGetPlanResponse.get("referralCode");
-		String referralName = (String) jsonGetPlanResponse.get("referralName");
-		String planCode = (String) jsonGetPlanResponse.get("planCode");
-		
-		System.out.println("Plan Code ===>>" + planCode);
-		
-		jsonGetPlanResponse.get("priceInfo");
-		JSONObject jsonPriceInfo = new JSONObject();
-		
-		jsonPriceInfo = (JSONObject) jsonGetPlanResponse.get("priceInfo");
-		String discountPercentage = jsonPriceInfo.get("discountPercentage").toString();
-		String totalDue = jsonPriceInfo.get("totalDue").toString();
-		String grossPremium = jsonPriceInfo.get("grossPremium").toString();
-		String totalNetPremium = jsonPriceInfo.get("totalNetPremium").toString();
-		 String discountAmount = jsonPriceInfo.get("discountAmount").toString();
-		/*
-		String discountPercentage =(checkJsonObjNull(jsonGetPlanResponse, "discountPercentage"));
-		String totalDue =(checkJsonObjNull(jsonGetPlanResponse, "totalDue"));
-		String grossPremium =(checkJsonObjNull(jsonGetPlanResponse, "grossPremium"));
-		String totalNetPremium =(checkJsonObjNull(jsonGetPlanResponse, "totalNetPremium"));
-		String discountAmount =(checkJsonObjNull(jsonGetPlanResponse, "discountAmount"));*/
-		
-		quoteDetails.setDiscountPercentage(discountPercentage);
-		quoteDetails.setTotalDue(totalDue);
-		quoteDetails.setGrossPremium(grossPremium);
-		quoteDetails.setTotalNetPremium(totalNetPremium);
-		quoteDetails.setDiscountAmount(discountAmount);
-		quoteDetails.setReferralCode(referralCode);
-		quoteDetails.setReferralName(referralName);
-		quoteDetails.setPlanCode(planCode);
-		//quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
-		quoteDetails.setErrormsg(checkJsonObjNull(jsonGetPlanResponse, "errMsgs"));
-		
-		//}
+		if (jsonGetPlanResponse.get("errMsgs") == null) {
+
+			System.out.println("WS Response===>>>" + jsonGetPlanResponse);
+
+			// if (jsonGetPlanResponse.get("errMsgs") == null) {
+			String referralCode = (String) jsonGetPlanResponse
+					.get("referralCode");
+			String referralName = (String) jsonGetPlanResponse
+					.get("referralName");
+			String planCode = (String) jsonGetPlanResponse.get("planCode");
+
+			System.out.println("Plan Code ===>>" + planCode);
+
+			jsonGetPlanResponse.get("priceInfo");
+			JSONObject jsonPriceInfo = new JSONObject();
+
+			jsonPriceInfo = (JSONObject) jsonGetPlanResponse.get("priceInfo");
+			String discountPercentage = jsonPriceInfo.get("discountPercentage")
+					.toString();
+			String totalDue = jsonPriceInfo.get("totalDue").toString();
+			String grossPremium = jsonPriceInfo.get("grossPremium").toString();
+			String totalNetPremium = jsonPriceInfo.get("totalNetPremium")
+					.toString();
+			String discountAmount = jsonPriceInfo.get("discountAmount")
+					.toString();
+
+			quoteDetails.setDiscountPercentage(discountPercentage);
+			quoteDetails.setTotalDue(totalDue);
+			quoteDetails.setGrossPremium(grossPremium);
+			quoteDetails.setTotalNetPremium(totalNetPremium);
+			quoteDetails.setDiscountAmount(discountAmount);
+			quoteDetails.setReferralCode(referralCode);
+			quoteDetails.setReferralName(referralName);
+			quoteDetails.setPlanCode(planCode);
+			// quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
+			quoteDetails.setErrormsg(checkJsonObjNull(jsonGetPlanResponse,
+					"errMsgs"));
+		} else {
+			JSONArray jsonArrayMsg = (JSONArray) jsonGetPlanResponse
+					.get("errMsgs");
+			quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
+		}
 		return quoteDetails;
 	}
 
 	public String getHomePlanToString(String token, String userName,
-			String userReferralCode, String answer1, String answer2, String language) {
-		
-		String ans1="";;
-		String ans2="";
-		System.out.println("Ans 1 in Controller==="+answer1+"Answer2 in Servicr impl==="+answer2);
-//		answer1 = StringHelper.convertToUTF8(answer1);
+			String userReferralCode, String answer1, String answer2,
+			String language) {
 
-		if(answer1.equalsIgnoreCase("NO") || answer1.equals("å¦"))
-		{
-			ans1="N";
-		}
-		if(answer2.equalsIgnoreCase("NO")|| answer2.equals("å¦"))
-		{
-			ans2="N";
-		}
-		//NAT TEMPORARILY SET BEFORE THE LANGUAGE PROBLEM SOLVED IN API
+		String ans1 = "";
+		;
+		String ans2 = "";
+		System.out.println("Ans 1 in Controller===" + answer1
+				+ "Answer2 in Servicr impl===" + answer2);
 
-		HomeQuoteBean quoteDetails = new HomeQuoteBean();
-		RestServiceDao restService = new RestServiceImpl();	
+		//å¦ is the CHINESE WORD 否, TODO - CONVERT THAT CHARACTER TO BE READABLE
+		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
+			ans1 = "N";
+		}
+		if (answer2.equalsIgnoreCase("NO") || answer2.equals("å¦")) {
+			ans2 = "N";
+		}
+		RestServiceDao restService = new RestServiceImpl();
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="
 				+ "&building=building1&estate=estate1&streetNo="
-				+ "&streetName=&district=&area=&answer1="+ans1+"&answer2="+ans2;
+				+ "&streetName=&district=&area=&answer1=" + ans1 + "&answer2="
+				+ ans2;
 
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
@@ -210,19 +212,16 @@ public class HomeCareServiceImpl implements HomeCareService {
 			header.put("userName", userName);
 			header.put("token", token);
 		}
-		
-		System.out.println("******************URL==>" + url);
-		System.out.println("******************Header ===>>" + header);
 
+		System.out.println("******************URL==>" + url);
 		JSONObject jsonGetPlanResponse = restService.consumeApi(HttpMethod.GET,
 				url, header, null);
 		System.out.println("WS Response===>>>" + jsonGetPlanResponse);
 		return jsonGetPlanResponse.toJSONString();
 	}
 
-	
-	
-	public List<DistrictBean> getDistrict(String userName, String token, String language) {
+	public List<DistrictBean> getDistrict(String userName, String token,
+			String language) {
 		// TODO Auto-generated method stub
 		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
 
@@ -239,27 +238,20 @@ public class HomeCareServiceImpl implements HomeCareService {
 		System.out.println("jsonResponseDistrict=====>>>"
 				+ jsonResponseDistrict);
 
-		// {"districtList":
-		// [{"Area":"HK ","Description":"ABERDEEN ","Code":"AD"},{"Area":"HK ","Description":"ADMIRALTY","Code":"A1"},
-		// {"Area":"HK ","Description":"AP LEI CHAU","Code":"AL"},{"Area":"KL ","Description":"BEACON HILL","Code":"BH"},
-
 		if (jsonResponseDistrict.get("errMsgs") == null) {
+			JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict
+					.get("districtList");
+			Iterator<?> itr = jsonDistrictArray.iterator();
 
-			if (jsonResponseDistrict.get("errMsgs") == null) {
-				JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict
-						.get("districtList");
-				Iterator<?> itr = jsonDistrictArray.iterator();
+			while (itr.hasNext()) {
+				JSONObject jsonDistrictObj = (JSONObject) itr.next();
+				DistrictBean district = new DistrictBean();
+				district.setArea(checkJsonObjNull(jsonDistrictObj, "Area"));
+				district.setCode(checkJsonObjNull(jsonDistrictObj, "Code"));
+				district.setDescription(checkJsonObjNull(jsonDistrictObj,
+						"Description"));
 
-				while (itr.hasNext()) {
-					JSONObject jsonDistrictObj = (JSONObject) itr.next();
-					DistrictBean district = new DistrictBean();
-					district.setArea(checkJsonObjNull(jsonDistrictObj, "Area"));
-					district.setCode(checkJsonObjNull(jsonDistrictObj, "Code"));
-					district.setDescription(checkJsonObjNull(jsonDistrictObj,
-							"Description"));
-
-					districtList.add(district);
-				}
+				districtList.add(district);
 			}
 		}
 
@@ -267,7 +259,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 	}
 
 	@Override
-	public Map<String, String> getNetFloorArea(String userName, String token, String language) {
+	public Map<String, String> getNetFloorArea(String userName, String token,
+			String language) {
 		// TODO Auto-generated method stub
 
 		String url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA
@@ -288,14 +281,14 @@ public class HomeCareServiceImpl implements HomeCareService {
 		if (jsonResponseNetFloorArea.get("errMsgs") == null) {
 			JSONArray jsonNetFloorAreaArray = (JSONArray) jsonResponseNetFloorArea
 					.get("optionItemDesc");
-		
-		for (int i = 0; i < jsonNetFloorAreaArray.size(); i++) {
-			JSONObject obj = (JSONObject) jsonNetFloorAreaArray.get(i);
-			mapNetFloorArea.put(checkJsonObjNull(obj, "itemCode"),
-					checkJsonObjNull(obj, "itemDesc"));
-		}
-		
-		// {"optionItemDesc":[{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA01","itemLang":"EN","itemDesc":"Less than 500"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA02","itemLang":"EN","itemDesc":"500-700"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA03","itemLang":"EN","itemDesc":"701-850"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA04","itemLang":"EN","itemDesc":"851-1000"}],"errMsgs":null}
+
+			for (int i = 0; i < jsonNetFloorAreaArray.size(); i++) {
+				JSONObject obj = (JSONObject) jsonNetFloorAreaArray.get(i);
+				mapNetFloorArea.put(checkJsonObjNull(obj, "itemCode"),
+						checkJsonObjNull(obj, "itemDesc"));
+			}
+
+			// {"optionItemDesc":[{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA01","itemLang":"EN","itemDesc":"Less than 500"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA02","itemLang":"EN","itemDesc":"500-700"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA03","itemLang":"EN","itemDesc":"701-850"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA04","itemLang":"EN","itemDesc":"851-1000"}],"errMsgs":null}
 		}
 
 		return mapNetFloorArea;
@@ -303,95 +296,91 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
-	public CreatePolicy createHomeCarePolicy(String userName,
-			String token, HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language) {
-		
-		
+	public CreatePolicy createHomeCarePolicy(String userName, String token,
+			HomeCareDetailsBean homeCareDetails, UserDetails userDetails,
+			String language) {
+
 		JSONObject parameters = new JSONObject();
 		JSONObject correspondenceAddress = new JSONObject();
 		JSONObject insuredAddress = new JSONObject();
 		JSONObject applicant = new JSONObject();
 		RestServiceDao restService = new RestServiceImpl();
-		
+
 		Date effectiveDate = new Date(homeCareDetails.getEffectiveDate());
-		
+
 		LocalDate date = new LocalDate(effectiveDate);
-		CreatePolicy createPolicy= new CreatePolicy();
-		
-		String edate=date.toString();
-		System.out.println("edATE============================>>>"+edate);
-		String strDeclaration =homeCareDetails.getDeclarration();
-		String strReadAndUnderstood= homeCareDetails.getReadAndUnderstood();
+		CreatePolicy createPolicy = new CreatePolicy();
+
+		String edate = date.toString();
+		System.out.println("edATE============================>>>" + edate);
+		String strDeclaration = homeCareDetails.getDeclarration();
+		String strReadAndUnderstood = homeCareDetails.getReadAndUnderstood();
 		boolean dec;
 		boolean readAndUnderStood;
-		if (strDeclaration.equalsIgnoreCase("on"))
-		{
-			dec=true;
-		}else{dec=false;}
-		
-//		if (strReadAndUnderstood.equalsIgnoreCase("on"))
-//		{
-//			readAndUnderStood=true;
-//		}
-//		else
-//		{
-//			readAndUnderStood=false;
-//		}
-//		
-		parameters.put("commencementDate",edate);
+		if (strDeclaration.equalsIgnoreCase("on")) {
+			dec = true;
+		} else {
+			dec = false;
+		}
+
+		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
 		parameters.put("planCode", homeCareDetails.getPlanCode());
-		
-		correspondenceAddress.put("room",homeCareDetails.getApplicantRoom());
+
+		correspondenceAddress.put("room", homeCareDetails.getApplicantRoom());
 		correspondenceAddress.put("floor", homeCareDetails.getApplicantFloor());
 		correspondenceAddress.put("block", homeCareDetails.getApplicantBlock());
-		correspondenceAddress.put("building", homeCareDetails.getApplicantBuilding());
-		correspondenceAddress.put("estate", homeCareDetails.getApplicantEstate());
-		correspondenceAddress.put("streetNo",homeCareDetails.getApplicantStreetName());
-		correspondenceAddress.put("district", homeCareDetails.getApplicantDistrict());
+		correspondenceAddress.put("building",
+				homeCareDetails.getApplicantBuilding());
+		correspondenceAddress.put("estate",
+				homeCareDetails.getApplicantEstate());
+		correspondenceAddress.put("streetNo",
+				homeCareDetails.getApplicantStreetName());
+		correspondenceAddress.put("district",
+				homeCareDetails.getApplicantDistrict());
 		correspondenceAddress.put("area", homeCareDetails.getApplicantArea());
-		
+
 		parameters.put("correspondenceAddress", correspondenceAddress);
-		
-		
+
 		applicant.put("name", userDetails.getFullName());
-		//applicant.put("gender", userDetails.getGender());
-		applicant.put("gender","M");
-	//	applicant.put("dob", userDetails.getDob());
-		
+		applicant.put("gender", "M");
+
 		applicant.put("dob", "");
-		
+
 		applicant.put("hkId", userDetails.getHkid());
 		applicant.put("passport", userDetails.getPassport());
-		applicant.put("email",userDetails.getEmailAddress());
+		applicant.put("email", userDetails.getEmailAddress());
 		applicant.put("mobileNo", userDetails.getMobileNo());
-		applicant.put("occupation","");
-		applicant.put("optIn1",dec);
-//		applicant.put("optIn2",readAndUnderStood);
+		applicant.put("occupation", "");
+		applicant.put("optIn1", dec);
+		// applicant.put("optIn2",readAndUnderStood);
 
 		parameters.put("applicant", applicant);
-		
+
 		insuredAddress.put("room", homeCareDetails.getaRoom());
-		
-		insuredAddress.put("floor", homeCareDetails.getaFloor());;
+
+		insuredAddress.put("floor", homeCareDetails.getaFloor());
+
 		insuredAddress.put("block", homeCareDetails.getaBlock());
 		insuredAddress.put("building", homeCareDetails.getaBuilding());
-		insuredAddress.put("estate", homeCareDetails.getaEstate() );
+		insuredAddress.put("estate", homeCareDetails.getaEstate());
 		insuredAddress.put("streetNo", homeCareDetails.getaStreetNo());
 		insuredAddress.put("streetName", homeCareDetails.getaStreetName());
-		insuredAddress.put("district",homeCareDetails.getaDistrict());
+		insuredAddress.put("district", homeCareDetails.getaDistrict());
 		insuredAddress.put("area", homeCareDetails.getaArea());
 		parameters.put("insuredAddress", insuredAddress);
-		
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
-		header.put("userName",userName);
-		header.put("token",token);
 
-		System.out.println("parameter for Create Homecare Policy=========>>>"+parameters);
-		
-		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
-				UserRestURIConstants.HOMECARE_CREATE_POLICY, header, parameters);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", userName);
+		header.put("token", token);
+
+		System.out.println("parameter for Create Homecare Policy=========>>>"
+				+ parameters);
+
+		JSONObject responsObject = restService
+				.consumeApi(HttpMethod.PUT,
+						UserRestURIConstants.HOMECARE_CREATE_POLICY, header,
+						parameters);
 
 		System.out.println("WS Response=====>>>>" + responsObject);
 
@@ -399,14 +388,21 @@ public class HomeCareServiceImpl implements HomeCareService {
 		if (resultObj.get("errMsgs") == null) {
 			resultObj.get("referenceNo");
 			resultObj.get("referralCode");
-			
-			createPolicy.setReferralCode(checkJsonObjNull(responsObject, "referralCode"));
-			createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
-			createPolicy.setPlanCode(checkJsonObjNull(responsObject, "planCode"));
-			createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
-			createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
-			createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
-			createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
+
+			createPolicy.setReferralCode(checkJsonObjNull(responsObject,
+					"referralCode"));
+			createPolicy.setReferenceNo(checkJsonObjNull(responsObject,
+					"referenceNo"));
+			createPolicy
+					.setPlanCode(checkJsonObjNull(responsObject, "planCode"));
+			createPolicy.setPaymentGateway(checkJsonObjNull(responsObject,
+					"paymentGateway"));
+			createPolicy.setMerchantId(checkJsonObjNull(responsObject,
+					"merchantId"));
+			createPolicy
+					.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
+			createPolicy.setPaymentType(checkJsonObjNull(responsObject,
+					"paymentType"));
 			createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
 		}
 		return createPolicy;
@@ -416,16 +412,15 @@ public class HomeCareServiceImpl implements HomeCareService {
 	public CreatePolicy confirmHomeCarePolicy(String userName, String token,
 			String referenceNo, String language) {
 		// TODO Auto-generated method stub
-		
+
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
-		header.put("userName",
-				userName);
+		header.put("userName", userName);
 		header.put("token", token);
 		RestServiceDao restService = new RestServiceImpl();
-		
-		CreatePolicy createPolicy= new CreatePolicy();
-		
+
+		CreatePolicy createPolicy = new CreatePolicy();
+
 		JSONObject confirmPolicyParameter = new JSONObject();
 		confirmPolicyParameter.put("referenceNo", referenceNo);
 		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
@@ -434,97 +429,90 @@ public class HomeCareServiceImpl implements HomeCareService {
 		System.out.println("Response From Confirm homeCare Policy "
 				+ jsonResponse);
 
-		createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
-				"secureHash"));
+		createPolicy
+				.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
 		createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse,
 				"transactionNumber"));
 		createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
 				"transactionDate"));
-		
-		
+
 		return createPolicy;
 	}
 
-	/*@Override
-	public List<String> confirmHomeCare(String userName, String token,
-			String referenceNo, String transactionNumber,
-			String transactionDate, String creditCardNo, String expiryDate) {
-
-		
-		RestServiceDao restService = new RestServiceImpl();
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
-		header.put("userName",
-				userName);
-		header.put("token",
-				token);
-
-		
-		JSONObject responsObject = new JSONObject();
-		
-			JSONObject parameters = new JSONObject();
-			parameters.put("referenceNo",referenceNo);
-			parameters.put("transactionNumber", transactionNumber);
-			parameters.put("transactionDate", transactionDate);
-			parameters.put("creditCardNo",creditCardNo);
-			parameters.put("expiryDate", expiryDate);
-			
-		
-		
-		JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
-				UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
-				parameters);
-		 System.out.println("final homeCare Policy Response"+responsObject);
-
-		if (responsObject.get("errMsgs") == null) {
-			
-			JSONObject email_params = new JSONObject();
-			//email_params.put("to", emailId);
-			email_params.put("message", "<h1>my testing</h1><u>underline</u>");
-			email_params.put("subject", "html testing");
-			email_params.put("attachment", null);
-			email_params.put("from", "sit@ecomm.fwd.com");
-
-			restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.SEND_MAIL, header, email_params);
-		}
-		
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+	/*
+	 * @Override public List<String> confirmHomeCare(String userName, String
+	 * token, String referenceNo, String transactionNumber, String
+	 * transactionDate, String creditCardNo, String expiryDate) {
+	 * 
+	 * 
+	 * RestServiceDao restService = new RestServiceImpl(); HashMap<String,
+	 * String> header = new HashMap<String, String>( COMMON_HEADERS);
+	 * header.put("userName", userName); header.put("token", token);
+	 * 
+	 * 
+	 * JSONObject responsObject = new JSONObject();
+	 * 
+	 * JSONObject parameters = new JSONObject();
+	 * parameters.put("referenceNo",referenceNo);
+	 * parameters.put("transactionNumber", transactionNumber);
+	 * parameters.put("transactionDate", transactionDate);
+	 * parameters.put("creditCardNo",creditCardNo); parameters.put("expiryDate",
+	 * expiryDate);
+	 * 
+	 * 
+	 * 
+	 * JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
+	 * UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header, parameters);
+	 * System.out.println("final homeCare Policy Response"+responsObject);
+	 * 
+	 * if (responsObject.get("errMsgs") == null) {
+	 * 
+	 * JSONObject email_params = new JSONObject(); //email_params.put("to",
+	 * emailId); email_params.put("message",
+	 * "<h1>my testing</h1><u>underline</u>"); email_params.put("subject",
+	 * "html testing"); email_params.put("attachment", null);
+	 * email_params.put("from", "sit@ecomm.fwd.com");
+	 * 
+	 * restService.consumeApi(HttpMethod.POST, UserRestURIConstants.SEND_MAIL,
+	 * header, email_params); }
+	 * 
+	 * // TODO Auto-generated method stub return null; }
+	 */
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId, String language) {
-		
-		
+	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,
+			String referenceNo, String transactionNumber,
+			String transactionDate, String creditCardNo, String expiryDate,
+			String emailId, String language) {
+
 		RestServiceDao restService = new RestServiceImpl();
 		CreatePolicy finalizeObject = new CreatePolicy();
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
-		header.put("userName",
-				userName);
-		header.put("token",
-				token);
-			JSONObject parameters = new JSONObject();
-			parameters.put("referenceNo",referenceNo);
-			parameters.put("transactionNumber", transactionNumber);
-			parameters.put("transactionDate", transactionDate);
-			parameters.put("creditCardNo",creditCardNo);
-			parameters.put("expiryDate", expiryDate);
-			
+		header.put("userName", userName);
+		header.put("token", token);
+		JSONObject parameters = new JSONObject();
+		parameters.put("referenceNo", referenceNo);
+		parameters.put("transactionNumber", transactionNumber);
+		parameters.put("transactionDate", transactionDate);
+		parameters.put("creditCardNo", creditCardNo);
+		parameters.put("expiryDate", expiryDate);
+
 		JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
 				parameters);
-		 System.out.println("final homeCare Policy Response"+apiResponsObject);
+		System.out.println("final homeCare Policy Response" + apiResponsObject);
 
 		if (apiResponsObject.get("errMsgs") == null) {
-			
-		//	finalizeObject.setPolicyNo((String )apiResponsObject.get("policy"));
+
+			// finalizeObject.setPolicyNo((String
+			// )apiResponsObject.get("policy"));
 			finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject,
 					"policyNo"));
-			
-			System.out.println("POlicy Number in Impl after WS "+finalizeObject.getPolicyNo());
+
+			System.out.println("POlicy Number in Impl after WS "
+					+ finalizeObject.getPolicyNo());
 			finalizeObject.setReferralCode(referenceNo);
 		}
 		return finalizeObject;

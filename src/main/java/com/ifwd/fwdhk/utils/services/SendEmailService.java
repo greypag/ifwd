@@ -21,8 +21,8 @@ public class SendEmailService implements SendEmailDao {
 	public boolean sendEmail(String emailId, String promotionalCode,
 			HashMap<String, String> header) {
 		boolean result = false;
-		String message = "Thank your for registering for receiving offers, upgrades and information from FWD*.  Your promotion code is ABC. "
-				+ "FWD respects your privacy. For more information, please read our privacy policy at <link to FWD or iFWD site>."
+		String message = "Thank your for registering for receiving offers, upgrades and information from FWD*.  Your promotion code is ABC. \n\n"
+				+ "FWD respects your privacy. For more information, please read our privacy policy at <link to FWD or iFWD site>.\n\n"
 				+ "*Note: You may unsubscribe at any time.  To unsubscribe, pls call us at 3123-3123.";
 
 		JSONObject email_params = new JSONObject();

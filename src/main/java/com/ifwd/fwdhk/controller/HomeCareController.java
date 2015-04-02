@@ -76,18 +76,22 @@ public class HomeCareController {
 				username = session.getAttribute("username").toString();
 			}
 		}
-		/*
-		 * String token = session.getAttribute("token").toString(); String
-		 * username = session.getAttribute("username").toString();
-		 */
 		List<HomeCareQuetionaries> homeCareQuetionariesList = homecareService
 				.getHomeQuetionaries(token, username, UserRestURIConstants.getLanaguage(request));
+		if (homeCareQuetionariesList.size() > 0) {
+			request.setAttribute("homeCareQuetionariesList",
+					homeCareQuetionariesList);
+			model.addAttribute(homeCareQuetionariesList);
 
-		request.setAttribute("homeCareQuetionariesList",
-				homeCareQuetionariesList);
-		model.addAttribute(homeCareQuetionariesList);
+			return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare";	
+		} else {
+			model.addAttribute("errMsgs", "Question lists cannot be retrieved");
 
-		return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare";
+			model.addAttribute("action", "/");
+			return "redirect:/redirect";
+		}
+			
+		
 	}
 
 	@RequestMapping(value = "/getHomePlan")
@@ -115,8 +119,8 @@ public class HomeCareController {
 		 * String userReferralCode = (String) request.getSession().getAttribute(
 		 * "referralCode");
 		 */
-
-		String userReferralCode = null;
+//
+		String userReferralCode = "";
 
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
 				userReferralCode, answer1, answer2, UserRestURIConstants.getLanaguage(request));
@@ -125,6 +129,22 @@ public class HomeCareController {
 		model.addAttribute("answer2", answer2);
 
 		return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare-plan";
+		
+		//NAT REMOVE THE ERROR HANDLING
+//		if (planQuote.getErrormsg() == null) {
+//			model.addAttribute("planQuote", planQuote);
+//			model.addAttribute("answer1", answer1);
+//			model.addAttribute("answer2", answer2);
+//	
+//			return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare-plan";
+//		} else {
+//			model.addAttribute("errMsgs", planQuote.getErrormsg());
+//			
+//			
+//			model.addAttribute("action", "/homecare");
+//			return "redirect:/redirect";
+//		}
+		
 	}
 
 	@RequestMapping(value = "/getYourHomeCareDetails")
@@ -181,24 +201,13 @@ public class HomeCareController {
 		
 
 		String referralCode = request.getParameter("referralCode");
-
-		
-		//HARD CODE "NO" AS IT SHOULD HAVE ANSWERED
-//		String planQuote = homecareService.getHomePlanString(token, username,
-//				referralCode, "NO", "NO", UserRestURIConstants.getLanaguage(request));
 		String planQuote = homecareService.getHomePlanToString(token, username, referralCode, "NO", "NO", UserRestURIConstants.getLanaguage(request));
-
-//		System.out.println("planQuote.getErrormsg()===>>>>"
-//				+ planQuote.getErrormsg());
-//
-//		planQuote.setErrormsg(planQuote.getErrormsg().replace("[\"", ""));
-//		planQuote.setErrormsg(planQuote.getErrormsg().replace("\"]", ""));
-//		
-//		System.out.println("Error Message");
-//		String errorMessage = planQuote.getErrormsg();
-//		model.addAttribute("errorMessage", errorMessage);
-//		model.addAttribute("planQuote", planQuote);
-		System.out.println("planQuote " + planQuote);
+		
+		if (!planQuote.contains("Promotion Code is not valid")) {
+			session.setAttribute("referralCode", referralCode);
+		}
+		
+		
 		return planQuote;
 	}
 
@@ -216,15 +225,12 @@ public class HomeCareController {
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
-		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
-		
+		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);		
 		if (homeCareDetails.getTotalDue() != null) {
 			session.setAttribute("homeCareDetails", homeCareDetails);				
 		} else {
 			homeCareDetails = (HomeCareDetailsBean) session.getAttribute("homeCareDetails");
 		}
-			
-		
 		System.out.println("***************passportORhkid********************");
 		if (passportORhkid.equalsIgnoreCase("appHkid")) {
 			userDetails.setHkid(hkId);

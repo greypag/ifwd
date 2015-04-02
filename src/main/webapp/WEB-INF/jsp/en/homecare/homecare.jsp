@@ -138,11 +138,8 @@
 								<form:form name="getHomeQuote" id="getHomeQuote"
 									action="getHomePlan" method="post"
 									modelAttribute="homeCarelPlan">
-
-
 									<div class="col-lg-12 col-md-12 hidden-xs hidden-sm pad-none">
 										<h2>Get your Easy HomeCare insurance now</h2>
-
 										<%
 											List lst = (List) request
 														.getAttribute("homeCareQuetionariesList");
@@ -184,18 +181,16 @@
 												i++;
 										%>
 										<div class="col-lg-4 col-md-4">
-
 											<button type="submit"
 												class="bdr-curve btn btn-primary nxt-btn"
 												onclick="return msgAlertDesk()">Get Quote</button>
-											<!-- <a href="homecare-plan.html" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return msgAlertDesk()">Get Quote</a> -->
 										</div>
 										<div class="clearfix"></div>
 										<p class="pad-none">
 											FWD Easy HomeCare*<br>
-											<br> *applicable to any home below gross area of 1,000
-											sq. ft.
+											<br> *applicable to any home below gross area of 1,000 sq. ft.
 										</p>
+										
 									</div>
 								</form:form>
 
@@ -424,7 +419,7 @@
 						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
 					</div>
 				</div>
-				<div class="clearfix"></div>
+				<div class="text-red"><c:out value="${errMsgs}" /></div>
 			</div>
 			<div class="other-benefits col-lg-12">
 

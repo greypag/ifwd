@@ -64,55 +64,39 @@ public class TravelController {
 		HttpSession session = request.getSession();
 
 		JSONObject responsObject = new JSONObject();
-		
+
 		try {
 			JSONObject parameters = new JSONObject();
 			parameters.put("referenceNo",
 					session.getAttribute("finalizeReferenceNo"));
-			parameters.put("transactionNumber",
-					session.getAttribute("transNo"));
+			parameters
+					.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",
 					session.getAttribute("transactionDate"));
-			parameters.put("creditCardNo",
-					session.getAttribute("creditCardNo"));
 			parameters
-					.put("expiryDate", session.getAttribute("expiryDate"));
+					.put("creditCardNo", session.getAttribute("creditCardNo"));
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
-			header.put("userName", session.getAttribute("username")
-					.toString());
+			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
 			System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
 					+ parameters);
 			System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
-			/*
-			 * System.out.println("final Travel Policy Response"+responsObject
-			 * );
-			 */
-
 			if (responsObject.get("errMsgs") == null) {
-
-				// String emailId = session.getAttribute("emailAddress")
-				// .toString();
-				//
-				// sendEmail.sendEmail(emailId,
-				// checkJsonObjNull(responsObject, "referenceNo"), header);
-
-				session.setAttribute("policyNo",
-						responsObject.get("policyNo"));
-
-				model.addAttribute("policyNo",
-						responsObject.get("policyNo"));
+				session.setAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("emailAddress",
 						session.getAttribute("emailAddress"));
 				model.addAttribute("referralCode",
 						session.getAttribute("referralCode"));
-
 				return "travel/"
 						+ UserRestURIConstants.checkLangSetPage(request)
 						+ "/travel-confirmation";
@@ -127,20 +111,6 @@ public class TravelController {
 			return UserRestURIConstants.checkLangSetPage(request)
 					+ "travel/travel-confirmation";
 		}
-//		if (session.getAttribute("policyNo") == null) {
-//			
-//		} else {
-//
-//			model.addAttribute("policyNo", session.getAttribute("policyNo"));
-//			model.addAttribute("emailAddress",
-//					session.getAttribute("emailAddress"));
-//			model.addAttribute("referralCode",
-//					session.getAttribute("referralCode"));
-//
-//			return "travel/" + UserRestURIConstants.checkLangSetPage(request)
-//					+ "/travel-confirmation";
-//		}
-
 	}
 
 	@RequestMapping(value = "/processTravePayment")
@@ -158,19 +128,7 @@ public class TravelController {
 						+ request.getParameter("epYear"));
 		request.getSession().setAttribute("emailAddress",
 				request.getParameter("emailAddress"));
-		/*
-		 * String url =
-		 * "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp?amount="
-		 * + request.getParameter("amount") + "&orderRef=" +
-		 * request.getParameter("orderRef") + "&currCode=" +
-		 * request.getParameter("currCode") + "&successUrl=" +
-		 * request.getParameter("successUrl") + "&failUrl=" +
-		 * request.getParameter("failUrl") + "&lang=" +
-		 * request.getParameter("lang") + "&secureHash=" +
-		 * request.getParameter("secureHash");
-		 * System.out.println("payment gateway url " + url);
-		 * response.sendRedirect(url);
-		 */
+
 		return "success";
 	}
 
@@ -202,7 +160,7 @@ public class TravelController {
 					username = session.getAttribute("username").toString();
 				}
 			}
-			
+
 			int days = 0;
 
 			/* Calculate total Days */
@@ -253,7 +211,9 @@ public class TravelController {
 				header.put("userName", username);
 				header.put("token", token);
 			}
-			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -329,13 +289,11 @@ public class TravelController {
 		String planSelected = request.getParameter("planSelected");
 		int adults = travelQuote.getTotalAdultTraveller();
 		int child = travelQuote.getTotalChildTraveller();
-		int others =  travelQuote.getTotalPersonalTraveller();
+		int others = travelQuote.getTotalPersonalTraveller();
 		boolean isSpouseCover = false;
 		String referralCode = "";
-		if (planSelected.equals("personal"))
-		{
-			if (adults > 1)
-			{
+		if (planSelected.equals("personal")) {
+			if (adults > 1) {
 				others = travelQuote.getTotalPersonalTraveller() - 1;
 				isSpouseCover = false;
 				child = 0;
@@ -351,16 +309,10 @@ public class TravelController {
 		}
 		referralCode = request.getParameter("referralCode");
 		try {
-
-			/* Calculate total Days */
-
 			travelQuote.setTotalTravellingDays(days + 1);
-
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-					+ "&selfCover=true"
-					+ "&spouseCover=" + isSpouseCover + "&childInput="
-					+ child + "&otherInput="
-					+ others
+					+ "&selfCover=true" + "&spouseCover=" + isSpouseCover
+					+ "&childInput=" + child + "&otherInput=" + others
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + referralCode;
 
@@ -373,7 +325,9 @@ public class TravelController {
 				header.put("token", request.getSession().getAttribute("token")
 						.toString());
 			}
-			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
@@ -475,8 +429,10 @@ public class TravelController {
 						.toString());
 				header.put("token", session.getAttribute("token").toString());
 			}
-			
-			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -637,14 +593,13 @@ public class TravelController {
 
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "A");
+		
+		//parameters.put("planCode", planDetailsForm.getPlanCode());
+		
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
 
-		/*
-		 * System.out.println("List Size=====>" +
-		 * planDetailsForm.getTotalAdultTraveller());
-		 */
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -666,19 +621,16 @@ public class TravelController {
 			/* adult.put("passport", "1234" + inx); */
 			/* adult.put("passport", ""); */
 			if (inx != 0) {// For other travelers skip first one
-				adult.put("relationship", relationOfAdultTraveller);
+				if (planDetailsForm.getPlanSelected().equals("personal")) 
+					adult.put("relationship", "FE");
+				else
+					adult.put("relationship", "SP");
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
 							.isEmpty()) {// If have beneficiary
 						beneficiary
 								.put("name", planDetailsForm
 										.getAdultBenificiaryFullName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getAdultBenificiaryHkid()[inx]);
-						 */
-						/* beneficiary.put("passport", "2345" + inx); */
-						/* beneficiary.put("passport", ""); */
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
@@ -701,12 +653,6 @@ public class TravelController {
 					} else {// If don't have beneficiary then
 						beneficiary.put("name",
 								planDetailsForm.getAdultName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getAdultHKID()[inx]);
-						 */
-						/* beneficiary.put("passport", "3451" + inx); */
-						/* beneficiary.put(passId, ""); */
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
@@ -722,7 +668,7 @@ public class TravelController {
 														.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
 						beneficiary.put("relationship",
-								planDetailsForm.getAdultBeneficiary()[inx]);
+								"SE");
 						adult.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary then
@@ -747,7 +693,7 @@ public class TravelController {
 													.getSelectedAdHkidPass()[inx],
 											planDetailsForm.getAdultHKID()[inx]));
 					beneficiary.put("relationship",
-							planDetailsForm.getAdultBeneficiary()[inx]);
+							"SE");
 					adult.put("beneficiary", beneficiary);
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
@@ -808,7 +754,7 @@ public class TravelController {
 												planDetailsForm.getAdultHKID()[inx]));
 
 						beneficiary.put("relationship",
-								relationOfAdultTraveller);
+								"SE");
 						adult.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary then
@@ -832,7 +778,7 @@ public class TravelController {
 											planDetailsForm
 													.getSelectedAdHkidPass()[inx],
 											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary.put("relationship", relationOfAdultTraveller);
+					beneficiary.put("relationship", "SE");
 					adult.put("beneficiary", beneficiary);
 				}
 			}
@@ -913,7 +859,7 @@ public class TravelController {
 										.getSelectedChldHkidPass()[inx],
 										planDetailsForm.getChildHKID()[inx]));
 						beneficiary.put("relationship",
-								planDetailsForm.getChildBeneficiary()[inx]);
+								"SE");
 						child.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary
@@ -938,7 +884,7 @@ public class TravelController {
 													.getSelectedChldHkidPass()[inx],
 											planDetailsForm.getChildHKID()[inx]));
 					beneficiary.put("relationship",
-							planDetailsForm.getChildBeneficiary()[inx]);
+							"SE");
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
@@ -1022,7 +968,7 @@ public class TravelController {
 														.getSelectedOtHkidPass()[inx],
 												planDetailsForm.getOtherHKID()[inx]));
 						beneficiary.put("relationship",
-								planDetailsForm.getOtherBeneficiary()[inx]);
+								"SE");
 						other.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary
@@ -1047,7 +993,7 @@ public class TravelController {
 													.getSelectedOtHkidPass()[inx],
 											planDetailsForm.getOtherHKID()[inx]));
 					beneficiary.put("relationship",
-							planDetailsForm.getOtherBeneficiary()[inx]);
+							"SE");
 					other.put("beneficiary", beneficiary);
 				}
 				insured.add(other);
@@ -1057,7 +1003,7 @@ public class TravelController {
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
-		parameters.put("referralCode", "");
+		parameters.put("referralCode", session.getAttribute("referralCode"));
 
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", (String) session.getAttribute("username"));
@@ -1083,7 +1029,8 @@ public class TravelController {
 				COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
-		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		header.put("language", WebServiceUtils
+				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		/*
 		 * System.out.println("headers=====>>>>>" + header);
 		 */
@@ -1195,8 +1142,8 @@ public class TravelController {
 						+ "travel-confirmation"));
 		model.addAttribute("failurePath",
 				path.replace("prepareUserSummary", "failure"));
-		System.out.println("************"
-				+ path.replace("prepareUserSummary", "failure"));
+//		System.out.println("************"
+//				+ path.replace("prepareUserSummary", "failure"));
 
 		return UserRestURIConstants.checkLangSetPage(request)
 				+ "/travel/travel-summary-payment";
@@ -1228,7 +1175,8 @@ public class TravelController {
 
 		String usernameInSession = null;
 		String tokenInSession = null;
-		String emailToSendPromoCode = request.getParameter("emailToSendPromoCode");
+		String emailToSendPromoCode = request
+				.getParameter("emailToSendPromoCode");
 		if (request.getSession().getAttribute("username") != null
 				&& request.getSession().getAttribute("token") != null) {
 			usernameInSession = request.getSession().getAttribute("username")
@@ -1241,8 +1189,9 @@ public class TravelController {
 				COMMON_HEADERS);
 		header.put("userName", usernameInSession);
 		header.put("token", tokenInSession);
-		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-//		String referalCOde = session.getAttribute("referralCode").toString();
+		header.put("language", WebServiceUtils
+				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		// String referalCOde = session.getAttribute("referralCode").toString();
 		mailed = sendEmail.sendEmail(emailToSendPromoCode, "", header);
 		if (mailed) {
 			return "success";
