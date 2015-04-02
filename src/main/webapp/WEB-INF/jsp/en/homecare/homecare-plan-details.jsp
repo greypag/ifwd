@@ -394,7 +394,7 @@
 										<td class="pad-none"><input type="text"
 											class="form-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
-											placeholder="Full name" onblur="replaceAlpha(this);"
+											placeholder="Full name" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
 											onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
 											id="appfullname" class="text-red"></span></td>
 									</tr>
@@ -407,7 +407,8 @@
 										</select></td>
 										<td class="pad-none"><input type="text" name="hkId"
 											class="form-control numberinput textUpper" id="txtAppHkid"
-											placeholder="X1234567/Passport No"> <span id="errAppHkid"
+											placeholder="X1234567/Passport No"
+											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
 									</tr>
@@ -419,7 +420,7 @@
 											value="${userDetails.getMobileNo().trim()}"
 											placeholder="Mobile number"
 											onkeypress="return isNumeric(event)"
-											onblur="replaceNumeric(this);" maxlength="20" /> <span
+											onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
 											id="errMobileNo" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -428,7 +429,8 @@
 										<td class="pad-none"><input class="form-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
-											placeholder="Email address" maxlength="50"> <span
+											placeholder="Email address" 
+											onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
 											id="errEmailid" class="text-red"> </span></td>
 									</tr>
 								</tbody>
@@ -507,12 +509,12 @@
 									<tr>
 										<td colspan="2"><input type="text" class="form-control"
 											id="inputCABuilding" name="applicantBuilding"
-											placeholder="Building" onblur="replaceAlphaNumeric(this);"
+											placeholder="Building" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
 										<td><input type="text" class="form-control"
 											id="inputCAEstate" name="applicantEstate"
-											placeholder="Estate" onblur="replaceAlphaNumeric(this);"
+											placeholder="Estate" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCAEstate" class="text-red"> </span></td>
 									</tr>
@@ -614,13 +616,13 @@
 									<tr>
 										<td colspan="2"><input type="text" class="form-control"
 											id="inputABuilding" name="aBuilding" placeholder="Building"
-											onblur="replaceAlphaNumeric(this);"
+											onblur="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
 										<td colspan="2"><input type="text" class="form-control"
 											id="inputAEstate" name="aEstate" placeholder="Estate"
-											onblur="replaceAlphaNumeric(this);"
+											onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errAEstate" class="text-red"> </span></td>
 									</tr>
@@ -705,7 +707,7 @@
                       <option value="701-850">701-850</option>
                       <option value="851-1000">851-1000</option>
                     </select> --%> <select name="netFloorArea"
-											class="form-control soflow" id="selectNFA">
+											class="form-control soflow" id="selectNFA" onBlur="chkNotNullIANetFloorArea(this, 'errNFA');">
 												<option value="">Please Select</option>
 												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
 													<option value="${floorAreaList.key}"><c:out
@@ -725,7 +727,8 @@
 													<span class="input-group-addon bg-img in"><span><img
 															src="resources/images/calender1.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
-														class="datepicker form-control" id="txtEffDate" />
+														class="datepicker form-control" id="txtEffDate"
+														onBlur="chkValidIAEffDate(this, 'errEffDate', 'Effective Date');" />
 												</div>
 											</div> <span id="errEffDate" class="text-red"></span></td>
 									</tr>

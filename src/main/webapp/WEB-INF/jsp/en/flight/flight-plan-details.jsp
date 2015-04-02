@@ -15,8 +15,6 @@
 
 <script>
 
-	var UILANGUAGE = '<%=session.getAttribute("language")%>';
-
 /* Commented because login is not compulsory */ 
 <%-- function flightPlanValidation() {
  <%if (authenticate.equalsIgnoreCase("false")) {%>
@@ -148,7 +146,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									<td class="pad-none"><input type="text" name="hkid"
 										class="form-control numberinput textUpper"
 										id="inputTxtAppHkid" placeholder="X1234567"
-										onblur="chkValidApplicantHkId(this, 'errAppHkid');"> <span
+										onblur="chkValidApplicantHkId(this, 'errAppHkid', '');"> <span
 										id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
@@ -260,7 +258,7 @@ Myself
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="X1234567" onblur="chkValidInsuredHkId(this, 'errtxtInvalidInsuHkid${inx}');"
+												class="form-control textUpper" placeholder="X1234567" onblur="chkValidInsuredHkId(this, 'errtxtInvalidInsuHkid${inx}', '');"
 												value="" /> <span id="errtxtInsuHkid${inx}"
 												class="text-red"> </span> <span
 												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>

@@ -1061,172 +1061,64 @@ function flightValidateDesk()
 {
 	var flag = true;
 
-	document.getElementById("startDateDeskIn").innerHTML = "";
-	document.getElementById("endDateDeskIn").innerHTML = "";
-	document.getElementById("travelCountDeskIn").style.display = "none";
-	var startDate = document.getElementById("txtStartDateDesk").value;    
-	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;
-	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
-
-	var nowTemp = new Date();
-	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
-	var new_end = new Date(endDate);
-	var startdays = dateDiffInDays(now, new_start);
-	var enddays = dateDiffInDays(new_start, new_end);
-	if(startDate.trim()=="")
-	{
-		document.getElementById("startDateDeskIn").innerHTML = "Please select a valid Depature Date.";
-		flag = false;
-	}
-	else {
-		if (startdays > 30) {
-			document.getElementById("startDateDeskIn").innerHTML = "Depature Date must be within 30 days of Application Date.";
-			flag = false;
-		}
-	}
-	if(endDate.trim()=="")
-	{
-		document.getElementById("endDateDeskIn").innerHTML = "Please select a valid Return Date.";
-		flag = false;
-	}
-	else {
-		if (enddays > 30) {
-			document.getElementById("endDateDeskIn").innerHTML = "The maximum Period of Insurance is 30 days.";
-			flag = false;
-		}
-	}
-	if(travellers.trim()=="")
-	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
-		flag = false;
-	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
-		flag = false;
-	}
-	if(peopleCount.trim() > 15)
-	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
-		document.getElementById("travelCountDeskIn").innerHTML ="<span class='text-red'>Treveller's cannot be  more than 15</span>";
-		flag = false;
-	}
+	flag = flightValidateGetQuote("txtStartDateDesk", "startDateDeskIn", "txtEndDateDesk", "endDateDeskIn", "txtTravellersDesk", "lblPeopleDesk", "travelCountDeskIn");
 	return flag;
-
 }
 
+// flight
 function flightValidateMob() {
 	var flag = true;
 
-	document.getElementById("startDateMobIn").innerHTML = "";
-	document.getElementById("endDateMobIn").innerHTML = "";
-	document.getElementById("travelCountMobIn").style.display = "none";
-	var startDate = document.getElementById("txtStartDateMob").value;
-	var endDate = document.getElementById("txtEndDateMob").value;
-	var travellers = document.getElementById("txtTravellersMob").value;
-	var peopleCount = document.getElementById("lblPeopleMob").innerHTML;
-	var nowTemp = new Date();
-	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
-	var new_end = new Date(endDate);
-	var startdays = dateDiffInDays(now, new_start);
-	var enddays = dateDiffInDays(new_start, new_end);
-
-	if (startDate.trim() == "") {
-		document.getElementById("startDateMobIn").innerHTML = "Please select a valid Depature Date.";
-		flag = false;
-	} else {
-		if (startdays > 30) {
-			document.getElementById("startDateMobIn").innerHTML = "Depature Date must be within 30 days of Application Date.";
-			flag = false;
-		}
-	}
-	if (endDate.trim() == "") {
-		document.getElementById("endDateMobIn").innerHTML = "Please select a valid Return Date.";
-		flag = false;
-	} else {
-		if (enddays > 30) {
-			document.getElementById("endDateMobIn").innerHTML = "The maximum Period of Insurance is 30 days.";
-			flag = false;
-		}
-	}
-	if (travellers.trim() == "") {
-		document.getElementById("travelCountMobIn").style.display = "block";
-		flag = false;
-	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
-		document.getElementById("travelCountMobIn").style.display = "block";
-		flag = false;
-	}
-	if(peopleCount.trim() > 15)
-	{
-		document.getElementById("travelCountMobIn").style.display = "block";
-		document.getElementById("travelCountMobIn").innerHTML ="<span class='text-red'>Treveller's cannot be  more than 15</span>";
-		flag = false;
-	}
+	flag = flightValidateGetQuote("txtStartDateMob", "startDateMobIn", "txtEndDateMob", "endDateMobIn", "txtTravellersMob", "lblPeopleMob", "travelCountMobIn");
 	return flag;
 
 }
 function flightValidateBtm() {
 	var flag = true;
 
-	document.getElementById("startDateBtmIn").innerHTML = "";
-	document.getElementById("endDateBtmIn").innerHTML = "";
-	document.getElementById("travelCountBtmIn").style.visibility = "hidden";
-	var startDate = document.getElementById("txtStartDateBtm").value;
-	var endDate = document.getElementById("txtEndDateBtm").value;
-	var travellers = document.getElementById("txtTravellersBtm").value;
-	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
-	var nowTemp = new Date();
-	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
-	var new_end = new Date(endDate);
-	var startdays = dateDiffInDays(now, new_start);
-	var enddays = dateDiffInDays(new_start, new_end);
-
-	if (startDate.trim() == "") {
-		document.getElementById("startDateBtmIn").innerHTML = "Please select a valid Depature Date.";
-		flag = false;
-	}
-	else
-	{
-		if(startdays>30)
-		{
-			document.getElementById("startDateBtmIn").innerHTML = "Depature Date must be within 30 days of Application Date.";
-			flag = false;
-		}
-	}
-	if (endDate.trim() == "") {
-		document.getElementById("endDateBtmIn").innerHTML = "Please select a valid Return Date.";
-		flag = false;
-	}
-	else
-	{
-		if (enddays > 30) {
-			document.getElementById("endDateBtmIn").innerHTML = "The maximum Period of Insurance is 30 days.";
-			flag = false;
-		}
-	}
-	if (travellers.trim() == "") {
-		document.getElementById("travelCountBtmIn").style.visibility = "visible";
-		flag = false;
-	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
-		document.getElementById("travelCountBtmIn").style.visibility = "visible";
-		flag = false;
-	}
-	if(peopleCount.trim() > 15)
-	{
-		document.getElementById("travelCountBtmIn").style.display = "block";
-		document.getElementById("travelCountBtmIn").innerHTML ="<span class='text-red'>Treveller's cannot be  more than 15</span>";
-		flag = false;
-	}
+	flag = flightValidateGetQuote("txtStartDateBtm", "startDateBtmIn", "txtEndDateBtm", "endDateBtmIn", "txtTravellersBtm", "lblPeopleBtm", "travelCountBtmIn");
 	return flag;
 
+}
+
+function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturnDateId, travellersId, peopleCountId, errTravelCountId){
+	var flag = true;
+	
+	
+	//default
+	document.getElementById(errTravelCountId).style.display = "none";
+		
+	var travellers = document.getElementById(travellersId).value;
+	var peopleCount = document.getElementById(peopleCountId).innerHTML;
+	
+	var returnDateElement = document.getElementById(returnDateId);
+	flag = chkValidFlightDate(returnDateElement, errReturnDateId, "Return Date", depDateId, errDepDateId, "Depature Date");
+		
+	if (travellers.trim() == "" || travellers =="0") {
+		console.log(travellers);
+		document.getElementById(errTravelCountId).style.display = "block";
+		
+		var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
+		document.getElementById(errTravelCountId).innerHTML =msg;		
+		flag = false;
+	}
+	if (peopleCount.trim()=="" || peopleCount=="0"){
+		console.log(peopleCount);
+		document.getElementById(errTravelCountId).style.display = "block";
+	
+		var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
+		document.getElementById(errTravelCountId).innerHTML =msg;		
+		flag = false;
+	}
+	if (peopleCount.trim() > 15){
+		document.getElementById(errTravelCountId).style.display = "block";
+		
+		var msg = getBundle(getBundleLanguage, "flight.traveller.notValid.message");
+		document.getElementById(errTravelCountId).innerHTML =msg;
+		flag = false;
+	}
+	
+	return flag;
 }
 
 function flightValidateDeskTravel()
@@ -2052,6 +1944,9 @@ String.format = function() {
     
     return theString;
 }
+function IsNumeric(input){
+   return (input - 0) == input && input.length > 0;
+}
 
 // get language
 function getBundleLanguage(){
@@ -2065,7 +1960,7 @@ function getBundleLanguage(){
 	}
 }
 
-// validation
+//validation
 function resetErrElement(errElementId){
 	if(errElementId != null && document.getElementById(errElementId) != null){
 		document.getElementById(errElementId).innerHTML = "";
@@ -2079,16 +1974,79 @@ function isNull(element){
 			return false
 		}
 	}
+	return false;
+}
+function dateDiffInDaysFromNow(dat){	
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    
+    return dateDiffInDays(now, dat);
 }
 
 // validation - date
 function chkValidDate(element, errElementId, name){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "date.notNull.message");
-		msg = String.format(msg, name);		
+		msg = String.format(msg, name);
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;		
+	}
+}
+
+// flight
+function chkValidFlightDepartureDate(element, errElementId, name){
+		
+	if(chkValidDate(element, errElementId, name)){
+	    var departureDate = element.value;
+	    departureDate = new Date(departureDate);
+	    
+	    var dateDiff = dateDiffInDaysFromNow(departureDate);
+        if (dateDiff > 30) {
+        	var msg = getBundle(getBundleLanguage, "flight.departureDate.notValid.message");
+        	document.getElementById(errElementId).innerHTML = msg;
+            return false;
+        }else{
+        	resetErrElement(errElementId);
+        	return true;
+        }        
+	}else{
+		return false;
+	}	
+}
+function chkValidFlightDate(element, errElementId, name, departureDateId, errDepartureDateId, departureDateName){
+	//check departure date
+	var elementDepartureDate = document.getElementById(departureDateId);
+
+	if(chkValidFlightDepartureDate(elementDepartureDate, errDepartureDateId, departureDateName)){
+		
+		// check return date
+		if(chkValidDate(element, errElementId, name)){
+		    var departureDate = elementDepartureDate.value;
+		    var returnDate = element.value;	    
+		    departureDate = new Date(departureDate);
+		    returnDate = new Date(returnDate);
+
+		    var dateDiff = dateDiffInDays(departureDate, returnDate);
+		    
+	        if (dateDiff > 30) {
+	        	var msg = getBundle(getBundleLanguage, "flight.returnDate.notValid.message");
+	        	document.getElementById(errElementId).innerHTML = msg;
+	            return false;
+	        }else{
+	        	resetErrElement(errElementId);
+	        	return true;
+	        }        
+		}else{
+			return false;
+		}			
+	}else{
+		// clear return date err
+		resetErrElement(errElementId);
+		
+		return false;
 	}
 }
 
@@ -2097,41 +2055,63 @@ function chkNotNullApplicantName(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;
 	}
 }
-function chkValidApplicantHkId(element, errElementId){
+function chkValidApplicantHkId(element, errElementId, typeId){
+	var type = "";
+	if(typeId != ""){	//idType is id of control
+		var e = document.getElementById(typeId);  
+		var type = e.options[e.selectedIndex].text;
+	}
+	if(type == ""){
+		type="HKID";
+	}
+
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else if(!IsHKID(element.value)){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notValid.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;
 	}		
 }
 function chkValidApplicantMobileNo(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else if(!mobile_pattern.test(element.value)){
 		var msg = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;
 	}	
 }
 function chkValidApplicantEmail(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.email.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else if(!emailreg.test(element.value)){
 		var msg = getBundle(getBundleLanguage, "applicant.email.notValid.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;
 	}	
 }
 //validation - insured
@@ -2139,28 +2119,46 @@ function chkNotNullInsuredName(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "insured.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;
 	}
 }
-function chkValidInsuredHkId(element, errElementId){
-	if(isNull(element)){
+function chkValidInsuredHkId(element, errElementId, typeId){
+	var type = "";
+	if(typeId != ""){	//idType is id of control
+		var e = document.getElementById(typeId);  
+		var type = e.options[e.selectedIndex].text;
+	}
+	if(type == ""){
+		type="HKID";
+	}
+	
+	if(isNull(element)){	
 		var msg = getBundle(getBundleLanguage, "insured.hkId.notNull.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else if(!IsHKID(element.value)){
 		var msg = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
+		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}
 	else{
 		resetErrElement(errElementId);
+		return true;
 	}
 }
 function chkNotNullBeneficiary(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "insured.beneficiary.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		return false;
 	}else{
 		resetErrElement(errElementId);
+		return true;
 	}	
 }
 //validation - beneficiary
@@ -2171,11 +2169,14 @@ function chkNotNullBeneficiaryName(element, errElementId, beneficiary){
 			if(isNull(element)){
 				var msg = getBundle(getBundleLanguage, "beneficiary.name.notNull.message");
 				document.getElementById(errElementId).innerHTML = msg;
+				return false;
 			}else{
 				resetErrElement(errElementId);
+				return true;
 			}			
 		}else{
 			resetErrElement(errElementId);
+			return true;
 		}
 	}
 }
@@ -2186,23 +2187,185 @@ function chkNotNullBeneficiaryHkId(element, errElementId, beneficiary){
 			if(isNull(element)){
 				var msg = getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message");
 				document.getElementById(errElementId).innerHTML = msg;
+				return false;
 			}else if(!IsHKID(element.value)){
 				var msg = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");
 				document.getElementById(errElementId).innerHTML = msg;
+				return false;
 			}
 			else{
 				resetErrElement(errElementId);
+				return true;
 			}			
 		}else{
 			resetErrElement(errElementId);
+			return true;
 		}
 		
 	}
 }
+// validation - credit card
+function chkValidCreditCard(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else if(element.value.length<16){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true;
+	}	
+}
+function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthElementId){
+	var month = 0;
+	var year = 0;
+	var now = new Date();
+	var nowYear = now.getFullYear();
+	var nowMonth = now.getMonth();
+	if(monthId != ""){	//idType is id of control
+		var e = document.getElementById(monthId);  
+		month = e.options[e.selectedIndex].value;
 
-
-
-
+		if(!IsNumeric(month)){
+			var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notNull.message");
+			document.getElementById(errMonthElementId).innerHTML = msg;
+			return false;
+		}else if (month < 1){
+			var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notValid.message");
+			document.getElementById(errMonthElementId).innerHTML = msg;
+			return false;
+		}else{
+			resetErrElement(errMonthElementId);
+			return true;
+		}
+			
+		
+	}
+	
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{	
+		year = element.value;
+		
+		if(!IsNumeric(year)){
+			var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
+			document.getElementById(errElementId).innerHTML = msg;
+			return false;
+		} else {
+			year = parseInt(year);
+			nowYear = parseInt(nowYear);
+			
+			month = parseInt(month);
+			nowMonth = parseInt(nowMonth);
+			
+			
+			if(year < nowYear){	
+				var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
+				document.getElementById(errElementId).innerHTML = msg;
+				return false;
+				
+			} else if(year <= nowYear && month <= nowMonth){
+			
+				var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notValid.message");
+				document.getElementById(errMonthElementId).innerHTML = msg;
+				
+				var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
+				document.getElementById(errElementId).innerHTML = msg;
+				
+				return false;
+				
+			} else{
+				resetErrElement(errElementId);
+				resetErrElement(errMonthElementId);
+				
+				return true;
+			}			
+		}
+			
+	}		
+}
+function chkNotNullCreditCareName(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true;
+	}	
+}
+// validation - address
+function chkNotNullCABuilding(element, errElementId){
+	alert(errElementId);
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true;
+	}	
+}
+function chkNotNullCAEstate(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.estate.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true;
+	}	
+}
+function chkNotNullIABuilding(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "insured.address.building.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true
+	}	
+}
+function chkNotNullIAEstate(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "insured.address.estate.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true;
+	}	
+}
+function chkNotNullIANetFloorArea(element, errElementId){
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "insured.address.netFloorArea.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else{
+		resetErrElement(errElementId);
+		return true;
+	}		
+}
+function chkValidIAEffDate(element, errElementId, name){
+	if(chkValidDate(element, errElementId, name)){
+	    var EffDate = element.value;
+	    var startdays = dateDiffInDaysfromNow(EffDate);
+        if (startdays > 60) {
+        	var msg = getBundle(getBundleLanguage, "insured.address.effectiveDate.notValid.message");
+        	document.getElementById(errElementId).innerHTML = msg;
+            return false;
+        }else{
+        	resetErrElement(errElementId);
+        	return true;
+        }
+        
+	}
+}
 
 // get resource bundle
 function getBundle(lang, key) {

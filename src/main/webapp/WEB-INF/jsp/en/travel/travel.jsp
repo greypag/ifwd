@@ -26,13 +26,13 @@
           <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-<input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" />
+<input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');"/>
 </div>
                 <span id="startDateDeskIn" class="text-red" > </span>
                 </td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" />
+                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" />
                 </div>
               <span id="endDateDeskIn"  class="text-red" > </span>
              </td>
@@ -166,14 +166,14 @@
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob">
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidDate(this, 'startDateMobIn', 'Depature Date');">
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4>When will you be back? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob">
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidDate(this, 'endDateMobIn', 'Return Date');">
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
@@ -667,14 +667,14 @@ Embark on an adventure<br>
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm">
+                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Departure Date');">
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
               
                 
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm">
+                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Return Date');">
                 </div>
                 <span id="endDateBtmIn" style="color:red"> </span></td>
             
