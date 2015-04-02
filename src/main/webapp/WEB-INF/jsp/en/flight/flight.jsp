@@ -42,13 +42,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');">
                 </div>
                 <span id="startDateDeskIn" class="text-red" > </span>
                 </td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','Depature Date');">
                 </div>
              	<span id="endDateDeskIn"  class="text-red" > </span>
              </td>
@@ -140,7 +140,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountDeskIn" style="display:none">
+                <span id="travelCountDeskIn" style="display:none" class="text-red">
               <label class="text-red">Please enter Traveller's information</label>
               </span>
                 </td>
@@ -183,14 +183,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidDate(this, 'startDateMobIn', 'Depature Date');">
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', 'Depature Date');">
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
     <h4>When will you be back? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidDate(this, 'endDateMobIn', 'Return Date');">
+        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', 'Depature Date');">
       </div>
     </div>
     <span id="endDateMobIn" class="text-red"> </span>
@@ -278,7 +278,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="clearfix"></div>
     </div>
-    <span id="travelCountMobIn" style="display:none">
+    <span id="travelCountMobIn" style="display:none" class="text-red">
     <label class="text-red">Please enter Traveller's information</label>
     </span>
     <div id="divPersonsMob" style="visibility:hidden;"> <br>
@@ -550,12 +550,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Depature Date');">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');">
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Depature Date');">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', 'Depature Date');">
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none"><h3>Who's travelling?</h3>
@@ -646,7 +646,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountBtmIn" style="visibility:hidden;">
+                <span id="travelCountBtmIn" style="visibility:hidden;" class="text-red">
                 <label class="text-red">Please enter Traveller's information</label>
                 </span>
                 </td>
