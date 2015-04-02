@@ -1057,6 +1057,8 @@ function replaceAlpha(id) {
 
 
 /* Apply for now Top */
+
+// flight
 function flightValidateDesk()
 {
 	var flag = true;
@@ -1064,8 +1066,6 @@ function flightValidateDesk()
 	flag = flightValidateGetQuote("txtStartDateDesk", "startDateDeskIn", "txtEndDateDesk", "endDateDeskIn", "txtTravellersDesk", "lblPeopleDesk", "travelCountDeskIn");
 	return flag;
 }
-
-// flight
 function flightValidateMob() {
 	var flag = true;
 
@@ -1080,7 +1080,6 @@ function flightValidateBtm() {
 	return flag;
 
 }
-
 function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturnDateId, travellersId, peopleCountId, errTravelCountId){
 	var flag = true;
 	

@@ -279,7 +279,7 @@
 											</select> <span id="erradultsselectBenificiary${inx}" class="text-red">
 											</span>
 										</div>
-<%request.setAttribute("mapRelationshipCode","${relationshipCodeList.key}"); %>
+<%-- <%request.setAttribute("mapRelationshipCode","${relationshipCodeList.key}"); %> --%>
 										<div id="adultsbenificiaryId${inx}" class="hide">
 											<div class="col-xs-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
