@@ -448,7 +448,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap  text-center">
-          <div class="recent-work-inner"> <img src="resources/images/$.png" alt=""  />
+          <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
             <h1>安全，可靠</h1>
             <p>富衛香港的壽險及一般保險營運機構均獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。<br>
 
@@ -502,7 +502,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap-mid text-center">
-              <div class="recent-work-inner"> <img src="resources/images/$.png" alt=""  />
+              <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
                 <h2>安全，可靠</h2>
                 <p>富衛香港的壽險及一般保險營運機構均獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。</p>
 
