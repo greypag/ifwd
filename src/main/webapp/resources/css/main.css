@@ -1190,7 +1190,6 @@ input.search-form:hover {
 	color: #061d2a;
 	line-height: 31.5px;
 	font-size: 24px;
-	font-family: 'Foco_Lt';
 	font-weight: normal;
 }
 .slider-form small {
@@ -2600,7 +2599,7 @@ table.activation-form {
 }
 
 table.activation-form .form-control {
-	width: 85%;
+	width: 100%;
 }
 
 
@@ -3223,7 +3222,7 @@ del {
 .drop-down-plus {
 	border: 1px solid #f68a1d !important;
 	width: 100% !important;
-	height: 35px;
+	height: 34px;
 }
 .none-bd {
 	border: none !important;
@@ -3554,7 +3553,7 @@ margin-bottom: 10px;}
 	width: 50%;
 }
 .wd4 {
-	width: 43px!important;
+	min-width: 43px!important;
 }
 .wd5 {
 	width: 96%;
@@ -4225,7 +4224,7 @@ table.purchase-history tr td {
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
 	padding: 8px;
 	line-height: 1.428571429;
-	vertical-align: top !important;
+	vertical-align: top ;
 	border-top: 1px solid #ddd;
 }
 
@@ -4268,7 +4267,7 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .order-status-timeline1 {
 	height: 1px;
-	border: 1px dashed #f6871e;
+	border: 1px dashed #061d2a;
 	width: 100%;
 }
 #tr-wizard.shop-tracking-status .order-status-timeline {
@@ -4360,7 +4359,7 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status {
 	top: 62px;
-	left: -110px;
+	left: -134px;
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status:before {
 	display: none
@@ -4451,7 +4450,6 @@ table.purchase-history tr td {
 	display: block;
 	position: absolute;
 	text-align: right;
-	color: #f6871e !important;
 }
 /********************************************/
 .travel-tb {
@@ -5410,4 +5408,24 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 	content:url("../images/q-open.png");
 	height: 67px;
 	top:-85px;
+}
+@media (min-width: 1200px){
+	.pad-none-lg{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.marg-t2.pad-increase{
+	margin-top: 0;
+	padding: 13px 30px !important;
+}
+#divPersonsDesk{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+@media (min-width: 1200px){
+	#divPersonsDesk{
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
 }

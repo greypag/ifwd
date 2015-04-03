@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 pad-none slide-form">
+      <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
       <form name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="getFlightDate">    
         <h2>Get your flight insurance now</h2>
        
@@ -44,15 +44,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');">
                 </div>
-                <span id="startDateDeskIn" class="text-red" > </span>
+                
                 </td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','Depature Date');">
                 </div>
-             	<span id="endDateDeskIn"  class="text-red" > </span>
+             	
              </td>
-              <td class="col-md-3 pad-none"><h3>Who's travelling?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+              <td class="col-md-3 pad-none"><h3>Who's travelling?</h3>
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -61,13 +61,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  checked="" >
-                          <label for="personal_plan_desk"> Personal <br>    Plan </label>
+                          <label for="personal_plan_desk"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" >
-                          <label for="family_plan_desk"> Family <br>  Plan </label>
+                          <label for="family_plan_desk">Family Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -140,9 +140,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountDeskIn" style="display:none" class="text-red">
-              <label class="text-red">Please enter Traveller's information</label>
-              </span>
+                
                 </td>
               <td class="col-md-2 pad-none"><div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i">
@@ -159,6 +157,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               
         
             </tr>
+            <tr>
+            	<td><span id="startDateDeskIn" class="text-red" > </span></td>
+            	<td><span id="endDateDeskIn" class="text-red"> </span></td>
+            	<td>
+            		<span id="travelCountDeskIn" style="display:none" class="text-red">
+              			<label class="text-red">Please enter Traveller's information</label>
+           			</span>
+         		</td>
+            	<td></td>
+           	</tr>
           </tbody>
         </table>
             
@@ -202,13 +210,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" checked="">
-              <label for="personal_plan_mob"> Personal <br>Plan </label>
+              <label for="personal_plan_mob"> Personal Plan </label>
             </label>  
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"   name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" >
-              <label for="family_plan_mob">  Family <br>Plan </label>
+              <label for="family_plan_mob">  Family Plan </label>
            </label> 
           </div>
           <div class="clearfix"></div>
@@ -543,7 +551,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container">
     <div class="row">
      <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="getFlightDate">
-      <div class="col-lg-12 col-md-12 pad-none slide-form">
+      <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <h2>Get your flight insurance now</h2>
         <table class="table activation-form3">
           <tbody>
@@ -567,13 +575,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  checked="" >
-                          <label for="personal_plan_btm"> Personal <br>    Plan </label>
+                          <label for="personal_plan_btm"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" >
-                          <label for="family_plan_btm"> Family <br>  Plan </label>
+                          <label for="family_plan_btm"> Family Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -646,7 +654,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountBtmIn" style="visibility:hidden;" class="text-red">
+                <span id="travelCountBtmIn" style="display:none;" class="text-red">
                 <label class="text-red">Please enter Traveller's information</label>
                 </span>
                 </td>
@@ -660,7 +668,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 day(s) </h3> 
                 </div>
                 <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
-                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg">
+                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
             	Apply for Free Now!
              </button> 
             </tr>
