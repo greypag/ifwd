@@ -502,10 +502,15 @@
 								<input name="checkbox1" id="checkbox1" type="checkbox">
 								<label for="checkbox1"> I have read and understand the policy provisions and hereby declare that:-
 								 <br>
-									i. <span class="margin-left-2"></span> The particulars and statements given above are, to the best of my knowledge and belief, true and complete; <br> 
+								 	<p>
+									i. <span class="margin-left-2"></span> The particulars and statements given above are, to the best of my knowledge and belief, true and complete; <br>
+									<p> 
 									ii. <span class="margin-left-2"></span> To the best of my knowledge and belief no Insured Person is travelling contrary to the advice of any medical practitioner or for the purpose of obtaining medical treatment and that I understand that treatment of any pre-existing, recurring or congenital medical conditions are not insured. I am not aware of any condition cause or circumstance that may necessitate the cancellation or curtailment of the journey as planned; and  <br>
+									<p>
 									iii. <span class="margin-left-2"></span>This application shall be the basis of the contract between me and FWD.
+									<p>
 							     	iv. <span class="margin-left-2"></span>This Proposal Form is applied and signed at HKSAR, in case of fraud or factual misrepresentation, the cover for me or for the Insured Person(s) may be invalidated.
+							     	<p>
 								    v. <span class="margin-left-2"></span>I have obtained the consent from the Insured Person(s) for passing the above information to FWD General Insurance Company Limited for the purpose of carrying out the TravelCare Insurance.
 									<br/>
 								
