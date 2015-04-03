@@ -11,7 +11,7 @@
           <li><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></li>
         </ul>
       </div>
-      <div class="col-sm-4 pull-right">
+      <div class="col-sm-5 pull-right">
         <div class="social">
           <ul class="social-share pull-left text-right">
             <li><a href="https://www.facebook.com/FWD.HK.MO"  target="_blank"><i class="fa fa-facebook"></i></a></li>
