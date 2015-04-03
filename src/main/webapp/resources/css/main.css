@@ -4359,7 +4359,7 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status {
 	top: 62px;
-	left: -134px;
+	left: -104px;
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status:before {
 	display: none
