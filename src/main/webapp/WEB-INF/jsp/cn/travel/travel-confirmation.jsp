@@ -23,7 +23,7 @@
   <div class="order-status">
         <div class="order-status-timeline1"> 
           <!-- class names: c0 c1 c2 c3 and c4 -->
-          <div class="c4"></div>
+          <div class="c0"></div>
         </div>
         <div class="image-order-status image-order-status-new active img-circle"> <span class="status color3"> 您的選擇</span>
           <div class="icon">1</div>
