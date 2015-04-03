@@ -141,6 +141,7 @@
 
 						<div class="clearfix"></div>
 						<div class="gray-bdr"></div>
+						<%-- applicant info --%>
 						<table class="table activation-form margin-left-2">
 							<tbody>
 								<tr>
@@ -275,7 +276,7 @@
 							}
 						%>
 
-						<h3 class="black-bold pad-none">
+						<h3 class="black-bold pad-none margin-left-2">
 							受保人資料<br>
 						</h3>
 
