@@ -127,7 +127,7 @@
 
 						<a href="#"
 							class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-							data-toggle="modal" data-target=".bs-example-modal-lg">登入</a> <br>
+							data-toggle="modal" data-target=".bs-example-modal-lg">登入</a>
 
 
 
