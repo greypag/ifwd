@@ -250,6 +250,14 @@ bottom: 0px;
 	font-family: 'Foco_Lt';
 	font-weight: normal !important;
 }
+.h3-i2 {
+	color: #fff;
+	font-style: italic;
+	
+	line-height: 26.25px;
+	font-size: 24px;
+	font-weight: normal !important;
+}
 /*Bottom Form*/
 /**/
 #bottom-form {
@@ -1196,7 +1204,7 @@ input.search-form:hover {
 	color: #061d2a;
 	line-height: 31.5px;
 	font-size: 18px;
-	font-family: 'Foco-Regular';
+	
 	font-weight: normal;
 }
 .slider-form .form-group {
@@ -4359,7 +4367,7 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status {
 	top: 62px;
-	left: -104px;
+	left: -134px;
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status:before {
 	display: none
@@ -5198,8 +5206,6 @@ font-family: 'Foco-bold';
     padding-top:12px;
    
     color: #061d2a;
-    font-family: 'Foco-Regular';
-    font-family: 'Foco_Lt';
   }
   
  .log-to-acc{ font-size:24px;} 
@@ -5418,24 +5424,4 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 .marg-t2.pad-increase{
 	margin-top: 0;
 	padding: 13px 30px !important;
-}
-#divPersonsDesk{
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-@media (min-width: 1200px){
-	#divPersonsDesk{
-		margin-top: 0px;
-		margin-bottom: 10px;
-	}
-}
-@media screen and (min-width:992px) and (max-width:1199px){
-	.plan-box3 h3 {
-	  margin-left: 30px;
-	  font-size: 28px;
-	}
-	.plan-box3 h6 {
-	  margin-left: 30px;
-	  font-size: 40px;
-	}
 }
