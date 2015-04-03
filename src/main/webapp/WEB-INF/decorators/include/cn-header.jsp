@@ -261,7 +261,7 @@
 <!--Mobile-header-->
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
-		<span class="callus top-number">24小時熱線 3123 3123  </span> <a href="#"
+		<span class="callus top-number"> &nbsp&nbsp&nbsp&nbsp 24小時熱線 3123 3123  </span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right">即時對話</span></a> <a href="#" class="lang pull-right">中文</a>
 		<div class="clearfix"></div>
 	</div>
