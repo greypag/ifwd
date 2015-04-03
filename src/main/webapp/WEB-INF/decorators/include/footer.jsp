@@ -40,9 +40,11 @@
           <li><a href="http://www.fwd.com.hk/en-US/home/pdo.html" target="_blank">Personal Data Protection Policy and Practices</a></li>
         </ul>
       </div>
+	  <!-- issue 50 - vincent (pccw)
       <div class="col-sm-5 pull-right text-right">
         <p> &copy; 2015 FWD Hong Kong. All rights reserved.</p>
       </div>
+	  -->
     </div>
   </div>
 </div>
