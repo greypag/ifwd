@@ -5429,3 +5429,13 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 		margin-bottom: 10px;
 	}
 }
+@media screen and (min-width:992px) and (max-width:1199px){
+	.plan-box3 h3 {
+	  margin-left: 30px;
+	  font-size: 28px;
+	}
+	.plan-box3 h6 {
+	  margin-left: 30px;
+	  font-size: 40px;
+	}
+}
