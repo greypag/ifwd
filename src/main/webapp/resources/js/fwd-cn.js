@@ -77,7 +77,7 @@ $(function () {
         },
         autoclose: true,
         todayHighlight: true,
-        format: "yyyy年m月dd日"
+        format: "dd MM yyyy"
 
     }).on('changeDate', function (ev) {
         if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
@@ -103,7 +103,7 @@ $(function () {
             }
         },
         autoclose: true,
-        format: "yyyy年m月dd日"
+        format: "dd MM yyyy"
 
     }).on('changeDate', function (ev) {
 
@@ -125,7 +125,7 @@ $(function () {
         },
         autoclose: true,
         todayHighlight: true,
-        format: "yyyy年m月dd日"
+        format: "dd MM yyyy"
 
     }).on('changeDate', function (ev) {
         if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
@@ -150,7 +150,7 @@ $(function () {
             }
         },
         autoclose: true,
-        format: "yyyy年m月dd日"
+        format: "dd MM yyyy"
 
     }).on('changeDate', function (ev) {
             var startDate = new Date($('#dp3').datepicker("getDate").valueOf());
@@ -169,7 +169,7 @@ $(function () {
         },
         autoclose: true,
         todayHighlight: true,
-        format: "yyyy年m月dd日"
+        format: "dd MM yyyy"
 
     }).on('changeDate', function (ev) {
         if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
@@ -195,7 +195,7 @@ $(function () {
             }
         },
         autoclose: true,
-        format: "yyyy年m月dd日"
+        format: "dd MM yyyy"
 
     }).on('changeDate', function (ev) {
 
