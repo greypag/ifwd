@@ -274,8 +274,7 @@
 						href="flight" class="travel-special"><span class="offer">Special Offer</span><br>Flight
 							<br>Insurance </a></li>
 					<li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active" <%} %>"><a
-						href="travel" class="travel-and-home-tab"> Travel<br> <span
-							class="Insurance">Insurance</span></a></li>
+						href="travel" class="travel-and-home-tab"> Travel<br> Insurance</a></li>
 					<li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("homecare")){ %> active" <%} %>"><a
 						class="travel-and-home-tab" href="homecare"> Home <br> <span
 							class="Insurance">Insurance</span></a></li>
@@ -300,7 +299,7 @@
 	<div class="logobox">
 		<div class="navbar-header">
 			<button type="button"
-				class="navbar-toggle pull-right col-xs-1 col-sm-1"
+				class="navbar-toggle pull-right col-xs-2 col-sm-2"
 				data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
