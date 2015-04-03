@@ -38,9 +38,11 @@
           <li><a href="http://www.fwd.com.hk/zh-HK/home/pdo.html" target="_blank"> 個人資料保護政策及執行</a></li>
         </ul>
       </div>
+	  <!-- issue 50 - vincent (pccw)
       <div class="col-lg-5 col-md-5 pull-right text-right">
         <p> &copy; 2015 富衛香港 版權所有 不得轉載</p>
       </div>
+	  -->
     </div>
   </div>
 </div>
