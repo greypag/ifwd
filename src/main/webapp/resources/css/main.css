@@ -2600,7 +2600,7 @@ table.activation-form {
 }
 
 table.activation-form .form-control {
-	width: 100%;
+	width: 85%;
 }
 
 
@@ -4268,7 +4268,7 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .order-status-timeline1 {
 	height: 1px;
-	border: 1px dashed #061d2a;
+	border: 1px dashed #f6871e;
 	width: 100%;
 }
 #tr-wizard.shop-tracking-status .order-status-timeline {
@@ -4360,7 +4360,7 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status {
 	top: 62px;
-	left: -134px;
+	left: -110px;
 }
 #tr-wizard.shop-tracking-status .image-order-status-completed .status:before {
 	display: none
@@ -4451,6 +4451,7 @@ table.purchase-history tr td {
 	display: block;
 	position: absolute;
 	text-align: right;
+	color: #f6871e !important;
 }
 /********************************************/
 .travel-tb {
