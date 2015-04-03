@@ -736,7 +736,7 @@
 																<td>470</td>
 															</tr>
 															<tr>
-																<7td>8</td>
+																<td>8</td>
 																<td>290</td>
 																<td>200</td>
 																<td>508</td>
@@ -1156,8 +1156,8 @@
 					The features above are indicative only. Please refer to the <a
 						class="sub-link"
 						href="policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
-						target="_blank">Policy Provisions</a> for details.<br> for
-					details. For a complete explanation of the terms and conditions,
+						target="_blank">Policy Provisions</a> for details.<br> 
+						For a complete explanation of the terms and conditions,
 					feel free to contact an adviser or our 24-hour hotline at 3123 3123
 					for more details.
 				</p>
