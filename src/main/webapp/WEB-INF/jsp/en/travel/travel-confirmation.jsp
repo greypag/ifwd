@@ -22,9 +22,9 @@
             <br>
 			<div id="tr-wizard" class="shop-tracking-status">
 			  <div class="order-status">
-			        <div class="order-status-timeline1"> 
+			        <div class="order-status-timeline"> 
 			          <!-- class names: c0 c1 c2 c3 and c4 -->
-			          <div class="c4"></div>
+			          <div class="order-status-timeline-completion order-status-timeline-completion c4"></div>
 			        </div>
 			        <div class="image-order-status image-order-status-new active img-circle"> <span class="status color3">Your Options</span>
 			          <div class="icon">1</div>
@@ -36,7 +36,7 @@
 			        <div class="image-order-status image-order-status-delivered  img-circle"> <span class="status color3">Summary & Payment</span>
 			          <div class="icon">3</div>
 			        </div>
-			        <div class="image-order-status image-order-status-completed  img-circle act"> <span class="status lst-status">Confirmation</span>
+			        <div class="image-order-status image-order-status-completed  img-circle act"> <span class="status color3">Confirmation</span>
 			          <div class="icon">4</div>
 			        </div>
 			      </div>
