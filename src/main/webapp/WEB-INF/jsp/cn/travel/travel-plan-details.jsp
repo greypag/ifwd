@@ -532,23 +532,21 @@
 								</div>
 								<span id="chk1" class="text-red"></span>
 								<hr/>
-								<div class="checkbox">
-									<input id="checkbox3" type="checkbox"> <label
-
-										for="checkbox3"> 若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。 <br>
-
+								<div>
+									 <label>
+ 									若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。 <br>
 									</label>
 								</div>
 								 <div class="checkbox">
-									<input id="checkbox4" type="checkbox"> <label
+									<input id="checkbox3" type="checkbox"> <label
 
-										for="checkbox4"> 請不要將直接促銷資料發給本人。<br>
+										for="checkbox3"> 請不要將直接促銷資料發給本人。<br>
 										<br>
 									</label>
 								</div>
 								<div class="checkbox">
-									<input id="checkbox5" type="checkbox"> <label
-										for="checkbox5">
+									<input id="checkbox4" type="checkbox"> <label
+										for="checkbox4">
 
 										請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。<br>
 										<br>
@@ -583,15 +581,11 @@
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<div class="form-container">
-								
-								
 								<h3 class="txt-bold">
 									出發日期 <a href="travel"> <span
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrLeavingDate()}</h4>
-								
-								
 								<input type="hidden" name="departureDate" id="departureDate"
 									value="01-01-2015">
 
@@ -724,7 +718,7 @@
               <h2>尚未擁有推廣編號？輸入您的電郵地址，你將收到我們送給你的尊屬推廣編號。</h2>
               <h4>電郵地址 </h4>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="" id="emailToSendPromoCode">
+                <input type="text" class="form-control" placeholder="" id="txtPromoEmail">
               </div>
               <span id="errPromoEmail" class="text-red"></span>
                <br>

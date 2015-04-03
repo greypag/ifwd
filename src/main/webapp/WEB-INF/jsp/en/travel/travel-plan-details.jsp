@@ -110,7 +110,7 @@
 										value="${userDetails.getFullName()}" class="form-control"
 										id="inputFullName" name="fullName"
 										placeholder="As appears on HKID Card"
-										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'fullnameinvalid');"
+										onblur="replaceAlpha(this);"
 										onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
 										id="fullname" style="display: none"> <label
 											class="text-red">Please enter Full Name and please
@@ -127,9 +127,7 @@
 									</div>
 									</td>
 									<td class="pad-none">
-									<input type="text" name="hkid"	class="form-control numberinput textUpper btm-pad-10"	id="inputTxtAppHkid" 
-									placeholder="X1234567"
-									onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');">
+									<input type="text" name="hkid"	class="form-control numberinput textUpper btm-pad-10"	id="inputTxtAppHkid" placeholder="X1234567">
 									 <span	id="errAppHkid" class="text-red"> </span>
 									 </td>
 								</tr>
@@ -140,7 +138,7 @@
 										value="${userDetails.getMobileNo()}" class="form-control"
 										id="inputMobileNo" placeholder="Mobile number"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'mobileNo');" maxlength="8" /> <span
+										onblur="replaceNumeric(this);" maxlength="8" /> <span
 										id="mobileNo" class="text-red"></span></td>
 								</tr>
 								<tr>
@@ -148,8 +146,7 @@
 										class="control-label bold-500">Email address</label></td>
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress()}" name="emailAddress" id="inputEmailId"
-										placeholder="Email address" 
-										onblur="chkValidApplicantEmail(this, 'emailid');" maxlength="50"> <span
+										placeholder="Email address" maxlength="50"> <span
 										id="emailid" class="text-red"></span></td>
 								</tr>
 							</tbody>
@@ -236,7 +233,7 @@
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="adultName" id="txtAdFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
-												onblur="replaceAlpha(this); chkNotNullInsuredName(this, 'errtxtAdFullName${inx}');"
+												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
@@ -247,7 +244,7 @@
 									<option value="passport">Passport</option>
 									</select> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="X1234567" onblur="chkValidInsuredHkId(this, 'errtxtInvalidInsuHkid${inx}', 'selectAdHkidPass${inx}');"
+												class="form-control textUpper" placeholder="X1234567"
 												value="" /> <span id="errtxtInsuHkid${inx}"
 												class="text-red"> </span> <span
 												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -269,7 +266,7 @@
 											<label class="pad-left1 bold-500">Beneficiary</label> <select
 												id="adultsselectBenificiary${inx}"
 												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" onblur="chkNotNullBeneficiary(this, 'erradultsselectBenificiary${inx}');" class="form-control soflow">
+												name="adultBeneficiary" class="form-control soflow">
 												<option value="SE">Own Estate</option>
 												<c:forEach var="relationshipCodeList"
 													items="${mapRelationshipCode}">
@@ -287,7 +284,7 @@
 													id="adultBenefitiaryId${inx}" value=""
 													class="form-control " placeholder="As appears on HKID Card"
 													onblur="replaceAlpha(this);"
-													onkeypress="    return alphaOnly(event); chkNotNullBeneficiaryName(this, 'erradultBenefitiaryId${inx}', 'adultBeneficiary');" maxlength="100" />
+													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
 												</span>
 											</div>
@@ -298,7 +295,7 @@
 									<option value="passport">Passport</option>
 									</select> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
-													class="form-control textUpper" placeholder="X1234567" onblur="chkNotNullBeneficiaryHkId(this, 'erradultBenefitiaryHKId${inx}', 'adultBeneficiary');"
+													class="form-control textUpper" placeholder="X1234567"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
@@ -502,19 +499,15 @@
 								<input name="checkbox1" id="checkbox1" type="checkbox">
 								<label for="checkbox1"> I have read and understand the policy provisions and hereby declare that:-
 								 <br>
-								 	<p>
-									i. <span class="margin-left-2"></span> The particulars and statements given above are, to the best of my knowledge and belief, true and complete; <br>
-									<p> 
+									i. <span class="margin-left-2"></span> The particulars and statements given above are, to the best of my knowledge and belief, true and complete; <br> 
 									ii. <span class="margin-left-2"></span> To the best of my knowledge and belief no Insured Person is travelling contrary to the advice of any medical practitioner or for the purpose of obtaining medical treatment and that I understand that treatment of any pre-existing, recurring or congenital medical conditions are not insured. I am not aware of any condition cause or circumstance that may necessitate the cancellation or curtailment of the journey as planned; and  <br>
-									<p>
-									iii. <span class="margin-left-2"></span>This application shall be the basis of the contract between me and FWD.
-									<p>
-							     	iv. <span class="margin-left-2"></span>This Proposal Form is applied and signed at HKSAR, in case of fraud or factual misrepresentation, the cover for me or for the Insured Person(s) may be invalidated.
-							     	<p>
+									iii. <span class="margin-left-2"></span>This application shall be the basis of the contract between me and FWD.<br>
+							     	iv. <span class="margin-left-2"></span>This Proposal Form is applied and signed at HKSAR, in case of fraud or factual misrepresentation, the cover for me or for the Insured Person(s) may be invalidated.<br>
 								    v. <span class="margin-left-2"></span>I have obtained the consent from the Insured Person(s) for passing the above information to FWD General Insurance Company Limited for the purpose of carrying out the TravelCare Insurance.
 									<br/>
-								
-									I have read and understood <a href="<%=request.getContextPath() %>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+								<br/>
+								<input name="checkbox2" id="checkbox2" type="checkbox">
+								<label for="checkbox2"> I have read and understood <a href="<%=request.getContextPath() %>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
 									class="sub-link" target="_blank">Personal Information Collection Statement</a> and agree to be bound by the same.
 										<br>
 										
@@ -526,13 +519,13 @@
 								If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2">Please do not send direct marketing information to me.<br>
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3">Please do not send direct marketing information to me.<br>
 								</label>
 							</div>
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not provide my personal data to other persons or companies for their use in direct marketing. <br> <br>
+								<input id="checkbox4" type="checkbox"> <label
+									for="checkbox4"> Please do not provide my personal data to other persons or companies for their use in direct marketing. <br> <br>
 								</label>
 							</div>
 							<!-- <div class="checkbox">
@@ -740,7 +733,7 @@
 						<h4>Email</h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
-								name="emailToSendPromoCode" id="emailToSendPromoCode">
+								name="emailToSendPromoCode" id="txtPromoEmail">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">

@@ -136,7 +136,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										value="${userDetails.getFullName()}" class="form-control"
 										id="inputFullName" name="fullName"
 										placeholder="as appears on HKID Card/Passport"
-										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'fullnameinvalid');"
+										onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" /> <span
 										id="fullnameinvalid" class="text-red"></span></td>
 								</tr>
@@ -145,8 +145,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										for="inputEmail3" class="control-label bold-500">HKID</label></td>
 									<td class="pad-none"><input type="text" name="hkid"
 										class="form-control numberinput textUpper"
-										id="inputTxtAppHkid" placeholder="X1234567"
-										onblur="chkValidApplicantHkId(this, 'errAppHkid', '');"> <span
+										id="inputTxtAppHkid" placeholder="X1234567"> <span
 										id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
@@ -157,7 +156,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										value="${userDetails.getMobileNo()}" class="form-control"
 										name="mobileNo" id="inputMobileNo" placeholder="Mobile Number"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'mobileNo');" maxlength="8" /> <span
+										onblur="replaceNumeric(this);" maxlength="8" /> <span
 										id="mobileNo" class="text-red"></span></td>
 								</tr>
 								<tr>
@@ -166,8 +165,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 											Address</label></td>
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress()}" name="emailAddress"
-										id="inputEmailId" placeholder="Email address" 
-										onblur="chkValidApplicantEmail(this, 'emailid');" maxlength="50">
+										id="inputEmailId" placeholder="Email address" maxlength="50">
 										<span id="emailid" class="text-red"></span></td>
 								</tr>
 							</tbody>
@@ -251,14 +249,14 @@ Myself
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="adultName" id="txtAdFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
-												onblur="replaceAlpha(this); chkNotNullInsuredName(this, 'errtxtAdFullName${inx}');"
+												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="X1234567" onblur="chkValidInsuredHkId(this, 'errtxtInvalidInsuHkid${inx}', '');"
+												class="form-control textUpper" placeholder="X1234567"
 												value="" /> <span id="errtxtInsuHkid${inx}"
 												class="text-red"> </span> <span
 												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -281,7 +279,7 @@ Myself
 											<label class="pad-left1 bold-500">Beneficiary</label> <select
 												id="adultsselectBenificiary${inx}"
 												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" onblur="chkNotNullBeneficiary(this, 'erradultsselectBenificiary${inx}');" class="form-control soflow">
+												name="adultBeneficiary" class="form-control soflow">
 												<option value="SE">Own Estate</option>
 												<c:forEach var="relationshipCodeList"
 													items="${mapRelationshipCode}">
@@ -298,7 +296,7 @@ Myself
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value="" class="form-control"
 													placeholder="As appears on HKID Card"
-													onblur="replaceAlpha(this); chkNotNullBeneficiaryName(this, 'erradultBenefitiaryId${inx}', 'adultBeneficiary');"
+													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
 												</span>
@@ -307,7 +305,6 @@ Myself
 												<label class="pad-left1 bold-500">HKID</label> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
-													onblur="chkNotNullBeneficiaryHkId(this, 'erradultBenefitiaryHKId${inx}', 'adultBeneficiary');"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
 											</div>
@@ -505,7 +502,7 @@ Myself
 									Insurance. <br />
 								
 							
-								<input id="checkbox2" name="checkbox1" type="checkbox">
+								<input id="checkbox2" name="checkbox2" type="checkbox">
 								<label for="checkbox2">
 									I have read and understood <a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
