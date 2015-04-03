@@ -79,9 +79,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
             <h2 class="center">嶄新保險體驗 盡在富衛</h2>
-            <div class="col-sm-12 col-xs-12" >  <a href="flight-cn.html" class="border-radius btn btn-primary  home-btn home-btn-main" >航空保險</a></div>
-                  <div class="col-sm-12 col-xs-12" > <a href="travel-cn.html" class="border-radius btn btn-primary  home-btn home-btn-main">旅遊保險</a></div>
-                        <div class="col-sm-12 col-xs-12" >      <a href="homecare-cn.html" class="border-radius btn btn-primary  home-btn home-btn-main">家居保險</a>
+            <div class="col-sm-12 col-xs-12" >  <a href="/flight" class="border-radius btn btn-primary  home-btn home-btn-main" >航空保險</a></div>
+                  <div class="col-sm-12 col-xs-12" > <a href="/travel" class="border-radius btn btn-primary  home-btn home-btn-main">旅遊保險</a></div>
+                        <div class="col-sm-12 col-xs-12" >      <a href="/homecare" class="border-radius btn btn-primary  home-btn home-btn-main">家居保險</a>
            </div>
            
             <!--<div class=" col-sm-12  col-xs-12">
@@ -239,7 +239,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item active">
         <div class="container">
           <div class="row slide-margin">
-            <div class="testimonials-wrap text-center">
+            <div class="col-xs-12 text-center">
               <div class="testimonials-inner text-center">
                 <blockquote class="testimonial"></blockquote>
                 <p>我選擇FWD旅遊保險因為佢地24小時都有人聽電話，最緊要係放工時間和身處外國都可以搵到人。</p>
@@ -255,7 +255,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item" >
         <div class="container">
           <div class="row slide-margin">
-            <div class="testimonials-wrap text-center">
+            <div class="col-xs-12 text-center">
               <div class="testimonials-inner text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
                 <p>我是一個背包客。富衛旅遊保及國際SOS緊急救援電話是我每次流浪時隨身必備的幫手 – 因為你永遠無法想像會在亞馬遜叢林遇上甚麼驚喜。</p>
@@ -282,24 +282,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <img class="bdr-img" src="resources/images/home4.png" alt="">
-            <h3> <a href="http://blog.fwd.com.hk/" target="_blank"> 放長假前必做六件事  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"> 放長假前必做六件事  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <img class="bdr-img" src="resources/images/home5.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/" target="_blank"> 外出旅遊，連繫無間  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="resources/images/home5.png" alt=""></a>
+            <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"> 外出旅遊，連繫無間  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <img class="bdr-img" src="resources/images/home6.png" alt="">
-            <h3> <a href="http://blog.fwd.com.hk/" target="_blank">親子旅行小貼士  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children-2/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children-2/" target="_blank">親子旅行小貼士  <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>

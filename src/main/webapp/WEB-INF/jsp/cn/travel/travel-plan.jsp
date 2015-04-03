@@ -107,7 +107,7 @@
 									<div class="order-status-timeline">
 										<!-- class names: c0 c1 c2 c3 and c4 -->
 										<div
-											class="order-status-timeline-completion order-status-timeline-completion c1"></div>
+											class="order-status-timeline-completion order-status-timeline-completion c4"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act">
@@ -993,7 +993,7 @@
 			value="<%=travelQuote.getPlanSelected()%>">
 		<p class="padding1 hidden-sm hidden-xs">
 			以上資料只作參考用途。詳情請查看<a class="sub-link"
-				href="../policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+				href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
 				target="_blank">保單條款</a>。有關條款細則的詳細資料,請聯絡您的理財顧問或致電我們的24小時熱線3123
 			3123與客戶服務主任聯絡。
 		</p>

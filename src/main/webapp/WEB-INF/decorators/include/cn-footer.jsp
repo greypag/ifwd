@@ -9,10 +9,10 @@
           <li><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></li>
         </ul>
       </div>
-      <div class="col-sm-4 pull-right">
+      <div class="col-sm-5 pull-right">
         <div class="social">
           <ul class="social-share pull-left text-right">
-   <li><a href="https://www.facebook.com/FWD.HK.MO" target="_blank"><i class="fa fa-facebook"></i></a></li>
+   			<li><a href="https://www.facebook.com/FWD.HK.MO" target="_blank"><i class="fa fa-facebook"></i></a></li>
             <li><a href="https://www.youtube.com/user/FWDHK " target="_blank"><i class="fa fa-youtube"></i></a></li>
           </ul>
           <div class="hotline pull-right text-left">
@@ -38,9 +38,11 @@
           <li><a href="http://www.fwd.com.hk/zh-HK/home/pdo.html" target="_blank"> 個人資料保護政策及執行</a></li>
         </ul>
       </div>
+	  <!-- issue 50 - vincent (pccw)
       <div class="col-lg-5 col-md-5 pull-right text-right">
         <p> &copy; 2015 富衛香港 版權所有 不得轉載</p>
       </div>
+	  -->
     </div>
   </div>
 </div>

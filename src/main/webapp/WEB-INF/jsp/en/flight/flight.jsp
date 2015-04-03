@@ -33,26 +33,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 pad-none slide-form">
+      <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
       <form name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="getFlightDate">    
         <h2>Get your flight insurance now</h2>
        
              <table class="table activation-form3">
           <tbody>
+          <tr>
+            	<td>
+            		<h3>When are you leaving?</h3>
+            	</td>
+            	<td>
+            		<h3>When will you be back?</h3>
+            	</td>
+            	<td>
+            		<h3>Who's travelling?</h3>
+            	</td>
+            	<td>
+            		<div id="divPersonsDesk" style="visibility:hidden;">
+                  <h3 class="h3-i2">
+                    <label id="lblPeopleDesk">0</label>
+                    people <br>
+                    travelling
+                    <label id="lblDaysDesk">0</label>
+                    day(s) </h3>
+                </div>
+            	</td>
+            </tr>
             <tr>
-              <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');">
                 </div>
-                <span id="startDateDeskIn" class="text-red" > </span>
+                
                 </td>
-              <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','Depature Date');">
                 </div>
-             	<span id="endDateDeskIn"  class="text-red" > </span>
+             	
              </td>
-              <td class="col-md-3 pad-none"><h3>Who's travelling?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+              <td class="col-md-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -61,13 +82,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  checked="" >
-                          <label for="personal_plan_desk"> Personal <br>    Plan </label>
+                          <label for="personal_plan_desk"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" >
-                          <label for="family_plan_desk"> Family <br>  Plan </label>
+                          <label for="family_plan_desk">Family Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -113,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" id="txtChildDesk" readonly>
+                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="14" id="txtChildDesk" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -140,18 +161,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountDeskIn" style="display:none" class="text-red">
-              <label class="text-red">Please enter Traveller's information</label>
-              </span>
+                
                 </td>
-              <td class="col-md-2 pad-none"><div id="divPersonsDesk" style="visibility:hidden;">
-                  <h3 class="h3-i">
-                    <label id="lblPeopleDesk">0</label>
-                    people <br>
-                    travelling
-                    <label id="lblDaysDesk">0</label>
-                    day(s) </h3>
-                </div>
+              <td class="col-md-2 pad-none">
                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg">
             	Apply for Free Now!
              </button> 
@@ -159,6 +171,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               
         
             </tr>
+            
+            <tr>
+            	<td><span id="startDateDeskIn" class="text-red" > </span></td>
+            	<td><span id="endDateDeskIn" class="text-red"> </span></td>
+            	<td>
+            		<span id="travelCountDeskIn" style="display:none" class="text-red">
+              			<label class="text-red">Please enter Traveller's information</label>
+           			</span>
+         		</td>
+            	<td></td>
+           	</tr>
           </tbody>
         </table>
             
@@ -202,13 +225,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" checked="">
-              <label for="personal_plan_mob"> Personal <br>Plan </label>
+              <label for="personal_plan_mob"> Personal Plan </label>
             </label>  
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"   name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" >
-              <label for="family_plan_mob">  Family <br>Plan </label>
+              <label for="family_plan_mob">  Family Plan </label>
            </label> 
           </div>
           <div class="clearfix"></div>
@@ -252,7 +275,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus input-number" value="0" data-min="0" data-max="14" id="txtChildMob"  readonly=""/>
+                <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus input-number" value="1" data-min="1" data-max="14" id="txtChildMob"  readonly=""/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -543,22 +566,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container">
     <div class="row">
      <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="getFlightDate">
-      <div class="col-lg-12 col-md-12 pad-none slide-form">
+      <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <h2>Get your flight insurance now</h2>
         <table class="table activation-form3">
           <tbody>
+          <tr>
+          	<td>
+          		<h3>When are you leaving?</h3>
+          	</td>
+          	
+          	<td>
+          		<h3>When will you be back?</h3>
+          	</td>
+          	<td>
+          		<h3>Who's travelling?</h3>
+          	</td>
+          	<td>
+          		<div id="divPersonsBtm" style="visibility:hidden;">
+                  <h3 class="h3-i2">
+                    <label id="lblPeopleBtm">0</label>
+                    people <br>
+                    travelling
+                    <label id="lblDaysBtm">0</label>
+                    <input type="hidden" id="lblDaysBtm" name="daysJsp">
+day(s) </h3> 
+                </div>
+          	</td>
+          </tr>
             <tr>
-              <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');">
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
-              <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', 'Depature Date');">
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
-              <td class="col-md-3 pad-none"><h3>Who's travelling?</h3>
+              <td class="col-md-3 pad-none">
                  <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountBtm"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -567,13 +613,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  checked="" >
-                          <label for="personal_plan_btm"> Personal <br>    Plan </label>
+                          <label for="personal_plan_btm"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" >
-                          <label for="family_plan_btm"> Family <br>  Plan </label>
+                          <label for="family_plan_btm"> Family Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -619,7 +665,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtChildBtm" readonly>
+                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtChildBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -646,21 +692,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountBtmIn" style="visibility:hidden;" class="text-red">
+                <span id="travelCountBtmIn" style="display:none;" class="text-red">
                 <label class="text-red">Please enter Traveller's information</label>
                 </span>
                 </td>
-              <td class="col-md-2 pad-none"><div id="divPersonsBtm" style="visibility:hidden;">
-                  <h3 class="h3-i">
-                    <label id="lblPeopleBtm">0</label>
-                    people <br>
-                    travelling
-                    <label id="lblDaysBtm">0</label>
-                    <input type="hidden" id="lblDaysBtm" name="daysJsp">
-day(s) </h3> 
-                </div>
+              <td class="col-md-2 pad-none">
                 <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
-                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg">
+                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
             	Apply for Free Now!
              </button> 
             </tr>

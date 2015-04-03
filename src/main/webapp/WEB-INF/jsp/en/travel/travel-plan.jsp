@@ -103,7 +103,7 @@
 									<div class="order-status-timeline">
 										<!-- class names: c0 c1 c2 c3 and c4 -->
 										<div
-											class="order-status-timeline-completion order-status-timeline-completion c1"></div>
+											class="image-order-status-new active img-circle c0"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act">
@@ -736,7 +736,7 @@
 																<td>470</td>
 															</tr>
 															<tr>
-																<7td>8</td>
+																<td>8</td>
 																<td>290</td>
 																<td>200</td>
 																<td>508</td>
@@ -1155,9 +1155,9 @@
 				<p class="padding1 hidden-sm hidden-xs">
 					The features above are indicative only. Please refer to the <a
 						class="sub-link"
-						href="policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
-						target="_blank">Policy Provisions</a> for details.<br> for
-					details. For a complete explanation of the terms and conditions,
+						href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+						target="_blank">Policy Provisions</a> for details.<br> 
+						For a complete explanation of the terms and conditions,
 					feel free to contact an adviser or our 24-hour hotline at 3123 3123
 					for more details.
 				</p>

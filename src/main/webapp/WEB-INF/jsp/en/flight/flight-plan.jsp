@@ -72,7 +72,7 @@
 						<div class="order-status">
 							<div class="order-status-timeline">
 								<!-- class names: c0 c1 c2 c3 and c4 -->
-								<div class="order-status-timeline-completion c1"></div>
+								<div class="order-status-timeline-completion c4"></div>
 							</div>
 							<div
 								class="image-order-status image-order-status-new active  img-circle">

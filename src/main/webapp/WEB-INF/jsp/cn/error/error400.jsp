@@ -77,7 +77,7 @@ class="collapse navbar-collapse navbar-right top-menu pad-none"
 id="headerLoginForm">
 
 <ul class="nav navbar-nav">
-<li class="active"><a href="indexPage">HOME</a></li>
+<li class="active"><a href="/">HOME</a></li>
 <li><a>|</a></li>
 <li><a href="#"
 target="_blank">ABOUT</a></li>
