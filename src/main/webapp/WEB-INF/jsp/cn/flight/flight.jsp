@@ -148,7 +148,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			               <label id="lblDaysDesk">0</label>
 			               days </h3>
 			           </div>
-			        	   <button type="submit" class="border-radius btn btn-primary  get-btn marg-t2" >立即申請免費保障!</button>
+			        	   <button type="submit" class="border-radius btn btn-primary  get-btn" >立即申請免費保障!</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即申請免費保障!</a> -->
 			        </td>
 			       </tr>
@@ -706,7 +706,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     days </h3>
                 </div>
-                <button type="submit" class="border-radius btn btn-primary  get-btn-fl marg-t2">
+                <button type="submit" class="border-radius btn btn-primary  get-btn-fl">
                 立即申請免費保障!
                 </button>
                  </td>
