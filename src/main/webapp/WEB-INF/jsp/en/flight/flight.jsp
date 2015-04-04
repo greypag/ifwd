@@ -164,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 </td>
               <td class="col-md-2 pad-none">
-                <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg">
+                <button  type="submit" class="bdr-curve-none btn btn-primary  btn-lg">
             	Apply for Free Now!
              </button> 
               </td>
@@ -697,8 +697,8 @@ day(s) </h3>
                 </span>
                 </td>
               <td class="col-md-2 pad-none">
-                <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
-                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
+                <!--  <input type="submit" class="border-radius btn btn-primary get-btn" value="Apply for Free Now!"> -->
+                 <button  type="submit" class="bdr-curve-none btn btn-primary btn-lg pad-increase">
             	Apply for Free Now!
              </button> 
             </tr>
