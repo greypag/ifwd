@@ -240,7 +240,7 @@ class="fwdpanel-minimize uline">See All Benefits </a> </span>
 </div>
 <div class="clearfix"></div>
 </div>
-<h5> <a href="#">Upgrade Now!</a> </h5>
+<h5> <a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">Upgrade Now!</a> </h5>
 </div>
 </div>
 
@@ -308,28 +308,25 @@ $(".travelproductbox").animate({
 });
 
 function setPriceAndColor(id, planName, selectedPrice) {
-var selected_div;
-var idArray = [];
+	var selected_div;
+	var idArray = [];
 
-$('.travelproductbox').each(function() {
-idArray.push(this.id);
-});
+	$('.travelproductbox').each(function() {
+		idArray.push(this.id);
+	});
 
-var index = idArray.indexOf(id);
-if (index > -1) {
-idArray.splice(index, 1);
-for (var i = 0; i < idArray.length; i++) {
-$('#' + idArray).removeClass("plan-box4");
-$('#' + idArray).addClass("plan-box3");
-}
-}
+	var index = idArray.indexOf(id);
+	if (index > -1) {
+		idArray.splice(index, 1);
+		
+	}
 
-$('#inputseletedplanname').val(planName);
-$('#inputseletedDueAmount').val(selectedPrice);
+	$('#inputseletedplanname').val(planName);
+	$('#inputseletedDueAmount').val(selectedPrice);
 
-$('#' + id).addClass("plan-box4");
+	
 
-// $('#frmTravelPlan').submit();
+	$('#frmTravelPlan').submit();
 /* $.ajax({
 type : 'POST',
 url : 'travel-summary',
