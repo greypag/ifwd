@@ -40,17 +40,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              <table class="table activation-form3">
           <tbody>
           <tr>
-            	<td>
-            		<h3>When are you leaving?</h3>
-            	</td>
-            	<td>
-            		<h3>When will you be back?</h3>
-            	</td>
-            	<td>
-            		<h3>Who's travelling?</h3>
-            	</td>
-            	<td>
-            		<div id="divPersonsDesk" style="visibility:hidden;">
+              <td>
+                <h3>When are you leaving?</h3>
+              </td>
+              <td>
+                <h3>When will you be back?</h3>
+              </td>
+              <td>
+                <h3>Who's travelling?</h3>
+              </td>
+              <td>
+                <div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i2">
                     <label id="lblPeopleDesk">0</label>
                     people <br>
@@ -58,7 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <label id="lblDaysDesk">0</label>
                     day(s) </h3>
                 </div>
-            	</td>
+              </td>
             </tr>
             <tr>
               <td class="col-md-3 pad-none">
@@ -71,7 +71,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','Depature Date');">
                 </div>
-             	
+              
              </td>
               <td class="col-md-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
@@ -164,8 +164,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 </td>
               <td class="col-md-2 pad-none">
-                <button  type="submit" class="bdr-curve-none btn btn-primary  btn-lg">
-            	Apply for Free Now!
+                <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg">
+              Apply for Free Now!
              </button> 
               </td>
               
@@ -173,15 +173,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </tr>
             
             <tr>
-            	<td><span id="startDateDeskIn" class="text-red" > </span></td>
-            	<td><span id="endDateDeskIn" class="text-red"> </span></td>
-            	<td>
-            		<span id="travelCountDeskIn" style="display:none" class="text-red">
-              			<label class="text-red">Please enter Traveller's information</label>
-           			</span>
-         		</td>
-            	<td></td>
-           	</tr>
+              <td><span id="startDateDeskIn" class="text-red" > </span></td>
+              <td><span id="endDateDeskIn" class="text-red"> </span></td>
+              <td>
+                <span id="travelCountDeskIn" style="display:none" class="text-red">
+                    <label class="text-red">Please enter Traveller's information</label>
+                </span>
+            </td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
             
@@ -439,7 +439,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <h1>Here When<br>
               You Need Us</h1>
             <p>
-            	Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank">app </a>  ensures you get the support you need, when you need it.
+              Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank">app </a>  ensures you get the support you need, when you need it.
             </p>
             </div>
         </div>
@@ -449,7 +449,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
             <h1>Secure &amp; <br>
               Stable</h1>
-          	  <p>We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch.<br>
+              <p>We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch.<br>
               <br>
             </p>
           </div>
@@ -525,32 +525,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="center">
       <h2>Read more from our blog</h2>
     </div>
-     <div>
-     <div class="col-lg-4 col-md-4 pad-none">
-        <div class="services-wrap service-bx1">
-          <div> <img class="bdr-img" src="resources/images/home4.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/" target="_blank"> 6 Musts Before a Long Vacation <i class="fa fa-caret-right"></i></a> </h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 pad-none">
-        <div class="services-wrap service-bx2">
-          <div> <img class="bdr-img" src="resources/images/home5.png" alt="">
-             <h3><a href="http://blog.fwd.com.hk/"  target="_blank"> Staying Connected While travelling Abroad <i class="fa fa-caret-right"></i> </a></h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 pad-none">
-        <div class="services-wrap service-bx3">
-          <div> <img class="bdr-img" src="resources/images/home6.png" alt="">
-           <h3><a href="http://blog.fwd.com.hk/" target="_blank">Tips for travelling with Children <i class="fa fa-caret-right"></i></a> </h3>
-         
-          </div>
-        </div>
-      </div>
+      <div>
+        <div class="col-lg-4 col-md-4 pad-none">
+          <div class="services-wrap service-bx1">
+            <div>
+              <a href="http://blog.fwd.com.hk/en_US/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="img-responsive bdr-img"
+                src="resources/images/home4.png" alt=""></a>
+              <h3>
+                <a href="http://blog.fwd.com.hk/en_US/2015/03/17/7-musts-before-a-long-vacation/" target="_blank">  7 musts before a long vacation <i class="fa fa-caret-right"></i>
+                </a>
+              </h3>
 
-      <div class="clearfix"></div>
-    </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 pad-none">
+          <div class="services-wrap service-bx2">
+            <div>
+              <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="img-responsive bdr-img"
+                src="resources/images/home5.png" alt=""></a>
+              <h3>
+                <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"> Staying connected while travelling abroad <i
+                  class="fa fa-caret-right"></i>
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 pad-none">
+          <div class="services-wrap service-bx3">
+            <div>
+              <a href="http://blog.fwd.com.hk/en_US/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="img-responsive bdr-img"
+                src="resources/images/home6.png" alt=""></a>
+              <h3>
+                <a href="http://blog.fwd.com.hk/en_US/2015/03/19/tips-for-traveling-with-children/" target="_blank"> Tips for travelling with children <i class="fa fa-caret-right"></i>
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
     
     <p>The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information.</p>
 
@@ -571,18 +587,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <table class="table activation-form3">
           <tbody>
           <tr>
-          	<td>
-          		<h3>When are you leaving?</h3>
-          	</td>
-          	
-          	<td>
-          		<h3>When will you be back?</h3>
-          	</td>
-          	<td>
-          		<h3>Who's travelling?</h3>
-          	</td>
-          	<td>
-          		<div id="divPersonsBtm" style="visibility:hidden;">
+            <td>
+              <h3>When are you leaving?</h3>
+            </td>
+            
+            <td>
+              <h3>When will you be back?</h3>
+            </td>
+            <td>
+              <h3>Who's travelling?</h3>
+            </td>
+            <td>
+              <div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i2">
                     <label id="lblPeopleBtm">0</label>
                     people <br>
@@ -591,7 +607,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <input type="hidden" id="lblDaysBtm" name="daysJsp">
 day(s) </h3> 
                 </div>
-          	</td>
+            </td>
           </tr>
             <tr>
               <td class="col-md-3 pad-none">
@@ -697,9 +713,9 @@ day(s) </h3>
                 </span>
                 </td>
               <td class="col-md-2 pad-none">
-                <!--  <input type="submit" class="border-radius btn btn-primary get-btn" value="Apply for Free Now!"> -->
-                 <button  type="submit" class="bdr-curve-none btn btn-primary btn-lg pad-increase">
-            	Apply for Free Now!
+                <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
+                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
+              Apply for Free Now!
              </button> 
             </tr>
           </tbody>
