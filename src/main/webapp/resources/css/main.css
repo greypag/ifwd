@@ -4595,16 +4595,15 @@ box-shadow:0 0 6px #f68a1d;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
 	padding: 8px;
 	font-size: 24px;
 	color: #000;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	padding-top: 12px;
-  	line-height: normal;
+	line-height: normal;
+  padding-top: 12px;
+  padding-bottom: 4px;
 }
 
 
@@ -4613,8 +4612,7 @@ box-shadow:0 0 6px #f68a1d;
 		
 	width: 100% !important; 
 	border: 1px solid #f6d5b4;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
+
 	padding: 8px;
 	font-size: 24px;
 	color: #000;   
@@ -4630,6 +4628,10 @@ box-shadow:0 0 6px #f68a1d;
 	-moz-appearance:none;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
+
+	line-height: normal;
+	  padding-top: 12px;
+	  padding-bottom: 4px;
 }
 
 .form-horizontal .control-group {
