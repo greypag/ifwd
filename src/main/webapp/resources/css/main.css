@@ -3725,8 +3725,7 @@ color:#fff !important;
 }
 .shop-tracking-status .order-status-timeline {
 	height: 1px;
-	border: 1px dashed #aaa;
-	box-shadow: 0 0 5px 0 #C2C2C2 inset;
+	
 	margin: 5px;
 	width: 95%;
 }
