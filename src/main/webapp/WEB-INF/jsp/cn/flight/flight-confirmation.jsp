@@ -258,11 +258,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
-						<div
-							class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box travelproductbox"
-							id="box<%=i%>"
-							onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="plan-box2-inner">
+
+							
+							<div
+class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box">
+<div class="plan-box2-inner travelproductbox"
+id="box<%=i%>">
+							
+							
 								<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
 									<%-- <h2><%=travelQuote.getPlanName()[i]%><br> 優越保障<br> HK$1,000,000 醫療保障
 									</h2> --%>
@@ -308,7 +311,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									<div class="clearfix"></div>
 								</div>
 								<h5>
-									<a href="#">UPGRADE NOW</a>
+									<a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">Upgrade Now!</a>
 								</h5>
 							</div>
 						</div>
@@ -387,16 +390,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		var index = idArray.indexOf(id);
 		if (index > -1) {
 			idArray.splice(index, 1);
-			for (var i = 0; i < idArray.length; i++) {
-				$('#' + idArray).removeClass("plan-box4");
-				$('#' + idArray).addClass("plan-box3");
-			}
+			
 		}
 
 		$('#inputseletedplanname').val(planName);
 		$('#inputseletedDueAmount').val(selectedPrice);
 
-		$('#' + id).addClass("plan-box4");
+		
 
 		$('#frmTravelPlan').submit();
 		/* $.ajax({
