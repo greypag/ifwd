@@ -4603,6 +4603,8 @@ box-shadow:0 0 6px #f68a1d;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+	padding-top: 12px;
+  	line-height: normal;
 }
 
 
