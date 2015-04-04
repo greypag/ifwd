@@ -178,18 +178,50 @@
 								<div class="fwdpanel-heading">
 									<h4 class="uline benefits">
 										<span><a href="#"
-											class="fwdpanel-minimize uline color-wht"><i
+											class="fwdpanel-minimize uline text-black"><i
 												class="fa fa-plus"></i>承保範圍</a> </span>
 									</h4>
 								</div>
-								<div class="fwdpanel-body" style="display: none;">
+								<!-- <div class="fwdpanel-body" style="display: none;">
 									<p class="color-wht">
 										<i class="fa fa-plus"></i> 住院或檢疫現金津貼 $10,000<br> <i
 											class="fa fa-plus"></i> 全球緊急支援服務 <br> <i
 											class="fa fa-plus"></i> 租車自負額 $5,000 <br> <i
 											class="fa fa-plus"></i> 高爾夫球“一桿入洞” $3,000 <br>
 									</p>
+								</div> -->
+								
+								<div class="fwdpanel-body" style="display: none;">
+									<!-- <p class="color-wht"> -->
+										<table class="col-xs-12">
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+													<i class="fa fa-plus"></i> 住院或檢疫現金津貼 </td>
+											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$10,000</td>
+										</tr>
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+											<i class="fa fa-plus"></i> 全球緊急支援服務
+											</td><td class="col-lg-4 col-md-4 col-sm-6 col-xs-6"> </td>
+										</tr> 
+										
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+											<i class="fa fa-plus"></i> 租車自負額 </td>
+											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$5,000 </td>
+										</tr>
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+											<i class="fa fa-plus"></i> 高爾夫球“一桿入洞” </td>
+											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$3,000 </td>
+											</tr>
+										</table>
+										<!--<i class="fa fa-plus"></i> See more benefits<br>-->
+									<!-- </p> -->
 								</div>
+								
+								
+								
 								<div class="clearfix"></div>
 							</div>
 							<!-- / Plan benefits -->

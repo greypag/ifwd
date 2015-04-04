@@ -3596,7 +3596,10 @@ margin-bottom: 10px;}
 	font-size: 28px;
 }
 .ur-opt-content p {
-	padding-left: 65px;
+	padding-left: 35px;
+}
+ .ur-opt-content table {
+	margin-left: 35px;
 }
 .stepwizard-step p {
 	margin-top: 10px;
@@ -4168,7 +4171,7 @@ a.h4-4 {
 .plan-box3 h3 {
 	
 	line-height: 32px;
-	margin-left: 50px;
+	margin-left: 30px;
 	font-size: 28px;
 	line-height: 42px;
 	
@@ -4189,7 +4192,7 @@ a.h4-4 {
 .plan-box3 h6 {
 	
 	line-height: 42px;
-	margin-left: 50px;
+	margin-left: 30px;
 	font-size: 55px;
 	font-weight: bold;
 }
@@ -4208,7 +4211,7 @@ a.h4-4 {
 .plan-box4 h3 {
 	color: #fff;
 	line-height: 32px;
-	margin-left: 50px;
+	margin-left: 30px;
 	font-size: 28px;
 	line-height: 42px;
 	
@@ -4237,7 +4240,7 @@ a.h4-4 {
 .plan-box4 h6 {
 	color: #fff;
 	line-height: 42px;
-	margin-left: 50px;
+	margin-left: 30px;
 	font-size: 55px;
 	font-weight: bold;
 }

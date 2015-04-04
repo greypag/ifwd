@@ -178,20 +178,35 @@
 							<div class="fwdpanel">
 								<div class="fwdpanel-heading">
 									<h4 class="benefits">
-										<span><i class="fa fa-plus"></i> <a href="#"
-											class="fwdpanel-minimize uline text-black"> Plan benefits
+										<span> <a href="#"
+											class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> Plan benefits
 										</a> </span>
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
-									<p class="color-wht">
-										<i class="fa fa-plus"></i> Hospital or quarantine cash $10,000<br>
-										<i class="fa fa-plus"></i> Worldwide emergency assistance
-										Fully Covered <br> <i class="fa fa-plus"></i> Rental
-										vehicle excess $5,000 <br> <i class="fa fa-plus"></i>
-										Golfer Hole in one $3,000 <br>
+									<!-- <p class="color-wht"> -->
+										<table class="col-xs-12">
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+													<i class="fa fa-plus"></i> Hospital or quarantine cash </td>
+											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$10,000</td>
+										</tr>
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none"><i class="fa fa-plus"></i> Worldwide emergency assistance
+											</td><td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">Fully Covered </td>
+										</tr> 
+										
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none"><i class="fa fa-plus"></i> Rental vehicle excess </td>
+											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$5,000 </td>
+										</tr>
+										<tr>
+											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none"><i class="fa fa-plus"></i> Golfer Hole in one </td>
+											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$3,000 </td>
+											</tr>
+										</table>
 										<!--<i class="fa fa-plus"></i> See more benefits<br>-->
-									</p>
+									<!-- </p> -->
 								</div>
 								<div class="clearfix"></div>
 							</div>
