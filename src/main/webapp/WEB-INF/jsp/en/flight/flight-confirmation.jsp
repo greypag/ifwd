@@ -120,9 +120,10 @@ PLAN A<br> Superior Cover<br> HK$ 1,000,000 Medical
 <div class="fwdpanel">
 <div class="fwdpanel-heading">
 <h4 class="benefits">
-<span><i class="fa fa-plus"></i> <a href="#"
+<span><i class="fa fa-plus"></i> 
+<button href="#"
 class="fwdpanel-minimize uline color-wht">See All
-Benefits </a> </span>
+Benefits </button> </span>
 </h4>
 </div>
 
@@ -162,8 +163,8 @@ PLAN B<br> Standard Cover<br> HK$ 500,000 Medical
 <div class="fwdpanel">
 <div class="fwdpanel-heading">
 <h4 class="benefits">
-<span><i class="fa fa-plus"></i> <a href="#"
-class="fwdpanel-minimize uline">See All Benefits </a> </span>
+<span><i class="fa fa-plus"></i> <button
+class="fwdpanel-minimize uline">See All Benefits </button> </span>
 </h4>
 </div>
 
@@ -192,11 +193,11 @@ QuoteDetails travelQuote = (QuoteDetails) request
 if (travelQuote.getPlanName().length > 0) {
 for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 %>
+
 <div
-class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box travelproductbox"
-id="box<%=i%>"
-onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-<div class="plan-box2-inner">
+class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box">
+<div class="plan-box2-inner travelproductbox"
+id="box<%=i%>">
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
 <h2>
 									<%=travelQuote.getPlanName()[i]%>
@@ -328,7 +329,7 @@ $('#inputseletedDueAmount').val(selectedPrice);
 
 $('#' + id).addClass("plan-box4");
 
-$('#frmTravelPlan').submit();
+// $('#frmTravelPlan').submit();
 /* $.ajax({
 type : 'POST',
 url : 'travel-summary',

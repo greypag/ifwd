@@ -5460,4 +5460,8 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 	  font-size: 40px;
 	}
 }
-
+.travelproductbox:hover{
+	background-color: #616163;
+	padding: 10px;
+	border: 1px solid #616163;
+}
