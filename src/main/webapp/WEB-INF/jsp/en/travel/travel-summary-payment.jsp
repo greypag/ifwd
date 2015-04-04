@@ -442,7 +442,7 @@
 						<div class="clearfix"></div>
 						<div class="hidden-sm hidden-xs pad-none">
 							<a href="travel-plan-details.html"
-								class="bdr-curve btn btn-primary bck-btn">Back </a>
+								class="bdr-curve btn btn-primary bck-btn2">Back </a>
 							<button onclick="confirmPayment();"
 								class="bdr-curve btn btn-primary nxt-btn margin-left">
 								Confirm Payment</button>

@@ -3331,7 +3331,7 @@ del {
 .bck-btn {
 	display: block;
 	  width: 100%;
-	font-family: 'Foco-bold';
+
 	font-size: 28px;
 	line-height: 31.5px;
 	font-weight: normal;
@@ -3347,6 +3347,24 @@ del {
 	background-color: #f68a1d;
 	border: 1px solid #f68a1d;
 }
+.bck-btn2 {
+	padding: 20px 65px;
+	font-size: 28px;
+	line-height: 31.5px;
+	font-weight: normal;
+	
+	background-color: #fff ;
+	border: 1px solid #f68a1d;
+	color: #f68a1d;
+	
+}
+
+.bck-btn2:hover {
+	color: #fff;
+	background-color: #f68a1d;
+	border: 1px solid #f68a1d;
+}
+
 .placeholder-fl {
 	font-family: 'Foco_Lt';
 	font-size: 24px;

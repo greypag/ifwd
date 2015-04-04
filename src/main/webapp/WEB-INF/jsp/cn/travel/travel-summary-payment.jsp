@@ -403,10 +403,10 @@
 						</div>-->
 						<span id="errchk2" class="error-msg"></span>
 						<div class="clearfix"></div>
-						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
+						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
 						<div class="hidden-sm hidden-xs pad-none">
 							<a href="#" onclick="BackMe()"
-								class="bdr-curve btn btn-primary bck-btn">返回 </a> <input
+								class="bdr-curve btn btn-primary bck-btn2">返回 </a> <input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn margin-left"
 								value="確認付款" onclick="confirmPayment()" />
