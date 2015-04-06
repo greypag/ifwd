@@ -12,6 +12,20 @@ $(window).load(function(){
       $('#lblCountDesk').html('1 Traveller(s)');
       $('#lblPeopleDesk').html('1');
   }
+  
+  if($('#divPersonsBtm').length){
+      document.getElementById("divPersonsBtm").style.visibility = "visible";
+        $('#lblCountBtm').show();
+        $('#lblCountBtm').html('1 Traveller(s)');
+        $('#lblPeopleBtm').html('1');
+    }
+  
+  if($('#divPersonsMob').length){
+      document.getElementById("divPersonsMob").style.visibility = "visible";
+        $('#lblCountMob').show();
+        $('#lblCountMob').html('1 Traveller(s)');
+        $('#lblPeopleMob').html('1');
+    }
 });//]]> 
 
 $('.plan').change(function () {

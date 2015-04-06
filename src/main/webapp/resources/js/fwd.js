@@ -4,6 +4,8 @@ var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^\d{8}$/;
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+
+var chin = false;
 /* datepicker script*/
 
 /* hkid validation script */
@@ -56,7 +58,11 @@ function IsHKID(str) {
 }
 
 $(function () {
+	chin = $('body').hasClass('chin');
+	
 	/*get now date*/
+	
+	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
@@ -1996,16 +2002,33 @@ function IsNumeric(input){
 }
 
 // get language
-function getBundleLanguage(){
+/*function getBundleLanguage(){
 	var lang = UILANGUAGE;
-	if("EN".equals(lang)){
+	
+	if(lang === "EN"){
 		return "";
-	}else if("CN".equals(lang)){
+	}else 
+	if(lang === "CN"){
 		return "zh-HK";
-	} else{
+	} 
+	else{
 		return "";
 	}
-}
+}*/
+
+
+	var lang = UILANGUAGE;
+	
+	if(lang === "EN"){
+		getBundleLanguage = "";
+	}else 
+	if(lang === "CN"){
+		getBundleLanguage = "zh-HK";
+	} 
+	else{
+		getBundleLanguage = "";
+	}
+
 
 //validation
 function resetErrElement(errElementId){
@@ -2430,10 +2453,10 @@ function chkValidIAEffDate(element, errElementId, name){
 // get resource bundle
 function getBundle(lang, key) {
 	var rtn; 
+	console.log("ggg" + lang)
 	loadBundles(lang, key, function(value){
 		rtn = value;
 	});
-	
 	return rtn;
 }
 function loadBundles(lang, key, fn) {
