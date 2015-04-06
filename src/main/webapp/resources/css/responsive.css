@@ -305,8 +305,8 @@
         font-weight: bold;
     }
     /*
-	Label the data
-	*/
+    Label the data
+    */
     
     #no-more-tables td:before {
         content: attr(data-title);
@@ -343,11 +343,14 @@
     }
     .plan-box2
     {
-    	border:1px solid #616163;
+        border:1px solid #616163;
     }
     .plan-box2-inner
     {
-    	border:none;
+        border:none;
+    }
+    .wht-bg3 {
+        background-color: #fff;
     }
 }
 /* xs */
@@ -410,8 +413,8 @@
     }
     .plan-box2
     {
-    	border:1px solid #616163;
-    	margin-left:0px;
+        border:1px solid #616163;
+        margin-left:0px;
     }
     .plan-box3 {
         border: 1px solid #616163;
@@ -637,8 +640,8 @@
         font-weight: bold;
     }
     /*
-	Label the data
-	*/
+    Label the data
+    */
     
     #no-more-tables td:before {
         content: attr(data-title);
@@ -917,11 +920,11 @@
     }
     .plan-box2
     {
-    	border:1px solid #616163;
+        border:1px solid #616163;
     }
     .plan-box2 h2
     {
-    	  margin-left:0px;
+          margin-left:0px;
     }
   
 }
