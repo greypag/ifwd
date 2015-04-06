@@ -383,7 +383,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </li>
           </ul>
           <div class="spacer3"></div>
-          <p class="h4-6">以上資料只作參考用途。詳情請查看 <a href="../policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline">保單條款 </a>。有關條款細則的詳細資料,請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。</p>
+          <p class="h4-6">以上資料只作參考用途。詳情請查看 <a href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline">保單條款 </a>。有關條款細則的詳細資料,請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。</p>
 
         </div>
       </div>
