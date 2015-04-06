@@ -142,7 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="carousel-inner">
       <div class="item active">
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
                 <h2>常在您左右</h2>
@@ -155,7 +155,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!--/.item-->
       <div class="item" >
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
                 <h2>安全，可靠</h2>
