@@ -59,14 +59,15 @@ $(function () {
 	/*get now date*/
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-
-
-
+	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
+	var checkout;
 	/* desktoip datepicker*/
 	var checkin = $('#dp1').datepicker({
 		beforeShowDay: function (date) {
-			return date.valueOf() >= now.valueOf();
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
 		},
+		//startDate:nowTemp,
+		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
 		format: "dd MM yyyy"
@@ -75,25 +76,32 @@ $(function () {
 		if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
+			
 			checkout.datepicker("update", newDate);
+			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + 30*24*60*60*1000));
+			
 		}
+		
 		$('#dp2')[0].focus();
 		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
 		var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
 		document.getElementById("divPersonsDesk").style.visibility = "visible";
 		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-
+		
 	});
-	var checkout = $('#dp2').datepicker({
+	
+	checkout = $('#dp2').datepicker({
 		beforeShowDay: function (date) {
 			if (!checkin.datepicker("getDate").valueOf()) {
 
-				return date.valueOf() >= new Date().valueOf();
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
-				return date.valueOf() >= checkin.datepicker("getDate").valueOf();
+				
+				return date.valueOf() >= checkin.datepicker("getDate").valueOf() && date.valueOf() < checkin.datepicker("getDate").valueOf()+30*24*60*60*1000;
 			}
 		},
 		autoclose: true,
+		
 		format: "dd MM yyyy"
 
 	}).on('changeDate', function (ev) {
@@ -1093,28 +1101,35 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	var returnDateElement = document.getElementById(returnDateId);
 	flag = chkValidFlightDate(returnDateElement, errReturnDateId, "Return Date", depDateId, errDepDateId, "Depature Date");
 		
-	if (travellers.trim() == "" || travellers =="0") {
-		console.log(travellers);
-		document.getElementById(errTravelCountId).style.display = "block";
+	if(travellers > 0){
 		
-		var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
-		document.getElementById(errTravelCountId).innerHTML =msg;		
-		flag = false;
-	}
-	if (peopleCount.trim()=="" || peopleCount=="0"){
-		console.log(peopleCount);
-		document.getElementById(errTravelCountId).style.display = "block";
-	
-		var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
-		document.getElementById(errTravelCountId).innerHTML =msg;		
-		flag = false;
-	}
-	if (peopleCount.trim() > 15){
-		document.getElementById(errTravelCountId).style.display = "block";
+	}else if(peopleCount > 0){
 		
-		var msg = getBundle(getBundleLanguage, "flight.traveller.notValid.message");
-		document.getElementById(errTravelCountId).innerHTML =msg;
-		flag = false;
+	}
+	else{
+		if (travellers.trim() == "" || travellers =="0") {
+			console.log(travellers);
+			document.getElementById(errTravelCountId).style.display = "block";
+			
+			var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
+			document.getElementById(errTravelCountId).innerHTML =msg;		
+			flag = false;
+		}
+		if (peopleCount.trim()=="" || peopleCount=="0"){
+			console.log(peopleCount);
+			document.getElementById(errTravelCountId).style.display = "block";
+		
+			var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
+			document.getElementById(errTravelCountId).innerHTML =msg;		
+			flag = false;
+		}
+		if (peopleCount.trim() > 15){
+			document.getElementById(errTravelCountId).style.display = "block";
+			
+			var msg = getBundle(getBundleLanguage, "flight.traveller.notValid.message");
+			document.getElementById(errTravelCountId).innerHTML =msg;
+			flag = false;
+		}
 	}
 	
 	return flag;
@@ -1978,6 +1993,9 @@ function isNull(element){
 	}
 	return false;
 }
+function dateLessThanCurrent(dat){
+	
+}
 function dateDiffInDaysFromNow(dat){	
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
@@ -2000,13 +2018,19 @@ function chkValidDate(element, errElementId, name){
 
 // flight
 function chkValidFlightDepartureDate(element, errElementId, name){
-		
+	
 	if(chkValidDate(element, errElementId, name)){
 	    var departureDate = element.value;
 	    departureDate = new Date(departureDate);
 	    
+	    
 	    var dateDiff = dateDiffInDaysFromNow(departureDate);
-        if (dateDiff > 30) {
+	    if(dateDiff < 0){
+	    	var msg = getBundle(getBundleLanguage, "flight.departureDate.notLessThanCurrent.message");
+        	document.getElementById(errElementId).innerHTML = msg;
+            return false;
+	    }
+	    if (dateDiff > 30) {
         	var msg = getBundle(getBundleLanguage, "flight.departureDate.notValid.message");
         	document.getElementById(errElementId).innerHTML = msg;
             return false;
@@ -2030,9 +2054,13 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 		    var returnDate = element.value;	    
 		    departureDate = new Date(departureDate);
 		    returnDate = new Date(returnDate);
-
-		    var dateDiff = dateDiffInDays(departureDate, returnDate);
 		    
+		    var dateDiff = dateDiffInDays(departureDate, returnDate);
+		    if(dateDiff < 0){
+		    	var msg = getBundle(getBundleLanguage, "flight.returnDate.notLessThanCurrent.message");
+	        	document.getElementById(errElementId).innerHTML = msg;
+	            return false;
+		    }
 	        if (dateDiff > 30) {
 	        	var msg = getBundle(getBundleLanguage, "flight.returnDate.notValid.message");
 	        	document.getElementById(errElementId).innerHTML = msg;

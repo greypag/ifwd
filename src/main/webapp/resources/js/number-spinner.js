@@ -3,6 +3,15 @@ $('#family_plan_desk_spinner').hide();
 $('#family_plan_btm_spinner').hide();
 $('#family_plan_mob_spinner').hide();
 // ONCHANGE EVENT FOR PLAN RADIO BUTTON 
+
+//<![CDATA[ 
+$(window).load(function(){
+  document.getElementById("divPersonsDesk").style.visibility = "visible";
+    $('#lblCountDesk').show();
+    $('#lblCountDesk').html('1 Traveller(s)');
+    $('#lblPeopleDesk').html('1');
+});//]]> 
+
 $('.plan').change(function () {
   
     var id = this.id;
@@ -16,18 +25,24 @@ $('.plan').change(function () {
     $('#family_btm_count').val(0);
     $('#family_mob_count').val(0);
 
-	// to set 0 val when change event occurence	
+  // to set 0 val when change event occurence 
 
     if(parent_id =='desk')
     {
-    	$('#lblCountDesk').html('');
+      $('#lblCountDesk').html('');
         $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val('1');
         $('.plan_spinner_' + parent_id + '  #txtChildDesk').val('1');
         $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val('0');
        
-       if(id  == 'family_plan_desk') 
+        if(id == 'personal_plan_desk'){
+          document.getElementById("divPersonsDesk").style.visibility = "visible";
+            $('#lblCountDesk').show();
+            $('#lblCountDesk').html('1 Traveller(s)');
+            $('#lblPeopleDesk').html('1');
+        }
+        else if(id  == 'family_plan_desk') 
         {
-        	document.getElementById("divPersonsDesk").style.visibility = "visible";
+          document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
             $('#lblCountDesk').html('2 Traveller(s)');
             $('#lblPeopleDesk').html('2');
@@ -48,14 +63,14 @@ $('.plan').change(function () {
 
     }else if(parent_id =='mob')
     {
-    	
-    	$('#lblCountMob').html('');
+      
+      $('#lblCountMob').html('');
       $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val('1');
       $('.plan_spinner_' + parent_id + '  #txtChildMob').val('1');
       $('.plan_spinner_' + parent_id + '  #txtOtherMob').val('0');
       if(id  == 'family_plan_mob') 
       {
-      	document.getElementById("divPersonsMob").style.visibility = "visible";
+        document.getElementById("divPersonsMob").style.visibility = "visible";
           $('#lblCountMob').show();
           $('#lblCountMob').html('2 Traveller(s)');
           $('#lblPeopleMob').html('2');
@@ -80,7 +95,7 @@ $('.plan').change(function () {
       $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val('0');
       if(id  == 'family_plan_btm') 
       {
-      	document.getElementById("divPersonsBtm").style.visibility = "visible";
+        document.getElementById("divPersonsBtm").style.visibility = "visible";
           $('#lblCountBtm').show();
           $('#lblCountBtm').html('2 Traveller(s)');
           $('#lblPeopleBtm').html('2');
