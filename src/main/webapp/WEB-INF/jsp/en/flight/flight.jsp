@@ -394,7 +394,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
     
     <!--mobile-Features-->
-    <div class="row hidden-lg hidden-md mob-features">
+    <div class="hidden-lg hidden-md mob-features">
       <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home-flight1.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>

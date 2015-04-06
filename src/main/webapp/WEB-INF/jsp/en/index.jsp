@@ -149,17 +149,17 @@
 			class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
 			<h2 class="center">A whole new insurance experience with FWD</h2>
 			<div class="col-sm-12 col-xs-12">
-				<a href="flight.html"
+				<a href="flight"
 					class="border-radius btn btn-primary  home-btn home-btn-main">Flight
 					Insurance</a>
 			</div>
 			<div class="col-sm-12 col-xs-12">
-				<a href="travel.html"
+				<a href="travel"
 					class="border-radius btn btn-primary  home-btn home-btn-main">Travel
 					Insurance</a>
 			</div>
 			<div class="col-sm-12 col-xs-12">
-				<a href="homecare.html"
+				<a href="homecare"
 					class="border-radius btn btn-primary  home-btn home-btn-main">Home
 					Insurance</a>
 			</div>
@@ -383,7 +383,7 @@
 			<div class="carousel-inner">
 				<div class="item active">
 					<div class="container">
-						<div class="row slide-margin">
+						<div class="slide-margin">
 							<div class="testimonials-wrap text-center">
 								<div class="testimonials-inner text-center">
 									<div class="h1-1">
@@ -405,7 +405,7 @@
 				<!--/.item-->
 				<div class="item">
 					<div class="container">
-						<div class="row slide-margin">
+						<div class="slide-margin">
 							<div class="testimonials-wrap text-center">
 								<div class="testimonials-inner text-center">
 									<div class="h1-1">

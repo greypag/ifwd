@@ -126,7 +126,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
             <h1>賞您所想</h1>
             <p>富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。</p>
-            <img src="resources/images/agoda-logo.png" alt=""/> </div>
+             </div>
         </div>
       </div>
     </div>
@@ -142,7 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="carousel-inner">
       <div class="item active">
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
                 <h2>常在您左右</h2>
@@ -155,7 +155,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!--/.item-->
       <div class="item" >
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
                 <h2>安全，可靠</h2>
@@ -194,7 +194,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="center">
         <h2>顧客親身體驗</h2>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 pad-none">
+      <div class="col-xs-12 col-sm-5 col-md-5 pad-none">
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
@@ -205,7 +205,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 pad-none">
+      <div class="col-xs-12 col-sm-5 col-md-5 pad-none pull-right">
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
@@ -217,7 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
       <br>
-      <P class="padding2 p1"><br>
+      <P class="pad-none p1 pull-left"><br>
        以上意見及觀點純屬客戶意見，並不代表富衛人壽保險（百慕達）有限公司或其下公司（“富衛”）之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。 </P>
     </div>
     <!--/.row--> 
@@ -239,7 +239,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item active">
         <div class="container">
           <div class="row slide-margin">
-            <div class="col-xs-12 text-center">
+            <div class="testimonials-wrap text-center">
               <div class="testimonials-inner text-center">
                 <blockquote class="testimonial"></blockquote>
                 <p>我選擇FWD旅遊保險因為佢地24小時都有人聽電話，最緊要係放工時間和身處外國都可以搵到人。</p>

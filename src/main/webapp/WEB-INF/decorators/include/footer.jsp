@@ -2,7 +2,7 @@
 
 
 <footer id="footer" class="midnight-blue hidden-sm hidden-xs">
-  <div class="container pad-none">
+  <div class="container">
     <div class="row">
       <div class="col-sm-6 pad-none">
         <ul class="pull-left foot-links">
@@ -50,7 +50,7 @@
 </div>
 <!--/#bottom--> 
 <!--mob bottom-->
-<div class="row hidden-lg hidden-md text-center">
+<div class="hidden-lg hidden-md text-center">
   <div class="btn-box">
     <h3 class="text-center marg-t"><a href="http://blog.fwd.com.hk/" target="_blank">FWD Blog</a></h3>
   </div>
