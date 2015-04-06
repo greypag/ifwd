@@ -117,7 +117,7 @@
 												role="alert" style="display: none;"></div>
 											<div class="form-container">
 												<h2>Log in to FWD</h2>
-												<h4>
+												<h4 class="margin-shift">
 													Username <a href="forgotUserName"
 														class="pull-right sub-link">Forgot username?</a>
 												</h4>
@@ -127,7 +127,7 @@
 														placeholder="" id="headerUserName">
 												</div>
 												<span id="errUserName" style="color: red"></span>
-												<h4>
+												<h4 class="margin-shift">
 													Password <a href="forgotPassword"
 														class="pull-right sub-link">Forgot password?</a>
 												</h4>
@@ -265,7 +265,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container pad-none">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html"><img
+				<a class="navbar-brand" href="indexPage"><img
 					src="resources/images/logo.jpg" alt="logo"></a>
 			</div>
 			<div class="col-lg-6 col-md-6 pull-right">
@@ -293,7 +293,7 @@
 	<div class="mob-topbar">
 		<span class="callus">24-HOUR HOTLINE 3123 3123 </span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right">Chat
-				Now</span></a> <a href="flightCN/flight-cn.html" class="lang pull-right">中文</a>
+				Now</span></a> <a href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>" class="lang pull-right">中文</a>
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">
@@ -322,13 +322,15 @@
 
 
 
-		<div class="dropdown-menu drop-width">
+		<div class="dropdown-menu full-width">
 			<div class="moblogin">
 						<div class="form-container text-left">
 
 
-							<a href="#" class="pull-right sub-link">Forgot username?</a>
-							<h4>Username or email</h4>
+							
+							<h4 class="margin-shift clearfix"><span class="pull-left login-padding">Username or email</span>
+								<a href="forgotUserName" class="pull-right sub-link">Forgot username?</a>
+							</h4>
 
 
 							<div class="form-group">
@@ -336,9 +338,10 @@
 							</div>
 							<div class="clearfix"></div>
 
-							<a href="#" class="pull-right sub-link">Forgot password?</a>
-							<h4>Password</h4>
-
+							
+							<h4 class="margin-shift clearfix"><span class="pull-left login-padding">Password</span>
+								<a href="forgotPassword" class="pull-right sub-link">Forgot password?</a>
+							</h4>
 
 							<div class="form-group">
 								<input type="text"  type="password" class="form-control">

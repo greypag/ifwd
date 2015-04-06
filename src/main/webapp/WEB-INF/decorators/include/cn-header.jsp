@@ -69,7 +69,7 @@
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="<%=request.getContextPath()%>">主頁</a></li>
 							<li> | </li>
-							<li><a href="http://www.fwd.com.hk/zh-HK/about/index.html"
+							<li><a href="indexPage"
 								target="_blank">關於我們</a></li>
 							<li> | </li>
 							<li><a href="joinus">加入我們</a></li>
@@ -98,7 +98,7 @@
 												role="alert" style="display: none;"></div>
 											<div class="form-container">
 												<h2>登入富衛客戶網上服務</h2>
-												<h4>
+												<h4 class="margin-shift">
 													用戶名稱  <a href="forgotUserName"
 														class="pull-right sub-link">忘記用戶名稱?</a>
 												</h4>
@@ -108,7 +108,7 @@
 														placeholder="" id="headerUserName">
 												</div>
 												<span id="errUserName" style="color: red"></span>
-												<h4>
+												<h4 class="margin-shift">
 													個人密碼  <a href="forgotPassword"
 														class="pull-right sub-link">忘記密碼?</a>
 												</h4>
@@ -285,21 +285,21 @@
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-		<button type="button" onclick="return submitLoginForm();"
-			class="dropdown-toggle color-wht log-to-acc">登入</button>
-
-		<div class="dropdown-menu drop-width">
+		<!--  <button type="button" onclick="return submitLoginForm();"
+			class="dropdown-toggle color-wht log-to-acc"></button> -->
+		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" data-toggle="dropdown"><i class="fa fa-lock"></i> 登入 </a>
+		<div class="dropdown-menu full-width">
 			<div class="moblogin">
 				<div class="form-container">
 					<h2>登入富衛客戶網上服務</h2>
-					<h4>
-						用戶名稱 <a href="forgotUserName" class="pull-right sub-link">忘記用戶名稱?</a>
+					<h4 class="margin-shift clearfix">
+						<span class="pull-left login-padding">用戶名稱</span> <a href="forgotUserName" class="pull-right sub-link">忘記用戶名稱?</a>
 					</h4>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="">
 					</div>
-					<h4>
-						個人密碼 <a href="forgotPassword" class="pull-right sub-link">忘記密碼?</a>
+					<h4 class="margin-shift clearfix">
+						<span class="pull-left login-padding">個人密碼 </span><a href="forgotPassword" class="pull-right sub-link">忘記密碼?</a>
 					</h4>
 					<div class="form-group">
 						<input type="text" class="form-control">
@@ -309,7 +309,7 @@
 						<div class="col-xs-6 col-sm-6">
 
 							<a class="bdr-curve btn btn-primary btn-lg wd5"
-								href="account.html" onclick="return validUser()"> 登入 </a>
+								href="#" onclick="return validUser()"> 登入 </a>
 						</div>
 						<h3 class="text-left col-xs-6 col-sm-6 pad-none margin-none">
 							<span> 新會員？</span><br> <a href="joinus"> 請註冊</a>

@@ -50,7 +50,7 @@
 </div>
 <!--/#bottom--> 
 <!--mob bottom-->
-<div class="row hidden-lg hidden-md text-center">
+<div class="hidden-lg hidden-md text-center">
   <div class="btn-box">
     <h3 class="text-center marg-t"><a href="http://blog.fwd.com.hk/" target="_blank">FWD Blog</a></h3>
   </div>
