@@ -2,7 +2,7 @@
 
 
 <footer id="footer" class="midnight-blue hidden-sm hidden-xs">
-  <div class="container pad-none">
+  <div class="container">
     <div class="row">
       <div class="col-sm-6 pad-none">
         <ul class="pull-left foot-links">

@@ -495,7 +495,7 @@ function flightValidateBtm() {
     
     document.getElementById("startDateBtmIn").innerHTML = "";
     document.getElementById("endDateBtmIn").innerHTML = "";
-    document.getElementById("travelCountBtmIn").style.visibility = "hidden";
+    $('#travelCountBtmIn').hide();
     var startDate = document.getElementById("txtStartDateBtm").value;
     var endDate = document.getElementById("txtEndDateBtm").value;
     var travellers = document.getElementById("txtTravellersBtm").value;
@@ -531,12 +531,12 @@ function flightValidateBtm() {
         }
     }
     if (travellers.trim() == "") {
-        document.getElementById("travelCountBtmIn").style.visibility = "visible";
+        $('#travelCountBtmIn').show();
         flag = false;
     }
     if(peopleCount.trim()==""||peopleCount=="0")
     {
-        document.getElementById("travelCountBtmIn").style.visibility = "visible";
+        $('#travelCountBtmIn').show();
         flag = false;
     }
     return flag;

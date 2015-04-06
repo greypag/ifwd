@@ -1251,7 +1251,7 @@ input.search-form:hover {
 	text-align: left;
 }
 .btn-box h3 {
-	padding: 12px 30px !important;
+	padding: 12px 0 !important;
 	font-size: 36px;
 	line-height: 1.33;
 	color: #fff;
@@ -5478,4 +5478,8 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 	background-color: #616163;
 	padding: 10px;
 	border: 1px solid #616163;
+}
+
+table.hor-padding >tbody>tr>td{
+	padding: 0 8px;
 }
