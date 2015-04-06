@@ -648,19 +648,19 @@ vertical-align:middle;
 	font-weight: normal;
 	padding: 9px 0px;
 	line-height: 60px;
-	font-family: 'Foco-Regular';
+
 }
 .h2-3-existing-fwd-head {
 	line-height: 31.5px;
 	font-size: 28px;
 	margin-top: 10px;
-	font-family: 'Foco-bold';
+
 	color: #061d2a;
 }
 .h2-32 {
 	line-height: 31.5px;
 	font-size: 30px;
-	font-family: 'Foco-bold';
+
 	color: #1f4146;
 }
 .h4-1 {
@@ -1256,7 +1256,7 @@ input.search-form:hover {
 	line-height: 1.33;
 	color: #fff;
 	margin-bottom: 0px;
-	font-family: 'Foco-bold';
+
 }
 .btn-box h3 a {
 	color: #fff;
@@ -1268,7 +1268,7 @@ input.search-form:hover {
 	color: #fff;
 	font-size: 24px;
 	line-height: 31.5px;
-	font-family: 'Foco-bold';
+
 }
 .btn-box-2 h3 {
 	padding: 12px 30px !important;
@@ -2672,7 +2672,7 @@ table.activation-form tr td {
 table.activation-form td .control-label {
 	line-height: 70px;
 	font-size: 24px;
-	font-family: 'Foco-Regular';
+
 	color: #061d2a;
 	font-weight: normal;
 }
@@ -2802,9 +2802,9 @@ table.plandetail-form tr td {
 	border: none !important;
 }
 table.plandetail-form td .control-label {
-	line-height: 60px;
+	
 	font-size: 24px;
-	font-family: 'Foco-Regular';
+
 	color: #061d2a;
 	font-weight: normal;
 }
@@ -2821,7 +2821,7 @@ table.plandetail-form td h3 {
 .gray-bg3-wid h3 {
 	font-size: 24px;
 	line-height: 31.5px;
-	font-family: 'Foco-Regular';
+
 	color: #061d2a;
 }
 .white-bg1 {
@@ -3407,20 +3407,19 @@ margin-bottom: 10px;}
 	color: #061d2a;
 	font-size: 30px;
 	line-height: 31px;
-	font-family: 'Foco-bold';
+	font-weight: bold;
 }
 .gray-bg h3 span {
 	color: #061d2a;
 	padding: 0 10px;
 	font-size: 24px;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
+	
 }
 .gray-bg h3 .span2 {
 	color: #f68a1d;
 	padding: 0 10px;
 	font-size: 18px;
-	font-family: 'Foco-Regular';
+	
 }
 
 .gray-bg h3 .span2:hover {
@@ -3438,7 +3437,8 @@ margin-bottom: 10px;}
 	color: #061d2a;
 	font-size: 30px;
 	line-height: 31px;
-	font-family: 'Foco-bold';
+	font-weight: bold;
+
 }
 .gray-bg .form-container h4 {
 	color: #000;
@@ -3449,8 +3449,7 @@ margin-bottom: 10px;}
 	margin-left: 50px;
 	font-size: 24px;
 	line-height: 42px;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
+
 }
 .gray-bg .input-group {
 	position: relative;
@@ -3490,14 +3489,14 @@ margin-bottom: 10px;}
 	font-size: 18px;
 	line-height: 48px;
 	text-decoration: underline;
-	font-family: 'Foco-Regular';
+
 }
 .gray-bg1 h4 {
 	color: #061d2a;
 	padding: 15px;
 	font-size: 30px;
 	line-height: 30px;
-	font-family: 'Foco-bold';
+	font-weight: bold;
 }
 .gray-bg1-content {
 	padding: 15px;
@@ -3509,12 +3508,12 @@ margin-bottom: 10px;}
 	font-weight: normal;
 	font-size: 28px;
 	line-height: 42px;
-	font-family: 'Foco-Regular';
+	
 }
 .gray-bg1 h4 span {
 	color: #061d2a;
 	padding: 0 10px;
-	font-family: 'Foco_Lt';
+	
 }
 .bx-hei {
 	height: 414px;
@@ -3551,14 +3550,13 @@ margin-bottom: 10px;}
 	color: #f6871e;
 	font-size: 36px !important;
 	line-height: 31.5px;
-	font-family: 'Foco-bold';
+	font-weight: bold;
 }
 .center-h3 {
 	color: #061d2a;
 	font-family: 'Foco-bold';
 	font-size: 24px;
 	line-height: 31.5px;
-	font-family: 'Foco-Regular';
 }
 .confirm-bx1 {
 	background-color: #f6871e;
@@ -4007,7 +4005,7 @@ article h2 {
 	font-weight: bold;
 	font-size: 28px;
 	line-height: 31.5px;
-	font-family: 'Foco-bold';
+	
 }
 .fwd-acc {
 	color: #f6871e;
@@ -4763,7 +4761,7 @@ h2.from-control {
 	font-size: 24px;
 	font-weight: bold !important;
 	color: #061d2a !important;
- 	font-family: 'Foco-Regular';
+
 	  margin-top: 14px;
   margin-bottom: 10px;
 }
@@ -4776,7 +4774,6 @@ h2.from-control {
 	font-size: 24px;
 	font-weight: normal !important;
    color: #061d2a !important;
-    font-family: 'Foco-Regular';
 }
 
 
@@ -5499,4 +5496,7 @@ table.hor-padding >tbody>tr>td{
 	font-weight: normal;
 	padding: 20px 0;
 	border: 1px solid #f68a1d;
+}
+table.vert-middle td{
+	vertical-align: middle !important;
 }

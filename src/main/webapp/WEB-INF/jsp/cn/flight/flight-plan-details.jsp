@@ -713,7 +713,7 @@
 
 							<!-- <button class="bdr-curve-none btn btn-primary nxt-btn " onclick="return flightPlanValidation();">下一頁</button> -->
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary nxt-btn " value="下一頁" />
+								class="bdr-curve-none btn btn-primary btn-next" value="下一頁" />
 						</div>
 						<div class="clearfix"></div>
 						<br>

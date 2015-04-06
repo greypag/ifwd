@@ -120,7 +120,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						<div class="clearfix"></div>
 						<br>
 						<div class="gray-bdr"></div>
-						<table class="table activation-form margin-left-2">
+						<table class="table activation-form margin-left-2 vert-middle">
 							<tbody>
 								<tr>
 									<td colspan="2" class="pad-none"><h3
@@ -175,7 +175,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										|| authenticate.equals("direct")) {
 						%>
 						<div class="gray-bg3-wid">
-							<table class="table plandetail-form margin-left-2"
+							<table class="table plandetail-form margin-left-2 vert-middle"
 								id="input-white">
 								<tbody>
 									<tr>
@@ -617,7 +617,7 @@ Myself
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary nxt-btn " value="Next" />
+								class="bdr-curve-none btn btn-primary btn-next " value="Next" />
 							<!-- <button class="bdr-curve-none btn btn-primary nxt-btn "
 onclick="return flightPlanValidation();">Next</button> -->
 						</div>

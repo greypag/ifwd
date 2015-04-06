@@ -336,7 +336,7 @@
         font-size: 20px;
     }
     table.activation-form {
-        width: 100%;
+        width: calc(100% - 20px);
     }
     table.activation-form .form-control {
         width: 90%;
@@ -910,7 +910,7 @@
         font-size: 35px;
     }
     table.activation-form {
-        width: 100%;
+        width: calc(100% - 20px);
     }
     table.activation-form .form-control {
         width: 90%;
