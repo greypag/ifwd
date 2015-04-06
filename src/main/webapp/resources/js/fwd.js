@@ -62,6 +62,34 @@ $(function () {
 	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
 	var checkout;
 	/* desktoip datepicker*/
+	$("#txtStartDateDesk").blur(function() {
+		var dateDiff = dateDiffInDaysFromNow(checkin.datepicker("getDate").valueOf());
+	    if(dateDiff < 0){ this.focus();return false; }
+	});
+	$("#txtEndDateDesk").blur(function() {
+		var dateDiff = dateDiffInDaysFromNow(checkout.datepicker("getDate").valueOf());
+	    if(dateDiff < 0){ this.focus();return false; }
+	});	
+	
+	$("#txtStartDateMob").blur(function() {
+		var dateDiff = dateDiffInDaysFromNow(checkin2.datepicker("getDate").valueOf());
+	    if(dateDiff < 0){ this.focus();return false; }
+	});
+	$("#txtEndDateMob").blur(function() {
+		var dateDiff = dateDiffInDaysFromNow(checkout2.datepicker("getDate").valueOf());
+	    if(dateDiff < 0){ this.focus();return false; }
+	});
+	
+	$("#txtStartDateBtm").blur(function() {
+		var dateDiff = dateDiffInDaysFromNow(checkin3.datepicker("getDate").valueOf());
+	    if(dateDiff < 0){ this.focus();return false; }
+	});
+	$("#txtEndDateBtm").blur(function() {
+		var dateDiff = dateDiffInDaysFromNow(checkout3.datepicker("getDate").valueOf());
+	    if(dateDiff < 0){ this.focus();return false; }
+	});
+	
+	
 	var checkin = $('#dp1').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
@@ -82,12 +110,14 @@ $(function () {
 			
 		}
 		
-		$('#dp2')[0].focus();
-		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
-		var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-		document.getElementById("divPersonsDesk").style.visibility = "visible";
-		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 		
+		
+			$('#dp2')[0].focus();
+			var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
+			var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
+			document.getElementById("divPersonsDesk").style.visibility = "visible";
+			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+	    
 	});
 	
 	checkout = $('#dp2').datepicker({
