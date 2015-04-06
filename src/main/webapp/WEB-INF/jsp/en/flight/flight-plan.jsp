@@ -244,7 +244,7 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary nxt-btn " Value="Next" />
+								class="bdr-curve-none btn btn-primary btn-next " Value="Next" />
 						</div>
 
 
@@ -273,16 +273,13 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 
 <!--mob-#bottom-->
-<div class="row hidden-lg hidden-md text-center">
+<div class="hidden-lg hidden-md text-center">
 	<div class="btn-box">
 		<h3 class="text-center marg-t">
 			<a href="flight-plan-details">Next</a>
 		</h3>
 	</div>
-	<p class="text-center mob-bottom">
-		&copy; 2015 <a target="_blank" href="" title="Insurance">FWD</a> Hong
-		Kong. All rights reserved.
-	</p>
+
 </div>
 <!--/mob-#bottom-->
 

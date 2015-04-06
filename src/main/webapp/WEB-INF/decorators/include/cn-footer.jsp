@@ -50,7 +50,7 @@
 <!--mob bottom-->
 <div class="hidden-lg hidden-md text-center">
   <div class="btn-box">
-      <h3 class="text-center"><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></h3>
+      <h3 class="text-center marg-t"><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></h3>
   </div>
    <p class="text-center mob-bottom">&copy; 2015 富衛香港 版權所有 不得轉載</p>
 </div>

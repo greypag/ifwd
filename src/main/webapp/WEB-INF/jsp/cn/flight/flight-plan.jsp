@@ -61,7 +61,7 @@
               <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
                 <h2>航空意外保險<br>
                 免費 <br>
-                 只適用於優惠期內</h2>
+                 <span>只適用於優惠期內</span></h2>
             
               </div>
               <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4"> <br>
@@ -165,7 +165,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
               <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn">上一頁 </a> </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
-            <input type="submit" class="bdr-curve-none btn btn-primary nxt-btn " Value="下一頁"  />
+            <input type="submit" class="bdr-curve-none btn btn-primary btn-next" Value="下一頁"  />
              </div>
             
            
@@ -182,7 +182,13 @@
   </div>
   <!--/.container--> 
 </section>
-
+<div class="hidden-lg hidden-md text-center">
+	<div class="btn-box">
+		<h3 class="text-center marg-t">
+			<a href="flight-plan-details">下一頁</a>
+		</h3>
+	</div>
+</div>
 <!--/end Main Content-->
 
 <!--/#bottom-->

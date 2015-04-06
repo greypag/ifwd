@@ -5483,3 +5483,20 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 table.hor-padding >tbody>tr>td{
 	padding: 0 8px;
 }
+@media (max-width: 991px){
+	.fwdpanel{
+		margin-top: 20px;
+	}
+	.major-exc{
+		margin-bottom: 20px;
+	}
+}
+.btn-next{
+	display: block;
+	width: 100%;
+	font-size: 28px;
+	line-height: 31.5px;
+	font-weight: normal;
+	padding: 20px 0;
+	border: 1px solid #f68a1d;
+}
