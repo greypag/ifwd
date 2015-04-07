@@ -4,8 +4,8 @@
 <%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page import="java.util.ArrayList"%>
-
 <%
 	String authenticate = "false";
 	if (session.getAttribute("authenticate") != null) {
@@ -265,41 +265,25 @@ Myself
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500">Age Range</label>
-
-											<div class="dropdown drop-down simulate-drop-down">
-												<a href="#" id="dropdownMenu1"
-													class="dropdown-toggle col-lg-12 col-md-12"
-													data-toggle="dropdown"> 
-													<label class="select-label">Select One</label> <i class="fa fa-caret-down pull-right"></i>
-												</a>
-												<ul class="dropdown-menu" role="menu"
-													aria-labelledby="dropdownMenu1">
-													<li role="presentation">
-														<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setAgeRange(this,'');">Select One</a>
-													</li>													
-													<c:forEach var="ageList" items="${mapAgeType}">
-														<li role="presentation">
-														<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setAgeRange(this,'${ageList.key}');"><c:out value="${ageList.value}" /></a>
-														</li>
-													</c:forEach>
-												</ul>
-												<input type="hidden" id="selectAgeRange${inx}" name="adultAgeRange" data-type="ageRange"/>
-											</div>
+											<t:dropdown 
+												defaultLabel="Select One"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectAgeRange${inx}"
+												valueElmName="adultAgeRange"
+											/>
 											<span id="errselectAgeRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">Beneficiary</label> <select
-												id="adultsselectBenificiary${inx}"
-												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" class="form-control soflow">
-												<option value="SE">Own Estate</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="erradultsselectBenificiary${inx}" class="text-red">
-											</span>
+											<label class="pad-left1 bold-500">Beneficiary</label> 
+											<t:dropdown 
+												defaultLabel="Own Estate"
+												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="adultsselectBenificiary${inx}"
+												valueElmName="adultBeneficiary"
+											/>
+											<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 
 										<div id="adultsbenificiaryId${inx}" class="hide">
@@ -360,28 +344,26 @@ Myself
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">Age Range</label> <select
-												name="childAgeRange" class="form-control soflow"
-												id="selectchildAgeRange${inx}">
-												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errchildRange${inx}" class="text-red"></span>
+											<label class="bold-500">Age Range</label> 
+											<t:dropdown 
+												defaultLabel="Select One"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectchildAgeRange${inx}"
+												valueElmName="childAgeRange"
+											/>
+											<span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">Beneficiary</label> <select
-												id="childselectBenificiary${inx}" name="childBeneficiary"
-												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-												class="form-control soflow">
-												<option value="SE">Own Estate</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
+											<label class="pad-left1 bold-500">Beneficiary</label> 
+											<t:dropdown 
+												defaultLabel="Own Estate"
+												onChange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="childselectBenificiary${inx}"
+												valueElmName="childBeneficiary"
+											/>											
+											<span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 										<div id="childbenificiaryId${inx}" class="hide">
 											<div class="col-xs-6 col-md-6">
@@ -434,28 +416,26 @@ Myself
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">Age Range</label> <select
-												name="otherAgeRange" class="form-control soflow"
-												id="selectOtherAgeRange${inx}">
-												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
+											<label class="bold-500">Age Range</label>
+											<t:dropdown 
+												defaultLabel="Select One"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectOtherAgeRange${inx}"
+												valueElmName="otherAgeRange"
+											/>
+											<span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">Beneficiary</label> <select
-												id="otherSelectBenificiary${inx}" name="otherBeneficiary"
-												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
-												class="form-control soflow">
-												<option value="SE">Own Estate</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="benificiary" style="display: none"> <label
+											<label class="pad-left1 bold-500">Beneficiary</label>
+											<t:dropdown 
+												defaultLabel="Own Estate"
+												onChange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="otherSelectBenificiary${inx}"
+												valueElmName="otherBeneficiary"
+											/>											
+											<span id="benificiary" style="display: none"> <label
 												style="color: red">Beneficiary which is blank</label>
 											</span>
 										</div>
