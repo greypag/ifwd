@@ -3838,8 +3838,9 @@ color:#fff !important;
 }
 .shop-tracking-status .image-order-status-new .icon, .shop-tracking-status .image-order-status-active .icon, .shop-tracking-status .image-order-status-intransit .icon, .shop-tracking-status .image-order-status-delivered .icon {
 	font-size: 30px;
-	padding: 11px;
 	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
 }
 .shop-tracking-status .image-order-status-delivered .status, .shop-tracking-status .image-order-status-completed .status {
 	top: 85px;
