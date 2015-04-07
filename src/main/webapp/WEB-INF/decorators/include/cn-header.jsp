@@ -274,7 +274,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="index.html"><img
+			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="indexPage"><img
 				src="resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>

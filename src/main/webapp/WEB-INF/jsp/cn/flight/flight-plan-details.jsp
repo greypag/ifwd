@@ -59,9 +59,11 @@
 
 
 						<div class="order-status">
-							<div class="order-status-timeline">
+							<div class="order-status-timeline-new">
 								<!-- class names: c0 c1 c2 c3 and c4 -->
-								<div class="order-status-timeline-completion c1"></div>
+								<div class="order-status-timeline-completion dots-active"></div>
+								<div class="order-status-timeline-completion dots-inactive"></div>
+								
 							</div>
 
 
@@ -207,7 +209,11 @@
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress().trim()}"
 										name="emailAddress" id="inputEmailId" placeholder="電郵地址"
-										maxlength="50"> <span id="emailid"  class="text-red"></span></td>
+										maxlength="50"> <span id="emailid"
+										style="display: none"> <label class="text-red">請輸入電郵地址</label>
+									</span> <span id="emailidinvalid" style="display: none"> <label
+											class="text-red">請輸入正確/有效的 電郵地址</label>
+									</span></td>
 								</tr>
 
 							</tbody>
@@ -220,7 +226,7 @@
 										|| authenticate.equals("direct")) {
 						%>
 						<div class="gray-bg3-wid">
-							<table class="table plandetail-form margin-left-2"
+							<table class="table plandetail-form margin-left-2 vert-middle"
 								id="input-white">
 								<tbody>
 									<tr>

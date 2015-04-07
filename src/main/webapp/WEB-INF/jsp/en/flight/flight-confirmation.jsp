@@ -9,7 +9,7 @@
 
 <!--/#main-Content-->
 <section>
-<div class="container mob-pad">
+<div class="container">
 <div class="row">
 <form:form name="frmTravelPlan" id="frmTravelPlan"
 modelAttribute="travelQuote" method="post"
@@ -31,10 +31,14 @@ style="visibility: visible;">
 </div>
 <br> <br>
 <div class="order-status">
-<div class="order-status-timeline">
-<!-- class names: c0 c1 c2 c3 and c4 -->
-<div class="order-status-timeline-completion c0"></div>
-</div>
+<div class="order-status-timeline-new">
+								<!--
+								There can be n '.order-status-timeline-completion'
+								dots-inactive and dots-active color the dots -->
+								<div class="order-status-timeline-completion dots-active"></div>
+								<div class="order-status-timeline-completion dots-active"></div>
+								
+							</div>
 <div
 class="image-order-status image-order-status-new  img-circle">
 <div class="icon">1</div>
@@ -195,7 +199,7 @@ for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 %>
 
 <div
-class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box">
+class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-box">
 <div class="plan-box2-inner travelproductbox"
 id="box<%=i%>">
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">

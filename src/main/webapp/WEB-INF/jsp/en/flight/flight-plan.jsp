@@ -70,9 +70,13 @@
 						</div>
 						<br> <br>
 						<div class="order-status">
-							<div class="order-status-timeline">
-								<!-- class names: c0 c1 c2 c3 and c4 -->
-								<div class="order-status-timeline-completion c4"></div>
+							<div class="order-status-timeline-new">
+								<!--
+								There can be n '.order-status-timeline-completion'
+								dots-inactive and dots-active color the dots -->
+								<div class="order-status-timeline-completion dots-inactive"></div>
+								<div class="order-status-timeline-completion dots-inactive"></div>
+								
 							</div>
 							<div
 								class="image-order-status image-order-status-new active  img-circle">

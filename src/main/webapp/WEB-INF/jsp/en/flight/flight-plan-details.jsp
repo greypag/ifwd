@@ -54,9 +54,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						</div>
 						<br> <br>
 						<div class="order-status">
-							<div class="order-status-timeline">
+							<div class="order-status-timeline-new">
 								<!-- class names: c0 c1 c2 c3 and c4 -->
-								<div class="order-status-timeline-completion c1"></div>
+								<div class="order-status-timeline-completion dots-active"></div>
+								<div class="order-status-timeline-completion dots-inactive"></div>
+								
 							</div>
 							<div
 								class="image-order-status image-order-status-new  img-circle">
@@ -190,20 +192,20 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="col-sm-4 pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Choose Username</label></td>
 										<td class="pad-none"><input type="text" name="userName"
-											class="form-control" placeholder="Username" id="Username"></td>
+											class="form-control btm-pad-10" placeholder="Username" id="Username"></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Choose Password</label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control" name="password" id="Password"
+											class="form-control btm-pad-10" name="password" id="Password"
 											placeholder="Password">
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Confirm Password</label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control" name="password" id="Confirm-Password"
+											class="form-control btm-pad-10" name="password" id="Confirm-Password"
 											placeholder="Confirm password"></td>
 									</tr>
 								</tbody>

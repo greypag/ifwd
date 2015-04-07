@@ -5,6 +5,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,7 +106,25 @@ public class FlightController {
 
 	}
 	
-	
+	protected void removeSessionAttribute(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("flightPlanDetails");
+		session.removeAttribute("leavingDate");
+		session.removeAttribute("backDate");
+		session.removeAttribute("planType");
+		session.removeAttribute("count");
+		session.removeAttribute("days");
+		session.removeAttribute("totalAdultTraveller");
+		session.removeAttribute("totalChildTraveller");
+		session.removeAttribute("totalOtherTraveller");
+		session.removeAttribute("referralCode");
+		session.removeAttribute("FlightResponseFrTrvl");
+		session.removeAttribute("FlightObjectFrTrvl");
+		session.removeAttribute("setReferenceNoForConfirmation");
+		session.removeAttribute("policyNo");
+		session.removeAttribute("setEmailForConfirmation");
+		session.removeAttribute("createFlightPolicy");
+	}
 	
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
@@ -116,6 +135,10 @@ public class FlightController {
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
 
+		
+		removeSessionAttribute(request);
+		
+		
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
@@ -125,11 +148,13 @@ public class FlightController {
 		} else {
 			planDetails = (PlanDetails) session
 					.getAttribute("flightPlanDetails");
+			
+			// redirect to 1ST step when null 
+			if(planDetails == null){
+				return flight(request, model);				
+			}			
 		}
 
-
-		
-		
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
 				+ planDetails.getReturnDate());
@@ -255,12 +280,22 @@ public class FlightController {
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	// "Flight Plan" )
 	@RequestMapping(value = "/flight-plan-details")
-	public String flightPlanDetails(HttpServletRequest request,
+	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
+
+		HttpSession session = request.getSession();
+		
+		// redirect to 1ST step when null
+		planDetails = (PlanDetails) session
+				.getAttribute("flightPlanDetails");		
+		if(planDetails == null){
+			return flight(request, model);	
+		}
+		
 		planDetails.setTotalDue(request.getParameter("ToalDue"));
 		String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
 
@@ -326,7 +361,8 @@ public class FlightController {
 		String returnUrl = UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-plan-details";
 		System.out.println("returnUrl " + returnUrl);
-		return returnUrl;
+		//return returnUrl;
+		return new ModelAndView(returnUrl);
 	}
 
 	@RequestMapping(value = "/flight-confirmation")
@@ -649,7 +685,7 @@ public class FlightController {
 
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/flight-confrimation-page")
-	public String flightConfrimationPage(
+	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
 			@ModelAttribute("createFlightPolicy") CreateFlightPolicy createFlightPolicy) {
@@ -681,6 +717,11 @@ public class FlightController {
 			} else {
 				createFlightPolicy = (CreateFlightPolicy) session
 						.getAttribute("createFlightPolicy");
+				
+				// redirect to 1ST step when null 
+				if(createFlightPolicy == null){
+					return flight(request, model);				
+				}				
 			}
 
 			/* Calculate total Days */
@@ -791,9 +832,12 @@ public class FlightController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		session.removeAttribute("");
+//		return UserRestURIConstants.checkLangSetPage(request)
+//				+ "flight/flight-confirmation";
 
-		return UserRestURIConstants.checkLangSetPage(request)
-				+ "flight/flight-confirmation";
+		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				+ "flight/flight-confirmation");		
 	}
 
 	@RequestMapping(value = "/flight-upgrade-travel-summary")
