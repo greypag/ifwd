@@ -209,7 +209,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 </td>
               <td class="col-md-2 pad-none">
-                <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg">
+                <button  type="submit" class="bdr-curve-none btn btn-primary btn-lg marg-t2 pad-increase">
               Apply for Free Now!
              </button> 
               </td>
