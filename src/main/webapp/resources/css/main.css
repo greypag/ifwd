@@ -2556,9 +2556,6 @@ a.main-tab.active h4 {
 	margin-top: 7px;
 }
 
-
-.dropdown-menu {
-}
 .bottom {
 	background-color: #020202;
 	padding: 8px 0px 0px;
@@ -4799,7 +4796,7 @@ select.soflow, select.soflow-color {
     background-image: url("../images/down-arrow.png");
     background-position: 97% center;
     background-repeat: no-repeat;
-background-color: rgb(245, 245, 245);
+	background-color: rgb(245, 245, 245);
     height: 60px;
     line-height: 31.5px;
 /*    padding: 6px 12px;*/
@@ -4807,6 +4804,21 @@ background-color: rgb(245, 245, 245);
     vertical-align: middle;
 -moz-appearance:none;
 padding-left: 10px;
+}
+
+div.simulate-drop-down, div.simulate-drop-down > .dropdown-menu{
+    background-repeat: no-repeat;
+	background-color: rgb(245, 245, 245);
+	width: 100%;
+}
+div.simulate-drop-down > .btn, .dropdown-menu {
+	text-align: left;
+	font-size: 24px;
+}
+div.simulate-drop-down>.dropdown-menu>li>a:hover, div.simulate-drop-down>.dropdown-menu>li>a:focus {
+	color: white;
+	background-color: rgb(30,144,255);
+	text-decoration: none;
 }
 
 select::-ms-expand {
@@ -5232,7 +5244,7 @@ font-size: 30px;
 font-family: 'Foco-bold';
 }
 
-  #lblCountDesk,#lblCountMob,#lblCountBtm
+  #lblCountDesk,#lblCountMob,#lblCountBtm,.select-label
   {
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
@@ -5240,7 +5252,7 @@ font-family: 'Foco-bold';
     direction:ltr;
     font-size: 23px;
     padding-top:12px;
-   
+	line-height: 1.428571429;
     color: #061d2a;
   }
   

@@ -264,16 +264,28 @@ Myself
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">Age Range</label> <select
-												name="adultAgeRange" class="form-control soflow"
-												id="selectAgeRange${inx}">
-												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectAgeRange${inx}" class="text-red">
-											</span>
+											<label class="bold-500">Age Range</label>
+
+											<div class="dropdown drop-down simulate-drop-down">
+												<a href="#" id="dropdownMenu1"
+													class="dropdown-toggle col-lg-12 col-md-12"
+													data-toggle="dropdown"> 
+													<label class="select-label">Select One</label> <i class="fa fa-caret-down pull-right"></i>
+												</a>
+												<ul class="dropdown-menu" role="menu"
+													aria-labelledby="dropdownMenu1">
+													<li role="presentation">
+														<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setAgeRange(this,'');">Select One</a>
+													</li>													
+													<c:forEach var="ageList" items="${mapAgeType}">
+														<li role="presentation">
+														<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setAgeRange(this,'${ageList.key}');"><c:out value="${ageList.value}" /></a>
+														</li>
+													</c:forEach>
+												</ul>
+												<input type="hidden" id="selectAgeRange${inx}" name="adultAgeRange" data-type="ageRange"/>
+											</div>
+											<span id="errselectAgeRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500">Beneficiary</label> <select
