@@ -209,10 +209,7 @@
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress().trim()}"
 										name="emailAddress" id="inputEmailId" placeholder="電郵地址"
-										maxlength="50"> <span id="emailid"
-										style="display: none"> <label class="text-red">請輸入電郵地址</label>
-									</span> <span id="emailidinvalid" style="display: none"> <label
-											class="text-red">請輸入正確/有效的 電郵地址</label>
+										maxlength="50"> <span id="emailid" class="text-red">
 									</span></td>
 								</tr>
 

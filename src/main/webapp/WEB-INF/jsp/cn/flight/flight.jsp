@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			          <tr>
 			            <td class="col-md-3  ">
 			              <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
+			                <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}">
 			              </div>
 			              </td>
 			            <td class="col-md-3 ">
@@ -165,7 +165,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 			                       </span>
-			                       <input type="text" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" name="totalChildTraveller" data-max="15" id="txtChildDesk" readonly>
+			                       <input type="text" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="1" name="totalChildTraveller" data-max="14" id="txtChildDesk" readonly>
 			                       <span class="input-group-btn data-up ">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 			                       </span> </div>
@@ -178,7 +178,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 			                       </span>
-			                       <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" name="totalOtherTraveller" id="txtOtherDesk" readonly>
+			                       <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" name="totalOtherTraveller" id="txtOtherDesk" readonly>
 			                       <span class="input-group-btn data-up ">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 			                       </span> </div>
@@ -231,7 +231,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', '');" value="${planDetails.getDepartureDate()}">
       </div>
     </div>
    <span id="startDateMobIn" class="text-red"> </span>
@@ -304,7 +304,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus input-number" value="1" data-min="1" data-max="15" id="txtChildMob"  readonly=""/>
+                <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus input-number" value="0" data-min="1" data-max="14" id="txtChildMob"  readonly=""/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -317,7 +317,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus input-number" value="0" data-min="0" data-max="15" id="txtOtherMob" readonly/>
+                <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus input-number" value="0" data-min="0" data-max="14" id="txtOtherMob" readonly/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -662,7 +662,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3  ">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="departureDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
+                  <input type="text" name="departureDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}">
                 </div>
                </td>
               <td class="col-md-3 ">
@@ -734,7 +734,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtChildBtm" readonly>
+                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="1" data-max="14" id="txtChildBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -748,7 +748,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtOtherBtm" readonly>
+                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" id="txtOtherBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

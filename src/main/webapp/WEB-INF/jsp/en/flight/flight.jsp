@@ -14,46 +14,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <script type="text/javascript">
 
-	// personal or family
-	var traveller;	
-	
-	// personal
-	var personalTraveller = parseInt("${planDetails.getTravellerCount()}");
-	// family
-	var familyAdult = "${planDetails.getTotalAdultTraveller()}";
-	var familyChild = "${planDetails.getTotalChildTraveller()}";
-	var familyOther = "${planDetails.getTotalOtherTraveller()}";	
- 	var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+  // personal or family
+  var traveller;  
+  
+  // personal
+  var personalTraveller = parseInt("${planDetails.getTravellerCount()}");
+  // family
+  var familyAdult = "${planDetails.getTotalAdultTraveller()}";
+  var familyChild = "${planDetails.getTotalChildTraveller()}";
+  var familyOther = "${planDetails.getTotalOtherTraveller()}";  
+  var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
 
- 	if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
- 		traveller = familyTraveller;
- 	}else{
- 		traveller = personalTraveller;
- 	}
+  if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+    traveller = familyTraveller;
+  }else{
+    traveller = personalTraveller;
+  }
 
      $(document).ready(function(){
          // personal was selected by default
          if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
-     		$(".plan").trigger("change");
- //         	//reset to defalut value
- //         	totalAdult = '1';
- //         	totalChild = '0';
- //         	totalOther = '0';
- //         	totalTraveller = 1;	     		
+        $(".plan").trigger("change");
+ //           //reset to defalut value
+ //           totalAdult = '1';
+ //           totalChild = '0';
+ //           totalOther = '0';
+ //           totalTraveller = 1;         
          }
      });
 </script>
 
 <%
-   	String PersonalPlanChecked = "";
-	String FamilyPlanChecked = "";
-	PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails"); 
+    String PersonalPlanChecked = "";
+  String FamilyPlanChecked = "";
+  PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails"); 
     if(planDetails.getPlanSelected().equalsIgnoreCase("personal")){
-	   PersonalPlanChecked = "checked";
-   	}
-    else if(planDetails.getPlanSelected().equalsIgnoreCase("family")){   		
-   		FamilyPlanChecked = "checked";   		
-   	} 
+     PersonalPlanChecked = "checked";
+    }
+    else if(planDetails.getPlanSelected().equalsIgnoreCase("family")){      
+      FamilyPlanChecked = "checked";      
+    } 
 %>
 
 <!--Main Content-->
@@ -108,7 +108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}">
                 </div>
                 
                 </td>
@@ -251,7 +251,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', '');" value="${planDetails.getDepartureDate()}">
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
@@ -657,7 +657,7 @@ day(s) </h3>
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}">
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
@@ -739,7 +739,7 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" id="txtOtherBtm" readonly>
+                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtOtherBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
