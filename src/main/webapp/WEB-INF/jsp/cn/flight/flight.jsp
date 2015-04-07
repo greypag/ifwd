@@ -393,7 +393,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
         </div>
-        <div class="col-md-6 col-lg-6 text-center">  <img src="resources/images/home-flight2.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center">  <img src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
         <div class="clearfix"></div>
         <br>
         <div class="col-md-6 col-lg-6 text-center">  <img src="resources/images/home-flight3.png" alt=""  /> </div>
@@ -455,7 +455,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="clearfix"></div>
       <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home-flight2.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">一、二、飛！就係咁簡單！</h2>
