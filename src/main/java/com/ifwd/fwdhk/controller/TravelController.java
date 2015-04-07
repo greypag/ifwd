@@ -29,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreatePolicy;
+import com.ifwd.fwdhk.model.PlanDetails;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
@@ -48,10 +49,33 @@ public class TravelController {
 	SendEmailDao sendEmail;
 
 	@RequestMapping(value = "/travel")
-	public String getTravelHomePage(Model model, HttpServletRequest request) {
+	public ModelAndView getTravelHomePage(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
+		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
+		
+		HttpSession session = request.getSession();
+		TravelQuoteBean travelQuote;
+		
+		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		
+		if(travelQuote == null){
+			travelQuote = new TravelQuoteBean();			
+		}
+		
+		//default 
+		if(travelQuote.getPlanSelected() == null || travelQuote.getPlanSelected().isEmpty())
+			travelQuote.setPlanSelected("personal");
+		if(travelQuote.getTotalPersonalTraveller() == 0)
+			travelQuote.setTotalPersonalTraveller(1);
+		if(travelQuote.getTotalAdultTraveller() == 0)
+			travelQuote.setTotalAdultTraveller(1);	
+		if(travelQuote.getTotalChildTraveller() == 0)
+			travelQuote.setTotalChildTraveller(1);			
+		
+		model.addAttribute("travelQuote", travelQuote);
+		
+		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request) + "travel/travel");			
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
