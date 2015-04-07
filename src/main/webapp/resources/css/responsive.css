@@ -56,8 +56,7 @@
         font-size: 18px;
     }
     .plan-box {
-        background-color: #616163;
-        border: 1px solid #616163;
+        
     }
     .plan-box4 h2 {
         margin-left: 10px;
@@ -347,7 +346,7 @@
     }
     .plan-box2-inner
     {
-        border:none;
+        
     }
     .wht-bg3 {
         background-color: #fff;
@@ -360,8 +359,7 @@
     /*****For-Flight-Plan-Page*****/
     
     .plan-box {
-        background-color: #616163;
-        border: 1px solid #616163;
+        
     }
     .plan-box h2 {
         margin-left: 10px;
@@ -394,7 +392,7 @@
         background-color: #fff;
     }
     .plan-box2-inner {
-        border: #fff 1px solid;
+
     }
     .h4-4 {
         font-size: 18px;

@@ -9,7 +9,7 @@
 
 <!--/#main-Content-->
 <section>
-<div class="container mob-pad">
+<div class="container">
 <div class="row">
 <form:form name="frmTravelPlan" id="frmTravelPlan"
 modelAttribute="travelQuote" method="post"
@@ -195,7 +195,7 @@ for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 %>
 
 <div
-class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box">
+class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-box">
 <div class="plan-box2-inner travelproductbox"
 id="box<%=i%>">
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
