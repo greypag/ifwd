@@ -1,5 +1,49 @@
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--   Main Content-->
+
+<script type="text/javascript">
+
+	// personal or family
+	var traveller;	
+	// personal
+	var personalTraveller = parseInt("${travelQuote.getTotalPersonalTraveller()}");
+	// family
+	var familyAdult = "${travelQuote.getTotalAdultTraveller()}";
+	var familyChild = "${travelQuote.getTotalChildTraveller()}";
+	var familyOther = "${travelQuote.getTotalOtherTraveller()}";	
+ 	var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+
+ 	if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
+ 		traveller = familyTraveller;
+ 	}else{
+ 		traveller = personalTraveller;
+ 	}
+	
+    $(document).ready(function(){
+         // personal was selected by default
+         if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
+     		$(".plan").trigger("change");
+ //         	//reset to defalut value
+ //         	totalAdult = '1';
+ //         	totalChild = '0';
+ //         	totalOther = '0';
+ //         	totalTraveller = 1;	     		
+         }
+     });
+</script>
+
+<%
+   	String PersonalPlanChecked = "";
+	String FamilyPlanChecked = "";
+	TravelQuoteBean travelQuote = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+    if(travelQuote.getPlanSelected().equalsIgnoreCase("personal")){
+  		PersonalPlanChecked = "checked";
+    }
+    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){   		
+   		FamilyPlanChecked = "checked";   		
+    } 
+%>
 
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
@@ -29,12 +73,12 @@
 			          <tr>
 			            <td class="col-md-3  "><h3>出發日期</h3>
 			              <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk">
+			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}">
 			              </div>
 			              <span id="startDateDeskIn" class="text-red"> </span></td>
 			            <td class="col-md-3 "><h3>回程日期</h3>
 			              <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk">
+			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}">
 			              </div>
 			              <span id="endDateDeskIn" class="text-red"> </span></td>
 			            <td class="col-md-3"><h3>同行人數</h3>
@@ -45,12 +89,12 @@
 			                  <div class="drop-content">
 			                    <div class="col-lg-6">
 			                      <label class="radio radio-warning radio-inline">
-			                        <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  checked="" >
+			                        <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
 			                        <label for="personal_plan_desk"> 個人計劃</label></label>
 			                    </div>
 			                    <div class="col-lg-6">
 			                      <label class="radio radio-warning radio-inline">
-			                        <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" >
+			                        <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
 			                      <label for="family_plan_desk">  家庭計劃</label></label>
 			                    </div>
 			                    <div class="clearfix"></div>
@@ -65,7 +109,7 @@
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
 			                       </span>
-			                       <input type="text" name="totalPersonalTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
+			                       <input type="text" name="totalPersonalTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="${travelQuote.getTotalPersonalTraveller()}" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
 			                       <span class="input-group-btn data-up ">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
 			                       </span> </div>
@@ -96,7 +140,7 @@
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 			                       </span>
-			                       <input type="text" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" name="totalChildTraveller" data-max="14" id="txtChildDesk" readonly>
+			                       <input type="text" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" name="totalChildTraveller" data-max="15" id="txtChildDesk" readonly>
 			                       <span class="input-group-btn data-up ">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 			                       </span> </div>
@@ -109,7 +153,7 @@
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 			                       </span>
-			                       <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" name="totalOtherTraveller" id="txtOtherDesk" readonly>
+			                       <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" name="totalOtherTraveller" id="txtOtherDesk" readonly>
 			                       <span class="input-group-btn data-up ">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 			                       </span> </div>
@@ -157,14 +201,14 @@
     <h4>出發日期 </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob">
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" value="${travelQuote.getTrLeavingDate()}">
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4>回程日期</h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob">
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" value="${travelQuote.getTrBackDate()}">
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
@@ -176,12 +220,12 @@
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-             <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" checked="">
+             <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
           <label for="personal_plan_mob"> 個人計劃</label></label>
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-              <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" >
+              <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
              <label for="family_plan_mob">  家庭計劃</label> </label>
           </div>
           <div class="clearfix"></div>
@@ -640,12 +684,12 @@
             <tr>
               <td class="col-md-3  "><h3>出發日期</h3>
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm">
+                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${travelQuote.getTrLeavingDate()}">
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
               <td class="col-md-3 "><h3>回程日期</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm">
+                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${travelQuote.getTrBackDate()}">
                 </div>
                 <span id="endDateBtmIn" style="color:red"> </span></td>
               <td class="col-md-3 "><h3>同行人數</h3>
@@ -656,13 +700,13 @@
                     <div class="drop-content">
                       <div class="col-lg-6">
                          <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  checked="" > <label for="personal_plan_btm"> 個人計劃  </label></label>
+                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> > <label for="personal_plan_btm"> 個人計劃  </label></label>
 
 
                       </div>
                       <div class="col-lg-6">
                           <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" > <label for="family_plan_btm"> 家庭計劃 </label></label>
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"> 家庭計劃 </label></label>
 
 
                       </div>
@@ -679,7 +723,7 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalPersonalTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtTravellersBtm" readonly>
+                            <input type="text" name="totalPersonalTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="${travelQuote.getTotalPersonalTraveller()}" data-min="1" data-max="15" id="txtTravellersBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -712,7 +756,7 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtChildBtm" readonly>
+                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtChildBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

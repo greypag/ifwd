@@ -1,6 +1,51 @@
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--   Main Content-->
 <!--Main Content-->
+
+<script type="text/javascript">
+
+	// personal or family
+	var traveller;	
+	// personal
+	var personalTraveller = parseInt("${travelQuote.getTotalPersonalTraveller()}");
+	// family
+	var familyAdult = "${travelQuote.getTotalAdultTraveller()}";
+	var familyChild = "${travelQuote.getTotalChildTraveller()}";
+	var familyOther = "${travelQuote.getTotalOtherTraveller()}";	
+ 	var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+
+ 	if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
+ 		traveller = familyTraveller;
+ 	}else{
+ 		traveller = personalTraveller;
+ 	}
+	
+    $(document).ready(function(){
+         // personal was selected by default
+         if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
+     		$(".plan").trigger("change");
+ //         	//reset to defalut value
+ //         	totalAdult = '1';
+ //         	totalChild = '0';
+ //         	totalOther = '0';
+ //         	totalTraveller = 1;	     		
+         }
+     });
+</script>
+
+<%
+   	String PersonalPlanChecked = "";
+	String FamilyPlanChecked = "";
+	TravelQuoteBean travelQuote = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+    if(travelQuote.getPlanSelected().equalsIgnoreCase("personal")){
+  		PersonalPlanChecked = "checked";
+    }
+    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){   		
+   		FamilyPlanChecked = "checked";   		
+    } 
+%>
+
 <section id="main-slider" class="no-margin"> 
   <!--Mobile banner--> 
   <img src="resources/images/slider/travel_en_m.jpg" alt="" class="img-responsive hidden-lg hidden-md"  /> 
@@ -26,13 +71,13 @@
           <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-<input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');"/>
+<input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}"/>
 </div>
                 <span id="startDateDeskIn" class="text-red" > </span>
                 </td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" />
+                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}"/>
                 </div>
               <span id="endDateDeskIn"  class="text-red" > </span>
              </td>
@@ -46,13 +91,13 @@
                     <div class="drop-content">
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
-                           <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" checked="checked"  >
+                           <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" <%=PersonalPlanChecked%>  >
                           <label for="personal_plan_desk"> Personal <br>    Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" >
+                          <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_desk"> Family <br>  Plan </label>
                           </label>
                       </div>
@@ -68,7 +113,7 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number" name="totalPersonalTraveller" value="1" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
+                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number" name="totalPersonalTraveller" value="${travelQuote.getTotalPersonalTraveller()}" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -100,7 +145,7 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number"  name="totalChildTraveller" value="0" data-min="0" data-max="14" id="txtChildDesk" readonly>
+                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number"  name="totalChildTraveller" value="1" data-min="1" data-max="15" id="txtChildDesk" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -113,7 +158,7 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" id="txtOtherDesk" readonly>
+                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtOtherDesk" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -166,14 +211,14 @@
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidDate(this, 'startDateMobIn', 'Depature Date');">
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidDate(this, 'startDateMobIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}">
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4>When will you be back? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidDate(this, 'endDateMobIn', 'Return Date');">
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidDate(this, 'endDateMobIn', 'Return Date');" value="${travelQuote.getTrBackDate()}">
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
@@ -184,14 +229,14 @@
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-               <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" checked="">
+               <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
               <label for="personal_plan_mob">  Personal <br>Plan </label>
 
            </label>
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-              <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" >
+              <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
                <label for="family_plan_mob">  Family <br>  Plan </label>
           </label>
           </div>
@@ -667,14 +712,14 @@ Embark on an adventure<br>
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Departure Date');">
+                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Departure Date');" value="${travelQuote.getTrLeavingDate()}">
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
               
                 
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Return Date');">
+                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Return Date');" value="${travelQuote.getTrBackDate()}">
                 </div>
                 <span id="endDateBtmIn" style="color:red"> </span></td>
             
@@ -687,13 +732,13 @@ Embark on an adventure<br>
                     <div class="drop-content">
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  checked="" >
+                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> >
                           <label for="personal_plan_btm"> Personal <br>    Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" >
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_btm"> Family <br>  Plan </label>
                           </label>
                       </div>
@@ -709,7 +754,7 @@ Embark on an adventure<br>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalPersonalTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtTravellersBtm" readonly>
+                            <input type="text" name="totalPersonalTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="${travelQuote.getTotalPersonalTraveller()}" data-min="1" data-max="15" id="txtTravellersBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -741,7 +786,7 @@ Embark on an adventure<br>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" id="txtChildBtm" readonly>
+                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtChildBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -754,7 +799,7 @@ Embark on an adventure<br>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="14" id="txtOtherBtm" readonly>
+                            <input type="text" name="totalOtherTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtOtherBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
