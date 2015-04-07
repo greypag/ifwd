@@ -695,7 +695,7 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="travellerCount" class="form-control text-center drop-down-plus wd4 input-number" value="${planDetails.getTravellerCount()}" data-min="0" data-max="15" id="txtTravellersBtm" readonly>
+                            <input type="text" name="travellerCount" class="form-control text-center drop-down-plus wd4 input-number" value="${planDetails.getTravellerCount()}" data-min="1" data-max="15" id="txtTravellersBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

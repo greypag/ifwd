@@ -125,11 +125,13 @@ public class FlightController {
 		} else {
 			planDetails = (PlanDetails) session
 					.getAttribute("flightPlanDetails");
+			
+			// redirect to 1ST step when null 
+			if(planDetails == null){
+				return flight(request, model);				
+			}			
 		}
 
-
-		
-		
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
 				+ planDetails.getReturnDate());
@@ -255,12 +257,22 @@ public class FlightController {
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	// "Flight Plan" )
 	@RequestMapping(value = "/flight-plan-details")
-	public String flightPlanDetails(HttpServletRequest request,
+	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
+
+		HttpSession session = request.getSession();
+		
+		// redirect to 1ST step when null
+		planDetails = (PlanDetails) session
+				.getAttribute("flightPlanDetails");		
+		if(planDetails == null){
+			return flight(request, model);	
+		}
+		
 		planDetails.setTotalDue(request.getParameter("ToalDue"));
 		String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
 
@@ -326,7 +338,8 @@ public class FlightController {
 		String returnUrl = UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-plan-details";
 		System.out.println("returnUrl " + returnUrl);
-		return returnUrl;
+		//return returnUrl;
+		return new ModelAndView(returnUrl);
 	}
 
 	@RequestMapping(value = "/flight-confirmation")
@@ -649,7 +662,7 @@ public class FlightController {
 
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/flight-confrimation-page")
-	public String flightConfrimationPage(
+	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
 			@ModelAttribute("createFlightPolicy") CreateFlightPolicy createFlightPolicy) {
@@ -681,6 +694,11 @@ public class FlightController {
 			} else {
 				createFlightPolicy = (CreateFlightPolicy) session
 						.getAttribute("createFlightPolicy");
+				
+				// redirect to 1ST step when null 
+				if(createFlightPolicy == null){
+					return flight(request, model);				
+				}				
 			}
 
 			/* Calculate total Days */
@@ -792,8 +810,11 @@ public class FlightController {
 			e.printStackTrace();
 		}
 
-		return UserRestURIConstants.checkLangSetPage(request)
-				+ "flight/flight-confirmation";
+//		return UserRestURIConstants.checkLangSetPage(request)
+//				+ "flight/flight-confirmation";
+
+		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				+ "flight/flight-confirmation");		
 	}
 
 	@RequestMapping(value = "/flight-upgrade-travel-summary")
