@@ -911,6 +911,8 @@
 								<h4 id="seletedplanname"></h4>
 								<input type="hidden" name="planName" id="inputseletedplanname"
 									value="">
+								
+									
 							</div>
 							<div class="pull-right">
 								<div class="text-left pad-right1 h2-2 h2">
@@ -1021,7 +1023,7 @@
 					<div class="clearfix"></div>
 				</div>
 		</div>
-		<input type="hidden" name="planSelected"
+		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
 		<p class="padding1 hidden-sm hidden-xs">
 			以上資料只作參考用途。詳情請查看<a class="sub-link"

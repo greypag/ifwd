@@ -37,6 +37,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
@@ -61,9 +62,11 @@ public class FlightController {
 	@RequestMapping(value = "/redirect")
 	public ModelAndView redirect(HttpServletRequest request,
 			@RequestParam String action, @RequestParam String errMsgs) {
-		String viewName = "";
-		viewName = action.replace("/", "");
-		return new ModelAndView("redirect:" + viewName + "?errMsgs=" + errMsgs);
+		String viewName = action.replace("/", "");
+		if (StringHelper.isStringNullOrEmpty(errMsgs))
+			return new ModelAndView("redirect:" + viewName + "?errMsgs=" + errMsgs);
+		else
+			return new ModelAndView("redirect:" + viewName);
 	}
 
 	@RequestMapping(value = "/changeLang")
@@ -76,6 +79,9 @@ public class FlightController {
 		return new ModelAndView("redirect:" + viewName);
 
 	}
+	
+	
+	
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
@@ -125,9 +131,9 @@ public class FlightController {
 					planDetails.getTotalChildTraveller());
 			session.setAttribute("totalOtherTraveller",
 					planDetails.getTotalOtherTraveller());
-
-			System.out.println("Flight totalOtherTraveller "
-					+ session.getAttribute("totalOtherTraveller"));
+			session.setAttribute("referralCode",
+					planDetails.getReferralCode());
+			
 		}
 
 		String userReferralCode = (String) request.getSession().getAttribute(
@@ -193,16 +199,16 @@ public class FlightController {
 			JSONObject jsonPriceInfoA = new JSONObject();
 			jsonPriceInfoA = (JSONObject) jsonObject.get("priceInfoA");
 
-			flightQuoteDetails.setGrossPremium(checkJsonObjNull(jsonPriceInfoA,
-					"grossPremium"));
-			flightQuoteDetails.setDiscountPercentage(checkJsonObjNull(
-					jsonPriceInfoA, "discountPercentage"));
-			flightQuoteDetails.setDiscountAmount(checkJsonObjNull(
-					jsonPriceInfoA, "discountAmount"));
-			flightQuoteDetails.setTotalNetPremium(checkJsonObjNull(
-					jsonPriceInfoA, "totalNetPremium"));
-			flightQuoteDetails.setToalDue(checkJsonObjNull(jsonPriceInfoA,
-					"totalDue"));
+			flightQuoteDetails.setGrossPremium(StringHelper.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+					"grossPremium")));
+			flightQuoteDetails.setDiscountPercentage(StringHelper.formatPrice(checkJsonObjNull(
+					jsonPriceInfoA, "discountPercentage")));
+			flightQuoteDetails.setDiscountAmount(StringHelper.formatPrice(checkJsonObjNull(
+					jsonPriceInfoA, "discountAmount")));
+			flightQuoteDetails.setTotalNetPremium(StringHelper.formatPrice(checkJsonObjNull(
+					jsonPriceInfoA, "totalNetPremium")));
+			flightQuoteDetails.setToalDue(StringHelper.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+					"totalDue")));
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
@@ -256,6 +262,8 @@ public class FlightController {
 			}
 			model.addAttribute("mapAgeType", mapAgeType);
 
+		} else {
+			System.out.println("API failed");
 		}
 		String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
 				+ "?itemTable=BeneRelationshipCode";
@@ -606,7 +614,7 @@ public class FlightController {
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
 			model.addAttribute("action", "/homecare");
-			return "redirect:/redirect";
+			return "fail";
 		}
 	}
 
@@ -914,6 +922,13 @@ public class FlightController {
 		}
 	}
 
+	
+	public String formatPrice(String price) {
+		String formattedPrice = price + "0";
+		return formattedPrice;
+	}
+	
+	
 	public String checkStringNull(String checkByStr) {
 		if (checkByStr != null) {
 			return checkByStr.toString();
