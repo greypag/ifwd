@@ -104,7 +104,7 @@
 							for (int planCount = 1; planCount <= 1; planCount++) {
 						%>
 						<div class="plan-box plan-box-flight">
-							<div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+							<div class="col-lg-9 col-md-9 col-sm-6">
 								<h2>
 									FlightCare<br> FREE<br> <span>during the promotion period</span>
 								</h2>

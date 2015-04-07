@@ -62,7 +62,7 @@
             	{
             %>
             <div class="plan-box plan-box-flight">
-              <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+              <div class="col-lg-9 col-md-9 col-sm-6">
                 <h2>航空意外保險<br>
                 免費 <br>
                  <span>只適用於優惠期內</span></h2>
