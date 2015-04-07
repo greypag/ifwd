@@ -4814,7 +4814,7 @@ div.simulate-drop-down, div.simulate-drop-down > .dropdown-menu{
 	background-color: rgb(245, 245, 245);
 	width: 100%;
 }
-div.simulate-drop-down > .btn, .dropdown-menu {
+div.simulate-drop-down > .btn, div.simulate-drop-down > .dropdown-menu {
 	text-align: left;
 	font-size: 24px;
 }
