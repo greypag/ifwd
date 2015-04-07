@@ -5246,7 +5246,7 @@ font-size: 30px;
 font-family: 'Foco-bold';
 }
 
-  #lblCountDesk,#lblCountMob,#lblCountBtm
+  #lblCountDesk,#lblCountMob,#lblCountBtm,.select-label
   {
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
@@ -5254,7 +5254,7 @@ font-family: 'Foco-bold';
     direction:ltr;
     font-size: 23px;
     padding-top:12px;
-   
+    line-height: 1.428571429;
     color: #061d2a;
   }
   #lblCountMob{
