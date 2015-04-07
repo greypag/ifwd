@@ -82,17 +82,17 @@
 						style="display: none;">
 						<P id="error1">
 					</div>
-					<div class="col-sm-7 border-right" id="user-details-main">
-						<table class="table activation-form">
+					<div class="col-md-7 border-right" id="user-details-main">
+						<table class="table vert-middle joinus">
 							<tbody>
 								<tr>
-									<td colspan="2" class="pad-none"><h3
+									<td colspan="2"><h3
 											class="black-bold pad-none">User Details</h3></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
-										for="inputEmail3" class="control-label">Mobile No</label></td>
-									<td class="pad-none"><input type="text" name="mobileNo"
+									<td><label
+										for="inputEmail3" class="join-us-label">Mobile No</label></td>
+									<td><input type="text" name="mobileNo"
 										class="form-control" id="mobileNo" placeholder="Mobile No."><span
 										id="errorEmptyMob" style="display: none"><label class="text-red">Please enter your Mobile No.</label></span>
 										 <span id="errorInvalidMob" style="display: none">
@@ -101,9 +101,9 @@
 										</td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
-										for="inputEmail3" class="control-label">Email address</label></td>
-									<td class="pad-none"><input type="email"
+									<td><label
+										for="inputEmail3" class="join-us-label">Email address</label></td>
+									<td><input type="email"
 										name="emailAddress" class="form-control" id="emailAddress"
 										placeholder="Email"><span id="errorEmptyEmailId"
 										style="display: none"><label  class="text-red"> Please enter your Email Address.</label></span>

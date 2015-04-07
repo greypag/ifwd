@@ -83,17 +83,16 @@
 						style="display: none;">
 						<P id="error1">
 					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-						id="user-details-main">
-						<table class="table activation-form">
+					<div class="col-md-7 col-xs-12"id="user-details-main">
+						<table class="table vert-middle joinus">
 							<tbody>
 								<tr>
-									<td colspan="2" class="pad-none"><h3
+									<td colspan="2"><h3
 											class="black-bold pad-none">用戶資料</h3></td>
 								</tr>
 								<tr>
-									<td class="pad-none"><label class="control-label">手機號碼</label></td>
-									<td class="pad-none"><input type="text" name="mobileNo"
+									<td><label class="join-us-label">手機號碼</label></td>
+									<td><input type="text" name="mobileNo"
 										class="form-control" id="mobileNo" placeholder="手機號碼">
 										<span id="errorEmptyMob" class="hide1"> <label
 											class="text-red">請輸入 聯絡電話.</label>
@@ -102,9 +101,9 @@
 									</span></td>
 								</tr>
 								<tr>
-									<td class="pad-none"><label class="control-label">電郵地址
+									<td><label class="join-us-label">電郵地址
 									</label></td>
-									<td class="pad-none"><input type="email"
+									<td><input type="email"
 										name="emailAddress" class="form-control" id="emailAddress"
 										placeholder="電郵地址"> <span id="errorEmptyEmailId"
 										class="hide1"> <label class="text-red">請輸入電郵地址</label>
