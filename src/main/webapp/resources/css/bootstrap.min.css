@@ -18,7 +18,7 @@ audio:not([controls]) {
 	display: none
 }
 html {
-	
+	font-family: 'Foco-Regular';
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%
 }
@@ -3603,7 +3603,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 .breadcrumb a {
 	color: #061d2a;
 	font-size: 18px;
-	font-weight: 700;
+	font-family: 'Foco-bold';
 	padding-right: 5px;
 }
 
@@ -3630,7 +3630,7 @@ padding-right: 5px;
 .breadcrumb>.active {
 	color: #f6871e;
 	font-size: 18px;
-	font-weight: bold;
+	font-family: 'Foco-bold';
 }
 .pagination {
 	display: inline-block;

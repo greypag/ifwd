@@ -4,9 +4,13 @@ var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^\d{8}$/;
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+<<<<<<< HEAD
 var getBundleLanguage = "";
 var chin = false;
 /* datepicker script */
+=======
+/* datepicker script*/
+>>>>>>> 1828ea02c3d7372136cb405f8eb14a2c766da656
 
 /* hkid validation script */
 function IsHKID(str) {
@@ -57,8 +61,67 @@ function IsHKID(str) {
 	return verify == checkDigit || (verify == 10 && checkDigit == 'A');
 }
 
+<<<<<<< HEAD
 $(function() {
 	chin = $('body').hasClass('chin');
+=======
+$(function () {
+	/*get now date*/
+	var nowTemp = new Date();
+	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
+	var checkout;
+	/* desktoip datepicker*/
+	var checkin = $('#dp1').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		//startDate:nowTemp,
+		//endDate:  tillDate_from,
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd MM yyyy"
+
+	}).on('changeDate', function (ev) {
+		if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+			
+			checkout.datepicker("update", newDate);
+			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + 30*24*60*60*1000));
+			
+		}
+		
+		$('#dp2')[0].focus();
+		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
+		var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsDesk").style.visibility = "visible";
+		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+		
+	});
+	
+	checkout = $('#dp2').datepicker({
+		beforeShowDay: function (date) {
+			if (!checkin.datepicker("getDate").valueOf()) {
+
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
+			} else {
+				
+				return date.valueOf() >= checkin.datepicker("getDate").valueOf() && date.valueOf() < checkin.datepicker("getDate").valueOf()+30*24*60*60*1000;
+			}
+		},
+		autoclose: true,
+		
+		format: "dd MM yyyy"
+
+	}).on('changeDate', function (ev) {
+		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
+		var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsDesk").style.visibility = "visible";
+		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+
+	});
+>>>>>>> 1828ea02c3d7372136cb405f8eb14a2c766da656
 
 	/* get now date */
 
@@ -389,6 +452,7 @@ function fPlanValid() {
 	}
 
 	if (fullname.trim() == "") {
+<<<<<<< HEAD
 		document.getElementById("fullnameinvalid").innerHTML = getBundle(
 				getBundleLanguage, "applicant.name.notNull.message");// "Please
 																		// enter
@@ -396,6 +460,9 @@ function fPlanValid() {
 																		// Name
 																		// in
 																		// English.";
+=======
+		document.getElementById("fullnameinvalid").innerHTML = "Please enter your Name in English.";
+>>>>>>> 1828ea02c3d7372136cb405f8eb14a2c766da656
 		flag = false;
 	}
 
@@ -633,6 +700,7 @@ function fPlanValid() {
 	return flag;
 
 }
+<<<<<<< HEAD
 
 function fcPlanValid() {
 	var flag = true;
@@ -899,6 +967,13 @@ function fcPlanValid() {
 function tPlanValid() {
 
 	var flag = true;
+=======
+//Travel plan details page validation
+function tPlanValid()
+{
+
+	var flag=true;
+>>>>>>> 1828ea02c3d7372136cb405f8eb14a2c766da656
 	document.getElementById("fullnameinvalid").innerHTML = "";
 	document.getElementById("errAppHkid").innerHTML = "";
 	document.getElementById("emailid").innerHTML = "";
@@ -1439,6 +1514,7 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId,
 	var peopleCount = document.getElementById(peopleCountId).innerHTML;
 
 	var returnDateElement = document.getElementById(returnDateId);
+<<<<<<< HEAD
 	flag = chkValidFlightDate(returnDateElement, errReturnDateId, getBundle(
 			getBundleLanguage, "date.policy.endDate.notValid.message"),
 			depDateId, errDepDateId, getBundle(getBundleLanguage,
@@ -1450,6 +1526,17 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId,
 
 	} else {
 		if (travellers.trim() == "" || travellers == "0") {
+=======
+	flag = chkValidFlightDate(returnDateElement, errReturnDateId, "Return Date", depDateId, errDepDateId, "Depature Date");
+		
+	if(travellers > 0){
+		
+	}else if(peopleCount > 0){
+		
+	}
+	else{
+		if (travellers.trim() == "" || travellers =="0") {
+>>>>>>> 1828ea02c3d7372136cb405f8eb14a2c766da656
 			console.log(travellers);
 			document.getElementById(errTravelCountId).style.display = "block";
 
@@ -2253,6 +2340,7 @@ function IsNumeric(input) {
 }
 
 // get language
+<<<<<<< HEAD
 /*
  * function getBundleLanguage(){ var lang = UILANGUAGE;
  * 
@@ -2273,6 +2361,22 @@ if (lang === "EN") {
 // validation
 function resetErrElement(errElementId) {
 	if (errElementId != null && document.getElementById(errElementId) != null) {
+=======
+function getBundleLanguage(){
+	var lang = UILANGUAGE;
+	if("EN".equals(lang)){
+		return "";
+	}else if("CN".equals(lang)){
+		return "zh-HK";
+	} else{
+		return "";
+	}
+}
+
+//validation
+function resetErrElement(errElementId){
+	if(errElementId != null && document.getElementById(errElementId) != null){
+>>>>>>> 1828ea02c3d7372136cb405f8eb14a2c766da656
 		document.getElementById(errElementId).innerHTML = "";
 	}
 }
@@ -2724,6 +2828,7 @@ function getBundle(lang, key) {
 	loadBundles(lang, key, function(value) {
 		rtn = value;
 	});
+	
 	return rtn;
 }
 function loadBundles(lang, key, fn) {

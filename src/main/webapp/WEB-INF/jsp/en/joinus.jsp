@@ -115,32 +115,31 @@
 					<P id="error1">
 					</div>
 					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 border-right">
-
-						<table class="table vert-middle joinus">
+						<table class="table activation-form">
 							<tbody>
 								<tr>
-									<td colspan="3" class=""><h3
-										class="black-bold ">Member Details</h3></td>
+									<td colspan="2" class="pad-none"><h3
+										class="black-bold pad-none">Member Details</h3></td>
 									</tr>
 									<tr>
-										<td class=""><label
+										<td class="col-sm-4 col-xs-4 pad-none"><label
 											for="txtFullName" class="join-us-label"> Full name<br>
 											<small>(as appears on HKID Card/Passport)</small>
 										</label></td>
-										<td class=""><input type="text"
-											class="form-control" name="fullName"
+										<td class="pad-none"><input type="text"
+											class="form-control btm-pad-10" name="fullName"
 											id="txtFullName" placeholder="Full name"
 											onblur="replaceAlpha(this);"
 											onkeypress="return alphaOnly(event);" maxlength="100">
 											<span id="errorEmptyName" class="text-red"></span></td>
 
-											<td></td>
+
 										</tr>
 										<tr>
-											<td class="col-sm-4 col-xs-4 ">
+											<td class="col-sm-4 col-xs-4 pad-none">
 											<label for="txtMobileNo"
 												 class="join-us-label">Mobile no</label></td>
-												<td class=""><input type="text" name="mobileNo"
+												<td class="pad-none"><input type="text" name="mobileNo"
 													class="form-control" id="txtMobileNo"
 													placeholder="Mobile number"
 													onkeypress="return isNumeric(event)" onblur="replaceNumeric(this);" maxlength="8"> 
@@ -148,46 +147,46 @@
 
 
 
-<td></td>
+
 
 										</tr>
 										<tr>
-											<td class=""><label for="txtEmailId"
+											<td class="pad-none"><label for="txtEmailId"
 												class="join-us-label"> Email Address<br> <small>(Insurance
 												certificate will be sent to this email address)</small>
 											</label></td>
-											<td class=""><input type="email"
+											<td class="pad-none"><input type="email"
 												name="EmailAddress" class="form-control btm-pad-10"
 												id="txtEmailId" placeholder="Email address" maxlength="50">
 												<span id="errorEmptyEmailId" class="text-red"></span></td>
 
 
-<td></td>
+
 
 										</tr>
 										<tr>
-											<td class="col-sm-4 col-xs-4 ">
+											<td class="col-sm-4 col-xs-4 pad-none">
 											<label for="txtUserName"
 												class="join-us-label">Username</label> <a href="#"
-												class="tool-tip show-inline-xs"
+												class="pull-right tool-tip hidden-lg hidden-md top-pad-10"
 												data-toggle="tooltip" data-placement="bottom"
 												title="resources"> <img
 												src="resources/images/ic.png" alt="">
 											</a></td>
-											<td class="">
+											<td class="pad-none">
 
-												
-													<input type="text" class="form-control "
+												<div class="pull-left acc-tool-input-div">
+													<input type="text" class="form-control acc-tool-input"
 													name="userName" id="txtUserName1" placeholder="Username">
-												
-												 <span id="errorEmptyUName" class="text-red"></span>
-<td>
+												</div>
+												<div class="pull-left acc-tool-tip-div top-pad-10">
 
-													<a href="#" class="tool-tip show-inline-md"
+													<a href="#" class="pull-right tool-tip hidden-sm hidden-xs"
 													data-toggle="tooltip" data-placement="bottom"
 													title="Username must be between 6 and 50 characters."><img
 													src="resources/images/ic.png" alt=""></a>
-												</td>
+												</div> <span id="errorEmptyUName" class="text-red"></span>
+
 
 
 
@@ -195,39 +194,36 @@
 									</td>
 								</tr>
 								<tr>
-									<td class=""><label class="join-us-label">Password</label>
+									<td class="pad-none"><label class="join-us-label">Password</label>
 										<a href="#"
-										class="tool-tip show-inline-xs"
+										class="pull-right tool-tip hidden-lg hidden-md top-pad-10"
 										data-toggle="tooltip" data-placement="bottom"
 										title="Password must be at least 8 characters and alphanumeric (both upper AND lower cases)."><img
 										src="resources/images/ic.png" alt=""></a></td>
-										<td class="">
-											
+										<td class="pad-none">
+											<div class="pull-left acc-tool-input-div">
 												<input type="password" name="password"
-												class="form-control" id="txtPass1"
+												class="form-control acc-tool-input" id="txtPass1"
 												placeholder="Password">
-											
-											 <span id="errorJoinUsPassword" class="text-red"></span>
-
-
-
-
-
-								</td>
-								<td>
-								
-												<a href="#" class="tool-tip show-inline-md"
+											</div>
+											<div class="pull-left acc-tool-tip-div top-pad-10">
+												<a href="#" class="pull-right tool-tip hidden-sm hidden-xs"
 												data-toggle="tooltip" data-placement="bottom"
 												title="Password must be at least 8 characters and alphanumeric (both upper AND lower cases)."><img
 												src="resources/images/ic.png" alt=""></a>
 
-											
+											</div> <span id="errorJoinUsPassword" class="text-red"></span>
+
+
+
+
+
 								</td>
 							</tr>
 							<tr>
-								<td class=""><label for="txtConfPass"
+								<td class="pad-none"><label for="txtConfPass"
 									class="join-us-label">Confirm password</label></td>
-									<td class=""><input type="password"
+									<td class="pad-none"><input type="password"
 										name="confirmPassword" class="form-control" id="txtConfPass"
 										placeholder="Confirm Password"> <span
 										id="errorEmptyConfPass" class="text-red"></span></td>

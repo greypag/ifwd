@@ -3,6 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
 
+<style>
+.travelproductbox:hover {
+	background-color: #f68a1d;
+	-webkit-transition: background-color 500ms linear;
+	-moz-transition: background-color 500ms linear;
+	-o-transition: background-color 500ms linear;
+	-ms-transition: background-color 500ms linear;
+	transition: background-color 500ms linear;
+}
+</style>
 
 
 
@@ -81,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						</h4>
 
 						<div class="gray-bg1-content hidden-sm hidden-xs">
-							<div class="col-md-6 pad-none">
+							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pad-none">
 
 
 								<div class="fb1 pull-left">
@@ -133,7 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-lg-6 col-md-6">
 								<p>
 									<!-- Other sharing options -->
 								</p>
@@ -251,7 +261,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 							
 							<div
-class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-box">
+class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box">
 <div class="plan-box2-inner travelproductbox"
 id="box<%=i%>">
 							

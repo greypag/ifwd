@@ -503,8 +503,8 @@ Myself
 								
 							
 									<br/>
-								<input id="checkbox2" name="checkbox1" type="checkbox">
-								<label for="checkbox2">	I have read and understood <a
+									
+									I have read and understood <a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
 									target="_blank" class="sub-link"> Personal Information
 										Collection Statement</a> and agree to be bound by the same. <br>
@@ -522,15 +522,15 @@ Myself
 									appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not send direct marketing
+								<input id="checkbox2" type="checkbox"> <label
+									for="checkbox2"> Please do not send direct marketing
 									information to me. <br>
 								</label>
 							</div>
 
 							<div class="checkbox">
-								<input id="checkbox4" type="checkbox"> <label
-									for="checkbox4"> Please do not provide my personal data
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3"> Please do not provide my personal data
 									to other persons or companies for their use in direct
 									marketing. <br> <br>
 								</label>
@@ -628,7 +628,7 @@ onclick="return flightPlanValidation();">Next</button> -->
 				<p class="padding1 hidden-sm hidden-xs">
 					The features above are indicative only. Please refer to the <a
 						class="sub-link"
-						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf">Policy
+						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank">Policy
 						Provisions</a> for details.<br> For a complete explanation of the
 					terms and conditions. Please contact your adviser or our customer
 					service at 3123 3123 for more details.
@@ -642,7 +642,8 @@ onclick="return flightPlanValidation();">Next</button> -->
 
 <!--------/end- Main Content------------>
 
-<!------Plan-login-popup------->
+<!------ Plan-login-popup----- -->
+
 <div class="modal fade bs-example-modal-lg " id="loginpopup"
 	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 	aria-hidden="true" style="display: none;">

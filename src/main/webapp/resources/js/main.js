@@ -144,9 +144,6 @@ $("#inputFullName").keyup(function() {
 $("#inputTxtAppHkid").keyup(function() {
    document.getElementById("txtInsuHkid1").value = this.value;
 });
-$("#txtAppHkid").keyup(function() {
-	document.getElementById("txtInsuHkid1").value = this.value;
-});
 
 jQuery('ul.maintabs li').hover(function () {
 	jQuery("a span", this).addClass('maintabs-hover');

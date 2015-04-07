@@ -608,8 +608,6 @@
 									如有任何訛騙或資料失實，本人或受保人之保障有失效之虞。<br /> v. <span
 									class="margin-left-2"></span>本人已得到其他受保人之同意把上述資料交予富衛保險用作申請航空意外保險之用。<br />
 									<br />
-								<input id="checkbox2" name="checkbox1" type="checkbox">
-								<label for="checkbox2">
 									 本人已參閱及明白 "<a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
 									class="sub-link" target="_blank">收集個人資料聲明</a>"，並同意接受其約束。
@@ -622,13 +620,13 @@
 							</div>
 
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> 請不要將直接促銷資料發給本人。<br> <br>
+								<input id="checkbox2" type="checkbox"> <label
+									for="checkbox2"> 請不要將直接促銷資料發給本人。<br> <br>
 								</label>
 							</div>
 							<div class="checkbox">
-								<input id="checkbox4" type="checkbox"> <label
-									for="checkbox4"> 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。<br>
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3"> 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。<br>
 									<br>
 								</label>
 							</div>
