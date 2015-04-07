@@ -724,7 +724,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
 
               <td class="col-md-2 ">
-                <button type="submit" class="border-radius btn btn-primary  get-btn-fl">
+                <button type="submit" class="border-radius btn btn-primary  get-btn">
                 立即申請免費保障!
                 </button>
                  </td>
