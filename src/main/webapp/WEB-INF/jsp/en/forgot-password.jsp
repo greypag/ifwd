@@ -74,18 +74,18 @@
 					</div>
 					<!-- <div class="status alert alert-success" style="display: none"></div>-->
 					<div id="user-details-main">
-						<div class="col-md-7 border-right">
-							<table class="table vert-middle joinus">
+						<div class="col-sm-7 border-right">
+							<table class="table activation-form">
 								<tbody>
 									<tr>
-										<td colspan="2"><h3
+										<td colspan="2" class="pad-none"><h3
 												class="black-bold pad-none">User Details</h3></td>
 									</tr>
 
 									<tr>
-										<td><label
-											for="inputEmail3" class="join-us-label">Mobile no</label></td>
-										<td><input type="text"
+										<td valign="middle" class="pad-none"><label
+											for="inputEmail3" class="control-label">Mobile no</label></td>
+										<td class="pad-none"><input type="text"
 											isrequired=required name="mobileNo" class="form-control"
 											id="mobileNo" placeholder="Mobile Number"
 											onkeypress="return isNumeric(event)"
@@ -98,9 +98,9 @@
 										</td>
 									</tr>
 									<tr>
-										<td><label
-											for="inputEmail3" class="join-us-label">Email address</label></td>
-										<td><input type="email"
+										<td valign="middle" class="pad-none"><label
+											for="inputEmail3" class="control-label">Email address</label></td>
+										<td class="pad-none"><input type="email"
 											name="emailAddress" class="form-control" id="emailAddress"
 											placeholder="Email"> 
 
@@ -120,19 +120,19 @@
 											</td>
 									</tr>
 									<tr>
-										<td><label
-											for="inputEmail3" class="join-us-label">Username</label></td>
-										<td><input type="text" name="userName"
+										<td valign="middle" class="pad-none"><label
+											for="inputEmail3" class="control-label">Username</label></td>
+										<td class="pad-none"><input type="text" name="userName"
 											class="form-control" id="userName" placeholder="Username">
 											<span id="errorEmptyUName" style="display: none"><label	style="color: red">Please enter your Username.</label></span>
 											 	<span id="errorInvalidUName" style="display: none">
 											 	<label class="text-red"> Username is invalid.</label>
 											 </span>
 										</td>
-										
+										<td class="width1"></td>
 
 									</tr>
-									
+									<tr></tr>
 									<tr>
 										<td colspan="2">
 											<!-- <button type="button" onclick="forgotPassword()"

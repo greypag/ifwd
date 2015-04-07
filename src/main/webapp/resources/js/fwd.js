@@ -4,8 +4,6 @@ var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^\d{8}$/;
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-var getBundleLanguage = "";
-var chin = false;
 /* datepicker script*/
 
 /* hkid validation script */
@@ -58,44 +56,12 @@ function IsHKID(str) {
 }
 
 $(function () {
-	chin = $('body').hasClass('chin');
-	
 	/*get now date*/
-	
-	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
 	var checkout;
 	/* desktoip datepicker*/
-	$("#txtStartDateDesk").blur(function() {
-		var dateDiff = dateDiffInDaysFromNow(checkin.datepicker("getDate").valueOf());
-	    if(dateDiff < 0){ this.focus();return false; }
-	});
-	$("#txtEndDateDesk").blur(function() {
-		var dateDiff = dateDiffInDaysFromNow(checkout.datepicker("getDate").valueOf());
-	    if(dateDiff < 0){ this.focus();return false; }
-	});	
-	
-	$("#txtStartDateMob").blur(function() {
-		var dateDiff = dateDiffInDaysFromNow(checkin2.datepicker("getDate").valueOf());
-	    if(dateDiff < 0){ this.focus();return false; }
-	});
-	$("#txtEndDateMob").blur(function() {
-		var dateDiff = dateDiffInDaysFromNow(checkout2.datepicker("getDate").valueOf());
-	    if(dateDiff < 0){ this.focus();return false; }
-	});
-	
-	$("#txtStartDateBtm").blur(function() {
-		var dateDiff = dateDiffInDaysFromNow(checkin3.datepicker("getDate").valueOf());
-	    if(dateDiff < 0){ this.focus();return false; }
-	});
-	$("#txtEndDateBtm").blur(function() {
-		var dateDiff = dateDiffInDaysFromNow(checkout3.datepicker("getDate").valueOf());
-	    if(dateDiff < 0){ this.focus();return false; }
-	});
-	
-	
 	var checkin = $('#dp1').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
@@ -116,14 +82,12 @@ $(function () {
 			
 		}
 		
+		$('#dp2')[0].focus();
+		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
+		var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsDesk").style.visibility = "visible";
+		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 		
-		
-			$('#dp2')[0].focus();
-			var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
-			var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-			document.getElementById("divPersonsDesk").style.visibility = "visible";
-			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-	    
 	});
 	
 	checkout = $('#dp2').datepicker({
@@ -303,7 +267,7 @@ function fPlanValid()
 
 
 	if (fullname.trim() == "") {
-		document.getElementById("fullnameinvalid").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");//"Please enter your Name in English.";
+		document.getElementById("fullnameinvalid").innerHTML = "Please enter your Name in English.";
 		flag = false;
 	}
 
@@ -559,296 +523,6 @@ function fPlanValid()
 	return flag;
 
 }
-
-
-function fcPlanValid()
-{
-	var flag=true;
-	
-	 document.getElementById("fullname").style.display = "none";
-	    document.getElementById("emailid").style.display = "none"; 
-	    document.getElementById("mobileNo").style.display = "none";
-	    document.getElementById("emailidinvalid").style.display = "none";
-	    
-	    document.getElementById("chk1").style.display = "none"; 
-	    document.getElementById("mobilenoinvalid").style.display = "none"; 
-	   
-	    var appHkid = document.getElementById("txtAppHkid").value;
-	    var fullname = document.getElementById("inputFullName").value;
-	    var emailId = document.getElementById("inputEmailId").value;
-	    var mobileNo = document.getElementById("inputMobileNo").value;
-	    
-	    
-	    if (appHkid.trim() == "") {
-	        document.getElementById("errAppHkid").innerHTML = "您輸入的香港身份證號碼不正確。";
-	        flag = false;
-	    }
-		else
-		{
-			var tr=IsHKID(appHkid.trim());
-			if(tr==false)
-			{
-					
-				document.getElementById("errAppHkid").innerHTML = "您輸入的香港身份證號碼不正確。";
-	        	flag = false;
-			}
-		}
-	    if (fullname.trim() == "") {
-	        document.getElementById("fullname").style.display = "block";
-	      
-	        flag = false;
-	    }
-	    if (mobileNo.trim() == "") {
-	        document.getElementById("mobileNo").style.display = "block";
-	        flag = false;
-	    }
-	    else {        
-	        if (mobile_pattern.test(mobileNo) == false) {
-	            document.getElementById("mobilenoinvalid").style.display = "block";
-	            flag = false;
-	        }
-	    }
-
-	    if (emailId.trim() == "") {
-	        document.getElementById("emailid").style.display = "block";
-	        flag = false;
-	    }
-	    else {
-	        if (emailreg.test(emailId) == false) {
-
-	            document.getElementById("emailidinvalid").style.display = "block";
-	            flag = false;
-	        }
-	    }
-	   
-	  
-	    if (document.getElementById("checkbox1").checked == false) {
-	        document.getElementById("chk1").style.display = "block";
-	        flag = false;
-	    }
-	    
-	    
-	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
-	var rowCountChild=document.getElementById("totalCountOfChild").value;
-	var rowCountOther=document.getElementById("totalCountOther").value;
-	
-	/* Adult Beneficiary validation */
-	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
-	{
-		
-			var fullname = document.getElementById("txtAdFullName" + i).value;
-			if (fullname.trim() == "") {
-				document.getElementById("errtxtAdFullName" + i).innerHTML = "請輸入姓名";
-				flag = false;
-			}else{
-				document.getElementById("errtxtAdFullName" + i).innerHTML = "";
-			}
-			
-			var age = document.getElementById("selectAgeRange" + i).value;
-			if (age.trim() == "") {
-				document.getElementById("errselectAgeRange" + i).innerHTML = "請選擇 年齡組別 ";
-				flag = false;
-			}else{
-				document.getElementById("errselectAgeRange" + i).innerHTML = "";
-			}
-			
-			var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
-			if (benefitiary.trim() == "") {
-				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "請輸入姓名";
-				flag = false;
-			}else{
-				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
-			}
-			
-			
-			var hkid = document.getElementById("txtInsuHkid" + i).value;
-			document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-		
-			document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
-			
-			if (hkid.trim() == "") {
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = "请用英文输入身份证号 ";
-				flag = false;
-			}else
-			{
-				var tr=IsHKID(hkid.trim());
-				if(tr==false)
-				{
-					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
-					flag = false;
-				}
-			}
-			
-			var selectedValue = document.getElementById("adultsselectBenificiary" + i).value;
-			
-			if(selectedValue != "SE"){
-				if (document.getElementById("adultBenefitiaryId" + i).value == "")
-				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML="請輸入全名（i）和請輸入英文";
-					flag = false;             
-				}
-				else
-				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
-				}
-				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "  請輸入正確/有效的 香港身份證號碼 ";
-					flag = false;
-				}
-				else {
-					
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "";
-				}
-			}
-			
-		
-	}
-
-	/* Child Beneficiary validation */
-	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
-	{
-		var hkid = document.getElementById("txtChldInsuHkid" + i).value;
-		var fullname = document.getElementById("txtChldFullName" + i).value;
-		var age = document.getElementById("selectchildAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
-		
-		if (fullname.trim() == "") {
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "請輸入姓名";
-			flag = false;
-		}else{
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
-		}
-		
-		if (age.trim() == "") {
-			document.getElementById("errchildRange" + i).innerHTML = "請選擇 年齡組別 ";
-			flag = false;
-		}else{
-			document.getElementById("errchildRange" + i).innerHTML = "";
-		}
-		
-		/*if (benefitiary.trim() == "") {
-			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}*/
-		
-		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
-		
-		//document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
-		
-		if (hkid.trim() == "") {
-			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "请用英文输入身份证号  ";
-			flag = false;
-		}
-		else
-		{
-			var tr=IsHKID(hkid.trim());
-			if(tr==false)
-			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
-				flag = false;
-			}
-		}
-		
-		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
-		
-		if(selectedValue != "SE")
-		{
-			if (document.getElementById("childBenefitiaryName" + i).value == "")
-			{
-				document.getElementById("errchildBenefitiaryName" + i).innerHTML="請輸入全名（i）和請輸入英文";
-				flag = false;             
-			}
-			else
-			{   
-				
-				document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
-			}
-			
-			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "  請輸入正確/有效的 香港身份證號碼 ";
-				flag = false;
-			}
-			else {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "";
-			}
-		}
-		
-	}
-	
-	/* Other Beneficiary validation */
-	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
-	{
-		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
-		var fullname = document.getElementById("txtOtherFullName" + i).value;
-		var age = document.getElementById("selectOtherAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
-		
-		if (fullname.trim() == "") {
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}else{
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "";
-		}
-		
-		
-		if (age.trim() == "") {
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "請選擇 年齡組別 ";
-			flag = false;
-		}else{
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
-		}
-		
-		/*if (benefitiary.trim() == "") {
-			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Name";
-			flag = false;
-		}*/
-		
-		document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
-		
-
-		if (hkid.trim() == "") {
-			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "请用英文输入身份证号 ";
-			flag = false;
-		}
-		else
-		{
-			var tr=IsHKID(hkid.trim());
-			if(tr==false)
-			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
-				flag = false;
-			}
-		}
-		
-		var selectedValue = document.getElementById("otherSelectBenificiary" + i).value;
-		if(selectedValue != "SE"){
-			if (document.getElementById("otherBenefitiaryName" + i).value == "")
-			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML="請輸入全名（i）和請輸入英文";
-				flag = false;             
-			}
-			else
-			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML = "";
-				flag = false;
-			}
-
-			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "請輸入正確/有效的 香港身份證號碼 ";
-				flag = false;
-			}
-			else {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "";
-			}
-		}
-	}
-
-	
-	return flag;
-
-}
-
-
 //Travel plan details page validation
 function tPlanValid()
 {
@@ -1425,7 +1099,7 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	var peopleCount = document.getElementById(peopleCountId).innerHTML;
 	
 	var returnDateElement = document.getElementById(returnDateId);
-	flag = chkValidFlightDate(returnDateElement, errReturnDateId, getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"), depDateId, errDepDateId, getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
+	flag = chkValidFlightDate(returnDateElement, errReturnDateId, "Return Date", depDateId, errDepDateId, "Depature Date");
 		
 	if(travellers > 0){
 		
@@ -2292,33 +1966,16 @@ function IsNumeric(input){
 }
 
 // get language
-/*function getBundleLanguage(){
+function getBundleLanguage(){
 	var lang = UILANGUAGE;
-	
-	if(lang === "EN"){
+	if("EN".equals(lang)){
 		return "";
-	}else 
-	if(lang === "CN"){
+	}else if("CN".equals(lang)){
 		return "zh-HK";
-	} 
-	else{
+	} else{
 		return "";
 	}
-}*/
-
-
-	var lang = UILANGUAGE;
-	
-	if(lang === "EN"){
-		getBundleLanguage = "";
-	}else 
-	if(lang === "CN"){
-		getBundleLanguage = "zh-HK";
-	} 
-	else{
-		getBundleLanguage = "";
-	}
-
+}
 
 //validation
 function resetErrElement(errElementId){
@@ -2746,6 +2403,7 @@ function getBundle(lang, key) {
 	loadBundles(lang, key, function(value){
 		rtn = value;
 	});
+	
 	return rtn;
 }
 function loadBundles(lang, key, fn) {

@@ -91,7 +91,7 @@
 					</div>
 
 					<div
-						class="col-md-7 border-right">
+						class="col-lg-7 col-md-7 col-sm-12 col-xs-12 border-right margin-left">
 						<div
 							style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 							id="ajax-loading">
@@ -99,30 +99,28 @@
 								style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
 								src="resources/images/ajax-loader.gif">
 						</div>
-						<table class="table vert-middle joinus">
+						<table class="table activation-form">
 							<tbody>
 								<tr>
-									<td colspan="3" class="pad-none"><h3
+									<td colspan="2" class="pad-none"><h3
 											class="black-bold pad-none">會員資料</h3></td>
 								</tr>
 								<tr>
-									<td><label for="txtFullName"
-										class="join-us-label">英文全名<br>
+									<td class="col-sm-4  pad-none"><label for="txtFullName"
+										class="control-label">英文全名<br>
 											<small>（與香港身份證號碼/護照號碼相同）</small></label></td>
-									<td><input type="text"
+									<td class="pad-none"><input type="text"
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="英文全名"
 										onblur="replaceAlpha(this);"
 										onkeypress="    return alphaOnly(event);" maxlength="100">
 										<span id="errorEmptyName" style="display: none"><label
 											class="text-red">請輸入 姓名 和 請以英文輸入</label></span></td>
-											
-											<td></td>
 								</tr>
 								<tr>
-									<td><label for="txtMobileNo"
-										class="join-us-label">手機號碼 </label></td>
-									<td><input type="text"
+									<td class="pad-none"><label for="txtMobileNo"
+										class="control-label">手機號碼 </label></td>
+									<td class="pad-none"><input type="text"
 										class="form-control" id="txtMobileNo"
 										value="${userDetails.getMobileNo() }" name="mobileNo"
 										placeholder="手機號碼" onkeypress="return isNumeric(event)"
@@ -130,86 +128,73 @@
 										id="errorEmptyMob" style="display: none"><label
 											class="text-red">請輸入 聯絡電話</label></span> <span id="errorInvalidMob"
 										style="display: none"><label class="text-red">聯絡電話需為８位數字，請重新輸入</label></span></td>
-									<td></td>
 								</tr>
 								<tr>
-									<td><label for="txtEmailId"
+									<td class="pad-none"><label for="txtEmailId"
 										class="join-us-label">電郵地址<br> <small>(保險證書將發送到此電郵地址）</small>
 									</label></td>
-									<td class="pad-none">
-									<input type="email"
+									<td class="pad-none"><input type="email"
 										class="form-control" id="txtEmailId"
 										value="${userDetails.getEmailAddress() }" placeholder="電郵地址"
-										name="EmailAddress" maxlength="50"> 
-									<span
+										name="EmailAddress" maxlength="50"> <span
 										id="errorEmptyEmailId" style="display: none"><label
-											class="text-red">請輸入電郵地址</label>
-											</span>
-									<span
+											class="text-red">請輸入電郵地址</label></span> <span
 										id="errorInvalidEmailId" style="display: none"><label
-											class="text-red">>請輸入正確/有效的 電郵地址</label>
-											</span>
-											</td>
-											
-											<td></td>
+											class="text-red">>請輸入正確/有效的 電郵地址</label></span></td>
 								</tr>
 								<tr>
-									<td><label for="txtUserName"
-										class="join-us-label">登入名稱</label> <a href="#"
-										class="tool-tip show-inline-xs"
+									<td class="pad-none"><label for="txtUserName"
+										class="control-label">登入名稱</label> <a href="#"
+										class="pull-right tool-tip hidden-lg hidden-md top-pad-10"
 										data-toggle="tooltip" data-placement="bottom"
 										title="用戶名稱必須是6至50個字元"><img src="resources/images/ic.png"
 											alt=""></a></td>
-									<td>
-										
-											<input type="text" class="form-control"
+									<td class="pad-none">
+										<div class="pull-left acc-tool-input-div">
+											<input type="text" class="form-control acc-tool-input"
 												id="txtUserName" value="${userDetails.getUserName() }"
 												placeholder="登入名稱" name="userName">
-										
-										 <span id="errorEmptyUName" style="display: none"><label
+										</div>
+										<div class="pull-left acc-tool-tip-div">
+											<a href="#"
+												class="pull-right tool-tip hidden-sm hidden-xs top-pad-10"
+												data-toggle="tooltip" data-placement="bottom"
+												title="用戶名稱必須是6至50個字元"><img src="resources/images/ic.png"
+												alt=""></a>
+										</div> <span id="errorEmptyUName" style="display: none"><label
 											class="text-red">請輸入使用者名稱</label></span> <span
 										id="errorInvalidUName" style="display: none"><label
 											class="text-red">請輸入正確使用者名稱及</label></span>
 									</td>
-									<td>
-										
-											<a href="#"
-												class="tool-tip show-inline-md"
-												data-toggle="tooltip" data-placement="bottom"
-												title="用戶名稱必須是6至50個字元"><img src="resources/images/ic.png"
-												alt=""></a>
-
-									</td>
 								</tr>
 
 
 								<tr>
-									<td><label class="join-us-label">密碼
+									<td class="pad-none"><label class="control-label">密碼
 									</label> <a href="#"
-										class="tool-tip  show-inline-xs"
+										class="pull-right tool-tip hidden-lg hidden-md top-pad-10"
 										data-toggle="tooltip" data-placement="bottom"
 										title="密碼字元至少8位數，必須包含字母（大楷及小楷﹚及數字"> <img
 											src="resources/images/ic.png" alt=""></a></td>
-									<td>
-										
-											<input type="password" class="form-control"
+									<td class="pad-none">
+										<div class="pull-left acc-tool-input-div">
+											<input type="password" class="form-control acc-tool-input"
 												id="txtPass" placeholder="密碼" name="password">
-										
-										 <span id="errorJoinUsPassword"></span>
-									</td>
-									<td>
-										<a href="#"
-												class="tool-tip show-inline-md"
+										</div>
+										<div class="pull-left acc-tool-tip-div">
+											<a href="#"
+												class="pull-right tool-tip hidden-sm hidden-xs top-pad-10"
 												data-toggle="tooltip" data-placement="bottom"
 												title="密碼字元至少8位數，必須包含字母（大楷及小楷﹚及數字"><img
 												src="resources/images/ic.png" alt=""></a>
+										</div> <span id="errorJoinUsPassword"></span>
 									</td>
 								</tr>
 
 								<tr>
-									<td><label for="txtConfPass"
-										class="join-us-label">確認密碼 </label></td>
-									<td><input type="password"
+									<td class="pad-none"><label for="txtConfPass"
+										class="control-label">確認密碼 </label></td>
+									<td class="pad-none"><input type="password"
 										name="confirmPassword" class="form-control" id="txtConfPass"
 										placeholder="確認密碼
 											"> <span
@@ -218,7 +203,6 @@
 									</span> <span id="errorValidConfPass" style="display: none"> <label
 											class="text-red">請輸入正確使 稱及密碼</label>
 									</span></td>
-									<td></td>
 								</tr>
 
 							</tbody>

@@ -12,7 +12,7 @@
       <div class="col-sm-5 pull-right">
         <div class="social">
           <ul class="social-share pull-left text-right">
-        <li><a href="https://www.facebook.com/FWD.HK.MO" target="_blank"><i class="fa fa-facebook"></i></a></li>
+   			<li><a href="https://www.facebook.com/FWD.HK.MO" target="_blank"><i class="fa fa-facebook"></i></a></li>
             <li><a href="https://www.youtube.com/user/FWDHK " target="_blank"><i class="fa fa-youtube"></i></a></li>
           </ul>
           <div class="hotline pull-right text-left">
@@ -38,11 +38,11 @@
           <li><a href="http://www.fwd.com.hk/zh-HK/home/pdo.html" target="_blank"> 個人資料保護政策及執行</a></li>
         </ul>
       </div>
-    <!-- issue 50 - vincent (pccw)
+	  <!-- issue 50 - vincent (pccw)
       <div class="col-lg-5 col-md-5 pull-right text-right">
         <p> &copy; 2015 富衛香港 版權所有 不得轉載</p>
       </div>
-    -->
+	  -->
     </div>
   </div>
 </div>
@@ -58,34 +58,34 @@
 
 
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/jquery.isotope.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/jquery.isotope.min.js"></script>
 
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/jquery.prettyPhoto.js"></script>
-<%-- <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/main.js"></script> --%>
+	src="<%=request.getContextPath()%>/resources/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/respond.min.js"></script> --%>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
 
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 <%-- <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/validation.js"></script> --%>
+	src="<%=request.getContextPath()%>/resources/js/validation.js"></script> --%>
 
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
 
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/fwd-cn.js"></script>
 
 
 

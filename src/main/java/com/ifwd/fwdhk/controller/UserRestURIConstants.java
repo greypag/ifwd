@@ -108,7 +108,7 @@ public class UserRestURIConstants {
 	
 	public static String getLanaguage(HttpServletRequest request) {
 		HttpSession session = request.getSession();	
-		String lang = "CN";
+		String lang = "EN";
 		if(session.getAttribute("language")!=null){
 			lang = session.getAttribute("language").toString();
 		}
@@ -117,7 +117,7 @@ public class UserRestURIConstants {
 	
 	public static String checkLangSetPage(HttpServletRequest request){
 		HttpSession session = request.getSession();	
-		String lang = "CN";
+		String lang = "EN";
 		if(session.getAttribute("language")!=null){
 			lang = session.getAttribute("language").toString();
 		}
