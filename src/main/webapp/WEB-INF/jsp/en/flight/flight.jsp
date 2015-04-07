@@ -206,14 +206,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', 'Depature Date');">
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', '');">
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
     <h4>When will you be back? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', 'Depature Date');">
+        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', '', 'txtStartDateMob', 'startDateMobIn', '');">
       </div>
     </div>
     <span id="endDateMobIn" class="text-red"> </span>
@@ -612,7 +612,7 @@ day(s) </h3>
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');">
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">

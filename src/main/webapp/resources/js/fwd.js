@@ -4,7 +4,7 @@ var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^\d{8}$/;
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-
+var getBundleLanguage = "";
 var chin = false;
 /* datepicker script*/
 
@@ -2743,7 +2743,6 @@ function chkValidIAEffDate(element, errElementId, name){
 // get resource bundle
 function getBundle(lang, key) {
 	var rtn; 
-	console.log("ggg" + lang)
 	loadBundles(lang, key, function(value){
 		rtn = value;
 	});
