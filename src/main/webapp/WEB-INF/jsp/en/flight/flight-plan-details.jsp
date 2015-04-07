@@ -4,8 +4,8 @@
 <%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page import="java.util.ArrayList"%>
-
 <%
 	String authenticate = "false";
 	if (session.getAttribute("authenticate") != null) {
@@ -192,9 +192,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="col-sm-4 pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Choose Username</label></td>
 										<td class="pad-none"><input type="text" name="userName"
-											class="form-control btm-pad-10" placeholder="Username" id="Username">
-											<span id="UsernameError" class="text-red"></span>
-											</td>
+											class="form-control btm-pad-10" placeholder="Username" id="Username"></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
@@ -202,17 +200,13 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password" id="Password"
 											placeholder="Password">
-											<span id="PasswordError" class="text-red"></span>
-											</td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Confirm Password</label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password" id="Confirm-Password"
-											placeholder="Confirm password">
-											<span id="Confirm-PasswordError" class="text-red"></span>
-											</td>
+											placeholder="Confirm password"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -253,7 +247,7 @@ Myself
 
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="adultName" id="txtAdFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
@@ -261,7 +255,7 @@ Myself
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -271,47 +265,31 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Age Range</label>
-
-											<div class="dropdown drop-down simulate-drop-down">
-												<a href="#" id="dropdownMenu1"
-													class="dropdown-toggle col-lg-12 col-md-12"
-													data-toggle="dropdown"> 
-													<label class="select-label">Select One</label> <i class="fa fa-caret-down pull-right"></i>
-												</a>
-												<ul class="dropdown-menu" role="menu"
-													aria-labelledby="dropdownMenu1">
-													<li role="presentation">
-														<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setAgeRange(this,'');">Select One</a>
-													</li>													
-													<c:forEach var="ageList" items="${mapAgeType}">
-														<li role="presentation">
-														<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setAgeRange(this,'${ageList.key}');"><c:out value="${ageList.value}" /></a>
-														</li>
-													</c:forEach>
-												</ul>
-												<input type="hidden" id="selectAgeRange${inx}" name="adultAgeRange" data-type="ageRange"/>
-											</div>
+											<t:dropdown 
+												defaultLabel="Select One"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectAgeRange${inx}"
+												valueElmName="adultAgeRange"
+											/>
 											<span id="errselectAgeRange${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">Beneficiary</label> <select
-												id="adultsselectBenificiary${inx}"
-												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" class="form-control soflow">
-												<option value="SE">Own Estate</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="erradultsselectBenificiary${inx}" class="text-red">
-											</span>
+										<div class="col-xs-12 col-sm-6 col-md-6">
+											<label class="pad-left1 bold-500">Beneficiary</label> 
+											<t:dropdown 
+												defaultLabel="Own Estate"
+												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="adultsselectBenificiary${inx}"
+												valueElmName="adultBeneficiary"
+											/>
+											<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 
 										<div id="adultsbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value="" class="form-control"
@@ -321,7 +299,7 @@ Myself
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
 												</span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500">HKID</label> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -349,7 +327,7 @@ Myself
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="childName" id="txtChldFullName${inx}" value=""
 												class="form-control" placeholder="As appears on HKID Card"
@@ -358,7 +336,7 @@ Myself
 											<span id="errtxtChldFullName${inx}" class="text-red">
 											</span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -367,32 +345,30 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">Age Range</label> <select
-												name="childAgeRange" class="form-control soflow"
-												id="selectchildAgeRange${inx}">
-												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errchildRange${inx}" class="text-red"></span>
+										<div class="col-xs-12 col-sm-6 col-md-6">
+											<label class="bold-500">Age Range</label> 
+											<t:dropdown 
+												defaultLabel="Select One"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectchildAgeRange${inx}"
+												valueElmName="childAgeRange"
+											/>
+											<span id="errchildRange${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">Beneficiary</label> <select
-												id="childselectBenificiary${inx}" name="childBeneficiary"
-												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-												class="form-control soflow">
-												<option value="SE">Own Estate</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
+										<div class="col-xs-12 col-sm-6 col-md-6">
+											<label class="pad-left1 bold-500">Beneficiary</label> 
+											<t:dropdown 
+												defaultLabel="Own Estate"
+												onChange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="childselectBenificiary${inx}"
+												valueElmName="childBeneficiary"
+											/>											
+											<span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 										<div id="childbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
 													name="childBenificiaryFullName"
 													id="childBenefitiaryName${inx}" value=""
@@ -401,7 +377,7 @@ Myself
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500 ">HKID</label> <input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -424,7 +400,7 @@ Myself
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
@@ -432,7 +408,7 @@ Myself
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -441,34 +417,32 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">Age Range</label> <select
-												name="otherAgeRange" class="form-control soflow"
-												id="selectOtherAgeRange${inx}">
-												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
+										<div class="col-xs-12 col-sm-6 col-md-6">
+											<label class="bold-500">Age Range</label>
+											<t:dropdown 
+												defaultLabel="Select One"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectOtherAgeRange${inx}"
+												valueElmName="otherAgeRange"
+											/>
+											<span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">Beneficiary</label> <select
-												id="otherSelectBenificiary${inx}" name="otherBeneficiary"
-												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
-												class="form-control soflow">
-												<option value="SE">Own Estate</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="benificiary" style="display: none"> <label
+										<div class="col-xs-12 col-sm-6 col-md-6">
+											<label class="pad-left1 bold-500">Beneficiary</label>
+											<t:dropdown 
+												defaultLabel="Own Estate"
+												onChange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="otherSelectBenificiary${inx}"
+												valueElmName="otherBeneficiary"
+											/>											
+											<span id="benificiary" style="display: none"> <label
 												style="color: red">Beneficiary which is blank</label>
 											</span>
 										</div>
 										<div id="otherbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
 													name="otherBenificiaryFullName"
 													id="otherBenefitiaryName${inx}" value=""
@@ -477,7 +451,7 @@ Myself
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errotherBenefitiaryName${inx}" class="text-red"></span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500">HKID</label> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"

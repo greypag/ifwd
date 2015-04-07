@@ -277,10 +277,10 @@ $('#myFWDropdown .dropdown-menu,#myFWDropdownMob .dropdown-menu,#myFWDropdownBtm
 	}
 });
 
-function setAgeRange(elm, val){
+function setDropDownValue(elm, val){
 	var dropdown = $(elm).closest(".simulate-drop-down");
 	dropdown.find(".select-label").html($(elm).html());
-	dropdown.find("[data-type=ageRange]").val(val);
+	dropdown.find("[role=value]").val(val);
 }
 
 /* flight plan details your details validation */
