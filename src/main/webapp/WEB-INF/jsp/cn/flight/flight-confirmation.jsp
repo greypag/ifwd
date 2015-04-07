@@ -85,65 +85,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						</h4>
 
 						<div class="gray-bg1-content hidden-sm hidden-xs">
-							<div class="col-md-6 pad-none">
-
-
-								<div class="fb1 pull-left">
-									<div class="fb1 pull-left">
-										<iframe
-											src="//www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;layout=button_count"
-											scrolling="no" frameborder="0"
-											style="border: none; overflow: hidden;"
-											allowTransparency="true"></iframe>
-									</div>
-								</div>
-								<div class="twi1 pull-left">
-									<div class="twi1 pull-left">
-										<a href="https://twitter.com/share"
-											class="twitter-share-button" data-dnt="true"
-											data-count="none" data-via="twitterdev"> Tweet </a>
-										<script>
-											window.twttr = (function(d, s, id) {
-												var js, fjs = d
-														.getElementsByTagName(s)[0], t = window.twttr
-														|| {};
-												if (d.getElementById(id))
-													return;
-												js = d.createElement(s);
-												js.id = id;
-												js.src = "https://platform.twitter.com/widgets.js";
-												fjs.parentNode.insertBefore(js,
-														fjs);
-												t._e = [];
-												t.ready = function(f) {
-													t._e.push(f);
-												};
-												return t;
-											}
-													(document, "script",
-															"twitter-wjs"));
-										</script>
-									</div>
-								</div>
-								<div class="gplus1 pull-left">
-									<div class="gplus1 pull-left">
-										<!-- Place this tag in your head or just before your close body tag. -->
-										<script src="https://apis.google.com/js/platform.js" async
-											defer></script>
-
-										<!-- Place this tag where you want the share button to render. -->
-										<div class="g-plus" data-action="share" data-annotation="none"
-											data-height="24"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<p>
-									<!-- Other sharing options -->
-								</p>
-							</div>
-							<div class="clearfix"></div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pad-none">
+						
+						<div class="addthis_sharing_toolbox" data-url="http://support.addthis.com/customer/portal/articles/125634-setting-the-url-title-to-share" data-title="THE TITLE"></div>
 						</div>
+						<div class="col-lg-6 col-md-6">
+						<p>
+						<!-- Other sharing options -->
+						</p>
+						</div>
+						<div class="clearfix"></div>
+						</div>
+
+
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -402,4 +356,7 @@ id="box<%=i%>">
 	}
 </script>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+<!--End of addthis -->
 
