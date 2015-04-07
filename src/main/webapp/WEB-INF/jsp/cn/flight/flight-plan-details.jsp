@@ -164,9 +164,9 @@
 										onkeypress="return alphaOnly(event);" maxlength="100" /> <span
 										id="fullname" style="display: none"> <label
 											class="text-red">請輸入 姓名 和 請以英文輸入</label>
-									</span> <span id="fullnameinvalid" style="display: none"> <label
-											class="text-red">請輸入 姓名 和 請以英文輸入</label>
-									</span></td>
+									</span> 
+									<span id="fullnameinvalid" class="text-red"></span>
+									</td>
 								</tr>
 
 								<tr>
@@ -191,12 +191,12 @@
 										class="form-control"
 										value="${userDetails.getMobileNo().trim()}" id="inputMobileNo"
 										placeholder="手機號碼" onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8" /> <span
-										id="mobileNo" style="display: none"> <label
-											class="text-red">請輸入 聯絡電話</label>
-									</span> <span id="mobilenoinvalid" style="display: none"> <label
+										onblur="replaceNumeric(this);" maxlength="8" /> 
+										<span id="mobileNo" class="text-red"> 
+											
+										</span> <!-- <span id="mobilenoinvalid" style="display: none"> <label
 											class="text-red">請以數字輸入 聯絡電話</label>
-									</span></td>
+									</span> --></td>
 								</tr>
 								<tr>
 
@@ -207,11 +207,7 @@
 									<td class="pad-none"><input class="form-control"
 										value="${userDetails.getEmailAddress().trim()}"
 										name="emailAddress" id="inputEmailId" placeholder="電郵地址"
-										maxlength="50"> <span id="emailid"
-										style="display: none"> <label class="text-red">請輸入電郵地址</label>
-									</span> <span id="emailidinvalid" style="display: none"> <label
-											class="text-red">請輸入正確/有效的 電郵地址</label>
-									</span></td>
+										maxlength="50"> <span id="emailid"  class="text-red"></span></td>
 								</tr>
 
 							</tbody>

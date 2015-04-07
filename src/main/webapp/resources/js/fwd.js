@@ -123,7 +123,7 @@ $(function () {
 			var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
 			document.getElementById("divPersonsDesk").style.visibility = "visible";
 			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-	   
+	    
 	});
 	
 	checkout = $('#dp2').datepicker({
@@ -645,11 +645,11 @@ function fcPlanValid()
 {
 	var flag=true;
 	
-	document.getElementById("fullname").style.display = "none";
+	 document.getElementById("fullname").style.display = "none";
 	    document.getElementById("emailid").style.display = "none"; 
 	    document.getElementById("mobileNo").style.display = "none";
 	    document.getElementById("emailid").style.display = "none";
-	   
+	    
 	    document.getElementById("chk1").style.display = "none"; 
 	    document.getElementById("mobileNo").style.display = "none"; 
 	   
@@ -657,8 +657,8 @@ function fcPlanValid()
 	    var fullname = document.getElementById("inputFullName").value;
 	    var emailId = document.getElementById("inputEmailId").value;
 	    var mobileNo = document.getElementById("inputMobileNo").value;
-	   
-	   
+	    
+	    
 	    if (appHkid.trim() == "") {
 	        document.getElementById("errAppHkid").innerHTML = "您輸入的香港身份證號碼不正確。";
 	        flag = false;
@@ -675,7 +675,7 @@ function fcPlanValid()
 		}
 	    if (fullname.trim() == "") {
 	        document.getElementById("fullname").style.display = "block";
-	     
+	      
 	        flag = false;
 	    }
 	    if (mobileNo.trim() == "") {
@@ -701,13 +701,13 @@ function fcPlanValid()
 	        }
 	    }
 	   
-	 
+	  
 	    if (document.getElementById("checkbox1").checked == false) {
 	        document.getElementById("chk1").style.display = "block";
 	        flag = false;
 	    }
-	   
-	   
+	    
+	    
 	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
 	var rowCountOther=document.getElementById("totalCountOther").value;
@@ -2010,7 +2010,7 @@ function validatecardnumber(cardnumber) {
 	if (match) {
 		// List of card types, in the same order as the regex capturing groups
 		var types = ['Visa', 'MasterCard', 'Discover', 'American Express',
-		            'Diners Club', 'JCB'];
+		             'Diners Club', 'JCB'];
 		// Find the capturing group that matched
 		// Skip the zeroth element of the match array (the overall match)
 		for (var i = 1; i < match.length; i++) {
@@ -2445,8 +2445,8 @@ function chkValidFlightDepartureDate(element, errElementId, name){
 	if(chkValidDate(element, errElementId, name)){
 	    var departureDate = element.value;
 	    departureDate = new Date(departureDate);
-	   
-	   
+	    
+	    
 	    var dateDiff = dateDiffInDaysFromNow(departureDate);
 	    if(dateDiff < 0){
 	    	var msg = getBundle(getBundleLanguage, "flight.departureDate.notLessThanCurrent.message");
@@ -2477,7 +2477,7 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 		    var returnDate = element.value;	    
 		    departureDate = new Date(departureDate);
 		    returnDate = new Date(returnDate);
-		   
+		    
 		    var dateDiff = dateDiffInDays(departureDate, returnDate);
 		    if(dateDiff < 0){
 		    	var msg = getBundle(getBundleLanguage, "flight.returnDate.notLessThanCurrent.message");

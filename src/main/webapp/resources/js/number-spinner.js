@@ -6,10 +6,26 @@ $('#family_plan_mob_spinner').hide();
 
 //<![CDATA[ 
 $(window).load(function(){
-  document.getElementById("divPersonsDesk").style.visibility = "visible";
-    $('#lblCountDesk').show();
-    $('#lblCountDesk').html(traveller + ' Traveller(s)');
-    $('#lblPeopleDesk').html('' + traveller);
+  if($('#divPersonsDesk').length){
+    document.getElementById("divPersonsDesk").style.visibility = "visible";
+      $('#lblCountDesk').show();
+      $('#lblCountDesk').html('1 Traveller(s)');
+      $('#lblPeopleDesk').html('1');
+  }
+  
+  if($('#divPersonsBtm').length){
+      document.getElementById("divPersonsBtm").style.visibility = "visible";
+        $('#lblCountBtm').show();
+        $('#lblCountBtm').html('1 Traveller(s)');
+        $('#lblPeopleBtm').html('1');
+    }
+  
+  if($('#divPersonsMob').length){
+      document.getElementById("divPersonsMob").style.visibility = "visible";
+        $('#lblCountMob').show();
+        $('#lblCountMob').html('1 Traveller(s)');
+        $('#lblPeopleMob').html('1');
+    }
 });//]]> 
 
 $('.plan').change(function () {
@@ -21,34 +37,39 @@ $('.plan').change(function () {
 
     $('.plan_spinner_' + parent_id).hide();
     $(show_div).show();
-    // TODO, why reset to 0
-//    $('#family_desk_count').val(0);
-//    $('#family_btm_count').val(0);
-//    $('#family_mob_count').val(0);
+    $('#family_desk_count').val(0);
+    $('#family_btm_count').val(0);
+    $('#family_mob_count').val(0);
 
   // to set 0 val when change event occurence 
 
     if(parent_id =='desk')
     {
+      
       $('#lblCountDesk').html('');
-        $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(familyAdult);
-        $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(familyChild);
-        $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(familyOther);
-        
         if(id == 'personal_plan_desk'){
           document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
-            $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
-            $('#lblPeopleDesk').html('' + personalTraveller);
+            $('#lblCountDesk').html('1 Traveller(s)');
+            $('#lblPeopleDesk').html('1');
+            
+            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val('1');
+            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val('0');
+            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val('0');
         }
         else if(id  == 'family_plan_desk') 
         {
-          document.getElementById("divPersonsDesk").style.visibility = "visible";
+          
+            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val('1');
+            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val('1');
+            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val('0');
+            
+            document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
-            $('#lblCountDesk').html(familyTraveller + ' Traveller(s)');
-            $('#lblPeopleDesk').html('' + familyTraveller);
-            $('#family_desk_count').val(familyTraveller);
-
+            $('#lblCountDesk').html('2 Traveller(s)');
+            $('#lblPeopleDesk').html('2');
+            $('#family_desk_count').val(2);
+           
         }else
         {
              document.getElementById("divPersonsDesk").style.visibility = "hidden";
@@ -66,20 +87,26 @@ $('.plan').change(function () {
     {
       
       $('#lblCountMob').html('');
-      $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(familyAdult);
-      $('.plan_spinner_' + parent_id + '  #txtChildMob').val(familyChild);
-      $('.plan_spinner_' + parent_id + '  #txtOtherMob').val(familyOther);
+      
       if(id  == 'family_plan_mob') 
       {
-        document.getElementById("divPersonsMob").style.visibility = "visible";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildMob').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtOtherMob').val('0');
+          
+          document.getElementById("divPersonsMob").style.visibility = "visible";
           $('#lblCountMob').show();
-          $('#lblCountMob').html(familyTraveller + ' Traveller(s)');
-          $('#lblPeopleMob').html('' + familyTraveller);
-          $('#family_mob_count').val(familyTraveller);
+          $('#lblCountMob').html('2 Traveller(s)');
+          $('#lblPeopleMob').html('2');
+          $('#family_mob_count').val(2);
          
       }else
       {
-           document.getElementById("divPersonsMob").style.visibility = "hidden";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildMob').val('0');
+          $('.plan_spinner_' + parent_id + '  #txtOtherMob').val('0');
+          
+          document.getElementById("divPersonsMob").style.visibility = "hidden";
           $('#lblCountMob').show();
           $('#lblCountMob').html('');
           $('#lblPeopleMob').html('');
@@ -87,24 +114,30 @@ $('.plan').change(function () {
       }
       
 
-    }else
+    }else   // Bottom plan selector
     {
 
       $('#lblCountBtm').html('');
-      $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(familyAdult);
-      $('.plan_spinner_' + parent_id + '  #txtChildBtm').val(familyChild);
-      $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val(familyOther);
+      
       if(id  == 'family_plan_btm') 
       {
-        document.getElementById("divPersonsBtm").style.visibility = "visible";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildBtm').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val('0');
+          
+          document.getElementById("divPersonsBtm").style.visibility = "visible";
           $('#lblCountBtm').show();
-          $('#lblCountBtm').html(familyTraveller + ' Traveller(s)');
-          $('#lblPeopleBtm').html('' + familyTraveller);
-          $('#family_btm_count').val(familyTraveller);
+          $('#lblCountBtm').html('2 Traveller(s)');
+          $('#lblPeopleBtm').html('2');
+          $('#family_btm_count').val(2);
          
       }else
       {
-           document.getElementById("divPersonsBtm").style.visibility = "hidden";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildBtm').val('0');
+          $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val('0');
+          
+          document.getElementById("divPersonsBtm").style.visibility = "hidden";
           $('#lblCountBtm').show();
           $('#lblCountBtm').html('');
           $('#lblPeopleBtm').html('');
@@ -204,9 +237,30 @@ $('.btn-number').click(function(e){
 
         } else if(type == 'plus') {
 
-            if(currentVal < input.attr('data-max')) {
+            if(currentVal < input.attr('data-max') ) {
+              
+              var inc = true;
+              if(plan == 'family'){
+                if (fieldName == 'txtTravellersBtm' || fieldName == 'txtAdultsBtm' || fieldName == 'txtChildBtm' || fieldName == 'txtOtherBtm') {
+                  inc = parseInt($("input[id='txtAdultsBtm']").val()) + parseInt($("input[id='txtChildBtm']").val()) + parseInt($("input[id='txtOtherBtm']").val()) > 14 ? false :true;
+                    console.log("bottoms "+parseInt($("input[id='txtAdultsBtm']").val()) + parseInt($("input[id='txtChildBtm']").val()) + parseInt($("input[id='txtOtherBtm']").val()))
+                }
+                else if (fieldName == "txtTravellersMob" || fieldName == 'txtAdultsMob' || fieldName == 'txtChildMob' || fieldName == 'txtOtherMob') {
+                  inc = parseInt($("input[id='txtAdultsMob']").val()) + parseInt($("input[id='txtChildMob']").val()) + parseInt($("input[id='txtOtherMob']").val()) > 14 ? false :true;
+                    
+                }
+                else{
+                  inc = parseInt($("input[id='txtAdultsDesk']").val()) + parseInt($("input[id='txtChildDesk']").val()) + parseInt($("input[id='txtOtherDesk']").val()) > 14 ? false :true;
+                }
+                
+              }
+              
+              
+              
+              if(inc){
                 input.val(currentVal + 1).change();
                 var cval = currentVal + 1;
+              
                   
                     /** Plus */
                 if (fieldName == 'txtTravellersBtm' || fieldName == 'txtAdultsBtm' || fieldName == 'txtChildBtm' || fieldName == 'txtOtherBtm') {
@@ -258,13 +312,14 @@ $('.btn-number').click(function(e){
                         if(plan  == 'family')
                         {
                               //GET VALUE OF 
-
-                               var family_desk_count =  parseInt($('#family_desk_count').val());
+                          var family_desk_count =  parseInt($('#family_desk_count').val());
+                   
+                               
                                var total_people =  family_desk_count + 1;
-
                                $('#family_desk_count').val(total_people);
                                document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
                                document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                          
 
                         }else
                         {
@@ -280,7 +335,7 @@ $('.btn-number').click(function(e){
                
                 
 
-
+              }
 
             }
             if(parseInt(input.val()) == input.attr('data-max')) {
