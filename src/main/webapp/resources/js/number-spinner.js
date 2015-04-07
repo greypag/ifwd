@@ -46,7 +46,7 @@ $('.plan').change(function () {
     if(parent_id =='desk')
     {
       
-       
+      $('#lblCountDesk').html('');
         if(id == 'personal_plan_desk'){
           document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
@@ -59,7 +59,7 @@ $('.plan').change(function () {
         }
         else if(id  == 'family_plan_desk') 
         {
-          $('#lblCountDesk').html('');
+          
             $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val('1');
             $('.plan_spinner_' + parent_id + '  #txtChildDesk').val('1');
             $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val('0');
@@ -87,12 +87,14 @@ $('.plan').change(function () {
     {
       
       $('#lblCountMob').html('');
-      $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val('1');
-      $('.plan_spinner_' + parent_id + '  #txtChildMob').val('1');
-      $('.plan_spinner_' + parent_id + '  #txtOtherMob').val('0');
+      
       if(id  == 'family_plan_mob') 
       {
-        document.getElementById("divPersonsMob").style.visibility = "visible";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildMob').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtOtherMob').val('0');
+          
+          document.getElementById("divPersonsMob").style.visibility = "visible";
           $('#lblCountMob').show();
           $('#lblCountMob').html('2 Traveller(s)');
           $('#lblPeopleMob').html('2');
@@ -100,7 +102,11 @@ $('.plan').change(function () {
          
       }else
       {
-           document.getElementById("divPersonsMob").style.visibility = "hidden";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildMob').val('0');
+          $('.plan_spinner_' + parent_id + '  #txtOtherMob').val('0');
+          
+          document.getElementById("divPersonsMob").style.visibility = "hidden";
           $('#lblCountMob').show();
           $('#lblCountMob').html('');
           $('#lblPeopleMob').html('');
@@ -108,16 +114,18 @@ $('.plan').change(function () {
       }
       
 
-    }else
+    }else   // Bottom plan selector
     {
 
       $('#lblCountBtm').html('');
-      $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val('1');
-      $('.plan_spinner_' + parent_id + '  #txtChildBtm').val('1');
-      $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val('0');
+      
       if(id  == 'family_plan_btm') 
       {
-        document.getElementById("divPersonsBtm").style.visibility = "visible";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildBtm').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val('0');
+          
+          document.getElementById("divPersonsBtm").style.visibility = "visible";
           $('#lblCountBtm').show();
           $('#lblCountBtm').html('2 Traveller(s)');
           $('#lblPeopleBtm').html('2');
@@ -125,7 +133,11 @@ $('.plan').change(function () {
          
       }else
       {
-           document.getElementById("divPersonsBtm").style.visibility = "hidden";
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val('1');
+          $('.plan_spinner_' + parent_id + '  #txtChildBtm').val('0');
+          $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val('0');
+          
+          document.getElementById("divPersonsBtm").style.visibility = "hidden";
           $('#lblCountBtm').show();
           $('#lblCountBtm').html('');
           $('#lblPeopleBtm').html('');
