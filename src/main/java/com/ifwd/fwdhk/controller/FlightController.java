@@ -5,6 +5,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,7 +106,25 @@ public class FlightController {
 
 	}
 	
-	
+	protected void removeSessionAttribute(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("flightPlanDetails");
+		session.removeAttribute("leavingDate");
+		session.removeAttribute("backDate");
+		session.removeAttribute("planType");
+		session.removeAttribute("count");
+		session.removeAttribute("days");
+		session.removeAttribute("totalAdultTraveller");
+		session.removeAttribute("totalChildTraveller");
+		session.removeAttribute("totalOtherTraveller");
+		session.removeAttribute("referralCode");
+		session.removeAttribute("FlightResponseFrTrvl");
+		session.removeAttribute("FlightObjectFrTrvl");
+		session.removeAttribute("setReferenceNoForConfirmation");
+		session.removeAttribute("policyNo");
+		session.removeAttribute("setEmailForConfirmation");
+		session.removeAttribute("createFlightPolicy");
+	}
 	
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
@@ -116,6 +135,10 @@ public class FlightController {
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
 
+		
+		removeSessionAttribute(request);
+		
+		
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
@@ -809,7 +832,7 @@ public class FlightController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		session.removeAttribute("");
 //		return UserRestURIConstants.checkLangSetPage(request)
 //				+ "flight/flight-confirmation";
 
