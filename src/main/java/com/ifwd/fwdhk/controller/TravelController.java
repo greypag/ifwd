@@ -169,6 +169,11 @@ public class TravelController {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+			
+			// redirect to 1ST step when null 
+			if(travelQuote == null){
+				return getTravelHomePage(request, model);				
+			}				
 		}
 
 		try {
@@ -434,7 +439,7 @@ public class TravelController {
 	}
 
 	@RequestMapping(value = "/getYourDetails")
-	public String prepareYourDetails(
+	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 
@@ -452,6 +457,11 @@ public class TravelController {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+			
+			// redirect to 1ST step when null 
+			if(travelQuote == null){
+				return getTravelHomePage(request, model);				
+			}				
 		}
 		try {
 
@@ -542,13 +552,15 @@ public class TravelController {
 			e.printStackTrace();
 
 		}
-		return UserRestURIConstants.checkLangSetPage(request)
-				+ "travel/travel-plan-details";
+//		return UserRestURIConstants.checkLangSetPage(request)
+//				+ "travel/travel-plan-details";
+		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				+ "travel/travel-plan-details");		
 	}
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/prepareUserSummary")
-	public String prepareSummary(
+	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
 
@@ -559,6 +571,15 @@ public class TravelController {
 
 		HttpSession session = request.getSession();
 
+		TravelQuoteBean travelQuote;
+		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		String planSelected;
+		planSelected = (String) session.getAttribute("planSelected");
+		// redirect to 1ST step when null 
+		if(travelQuote == null || planSelected == null){
+			return getTravelHomePage(request, model);				
+		}			
+		
 		UserDetails userDetails = new UserDetails();
 		DateApi dateApi = new DateApi();
 
@@ -1198,8 +1219,10 @@ public class TravelController {
 //		System.out.println("************"
 //				+ path.replace("prepareUserSummary", "failure"));
 
-		return UserRestURIConstants.checkLangSetPage(request)
-				+ "/travel/travel-summary-payment";
+//		return UserRestURIConstants.checkLangSetPage(request)
+//				+ "/travel/travel-summary-payment";
+		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				+ "/travel/travel-summary-payment");				
 	}
 
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
