@@ -1,3 +1,4 @@
+<%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Google Tag Manager -->
 <noscript>
@@ -10,6 +11,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MWPF25');</script> 
 <!-- End Google Tag Manager --> 
+
+<script type="text/javascript">
+
+	// personal or family
+	var traveller;	
+	
+	// personal
+	var personalTraveller = parseInt("${planDetails.getTravellerCount()}");
+	// family
+	var familyAdult = "${planDetails.getTotalAdultTraveller()}";
+	var familyChild = "${planDetails.getTotalChildTraveller()}";
+	var familyOther = "${planDetails.getTotalOtherTraveller()}";	
+ 	var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+
+ 	if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+ 		traveller = familyTraveller;
+ 	}else{
+ 		traveller = personalTraveller;
+ 	}
+
+     $(document).ready(function(){
+         // personal was selected by default
+         if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+     		$(".plan").trigger("change");
+ //         	//reset to defalut value
+ //         	totalAdult = '1';
+ //         	totalChild = '0';
+ //         	totalOther = '0';
+ //         	totalTraveller = 1;	     		
+         }
+     });
+</script>
+
+<%
+   	String PersonalPlanChecked = "";
+	String FamilyPlanChecked = "";
+	PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails"); 
+    if(planDetails.getPlanSelected().equalsIgnoreCase("personal")){
+	   PersonalPlanChecked = "checked";
+   	}
+   	if(planDetails.getPlanSelected().equalsIgnoreCase("family")){   		
+   		FamilyPlanChecked = "checked";   		
+   	} 
+%>
 
 <!--Main Content-->
 <section id="main-slider" class="no-margin"> 
@@ -63,13 +108,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
                 </div>
                 
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','Depature Date');">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','Depature Date');" value="${planDetails.getReturnDate()}">
                 </div>
               
              </td>
@@ -81,13 +126,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="drop-content">
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  checked="" >
+                          <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
                           <label for="personal_plan_desk"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" >
+                          <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_desk">Family Plan </label>
                           </label>
                       </div>
@@ -103,7 +148,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="travellerCount" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
+                            <input type="text" name="travellerCount" class="form-control text-center drop-down-plus wd4 input-number" value="${planDetails.getTravellerCount()}" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -206,14 +251,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h4>When are you leaving? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', 'Depature Date');">
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
     <h4>When will you be back? </h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', 'Depature Date');">
+        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', 'Depature Date');" value="${planDetails.getReturnDate()}">
       </div>
     </div>
     <span id="endDateMobIn" class="text-red"> </span>
@@ -224,13 +269,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-              <input type="radio"  name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" checked="">
+              <input type="radio"  name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
               <label for="personal_plan_mob"> Personal Plan </label>
             </label>  
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-              <input type="radio"   name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" >
+              <input type="radio"   name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
               <label for="family_plan_mob">  Family Plan </label>
            </label> 
           </div>
@@ -612,12 +657,12 @@ day(s) </h3>
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', 'Depature Date');" value="${planDetails.getDepartureDate()}">
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', 'Depature Date');">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', 'Depature Date');" value="${planDetails.getReturnDate()}">
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
@@ -628,13 +673,13 @@ day(s) </h3>
                     <div class="drop-content">
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  checked="" >
+                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> >
                           <label for="personal_plan_btm"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" >
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_btm"> Family Plan </label>
                           </label>
                       </div>

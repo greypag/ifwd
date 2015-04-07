@@ -52,10 +52,35 @@ public class FlightController {
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
 	@RequestMapping(value = "/flight")
-	public String flight(HttpServletRequest request) {
+	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		return UserRestURIConstants.checkLangSetPage(request) + "flight/flight";
+		//return UserRestURIConstants.checkLangSetPage(request) + "flight/flight";
+		
+		HttpSession session = request.getSession();
+		PlanDetails planDetails;
+		
+		planDetails = (PlanDetails) session
+				.getAttribute("flightPlanDetails");
+		
+		if(planDetails == null){
+			planDetails = new PlanDetails();			
+		}
+		
+		//default 
+		if(planDetails.getPlanSelected() == null || planDetails.getPlanSelected().isEmpty())
+			planDetails.setPlanSelected("personal");
+		if(planDetails.getTravellerCount() == 0)
+			planDetails.setTravellerCount(1);
+		if(planDetails.getTotalAdultTraveller() == 0)
+			planDetails.setTotalAdultTraveller(1);	
+		if(planDetails.getTotalChildTraveller() == 0)
+			planDetails.setTotalChildTraveller(1);			
+		
+		model.addAttribute(planDetails);
+		
+		return new ModelAndView(
+				UserRestURIConstants.checkLangSetPage(request) + "flight/flight");			
 	}
 
 	@RequestMapping(value = "/redirect")
@@ -96,6 +121,9 @@ public class FlightController {
 					.getAttribute("flightPlanDetails");
 		}
 
+
+		
+		
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
 				+ planDetails.getReturnDate());
@@ -206,6 +234,7 @@ public class FlightController {
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
+			
 			return new ModelAndView(
 					UserRestURIConstants.checkLangSetPage(request)
 							+ "flight/flight-plan");
