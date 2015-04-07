@@ -34,6 +34,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
@@ -182,24 +183,30 @@ public class TravelController {
 
 			if (travelQuote.getPlanSelected().equals("personal")) {
 				selfCover = true;
+				spouseCover = false;
 				otherCount = travelQuote.getTotalPersonalTraveller();
 				travelQuote.setTotalChildTraveller(0);
-				travelQuote.setTotalAdultTraveller(0);
+				travelQuote.setTotalAdultTraveller(otherCount - 1);
 				travelQuote.setTotalOtherTraveller(0);
+				
 
 			} else {
-				spouseCover = true;
-				selfCover = true;
-				travelQuote.setTotalPersonalTraveller(0);
+								travelQuote.setTotalPersonalTraveller(0);
 				childCount = travelQuote.getTotalChildTraveller();
 				adultCount = travelQuote.getTotalAdultTraveller();
-				otherCount = travelQuote.getTotalOtherTraveller() + adultCount;
+				otherCount = travelQuote.getTotalOtherTraveller();
+				selfCover = true;
+				if (adultCount > 1)
+					spouseCover = true;
+				else
+					spouseCover = false;
+					
 			}
-
+			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput="
-					+ (otherCount - 1) + "&commencementDate="
+					+ otherCount + "&commencementDate="
 					+ commencementDate + "&expiryDate=" + expiryDate
 					+ "&planCode=" + userReferralCode;
 
@@ -259,6 +266,7 @@ public class TravelController {
 
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
+				session.setAttribute("quoteDetails", quoteDetails);
 			}
 			model.addAttribute("travelQuoteBean", travelQuote);
 
@@ -278,35 +286,47 @@ public class TravelController {
 			BindingResult result, Model model, HttpServletRequest request) {
 
 		JSONObject responseJsonObj = new JSONObject();
-
+		HttpSession session = request.getSession();
 		int days = 0;
-
+		int otherCount = 0, childCount = 0, adultCount = 0;
+		boolean spouseCover = false, selfCover = false;
 		Date dateD1 = new Date(travelQuote.getTrLeavingDate());
 		Date dateD2 = new Date(travelQuote.getTrBackDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
-		String planSelected = request.getParameter("planSelected");
+		String planSelected = (String)session.getAttribute("planSelected");
+		
+		
+		
 		int adults = travelQuote.getTotalAdultTraveller();
 		int child = travelQuote.getTotalChildTraveller();
 		int others = travelQuote.getTotalPersonalTraveller();
 		boolean isSpouseCover = false;
 		String referralCode = "";
+
 		if (planSelected.equals("personal")) {
-			if (adults > 1) {
-				others = travelQuote.getTotalPersonalTraveller() - 1;
-				isSpouseCover = false;
-				child = 0;
-			}
+			selfCover = true;
+			spouseCover = false;
+			otherCount = travelQuote.getTotalPersonalTraveller();
+			travelQuote.setTotalChildTraveller(0);
+			travelQuote.setTotalAdultTraveller(otherCount - 1);
+			travelQuote.setTotalOtherTraveller(0);
+			
+
 		} else {
-			if (adults > 1) {
-				isSpouseCover = true;
-			} else {
-				isSpouseCover = false;
-				others = travelQuote.getTotalPersonalTraveller();
-				child = travelQuote.getTotalChildTraveller();
-			}
+							travelQuote.setTotalPersonalTraveller(0);
+			childCount = travelQuote.getTotalChildTraveller();
+			adultCount = travelQuote.getTotalAdultTraveller();
+			otherCount = travelQuote.getTotalOtherTraveller();
+			selfCover = true;
+			if (adultCount > 1)
+				spouseCover = true;
+			else
+				spouseCover = false;
+				
 		}
+		
 		referralCode = request.getParameter("referralCode");
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
@@ -333,36 +353,38 @@ public class TravelController {
 
 			System.out.println("Response Get Travel Quotes API "
 					+ responseJsonObj);
+			String errMsgs = (String) responseJsonObj.get("errMsgs");
+			if (errMsgs.contains("Promotion code is not valid"))
+				session.setAttribute("referralCode", "");
+			else
+				session.setAttribute("referralCode", referralCode);
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
-				responseJsonObj.get("referralCode");
-				responseJsonObj.get("referralName");
-				responseJsonObj.get("priceInfoA");
-				responseJsonObj.get("priceInfoB");
+				
 				JSONObject jsonPriceInfoA = new JSONObject();
 				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
 				JSONObject jsonPriceInfoB = new JSONObject();
 				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
 				String planeName[] = { "Plan A", "Plan B" };
 				String grossPrem[] = {
-						jsonPriceInfoA.get("grossPremium").toString(),
-						jsonPriceInfoB.get("grossPremium").toString() };
+						StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
 
 				String discountPercentage[] = {
-						jsonPriceInfoA.get("discountPercentage").toString(),
-						jsonPriceInfoB.get("discountPercentage").toString() };
+						StringHelper.formatPrice(jsonPriceInfoA.get("discountPercentage").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("discountPercentage").toString()) };
 
 				String discountAmount[] = {
-						jsonPriceInfoA.get("discountAmount").toString(),
-						jsonPriceInfoB.get("discountAmount").toString() };
+						StringHelper.formatPrice(jsonPriceInfoA.get("discountAmount").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("discountAmount").toString()) };
 
 				String totalNetPremium[] = {
-						jsonPriceInfoA.get("totalNetPremium").toString(),
-						jsonPriceInfoB.get("totalNetPremium").toString() };
+						StringHelper.formatPrice(jsonPriceInfoA.get("totalNetPremium").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("totalNetPremium").toString()) };
 
 				String totalDue[] = {
-						jsonPriceInfoA.get("totalDue").toString(),
-						jsonPriceInfoB.get("totalDue").toString() };
+						StringHelper.formatPrice(jsonPriceInfoA.get("totalDue").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("totalDue").toString()) };
 
 				quoteDetails.setGrossPremium(grossPrem);
 				quoteDetails.setDiscountPercentage(discountPercentage);
@@ -372,12 +394,15 @@ public class TravelController {
 				quoteDetails.setPlanName(planeName);
 
 				request.setAttribute("quoteDetails", quoteDetails);
-				model.addAttribute("quoteDetails", quoteDetails);
+				
+				session.setAttribute("quoteDetails", quoteDetails);
+			} else {
+			
 			}
+			model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
 			model.addAttribute("travelQuoteBean", travelQuote);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(responseJsonObj.toString());
@@ -411,7 +436,11 @@ public class TravelController {
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("selectPlanName", selectPlanName);
-
+			if ("Plan A".equals(selectPlanName)) {
+				session.setAttribute("planSelected", "A");
+			} else {
+				session.setAttribute("planSelected", "B");
+			}
 			travelQuote.setTotalAdultTraveller(travelQuote
 					.getTotalAdultTraveller()
 					+ travelQuote.getTotalPersonalTraveller());
@@ -592,7 +621,7 @@ public class TravelController {
 		}
 
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "A");
+		parameters.put("planCode", (String)session.getAttribute("planSelected"));
 		
 		//parameters.put("planCode", planDetailsForm.getPlanCode());
 		

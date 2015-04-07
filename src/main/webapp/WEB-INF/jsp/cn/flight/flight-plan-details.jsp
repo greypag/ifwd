@@ -898,7 +898,7 @@ function userLoginFnc() {
 						flag= true;
 						form.action = "flight-confrimation-page";
 					} else{
-						alert("fail");
+						console.log('API fail response ' + data);
 						$('#errorMessages').removeClass('hide');
 						$('#errorMessages').html(data);
 					}

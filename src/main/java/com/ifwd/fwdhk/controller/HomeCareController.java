@@ -127,7 +127,7 @@ public class HomeCareController {
 		model.addAttribute("planQuote", planQuote);
 		model.addAttribute("answer1", answer1);
 		model.addAttribute("answer2", answer2);
-
+		
 		return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare-plan";
 		
 		//NAT REMOVE THE ERROR HANDLING
@@ -205,6 +205,8 @@ public class HomeCareController {
 		
 		if (!planQuote.contains("Promotion Code is not valid")) {
 			session.setAttribute("referralCode", referralCode);
+		} else {
+			session.setAttribute("referralCode", "");
 		}
 		
 		

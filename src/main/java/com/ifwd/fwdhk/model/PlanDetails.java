@@ -17,7 +17,7 @@ public class PlanDetails {
 	private int totalOtherTraveller;
 	private int totalTravellingDays;
 	private String hkid;
-	private String planSelected;
+	private String planSelected;  //THIS IS THE PERSONAL OR FAMILY PLAN
 	private String fullName;
 	private String beneficiaryFullName;
 	private FlightQuoteDetails flightQuoteDetails;
@@ -25,8 +25,20 @@ public class PlanDetails {
 	String departureDate;
 
 	private boolean personalPlan;
-	
+	private String referralCode;
 	private Set adultDetail = new HashSet();
+
+	
+	
+	
+	
+	public String getReferralCode() {
+		return referralCode;
+	}
+
+	public void setReferralCode(String referralCode) {
+		this.referralCode = referralCode;
+	}
 
 	public FlightQuoteDetails getFlightQuoteDetails() {
 		return flightQuoteDetails;
