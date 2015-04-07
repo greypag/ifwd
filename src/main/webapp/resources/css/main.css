@@ -3289,7 +3289,7 @@ del {
 .insure-travel .color1 {
 	line-height: 60px;
 	font-size: 24px;
-	font-family: 'Foco-bold';
+	font-weight: 700;
 	color: #061d2a;
 	font-weight: normal;
 }
@@ -5571,4 +5571,10 @@ table.vert-middle td{
 }
 .shop-tracking-status .order-status-timeline-new .order-status-timeline-completion.dots-inactive {
 	border: 1px dashed #aaa;
+}
+@media (max-width: 767px){
+	.insure-travel .col-xs-12{
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
 }

@@ -282,7 +282,7 @@
 							受保人資料<br>
 						</h3>
 
-
+<div class="insure-travel">
 						<!-- Bellow fields are dynamically generated -->
 						<c:set var="totalAdultCount" value="${0}" />
 						<c:set var="totalAdultCount"
@@ -311,27 +311,8 @@
 									</c:choose>
 								</h4>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 								<div class="row ">
-									<div class="col-xs-6 col-md-6">
+									<div class="col-xs-12  col-sm-6 col-md-6">
 										<label class="bold-500">英文全名</label> <input type="text"
 											name="adultName" id="txtAdFullName${inx}"
 											class="form-control " placeholder="英文全名(與香港身份證號碼)"
@@ -341,7 +322,7 @@
 											id="errtxtAdFullName${inx}" class="text-red"> </span>
 									</div>
 
-									<div class="col-xs-6 col-md-6">
+									<div class="col-xs-12  col-sm-6 col-md-6">
 										<label class="pad-left1 bold-500">身份證號碼</label> <input
 											id="txtInsuHkid${inx}" name="adultHKID" class="form-control"
 											placeholder="X1234567" value="" /> <span
@@ -353,7 +334,7 @@
 								</div>
 
 								<div class="row top-mrg-10">
-									<div class="col-xs-6 col-md-6">
+									<div class="col-xs-12  col-sm-6 col-md-6">
 										<label class="bold-500"> 年齡</label> <select
 											name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
 
@@ -366,7 +347,7 @@
 										</select> <span id="errselectAgeRange${inx}" class="text-red"></span>
 
 									</div>
-									<div class="col-xs-6 col-md-6">
+									<div class="col-xs-12 col-sm-6 col-md-6">
 										<label class="pad-left1 bold-500">受益人</label> <select
 											id="adultsselectBenificiary${inx}"
 											onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
@@ -383,7 +364,7 @@
 									</div>
 
 									<div id="adultsbenificiaryId${inx}" class="hide">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">受益人全名</label> <input type="text"
 												name="adultBenificiaryFullName"
 												id="adultBenefitiaryId${inx}" value="" class="form-control "
@@ -392,7 +373,7 @@
 											<span id="erradultBenefitiaryId${inx}" class="text-red">
 											</span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12  col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">身份證號碼/護照號碼</label> <input
 												id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 												class="form-control" placeholder="X1234567/護照號碼" value="" />
@@ -418,7 +399,7 @@
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">英文全名</label> <input type="text"
 												name="childName" id="txtChldFullName${inx}" value=""
 												class="form-control " placeholder="英文全名(與香港身份證號碼)"
@@ -426,7 +407,7 @@
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtChldFullName${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">身份證號碼</label> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
 												class="form-control" placeholder="X1234567" value="">
@@ -435,7 +416,7 @@
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500"> 年齡</label> <select
 												name="childAgeRange" class="soflow"
 												id="selectchildAgeRange${inx}">
@@ -447,7 +428,7 @@
 											</select> <span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"> 受益人</label> <select
 												id="childselectBenificiary${inx}" name="childBeneficiary"
 												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
@@ -467,7 +448,7 @@
 
 
 										<div id="childbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">英文全名</label> <input type="text"
 													name="childBenificiaryFullName"
 													id="childBenefitiaryName${inx}" value=""
@@ -476,7 +457,7 @@
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500">身份證號碼</label> <input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
 													class="form-control" placeholder="X1234567" value="" /> <span
@@ -499,7 +480,7 @@
 							<div id="childtraveller">
 
 
-								<div class="col-xs-12 col-sm-12 col-md-12 pad-15 insure-travel">
+								<div class="col-xs-12 col-sm-6 col-md-12 pad-15 ">
 									<h4 class="color1 top-mrg-10">
 										子女
 										<c:out value="${inx}"></c:out>
@@ -509,7 +490,7 @@
 
 
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">英文全名</label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
 												class="form-control " placeholder="英文全名(與香港身份證號碼)"
@@ -522,7 +503,7 @@
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
 										</div>
 
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">身份證號碼 </label> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
 												class="form-control" placeholder="X1234567" value="">
@@ -534,7 +515,7 @@
 
 
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">年齡</label> <select
 												name="otherAgeRange" id="selectOtherAgeRange${inx}"
 												class="soflow">
@@ -546,7 +527,7 @@
 											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
 
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">受益人</label> <select
 												id="otherSelectBenificiary${inx}" name="otherBeneficiary"
 												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
@@ -566,7 +547,7 @@
 
 
 										<div id="otherbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">英文全名</label> <input type="text"
 													name="otherBenificiaryFullName"
 													id="otherBenefitiaryName${inx}" value=""
@@ -578,7 +559,7 @@
 
 											</div>
 
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500">身份證號碼</label> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 													class="form-control" placeholder="X1234567" value="" /> <span
@@ -596,7 +577,7 @@
 						<div class="clearfix"></div>
 						<div class="spacer3"></div>
 
-
+</div>
 
 						<h4 class="h4-2 padding3">聲明</h4>
 						<div class="declaration-content">

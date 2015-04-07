@@ -247,7 +247,7 @@ Myself
 
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="adultName" id="txtAdFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
@@ -255,7 +255,7 @@ Myself
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -265,7 +265,7 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Age Range</label>
 											<t:dropdown 
 												defaultLabel="Select One"
@@ -276,7 +276,7 @@ Myself
 											/>
 											<span id="errselectAgeRange${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">Beneficiary</label> 
 											<t:dropdown 
 												defaultLabel="Own Estate"
@@ -289,7 +289,7 @@ Myself
 										</div>
 
 										<div id="adultsbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value="" class="form-control"
@@ -299,7 +299,7 @@ Myself
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
 												</span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500">HKID</label> <input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -327,7 +327,7 @@ Myself
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="childName" id="txtChldFullName${inx}" value=""
 												class="form-control" placeholder="As appears on HKID Card"
@@ -336,7 +336,7 @@ Myself
 											<span id="errtxtChldFullName${inx}" class="text-red">
 											</span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -345,7 +345,7 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Age Range</label> 
 											<t:dropdown 
 												defaultLabel="Select One"
@@ -356,7 +356,7 @@ Myself
 											/>
 											<span id="errchildRange${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">Beneficiary</label> 
 											<t:dropdown 
 												defaultLabel="Own Estate"
@@ -368,7 +368,7 @@ Myself
 											<span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 										<div id="childbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
 													name="childBenificiaryFullName"
 													id="childBenefitiaryName${inx}" value=""
@@ -377,7 +377,7 @@ Myself
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500 ">HKID</label> <input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
@@ -400,7 +400,7 @@ Myself
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Full Name</label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
 												class="form-control " placeholder="As appears on HKID Card"
@@ -408,7 +408,7 @@ Myself
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">HKID</label> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
 												class="form-control textUpper" placeholder="X1234567"
@@ -417,7 +417,7 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500">Age Range</label>
 											<t:dropdown 
 												defaultLabel="Select One"
@@ -428,7 +428,7 @@ Myself
 											/>
 											<span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">Beneficiary</label>
 											<t:dropdown 
 												defaultLabel="Own Estate"
@@ -442,7 +442,7 @@ Myself
 											</span>
 										</div>
 										<div id="otherbenificiaryId${inx}" class="hide">
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="bold-500">Full Name</label> <input type="text"
 													name="otherBenificiaryFullName"
 													id="otherBenefitiaryName${inx}" value=""
@@ -451,7 +451,7 @@ Myself
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errotherBenefitiaryName${inx}" class="text-red"></span>
 											</div>
-											<div class="col-xs-6 col-md-6">
+											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label class="pad-left1 bold-500">HKID</label> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567"
