@@ -25,7 +25,7 @@
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
-			document.getElementById("errDue").innerHTML = "Please select atleast one plan";
+			document.getElementById("errDue").innerHTML = "Please select at least one plan";
 			flag = false;
 		} else
 			flag = true;

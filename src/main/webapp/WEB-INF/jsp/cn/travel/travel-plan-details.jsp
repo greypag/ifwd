@@ -210,7 +210,7 @@
 											</c:when>
 											<c:when test="${inx == 1}">
 											我自己 
-										</c:when>
+										</c:when>	
 										</c:choose>
 									</h4>
 									

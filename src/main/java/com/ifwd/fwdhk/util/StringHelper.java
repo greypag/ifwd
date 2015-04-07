@@ -22,6 +22,18 @@ public class StringHelper {
         }
         return out;
     }
+    
+    public static String formatPrice(String price) {
+		String formattedPrice = price + "0";
+		return formattedPrice;
+	}
+    
+    public static boolean isStringNullOrEmpty(String str) {
+    	if(str != null && !str.isEmpty())
+    		return false;
+    	else
+    		return true;
+	}
  
    
 }
