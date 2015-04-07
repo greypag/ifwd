@@ -628,7 +628,7 @@ onclick="return flightPlanValidation();">Next</button> -->
 				<p class="padding1 hidden-sm hidden-xs">
 					The features above are indicative only. Please refer to the <a
 						class="sub-link"
-						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf">Policy
+						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank">Policy
 						Provisions</a> for details.<br> For a complete explanation of the
 					terms and conditions. Please contact your adviser or our customer
 					service at 3123 3123 for more details.
@@ -642,7 +642,8 @@ onclick="return flightPlanValidation();">Next</button> -->
 
 <!--------/end- Main Content------------>
 
-<!------Plan-login-popup------->
+<!------ Plan-login-popup----- -->
+
 <div class="modal fade bs-example-modal-lg " id="loginpopup"
 	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 	aria-hidden="true" style="display: none;">
