@@ -66,8 +66,8 @@
 
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+<%-- <script type="text/javascript"
+  src="<%=request.getContextPath()%>/resources/js/main.js"></script> --%>
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/respond.min.js"></script> --%>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>

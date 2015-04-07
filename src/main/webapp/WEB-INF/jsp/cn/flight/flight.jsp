@@ -57,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			          <tr>
 			            <td class="col-md-3  ">
 			              <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk">
+			                <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');">
 			              </div>
 			              </td>
 			            <td class="col-md-3 ">
@@ -93,7 +93,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
 			                       </span>
-			                       <input type="text" name="travellerCount" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="0" data-max="15" id="txtTravellersDesk" readonly>
+			                       <input type="text" name="travellerCount" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="15" id="txtTravellersDesk" readonly>
 			                       <span class="input-group-btn data-up ">
 			                       <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
 			                       </span> </div>
