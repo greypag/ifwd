@@ -29,7 +29,7 @@
 <!--/#footer--> 
 <!--/#bottom-->
 <div class="bottom hidden-sm hidden-xs">
-  <div class="container pad-none">
+  <div class="container">
     <div class="row">
       <div class="col-sm-7 pull-left">
         <ul class="nav nav-pills">
