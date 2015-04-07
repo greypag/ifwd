@@ -192,7 +192,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="col-sm-4 pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Choose Username</label></td>
 										<td class="pad-none"><input type="text" name="userName"
-											class="form-control btm-pad-10" placeholder="Username" id="Username"></td>
+											class="form-control btm-pad-10" placeholder="Username" id="Username">
+											<span id="UsernameError" class="text-red"></span>
+											</td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
@@ -200,13 +202,17 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password" id="Password"
 											placeholder="Password">
+											<span id="PasswordError" class="text-red"></span>
+											</td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
 											class="control-label bold-500">Confirm Password</label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password" id="Confirm-Password"
-											placeholder="Confirm password"></td>
+											placeholder="Confirm password">
+											<span id="Confirm-PasswordError" class="text-red"></span>
+											</td>
 									</tr>
 								</tbody>
 							</table>

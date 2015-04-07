@@ -248,9 +248,10 @@
 										<td class="col-sm-4 pad-none"><label
 											class="control-label bold-500">用戶名稱</label></td>
 										<td class="pad-none"><input type="text" name="userName"
-											class="form-control btm-pad-10" id="inputRegUserName"
-											placeholder="用戶名稱"><span id="errRegUser"
-											class="text-red"> </span></td>
+											class="form-control btm-pad-10" id="Username"
+											placeholder="用戶名稱">
+										<span id="UsernameError" class="text-red"></span>
+										</td>
 									</tr>
 									<tr>
 
@@ -258,8 +259,8 @@
 											class="control-label bold-500">個人密碼</label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password"
-											id="inputRegPass" placeholder="個人密碼"><span
-											id="errRegPass" class="text-red"> </span></td>
+											id="Password" placeholder="個人密碼">
+										<span id="PasswordError" class="text-red"></span></td>
 									</tr>
 									<tr>
 
@@ -268,8 +269,8 @@
 											class="control-label bold-500">確認密碼</label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password"
-											id="inputRegCPass" placeholder="確認密碼"><span
-											id="errRegCPass" class="text-red"> </span></td>
+											id="Confirm-Password" placeholder="確認密碼">
+											<span id="Confirm-PasswordError" class="text-red"></span></td>
 									</tr>
 								</tbody>
 							</table>
