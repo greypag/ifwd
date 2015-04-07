@@ -37,15 +37,15 @@ $('.plan').change(function () {
     $('.plan_spinner_' + parent_id).hide();
     $(show_div).show();
     // TODO, to be checked
-    //$('#family_desk_count').val(0);
-    //$('#family_btm_count').val(0);
-    //$('#family_mob_count').val(0);
+    $('#family_desk_count').val(0);
+    $('#family_btm_count').val(0);
+    $('#family_mob_count').val(0);
 
   // to set 0 val when change event occurence 
 
     if(parent_id =='desk')
     {
-    	$('#lblCountDesk').html('');
+      $('#lblCountDesk').html('');
         if(id == 'personal_plan_desk'){
           document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
@@ -81,7 +81,7 @@ $('.plan').change(function () {
       $('#lblCountMob').html('');      
       if(id  == 'family_plan_mob') 
       {
-    	  $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(familyAdult);
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(familyAdult);
           $('.plan_spinner_' + parent_id + '  #txtChildMob').val(familyChild);
           $('.plan_spinner_' + parent_id + '  #txtOtherMob').val(familyOther);
           
@@ -93,7 +93,7 @@ $('.plan').change(function () {
          
       }else
       {
-    	  $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(familyAdult);
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(familyAdult);
           $('.plan_spinner_' + parent_id + '  #txtChildMob').val(familyChild);
           $('.plan_spinner_' + parent_id + '  #txtOtherMob').val(familyOther);
           
@@ -111,7 +111,7 @@ $('.plan').change(function () {
       $('#lblCountBtm').html('');      
       if(id  == 'family_plan_btm') 
       {
-    	  $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(familyAdult);
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(familyAdult);
           $('.plan_spinner_' + parent_id + '  #txtChildBtm').val(familyChild);
           $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val(familyOther);
           
@@ -123,7 +123,7 @@ $('.plan').change(function () {
          
       }else
       {
-    	  $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(familyAdult);
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(familyAdult);
           $('.plan_spinner_' + parent_id + '  #txtChildBtm').val(familyChild);
           $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val(familyOther);
           
