@@ -263,7 +263,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus input-number" value="1" data-min="1" data-max="14" id="txtChildMob"  readonly=""/>
+                <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus input-number" value="0" data-min="1" data-max="14" id="txtChildMob"  readonly=""/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -693,7 +693,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="1" data-min="1" data-max="14" id="txtChildBtm" readonly>
+                            <input type="text" name="totalChildTraveller" class="form-control text-center drop-down-plus wd4 input-number" value="0" data-min="1" data-max="14" id="txtChildBtm" readonly>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

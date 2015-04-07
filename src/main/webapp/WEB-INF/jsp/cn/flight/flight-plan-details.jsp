@@ -164,9 +164,9 @@
 										onkeypress="return alphaOnly(event);" maxlength="100" /> <span
 										id="fullname" style="display: none"> <label
 											class="text-red">請輸入 姓名 和 請以英文輸入</label>
-									</span> <span id="fullnameinvalid" style="display: none"> <label
-											class="text-red">請輸入 姓名 和 請以英文輸入</label>
-									</span></td>
+									</span> 
+									<span id="fullnameinvalid" class="text-red"></span>
+									</td>
 								</tr>
 
 								<tr>

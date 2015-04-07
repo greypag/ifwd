@@ -559,7 +559,70 @@ function fPlanValid()
 	return flag;
 
 }
+$(function () {
+	if($('#inputFullName').length > 0){   // run only for the flight-plan-details page
+		
+		$("#inputFullName").blur(function() {
+			var fullname = document.getElementById("inputFullName").value;
+			
+			if (fullname.trim() == "") {
+				$("#fullnameinvalid").html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));//"Please enter your Name in English.";
+				return false;
+			}
+			
+			$("#txtAdFullName1").val(this.value);
+			$("#fullnameinvalid").html('');
+		});
+		
+		$("#inputTxtAppHkid").blur(function() {
+			var appHkid = document.getElementById("inputTxtAppHkid").value;
+			
+			if (appHkid.trim() == "") {
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "insured.hkId.notNull.message"));//"Please enter your Name in English.";
+				return false;
+			}
+			var tr=IsHKID(appHkid.trim());
+			if(tr==false)
+			{
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "insured.hkId.notValid.message"));
+				return false;
+			}
+			$("#txtInsuHkid1").val(this.value);
+			$('#errAppHkid').html('');
+		});
+		
+		$("#inputEmailId").blur(function() {
+			var emailId = $('#inputEmailId').val();
+			
+			if (emailId.trim() == "") {
+				$("#emailid").html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
+				return false;
+			} else {
+				if (emailreg.test(emailId) == false) {
 
+					$("#emailid").html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
+					return false;
+				}
+			}
+			$("#emailid").html("");
+			
+		});
+	}
+	
+	
+	
+	
+	if($('#selectAgeRange1').length > 0){
+		$('#selectAgeRange1').val('2');
+	}
+	
+	
+	if($('#selectchildAgeRange1').length > 0){
+		$('#selectchildAgeRange1').val('1');
+	}
+	
+	
+});
 
 function fcPlanValid()
 {
