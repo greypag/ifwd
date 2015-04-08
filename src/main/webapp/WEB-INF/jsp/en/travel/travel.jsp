@@ -351,7 +351,7 @@
       day(s) </small> <br>
     </div>
   </div>
-  <div class="btn-box text-center bot-bdr">
+  <div class="btn-box text-center">
     <h3 class="text-center"> <a href="travel-plan.html" class="border-radius get-btn" onclick="return flightValidateMobTravel()"> Get Quote </a> </h3>
   </div>
 </div>
@@ -375,14 +375,15 @@ Embark on an adventure<br>
 </div>
 
 <!--desktop Features-->
-<div class="row hidden-xs hidden-sm">
+<div class="hidden-xs hidden-sm">
   <div class="col-lg-12  home-features">
+  <div class="row">
     <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home3.png" alt=""  /> </div>
     <div class="col-md-6 col-lg-6 pad-none">
       <div class="content">
         <h2>Do The Things You Want<br>
           To Do, Worryfree</h2>
-        <p class="h4-3">Go crazy and jump for joy! We cover your activities: from summer walks along the beach to bungee jumping, scuba diving and even winter sports. Our travel protection works for the thing you want to do.</p>
+        <p class="details-text">Go crazy and jump for joy! We cover your activities: from summer walks along the beach to bungee jumping, scuba diving and even winter sports. Our travel protection works for the thing you want to do.</p>
         <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
     </div>
     <div class="clearfix"></div>
@@ -391,7 +392,7 @@ Embark on an adventure<br>
       <div  class="content">
         <h2>Go Wherever You Want,<br>
           When You Want </h2>
-        <p class="h4-3">From Hong Kong to Thailand, the UK, Vanuatu and beyond! The ever-ready TravelCare provides travel insurance for anyone, up to 85 years old, worldwide! </p>
+        <p class="details-text">From Hong Kong to Thailand, the UK, Vanuatu and beyond! The ever-ready TravelCare provides travel insurance for anyone, up to 85 years old, worldwide! </p>
         <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
     </div>
     <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home2.png" alt=""  /> </div>
@@ -401,25 +402,25 @@ Embark on an adventure<br>
     <div class="col-md-6 col-lg-6 pad-none">
       <div  class="content">
         <h2>Best-In-Class Support</h2>
-        <p class="h4-3">When things go wrong it's important you have the right support. We are supported by the International SOS - the world's leading medical and travel security services company.</p>
+        <p class="details-text">When things go wrong it's important you have the right support. We are supported by the International SOS - the world's leading medical and travel security services company.</p>
         <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
     </div>
     <div class="clearfix"></div>
   </div>
-  
+  </div>
   <!--mobile Features--> 
   
   <!--/.row--> 
 </div>
 
 <!--mob Features-->
-<div class="row mob-features hidden-lg hidden-md">
+<div class="mob-features hidden-lg hidden-md">
   <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home1.png" alt=""  /> </div>
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3">Do The Things You Want<br>
         To Do, Worryfree</h2>
-      <p class="h4-3">Go crazy and jump for joy! We cover all your activities: from summer walks along the beach to winter sports. Our travel protection works for the thing you want to do. </p>
+      <p class="details-text">Go crazy and jump for joy! We cover all your activities: from summer walks along the beach to winter sports. Our travel protection works for the thing you want to do. </p>
       <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
   </div>
   <div class="clearfix"></div>
@@ -429,7 +430,7 @@ Embark on an adventure<br>
     <div>
       <h2 class="h2-3">Go Wherever You Want,<br>
         When You Want</h2>
-      <p class="h4-3">From Hong Kong to Thailand, the UK, Reunion and beyond! The ever-ready TravelCare provides travel insurance for anyone, up to 85 years old, worldwide!</p>
+      <p class="details-text">From Hong Kong to Thailand, the UK, Reunion and beyond! The ever-ready TravelCare provides travel insurance for anyone, up to 85 years old, worldwide!</p>
       <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
   </div>
   <div class="clearfix"></div>
@@ -438,12 +439,12 @@ Embark on an adventure<br>
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3">Best-In-Class Support</h2>
-      <p class="h4-3">When things go wrong it's important you have the right support. We are supported by the International SOS - the world's leading medical and travel security services company.</p>
+      <p class="details-text">When things go wrong it's important you have the right support. We are supported by the International SOS - the world's leading medical and travel security services company.</p>
       <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
   </div>
   <div class="clearfix"></div>
 </div>
-<div class="other-benefits col-lg-12 col-md-12 pad-none">
+<div class="other-benefits col-lg-12 col-md-12">
   <h3 class="h4-2">Other benefits</h3>
   <ul class="bullets">
     <li>
@@ -472,7 +473,7 @@ Embark on an adventure<br>
 <!--/#feature-->
 <section id="recent-works" class="hidden-xs hidden-sm">
   <div class="container pad-none">
-    <div class="row hidden-sm hidden-xs">
+    
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
@@ -506,7 +507,7 @@ Embark on an adventure<br>
             </div>
         </div>
       </div>
-    </div>
+
     <!--End-Desktop-Support--> 
     <!--/.row--> 
   </div>
@@ -623,9 +624,9 @@ Embark on an adventure<br>
     <div class="carousel-inner">
       <div class="item active">
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="testimonials-wrap text-center">
-              <div class="testimonials-inner text-center">
+              <div class="testimonials-inner travel-testimonial text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
                  <p>I always go for FWD Travel Insurance because there is always someone to pick up my calls, 24/7, which is particularly important after office hours and while I am travelling overseas. </p>
                 <div class="hr1"></div>
@@ -639,9 +640,9 @@ Embark on an adventure<br>
       <!--/.item-->
       <div class="item" >
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="testimonials-wrap text-center">
-              <div class="testimonials-inner text-center">
+              <div class="testimonials-inner travel-testimonial text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
             <p>I am a backpacker. The only 2 things I carry with me are my FWD TravelCare policy no. and ISOS emergency number – especially when you don’t know what to expect in the Amazon jungle.</p>
                 <div class="hr1"></div>
