@@ -655,7 +655,9 @@
 				<a href="http://blog.fwd.com.hk" target="_blank">博客</a>
 			</h3>
 		</div>
+		<!--
 		<p class="text-center mob-bottom">&copy; 2015 FWD 富衛香港 版權所有 不得轉載</p>
+		-->
 	</div>
 	<!--/mob-#bottom-->
 

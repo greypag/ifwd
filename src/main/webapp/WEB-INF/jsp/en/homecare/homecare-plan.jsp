@@ -792,8 +792,10 @@
 					<h3 class="text-center marg-t">Next</h3>
 				</button>
 			</div>
-			<p class="text-center mob-bottom">&copy; 2015 FWD Hong Kong. All
-				rights reserved.</p>
+				<!-- 
+				<p class="text-center mob-bottom">&copy; 2015 FWD Hong Kong. All
+					rights reserved.</p>
+				-->
 		</div>
 		<!--/mob-#bottom-->
 	</form:form>
