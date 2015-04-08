@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ attribute name="defaultLabel" type="java.lang.String" %>
+<%@ attribute name="defaultValue" type="java.lang.String" %>
 <%@ attribute name="onChange" type="java.lang.String" %>
 <%@ attribute name="selectables" type="java.util.Map" %>
 <%@ attribute name="valueElmId" type="java.lang.String" %>
@@ -18,7 +19,7 @@
 	
 	<ul class="dropdown-menu" role="menu" aria-labelledby="${dropDownElm}">
 		<li role="presentation">
-			<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setDropDownValue(this,'');${onChange}">${defaultLabel}</a>
+			<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setDropDownValue(this,'${defaultValue}');${onChange}">${defaultLabel}</a>
 		</li>													
 		<c:forEach var="selectable" items="${selectables}">
 			<li role="presentation">

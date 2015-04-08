@@ -286,6 +286,7 @@ Myself
 											<label class="pad-left1 bold-500">Beneficiary</label> 
 											<t:dropdown 
 												defaultLabel="Own Estate"
+												defaultValue="SE"
 												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
 												valueElmId="adultsselectBenificiary${inx}"
@@ -366,6 +367,7 @@ Myself
 											<label class="pad-left1 bold-500">Beneficiary</label> 
 											<t:dropdown 
 												defaultLabel="Own Estate"
+												defaultValue="SE"
 												onChange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
 												valueElmId="childselectBenificiary${inx}"
@@ -438,7 +440,7 @@ Myself
 											<label class="pad-left1 bold-500">Beneficiary</label>
 											<t:dropdown 
 												defaultLabel="Own Estate"
-												
+												defaultValue="SE"
 												onChange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
 												valueElmId="otherSelectBenificiary${inx}"

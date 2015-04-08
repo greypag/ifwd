@@ -737,6 +737,65 @@ $(function () {
 			  $(this).val('SE');
 		});
 		
+		// Adult Beneficiary Validation for the next 2 actions
+		
+		$( "input[id^='adultBenefitiaryId']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("adultBenefitiaryId").pop(); 
+			  var fullname = $(this).val();
+				if (fullname.trim() == "") {
+					$("#erradultBenefitiaryId"+errNo).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));//"Please enter your Name in English.";
+					return false;
+				}
+				$("#erradultBenefitiaryId"+errNo).html('');
+		});
+		$( "input[id^='adultBenefitiaryHKId']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("adultBenefitiaryHKId").pop(); 
+				
+				var appHkid = $(this).val();
+				
+				if (appHkid.trim() == "") {
+					$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));//"Please enter your Name in English.";
+					return false;
+				}
+				var tr=IsHKID(appHkid.trim());
+				if(tr==false)
+				{
+					$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					return false;
+				}
+				$("#erradultBenefitiaryHKId"+errNo).html('');
+		});
+		
+		// Child Beneficiary Validation for the next 2 actions
+		
+		$( "input[id^='adultBenefitiaryId']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("adultBenefitiaryId").pop(); 
+			  var fullname = $(this).val();
+				if (fullname.trim() == "") {
+					$("#erradultBenefitiaryId"+errNo).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));//"Please enter your Name in English.";
+					return false;
+				}
+				$("#erradultBenefitiaryId"+errNo).html('');
+		});
+		$( "input[id^='adultBenefitiaryHKId']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("adultBenefitiaryHKId").pop(); 
+				
+				var appHkid = $(this).val();
+				
+				if (appHkid.trim() == "") {
+					$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));//"Please enter your Name in English.";
+					return false;
+				}
+				var tr=IsHKID(appHkid.trim());
+				if(tr==false)
+				{
+					$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					return false;
+				}
+				$("#erradultBenefitiaryHKId"+errNo).html('');
+		});
+		
+		
 	}
 	
 	
@@ -2996,3 +3055,142 @@ if($('#Confirm-Password').length && $('#Password').length){
 	})
 }
 });
+
+
+function isMobile(val){
+	if(val == ''){
+		return getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
+	}
+	else if(!mobile_pattern.test(val)){
+		return getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
+	}
+	else{
+		return true;
+	}
+}
+
+function isEmail(val){
+	if(val == ''){
+		return getBundle(getBundleLanguage, "applicant.email.notNull.message");
+	}
+	else if(!emailreg.test(val)){
+		return getBundle(getBundleLanguage, "applicant.email.notValid.message");
+	}
+	else{
+		return true;
+	}
+}
+
+
+//Join Us Page
+//Full Name
+if($('#txtFullName').length){
+	$('#txtFullName').on('blur', function(){
+		if($(this).val() == ''){
+			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
+		}
+		else{
+			$('#errorEmptyName').text('');
+		}
+	})
+}
+//Mobile
+if($('#txtMobileNo').length){
+	$('#txtMobileNo').on('blur', function(){
+		var value = $(this).val();
+		if(isMobile(value) != true){
+			$('#errorEmptyMob').text(isMobile(value));
+		}
+		else{
+			$('#errorEmptyMob').text('');
+		}
+	})
+}
+//Email
+if($('#txtEmailId').length){
+	$('#txtEmailId').on('blur', function(){
+		var value = $(this).val();
+		if(isEmail(value) != true){
+			$('#errorEmptyEmailId').text(isEmail(value));
+		}
+		else{
+			$('#errorEmptyEmailId').text('');
+		}
+	})
+}
+//Username
+if($('#txtUserName1').length){
+	$cur = $('#txtUserName1');
+	$cur.on('blur', function(){
+		value = $(this).val();
+		if(isValidUsername(value) !== true){
+			$('#errorEmptyUName').text(isValidUsername(value));
+		}else
+			$('#errorEmptyUName').text('');
+	})
+}
+
+//Password
+if($('#txtPass1').length){
+	$cur = $('#txtPass1');
+	$cur.on('blur', function(){
+		value = $(this).val();
+		if(isValidPassword(value) !== true){
+			$('#errorJoinUsPassword').text(isValidPassword(value));
+		}else $('#errorJoinUsPassword').text('');
+	})
+}
+
+//Confirm Password
+if($('#txtConfPass').length && $('#txtPass1').length){
+	$cur = $('#txtConfPass');
+	
+	$cur.on('blur', function(){
+		var passwordToMatch = $('#txtPass1').val();
+		value = $(this).val();	
+		if(passMatch(passwordToMatch, value) !== true){
+			$('#errorEmptyConfPass').text(passMatch(passwordToMatch, value));
+		} else $('#errorEmptyConfPass').text('');
+	})
+}
+
+function activateUserAccount(){
+	var check = true;
+	var name = $('#txtFullName').val();
+	var mobile = $('#txtMobileNo').val();
+	var email = $('#txtEmailId').val();
+	var userName = $('#txtUserName1').val();
+	var password = $('#txtPass1').val();
+	var checkPassword = $('#txtConfPass').val();
+	var declaration = $('#checkbox1').is(':checked');
+
+	if(name == ''){
+		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
+		check = false;
+	}
+	if(isMobile(mobile) != true){
+		$('#errorEmptyMob').text(isMobile(mobile));
+		check = false;
+	}
+	if(isEmail(email) !== true){
+		$('#errorEmptyEmailId').text(isEmail(email));
+		check = false;
+	}
+	if(isValidUsername(userName) !== true){
+		$('#errorEmptyUName').text(isValidUsername(userName));
+		check = false;
+	};
+	
+	if(isValidPassword(password) !== true){
+		$('#errorJoinUsPassword').text(isValidPassword(password));
+		check = false;
+	};
+	if(passMatch(password, checkPassword) !== true){
+		$('#errorEmptyConfPass').text(passMatch(password, checkPassword));
+		check = false;
+	};
+	if(!declaration){
+		check = false;
+	}
+	return check;
+}
