@@ -52,9 +52,9 @@ $('.plan').change(function () {
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblPeopleDesk').html('' + personalTraveller);
             
-            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(familyAdult);
-            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(familyChild);
-            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(familyOther);
+            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(1);
+            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(0);
+            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(0);
         }
         else if(id  == 'family_plan_desk') 
         {          
@@ -93,9 +93,9 @@ $('.plan').change(function () {
          
       }else
       {
-        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(familyAdult);
-          $('.plan_spinner_' + parent_id + '  #txtChildMob').val(familyChild);
-          $('.plan_spinner_' + parent_id + '  #txtOtherMob').val(familyOther);
+        $('.plan_spinner_' + parent_id + '  #txtAdultsMob').val(1);
+          $('.plan_spinner_' + parent_id + '  #txtChildMob').val(0);
+          $('.plan_spinner_' + parent_id + '  #txtOtherMob').val(0);
           
           document.getElementById("divPersonsMob").style.visibility = "hidden";
           $('#lblCountMob').show();
@@ -123,9 +123,9 @@ $('.plan').change(function () {
          
       }else
       {
-        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(familyAdult);
-          $('.plan_spinner_' + parent_id + '  #txtChildBtm').val(familyChild);
-          $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val(familyOther);
+        $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(1);
+          $('.plan_spinner_' + parent_id + '  #txtChildBtm').val(0);
+          $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val(0);
           
           document.getElementById("divPersonsBtm").style.visibility = "hidden";
           $('#lblCountBtm').show();
