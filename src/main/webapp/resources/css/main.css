@@ -5579,3 +5579,12 @@ table.vert-middle td{
 		margin-bottom: 15px;
 	}
 }
+table.padding4 td{
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
+}
+table.registration{
+	margin: 0 !important;
+	margin-bottom: 20px !important;
+	width: 100% !important;
+}

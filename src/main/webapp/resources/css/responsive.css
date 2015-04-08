@@ -34,6 +34,9 @@
     table.activation-form .form-control {
         width: 90%;
     }
+    table.activation-form.registration .form-control {
+        width: 100%;
+    }
     .acc-tool-input {
         width: 100%;
     }
