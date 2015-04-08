@@ -155,7 +155,7 @@
 												class="join-us-label"> Email Address<br> <small>(Insurance
 												certificate will<br> be sent to this email address)</small>
 											</label></td>
-											<td><input type="email"
+											<td><input type="text"
 												name="EmailAddress" class="form-control"
 												id="txtEmailId" placeholder="Email address" maxlength="50">
 												<span id="errorEmptyEmailId" class="text-red"></span></td>
@@ -246,7 +246,7 @@
 					</div>
 					<div class="clearfix"></div>
 					<h4 class="h4-2 padding4 declaration-head">Declaration</h4>
-					<br>
+					
 					<div class="declaration-content ">
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label

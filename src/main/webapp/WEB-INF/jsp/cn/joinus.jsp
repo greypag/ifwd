@@ -114,8 +114,7 @@
 										value="${userDetails.getFullName() }" placeholder="英文全名"
 										onblur="replaceAlpha(this);"
 										onkeypress="    return alphaOnly(event);" maxlength="100">
-										<span id="errorEmptyName" style="display: none"><label
-											class="text-red">請輸入 姓名 和 請以英文輸入</label></span></td>
+										<span id="errorEmptyName" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -126,9 +125,7 @@
 										value="${userDetails.getMobileNo() }" name="mobileNo"
 										placeholder="手機號碼" onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8"> <span
-										id="errorEmptyMob" style="display: none"><label
-											class="text-red">請輸入 聯絡電話</label></span> <span id="errorInvalidMob"
-										style="display: none"><label class="text-red">聯絡電話需為８位數字，請重新輸入</label></span></td>
+										id="errorEmptyMob" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -139,10 +136,7 @@
 										class="form-control" id="txtEmailId"
 										value="${userDetails.getEmailAddress() }" placeholder="電郵地址"
 										name="EmailAddress" maxlength="50"> <span
-										id="errorEmptyEmailId" style="display: none"><label
-											class="text-red">請輸入電郵地址</label></span> <span
-										id="errorInvalidEmailId" style="display: none"><label
-											class="text-red">>請輸入正確/有效的 電郵地址</label></span></td>
+										id="errorEmptyEmailId" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -155,15 +149,12 @@
 									<td>
 										
 											<input type="text" class="form-control "
-												id="txtUserName" value="${userDetails.getUserName() }"
+												id="txtUserName1" value="${userDetails.getUserName() }"
 												placeholder="登入名稱" name="userName">
 
 										
 											
-										 <span id="errorEmptyUName" style="display: none"><label
-											class="text-red">請輸入使用者名稱</label></span> <span
-										id="errorInvalidUName" style="display: none"><label
-											class="text-red">請輸入正確使用者名稱及</label></span>
+										 <span id="errorEmptyUName" class="text-red"></span>
 									</td>
 									<td><a href="#"
 												class="tool-tip show-inline-md"
@@ -182,9 +173,9 @@
 											src="resources/images/ic.png" alt=""></a></td>
 									<td>
 											<input type="password" class="form-control"
-												id="txtPass" placeholder="密碼" name="password">
+												id="txtPass1" placeholder="密碼" name="password">
 
-										 <span id="errorJoinUsPassword"></span>
+										 <span id="errorJoinUsPassword" class="text-red"></span>
 									</td>
 									<td>
 										<a href="#"
@@ -201,11 +192,7 @@
 									<td><input type="password"
 										name="confirmPassword" class="form-control" id="txtConfPass"
 										placeholder="確認密碼"> <span
-										id="errorEmptyConfPass" style="display: none"> <label
-											class="text-red">請輸入確認密碼</label>
-									</span> <span id="errorValidConfPass" style="display: none"> <label
-											class="text-red">請輸入正確使 稱及密碼</label>
-									</span></td>
+										id="errorEmptyConfPass" class="text-red"></span></td>
 								</tr>
 
 							</tbody>
@@ -264,3 +251,4 @@
 	</section>
 
 </body>
+y>
