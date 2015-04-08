@@ -295,6 +295,7 @@ function fPlanValid()
 	document.getElementById("mobileNo").innerHTML = "";
 	
 	document.getElementById("chk1").innerHTML = "";
+	$('#chk2').html('');
 	
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
@@ -304,6 +305,10 @@ function fPlanValid()
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message");
+		flag = false;
+	}
+	if (document.getElementById("checkbox2").checked == false) {
+		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");
 		flag = false;
 	}
 
@@ -759,7 +764,8 @@ function fcPlanValid()
 //	    document.getElementById("mobileNo").style.display = "none";
 //	    document.getElementById("emailid").style.display = "none";
 //	    
-//	    document.getElementById("chk1").style.display = "none"; 
+	    document.getElementById("chk1").style.display = "none";
+	    $('#chk2').html('');
 //	    document.getElementById("mobileNo").style.display = "none"; 
 	   
 	    var appHkid = document.getElementById("txtAppHkid").value;
@@ -811,11 +817,19 @@ function fcPlanValid()
 	    }
 	   
 	  
-	    if (document.getElementById("checkbox1").checked == false) {
-	        document.getElementById("chk1").style.display = "block";
-	        document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message");
-	        flag = false;
-	    }
+//	    if (document.getElementById("checkbox1").checked == false) {
+//	        document.getElementById("chk1").style.display = "block";
+//	        document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message");
+//	        flag = false;
+//	    }
+		if (document.getElementById("checkbox1").checked == false) {
+			document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message");
+			flag = false;
+		}
+		if (document.getElementById("checkbox2").checked == false) {
+			document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");
+			flag = false;
+		}
 	    
 	    
 	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
