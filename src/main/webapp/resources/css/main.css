@@ -5592,3 +5592,12 @@ table.registration td .control-label{
 	line-height: 1.2;
 	margin-left: 0;
 }
+.activation-form3 h3{
+	margin: 0 !important;
+}
+.activation-form3 tr:first-child td{
+	vertical-align: bottom;
+}
+.slide-form h2{
+	margin: 0 !important;
+}
