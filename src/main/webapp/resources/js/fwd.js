@@ -2359,33 +2359,21 @@ function hc_planValid() {
 function msgAlertDesk() {
     var flag = true;
    
-var cnt=document.getElementById("lblCount").value;
-for(var i=1;i<=parseInt(cnt);i++)
-	{
-	if(i==1)
-	{
-    if (document.getElementById("inlineDeskRadio1"+i).checked) {
-        flag = true;
-    }
-    else
-    	flag= false;
-	}
-    else
-    	{
-    if (document.getElementById("inlineDeskRadio2"+i).checked) {
-        flag = true;
-    }
-    else 
+    if (document.getElementById("inlineDeskRadio11").checked){
     	flag=false;
-    	}
-	}
+    } else if (document.getElementById("inlineDeskRadio12").checked){
+    	flag=false;
+    } else if (document.getElementById("inlineDeskRadio51").checked){
+    	flag=false;
+    } else if (document.getElementById("inlineDeskRadio52").checked){
+    	flag=false;
+    }
+    
     if (flag == false) {
-    	
         alert("Thank you for your interests in our products, sorry that we are unable to accept your application online. For any enquiry, please call our customer service hotline at 3123 3123.");
     
 	}
-    return flag;
-    
+    return flag;    
 }
 
 
