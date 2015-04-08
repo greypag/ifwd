@@ -376,8 +376,11 @@
         margin-left: 10px;
         font-size: 18px;
     }
-    .bdr {
+    .bdr, .bdr2 {
         border: #fff 1px solid;
+    }
+    .bdr2{
+    	margin-bottom: 20px;
     }
     .status {
         display: none;
