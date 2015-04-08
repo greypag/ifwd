@@ -1232,8 +1232,17 @@ public class TravelController {
 		System.out.println(path.replace("prepareUserSummary",
 				UserRestURIConstants.checkLangSetPage(request)
 						+ "travel-confirmation"));
-		model.addAttribute("failurePath",
-				path.replace("prepareUserSummary", "failure"));
+//		model.addAttribute("failurePath",
+//				path.replace("prepareUserSummary", "failure"));
+		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
+		String  paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
+		String  errorMsg =request.getParameter("errorMsg");
+		if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){			
+			errorMsg = "Payment failure";					
+		}		
+		model.addAttribute("errormsg", errorMsg);		
+				
 //		System.out.println("************"
 //				+ path.replace("prepareUserSummary", "failure"));
 
