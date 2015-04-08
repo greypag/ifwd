@@ -70,18 +70,31 @@
         <h2>立即申請富衛旅遊保險</h2>
       		      <table class="table activation-form3">
 			        <tbody>
+			        	<tr>
+			        		<td><h3>出發日期</h3></td>
+			        		<td><h3>回程日期</h3></td>
+			        		<td><h3>同行人數</h3></td>
+			        		<td><div id="divPersonsDesk" style="visibility:hidden;">
+			             <h3 class="h3-i">
+			               <label id="lblPeopleDesk">0</label>
+			               people <br>
+			               travelling
+			               <label id="lblDaysDesk">0</label>
+			               days </h3>
+			           </div></td>
+			        	</tr>
 			          <tr>
-			            <td class="col-md-3  "><h3>出發日期</h3>
+			            <td class="col-md-3  ">
 			              <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
 			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}">
 			              </div>
-			              <span id="startDateDeskIn" class="text-red"> </span></td>
-			            <td class="col-md-3 "><h3>回程日期</h3>
+			              </td>
+			            <td class="col-md-3 ">
 			              <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
 			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}">
 			              </div>
-			              <span id="endDateDeskIn" class="text-red"> </span></td>
-			            <td class="col-md-3"><h3>同行人數</h3>
+			              </td>
+			            <td class="col-md-3">
 			              <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
 			                
 			                <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -166,20 +179,19 @@
 			             </div>
 			             <div class="clearfix"></div>
 			           </div>
-			           <span id="travelCountDeskIn"  style="display:none">
-			           <label class="text-red">请输入信息旅行者</label>
-			           </span>
-			         <td class="col-md-2 "><div id="divPersonsDesk" style="visibility:hidden;">
-			             <h3 class="h3-i">
-			               <label id="lblPeopleDesk">0</label>
-			                                   人数 <br>
-			                                   旅行
-			               <label id="lblDaysDesk">0</label>
-			               days </h3>
-			           </div>
-			        	     <button type="submit" class="border-radius btn btn-primary get-btn marg-t2 wd2">立即報價</button>
+			           </td>
+			         <td class="col-md-2 ">
+			        	     <button type="submit" class="border-radius btn btn-primary get-btn wd2">立即報價</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
 			        </td>
+			       </tr>
+			       <tr>
+			       	<td><span id="startDateDeskIn" class="text-red"> </span></td>
+			       	<td><span id="endDateDeskIn" class="text-red"> </span></td>
+			       	<td><span id="travelCountDeskIn"  style="display:none">
+			           <label class="text-red">请输入信息旅行者</label>
+			           </span></td>
+			       	<td></td>
 			       </tr>
 			     </tbody>
 			   </table>
@@ -682,18 +694,33 @@
         <h2>立即申請富衛旅遊保險</h2>
         <table class="table activation-form3">
           <tbody>
+          <tr>
+          	<td><h3>出發日期</h3></td>
+          	<td><h3>回程日期</h3></td>
+          	<td><h3>同行人數</h3></td>
+          	<td><div id="divPersonsBtm" style="visibility:hidden;">
+                  <h3 class="h3-i">
+                    <label id="lblPeopleBtm">0</label>
+                    people <br>
+                    travelling
+                    <label id="lblDaysBtm">0</label>
+
+                    days </h3>
+                </div>
+             </td>
+          </tr>
             <tr>
-              <td class="col-md-3  "><h3>出發日期</h3>
+              <td class="col-md-3  ">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${travelQuote.getTrLeavingDate()}">
                 </div>
-                <span id="startDateBtmIn" style="color:red"> </span></td>
-              <td class="col-md-3 "><h3>回程日期</h3>
+                </td>
+              <td class="col-md-3 ">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${travelQuote.getTrBackDate()}">
                 </div>
-                <span id="endDateBtmIn" style="color:red"> </span></td>
-              <td class="col-md-3 "><h3>同行人數</h3>
+                </td>
+              <td class="col-md-3 ">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountBtm"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -785,22 +812,20 @@
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountBtmIn" style="visibility:hidden;">
-                <label class="text-red">請輸入信息旅行者</label>
-                </span>
-
-              <td class="col-md-2 "><div id="divPersonsBtm" style="visibility:hidden;">
-                  <h3 class="h3-i">
-                    <label id="lblPeopleBtm">0</label>
-                                               人数 <br>
-                                               旅行
-                    <label id="lblDaysBtm">0</label>
-
-                    days </h3>
-                </div>
-                  <button type="submit" class="border-radius btn btn-primary get-btn marg-t2 wd2">立即報價</button>
+                
+				</td>
+              <td class="col-md-2 ">
+                  <button type="submit" class="border-radius btn btn-primary get-btn  wd2">立即報價</button>
                  </td>
             </tr>
+            <tr>
+	          	<td><span id="startDateBtmIn" style="color:red"> </span></td>
+	          	<td><span id="endDateBtmIn" style="color:red"> </span></td>
+	          	<td><span id="travelCountBtmIn" style="display: none;">
+                <label class="text-red">請輸入信息旅行者</label>
+                </span></td>
+	          	<td></td>
+	          </tr>
           </tbody>
         </table>
       </div>
