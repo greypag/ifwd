@@ -194,14 +194,14 @@
 							<h3>Departure Date</h3>
 							<div class="form-group">
 								<div class="input-group wd2">
-									<input type="text" class="datepicker form-control"
+									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
 								</div>
 							</div>
 							<h3>Return Date</h3>
 							<div class="form-group">
 								<div class="input-group wd2">
-									<input type="text" class="datepicker form-control"
+									<input type="text" class="datepicker form-control bcg-trans"
 										value="<c:out value="${planDetails.getReturnDate()}"/>"
 										readonly>
 								</div>
@@ -218,13 +218,16 @@
 							</div>
 							-->
 							
-							<div class="form-group">
+							<div class="form-group likeDatePicker bcg-trans">
               	<div class="input-group wd2 datepicker form-control" > 
+              	
+              
               		<%-- <input type="text" class="datepicker form-control" value=" --%>
-								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent :${planDetails.getTotalAdultTraveller()}  &nbsp;&nbsp;&nbsp;</c:if>
-								<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child :${planDetails.getTotalChildTraveller()}<br></c:if>
-								<c:if test="${planDetails.getTotalOtherTraveller() !=0}">Others :${planDetails.getTotalOtherTraveller()}</c:if>
-								<c:if test="${planDetails.getTravellerCount() !=0}">Travellers :${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent(s): ${planDetails.getTotalAdultTraveller()}</c:if>
+								<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child(s): ${planDetails.getTotalChildTraveller()}<br></c:if>
+								<c:if test="${planDetails.getTotalOtherTraveller() !=0}">Others: ${planDetails.getTotalOtherTraveller()}</c:if>
+								<c:if test="${planDetails.getTravellerCount() !=0}">Travellers: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+								
               	</div>
               </div>
 							
@@ -263,7 +266,7 @@
 				<p class="padding1 hidden-sm hidden-xs">
 				The features above are indicative only. Please refer to the <a class="sub-link"
 						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
-						target="_blank">Policy Provisions</a> for details. 
+						target="_blank">Policy Provisions</a> for details. <br>
 For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
 					</p>
 			</form>

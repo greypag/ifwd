@@ -5436,7 +5436,7 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 .chin #adulttraveller{
 	padding: 0 20px;
 }
-.major-exc li {padding:5px 0;}
+.major-exc li {padding:3px 0;}
 .plan-box-flight {
 	margin-top:15px;	
 }
@@ -5447,7 +5447,7 @@ select#selectHkidPass{ width:90% !important; margin-right:10%;}
 	margin:0;
 	line-height: 100%;
 }
-#freeFlightForm #adulttraveller {
+#freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
 	margin-bottom: 30px;
 }
 @media screen and (max-width:991px) {
@@ -5609,4 +5609,18 @@ table.registration td .control-label{
 }
 .h4-6 + .h4-6{
 	margin-top: 10px;
+}
+
+.likeDatePicker{
+	  border: 1px solid #E3E3E3;
+}
+.likeDatePicker .datepicker {
+	
+	  border-radius: 0;
+}
+.bcg-trans{
+	background: transparent !important;
+}
+div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenificiaryId']{
+ clear: both;
 }
