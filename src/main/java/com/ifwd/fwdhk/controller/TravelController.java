@@ -215,12 +215,12 @@ public class TravelController {
 				spouseCover = false;
 				otherCount = travelQuote.getTotalPersonalTraveller();
 				travelQuote.setTotalChildTraveller(0);
-				travelQuote.setTotalAdultTraveller(otherCount - 1);
-				travelQuote.setTotalOtherTraveller(0);
-				
+				travelQuote.setTotalAdultTraveller(0);
+				travelQuote.setTotalOtherTraveller(otherCount - 1);
+				otherCount = travelQuote.getTotalOtherTraveller();
 
 			} else {
-								travelQuote.setTotalPersonalTraveller(0);
+				travelQuote.setTotalPersonalTraveller(0);
 				childCount = travelQuote.getTotalChildTraveller();
 				adultCount = travelQuote.getTotalAdultTraveller();
 				otherCount = travelQuote.getTotalOtherTraveller();
@@ -229,8 +229,15 @@ public class TravelController {
 					spouseCover = true;
 				else
 					spouseCover = false;
-					
 			}
+			System.out.println("------------------------------------------------------------");
+			System.out.println("CALLING API");
+			System.out.println("SELF COVER " + selfCover);
+			System.out.println("SPOUSE COVER " + spouseCover);
+			System.out.println("CHILD COUNT " + childCount);
+			System.out.println("OTHER COUNT " + otherCount);		
+			System.out.print("------------------------------------------------------------");
+			
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
@@ -338,13 +345,14 @@ public class TravelController {
 			selfCover = true;
 			spouseCover = false;
 			otherCount = travelQuote.getTotalPersonalTraveller();
+			childCount = 0;
 			travelQuote.setTotalChildTraveller(0);
-			travelQuote.setTotalAdultTraveller(otherCount - 1);
-			travelQuote.setTotalOtherTraveller(0);
+			travelQuote.setTotalAdultTraveller(0);
+			travelQuote.setTotalOtherTraveller(travelQuote.getTotalOtherTraveller() - 1);
 			
 
 		} else {
-							travelQuote.setTotalPersonalTraveller(0);
+			travelQuote.setTotalPersonalTraveller(0);
 			childCount = travelQuote.getTotalChildTraveller();
 			adultCount = travelQuote.getTotalAdultTraveller();
 			otherCount = travelQuote.getTotalOtherTraveller();
@@ -355,13 +363,19 @@ public class TravelController {
 				spouseCover = false;
 				
 		}
-		
-		referralCode = request.getParameter("referralCode");
+		System.out.println("------------------------------------------------------------");
+		System.out.println("CALLING API");
+		System.out.println("SELF COVER " + selfCover);
+		System.out.println("SPOUSE COVER " + spouseCover);
+		System.out.println("CHILD COUNT " + childCount);
+		System.out.println("OTHER COUNT " + otherCount);		
+		System.out.println("------------------------------------------------------------");
+		referralCode = request.getParameter("promoCode");
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-					+ "&selfCover=true" + "&spouseCover=" + isSpouseCover
-					+ "&childInput=" + child + "&otherInput=" + others
+					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
+					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + referralCode;
 
@@ -382,8 +396,7 @@ public class TravelController {
 
 			System.out.println("Response Get Travel Quotes API "
 					+ responseJsonObj);
-			String errMsgs = (String) responseJsonObj.get("errMsgs");
-			if (errMsgs.contains("Promotion code is not valid"))
+			if (responseJsonObj.toJSONString().contains("Promotion code is not valid"))
 				session.setAttribute("referralCode", "");
 			else
 				session.setAttribute("referralCode", referralCode);

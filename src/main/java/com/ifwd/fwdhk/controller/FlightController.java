@@ -633,14 +633,6 @@ public class FlightController {
 				UserRestURIConstants.CREATEFLIGHTPOLICY, header, parameters);
 		System.out.println("createFilghr response" + responsObject);
 
-		/*
-		 * "currCode":"344","referenceNo":"74F000000000011","merchantId":"88116468"
-		 * ,
-		 * "referralCode":null,"policyNo":"74F000011","lang":"","errMsgs":null,
-		 * "planCode":null, "paymentGateway":
-		 * "https:\/\/test.paydollar.com\/b2cDemo\/eng\/dPayment\/payComp.jsp",
-		 * "paymentType":"N"
-		 */
 		if (responsObject.get("errMsgs") == null && responsObject != null) {
 			session.setAttribute("FlightResponseFrTrvl", parameters);
 			session.setAttribute("FlightObjectFrTrvl", planDetailsForm);
@@ -673,8 +665,6 @@ public class FlightController {
 					request.getParameter("emailAddress"));
 			model.addAttribute(createFlightPolicy);
 			model.addAttribute("planDetailsForm", planDetailsForm);
-
-			/* return "flight/flight-confirmation"; */
 			return "success";
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
