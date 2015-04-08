@@ -68,22 +68,35 @@
         <h2>Get your TravelCare insurance now</h2>
         <table class="table activation-form3">
           <tbody>
+          	<tr>
+          		<td><h3>When are you leaving?</h3></td>
+          		<td><h3>When will you be back?</h3></td>
+          		<td><h3>Who's travelling?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3> </td>
+          		<td><div id="divPersonsDesk" style="visibility:hidden;">
+                  <h3 class="h3-i">
+                    <label id="lblPeopleDesk">0</label>
+                    people <br>
+                    travelling
+                    <label id="lblDaysDesk">0</label>
+                    day(s) </h3>
+                </div></td>
+          	</tr>
           <tr>
-              <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-<input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}"/>
+<input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}"/>
 </div>
-                <span id="startDateDeskIn" class="text-red" > </span>
+                
                 </td>
-              <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}"/>
+                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}"/>
                 </div>
-              <span id="endDateDeskIn"  class="text-red" > </span>
+              
              </td>
              
              
-			<td class="col-md-3 pad-none"><h3>Who's travelling?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3> 
+			<td class="col-md-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -92,13 +105,13 @@
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
                            <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" <%=PersonalPlanChecked%>  >
-                          <label for="personal_plan_desk"> Personal <br>    Plan </label>
+                          <label for="personal_plan_desk"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-                          <label for="family_plan_desk"> Family <br>  Plan </label>
+                          <label for="family_plan_desk"> Family Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -167,29 +180,30 @@
                       
                       <!-- start of family plan bottom spinner-->
                       
-                      <div class="clearfix"></div>
+
                     </div>
                   </div>
-                  <div class="clearfix"></div>
+
                 </div>
-                <span id="travelCountDeskIn" style="display:none">
-                <label style="color:red">Please enter Treveller's information</label>
-              </span>
+                
                 </td>
                 
                 
                 
               <td class="col-md-2 pad-none"> 
-              <div id="divPersonsDesk" style="visibility:hidden;">
-                  <h3 class="h3-i">
-                    <label id="lblPeopleDesk">0</label>
-                    people <br>
-                    travelling
-                    <label id="lblDaysDesk">0</label>
-                    day(s) </h3>
-                </div>
-                <button type="submit" class="border-radius btn btn-primary get-btn marg-t2 wd2">Get Quote</button>
+              
+                <button type="submit" class="border-radius btn btn-primary get-btn wd2">Get Quote</button>
                 </td>
+            </tr>
+            <tr>
+            	<td><span id="startDateDeskIn" class="text-red" ></span></td>
+            	<td><span id="endDateDeskIn"  class="text-red" > </span></td>
+            	<td>
+            		<span id="travelCountDeskIn" style="display:none">
+                		<label style="color:red">Please enter Treveller's information</label>
+              		</span>
+           		</td>
+            	<td></td>
             </tr>
           </tbody>
         </table>
@@ -710,22 +724,37 @@ Embark on an adventure<br>
         <h2>Get your TravelCare insurance now</h2>
         <table class="table activation-form3">
           <tbody>
+          	<tr>
+          		<td><h3>When are you leaving?</h3></td>
+          		<td><h3>When will you be back?</h3></td>
+          		<td><h3>Who's travelling?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></td>
+          		<td>
+          			<div id="divPersonsBtm" style="visibility:hidden;">
+                  <h3 class="h3-i">
+                    <label id="lblPeopleBtm">0</label>
+                    people <br>
+                    travelling
+                    <label id="lblDaysBtm">0</label>
+                    day(s) </h3>
+                </div>
+          		</td>
+          	</tr>
             <tr>
-              <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Departure Date');" value="${travelQuote.getTrLeavingDate()}">
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
               
                 
-              <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
                   <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Return Date');" value="${travelQuote.getTrBackDate()}">
                 </div>
                 <span id="endDateBtmIn" style="color:red"> </span></td>
             
             
-              <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
+              <td class="col-md-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountBtm"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -806,32 +835,26 @@ Embark on an adventure<br>
                             </span> </div>
                         </div>
                       </div>
-                      
-                      <!-- start of family plan bottom spinner-->
-                      
-                      <div class="clearfix"></div>
                     </div>
                   </div>
-                  <div class="clearfix"></div>
                 </div>
-                <span id="travelCountBtmIn" style="visibility:hidden;">
+                
+                </td>
+                
+                
+              <td class="col-md-2 pad-none">
+                 <button type="submit" class="border-radius btn btn-primary get-btn  wd2">Get Quote</button>
+                
+                
+                </td>
+            </tr>
+            <tr>
+            	<td></td>
+            	<td></td>
+            	<td><span id="travelCountBtmIn" style="display: none">
                 <label class="text-red">Please enter Treveller's information</label>
-                </span>
-                </td>
-                
-                
-              <td class="col-md-2 pad-none"><div id="divPersonsBtm" style="visibility:hidden;">
-                  <h3 class="h3-i">
-                    <label id="lblPeopleBtm">0</label>
-                    people <br>
-                    travelling
-                    <label id="lblDaysBtm">0</label>
-                    day(s) </h3>
-                </div>
-                 <button type="submit" class="border-radius btn btn-primary get-btn marg-t2 wd2">Get Quote</button>
-                
-                
-                </td>
+                </span></td>
+            	<td></td>
             </tr>
           </tbody>
         </table>
