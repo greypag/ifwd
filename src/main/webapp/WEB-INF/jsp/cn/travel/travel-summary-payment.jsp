@@ -412,10 +412,19 @@
 								value="確認付款" onclick="confirmPayment()" />
 						</div>
 						<br> <br>
+						
 						<div class="pad-none hidden-md hidden-lg">
 							<a href="travel-plan-details.html"
 								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
 							</a>
+						</div>
+						<!-- vincent add a button for paymnet confirmation (mobile) -->
+						<div class="pad-none hidden-md hidden-lg">
+							<input
+								type="submit"
+								class="bdr-curve btn btn-primary nxt-btn"
+								value="確認付款" onclick="confirmPayment()" />
+						<!-- vincent add a button for paymnet confirmation (mobile) -->							
 							<div class="clearfix"></div>
 						</div>
 						<br>
