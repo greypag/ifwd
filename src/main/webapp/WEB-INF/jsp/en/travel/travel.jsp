@@ -503,7 +503,7 @@ Embark on an adventure<br>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="recent-work-wrap-mid wrap text-center">
           <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
-            <h1>Secure &amp; 
+            <h1>Secure <br> &amp; 
               Stable</h1>
             <p>We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch.
             
@@ -595,10 +595,10 @@ Embark on an adventure<br>
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-            <p class="pad-none">I always go for FWD Travel Insurance because there is always someone to pick up my calls, 24/7, which is particularly important after office hours and while I am travelling overseas. </p>
+            <p class="pad-none text-italic">I always go for FWD Travel Insurance because there is always someone to pick up my calls, 24/7, which is particularly important after office hours and while I am travelling overseas. </p>
             <div class="hr1"></div>
             <h2>William</h2>
-            <h4>(aged 30)</h4>
+            <h4>aged 30</h4>
           </div>
         </div>
       </div>
@@ -606,11 +606,11 @@ Embark on an adventure<br>
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-            <p class="pad-none">I am a backpacker. The only 2 things I carry with me are my FWD TravelCare policy no. and ISOS emergency number – especially when you don’t know what to expect in the Amazon jungle.
+            <p class="pad-none text-italic">I am a backpacker. The only 2 things I carry with me are my FWD TravelCare policy no. and ISOS emergency number – especially when you don’t know what to expect in the Amazon jungle.
 </p>
             <div class="hr1"></div>
             <h2>Gabriel</h2>
-            <h4>(aged 26)</h4>
+            <h4>aged 26</h4>
           </div>
         </div>
       </div>
@@ -642,10 +642,10 @@ Embark on an adventure<br>
             <div class="testimonials-wrap text-center">
               <div class="testimonials-inner travel-testimonial text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-                 <p>I always go for FWD Travel Insurance because there is always someone to pick up my calls, 24/7, which is particularly important after office hours and while I am travelling overseas. </p>
+                 <p class="text-italic">I always go for FWD Travel Insurance because there is always someone to pick up my calls, 24/7, which is particularly important after office hours and while I am travelling overseas. </p>
                 <div class="hr1"></div>
                 <h2>William</h2>
-                <h4>(aged 30)</h4>
+                <h4>aged 30</h4>
               </div>
             </div>
           </div>
@@ -658,10 +658,10 @@ Embark on an adventure<br>
             <div class="testimonials-wrap text-center">
               <div class="testimonials-inner travel-testimonial text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-            <p>I am a backpacker. The only 2 things I carry with me are my FWD TravelCare policy no. and ISOS emergency number – especially when you don’t know what to expect in the Amazon jungle.</p>
+            <p class="text-italic">I am a backpacker. The only 2 things I carry with me are my FWD TravelCare policy no. and ISOS emergency number – especially when you don’t know what to expect in the Amazon jungle.</p>
                 <div class="hr1"></div>
                 <h2>Gabriel</h2>
-                <h4>(aged 26)</h4>
+                <h4>aged 26</h4>
               </div>
             </div>
           </div>
