@@ -41,8 +41,11 @@ public class UserController {
 	public String logout(HttpServletRequest servletRequest) {
 		System.out.println("in logout");
 		HttpSession session = servletRequest.getSession();
+		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		session.invalidate();
-		return "../.."+ UserRestURIConstants.checkLangSetPage(servletRequest)+ "index";
+		//return "../.."+ UserRestURIConstants.checkLangSetPage(servletRequest)+ "index";
+		String dir = UserRestURIConstants.checkLangSetPage(lang);
+		return "../jsp/" + dir + "/index";
 	}
 
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
