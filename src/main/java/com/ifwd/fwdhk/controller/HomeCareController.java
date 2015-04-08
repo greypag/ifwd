@@ -452,6 +452,6 @@ public class HomeCareController {
 		System.out.println("Error Message"+errormsg);
 		model.addAttribute("errormsg",errormsg);
 
-		return "failure";
+		return UserRestURIConstants.checkLangSetPage(request) + "failure";
 	}
 }
