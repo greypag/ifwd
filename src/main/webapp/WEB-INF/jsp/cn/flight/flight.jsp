@@ -80,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			  <div class="row">
 			    <div class="col-lg-12 col-md-12 pad-none slide-form">
 			      <h2>立即申請富衛航空意外保險</h2>
-			      <table class="table activation-form3 hor-padding">
+			      <table class="table activation-form3">
 			        <tbody>
 			        	<tr>
 			        		<td><h3>出發日期</h3></td>
@@ -641,7 +641,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h2>立即申請富衛航空意外保險</h2>
          
 
-        <table class="table activation-form3 hor-padding">
+        <table class="table activation-form3 ">
           <tbody>
           	<tr>
           		<td><h3>出發日期</h3></td>
