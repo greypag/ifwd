@@ -352,7 +352,7 @@
     </div>
   </div>
   <div class="btn-box text-center">
-    <h3 class="text-center"> <a href="travel-plan.html" class="border-radius get-btn" onclick="return flightValidateMobTravel()"> Get Quote </a> </h3>
+    <h3 class="text-center"> <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()"> Get Quote </a> </h3>
   </div>
 </div>
 <!--Mobile-form--> 
@@ -668,24 +668,24 @@ Embark on an adventure<br>
     <div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <img class="img-responsive bdr-img" src="resources/images/home4.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/" target="_blank"> Things to do before<br> a long vacation <i class="fa fa-caret-right"></i></a> </h3>
+          <div><a href="http://blog.fwd.com.hk/en_US/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="img-responsive bdr-img" src="resources/images/home4.png" alt=""></a>
+            <h3><a href="http://blog.fwd.com.hk/en_US/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"> Things to do before<br> a long vacation <i class="fa fa-caret-right"></i></a> </h3>
       
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <img class="img-responsive bdr-img" src="resources/images/home5.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/"  target="_blank"> How to access internet while<br> travelling abroad <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/"  target="_blank"><img class="img-responsive bdr-img" src="resources/images/home5.png" alt=""></a>
+            <h3><a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/"  target="_blank"> How to access internet while<br> travelling abroad <i class="fa fa-caret-right"></i> </a></h3>
             
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <img class="img-responsive bdr-img" src="resources/images/home6.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/" target="_blank"> Travelling with children <i class="fa fa-caret-right"></i></a> </h3>
+          <div><a href="http://blog.fwd.com.hk/en_US/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="img-responsive bdr-img" src="resources/images/home6.png" alt=""></a>
+            <h3><a href="http://blog.fwd.com.hk/en_US/2015/03/19/tips-for-traveling-with-children/" target="_blank"> Travelling with children <i class="fa fa-caret-right"></i></a> </h3>
          
           </div>
         </div>

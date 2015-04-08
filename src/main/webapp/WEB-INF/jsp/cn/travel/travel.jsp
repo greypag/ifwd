@@ -215,7 +215,7 @@
     <h4>同行人數</h4>
     <div class="dropdown  form-group drop-down" id="myFWDropdownMob">
       
-      <a href="#" class="dropdown-toggle  col-sm-12 col-xs-12 pad-none" data-toggle="dropdown"> <label id="lblCountMob"></label> <i class="fa fa-caret-down pull-right"></i> </a>
+      <a href="#" class="dropdown-toggle col-sm-12 col-xs-12" data-toggle="dropdown"> <label id="lblCountMob"></label> <i class="fa fa-caret-down pull-right"></i> </a>
       <div class="dropdown-menu bdr1 wd2">
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
@@ -338,9 +338,9 @@
     </div>
   </div>
   
-  <div class="btn-box text-center bot-bdr">
+  <div class="btn-box text-center">
     <h3 class="text-center"> 
-  <button type="submit" class="">立即申請免費保障! </button>
+  		<a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()">立即申請免費保障! </a>
      
      
       </h3>
@@ -372,7 +372,7 @@
     <div class="col-md-6 col-lg-6">
       <div>
         <h2>敢想敢做，無牽無掛</h2>
-        <p class="h4-3">放膽玩，盡情跳！富衛旅遊保險承保您的活動，由夏日海灘散步到笨豬跳、水肺潛水、冬季運動等, 點玩都一樣放心。</p>
+        <p class="details-text">放膽玩，盡情跳！富衛旅遊保險承保您的活動，由夏日海灘散步到笨豬跳、水肺潛水、冬季運動等, 點玩都一樣放心。</p>
         <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
     </div>
     <div class="clearfix"></div>
@@ -380,7 +380,7 @@
     <div class="col-md-6 col-lg-6">
       <div>
         <h2>想去邊、幾時去，由您話事 </h2>
-        <p class="h4-3">從香港到泰國、英國、瓦努阿圖或其他地方，富衛旅遊保險為未滿85歲投保人仕提供全球保障！</p>
+        <p class="details-text">從香港到泰國、英國、瓦努阿圖或其他地方，富衛旅遊保險為未滿85歲投保人仕提供全球保障！</p>
         <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
     </div>
     <div class="col-md-6 col-lg-6 text-center">  <img src="resources/images/home2.png" alt=""  /> </div>
@@ -390,7 +390,7 @@
     <div class="col-md-6 col-lg-6">
       <div>
         <h2>最佳支援，為您隨時候命</h2>
-        <p class="h4-3">若有不時之需，得到適切支援至為重要！富衛旅遊保險與全球領先的醫療、救援和安全服務公司國際SOS合作，在全球700多個地點提供24小時服務，確保您有需要時，我們都可以隨時為您解決燃眉之急。</p>
+        <p class="details-text">若有不時之需，得到適切支援至為重要！富衛旅遊保險與全球領先的醫療、救援和安全服務公司國際SOS合作，在全球700多個地點提供24小時服務，確保您有需要時，我們都可以隨時為您解決燃眉之急。</p>
         <a href="#" class="h4-4 scrollToTop">了解更多</a> </div>
     </div>
     <div class="clearfix"></div>
@@ -402,12 +402,12 @@
 </div>
 
 <!--mob Features-->
-<div class="row mob-features hidden-lg hidden-md">
+<div class="mob-features hidden-lg hidden-md">
   <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home1.png" alt=""  /> </div>
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3">敢想敢做，無牽無掛</h2>
-      <p class="h4-3">放膽玩，開心跳！OR有膽無膽，話跳就跳！OR想做就做，話跳就跳！OR想玩就玩，開心到彈起！富衛旅遊保險承保任何活動，由夏日海灘散步到冬季運動、笨豬跳、登山、攀岩、騎馬、乘坐熱氣球，點玩都一樣放心。詳情</p>
+      <p class="details-text">放膽玩，開心跳！OR有膽無膽，話跳就跳！OR想做就做，話跳就跳！OR想玩就玩，開心到彈起！富衛旅遊保險承保任何活動，由夏日海灘散步到冬季運動、笨豬跳、登山、攀岩、騎馬、乘坐熱氣球，點玩都一樣放心。詳情</p>
       <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
   </div>
   <div class="clearfix"></div>
@@ -416,7 +416,7 @@
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3">想去邊、幾時去，由您話事</h2>
-      <p class="h4-3">從香港到泰國、英國、留尼旺島或其他地方，富衛旅遊保險為未滿85歲投保人仕提供全球保障！</p>
+      <p class="details-text">從香港到泰國、英國、留尼旺島或其他地方，富衛旅遊保險為未滿85歲投保人仕提供全球保障！</p>
       <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
   </div>
   <div class="clearfix"></div>
@@ -425,7 +425,7 @@
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3">最佳支援，為您隨時候命</h2>
-      <p class="h4-3">若有不時之需，得到適切支援至為重要！富衛旅遊保險與全球領先的醫療、救援和安全服務公司國際SOS合作，在全球700多個地點提供24小時服務，確保您有需要時，我們都可以隨時為您解決燃眉之急。</p>
+      <p class="details-text">若有不時之需，得到適切支援至為重要！富衛旅遊保險與全球領先的醫療、救援和安全服務公司國際SOS合作，在全球700多個地點提供24小時服務，確保您有需要時，我們都可以隨時為您解決燃眉之急。</p>
       <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
   </div>
   <div class="clearfix"></div>
@@ -552,7 +552,7 @@
       <div class="center">
         <h2>顧客親身體驗</h2>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 pad-none">
+      <div class="col-lg-5 col-md-5 pad-none pull-left">
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
@@ -563,7 +563,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 pad-none">
+      <div class="col-lg-5 col-md-5 pad-none pull-right">
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
@@ -575,8 +575,9 @@
         </div>
       </div>
       <br>
-      <P class="padding2 p1"><br>
-       以上意見及觀點純屬客戶意見，並不代表富衛人壽保險（百慕達）有限公司或其下公司（“富衛”）之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。 </P>
+      <div class="clearfix"></div>
+      <p class="pad-none p1"><br>
+       以上意見及觀點純屬客戶意見，並不代表富衛人壽保險（百慕達）有限公司或其下公司（“富衛”）之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。 </p>
     </div>
     <!--/.row--> 
     <!--/.desktop-testimonials--> 
@@ -598,7 +599,7 @@
         <div class="container">
           <div class="row slide-margin">
             <div class="testimonials-wrap text-center">
-              <div class="testimonials-inner text-center">
+              <div class="testimonials-inner travel-testimonial text-center">
                 <blockquote class="testimonial"></blockquote>
                 <p>我選擇FWD旅遊保險因為佢地24小時都有人聽電話，最緊要係放工時間和身處外國都可以搵到人。</p>
                 <div class="hr1"></div>
@@ -614,7 +615,7 @@
         <div class="container">
           <div class="row slide-margin">
             <div class="testimonials-wrap text-center">
-              <div class="testimonials-inner text-center">
+              <div class="testimonials-inner travel-testimonial text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
                 <p>我是一個背包客。富衛旅遊保及國際SOS緊急救援電話是我每次流浪時隨身必備的幫手 – 因為你永遠無法想像會在亞馬遜叢林遇上甚麼驚喜。</p>
                 <div class="hr1"></div>
@@ -640,24 +641,24 @@
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <img class="bdr-img" src="resources/images/home4.png" alt="">
-            <h3> <a href="http://blog.fwd.com.hk/" target="_blank"> 放長假前必做六件事  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"> 放長假前必做六件事  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <img class="bdr-img" src="resources/images/home5.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/" target="_blank"> 外出旅遊，連繫無間  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="resources/images/home5.png" alt=""></a>
+            <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"> 外出旅遊，連繫無間  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <img class="bdr-img" src="resources/images/home6.png" alt="">
-            <h3> <a href="http://blog.fwd.com.hk/" target="_blank">親子旅行小貼士  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children-2/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children-2/" target="_blank">親子旅行小貼士  <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>
