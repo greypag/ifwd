@@ -1,4 +1,4 @@
-//var reg = /^[a-zA-Z]+$/;
+﻿//var reg = /^[a-zA-Z]+$/;
 var emailreg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^\d{8}$/;
@@ -11,6 +11,7 @@ var password_pattern =/^[a-zA-Z0-9]{8,}$/;
 var reg = /^[a-zA-Z0-9!”$@%&’()*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
 
 /* datepicker script*/
+
 
 
 

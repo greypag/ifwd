@@ -364,7 +364,7 @@ href="flight">Flight Insurance</a></li>
 <!--End Mobile header-->
 <!--/header-->
  <body>
-    <div class="annexure-form " >
+   <!-- <div class="annexure-form " >
       <div class="annexure-form-header">
         ERROR 
       </div>
@@ -399,7 +399,30 @@ href="flight">Flight Insurance</a></li>
             <BR>
      <div class="clearfix">
         </div><div class="clearfix">
-        </div>
+        </div> -->
+        
+        
+       <div class="container annexure-form error-page " >
+    	<div class="col-xs-12">
+    		<h2 class="annexure-form-header">ERROR</h2>
+		    <div class="company form-regisration error">
+				<h3>ERROR No. 500</h3>
+				<p>The following error was encountered:</p>
+				<p>
+					<strong>500 - Internal Server Error</strong>
+				</p>
+				<p>The 500 Internal Server Error is a very general HTTP status code</p>
+				<p>meaning something went wrong on the web site's server </p>
+				<p>but the server could not be more specific on what the exact problem was.</p>
+				
+			</div>
+			<div class="row">
+	            <div class="col-xs-12 col-sm-12 col-md-4">
+					<a href="#" onclick="goBack();" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+	            </div>
+            </div>
+		</div>
+	</div>
   </body>
 <footer id="footer" class="midnight-blue hidden-sm hidden-xs">
 <div class="container">

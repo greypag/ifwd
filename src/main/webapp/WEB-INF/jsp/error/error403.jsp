@@ -32,7 +32,7 @@ pageEncoding="ISO-8859-1"%>
     </head>
     
     <body>
-      <div class="annexure-form " >
+      <!-- <div class="annexure-form " >
         <div class="annexure-form-header">
           ERROR 
           <img src="resources/images/ErrorInfoIcon.png" class="pull-right icon" alt="">
@@ -69,7 +69,25 @@ pageEncoding="ISO-8859-1"%>
               </div>
           </div>
         </div>
-      </div>
+      </div> -->
+      <div class="container annexure-form error-page " >
+    	<div class="col-xs-12">
+    		<h2 class="annexure-form-header">ERROR</h2>
+		    <div class="company form-regisration error">
+				<h3>ERROR No. 403</h3>
+				<p>The following error was encountered:</p>
+				<p>
+					<strong>403 - Forbidden</strong>
+				</p>
+				<p>The 403 Forbidden HTTP status code means that accessing the page or resource you were trying to reach is absolutely forbidden.</p>
+			</div>
+			<div class="row">
+	            <div class="col-xs-12 col-sm-12 col-md-4">
+					<a href="#" onclick="goBack();" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+	            </div>
+            </div>
+		</div>
+	</div>
         <script>
     function goBack(){
     	window.history.back();

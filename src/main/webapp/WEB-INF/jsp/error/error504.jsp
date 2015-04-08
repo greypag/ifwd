@@ -35,7 +35,7 @@ pageEncoding="ISO-8859-1"%>
   </head>
   
   <body>
-    <div class="annexure-form " >
+    <!-- <div class="annexure-form " >
       <div class="annexure-form-header">
         ERROR 
         <img src="resources/images/ErrorInfoIcon.png" class="pull-right icon" alt="">
@@ -78,7 +78,29 @@ pageEncoding="ISO-8859-1"%>
             </div>
         </div>
       </div>
-    </div>
+    </div> -->
+    
+    <div class="container annexure-form error-page " >
+    	<div class="col-xs-12">
+    		<h2 class="annexure-form-header">ERROR</h2>
+		    <div class="company form-regisration error">
+				<h3>ERROR No. 504</h3>
+				<p>The following error was encountered:</p>
+				<p>
+					<strong>504 - Gateway Timeout</strong>
+				</p>
+				<p>The 504 Gateway Timeout HTTP status code means that one server</p>
+				<p>did not receive a timely response from another server</p>
+				<p>that it was accessing while attempting to load the web page</p>
+				<p>or fill another request by the browser.</p>
+			</div>
+			<div class="row">
+	            <div class="col-xs-12 col-sm-12 col-md-4">
+					<a href="#" onclick="goBack();" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+	            </div>
+            </div>
+		</div>
+	</div>
       <script>
     function goBack(){
     	window.history.back();
