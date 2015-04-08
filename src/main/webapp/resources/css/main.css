@@ -5628,3 +5628,8 @@ div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenif
 .marg2010{
 	  margin: 20px 0 10px;
 }
+.declaration-head{
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}

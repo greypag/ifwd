@@ -153,7 +153,7 @@
 										<tr>
 											<td><label for="txtEmailId"
 												class="join-us-label"> Email Address<br> <small>(Insurance
-												certificate will be sent to this email address)</small>
+												certificate will<br> be sent to this email address)</small>
 											</label></td>
 											<td><input type="email"
 												name="EmailAddress" class="form-control"
@@ -245,7 +245,7 @@
 						benefits.</h4>
 					</div>
 					<div class="clearfix"></div>
-					<h4 class="h4-2 padding4 ">Declaration</h4>
+					<h4 class="h4-2 padding4 declaration-head">Declaration</h4>
 					<br>
 					<div class="declaration-content ">
 						<div class="checkbox">

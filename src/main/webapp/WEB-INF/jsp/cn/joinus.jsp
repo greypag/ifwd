@@ -220,7 +220,7 @@
 					</div>
 
 					<div class="clearfix"></div>
-					<h4 class="h4-2 padding3">聲明</h4>
+					<h4 class="h4-2 padding3 declaration-head">聲明</h4>
 					<br>
 					<div class="declaration-content">
 						<div class="checkbox">
