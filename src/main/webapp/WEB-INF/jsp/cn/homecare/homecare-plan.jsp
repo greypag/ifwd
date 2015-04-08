@@ -205,20 +205,13 @@
 				
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
-						<h2 class="h2-3-choose hidden-sm hidden-xs">Choose a plan</h2>
+						<h2 class="h2-3-choose hidden-sm hidden-xs">選擇計劃</h2>
 
-						<div class="col-lg-12 col-md-12 home-plan-box3">
+						<div class="col-lg-12 col-md-12 plan-box4">
 							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pad-none">
-								<h2>${planQuote.getPlanCode() }<br>保
+								<h2>${planQuote.getPlanCode() }<br>家居保險
 								</h2>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<br>
-									<div class="h4">
-										HK$ <br>
-										<div class="flightcare-hk">
-											${planQuote.getGrossPremium()}</div>
-									</div>
-								</div>
+								
 								<!-- Plan benefits -->
 								<div class="fwdpanel">
 									<div class="fwdpanel-heading">
@@ -248,7 +241,7 @@
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 								<br>
 								<h3>港幣</h3>
-								<h6>360元正</h6>
+								<h6><span id="grossPremium">${planQuote.getGrossPremium()}</span></h6>
 							</div>
 							<div class="clearfix"></div>
 

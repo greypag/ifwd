@@ -238,7 +238,7 @@
 						</h2>
 
 
-						<div class="plan-box">
+						<div class="col-lg-12 col-md-12 plan-box4">
 							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
 								<h2>${planQuote.getPlanCode() }
 									<br> Insurance

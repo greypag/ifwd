@@ -4,7 +4,20 @@ var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^\d{8}$/;
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+
 var getBundleLanguage = "";
+var lang = UILANGUAGE;
+
+if(lang === "EN"){
+	getBundleLanguage = "";
+}else 
+if(lang === "CN"){
+	getBundleLanguage = "zh-HK";
+} 
+else{
+	getBundleLanguage = "";
+}
+
 var chin = false;
 /* datepicker script*/
 
@@ -732,17 +745,22 @@ $(function () {
 		});
 		
 		
-		
+		// Set the default values of Benefeciary to Self
 		$('input[id^="childselectBenificiary"],input[id^="adultsselectBenificiary"],input[id^="otherSelectBenificiary"] ').each(function( index ) {
 			  $(this).val('SE');
 		});
+		
+		// Set the default values of the Age for child and adults
+		
+		
+		
 		
 		// Adult Beneficiary Validation for the next 2 actions
 		
 		$( "input[id^='adultBenefitiaryId']" ).on( "change blur", function() {
 			  var errNo = $(this).attr('id').split("adultBenefitiaryId").pop(); 
 			  var fullname = $(this).val();
-				if (fullname.trim() == "") {
+				if (fullname.trim() == "" && $(this).parent().parent().hasClass('hide') == false) {
 					$("#erradultBenefitiaryId"+errNo).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));//"Please enter your Name in English.";
 					return false;
 				}
@@ -768,49 +786,82 @@ $(function () {
 		
 		// Child Beneficiary Validation for the next 2 actions
 		
-		$( "input[id^='adultBenefitiaryId']" ).on( "change blur", function() {
-			  var errNo = $(this).attr('id').split("adultBenefitiaryId").pop(); 
+		$( "input[id^='childBenefitiaryName']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("childBenefitiaryName").pop(); 
 			  var fullname = $(this).val();
 				if (fullname.trim() == "") {
-					$("#erradultBenefitiaryId"+errNo).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));//"Please enter your Name in English.";
+					$("#errchildBenefitiaryName"+errNo).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));//"Please enter your Name in English.";
 					return false;
 				}
-				$("#erradultBenefitiaryId"+errNo).html('');
+				$("#errchildBenefitiaryName"+errNo).html('');
 		});
-		$( "input[id^='adultBenefitiaryHKId']" ).on( "change blur", function() {
-			  var errNo = $(this).attr('id').split("adultBenefitiaryHKId").pop(); 
+		$( "input[id^='txtchildInsuHkid']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("txtchildInsuHkid").pop(); 
 				
 				var appHkid = $(this).val();
 				
 				if (appHkid.trim() == "") {
-					$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));//"Please enter your Name in English.";
+					$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));//"Please enter your Name in English.";
 					return false;
 				}
 				var tr=IsHKID(appHkid.trim());
 				if(tr==false)
 				{
-					$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
 					return false;
 				}
-				$("#erradultBenefitiaryHKId"+errNo).html('');
+				$("#errtxtchildInsuHkid"+errNo).html('');
 		});
 		
+		// Others Beneficiary Validation for the next 2 actions
+		
+		$( "input[id^='otherBenefitiaryName']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("otherBenefitiaryName").pop(); 
+			  var fullname = $(this).val();
+				if (fullname.trim() == "") {
+					$("#errotherBenefitiaryName"+errNo).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));//"Please enter your Name in English.";
+					return false;
+				}
+				$("#errotherBenefitiaryName"+errNo).html('');
+		});
+		$( "input[id^='txtOtherBenInsuHkid']" ).on( "change blur", function() {
+			  var errNo = $(this).attr('id').split("txtOtherBenInsuHkid").pop(); 
+				
+				var appHkid = $(this).val();
+				
+				if (appHkid.trim() == "") {
+					$("#errtxtOtherBenInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));//"Please enter your Name in English.";
+					return false;
+				}
+				var tr=IsHKID(appHkid.trim());
+				if(tr==false)
+				{
+					$("#errtxtOtherBenInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					return false;
+				}
+				$("#errtxtOtherBenInsuHkid"+errNo).html('');
+		});	
+	
+	
+	
+		$('input[id^="selectOtherAgeRange"],input[id^="selectAgeRange"]').each(function( index ) {
+			  $(this).val('2');
+		});
+		$('input[id^="selectchildAgeRange"]').each(function( index ) {
+			  $(this).val('1');
+		});
+		
+		/*if($('#selectAgeRange1').length > 0){
+			$('#selectAgeRange1').val('2');
+			//$('#selectAgeRange1').parent
+		}
+		
+		
+		if($('#selectchildAgeRange1').length > 0){
+			$('#selectchildAgeRange1').val('1');
+		}*/
 		
 	}
-	
-	
-	
-	
-	if($('#selectAgeRange1').length > 0){
-		$('#selectAgeRange1').val('2');
-		//$('#selectAgeRange1').parent
-	}
-	
-	
-	if($('#selectchildAgeRange1').length > 0){
-		$('#selectchildAgeRange1').val('1');
-	}
-	
 	
 });
 
@@ -1048,7 +1099,7 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "Please enter Name";
+			document.getElementById("errtxtOtherFullName" + i).innerHTML = "請輸入全名（i）和請輸入英文";
 			flag = false;
 		}else{
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "";
@@ -1136,7 +1187,7 @@ function tPlanValid()
 		flag = false;
 	}
 	if (document.getElementById("checkbox2").checked == false) {
-		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
+		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");;//"Please read and accept the Personal Information Collection Statement before submitting the application";
 		flag = false;
 	}
 
@@ -2494,17 +2545,7 @@ function IsNumeric(input){
 }*/
 
 
-	var lang = UILANGUAGE;
-	
-	if(lang === "EN"){
-		getBundleLanguage = "";
-	}else 
-	if(lang === "CN"){
-		getBundleLanguage = "zh-HK";
-	} 
-	else{
-		getBundleLanguage = "";
-	}
+
 
 
 //validation
