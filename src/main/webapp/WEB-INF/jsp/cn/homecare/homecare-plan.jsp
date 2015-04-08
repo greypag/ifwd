@@ -201,6 +201,8 @@
 					</div>
 				</div>
 				<br> <br> <br>
+				
+				
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">Choose a plan</h2>
@@ -524,9 +526,10 @@
 						</h4>
 						<!--Full coverage end -->
 					</div>
+					
 					<div
 						class="col-lg-5 col-md-5 col-sm-5 col-xs-5 gray-bg pad-none hidden-sm hidden-xs">
-						<form:form name="frmTravelPlan" id="frmTravelPlan"
+						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 							action="getYourHomeCareDetails" method="post"
 							modelAttribute="getYoursDetails">
 							<div class="wd2">
@@ -609,7 +612,7 @@
 							<div class="clearfix"></div>
 							<br>
 							<br>
-						</form:form>
+						
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -648,6 +651,24 @@
 		</div>
 
 	</div>
+	
+	<!-- fix 下一頁  button for Moible -->
+			<div class="row-fluid hidden-lg hidden-md text-center">
+			<div class="">
+			
+				<button type="submit"
+					class="btn-box bdr-curve btn btn-primary nxt-btn">
+					<h3 class="text-center marg-t">下一頁</h3>
+				</button>
+			<!-- 		
+				<button class="bdr-curve btn btn-primary nxt-btn"
+									onclick="return pageValidate();">下一頁</button>
+									-->
+				
+			</div>
+			
+			</form:form>
+	<!-- fix 下一頁  button for Moible -->
 
 	<div class="row-fluid hidden-lg hidden-md text-center">
 		<div class="btn-box">
