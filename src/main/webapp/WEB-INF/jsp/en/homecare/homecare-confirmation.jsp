@@ -300,8 +300,7 @@
 									<div>
 										<div class="h2-32">TravelCare</div>
 										<p class="h4-5">Embark on an adventure abroad with a comprehensive travel protection companion</p>
-										<a href="index.html"
-											class="border-radius btn btn-primary  get-btn">Get Quote</a>
+										<a href="/FWDHKPH1A/indexPage" class="border-radius btn btn-primary get-btn">Get Quote</a>
 									</div>
 								</div>
 

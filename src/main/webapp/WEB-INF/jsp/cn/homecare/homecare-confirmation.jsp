@@ -248,7 +248,7 @@ window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.
 
  interdum tellus.
 </p>
-       <a href="index-cn.html" class="border-radius btn btn-primary  get-btn" >立即報價</a>
+       <a href="/FWDHKPH1A/indexPage" class="border-radius btn btn-primary get-btn" >立即報價</a>
             </div>
         </div>
             

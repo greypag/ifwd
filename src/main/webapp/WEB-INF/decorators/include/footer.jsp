@@ -11,7 +11,7 @@
           <li><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></li>
         </ul>
       </div>
-      <div class="col-sm-5 pull-right">
+      <div class="col-sm-5  col-lg-4 pull-right">
         <div class="social">
           <ul class="social-share pull-left text-right">
             <li><a href="https://www.facebook.com/FWD.HK.MO"  target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -40,11 +40,11 @@
           <li><a href="http://www.fwd.com.hk/en-US/home/pdo.html" target="_blank">Personal Data Protection Policy and Practices</a></li>
         </ul>
       </div>
-	  <!-- issue 50 - vincent (pccw)
+	  <!-- issue 50 - vincent (pccw) -->
       <div class="col-sm-5 pull-right text-right">
         <p> &copy; 2015 FWD Hong Kong. All rights reserved.</p>
       </div>
-	  -->
+	 
     </div>
   </div>
 </div>
