@@ -376,7 +376,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2>零保費，全面安心</h2>
-            <p class="h4-3">假如您在航程中不幸意外身亡，我們將為您的摯親免費提供港幣$500,000體恤金。能夠讓家人有此穩靠保障，四圍飛都無後顧之憂。</p>
+            <p class="details-text">假如您在航程中不幸意外身亡，我們將為您的摯親免費提供港幣$500,000體恤金。能夠讓家人有此穩靠保障，四圍飛都無後顧之憂。</p>
 
 
 
@@ -387,7 +387,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2>一、二、飛！就係咁簡單！</h2>
-            <p class="h4-3">投保申請非常簡單，您只需要通知我們幾時出發就大功告成。而且富衛深信旅遊要即興才好玩，所以就算去到登機前一刻先申請都無問題！</p>
+            <p class="details-text">投保申請非常簡單，您只需要通知我們幾時出發就大功告成。而且富衛深信旅遊要即興才好玩，所以就算去到登機前一刻先申請都無問題！</p>
 
 
 
@@ -400,7 +400,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2>瞬間提升保險組合</h2>
-            <p class="h4-3">富衛的航空意外保與您現有的任何旅遊保險計劃都同樣匹配！不論您已購買旅遊保險與否，亦可免費申請從而獲得額外保障！</p>
+            <p class="details-text">富衛的航空意外保與您現有的任何旅遊保險計劃都同樣匹配！不論您已購買旅遊保險與否，亦可免費申請從而獲得額外保障！</p>
 
 
             <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
@@ -448,7 +448,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">零保費，全面安心</h2>
-          <p class="h4-3">假如您在航程中不幸意外身亡，我們將為您的摯親免費提供港幣$500,000體恤金。能夠讓家人有此穩靠保障，四圍飛都無後顧之憂。</p>
+          <p class="details-text">假如您在航程中不幸意外身亡，我們將為您的摯親免費提供港幣$500,000體恤金。能夠讓家人有此穩靠保障，四圍飛都無後顧之憂。</p>
 
 
           <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
@@ -459,7 +459,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">一、二、飛！就係咁簡單！</h2>
-          <p class="h4-3">投保申請非常簡單，您只需要通知我們幾時出發就大功告成。而且富衛深信旅遊要即興才好玩，所以就算去到登機前一刻先申請都無問題！</p>
+          <p class="details-text">投保申請非常簡單，您只需要通知我們幾時出發就大功告成。而且富衛深信旅遊要即興才好玩，所以就算去到登機前一刻先申請都無問題！</p>
 
 
           <a href="" class="h4-4 scrollToTop">了解更多</a> </div>
@@ -470,7 +470,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">瞬間提升保險組合</h2>
-          <p class="h4-3">富衛的航空意外保與您現有的任何旅遊保險計劃都同樣匹配！不論您已購買旅遊保險與否，亦可免費申請從而獲得額外保障！</p>
+          <p class="details-text">富衛的航空意外保與您現有的任何旅遊保險計劃都同樣匹配！不論您已購買旅遊保險與否，亦可免費申請從而獲得額外保障！</p>
 
 
           <a href="" class="h4-4 scrollToTop">了解更多</a> </div>

@@ -387,7 +387,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col-md-6 col-lg-6 pad-none">
           <div class="content">
             <h2>Extra Peace of Mind for FREE</h2>
-            <p class="h4-3">We're offering to boost your loved ones' support in the event of accidental death whilst you’re in the air with free HK$500,000 coverage. With this in your armoury you can relax knowing the financial support is there.</p>
+            <p class="details-text">We're offering to boost your loved ones' support in the event of accidental death whilst you’re in the air with free HK$500,000 coverage. With this in your armoury you can relax knowing the financial support is there.</p>
             <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
         </div>
         <div class="clearfix"></div>
@@ -395,7 +395,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col-md-6 col-lg-6 pad-none">
           <div class="content">
             <h2>As Simple As 1, 2, Fly!</h2>
-            <p class="h4-3">Our application is quick & easy. Just tell us when you’re travelling and you’re done! If you’re the spontaneous kind, you can even apply just before boarding!</p>
+            <p class="details-text">Our application is quick & easy. Just tell us when you’re travelling and you’re done! If you’re the spontaneous kind, you can even apply just before boarding!</p>
             <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
         </div>
         <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
@@ -405,7 +405,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2>Make It A Combo In A Snap</h2>
-            <p class="h4-3">FWD FlightCare fits well with any travel insurance plan you might already have, and if you don’t, a top-up to a comprehensive TravelCare is just one click away!</p>
+            <p class="details-text">FWD FlightCare fits well with any travel insurance plan you might already have, and if you don’t, a top-up to a comprehensive TravelCare is just one click away!</p>
             <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
         </div>
         <div class="clearfix"></div>
@@ -444,7 +444,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">Extra Peace of Mind for FREE</h2>
-          <p class="h4-3">We're offering to boost your loved ones' support in the event of accidental death whilst you’re in the air with free HK$500,000 coverage. With this in your armoury you can relax knowing the financial support is there. </p>
+          <p class="details-text">We're offering to boost your loved ones' support in the event of accidental death whilst you’re in the air with free HK$500,000 coverage. With this in your armoury you can relax knowing the financial support is there. </p>
           <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
       </div>
       <div class="clearfix"></div>
@@ -453,7 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">As Simple As 1, 2, Fly!</h2>
-          <p class="h4-3">Our application is as quick as finishing a couple of biscuits. Just tell us when you’re travelling and you’re done! If you’re the spontaneous kind, you can even apply just before boarding!</p>
+          <p class="details-text">Our application is as quick as finishing a couple of biscuits. Just tell us when you’re travelling and you’re done! If you’re the spontaneous kind, you can even apply just before boarding!</p>
           <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
       </div>
       <div class="clearfix"></div>
@@ -462,7 +462,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3">Make It A Combo In A Snap</h2>
-          <p class="h4-3">Our Free Flight policy fits well with any travel insurance plan you might already have, and if you don’t, a top-up to TravelCare is just one click away!</p>
+          <p class="details-text">Our Free Flight policy fits well with any travel insurance plan you might already have, and if you don’t, a top-up to TravelCare is just one click away!</p>
           <a href="" class="h4-4 scrollToTop">Get a quote to learn more</a> </div>
       </div>
       <div class="clearfix"></div>

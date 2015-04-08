@@ -5601,3 +5601,9 @@ table.registration td .control-label{
 .slide-form h2{
 	margin: 0 !important;
 }
+.home-features .details-text{
+	  font-size: 27px;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #061d2a;
+}
