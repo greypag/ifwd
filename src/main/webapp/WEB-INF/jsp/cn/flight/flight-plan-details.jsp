@@ -592,7 +592,7 @@
 									
 								</label>
 							</div>
-							<span id="chk2" class="text-red"> </span>
+							<span id="chk1" class="text-red"> </span>
 							<br />	
 							<div class="checkbox">
 								<input id="checkbox2" type="checkbox"> <label for="checkbox2">		

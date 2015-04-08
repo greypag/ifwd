@@ -764,7 +764,8 @@ function fcPlanValid()
 //	    document.getElementById("mobileNo").style.display = "none";
 //	    document.getElementById("emailid").style.display = "none";
 //	    
-	    document.getElementById("chk1").style.display = "none";
+	    
+	    $('#chk1').html('');
 	    $('#chk2').html('');
 //	    document.getElementById("mobileNo").style.display = "none"; 
 	   
