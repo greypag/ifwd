@@ -75,7 +75,7 @@
 							<li><a href="joinus">加入我們</a></li>
 							<li> | </li>
 							<li><a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a></li>
-							<li><a id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a></li>
+							
 
 							<%
 								if (session.getAttribute("authenticate") == null ) {
@@ -262,7 +262,8 @@
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
 		<span class="callus top-number"> &nbsp&nbsp&nbsp&nbsp 24小時熱線 3123 3123  </span> <a href="#"
-			onClick="zopim_chat_start()"><span class="chat pull-right">即時對話</span></a> <a href="#" class="lang pull-right">中文</a>
+			onClick="zopim_chat_start()"><span class="chat pull-right">即時對話</span></a> 
+			<a class="lang pull-right" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">

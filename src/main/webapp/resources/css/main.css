@@ -5607,3 +5607,6 @@ table.registration td .control-label{
   line-height: 1.2;
   color: #061d2a;
 }
+.h4-6 + .h4-6{
+	margin-top: 10px;
+}

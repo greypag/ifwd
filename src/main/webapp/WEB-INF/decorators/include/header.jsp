@@ -93,8 +93,7 @@
 							<li> | </li>
 							<li><a href="joinus">JOIN US</a></li>
 							<li> | </li>
-							<li><!-- <button id="anchor-lang" onclick="changeLang();">中文</button> -->
-							<a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a></li>
+							
 							<li><a id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a></li>
 							<%
 								if (session.getAttribute("authenticate") == null ) {
