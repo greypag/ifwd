@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +30,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreatePolicy;
-import com.ifwd.fwdhk.model.PlanDetails;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
@@ -67,14 +67,18 @@ public class TravelController {
 
 		// default
 		if (travelQuote.getPlanSelected() == null
-				|| travelQuote.getPlanSelected().isEmpty())
+				|| travelQuote.getPlanSelected().isEmpty()) {
 			travelQuote.setPlanSelected("personal");
-		if (travelQuote.getTotalPersonalTraveller() == 0)
+		}
+		if (travelQuote.getTotalPersonalTraveller() == 0) {
 			travelQuote.setTotalPersonalTraveller(1);
-		if (travelQuote.getTotalAdultTraveller() == 0)
+		}
+		if (travelQuote.getTotalAdultTraveller() == 0) {
 			travelQuote.setTotalAdultTraveller(1);
-		if (travelQuote.getTotalChildTraveller() == 0)
+		}
+		if (travelQuote.getTotalChildTraveller() == 0) {
 			travelQuote.setTotalChildTraveller(1);
+		}
 
 		model.addAttribute("travelQuote", travelQuote);
 
@@ -229,10 +233,11 @@ public class TravelController {
 				adultCount = travelQuote.getTotalAdultTraveller();
 				otherCount = travelQuote.getTotalOtherTraveller();
 				selfCover = true;
-				if (adultCount > 1)
+				if (adultCount > 1) {
 					spouseCover = true;
-				else
+				} else {
 					spouseCover = false;
+				}
 			}
 
 			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
@@ -399,10 +404,11 @@ public class TravelController {
 			System.out.println("Response Get Travel Quotes API "
 					+ responseJsonObj);
 			if (responseJsonObj.toJSONString().contains(
-					"Promotion code is not valid"))
+					"Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
-			else
+			} else {
 				session.setAttribute("referralCode", referralCode);
+			}
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 
@@ -592,6 +598,12 @@ public class TravelController {
 			e.printStackTrace();
 
 		}
+
+		Map<String,String> mapHkId = new TreeMap<>();
+		mapHkId.put("HKID", "HKID");
+		mapHkId.put("passport", "Passport");;		
+		model.addAttribute("mapHkId", mapHkId);
+		
 		// return UserRestURIConstants.checkLangSetPage(request)
 		// + "travel/travel-plan-details";
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
@@ -738,7 +750,7 @@ public class TravelController {
 
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode",
-				(String) session.getAttribute("planSelected"));
+				session.getAttribute("planSelected"));
 
 		// parameters.put("planCode", planDetailsForm.getPlanCode());
 
@@ -766,10 +778,11 @@ public class TravelController {
 			/* adult.put("passport", "1234" + inx); */
 			/* adult.put("passport", ""); */
 			if (inx != 0) {// For other travelers skip first one
-				if (planDetailsForm.getPlanSelected().equals("personal"))
+				if (planDetailsForm.getPlanSelected().equals("personal")) {
 					adult.put("relationship", "FE");
-				else
+				} else {
 					adult.put("relationship", "SP");
+				}
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
 							.isEmpty()) {// If have beneficiary

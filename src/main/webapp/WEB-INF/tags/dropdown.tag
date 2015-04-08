@@ -8,9 +8,18 @@
 <%@ attribute name="selectables" type="java.util.Map" %>
 <%@ attribute name="valueElmId" type="java.lang.String" %>
 <%@ attribute name="valueElmName" type="java.lang.String" %>
+<%@ attribute name="defaultWithFirst" type="java.lang.Boolean" %>
+<%@ attribute name="containerCss" type="java.lang.String" %>
 
+<c:set var="defaultWithFirst" value="${(defaultFromFirstSelectable == null) ? false : defaultFromFirstSelectable}" />
+<c:if test="${defaultWithFirst}">
+	<c:set var="firstEntry" value="${selectables.entrySet().iterator().next()}" />
+	<c:set var="defaultLabel" value="${firstEntry.value}" />
+	<c:set var="defaultValue" value="${firstEntry.key}" />
+</c:if>
 <c:set var="dropDownElm" value="select-${valueElmId}" />
-<div class="dropdown drop-down simulate-drop-down">
+<div class="dropdown drop-down simulate-drop-down ${containerCss}">
+
 	<a href="#" id="${dropDownElm}"
 		class="dropdown-toggle col-lg-12 col-md-12"
 		data-toggle="dropdown"> 
@@ -18,14 +27,16 @@
 	</a>
 	
 	<ul class="dropdown-menu" role="menu" aria-labelledby="${dropDownElm}">
-		<li role="presentation">
-			<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setDropDownValue(this,'${defaultValue}');${onChange}">${defaultLabel}</a>
-		</li>													
+		<c:if test="${not defaultWithFirst}">
+			<li role="presentation">
+				<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setDropDownValue(this,'${defaultValue}');${onChange}">${defaultLabel}</a>
+			</li>
+		</c:if>
 		<c:forEach var="selectable" items="${selectables}">
 			<li role="presentation">
 			<a role="menuitem" tabindex="-1" href="javascript:void(0);" onClick="setDropDownValue(this,'${selectable.key}');${onChange}"><c:out value="${selectable.value}" /></a>
 			</li>
 		</c:forEach>
 	</ul>
-	<input type="hidden" id="${valueElmId}" name="${valueElmName}" role="value"/>
+	<input type="hidden" id="${valueElmId}" name="${valueElmName}" role="value" value="${defaultValue}"/>
 </div>
