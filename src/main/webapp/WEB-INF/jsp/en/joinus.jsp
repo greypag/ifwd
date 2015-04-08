@@ -114,7 +114,7 @@
 					style="display: none;">
 					<P id="error1">
 					</div>
-					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 border-right">
+					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 border-right margin-left">
 						<table class="table activation-form vert-middle padding4 registration">
 							<tbody>
 								<tr>
@@ -122,7 +122,7 @@
 										class="black-bold pad-none">Member Details</h3></td>
 									</tr>
 									<tr>
-										<td class="col-sm-4 col-xs-4"><label
+										<td class=""><label
 											for="txtFullName" class="join-us-label"> Full name<br>
 											<small>(as appears on HKID Card/Passport)</small>
 										</label></td>
@@ -136,7 +136,7 @@
 
 										</tr>
 										<tr>
-											<td class="col-sm-4 col-xs-4">
+											<td class="">
 											<label for="txtMobileNo"
 												 class="join-us-label">Mobile no</label></td>
 												<td ><input type="text" name="mobileNo"
@@ -165,7 +165,7 @@
 
 										</tr>
 										<tr>
-											<td class="col-sm-4 col-xs-4">
+											<td class="">
 											<label for="txtUserName"
 												class="join-us-label">Username</label> <a href="#"
 												class="pull-right tool-tip show-inline-xs"
