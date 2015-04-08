@@ -531,7 +531,7 @@ Myself
 									appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbo3" type="checkbox"> <label
+								<input id="checkbox3" type="checkbox"> <label
 									for="checkbox3"> Please do not send direct marketing
 									information to me. <br>
 								</label>
