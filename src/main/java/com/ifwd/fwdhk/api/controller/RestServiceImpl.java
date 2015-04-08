@@ -271,39 +271,15 @@ public class RestServiceImpl implements RestServiceDao {
 				session.setAttribute("token", responseJsonObj.get("token")
 						.toString());
 				session.setAttribute("username", "*DIRECTGI");
-
-				/*JSONObject customer = (JSONObject) responseJsonObj
-						.get("customer");*/
-				/*
-				 * session.setAttribute("emailAddress",
-				 * checkJsonObjNull(customer, "email"));
-				 */
-				/*session.setAttribute("referralCode",
-						checkJsonObjNull(customer, "referralCode"));*/
-
+				if (responseJsonObj.get("customer") == null)
+					session.setAttribute("myReferralCode", "FWD_GENERIC_PROMOCODE");
+				else
+					session.setAttribute("myReferralCode", responseJsonObj.get("referralCode").toString());
 				UserDetails userDetails = new UserDetails();
 				userDetails
 						.setToken(checkJsonObjNull(responseJsonObj, "token"));
-				/*
-				 * userDetails.setFullName(checkJsonObjNull(customer, "name"));
-				 * userDetails.setEmailAddress(checkJsonObjNull(customer,
-				 * "email"));
-				 */
-				/*
-				 * userDetails.setMobileNo(checkJsonObjNull(customer,
-				 * "contactNo"));
-				 */
 				userDetails.setUserName("*DIRECTGI");
-				/*userDetails.setReferralCode(checkJsonObjNull(customer,
-						"referralCode"));
-				userDetails.setReferralCodeUsedCount(checkJsonObjNull(customer,
-						"referralCodeUsedCount"));
-				userDetails.setReferralLink(checkJsonObjNull(customer,
-						"referralLink"));
-				userDetails.setGender(checkJsonObjNull(customer, "gender"));
-				userDetails.setDob(checkJsonObjNull(customer, "dob"));
-				userDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
-				userDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));*/
+
 				session.setAttribute("userDetails", userDetails);
 			}
 

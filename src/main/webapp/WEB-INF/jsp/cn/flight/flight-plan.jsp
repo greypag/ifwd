@@ -154,7 +154,11 @@
               <h3>同行人數</h3>
               <div class="form-group">
                 <!-- <input type="text" class="form-control placeholder-fl" value="2位成人, 1位子女" readonly> -->
-              <input type="text" class="form-control placeholder-fl" value="<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">父母 :${planDetails.getTotalAdultTraveller()} </c:if> <c:if test="${planDetails.getTotalChildTraveller() !=0 }">孩子 :${planDetails.getTotalChildTraveller()}</c:if> <c:if test="${planDetails.getTotalOtherTraveller() !=0}">其他 :${planDetails.getTotalOtherTraveller()}</c:if> <c:if test="${planDetails.getTravellerCount() !=0}">旅客  :${planDetails.getTravellerCount()}</c:if>" readonly> 
+              <input type="text" class="form-control placeholder-fl" value="
+              <c:if test="${planDetails.getTotalAdultTraveller() !=0 }">父母 :${planDetails.getTotalAdultTraveller()} </c:if> 
+              <c:if test="${planDetails.getTotalChildTraveller() !=0 }">孩子 :${planDetails.getTotalChildTraveller()}</c:if> 
+              <c:if test="${planDetails.getTotalOtherTraveller() !=0}">其他 :${planDetails.getTotalOtherTraveller()}</c:if> 
+              <c:if test="${planDetails.getTravellerCount() !=0}">旅客  :${planDetails.getTravellerCount()}</c:if>" readonly> 
                 
               </div>
               

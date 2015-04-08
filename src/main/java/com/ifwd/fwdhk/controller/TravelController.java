@@ -239,7 +239,29 @@ public class TravelController {
 					spouseCover = false;
 				}
 			}
-
+			
+//			if (travelQuote.getPlanSelected().equals("personal")) {
+//				selfCover = true;
+//				spouseCover = false;
+//				childCount = 0;
+//				otherCount = travelQuote.getTotalAdultTraveller();
+//				travelQuote.setTotalChildTraveller(0);
+//				travelQuote.setTotalAdultTraveller(0);
+//				travelQuote.setTotalOtherTraveller(otherCount - 1);
+//				
+//
+//			} else {
+//				travelQuote.setTotalPersonalTraveller(0);
+//				childCount = travelQuote.getTotalChildTraveller();
+//				adultCount = travelQuote.getTotalAdultTraveller();
+//				otherCount = travelQuote.getTotalOtherTraveller();
+//				selfCover = true;
+//				if (adultCount > 1)
+//					spouseCover = true;
+//				else
+//					spouseCover = false;
+//			}
+//			
 			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
 			travelQuoteCount.setSelfCover(selfCover);
 			travelQuoteCount.setSpouseCover(spouseCover);
@@ -946,9 +968,6 @@ public class TravelController {
 				JSONObject beneficiary = new JSONObject();
 				child.put("name", planDetailsForm.getChildName()[inx]);
 				child.put("ageRange", planDetailsForm.getChildAgeRange()[inx]);
-				/* child.put(hkId, planDetailsForm.getChildHKID()[inx]); */
-				/* child.put("passport", "5432" + inx); */
-				/* child.put(passId, ""); */
 				beneficiary.put(
 						hkId,
 						checkPasswortAndHkid(hkId,
@@ -961,8 +980,6 @@ public class TravelController {
 								planDetailsForm.getChildHKID()[inx]));
 				child.put("relationship", relationOfChildTraveller);
 
-				/* String strings = planDetailsForm.getAdultBeneficiary()[inx]; */
-				/* JSONObject beneficiary = new JSONObject(); */
 				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getChildBenificiaryFullName()[inx]
 							.isEmpty()) {// If have beneficiary
