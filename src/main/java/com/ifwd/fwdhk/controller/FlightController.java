@@ -391,6 +391,32 @@ public class FlightController {
 		}
 
 		String emailId = request.getParameter("emailAddress");
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String mobileNo = request.getParameter("mobileNo");
+        String fullName = request.getParameter("fullName");
+        JSONObject params = new JSONObject();
+        params.put("userName", userName);
+        params.put("mobile", mobileNo);
+        params.put("password", password);
+        params.put("email", emailId);
+        params.put("name", fullName);
+        System.out.println(params);
+        if (!StringHelper.isStringNullOrEmpty(userName)) {
+            JSONObject jsonResponse = restService.consumeApi(HttpMethod.PUT,
+                    UserRestURIConstants.USER_JOIN_US,
+                    COMMON_HEADERS, params);
+            if (jsonResponse.get("errMsgs") == null) {
+                System.out.println("CREATE USER SUCCESS");            
+            } else {
+                System.out.println("CREATE USER FAIL");
+            }
+        }
+        
+
+		
+		
+		
 		request.setAttribute("email", emailId);
 		DateApi dateApi = new DateApi();
 		JSONObject parameters = new JSONObject();
@@ -402,6 +428,9 @@ public class FlightController {
 		JSONArray insured = new JSONArray();
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
+            planDetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), (String)session.getAttribute("language")));
+            planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), (String)session.getAttribute("language")));
+            planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), (String)session.getAttribute("language")));
 
 			JSONObject beneficiary = new JSONObject();
 			JSONObject adult = new JSONObject();

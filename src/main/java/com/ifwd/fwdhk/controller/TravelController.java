@@ -316,6 +316,8 @@ public class TravelController {
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
 				session.setAttribute("quoteDetails", quoteDetails);
+				session.setAttribute("priceInfoA", jsonPriceInfoA);
+				session.setAttribute("priceInfoB", jsonPriceInfoB);
 			}
 			model.addAttribute("travelQuoteBean", travelQuote);
 
@@ -621,12 +623,29 @@ public class TravelController {
 		UserDetails userDetails = new UserDetails();
 		DateApi dateApi = new DateApi();
 
-		// String dueAmount =
-		// WebServiceUtils.getParameterValue("finalDueAmount",
-		// session, request);
-
-		// String userReferralCode = WebServiceUtils.getParameterValue(
-		// "referralCode", session, request);
+		String emailId = request.getParameter("emailAddress");
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String mobileNo = request.getParameter("mobileNo");
+        String fullName = request.getParameter("fullName");
+        JSONObject params = new JSONObject();
+        params.put("userName", userName);
+        params.put("mobile", mobileNo);
+        params.put("password", password);
+        params.put("email", emailId);
+        params.put("name", fullName);
+        System.out.println(params);
+        if (!StringHelper.isStringNullOrEmpty(userName)) {
+            JSONObject jsonResponse = restService.consumeApi(HttpMethod.PUT,
+                    UserRestURIConstants.USER_JOIN_US,
+                    COMMON_HEADERS, params);
+            if (jsonResponse.get("errMsgs") == null) {
+                System.out.println("CREATE USER SUCCESS");            
+            } else {
+                System.out.println("CREATE USER FAIL");
+            }
+        }
+		
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectedPlanName", session, request);
 		String dueAmount = "";
