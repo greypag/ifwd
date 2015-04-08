@@ -5588,3 +5588,7 @@ table.registration{
 	margin-bottom: 20px !important;
 	width: 100% !important;
 }
+table.registration td .control-label{
+	line-height: 1.2;
+	margin-left: 0;
+}
