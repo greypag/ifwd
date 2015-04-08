@@ -30,14 +30,17 @@
 							style="visibility: visible;">
 							<h2>個人資料</h2>
 						</div>
-						<br> <br>
+						<br> 
 						<div class="col-lg-12">
 							<div id="tr-wizard" class="shop-tracking-status">
 								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c1"></div>
+									<div class="order-status-timeline-new">
+								<!--
+										There can be n '.order-status-timeline-completion'
+										dots-inactive and dots-active color the dots -->
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle">
@@ -65,9 +68,7 @@
 						</div>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
+
 
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div
@@ -146,7 +147,7 @@
 									.getAttribute("authenticate").toString())) {
 						%>
 						<div class="gray-bg3-wid">
-							<table class="table plandetail-form margin-left-2"
+							<table class="table plandetail-form margin-left-2 vert-middle"
 								id="input-white">
 								<tbody>
 									<tr>
@@ -635,7 +636,7 @@
 	 <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn">上一頁 </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
-	<input type="submit" class="bdr-curve-none btn btn-primary nxt-btn " value=" 下一頁" />
+	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" 下一頁" />
 <!-- 	<a href="travel-summary-payment-cn.html" class="bdr-curve btn btn-primary nxt-btn" onclick="return travel_planValid();"> 下一頁</a>  -->
 </div>
 <div class="clearfix"></div>

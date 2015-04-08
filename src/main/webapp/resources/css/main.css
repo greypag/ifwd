@@ -3037,7 +3037,6 @@ h2.page-title {
 }
 .bdr2 {
 	border: #ccc 1px solid;
-	margin-top:80px;
 }
 
 .travelproductbox .plan-box2-inner:hover {
@@ -3737,6 +3736,14 @@ color:#fff !important;
 
 /********* Wizard css************/
 /********* Wizard css************/
+.shop-tracking-status{
+	margin-bottom: 30px;
+}
+@media (min-width: 992px){
+	.shop-tracking-status {
+	  margin-bottom: 50px;
+	}
+}
 .shop-tracking-status .order-status {
 	position: relative;
 }
@@ -5656,3 +5663,4 @@ div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenif
 .amount-calculation h3{
 	margin: 0;
 }
+

@@ -98,7 +98,7 @@ var promoData = '';
 							style="visibility: visible;">
 							<h2>您的選擇</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
 								<div class="order-status">
@@ -135,9 +135,7 @@ var promoData = '';
 						</div>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
+
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">您的選擇</h2>
