@@ -52,9 +52,19 @@ $('.plan').change(function () {
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblPeopleDesk').html('' + personalTraveller);
             
+<<<<<<< Updated upstream
             $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(1);
             $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(0);
             $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(0);
+=======
+            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(familyAdult);
+            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(familyChild);
+            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(familyOther);
+            //document.getElementById("");
+            personalTraveller=$('#txtTravellersDesk').val();
+            $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
+            //alert('personal:'+personalTraveller +', '+$('#txtTravellersDesk').val());
+>>>>>>> Stashed changes
         }
         else if(id  == 'family_plan_desk') 
         {          
