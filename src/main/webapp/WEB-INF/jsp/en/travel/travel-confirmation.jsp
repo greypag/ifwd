@@ -66,7 +66,7 @@
          <div class="h4-2 margin-left">Share your promotion code now to earn discounts and rewards</div>
          
          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http//i.fwd.com.hk/en/travel-insurance/quote?${referralCode}</a></div>
+         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http//i.fwd.com.hk/en/travel-insurance/quote?${myReferralCode}</a></div>
               </div>
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
               
