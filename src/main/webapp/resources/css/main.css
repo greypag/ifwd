@@ -5633,3 +5633,7 @@ div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenif
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
+.error-page{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

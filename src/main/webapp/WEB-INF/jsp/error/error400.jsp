@@ -365,47 +365,28 @@ href="flight">Flight Insurance</a></li>
 <!--/header-->
 
 <body>
-    <div class="annexure-form " >
-      <div class="annexure-form-header">
-        ERROR 
-        
-      </div>
-      <div class="form-horizontal company form-regisration">
-        <div class="col-sm-12 error">
-          <div class="division">
-          </div>
-          <p>
-            ERROR No. 400
-          </p>
-          <div class="division">
-          </div>
-          <p>
-            
-            The following error was encountered:
-            <br>
-            400 - Bad request. 
-            <br>
-            &bull;The request could not be understood by the server due to malformed syntax. 
-            <br>
-            &bull;The client should not repeat the request without modifications 
-            <br>
-            
-          </p>
-          <br>
-        </div>
-        
-        <div class="form-group">
-            <div class="col-sm-9">
-             <a href="<%=request.getContextPath()%>">Go Back to Home Page</a></div></div></div>
+    <div class="container annexure-form error-page " >
+    	<div class="col-xs-12">
+    		<h2 class="annexure-form-header">ERROR</h2>
+		    <div class="company form-regisration error">
+				<h3>ERROR No. 400</h3>
+				<p>The following error was encountered:</p>
+				<p>
+					<strong>400 - Bad request.</strong>
+				</p>
+				<ul>
+					<li>The request could not be understood by the server due to malformed syntax. </li>
+					<li>The client should not repeat the request without modifications </li>
+				</ul>
+			</div>
+			<div class="row">
+	            <div class="col-xs-12 col-sm-12 col-md-4">
+					<a href="<%=request.getContextPath()%>" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+	            </div>
             </div>
-            <br><BR>
-            <BR>
-            <BR>
-     <div class="clearfix">
-        </div><div class="clearfix">
-        </div>
-    
-  </body>
+		</div>
+	</div>
+</body>
  
 <footer id="footer" class="midnight-blue hidden-sm hidden-xs">
 <div class="container">
