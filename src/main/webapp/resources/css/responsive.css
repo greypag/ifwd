@@ -741,6 +741,9 @@
     .plan-box4 h6 {
         font-size: 35px;
     }
+    .center-h2 {
+	  line-height: 1.3;
+	}
 }
 /* XS Portrait */
 
@@ -937,5 +940,5 @@
     {
           margin-left:0px;
     }
-  
+    
 }
