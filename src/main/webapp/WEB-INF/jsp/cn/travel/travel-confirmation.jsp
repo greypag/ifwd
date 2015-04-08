@@ -66,7 +66,7 @@
          <div class="h4-2 margin-left">立即分享您的專屬推廣編號，尊享額外優惠!</div>
          
          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center">http://i.fwd.com.hk/tc/travel-insurance?${referralCode} </div>
+         <div class=" wht-bg1 text-center">http://i.fwd.com.hk/tc/travel-insurance?${myReferralCode} </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
               
