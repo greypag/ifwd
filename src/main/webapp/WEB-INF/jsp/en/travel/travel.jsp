@@ -256,7 +256,7 @@
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <input type="text" class="form-control text-center drop-down-plus input-number" value="0" data-min="0" data-max="15" id="txtTravellersMob" readonly />
+              <input type="text" class="form-control text-center drop-down-plus input-number" value="1" data-min="1" data-max="15" id="txtTravellersMob" readonly />
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal">
                    <span class="glyphicon glyphicon-plus"></span>
