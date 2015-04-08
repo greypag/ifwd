@@ -172,8 +172,8 @@
 			         <td class="col-md-2 "><div id="divPersonsDesk" style="visibility:hidden;">
 			             <h3 class="h3-i">
 			               <label id="lblPeopleDesk">0</label>
-			               people <br>
-			               travelling
+			                                   人数 <br>
+			                                   旅行
 			               <label id="lblDaysDesk">0</label>
 			               days </h3>
 			           </div>
@@ -792,8 +792,8 @@
               <td class="col-md-2 "><div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i">
                     <label id="lblPeopleBtm">0</label>
-                    people <br>
-                    travelling
+                                               人数 <br>
+                                               旅行
                     <label id="lblDaysBtm">0</label>
 
                     days </h3>
