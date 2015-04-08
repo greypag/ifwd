@@ -5,6 +5,8 @@ public class HomeCareQuetionaries {
 	private String answer1;
 	private String answer2;
 	private String qid;
+	private String answer1Checked;
+	private String answer2Checked;
 	
 	public String getQid() {
 		return qid;
@@ -29,6 +31,18 @@ public class HomeCareQuetionaries {
 	}
 	public void setAnswer2(String answer2) {
 		this.answer2 = answer2;
+	}
+	public String getAnswer1Checked() {
+		return answer1Checked;
+	}
+	public void setAnswer1Checked(String answer1Checked) {
+		this.answer1Checked = answer1Checked;
+	}
+	public String getAnswer2Checked() {
+		return answer2Checked;
+	}
+	public void setAnswer2Checked(String answer2Checked) {
+		this.answer2Checked = answer2Checked;
 	}
 	
 	

@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,7 +52,7 @@ public class HomeCareController {
 	SendEmailDao sendEmail;
 
 	@RequestMapping(value = "/homecare")
-	public String getHomeCarePage(Model model, HttpServletRequest request) {
+	public String getHomeCarePage(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
@@ -83,7 +84,42 @@ public class HomeCareController {
 					homeCareQuetionariesList);
 			model.addAttribute(homeCareQuetionariesList);
 
-			return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare";	
+			String answer1, answer2;
+			answer1 = (String)session.getAttribute("answer1");
+			answer2 = (String)session.getAttribute("answer2");
+			
+			if(answer1 == null || answer2 == null){
+				// default
+				answer1 = "";
+				answer2 = "";
+			}
+			int ctn = 0;
+			for(HomeCareQuetionaries homecare : homeCareQuetionariesList){
+				
+				// init
+				homecare.setAnswer1Checked("");
+				homecare.setAnswer2Checked("");
+				
+				if(ctn == 0){
+					if(homecare.getAnswer1().equals(answer1))
+						homecare.setAnswer1Checked("checked");
+					else
+						homecare.setAnswer2Checked("checked");					
+				}else if(ctn ==1){
+					if(homecare.getAnswer1().equals(answer2))
+						homecare.setAnswer1Checked("checked");
+					else
+						homecare.setAnswer2Checked("checked");								
+				}else{
+					// default
+					homecare.setAnswer2Checked("checked");
+				}
+				
+				ctn = ctn + 1;
+			}		
+						
+			return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare";
+			
 		} else {
 			model.addAttribute("errMsgs", "Question lists cannot be retrieved");
 
@@ -100,6 +136,12 @@ public class HomeCareController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
+		
+		// redirect to 1ST step when null 
+		if(session.getAttribute("token") == null){
+			return getHomeCarePage(request, model);				
+		}	
+		
 		String token = session.getAttribute("token").toString();
 		String username = session.getAttribute("username").toString();
 		String answer1 = request.getParameter("home_situated1");
@@ -113,7 +155,11 @@ public class HomeCareController {
 		}
 		else {
 			session.setAttribute("answer1", answer1);
-			session.setAttribute("answer2", answer2);	
+			session.setAttribute("answer2", answer2);
+		}
+		// redirect to 1ST step when null 
+		if(answer1 == null || answer2 == null){
+			return getHomeCarePage(request, model);
 		}
 				/*
 		 * String userReferralCode = (String) request.getSession().getAttribute(
@@ -154,6 +200,12 @@ public class HomeCareController {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
+		
+		// redirect to 1ST step when null 
+		if(session.getAttribute("token") == null){
+			return getHomeCarePage(request, model);				
+		}	
+		
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 
@@ -171,6 +223,11 @@ public class HomeCareController {
 				session.setAttribute("homeQuoteDetails", homeQuoteDetails);				
 			} else {
 				homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
+				
+				// redirect to 1ST step when null 
+				if(homeQuoteDetails == null){
+					return getHomeCarePage(request, model);				
+				}						
 			}
 				
 			
@@ -221,6 +278,12 @@ public class HomeCareController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		UserDetails userDetails = new UserDetails();
 		HttpSession session = request.getSession();
+		
+		// redirect to 1ST step when null 
+		if(session.getAttribute("token") == null){
+			return getHomeCarePage(request, model);				
+		}			
+		
 		String passportORhkid = WebServiceUtils.getParameterValue("apphkidandpassport", session, request);
 		String hkId = WebServiceUtils.getParameterValue("hkId", session, request);
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
@@ -232,6 +295,11 @@ public class HomeCareController {
 			session.setAttribute("homeCareDetails", homeCareDetails);				
 		} else {
 			homeCareDetails = (HomeCareDetailsBean) session.getAttribute("homeCareDetails");
+			
+			// redirect to 1ST step when null 
+			if(homeCareDetails == null){
+				return getHomeCarePage(request, model);				
+			}
 		}
 		System.out.println("***************passportORhkid********************");
 		if (passportORhkid.equalsIgnoreCase("appHkid")) {

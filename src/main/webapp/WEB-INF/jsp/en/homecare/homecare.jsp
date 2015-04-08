@@ -161,7 +161,7 @@
 												name="home_situated<%=quetionList.getQid()%>"
 												id="inlineDeskRadio1<%=quetionList.getQid()%>"
 												data-id="btm" class="plan"
-												value="<%=quetionList.getAnswer1()%>" checked=""
+												value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
 												type="radio"> <label
 												for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
 											</label>
@@ -169,7 +169,7 @@
 												name="home_situated<%=quetionList.getQid()%>"
 												id="inlineDeskRadio2<%=quetionList.getQid()%>"
 												data-id="btm" class="plan"
-												value="<%=quetionList.getAnswer2()%>" checked=""
+												value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
 												type="radio"> <label
 												for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
 														<%=quetionList.getAnswer2()%></span>
@@ -231,7 +231,7 @@
 						class="radio radio-warning radio-inline"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
-						class="plan" value="<%=quetionList.getAnswer1()%>" checked=""
+						class="plan" value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
 						type="radio"> <label
 						for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer1()%>
@@ -240,7 +240,7 @@
 					</label> <label class="radio radio-warning radio-inline"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
-						class="plan" value="<%=quetionList.getAnswer2()%>" checked=""
+						class="plan" value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
 						type="radio"> <label
 						for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer2()%></span>
@@ -810,17 +810,17 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</h4>
 							<label class="radio radio-warning radio-inline"> <input
 								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
-								name="home_situated2<%=bQuetionList.getQid()%>"
+								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio5<%=bQuetionList.getQid()%>" data-id="btm"
-								class="plan" value="personal" checked="checked" type="radio">
+								class="plan" value="personal" <%=bQuetionList.getAnswer1Checked()%> type="radio">
 								<label for="inlineDeskRadio5<%=bQuetionList.getQid()%>">
 									<span> <%=bQuetionList.getAnswer1()%>
 								</span>
 							</label>
 							</label> <label class="radio radio-warning radio-inline"> <input
-								name="home_situated2<%=bQuetionList.getQid()%>"
+								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio6<%=bQuetionList.getQid()%>" data-id="btm"
-								class="plan" value="personal" checked="" type="radio"> <label
+								class="plan" value="personal" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
 								for="inlineDeskRadio6<%=bQuetionList.getQid()%>"> <span>
 										<%=bQuetionList.getAnswer2()%>
 								</span>
