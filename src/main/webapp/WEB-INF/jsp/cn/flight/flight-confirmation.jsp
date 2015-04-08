@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<div class="container pad-none bdr">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gray-bg1">
 						<h3>
-							你已成功申請富衛航空意外保險。確認電郵將會發送至 <strong> 
+							你已成功申請富衛航空意外保險。<br>確認電郵將會發送至 <strong> 
 								<%=request.getSession().getAttribute("setEmailForConfirmation")%>
 							</strong>，內附保單內容及細節。
 						</h3>
@@ -104,7 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<div class="spacer2"></div>
 				<div class="container pad-none">
 					<div class="row-fluid">
-						<div class="center " style="visibility: visible;">
+						<div class="center marg2010" style="visibility: visible;">
 							<h4 class="center-h2">以八折優惠提升至更全面的旅遊保障！</h4>
 							<h3 class="center-h3">只限富衛航空意外保險計劃客戶</h3>
 							<br>

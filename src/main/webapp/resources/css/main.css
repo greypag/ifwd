@@ -5624,3 +5624,7 @@ table.registration td .control-label{
 div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenificiaryId']{
  clear: both;
 }
+
+.marg2010{
+	  margin: 20px 0 10px;
+}
