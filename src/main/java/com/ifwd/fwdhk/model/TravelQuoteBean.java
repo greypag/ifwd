@@ -13,7 +13,23 @@ public class TravelQuoteBean {
 	private int totalOtherTraveller;
 	private int totalTravellingDays;
 	private String planSelected;
+	private boolean selfCover;
+	private boolean spouseCover;
 	
+	
+	
+	public boolean isSelfCover() {
+		return selfCover;
+	}
+	public void setSelfCover(boolean selfCover) {
+		this.selfCover = selfCover;
+	}
+	public boolean isSpouseCover() {
+		return spouseCover;
+	}
+	public void setSpouseCover(boolean spouseCover) {
+		this.spouseCover = spouseCover;
+	}
 	public String getTrLeavingDate() {
 		return trLeavingDate;
 	}

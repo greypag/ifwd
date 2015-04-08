@@ -23,8 +23,6 @@ public class WebServiceUtils {
 		if (request.getParameter(key) == null) {
 			return (String) session.getAttribute(key);
 		} else {
-			System.out.println("SET VALUE KEY " + key + " VALUE "
-					+ request.getParameter(key));
 			session.setAttribute(key, request.getParameter(key));
 			return request.getParameter(key);
 		}

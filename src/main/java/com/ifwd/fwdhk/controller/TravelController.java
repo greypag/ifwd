@@ -230,6 +230,14 @@ public class TravelController {
 				else
 					spouseCover = false;
 			}
+			
+			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+			travelQuoteCount.setSelfCover(selfCover);
+			travelQuoteCount.setSpouseCover(spouseCover);
+			travelQuoteCount.setTotalChildTraveller(childCount);
+			travelQuoteCount.setTotalOtherTraveller(otherCount);
+			session.setAttribute("travelQuoteCount", travelQuoteCount);
+			
 			System.out.println("------------------------------------------------------------");
 			System.out.println("CALLING API");
 			System.out.println("SELF COVER " + selfCover);
@@ -333,7 +341,7 @@ public class TravelController {
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		String planSelected = (String)session.getAttribute("planSelected");
 		
-		
+		TravelQuoteBean travelQuoteCount = (TravelQuoteBean)session.getAttribute("travelQuoteCount");
 		
 		int adults = travelQuote.getTotalAdultTraveller();
 		int child = travelQuote.getTotalChildTraveller();
@@ -341,28 +349,13 @@ public class TravelController {
 		boolean isSpouseCover = false;
 		String referralCode = "";
 
-		if (planSelected.equals("personal")) {
-			selfCover = true;
-			spouseCover = false;
-			otherCount = travelQuote.getTotalPersonalTraveller();
-			childCount = 0;
-			travelQuote.setTotalChildTraveller(0);
-			travelQuote.setTotalAdultTraveller(0);
-			travelQuote.setTotalOtherTraveller(travelQuote.getTotalOtherTraveller() - 1);
-			
-
-		} else {
-			travelQuote.setTotalPersonalTraveller(0);
-			childCount = travelQuote.getTotalChildTraveller();
-			adultCount = travelQuote.getTotalAdultTraveller();
-			otherCount = travelQuote.getTotalOtherTraveller();
-			selfCover = true;
-			if (adultCount > 1)
-				spouseCover = true;
-			else
-				spouseCover = false;
-				
-		}
+		selfCover = travelQuoteCount.isSelfCover();
+		spouseCover = travelQuoteCount.isSpouseCover();
+		childCount = travelQuoteCount.getTotalChildTraveller();
+		otherCount = travelQuoteCount.getTotalOtherTraveller();
+		
+		
+		
 		System.out.println("------------------------------------------------------------");
 		System.out.println("CALLING API");
 		System.out.println("SELF COVER " + selfCover);
@@ -370,6 +363,9 @@ public class TravelController {
 		System.out.println("CHILD COUNT " + childCount);
 		System.out.println("OTHER COUNT " + otherCount);		
 		System.out.println("------------------------------------------------------------");
+		
+		
+		
 		referralCode = request.getParameter("promoCode");
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
@@ -434,7 +430,8 @@ public class TravelController {
 				quoteDetails.setTotalNetPremium(totalNetPremium);
 				quoteDetails.setToalDue(totalDue);
 				quoteDetails.setPlanName(planeName);
-
+				session.setAttribute("priceInfoA", jsonPriceInfoA);
+				session.setAttribute("priceInfoB", jsonPriceInfoB);
 				request.setAttribute("quoteDetails", quoteDetails);
 				
 				session.setAttribute("quoteDetails", quoteDetails);
@@ -480,13 +477,21 @@ public class TravelController {
 
 			request.setAttribute("travelQuote", travelQuote);
 
+			
+			
+			
 			model.addAttribute("planName", planName);
-			model.addAttribute("planSummary", planSummary);
+			
 			model.addAttribute("selectPlanName", selectPlanName);
+			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
 			if ("Plan A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
+				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
+				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[0]);
 			} else {
 				session.setAttribute("planSelected", "B");
+				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
+				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[1]);
 			}
 			travelQuote.setTotalAdultTraveller(travelQuote
 					.getTotalAdultTraveller()

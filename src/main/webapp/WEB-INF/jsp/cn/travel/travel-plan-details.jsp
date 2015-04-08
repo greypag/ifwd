@@ -621,7 +621,7 @@
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">小計 </h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planSummary}</h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠 </h3>
-		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">-0 </h3>
+		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planDiscount} </h3>
 		            <div class="clearfix"></div>
 		            <div class="orange-bdr"></div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費 </h3>
