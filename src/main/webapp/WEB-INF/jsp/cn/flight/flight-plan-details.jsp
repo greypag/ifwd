@@ -4,6 +4,7 @@
 <%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page import="java.util.ArrayList"%>
 
 <%
@@ -333,32 +334,28 @@
 
 								<div class="row top-mrg-10">
 									<div class="col-xs-12  col-sm-6 col-md-6">
-										<label class="bold-500"> 年齡</label> <select
-											name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
-
-
-											<option value="">請選擇</option>
-											<c:forEach var="ageList" items="${mapAgeType}">
-												<option value="${ageList.key}"><c:out
-														value="${ageList.value}" /></option>
-											</c:forEach>
-										</select> <span id="errselectAgeRange${inx}" class="text-red"></span>
-
+										<label class="bold-500"> 年齡</label>
+										<t:dropdown 
+											defaultLabel="請選擇"
+											onChange=""
+											selectables="${mapAgeType}"
+											valueElmId="selectAgeRange${inx}"
+											valueElmName="adultAgeRange"
+										/>
+										<span id="errselectAgeRange${inx}" class="text-red"></span>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6">
-										<label class="pad-left1 bold-500">受益人</label> <select
-											id="adultsselectBenificiary${inx}"
-											onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-											name="adultBeneficiary" class="form-control soflow">
-											<option value="SE">個人遺產</option>
-											<c:forEach var="relationshipCodeList"
-												items="${mapRelationshipCode}">
-												<option value="${relationshipCodeList.key}">
-													<c:out value="${relationshipCodeList.value}" />
-												</option>
-
-											</c:forEach>
-										</select> <span id="erradultsselectBenificiary${inx}" class="text-red"></span>
+										<label class="pad-left1 bold-500">受益人</label>
+										
+										<t:dropdown 
+											defaultLabel="個人遺產"
+											defaultValue="SE"
+											onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
+											selectables="${mapRelationshipCode}"
+											valueElmId="adultsselectBenificiary${inx}"
+											valueElmName="adultBeneficiary"
+										/>
+										<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 									</div>
 
 									<div id="adultsbenificiaryId${inx}" class="hide">
@@ -415,32 +412,30 @@
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"> 年齡</label> <select
-												name="childAgeRange" class="soflow"
-												id="selectchildAgeRange${inx}">
-												<option value="">請選擇</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}">
-														<c:out value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errchildRange${inx}" class="text-red"></span>
+											<label class="bold-500"> 年齡</label> 
+											<t:dropdown 
+												defaultLabel="請選擇"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectchildAgeRange${inx}"
+												valueElmName="childAgeRange"
+											/>
+											<span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"> 受益人</label> <select
-												id="childselectBenificiary${inx}" name="childBeneficiary"
-												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-												class="form-control soflow">
+											<label class="pad-left1 bold-500"> 受益人</label> 
+											
+											<t:dropdown 
+												defaultLabel="個人遺產"
+												defaultValue="SE"
+												onChange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="childselectBenificiary${inx}"
+												valueElmName="childBeneficiary"
+											/>	
 
-
-												<option value="SE">個人遺產</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-
-													<option value="${relationshipCodeList.key}">
-														<c:out value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
+											<span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 
 
@@ -514,30 +509,28 @@
 
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500">年齡</label> <select
-												name="otherAgeRange" id="selectOtherAgeRange${inx}"
-												class="soflow">
-
-												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
+											<label class="bold-500">年齡</label>
+											<t:dropdown 
+												defaultLabel="請選擇"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectOtherAgeRange${inx}"
+												valueElmName="otherAgeRange"
+											/>  
+											<span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
 
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500">受益人</label> <select
-												id="otherSelectBenificiary${inx}" name="otherBeneficiary"
-												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
-												class="form-control soflow">
-												<option value="SE">個人遺產</option>
-												<c:forEach var="relationshipCodeList"
-													items="${mapRelationshipCode}">
-
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="benificiary" style="display: none"> <label
+											<label class="pad-left1 bold-500">受益人</label> 
+											<t:dropdown 
+												defaultLabel="個人遺產"
+												defaultValue="SE"
+												onChange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="otherSelectBenificiary${inx}"
+												valueElmName="otherBeneficiary"
+											/>	
+											<span id="benificiary" style="display: none"> <label
 												style="color: red">請輸入受益人的英文全名。</label>
 											</span>
 										</div>
