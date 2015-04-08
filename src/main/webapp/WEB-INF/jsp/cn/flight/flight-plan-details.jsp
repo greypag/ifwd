@@ -666,11 +666,14 @@
 								</h3>
 
 								<br>
+								<h4>
 
 								<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">位成人： ${planDetailsForm.getTotalAdultTraveller()} </c:if>
 								<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }">孩子： ${planDetailsForm.getTotalChildTraveller()} </c:if>
 								<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}">其他： ${planDetailsForm.getTotalOtherTraveller()}</c:if>
 								<c:if test="${planDetailsForm.getTravellerCount() !=0}">旅客： ${planDetailsForm.getTravellerCount()}</c:if>
+								</h4>
+								
 								<input type="hidden" name="otherInput"
 									value="${planDetailsForm.getTotalOtherTraveller()}"> <input
 									type="hidden" name="childInput"
