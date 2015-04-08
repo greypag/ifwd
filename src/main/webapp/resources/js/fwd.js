@@ -383,13 +383,13 @@ function fPlanValid()
 			document.getElementById("errselectAgeRange" + i).innerHTML = "";
 		}
 
-		var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
-		if (benefitiary.trim() == "") {
-			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
-			flag = false;
-		}else{
-			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
-		}
+//		var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
+//		if (benefitiary.trim() == "") {
+//			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
+//			flag = false;
+//		}else{
+//			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
+//		}
 
 
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
@@ -726,6 +726,12 @@ $(function () {
 				$("#errtxtOtherInsuHkid"+errNo).html('');
 		});
 		
+		
+		
+		$('input[id^="childselectBenificiary"],input[id^="adultsselectBenificiary"],input[id^="otherSelectBenificiary"] ').each(function( index ) {
+			  $(this).val('SE');
+		});
+		
 	}
 	
 	
@@ -733,6 +739,7 @@ $(function () {
 	
 	if($('#selectAgeRange1').length > 0){
 		$('#selectAgeRange1').val('2');
+		//$('#selectAgeRange1').parent
 	}
 	
 	
@@ -835,13 +842,13 @@ function fcPlanValid()
 				document.getElementById("errselectAgeRange" + i).innerHTML = "";
 			}
 			
-			var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
-			if (benefitiary.trim() == "") {
-				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "請輸入姓名";
-				flag = false;
-			}else{
-				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
-			}
+//			var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
+//			if (benefitiary.trim() == "") {
+//				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "請輸入姓名";
+//				flag = false;
+//			}else{
+//				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
+//			}
 			
 			
 			var hkid = document.getElementById("txtInsuHkid" + i).value;
@@ -1150,13 +1157,13 @@ function tPlanValid()
 			document.getElementById("errselectAgeRange" + i).innerHTML = "";
 		}
 
-		var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
-		if (benefitiary.trim() == "") {
-			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
-			flag = false;
-		}else{
-			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
-		}
+//		var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
+//		if (benefitiary.trim() == "") {
+//			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
+//			flag = false;
+//		}else{
+//			document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
+//		}
 
 		var selectAdHkidPass = document.getElementById("selectAdHkidPass"+i).value;
 		var hkid = document.getElementById("txtInsuHkid" + i).value;

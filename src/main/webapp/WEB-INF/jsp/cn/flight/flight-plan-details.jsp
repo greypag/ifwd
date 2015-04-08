@@ -833,28 +833,30 @@ function userLoginFnc() {
 /* UserLogin ajax function */
 
 
-	/* For Benefitiary Dive active and Inactive */
-	function activeDiv(id, selected) {
-		var selectedValue = $('#' + selected).val();
-
-		if (id.indexOf('adult') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('child') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('other') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-
+/* For Benefitiary Div active and Inactive */
+function activeDiv(id, selected) {
+	
+	var selectedValue = $('#' + selected).val();
+	
+	if (id.indexOf('adult') > -1) {
+		activeDeactive(selectedValue, id);
 	}
-	function activeDeactive(selectedValue, id) {
-		if (selectedValue == "SE") {
-			$('#' + id).addClass('hide');
-		} else {
-			$('#' + id).removeClass('hide');
-		}
+	if (id.indexOf('child') > -1) {
+		activeDeactive(selectedValue, id);
 	}
+	if (id.indexOf('other') > -1) {
+		activeDeactive(selectedValue, id);
+	}
+
+}
+
+function activeDeactive(selectedValue, id) {
+	if (selectedValue == "" || selectedValue == "SE") {
+		$('#' + id).addClass('hide');
+	} else {
+		$('#' + id).removeClass('hide');
+	}
+}
 	/* END- For Benefitiary Dive active and Inactive */
 
 	

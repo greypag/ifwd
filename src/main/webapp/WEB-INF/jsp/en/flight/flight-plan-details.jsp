@@ -438,6 +438,7 @@ Myself
 											<label class="pad-left1 bold-500">Beneficiary</label>
 											<t:dropdown 
 												defaultLabel="Own Estate"
+												
 												onChange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
 												valueElmId="otherSelectBenificiary${inx}"
@@ -703,27 +704,29 @@ onclick="return flightPlanValidation();">Next</button> -->
 
 
 
-/* For Benefitiary Dive active and Inactive */
+/* For Benefitiary Div active and Inactive */
 function activeDiv(id, selected) {
-var selectedValue = $('#' + selected).val();
+	
+	var selectedValue = $('#' + selected).val();
+	
+	if (id.indexOf('adult') > -1) {
+		activeDeactive(selectedValue, id);
+	}
+	if (id.indexOf('child') > -1) {
+		activeDeactive(selectedValue, id);
+	}
+	if (id.indexOf('other') > -1) {
+		activeDeactive(selectedValue, id);
+	}
 
-if (id.indexOf('adult') > -1) {
-activeDeactive(selectedValue, id);
-}
-if (id.indexOf('child') > -1) {
-activeDeactive(selectedValue, id);
-}
-if (id.indexOf('other') > -1) {
-activeDeactive(selectedValue, id);
 }
 
-}
 function activeDeactive(selectedValue, id) {
-if (selectedValue == "SE") {
-$('#' + id).addClass('hide');
-} else {
-$('#' + id).removeClass('hide');
-}
+	if (selectedValue == "" || selectedValue == "SE") {
+		$('#' + id).addClass('hide');
+	} else {
+		$('#' + id).removeClass('hide');
+	}
 }
 /* END- For Benefitiary Dive active and Inactive */
 
