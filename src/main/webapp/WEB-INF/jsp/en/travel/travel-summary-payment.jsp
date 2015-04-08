@@ -448,14 +448,15 @@
 								Confirm Payment</button>
 						</div>
 						<br> <br>
+						<!-- vincent fix the layout to display Confirm Payment (mobile) -->
 						<div class="pad-none hidden-md hidden-lg">
-							<div class="clearfix"></div>
 
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+							<div class="pad-none hidden-md hidden-lg">
 								<a href="#" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn">Back </a>
 							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+							
+							<div class="pad-none hidden-md hidden-lg">
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn"
 									value="Confirm Payment" onclick="confirmPayment()" />
