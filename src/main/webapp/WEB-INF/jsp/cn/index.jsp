@@ -79,9 +79,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
             <h2 class="center">嶄新保險體驗 盡在富衛</h2>
-            <div class="col-sm-12 col-xs-12" >  <a href="/flight" class="border-radius btn btn-primary  home-btn home-btn-main" >航空保險</a></div>
-                  <div class="col-sm-12 col-xs-12" > <a href="/travel" class="border-radius btn btn-primary  home-btn home-btn-main">旅遊保險</a></div>
-                        <div class="col-sm-12 col-xs-12" >      <a href="/homecare" class="border-radius btn btn-primary  home-btn home-btn-main">家居保險</a>
+            <div class="col-sm-12 col-xs-12" >  <a href="/FWDHKPH1A/flight" class="border-radius btn btn-primary  home-btn home-btn-main" >航空保險</a></div>
+                  <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/travel" class="border-radius btn btn-primary  home-btn home-btn-main">旅遊保險</a></div>
+                        <div class="col-sm-12 col-xs-12" >      <a href="/FWDHKPH1A/homecare" class="border-radius btn btn-primary  home-btn home-btn-main">家居保險</a>
            </div>
            
             <!--<div class=" col-sm-12  col-xs-12">
