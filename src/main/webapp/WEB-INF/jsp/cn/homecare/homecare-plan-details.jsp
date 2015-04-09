@@ -454,7 +454,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td height="60" colspan="4"><select name=""
+										<td height="60" colspan="4"><select name="applicantDistrict"
 											class="form-control soflow" id="selectCADist">
 												<option value="">地區</option>
 												<%

@@ -2234,12 +2234,12 @@ function payValid()
 		flag=false;
 		document.getElementById('errcardno').innerHTML="Credit card No. must be 16-digit.";
 	}
-	if(month=="Month")
+	if(month=="")
 	{
 		flag=false;
 		document.getElementById('errmonth').innerHTML="Please select your credit card's Expiry Month.";
 	}
-	if(year=="Year")
+	if(year=="")
 	{
 		flag=false;
 		document.getElementById('erryear').innerHTML="Please select your credit card's Expiry Year.";
@@ -2264,7 +2264,7 @@ function payValid()
 		document.getElementById("errchk2").innerHTML = "Please read and accept the Policy Coverage and Terms & Conditions before submitting the application.";
 		flag = false;
 	}*/
-
+	
 	return flag;
 }
 
@@ -3243,3 +3243,32 @@ function activateUserAccount(){
 	}
 	return check;
 }
+
+
+
+// ***** homecare *****
+
+// 1. save credit card info by calling processHomeCarePayment
+// 2. post to payment gatway when step 1 success 
+function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
+	if (payValid()) {
+		var gatewayUrlId = '#' + gatewayUrlId;
+		var paymentFormId = '#' + paymentFormId;
+		var method = "processHomeCarePayment";
+		
+		var geteWayUrl = $(gatewayUrlId).val();
+		$.ajax({
+					type : "POST",
+					url : method,
+					data : $(paymentFormId).serialize(),
+					async : false,
+					success : function(data) {
+						if (data == 'success') {
+							form.action = geteWayUrl;
+						}
+					}
+				});
+	}
+
+}
+

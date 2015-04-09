@@ -5,7 +5,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 			<form name="homeCarepaymentForm" id="homeCarepaymentForm"
-				onsubmit="confirmHomeCarePayment(this);" method="post">			
+				onsubmit="confirmHomeCarePayment(this, 'gateway', 'homeCarepaymentForm');" method="post">			
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">主頁</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">家居保險 </a> <i class="fa fa-caret-right"></i></li>
@@ -149,14 +149,10 @@
 
 
 					</div>
-					<div class="clearfix"></div>
+					<div class="clearfix"></div>					
 				</div>
-				<div class="gray-bg1">
-					<div class="clearfix"></div>
-					<h2 class="from-control">付款</h2>
-					<table class="table-responsive travel-tb">
 						<input type="hidden" name="merchantId"
-							value="${createdPolicy.getMerchantId()}">
+							value="${createdPolicy.getMerchantId()}" />
 						<input type="hidden" name="amount" value="${totalDue.trim()}">
 						<input type="hidden" name="orderRef"
 							value="${confirm.getTransactionNo() }">
@@ -177,6 +173,12 @@
 							value="${effectiveDate}">
 						<input type="hidden" id="gateway" name="gateway"
 							value="${createdPolicy.getPaymentGateway()}">
+											
+				<div class="gray-bg1">
+					<div class="clearfix"></div>
+					<h2 class="from-control">付款</h2>
+					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>
+					<table class="table-responsive travel-tb">
 						<tbody>
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡類型</label></td>
@@ -210,31 +212,31 @@
 
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5">到期日</label></td>
-								<td><select class="input-block-level soflow select-style"
+								<td><select class="pay-details-select"
 									id="month" name="epMonth">
-										<option>月</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-										<option>7</option>
-										<option>8</option>
-										<option>9</option>
-										<option>10</option>
-										<option>11</option>
-										<option>12</option>
+										<option VALUE="">月</option>
+										<option VALUE="01">1</option>
+										<option VALUE="02">2</option>
+										<option VALUE="03">3</option>
+										<option VALUE="04">4</option>
+										<option VALUE="05">5</option>
+										<option VALUE="06">6</option>
+										<option VALUE="07">7</option>
+										<option VALUE="08">8</option>
+										<option VALUE="09">9</option>
+										<option VALUE="10">10</option>
+										<option VALUE="11">11</option>
+										<option VALUE="12">12</option>
 								</select></td>
-								<td><select class="input-block-level soflow select-style"
+								<td><select class="pay-details-select"
 									id="year" name="epYear">
-										<option>月</option>
-										<option>2015</option>
-										<option>2016</option>
-										<option>2017</option>
-										<option>2018</option>
-										<option>2019</option>
-										<option>2020</option>
+										<option VALUE="">年</option>
+										<option VALUE="2015">2015</option>
+										<option VALUE="2016">2016</option>
+										<option VALUE="2017">2017</option>
+										<option VALUE="2018">2018</option>
+										<option VALUE="2019">2019</option>
+										<option VALUE="2020">2020</option>
 								</select></td>
 							</tr>
 

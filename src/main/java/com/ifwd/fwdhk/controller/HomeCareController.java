@@ -308,7 +308,7 @@ public class HomeCareController {
 			userDetails.setPassport(hkId);
 
 		}
-		// testing2
+
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
@@ -361,8 +361,17 @@ public class HomeCareController {
 		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
 				"homecare-confirmation"));
 		
-		model.addAttribute("failurePath", failurePath.replace("prepareUserSummaryForHome",
-				"failure"));
+//		model.addAttribute("failurePath", failurePath.replace("prepareUserSummaryForHome",
+//				"failure"));
+        model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+        
+        String  paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
+        String  errorMsg =request.getParameter("errorMsg");
+        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
+            errorMsg = "Payment failure";                    
+        }        
+        model.addAttribute("errormsg", errorMsg);     		
+		
 		return UserRestURIConstants.checkLangSetPage(request)+ "homecare/homecare-summary-payment";
 	}
 
@@ -385,9 +394,11 @@ public class HomeCareController {
 
 		request.getSession().setAttribute("emailAddress",
 				request.getParameter("emailAddress"));
-
-		System.out
-				.println("*********************************inside Process Payment*****************************************");
+		System.out.println("cardNo : ");
+		System.out.println(request.getParameter("cardNo"));
+		System.out.println("emailAddress : ");
+		System.out.println(request.getParameter("emailAddress"));		
+		System.out.println("*********************************inside Process Payment*****************************************");
 
 		return "success";
 	}

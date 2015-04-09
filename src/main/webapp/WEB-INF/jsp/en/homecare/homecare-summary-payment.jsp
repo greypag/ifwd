@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<form name="paymentForm" id="paymentForm"
-				onsubmit="confirmPayment(this);" method="post">
+				onsubmit="confirmHomeCarePayment(this, 'gateway', 'paymentForm');" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">Easy HomeCare </a> <i
@@ -184,7 +184,7 @@
 				<div class="gray-bg1">
 					<div class="clearfix"></div>
 					<h2 class="from-control">Payment Details</h2>
-
+					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>
 					<table class="table-responsive travel-tb">
 						<tbody>
 
@@ -236,7 +236,7 @@
 										Date</label></td>
 								<td><select class="pay-details-select" id="month"
 									name="epMonth">
-										<option>Month</option>
+										<option VALUE="">Month</option>
 										<option VALUE="01">1</option>
 										<option VALUE="02">2</option>
 										<option VALUE="03">3</option>
@@ -252,7 +252,7 @@
 								</select></td>
 								<td><select class="pay-details-select" id="year"
 									name="epYear">
-										<option>Year</option>
+										<option VALUE="">Year</option>
 										<option VALUE="2015">2015</option>
 										<option VALUE="2016">2016</option>
 										<option VALUE="2017">2017</option>
@@ -379,26 +379,27 @@
 <!--/end Main Content-->
 
 <script>
-	function confirmPayment(form) {
-		if (payValid()) {
-			var geteWayUrl = $('#gateway').val();
-			$
-					.ajax({
-						type : "POST",
-						url : "processHomeCarePayment",
-						data : $("#paymentForm").serialize(),
-						async : false,
-						success : function(data) {
-							if (data == 'success') {
-								/* form.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
-								/* form.action = "https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp"; */
-								form.action = geteWayUrl;
-							}
-						}
-					});
-		}
+// moved to fwd.js
+// 	function confirmPayment(form) {
+// 		if (payValid()) {
+// 			var geteWayUrl = $('#gateway').val();
+// 			$
+// 					.ajax({
+// 						type : "POST",
+// 						url : "processHomeCarePayment",
+// 						data : $("#paymentForm").serialize(),
+// 						async : false,
+// 						success : function(data) {
+// 							if (data == 'success') {
+// 								/* form.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
+// 								/* form.action = "https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp"; */
+// 								form.action = geteWayUrl;
+// 							}
+// 						}
+// 					});
+// 		}
 
-	}
+// 	}
 	
 	function BackMe() {
 		window.history.back();
