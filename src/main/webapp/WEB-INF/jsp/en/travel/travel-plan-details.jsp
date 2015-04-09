@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%
 	String authenticate = "false";
 	if (request.getSession().getAttribute("authenticate") != null) {
@@ -120,10 +121,13 @@
 								<tr>
 									<td class="pad-none">
 									<div class="col-md-10 col-lg-10 pad-none">
-									<select id="selectHkidPass" class="soflow" name="selectedHkidPassApplicant">
-									<option value="HKID" selected="selected">HKID</option>
-									<option value="passport">Passport</option>
-									</select>
+									<t:dropdown 
+										selectables="${mapHkId}"
+										defaultWithFirst="true"
+										valueElmId="selectHkidPass"
+										valueElmName="selectedHkidPassApplicant"
+										containerCss="selectHkidPass"
+									/>
 									</div>
 									</td>
 									<td class="pad-none">

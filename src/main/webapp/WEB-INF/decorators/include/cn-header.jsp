@@ -244,9 +244,9 @@
 			<div class="col-lg-6 col-md-6 pull-right">
 				
 				<ul class="maintabs">
-       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active" <%} %>"><a href="flight" class="travel-special"><span class="offer"> SPECIAL OFFER</span><br> 航空保險 </a></li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel" class="travel-and-home-tab">旅遊保險</a> </li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("homecare")){ %> active" <%} %>"><a class="travel-and-home-tab text-left latter-space-1"   href="homecare">家居保險</a> </li>
+       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="flight" class="travel-special"><span class="offer"> SPECIAL OFFER</span><br> 航空保險 </a></li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="travel" class="travel-and-home-tab">旅遊保險</a> </li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("homecare")){ %> active <%} %>"><a class="travel-and-home-tab text-left latter-space-1"   href="homecare">家居保險</a> </li>
       </ul>
 				
 			</div>
