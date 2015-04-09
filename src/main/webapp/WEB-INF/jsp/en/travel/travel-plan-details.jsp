@@ -486,6 +486,7 @@
 										</div>
 									</div>
 								</div>
+								</div>
 							</c:forEach>
 							<!--Till this Line  -->
 
