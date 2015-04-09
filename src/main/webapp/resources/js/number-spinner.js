@@ -53,25 +53,20 @@ $('.plan').change(function () {
     if(parent_id =='desk')
     {
       $('#lblCountDesk').html('');
-        if(id == 'personal_plan_desk'){
+        if(id == 'personal_plan_desk')
+		{
           document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblPeopleDesk').html('' + personalTraveller);
             
-//<<<<<<< Updated upstream
             $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(1);
             $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(0);
             $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(0);
-//=======
-            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(familyAdult);
-            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(familyChild);
-            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(familyOther);
-            //document.getElementById("");
+
             personalTraveller=$('#txtTravellersDesk').val();
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
-            //alert('personal:'+personalTraveller +', '+$('#txtTravellersDesk').val());
-//>>>>>>> Stashed changes
+            $('#lblPeopleDesk').html('' + personalTraveller);
         }
         else if(id  == 'family_plan_desk') 
         {          
