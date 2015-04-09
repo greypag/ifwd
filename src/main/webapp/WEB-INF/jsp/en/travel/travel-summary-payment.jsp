@@ -281,7 +281,7 @@
 				<div class="gray-bg1">
 					<div class="clearfix"></div>
 					<h2 class="from-control">Payment Details</h2>
-					<span id="paymentGatewayErrorMsg"  class="text-red"><h3>${errormsg}</h3></span>					
+					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>					
 					<input type="hidden" name="merchantId"
 						value="${createPolicy.getMerchantId()}"> <input
 						type="hidden" name="amount" value="${dueAmount.trim()}"> <input
