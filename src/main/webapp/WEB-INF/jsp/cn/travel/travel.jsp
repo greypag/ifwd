@@ -31,6 +31,30 @@
  //         	totalTraveller = 1;	     		
          }
      });
+
+
+    function reset_submit()
+    {        
+    	if(document.getElementById("family_plan_desk").checked)
+        {
+    		//alert("is family plan");
+    		//${travelQuote.setTotalPersonalTraveller(0)};
+    		//$('#txtAdultsDesk').val(familyAdult);
+    		//$('#txtOtherDesk').val(familyChild);
+    		//$('#txtChildDesk').val(familyOther);
+    	}
+    	else if (document.getElementById("personal_plan_desk").checked)
+        {
+    		//alert("is personal plan");
+    		$('#txtAdultsDesk').val(0);
+    		$('#txtOtherDesk').val(0);
+    		$('#txtChildDesk').val(0);
+       	}
+    	
+    	var frm = document.getElementById("frmTravelGetQuote");
+    	//alert("reset_submit");
+    	frm.submit();
+   	}
 </script>
 
 <%
@@ -77,8 +101,8 @@
 			        		<td><div id="divPersonsDesk" style="visibility:hidden;">
 			             <h3 class="h3-i">
 			               <label id="lblPeopleDesk">0</label>
-			                                   人數 <br>
-			                                   旅行
+			               人數 <br>
+			               旅行
 			               <label id="lblDaysDesk">0</label>
 			               days </h3>
 			           </div></td>
@@ -86,12 +110,12 @@
 			          <tr>
 			            <td class="col-md-3  ">
 			              <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" disabled>
+			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}">
 			              </div>
 			              </td>
 			            <td class="col-md-3 ">
 			              <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" disabled>
+			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}">
 			              </div>
 			              </td>
 			            <td class="col-md-3">
@@ -181,7 +205,7 @@
 			           </div>
 			           </td>
 			         <td class="col-md-2 ">
-			        	     <button type="submit" class="border-radius btn btn-primary get-btn wd2">立即報價</button>
+			        	     <button type="button" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()">立即報價</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
 			        </td>
 			       </tr>
@@ -344,7 +368,7 @@
     <div id="divPersonsMob" style="visibility:hidden;"> <br>
       <small>
       <label id="lblPeopleMob">0</label>
-      people travelling
+      人數 旅行
       <label id="lblDaysMob">0</label>
       days </small> <br>
     </div>
@@ -654,7 +678,7 @@
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
           <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank">放長假前必做七件事  <i class="fa fa-caret-right"></i> </a></h3>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"> 放長假前必做六件事  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
@@ -701,8 +725,8 @@
           	<td><div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i">
                     <label id="lblPeopleBtm">0</label>
-                                                人數 <br>
-                                                旅行
+                    人數 <br>
+                    旅行
                     <label id="lblDaysBtm">0</label>
 
                     days </h3>

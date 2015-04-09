@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
@@ -148,8 +149,14 @@ var promoData = '';
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">您的選擇</h2>
 						<%
-							QuoteDetails travelQuote = (QuoteDetails) request
-										.getAttribute("quoteDetails");
+							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
+
+							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+						    if(travelQuote.getPlanSelected().equalsIgnoreCase("personal")){
+						    	travelQuoteBean.setTotalOtherTraveller(0);
+						    }
+						    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){   		
+						    } 
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
@@ -954,18 +961,19 @@ var promoData = '';
 							</div>
 							<h3>同行人數</h3>
 							<div class="form-group">
-								<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}
-                                                                                                     父母 , </c:if>
-
-								<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()}
-                                                                                  孩子， </c:if>
-
-								<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()}
-                                                                                      其他,</c:if>
-
-								<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()}
-                                                                           旅客    </c:if>
-
+								<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									{ 
+								%>
+										<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()} 旅客   </c:if>
+								<% } 
+								   else 
+								   {
+								%>
+										<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 ,</c:if>
+										<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子，</c:if>
+										<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他,</c:if>
+								<% }
+								%>
 							</div>
 							<input type="hidden" name="totalAdultTraveller"
 								id="totalAdultTraveller"
