@@ -108,13 +108,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
                 </div>
                 
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" readonly>
                 </div>
               
              </td>
@@ -657,12 +657,12 @@ day(s) </h3>
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}">
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}" readonly>
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}">
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">

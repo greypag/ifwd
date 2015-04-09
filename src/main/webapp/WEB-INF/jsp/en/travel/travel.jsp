@@ -71,13 +71,13 @@
           <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-<input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}"/>
-</div>
+                   <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}" readonly/>
+                </div>
                 <span id="startDateDeskIn" class="text-red" > </span>
                 </td>
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}"/>
+                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}" readonly/>
                 </div>
               <span id="endDateDeskIn"  class="text-red" > </span>
              </td>
@@ -713,14 +713,14 @@ Embark on an adventure<br>
             <tr>
               <td class="col-md-3 pad-none"><h3>When are you leaving?</h3>
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Departure Date');" value="${travelQuote.getTrLeavingDate()}">
+                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidDate(this, 'startDateBtmIn', 'Departure Date');" value="${travelQuote.getTrLeavingDate()}" readonly>
                 </div>
                 <span id="startDateBtmIn" style="color:red"> </span></td>
               
                 
               <td class="col-md-3 pad-none"><h3>When will you be back?</h3>
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Return Date');" value="${travelQuote.getTrBackDate()}">
+                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidDate(this, 'endDateBtmIn', 'Return Date');" value="${travelQuote.getTrBackDate()}" readonly>
                 </div>
                 <span id="endDateBtmIn" style="color:red"> </span></td>
             
