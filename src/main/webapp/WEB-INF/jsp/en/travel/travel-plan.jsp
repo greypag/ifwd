@@ -114,10 +114,13 @@
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
 								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="image-order-status-new active img-circle c0"></div>
+									<div class="order-status-timeline-new">
+								<!--
+										There can be n '.order-status-timeline-completion'
+										dots-inactive and dots-active color the dots -->
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act">
@@ -144,9 +147,6 @@
 						</div>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">Choose a plan</h2>
@@ -243,7 +243,7 @@
 
 
 
-						<div class="hidden-sm hidden-xs">
+						
 							<!--Full coverage -->
 							<div class="fwdpanel">
 								<div class="fwdpanel-heading">
@@ -1052,84 +1052,88 @@
 								</h4>
 							</div>
 							<!--Full coverage end -->
-						</div>
+						
 					</div>
-					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs">
-						<div class="wd2">
-							<div class="pull-left">
-								<h2 class="h2-3-choose">TravelCare</h2>
-								<h4 id="seletedplanname"></h4>
-								<input type="hidden" name="planName" id="inputseletedplanname"
-									value="">
-
-							</div>
-							<div class="pull-right">
-								<div class="text-left pad-right1 h2-2 h2">
-									<div class="hk">
-										HK$
-										<div class="flightcare-hk" id="plansummary">0</div>
-										<input type="hidden" name="txtgrossPremiumAmt"
-											id="txtgrossPremiumAmt" value="">
+					<div class="col-lg-5 col-md-5 col-xs-12 gray-bg pad-none">
+						<div class="hidden-sm hidden-xs">
+							<div class="wd2">
+								<div class="pull-left">
+									<h2 class="h2-3-choose">TravelCare</h2>
+									<h4 id="seletedplanname"></h4>
+									<input type="hidden" name="planName" id="inputseletedplanname"
+										value="">
+	
+								</div>
+								<div class="pull-right">
+									<div class="text-left pad-right1 h2-2 h2">
+										<div class="hk">
+											HK$
+											<div class="flightcare-hk" id="plansummary">0</div>
+											<input type="hidden" name="txtgrossPremiumAmt"
+												id="txtgrossPremiumAmt" value="">
+										</div>
 									</div>
 								</div>
+								<div class="clearfix"></div>
 							</div>
-							<div class="clearfix"></div>
+							<div class="orange-bdr"></div>
+							<div class="form-container">
+								<h3>Departure date</h3>
+								<div class="form-group">
+	
+									<div class="input-group wd2">
+										<input name="trLeavingDate" type="text"
+											class="datepicker form-control"
+											value="${travelQuoteBean.getTrLeavingDate() }" readonly>
+									</div>
+								</div>
+								<h3>Return date</h3>
+								<div class="form-group">
+	
+									<div class="input-group wd2">
+										<input name="trBackDate" type="text"
+											class="datepicker form-control"
+											value="${travelQuoteBean.getTrBackDate() }" readonly>
+									</div>
+								</div>
+								<h3>Travellers</h3>
+	
+								<div class="form-group">
+									<div class="input-group wd2">
+										<input type="text" class="datepicker form-control"
+											value="<c:if
+										test="${not empty travelQuoteBean.getTotalAdultTraveller()}">${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} Adults, </c:if><c:if
+										test="${not empty travelQuoteBean.getTotalChildTraveller()}">${travelQuoteBean.getTotalChildTraveller()} Children, </c:if><c:if
+										test="${not empty travelQuoteBean.getTotalOtherTraveller()}">${travelQuoteBean.getTotalOtherTraveller()} Others</c:if>"
+											readonly> <input type="hidden"
+											name="totalAdultTraveller" id="totalAdultTraveller"
+											value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
+										<input type="hidden" name="totalChildTraveller"
+											id="totalChildTraveller"
+											value="${travelQuoteBean.getTotalChildTraveller()}"> <input
+											type="hidden" name="totalOtherTraveller"
+											id="totalOtherTraveller"
+											value="${travelQuoteBean.getTotalOtherTraveller()}">
+									</div>
+								</div>
+								<h3>
+									No of days :<span>${travelQuoteBean.getTotalTravellingDays()}
+										<input type="hidden" name="totalTravellingDays"
+										id="totalTravellingDays"
+										value="${travelQuoteBean.getTotalTravellingDays()}">
+	
+									</span>
+								</h3>
+							</div>
 						</div>
-						<div class="orange-bdr"></div>
-						<div class="form-container">
-							<h3>Departure date</h3>
-							<div class="form-group">
-
-								<div class="input-group wd2">
-									<input name="trLeavingDate" type="text"
-										class="datepicker form-control"
-										value="${travelQuoteBean.getTrLeavingDate() }" readonly>
-								</div>
-							</div>
-							<h3>Return date</h3>
-							<div class="form-group">
-
-								<div class="input-group wd2">
-									<input name="trBackDate" type="text"
-										class="datepicker form-control"
-										value="${travelQuoteBean.getTrBackDate() }" readonly>
-								</div>
-							</div>
-							<h3>Travellers</h3>
-
-							<div class="form-group">
-								<div class="input-group wd2">
-									<input type="text" class="datepicker form-control"
-										value="<c:if
-									test="${not empty travelQuoteBean.getTotalAdultTraveller()}">${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} Adults, </c:if><c:if
-									test="${not empty travelQuoteBean.getTotalChildTraveller()}">${travelQuoteBean.getTotalChildTraveller()} Children, </c:if><c:if
-									test="${not empty travelQuoteBean.getTotalOtherTraveller()}">${travelQuoteBean.getTotalOtherTraveller()} Others</c:if>"
-										readonly> <input type="hidden"
-										name="totalAdultTraveller" id="totalAdultTraveller"
-										value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
-									<input type="hidden" name="totalChildTraveller"
-										id="totalChildTraveller"
-										value="${travelQuoteBean.getTotalChildTraveller()}"> <input
-										type="hidden" name="totalOtherTraveller"
-										id="totalOtherTraveller"
-										value="${travelQuoteBean.getTotalOtherTraveller()}">
-								</div>
-							</div>
-							<h3>
-								No of days :<span>${travelQuoteBean.getTotalTravellingDays()}
-									<input type="hidden" name="totalTravellingDays"
-									id="totalTravellingDays"
-									value="${travelQuoteBean.getTotalTravellingDays()}">
-
-								</span>
-							</h3>
+						<div class="col-xs-12">
 
 							<h3>Promotion Code</h3>
-							<span class="text-red" id="errPromoCode"></span>
+
 							<div class="form-group">
 								<div class="input-group">
-									 <input
-										type="text" class="form-control" name="promoCode"
+									<span class="text-red" id="errPromoCode"></span> <input
+										type="text" class="form-control" name="referralCode"
 										id="referralCode" placeholder="eg.FWD789"> <span
 										class="input-group-addon in black-bold pointer"
 										onclick="applyPromoCode()"><span>APPLY</span></span>
@@ -1141,21 +1145,21 @@
 									data-target=".bs-promo-modal-lg"><i>How do I get a
 										promotion code?</i></a>
 							</div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-xs-6">Subtotal</h3>
 
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-xs-6 text-right"
 								id="subtotal"></h3>
 							<input type="hidden" name="subTotal" id="subTotal" value="540">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Discount</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-xs-6">Discount</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-xs-6 text-right"
 								id="discountAmt">-</h3>
 							<input type="hidden" name="selectedDiscountAmt"
 								id="selectedDiscountAmt" value="">
 
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-xs-6">Amount due</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-xs-6 text-right"
 								id="amountdue">0</h3>
 							<input type="hidden" name="selectedAmountDue"
 								ID="selectedAmountDue" value="">
@@ -1163,22 +1167,23 @@
 								<span class="text-red" id="errDue"></span>
 							</div>
 							<div class="clearfix"></div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="travel" class="bdr-curve btn btn-primary bck-btn">Back
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn">Next</button>
-
-
-								<div class="clearfix"></div>
-								<br> <br>
-							</div>
-							<div class="clearfix"></div>
 						</div>
-						<div class="clearfix"></div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+							<a href="travel" class="bdr-curve btn btn-primary bck-btn">Back
+							</a>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+							<button type="submit" class="bdr-curve btn btn-primary btn-next">Next</button>
+
+
+							
+							<br> <br>
+						</div>
+							
 					</div>
+					
 				</div>
+
 				<input type="hidden" name="planSelected"
 					value="<%=travelQuote.getPlanSelected()%>">
 				<p class="padding1 hidden-sm hidden-xs">
