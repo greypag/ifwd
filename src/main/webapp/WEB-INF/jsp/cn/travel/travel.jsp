@@ -86,12 +86,12 @@
 			          <tr>
 			            <td class="col-md-3  ">
 			              <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}">
+			                <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" disabled>
 			              </div>
 			              </td>
 			            <td class="col-md-3 ">
 			              <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}">
+			                <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" disabled>
 			              </div>
 			              </td>
 			            <td class="col-md-3">
@@ -701,8 +701,8 @@
           	<td><div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i">
                     <label id="lblPeopleBtm">0</label>
-                    people <br>
-                    travelling
+                                                人數 <br>
+                                                旅行
                     <label id="lblDaysBtm">0</label>
 
                     days </h3>
