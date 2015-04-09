@@ -308,6 +308,7 @@ public class HomeCareController {
 			userDetails.setPassport(hkId);
 
 		}
+		// testing
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
