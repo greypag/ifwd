@@ -655,7 +655,7 @@ public class FlightController {
 
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		String myReferralCode = "nathaniel.kw.cheung@fwd.com";
 		HttpSession session = request.getSession();
 
 		/* Get Travel Policies */
@@ -718,12 +718,13 @@ public class FlightController {
 						+ adultCount;
 			}
 
+			
+			
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&referralCode=" + userReferralCode;
-
+					+ expiryDate + "&referralCode=" + myReferralCode;
 			System.out.println("Travel Quote user " + Url);
 
 			HashMap<String, String> header = new HashMap<String, String>(
@@ -795,10 +796,10 @@ public class FlightController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		session.removeAttribute("");
+		
 //		return UserRestURIConstants.checkLangSetPage(request)
 //				+ "flight/flight-confirmation";
-
+		session.setAttribute("referralCode", myReferralCode);
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-confirmation");		
 	}
@@ -830,10 +831,13 @@ public class FlightController {
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		String referralCode = (String)session.getAttribute("referralCode");
+		parameters.put("referralCode", referralCode);
 		/*
 		 * System.out.println("headers=====>>>>>" + header);
 		 */
 		// Comment for to avoid over load Data
+		
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
