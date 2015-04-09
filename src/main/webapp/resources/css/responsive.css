@@ -226,15 +226,14 @@
     }
     .insure-travel .bold-500 {
         font-size: 18px;
-        line-height: 24px;
+        
     }
     .gry-bg {
         background-color: #fff;
         min-height: 0;
     }
     table.plandetail-form td .control-label {
-        font-size: 18px;
-        line-height: 24px;
+
     }
     .marg-t1 {
         margin-top: 55px;
@@ -380,7 +379,7 @@
         border: #fff 1px solid;
     }
     .bdr2{
-        margin-bottom: 20px;
+    	margin-bottom: 20px;
     }
     .status {
         display: none;
@@ -558,7 +557,7 @@
     }
     .insure-travel .bold-500 {
         font-size: 18px;
-        line-height: 24px;
+
     }
     #no-more-tables td {
         font-size: 16px;
@@ -851,7 +850,6 @@
     }
     .insure-travel .bold-500 {
         font-size: 18px;
-        line-height: 24px;
     }
     table.plandetail-form td .control-label {
         font-size: 18px;

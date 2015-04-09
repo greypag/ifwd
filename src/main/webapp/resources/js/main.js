@@ -106,16 +106,6 @@ var chk = 0;
  });
 
 
-/*on focus input Placeholder hide*/
-
-$('input[placeholder]').on('focus',function(){
-    var $this = $(this);
-    $this.data('placeholder',$this.prop('placeholder'));
-    $this.removeAttr('placeholder')
-}).on('blur',function(){
-    var $this = $(this);
-    $this.prop('placeholder',$this.data('placeholder'));
-});
 
 
 //Scroll top  Get more link 
@@ -146,9 +136,9 @@ $("#inputTxtAppHkid").keyup(function() {
 });
 
 jQuery('ul.maintabs li').hover(function () {
-	jQuery("a span", this).addClass('maintabs-hover');
+	jQuery("a", this).addClass('maintabs-hover');
 }, function () {
-    jQuery("a span", this).removeClass('maintabs-hover');
+    jQuery("a", this).removeClass('maintabs-hover');
 });
 
 /* fixed-content js */

@@ -509,7 +509,7 @@ Embark on an adventure<br>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="recent-work-wrap-mid wrap text-center">
           <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
-            <h1>Secure &amp; 
+            <h1>Secure <br> &amp;
               Stable</h1>
             <p>We have been assigned strong financial strength ratings by international rating agencies -- we have been rated "A3" by Moody's and "A" by Fitch.
             
@@ -521,7 +521,7 @@ Embark on an adventure<br>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
-            <h1>Rewards &amp; Benefits</h1>
+            <h1>Rewards <br> &amp; Benefits</h1>
              
             <p>We continue to find you great rewards and benefits that let you get more from your insurance - discounts on future insurance, special offers from partners and more.</p>
             </div>

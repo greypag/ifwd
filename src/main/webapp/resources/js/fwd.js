@@ -3076,8 +3076,12 @@ $(function () {
 if($('#Username').length){
 	$cur = $('#Username');
 	$cur.on('blur', function(){
-		value = $(this).val();
-		if(isValidUsername(value) !== true){
+		value = $(this).val().trim();
+		$(this).val(value);
+		if(value == ''){
+			$('#UsernameError').text('');
+		}
+		else if(isValidUsername(value) !== true){
 			$('#UsernameError').text(isValidUsername(value));
 		}else
 			$('#UsernameError').text('');
@@ -3086,8 +3090,12 @@ if($('#Username').length){
 if($('#Password').length){
 	$cur = $('#Password');
 	$cur.on('blur', function(){
-		value = $(this).val();
-		if(isValidPassword(value) !== true){
+		value = $(this).val().trim();
+		$(this).val(value);
+		if(value == ''){
+			$('#PasswordError').text('');
+		}
+		else if(isValidPassword(value) !== true){
 			$('#PasswordError').text(isValidPassword(value));
 		}else $('#PasswordError').text('');
 	})
@@ -3097,10 +3105,15 @@ if($('#Confirm-Password').length && $('#Password').length){
 	
 	$cur.on('blur', function(){
 		var passwordToMatch = $('#Password').val();
-		value = $(this).val();	
-		if(passMatch(passwordToMatch, value) !== true){
+		value = $(this).val().trim();
+		$(this).val(value);
+		if(value == ''){
+			$('#Confirm-PasswordError').text('');
+		}
+		else if(passMatch(passwordToMatch, value) !== true){
 			$('#Confirm-PasswordError').text(passMatch(passwordToMatch, value));
 		} else $('#Confirm-PasswordError').text('');
+		
 	})
 }
 });

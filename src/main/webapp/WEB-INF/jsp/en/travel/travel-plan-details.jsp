@@ -162,7 +162,7 @@
 						%>
 
 						<div class="gray-bg3-wid">
-							<table class="table plandetail-form margin-left-2"
+							<table class="table plandetail-form margin-left-2 vert-middle"
 								id="input-white">
 								<tbody>
 									<tr>
@@ -424,7 +424,7 @@
 										
 										
 										<div class="pad-none">
-										<div class="col-md-10 col-lg-10 pad-none">
+										<div class="col-md-6 col-xs-6 ">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectOtHkidPass${inx}" class="form-control soflow" name="selectedOtHkidPass">
 									<option value="hkId" selected="selected">HKID</option>
@@ -437,7 +437,7 @@
 												id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
 										</div>
 									</div>
-									<div class="row top-mrg-10">
+									<div class="top-mrg-10">
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500">Age Range</label> <select
 												name="otherAgeRange" class="form-control soflow"
@@ -592,16 +592,17 @@
 										class="span2 uline">Change</span></a>
 								</h3>
 								<h4>
-								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}"> Travellers ${travelQuote.getTotalPersonalTraveller()}
+								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}">Traveller(s): ${travelQuote.getTotalPersonalTraveller()}
 								 </c:if>
-									<c:if test="${  travelQuote.getTotalAdultTraveller()!=0}"> Parent ${travelQuote.getTotalAdultTraveller()}
+									<c:if test="${  travelQuote.getTotalAdultTraveller()!=0}">Parent(s): ${travelQuote.getTotalAdultTraveller()}
 										</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"> ,Child	${travelQuote.getTotalChildTraveller()}
+									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>Child(ren): ${travelQuote.getTotalChildTraveller()}
 								  
 								</c:if>
-									<c:if test="${  travelQuote.getTotalOtherTraveller()!=0}"> ,Others	${travelQuote.getTotalOtherTraveller()}
+									<c:if test="${  travelQuote.getTotalOtherTraveller()!=0}"><br>Other(s):	${travelQuote.getTotalOtherTraveller()}
 								 </c:if>
 								</h4>
+
 								<br>
 								<h3 class="txt-bold">
 									No of days :<span>${travelQuote.getTotalTravellingDays()}</span>
