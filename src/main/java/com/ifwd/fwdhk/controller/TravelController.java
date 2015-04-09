@@ -147,10 +147,18 @@ public class TravelController {
 				request.getParameter("transNo"));
 		request.getSession().setAttribute("creditCardNo",
 				request.getParameter("cardNo"));
+		
+		String month = request.getParameter("epMonth");
+		System.out.println("month " + month);
+		System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
+		
 		request.getSession().setAttribute(
 				"expiryDate",
-				request.getParameter("epMonth")
+				String.format("%02d", Integer.parseInt(request.getParameter("epMonth")))
 						+ request.getParameter("epYear"));
+		
+		
+		System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
 		request.getSession().setAttribute("emailAddress",
 				request.getParameter("emailAddress"));
 
@@ -1127,6 +1135,7 @@ public class TravelController {
 		 * System.out.println("headers=====>>>>>" + header);
 		 */
 		// Comment for to avoid over load Data
+
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 		CreatePolicy createPolicy = (CreatePolicy) session
 				.getAttribute("createPolicy");

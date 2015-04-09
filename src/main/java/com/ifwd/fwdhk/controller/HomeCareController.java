@@ -381,7 +381,7 @@ public class HomeCareController {
 				request.getParameter("cardNo"));
 
 		request.getSession().setAttribute("HomeCareCardexpiryDate",
-				request.getParameter("epMonth") + request.getParameter("epYear"));
+				String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 
 		request.getSession().setAttribute("emailAddress",
 				request.getParameter("emailAddress"));

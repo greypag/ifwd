@@ -5664,3 +5664,9 @@ div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenif
 	margin: 0;
 }
 
+.input-number{
+	background-color: #f5f5f5;
+	cursor: not-allowed;
+	display: table-cell; 
+	vertical-align: middle;	
+}

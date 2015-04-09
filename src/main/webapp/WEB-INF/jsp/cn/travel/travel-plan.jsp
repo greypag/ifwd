@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
@@ -111,10 +112,13 @@ var promoData = '';
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
 								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c4"></div>
+									<div class="order-status-timeline-new">
+								<!--
+										There can be n '.order-status-timeline-completion'
+										dots-inactive and dots-active color the dots -->
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act">
@@ -141,9 +145,6 @@ var promoData = '';
 						</div>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">您的選擇</h2>
@@ -954,18 +955,19 @@ var promoData = '';
 							</div>
 							<h3>同行人數</h3>
 							<div class="form-group">
-								<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}
-                                                                                                     父母 , </c:if>
-
-								<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()}
-                                                                                  孩子， </c:if>
-
-								<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()}
-                                                                                      其他,</c:if>
-
-								<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()}
-                                                                           旅客    </c:if>
-
+								<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									{ 
+								%>
+										<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()} 旅客   </c:if>
+								<% } 
+								   else 
+								   {
+								%>
+										<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 ,</c:if>
+										<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子，</c:if>
+										<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他,</c:if>
+								<% }
+								%>
 							</div>
 							<input type="hidden" name="totalAdultTraveller"
 								id="totalAdultTraveller"
@@ -984,8 +986,10 @@ var promoData = '';
 									value="${travelQuoteBean.getTotalTravellingDays()}"> 天
 								</span>
 							</h3>
+						</div>'
+						<div class="col-xs-12">
 							<h3>推廣編號</h3>
-
+						
 							<span class="text-red" id="errPromoCode"></span>
 							<div class="form-group">
 								<div class="input-group">
@@ -999,29 +1003,30 @@ var promoData = '';
 								<a href="" class="sub-link" data-toggle="modal"
 										data-target=".bs-promo-modal-lg"><i>如何取得推廣編號?</i></a>
 							</div>
-						</div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6">小計</h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+						
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6">小計</h3>
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="subtotal"></h3>
 						<input type="hidden" name="subTotal" id="subTotal" value="540">
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠</h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6">折扣優惠</h3>
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="discountAmt">-</h3>
 						<input type="hidden" name="selectedDiscountAmt"
 							id="selectedDiscountAmt" value="">
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費</h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6">所需保費</h3>
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="amountdue">0</h3>
 						<input type="hidden" name="selectedAmountDue"
 							id="selectedAmountDue" value="">
+							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 							<a href="#" onclick="BackMe();"
 								class="bdr-curve btn btn-primary bck-btn">上一頁 </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
+							<button type="submit" class="bdr-curve btn btn-primary btn-next">
 								下一頁 </a>
 						</div>
 						<div class="clearfix"></div>

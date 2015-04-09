@@ -10,11 +10,13 @@ $(window).load(function(){
       $('#lblCountDesk').show();
       $('#lblCountDesk').html(traveller + ' Traveller(s)');
       $('#lblPeopleDesk').html('' + traveller);
-            
+      
+      
       var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
       var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
       document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-
+      
+      
   }
   
   if($('#divPersonsBtm').length){
@@ -57,9 +59,19 @@ $('.plan').change(function () {
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblPeopleDesk').html('' + personalTraveller);
             
+//<<<<<<< Updated upstream
             $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(1);
             $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(0);
             $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(0);
+//=======
+            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(familyAdult);
+            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(familyChild);
+            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(familyOther);
+            //document.getElementById("");
+            personalTraveller=$('#txtTravellersDesk').val();
+            $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
+            //alert('personal:'+personalTraveller +', '+$('#txtTravellersDesk').val());
+//>>>>>>> Stashed changes
         }
         else if(id  == 'family_plan_desk') 
         {          
@@ -149,6 +161,7 @@ $('.btn-number').click(function(e){
     fieldName = $(this).attr('data-field');
     type      = $(this).attr('data-type');
     var input = $("input[id='"+fieldName+"']");
+    var label = $(this).closest(".number-spinner").find(".input-number");
       //PARENT ID CHECK PLAN PERSONAL OR FAMILY
     plan = $(this).attr('data-parent');
     var currentVal = parseInt(input.val());
@@ -164,13 +177,14 @@ $('.btn-number').click(function(e){
                               var family_btm_count =  parseInt($('#family_btm_count').val());
                               var total_people_btm =  family_btm_count - 1;
                               $('#family_btm_count').val(total_people_btm);
-
-                               document.getElementById("lblCountBtm").innerHTML = total_people_btm + " Traveller(s)";
-                               document.getElementById("lblPeopleBtm").innerHTML = total_people_btm;
+                              document.getElementById("lblCountBtm").innerHTML = total_people_btm + " Traveller(s)";
+                              document.getElementById("lblPeopleBtm").innerHTML = total_people_btm;
+                              label.html(input.val());
                         }else
                         {
                                document.getElementById("lblCountBtm").innerHTML = input.val() + " Traveller(s)";
                                document.getElementById("lblPeopleBtm").innerHTML = input.val();
+                               label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp5').datepicker("getDate").valueOf());
@@ -188,11 +202,12 @@ $('.btn-number').click(function(e){
                               $('#family_mob_count').val(total_people_mob);
                               document.getElementById("lblCountMob").innerHTML = total_people_mob + " Traveller(s)";
                               document.getElementById("lblPeopleMob").innerHTML = total_people_mob;
-
+                              label.html(input.val());
                         }else
                         {
                             document.getElementById("lblCountMob").innerHTML = input.val() + " Traveller(s)";
                             document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp3').datepicker("getDate").valueOf());
@@ -211,11 +226,12 @@ $('.btn-number').click(function(e){
                             $('#family_desk_count').val(total_people);
                             document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
                             document.getElementById("lblPeopleDesk").innerHTML = total_people;
-
+                            label.html(input.val());
                         }else
                         {
                             document.getElementById("lblCountDesk").innerHTML = input.val() + " Traveller(s)";
                             document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
@@ -268,10 +284,12 @@ $('.btn-number').click(function(e){
 
                                document.getElementById("lblCountBtm").innerHTML = total_people_btm + " Traveller(s)";
                                document.getElementById("lblPeopleBtm").innerHTML = total_people_btm;
+                               label.html(input.val());
                         }else
                         {
                                document.getElementById("lblCountBtm").innerHTML = input.val() + " Traveller(s)";
                                document.getElementById("lblPeopleBtm").innerHTML = input.val();
+                               label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp5').datepicker("getDate").valueOf());
@@ -288,10 +306,12 @@ $('.btn-number').click(function(e){
                               $('#family_mob_count').val(total_people_mob);
                               document.getElementById("lblCountMob").innerHTML = total_people_mob + " Traveller(s)";
                               document.getElementById("lblPeopleMob").innerHTML = total_people_mob;
+                              label.html(input.val());
                         }else
                         {
                                document.getElementById("lblCountMob").innerHTML = input.val() + " Traveller(s)";
                                document.getElementById("lblPeopleMob").innerHTML = input.val();
+                               label.html(input.val());
                         }
 
                      
@@ -307,19 +327,18 @@ $('.btn-number').click(function(e){
                         if(plan  == 'family')
                         {
                               //GET VALUE OF 
-                          var family_desk_count =  parseInt($('#family_desk_count').val());
-                   
-                               
-                               var total_people =  family_desk_count + 1;
-                               $('#family_desk_count').val(total_people);
-                               document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
-                               document.getElementById("lblPeopleDesk").innerHTML = total_people;
-                          
+                        	var family_desk_count =  parseInt($('#family_desk_count').val());
+                           var total_people =  family_desk_count + 1;
+                           $('#family_desk_count').val(total_people);
+                           document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
+                           document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                           label.html(input.val());
 
                         }else
                         {
                               document.getElementById("lblCountDesk").innerHTML = input.val() + " Traveller(s)";
                               document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                              label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
