@@ -912,83 +912,85 @@ var promoData = '';
 					</div>
 
 					<div
-						class="col-lg-5 col-md-5 col-sm-5 col-xs-5 gray-bg pad-none hidden-sm hidden-xs">
-						<div class="wd2">
-							<div class="pull-left">
-								<h2 class="h2-3-choose">旅遊保險</h2>
-								<h4 id="seletedplanname"></h4>
-								<input type="hidden" name="planName" id="inputseletedplanname"
-									value="">
-								
+						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
+						<div class="col-xs-12 hidden-sm hidden-xs">
+							<div class="wd2">
+								<div class="pull-left">
+									<h2 class="h2-3-choose">旅遊保險</h2>
+									<h4 id="seletedplanname"></h4>
+									<input type="hidden" name="planName" id="inputseletedplanname"
+										value="">
 									
-							</div>
-							<div class="pull-right">
-								<div class="text-left pad-right1 h2-2 h2">
-									<div class="hk">
-										港幣
-										<div class="flightcare-hk" id="plansummary">0</div>
-										<input type="hidden" name="txtgrossPremiumAmt"
-											id="txtgrossPremiumAmt" value="">
+										
+								</div>
+								<div class="pull-right">
+									<div class="text-left pad-right1 h2-2 h2">
+										<div class="hk">
+											港幣
+											<div class="flightcare-hk" id="plansummary">0</div>
+											<input type="hidden" name="txtgrossPremiumAmt"
+												id="txtgrossPremiumAmt" value="">
+										</div>
 									</div>
 								</div>
+								<div class="clearfix"></div>
 							</div>
-							<div class="clearfix"></div>
+							<div class="orange-bdr"></div>
+							<div class="form-container">
+								<h3>出發日期</h3>
+								<div class="form-group">
+									<div class="input-group wd2">
+										<input name="trLeavingDate" type="text"
+											class="datepicker form-control"
+											value="${travelQuoteBean.getTrLeavingDate() }" readonly>
+									</div>
+								</div>
+								<h3>回程日期</h3>
+	
+								<div class="form-group">
+									<div class="input-group wd2">
+										<input name="trBackDate" type="text"
+											class="datepicker form-control"
+											value="${travelQuoteBean.getTrBackDate() }" readonly>
+									</div>
+								</div>
+								<h3>同行人數</h3>
+								<div class="form-group likeDatePicker bcg-trans">
+	              					<div class="input-group wd2 datepicker form-control" > 
+									<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+										{ 
+									%>
+											<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()} 旅客   </c:if>
+									<% } 
+									   else 
+									   {
+									%>
+											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子 <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他 <br></c:if>
+									<% }
+									%>
+									</div>
+								</div>
+								<input type="hidden" name="totalAdultTraveller"
+									id="totalAdultTraveller"
+									value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
+								<input type="hidden" name="totalChildTraveller"
+									id="totalChildTraveller"
+									value="${travelQuoteBean.getTotalChildTraveller()}"> <input
+									type="hidden" name="totalOtherTraveller"
+									id="totalOtherTraveller"
+									value="${travelQuoteBean.getTotalOtherTraveller()}">
+								<%-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${travelQuoteBean.getTotalPersonalTraveller()}"> --%>
+								<h3>
+									合共 <span> ${travelQuoteBean.getTotalTravellingDays()} <input
+										type="hidden" name="totalTravellingDays"
+										id="totalTravellingDays"
+										value="${travelQuoteBean.getTotalTravellingDays()}"> 天
+									</span>
+								</h3>
+							</div>
 						</div>
-						<div class="orange-bdr"></div>
-						<div class="form-container">
-							<h3>出發日期</h3>
-							<div class="form-group">
-								<div class="input-group wd2">
-									<input name="trLeavingDate" type="text"
-										class="datepicker form-control"
-										value="${travelQuoteBean.getTrLeavingDate() }" readonly>
-								</div>
-							</div>
-							<h3>回程日期</h3>
-
-							<div class="form-group">
-								<div class="input-group wd2">
-									<input name="trBackDate" type="text"
-										class="datepicker form-control"
-										value="${travelQuoteBean.getTrBackDate() }" readonly>
-								</div>
-							</div>
-							<h3>同行人數</h3>
-							<div class="form-group likeDatePicker bcg-trans">
-              					<div class="input-group wd2 datepicker form-control" > 
-								<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
-									{ 
-								%>
-										<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()} 旅客   </c:if>
-								<% } 
-								   else 
-								   {
-								%>
-										<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 <br></c:if>
-										<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子 <br></c:if>
-										<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他 <br></c:if>
-								<% }
-								%>
-								</div>
-							</div>
-							<input type="hidden" name="totalAdultTraveller"
-								id="totalAdultTraveller"
-								value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
-							<input type="hidden" name="totalChildTraveller"
-								id="totalChildTraveller"
-								value="${travelQuoteBean.getTotalChildTraveller()}"> <input
-								type="hidden" name="totalOtherTraveller"
-								id="totalOtherTraveller"
-								value="${travelQuoteBean.getTotalOtherTraveller()}">
-							<%-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${travelQuoteBean.getTotalPersonalTraveller()}"> --%>
-							<h3>
-								合共 <span> ${travelQuoteBean.getTotalTravellingDays()} <input
-									type="hidden" name="totalTravellingDays"
-									id="totalTravellingDays"
-									value="${travelQuoteBean.getTotalTravellingDays()}"> 天
-								</span>
-							</h3>
-						</div>'
 						<div class="col-xs-12">
 							<h3>推廣編號</h3>
 						
