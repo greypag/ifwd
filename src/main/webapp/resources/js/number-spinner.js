@@ -64,6 +64,7 @@ $('.plan').change(function () {
             $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(0);
             $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(0);
 
+			$('#txtTravellersDesk').val(1);
             personalTraveller=$('#txtTravellersDesk').val();
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblPeopleDesk').html('' + personalTraveller);
