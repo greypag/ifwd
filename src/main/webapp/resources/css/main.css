@@ -186,6 +186,14 @@ ul.maintabs li:hover{
 	color: #fff;
 	background-color:#f68a1d;
 }
+ul.maintabs li:hover span.offer{
+	    color: #fff !important;
+      -webkit-transition: color 300ms, background-color 300ms;
+  -moz-transition: color 300ms, background-color 300ms;
+  -o-transition: color 300ms, background-color 300ms;
+  transition: color 300ms, background-color 300ms;
+	
+}
 .maintabs-hover
 {
 	
@@ -5447,6 +5455,10 @@ select#selectHkidPass, .selectHkidPass{ width:90% !important; margin-right:10%;}
 .chin #adulttraveller{
 	padding: 0 20px;
 }
+.chin .insure-travel #adulttraveller{
+    padding: 0;
+}
+
 .major-exc li {padding:3px 0;}
 .plan-box-flight {
 	margin-top:15px;	
