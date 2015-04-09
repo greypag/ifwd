@@ -47,9 +47,9 @@
     /***********************/
     /*****For-Flight-Plan-Page*****/
     
-    .input-block-level {
+/*     .input-block-level {
         padding-left: 3px;
-    }
+    } */
     .plan-box h2 {
         margin-left: 10px;
         font-size: 18px;
@@ -202,11 +202,11 @@
     .h4-6-td {
         padding: 0px;
     }
-    .input-block-level {
+/*     .input-block-level {
         padding: 3px;
         font-size: 18px;
         padding-left: 3px;
-    }
+    } */
     .plan-box h4 , .plan-box2 h4{
         margin-left: 25px;
     }
@@ -380,7 +380,7 @@
         border: #fff 1px solid;
     }
     .bdr2{
-    	margin-bottom: 20px;
+        margin-bottom: 20px;
     }
     .status {
         display: none;
@@ -463,7 +463,7 @@
         font-size: 24px;
     }
     .travel-tb td {
-        padding: 5px 0px;
+        padding: 5px 5px;
     }
     .travel-tb th {
         padding: 5px 0px;
@@ -501,11 +501,11 @@
     .get-btn-home {
         margin-top: 20px;
     }
-    .input-block-level {
+   /*  .input-block-level {
         padding: 3px;
         font-size: 18px;
         padding-left: 3px;
-    }
+    } */
     .h4-6-td {
         padding: 0px;
     }
@@ -579,9 +579,9 @@
     h2.from-control {
         font-size: 24px;
     }
-    .input-block-level {
+    /* .input-block-level {
         padding-left: 3px;
-    }
+    } */
     .h2-1 {
         font-size: 18px;
         line-height: 20px;

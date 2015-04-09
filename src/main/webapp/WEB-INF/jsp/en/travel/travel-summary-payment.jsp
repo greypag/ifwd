@@ -160,13 +160,158 @@
 							</table>
 						</div>
 						<div class="clearfix"></div>
-						<div id="no-more-tables">
+						<div id="no-more-tables2">
 							<div class="col-xs-12 col-sm-12">
 								<div class="travel-tb-td hidden-md hidden-lg text-left wd2">
 									<h3 class="color4 h2-1 insur padding-t">Insured Person(s)</h3>
+									
+									<!-- Mobile Table starts -->
+								</div>
+								<div  class="hidden-md hidden-lg">
+							<table class="col-xs-10 table-condensed cf mob-table">
+								
+								<%
+									PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
+											.getAttribute("planDetailsForm");
+									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
+								%>
+								<tr><td class="col-xs-12"><table class="col-xs-12">
+								
+
+								<tbody>
+									<tr class="">
+										<td  ><span class="bd">Adult <%=i + 1%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td ><span class="bd gy">Beneficiary</span></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class=""><%=planDetailsForm.getAdultName()[i]%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class=""><%=planDetailsForm.getAdultAgeRange()[i]%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="">&nbsp;</td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class=""><%=planDetailsForm.getAdultHKID()[i]%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class="">Own estate</span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getAdultBeneficiary()[i]%></td>
+										<% } %>
+									</tr>
+									<tr><td>&nbsp;</td></tr>
+
+									
+								</tbody>
+								</table></td></tr>
+								
+								<%
+									}
+								%>
+								<%
+									for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
+								%>
+								<tr><td class="col-xs-12"><table class="col-xs-12">
+								<tbody>
+									<tr><td>&nbsp;</td></tr>
+									<tr>
+										<td ><span class="bd">Child <%=i + 1%></span></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td ><span class="bd gy" >Beneficiary</span></td>
+										<% } %>
+									</tr>
+									<tr>	
+										<td ><%=planDetailsForm.getChildName()[i]%></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td class="gy"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getChildAgeRange()[i]%></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td >&nbsp;</td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getChildHKID()[i]%></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td >Own estate</td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getChildBeneficiary()[i]%></td>
+										<% } %>
+									</tr>
+									<tr><td>&nbsp;</td></tr>
+								</tbody>
+								</table></td></tr>
+
+								<%
+									}
+								%>
+								<%
+									for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
+								%>
+								<tr><td class="col-xs-12"><table class="col-xs-12">
+								<tbody>
+									<tr><td>&nbsp;</td></tr>
+									<tr class="">
+										<td ><span class="bd">Other<%=i + 1%></span></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td ><span  class="bd gy">Beneficiary</span></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getOtherName()[i]%></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getOtherAgeRange()[i]%></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td >&nbsp;</td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getOtherHKID()[i]%></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getOtherHKID()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td >Own estate</td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getOtherBeneficiary()[i]%></td>
+										<% } %>
+									</tr>
+									<tr><td>&nbsp;</td></tr>
+								</tbody>
+								</table></td></tr>
+								<%
+									}
+								%>
+
+
+							</table>
+									<!-- Mobile table ends -->
 								</div>
 							</div>
-							<table class="col-md-12 table-condensed cf pad-left-20 ">
+						</div>
+						<div id="no-more-tables" class="hidden-sm hidden-xs">
+							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
 								<thead class="cf">
 									<tr class="travel-tb-td">
 										<th><span class="insur">Insured Person(s)</span></th>
@@ -177,8 +322,8 @@
 									</tr>
 								</thead>
 								<%
-									PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
-											.getAttribute("planDetailsForm");
+									/* PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
+											.getAttribute("planDetailsForm"); */
 									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
 								%>
 
@@ -278,10 +423,10 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="gray-bg1">
+				<div class="gray-bg1 pad20">
 					<div class="clearfix"></div>
 					<h2 class="from-control">Payment Details</h2>
-					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>					
+					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>				
 					<input type="hidden" name="merchantId"
 						value="${createPolicy.getMerchantId()}"> <input
 						type="hidden" name="amount" value="${dueAmount.trim()}"> <input
@@ -304,7 +449,7 @@
 						type="hidden" id="gateway" name="gateway"
 						value="${createPolicy.getPaymentGateway()}">
 
-					<table class="table-responsive travel-tb">
+					<table class=" travel-tb">
 
 						<tbody>
 							<tr class="control-group">
@@ -458,8 +603,11 @@
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 								<input type="submit"
-									class="bdr-curve-none btn btn-primary nxt-btn"
+									class="bdr-curve-none btn btn-primary nxt-btn hidden-xs hidden-sm"
 									value="Confirm Payment" onclick="confirmPayment()" />
+								<input type="submit"
+									class="bdr-curve-none btn btn-primary nxt-btn hidden-md hidden-lg"
+									value="Pay Now" onclick="confirmPayment()" />
 
 
 							</div>

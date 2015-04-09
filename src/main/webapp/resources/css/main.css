@@ -4535,8 +4535,7 @@ table.purchase-history tr td {
 	font-weight: 500;
 	line-height: 30px;
 	color: #87999e;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
+
 }
 .travel-tb-border {
 	border-bottom: 1px solid #061d2a
@@ -5669,4 +5668,27 @@ div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenif
 	cursor: not-allowed;
 	display: table-cell; 
 	vertical-align: middle;	
+}
+
+.mob-table > tbody > tr:not(:last-of-type) 
+{
+    border-bottom:1px solid #87999e;
+}
+.mob-table {margin:20px 20px 0;}
+.mob-table table {margin:0;}
+.mob-table .bd{
+	font-size: 16px;
+  	color: #061d2a;
+  	font-weight: 700;
+}
+.mob-table .gy{
+	  
+  font-size: 16px;
+  color: #87999e;
+	
+}
+.pad20{ padding:20px;}
+table.beneList{margin-left:0 !important;}
+.beneList  tbody:not(:last-of-type) {
+    border-bottom:1px solid #87999e;
 }
