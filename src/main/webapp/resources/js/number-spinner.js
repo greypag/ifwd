@@ -10,13 +10,6 @@ $(window).load(function(){
       $('#lblCountDesk').show();
       $('#lblCountDesk').html(traveller + ' Traveller(s)');
       $('#lblPeopleDesk').html('' + traveller);
-      
-      
-      var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
-      var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-      document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-      
-      
   }
   
   if($('#divPersonsBtm').length){
@@ -59,19 +52,14 @@ $('.plan').change(function () {
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblPeopleDesk').html('' + personalTraveller);
             
-<<<<<<< Updated upstream
             $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(1);
             $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(0);
             $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(0);
-=======
-            $('.plan_spinner_' + parent_id + '  #txtAdultsDesk').val(familyAdult);
-            $('.plan_spinner_' + parent_id + '  #txtChildDesk').val(familyChild);
-            $('.plan_spinner_' + parent_id + '  #txtOtherDesk').val(familyOther);
+
             //document.getElementById("");
             personalTraveller=$('#txtTravellersDesk').val();
             $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             //alert('personal:'+personalTraveller +', '+$('#txtTravellersDesk').val());
->>>>>>> Stashed changes
         }
         else if(id  == 'family_plan_desk') 
         {          
