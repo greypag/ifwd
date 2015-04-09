@@ -86,13 +86,13 @@
           <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                   <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}" readonly/>
+                   <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidDate(this, 'startDateDeskIn', 'Depature Date');" value="${travelQuote.getTrLeavingDate()}" readonly/>
                 </div>
                 
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
-                  <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}" readonly/>
+                  <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidDate(this, 'endDateDeskIn', 'Return Date');" value="${travelQuote.getTrBackDate()}" readonly/>
                 </div>
               
              </td>
