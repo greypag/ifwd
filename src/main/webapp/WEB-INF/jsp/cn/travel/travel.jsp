@@ -172,7 +172,7 @@
 			         <td class="col-md-2 "><div id="divPersonsDesk" style="visibility:hidden;">
 			             <h3 class="h3-i">
 			               <label id="lblPeopleDesk">0</label>
-			                                   人数 <br>
+			                                   人數 <br>
 			                                   旅行
 			               <label id="lblDaysDesk">0</label>
 			               days </h3>
