@@ -66,7 +66,7 @@
 <section id="middle" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 pad-none slide-form">
+      <div class="col-lg-12 col-md-12 pad-none slide-form fixed-content">
         <h2>立即申請富衛旅遊保險</h2>
       		      <table class="table activation-form3">
 			        <tbody>
