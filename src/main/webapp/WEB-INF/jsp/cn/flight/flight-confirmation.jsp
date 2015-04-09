@@ -84,10 +84,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						"policyNo")%></span>
 						</h4>
 
-						<div class="gray-bg1-content hidden-sm hidden-xs">
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pad-none">
+						<div class="gray-bg1-content">
+						<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
 						
-						<div class="addthis_sharing_toolbox" data-url="http://support.addthis.com/customer/portal/articles/125634-setting-the-url-title-to-share" data-title="THE TITLE"></div>
+						<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD Phase 1"></div>
 						</div>
 						<div class="col-lg-6 col-md-6">
 						<p>

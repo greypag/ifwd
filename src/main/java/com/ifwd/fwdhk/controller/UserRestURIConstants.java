@@ -130,4 +130,13 @@ public class UserRestURIConstants {
 		}
 	}
 
+	public static String checkLangSetPage(String lang){
+		if("EN".equals(lang)){
+			return "/en/";
+		}else if("CN".equals(lang)){
+			return "/cn/";
+		} else{
+			return "/en/";
+		}
+	}
 }

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
+var promoData = '';
 	function getuserDetails() {
 
 		//alert($('#frmTravelPlan input').serialize());
@@ -40,6 +41,7 @@
 			success : function(data) {
 				
 				var json = JSON.parse(data);
+				promoData = json;
 				setValue(json);
 			}
 
@@ -49,26 +51,22 @@
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
-
-		if (selValue == "priceInfoA") {
-			var totalDue = parseInt(result["priceInfoA"].totalDue);
-			$("#subtotal").html(result["priceInfoA"].totalDue);
-			$("#discountAmt").html(result["priceInfoA"].discountAmount);
+		
+		if (selValue == "Plan A") {
+			//var totalDue = parseInt(result["priceInfoA"].totalDue);
 			
-			document.getElementById("subtotal").innerHtml = result["priceInfoA"].setDiscountAmount;
-			document.getElementById("amountdue").innerHtml = result["priceInfoA"].totalDue;
-			document.getElementById("selectedAmountDue").value = result["priceInfoA"].totalDue;
-			document.getElementById("grossPremium").value = result["priceInfoA"].totalDue;
-		} else
-
-		{
-			var totalDue = parseInt(result["priceInfoB"].totalDue);
-			$("#subtotal").html(result["priceInfoB"].totalDue);
-			$("#discountAmt").html(result["priceInfoB"].discountAmount);
-			$("#amountdue").html(result["priceInfoB"].totalDue);
-			document.getElementById("selectedAmountDue").value = result["priceInfoB"].totalDue;
-			document.getElementById("amountdue").innerHtml = result["priceInfoB"].totalDue;
-			document.getElementById("grossPremium").value = result["priceInfoB"].totalDue;
+			$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+			$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			
+		} else {
+			//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
+			$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+			$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+			$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			
 		}
 	}
 </script>
@@ -100,14 +98,17 @@
 							style="visibility: visible;">
 							<h2>您的選擇</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
 								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c4"></div>
+									<div class="order-status-timeline-new">
+								<!--
+										There can be n '.order-status-timeline-completion'
+										dots-inactive and dots-active color the dots -->
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act">
@@ -134,9 +135,7 @@
 						</div>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
+
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">您的選擇</h2>
@@ -932,7 +931,7 @@
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input name="trLeavingDate" type="text"
-										class="datepicker form-control"
+										class="datepicker form-control bcg-trans"
 										value="${travelQuoteBean.getTrLeavingDate() }" readonly>
 								</div>
 							</div>
@@ -941,24 +940,18 @@
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input name="trBackDate" type="text"
-										class="datepicker form-control"
+										class="datepicker form-control bcg-trans"
 										value="${travelQuoteBean.getTrBackDate() }" readonly>
 								</div>
 							</div>
 							<h3>同行人數</h3>
-							<div class="form-group">
-								<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}
-                                                                                                     父母 , </c:if>
-
-								<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()}
-                                                                                  孩子， </c:if>
-
-								<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()}
-                                                                                      其他,</c:if>
-
-								<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()}
-                                                                           旅客    </c:if>
-
+							<div class="form-group likeDatePicker bcg-trans">
+								<div class="input-group wd2 datepicker form-control">
+								<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 ,</c:if>
+								<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子，</c:if>
+								<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他,</c:if>
+								<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()} 旅客   </c:if>
+								</div>
 							</div>
 							<input type="hidden" name="totalAdultTraveller"
 								id="totalAdultTraveller"
@@ -993,20 +986,23 @@
 										data-target=".bs-promo-modal-lg"><i>如何取得推廣編號?</i></a>
 							</div>
 						</div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6">小計</h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
-							id="subtotal"></h3>
-						<input type="hidden" name="subTotal" id="subTotal" value="540">
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠</h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
-							id="discountAmt">-</h3>
-						<input type="hidden" name="selectedDiscountAmt"
-							id="selectedDiscountAmt" value="">
-						<div class="clearfix"></div>
-						<div class="orange-bdr"></div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費</h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
-							id="amountdue">0</h3>
+						<div class="amount-calculation clearfix">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6">小計</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+								id="subtotal"></h3>
+							<input type="hidden" name="subTotal" id="subTotal" value="540">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+								id="discountAmt">-</h3>
+							<input type="hidden" name="selectedDiscountAmt"
+								id="selectedDiscountAmt" value="">
+						</div>
+							<div class="clearfix"></div>
+							<div class="orange-bdr"></div>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
+								id="amountdue">0</h3>
+						
 						<input type="hidden" name="selectedAmountDue"
 							id="selectedAmountDue" value="">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
@@ -1014,7 +1010,7 @@
 								class="bdr-curve btn btn-primary bck-btn">上一頁 </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
+							<button type="submit" class="bdr-curve btn btn-primary btn-next">
 								下一頁 </a>
 						</div>
 						<div class="clearfix"></div>
@@ -1094,9 +1090,11 @@
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		var selected_div;
 		var idArray = [];
+
 		$('.travelproductbox').each(function() {
 			idArray.push(this.id);
 		});
+
 		var index = idArray.indexOf(id);
 		if (index > -1) {
 			idArray.splice(index, 1);
@@ -1105,8 +1103,13 @@
 				$('#' + idArray).addClass("plan-box3");
 			}
 		}
+
 		var selected_price = $('#' + id).find('h6').text();
-		$('#amountdue').html(totalDue);
+		selected_price = parseInt(selected_price).toFixed(2);
+		
+		$('#amountdue').html(parseInt(totalDue).toFixed(2));
+		
+		
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
@@ -1115,12 +1118,18 @@
 
 		$('#' + id).addClass("plan-box4");
 
-		$('#discountAmt').html(discountAmt);
+		$('#discountAmt').html(parseInt(discountAmt).toFixed(2));
+		
 		document.getElementById("selectedAmountDue").value = totalDue.trim();
+		
 		document.getElementById("selectedDiscountAmt").value = discountAmt
 				.trim();
 		document.getElementById("txtgrossPremiumAmt").value = selected_price
 				.trim();
+		
+		if(promoData !== '')
+			setValue(promoData);
+		
 	}
 
 	function sendEmail() {

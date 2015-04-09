@@ -3035,6 +3035,9 @@ h2.page-title {
 	border: #ccc 1px solid;
 	margin-top:20px;
 }
+.bdr2 {
+	border: #ccc 1px solid;
+}
 
 .travelproductbox .plan-box2-inner:hover {
 	background-color: #616163;
@@ -3397,8 +3400,7 @@ del {
 	margin-left: 50px;
 	font-size: 24px;
 	line-height: 42px;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
+
 }
 .gray-bg .h2{ margin-top: 20px;
 margin-bottom: 10px;}
@@ -3734,6 +3736,14 @@ color:#fff !important;
 
 /********* Wizard css************/
 /********* Wizard css************/
+.shop-tracking-status{
+	margin-bottom: 30px;
+}
+@media (min-width: 992px){
+	.shop-tracking-status {
+	  margin-bottom: 50px;
+	}
+}
 .shop-tracking-status .order-status {
 	position: relative;
 }
@@ -4369,7 +4379,9 @@ table.purchase-history tr td {
 #tr-wizard.shop-tracking-status .image-order-status-new {
 	left: 0
 }
-#tr-wizard.shop-tracking-status .image-order-status-new .icon {
+#tr-wizard.shop-tracking-status .image-order-status .icon {
+	padding: 0;
+	line-height: 40px;
 }
 #tr-wizard.shop-tracking-status .image-order-status-active {
 	left: 22%
@@ -5410,7 +5422,7 @@ font-family: 'Foco-bold';
 
 .travel-special{top:7px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
-select#selectHkidPass{ width:90% !important; margin-right:10%;}
+select#selectHkidPass, .selectHkidPass{ width:90% !important; margin-right:10%;}
 .chin .travel-special{top:21px;}
 .chin .travel-and-home-tab{top:52px;}
 
@@ -5642,3 +5654,13 @@ div[id^='otherbenificiaryId'],div[id^='childbenificiaryId'],div[id^='adultsbenif
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
+.text-italic{
+	font-style: italic;
+}
+.amount-calculation{
+	margin: 20px 0;
+}
+.amount-calculation h3{
+	margin: 0;
+}
+

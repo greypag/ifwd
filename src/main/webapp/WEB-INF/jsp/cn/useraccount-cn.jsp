@@ -253,11 +253,11 @@ Tag Manager -->
                   </tr>
                   <tr>
                     <td class="pad-none">
-                    <p>您的專屬推廣編號:<span class="h2-1"> JOHNDOE0001</span><br>
+                    <p>您的專屬推廣編號:<span class="h2-1"> ${referralCode}</span><br>
                        與朋友分享，一同取得更多富衛合作夥伴之優惠!<span class="orange-star">*</span> 
                     </p>
                          <div class="clearfix"></div>
-                         <p  class="text-center"> <img src="../images/agoda.png" alt=""/> </p>
+                         <p  class="text-center"> <img src="resources/images/agoda.png" alt=""/> </p>
                      
                       </td>
                   </tr>
