@@ -223,10 +223,10 @@
               	
               
               		<%-- <input type="text" class="datepicker form-control" value=" --%>
-								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent(s): ${planDetails.getTotalAdultTraveller()}</c:if>
-								<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child(s): ${planDetails.getTotalChildTraveller()}<br></c:if>
-								<c:if test="${planDetails.getTotalOtherTraveller() !=0}">Others: ${planDetails.getTotalOtherTraveller()}</c:if>
-								<c:if test="${planDetails.getTravellerCount() !=0}">Travellers: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent(s): ${planDetails.getTotalAdultTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child(ren): ${planDetails.getTotalChildTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalOtherTraveller() !=0}">Other(s): ${planDetails.getTotalOtherTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTravellerCount() !=0}">Traveller(s): ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
 								
               	</div>
               </div>

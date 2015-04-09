@@ -531,7 +531,7 @@ Myself
 									appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbo3" type="checkbox"> <label
+								<input id="checkbox3" type="checkbox"> <label
 									for="checkbox3"> Please do not send direct marketing
 									information to me. <br>
 								</label>
@@ -592,10 +592,10 @@ Myself
 									Travellers <span class="span2 uline"><a href="flight">Change</a></span>
 								</h3>
 								<h4>
-									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">Parent :${planDetailsForm.getTotalAdultTraveller()},</c:if>
-									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }">Child :${planDetailsForm.getTotalChildTraveller()},</c:if>
-									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}">Others :${planDetailsForm.getTotalOtherTraveller()}</c:if>
-									<c:if test="${planDetailsForm.getTravellerCount() !=0}">Travellers :${planDetailsForm.getTravellerCount()}</c:if>
+									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">Parent(s): ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
+									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }">Child(ren): ${planDetailsForm.getTotalChildTraveller()} <br></c:if>
+									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}">Other(s): ${planDetailsForm.getTotalOtherTraveller()} <br></c:if>
+									<c:if test="${planDetailsForm.getTravellerCount() !=0}">Traveller(s): ${planDetailsForm.getTravellerCount()}</c:if>
 								</h4>
 								<input type="hidden" name="otherInput"
 									value="${planDetailsForm.getTotalOtherTraveller()}"> <input
