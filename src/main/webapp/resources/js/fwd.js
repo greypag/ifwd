@@ -373,6 +373,10 @@ function fPlanValid()
     }
 
 	
+   if( verifyUserBookingRegistration() === false)
+	   flag = false;
+    
+    
 //	if (document.getElementById("checkbox2").checked == false) {
 //		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
 //		flag = false;
@@ -608,13 +612,13 @@ $(function () {
 			var appHkid = $(this).val();
 			
 			if (appHkid.trim() == "") {
-				$('#errAppHkid').html(getBundle(getBundleLanguage, "insured.hkId.notNull.message"));//"Please enter your Name in English.";
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));//"Please enter your Name in English.";
 				return false;
 			}
 			var tr=IsHKID(appHkid.trim());
 			if(tr==false)
 			{
-				$('#errAppHkid').html(getBundle(getBundleLanguage, "insured.hkId.notValid.message"));
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
 				return false;
 			}
 			$("#txtInsuHkid1").val($(this).val());
@@ -3045,8 +3049,11 @@ function verifyUserBookingRegistration(){
 	var userName = $('#Username').val();
 	var password = $('#Password').val();
 	var checkPassword = $('#Confirm-Password').val();
-	if(userName === '' && password === '' && checkPassword === ''){
-		return check;
+	if(userName.trim() === '' && password.trim() === '' && checkPassword.trim() === ''){
+		
+		$('#UsernameError').text('');
+		$('#PasswordError').text('');
+		$('#Confirm-PasswordError').text('');
 	}
 	else{
 		if(isValidUsername(value) !== true){

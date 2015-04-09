@@ -504,27 +504,34 @@
 									iii. <span class="margin-left-2"></span>This application shall be the basis of the contract between me and FWD.<br>
 							     	iv. <span class="margin-left-2"></span>This Proposal Form is applied and signed at HKSAR, in case of fraud or factual misrepresentation, the cover for me or for the Insured Person(s) may be invalidated.<br>
 								    v. <span class="margin-left-2"></span>I have obtained the consent from the Insured Person(s) for passing the above information to FWD General Insurance Company Limited for the purpose of carrying out the TravelCare Insurance.
-									<br/>
+								</label>
+							</div>	
+							<span id="chk1" class="text-red"></span>		
+									
 								<br/>
+							<div class="checkbox">
+								<input id="checkbox2" type="checkbox"> <label
+									for="checkbox2">
 								 I have read and understood <a href="<%=request.getContextPath() %>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
 									class="sub-link" target="_blank">Personal Information Collection Statement</a> and agree to be bound by the same.
 										<br>
 										
 								</label>
 							</div>
-							<span id="chk1" class="text-red"></span>
+							<span id="chk2" class="text-red"></span>
+							
 							<hr/>
 							<div>
 								If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise
 							</div>
 							<div class="checkbox">
-								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2">Please do not send direct marketing information to me.<br>
+								<input id="checkbox3" type="checkbox"> <label
+									for="checkbox3">Please do not send direct marketing information to me.<br>
 								</label>
 							</div>
 							<div class="checkbox">
-								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> Please do not provide my personal data to other persons or companies for their use in direct marketing. <br> <br>
+								<input id="checkbox4" type="checkbox"> <label
+									for="checkbox4"> Please do not provide my personal data to other persons or companies for their use in direct marketing. <br> <br>
 								</label>
 							</div>
 							<!-- <div class="checkbox">
