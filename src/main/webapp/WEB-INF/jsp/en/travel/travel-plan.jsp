@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
+	var promoData = '';
 	function getuserDetails() {
 
 		//alert($('#frmTravelPlan input').serialize());
@@ -10,10 +11,10 @@
 	}
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("referralCode").innerHTML;
+		var promoCode = document.getElementById("referralCode").value;
 
-		if (promoCode == "") {
-			document.getElementById("errPromoCode").innerHTML = "Please Enter Promocode";
+		if (promoCode.trim() == "") {
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
 		} else
 			flag = true;
@@ -33,6 +34,10 @@
 		return flag;
 	}
 	function applyPromoCode() {
+		
+		$("#errPromoCode").html("");
+		
+		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
 			url : 'applyPromoCode',
@@ -40,6 +45,7 @@
 			success : function(data) {
 				
 				var json = JSON.parse(data);
+				promoData = json;
 				setValue(json);
 			}
 
@@ -49,19 +55,27 @@
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
-
-		if (selValue == "priceInfoA") {
-			var totalDue = parseInt(result["priceInfoA"].totalDue);
-			$("#subtotal").html(result["priceInfoA"].grossPremium);
-			$("#discountAmt").html(result["priceInfoA"].discountAmount);
-			$("#amountdue").html(result["priceInfoA"].totalDue);
+		if(result['errMsgs'] !== null){
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notVaild.message"));
+		}else{
+			$("#errPromoCode").html("");
 			
-		} else {
-			var totalDue = parseInt(result["priceInfoB"].totalDue);
-			$("#subtotal").html(result["priceInfoB"].grossPremium);
-			$("#discountAmt").html(result["priceInfoB"].discountAmount);
-			$("#amountdue").html(result["priceInfoB"].totalDue);
-			
+			if (selValue == "Plan A") {
+				//var totalDue = parseInt(result["priceInfoA"].totalDue);
+				
+				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				
+			} else {
+				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
+				$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+				$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+				
+			}
 		}
 	}
 </script>
@@ -1111,11 +1125,11 @@
 							</h3>
 
 							<h3>Promotion Code</h3>
-
+							<span class="text-red" id="errPromoCode"></span>
 							<div class="form-group">
 								<div class="input-group">
-									<span class="text-red" id="errPromoCode"></span> <input
-										type="text" class="form-control" name="referralCode"
+									 <input
+										type="text" class="form-control" name="promoCode"
 										id="referralCode" placeholder="eg.FWD789"> <span
 										class="input-group-addon in black-bold pointer"
 										onclick="applyPromoCode()"><span>APPLY</span></span>
@@ -1262,7 +1276,11 @@
 		}
 
 		var selected_price = $('#' + id).find('h6').text();
-		$('#amountdue').html(totalDue);
+		selected_price = parseInt(selected_price).toFixed(2);
+		
+		$('#amountdue').html(parseInt(totalDue).toFixed(2));
+		
+		
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
@@ -1271,12 +1289,18 @@
 
 		$('#' + id).addClass("plan-box4");
 
-		$('#discountAmt').html(discountAmt);
+		$('#discountAmt').html(parseInt(discountAmt).toFixed(2));
+		
 		document.getElementById("selectedAmountDue").value = totalDue.trim();
+		
 		document.getElementById("selectedDiscountAmt").value = discountAmt
 				.trim();
 		document.getElementById("txtgrossPremiumAmt").value = selected_price
 				.trim();
+		
+		if(promoData !== '')
+			setValue(promoData);
+		
 	}
 
 	function sendEmail() {

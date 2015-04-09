@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
+var promoData = '';
 	function getuserDetails() {
 
 		//alert($('#frmTravelPlan input').serialize());
@@ -10,10 +11,10 @@
 	}
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("promoCode").innerHTML;
+		var promoCode = document.getElementById("promoCode").value;
 
-		if (promoCode == "") {
-			document.getElementById("errPromoCode").innerHTML = "請輸入促銷碼";
+		if (promoCode.trim() == "") {
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
 		} else
 			flag = true;
@@ -33,6 +34,10 @@
 		return flag;
 	}
 	function applyPromoCode() {
+		
+		$("#errPromoCode").html("");
+		
+		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
 			url : 'applyPromoCode',
@@ -40,6 +45,7 @@
 			success : function(data) {
 				
 				var json = JSON.parse(data);
+				promoData = json;
 				setValue(json);
 			}
 
@@ -49,26 +55,27 @@
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
-
-		if (selValue == "priceInfoA") {
-			var totalDue = parseInt(result["priceInfoA"].totalDue);
-			$("#subtotal").html(result["priceInfoA"].totalDue);
-			$("#discountAmt").html(result["priceInfoA"].discountAmount);
+		if(result['errMsgs'] !== null){
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notVaild.message"));
+		}else{
+			$("#errPromoCode").html("");
 			
-			document.getElementById("subtotal").innerHtml = result["priceInfoA"].setDiscountAmount;
-			document.getElementById("amountdue").innerHtml = result["priceInfoA"].totalDue;
-			document.getElementById("selectedAmountDue").value = result["priceInfoA"].totalDue;
-			document.getElementById("grossPremium").value = result["priceInfoA"].totalDue;
-		} else
-
-		{
-			var totalDue = parseInt(result["priceInfoB"].totalDue);
-			$("#subtotal").html(result["priceInfoB"].totalDue);
-			$("#discountAmt").html(result["priceInfoB"].discountAmount);
-			$("#amountdue").html(result["priceInfoB"].totalDue);
-			document.getElementById("selectedAmountDue").value = result["priceInfoB"].totalDue;
-			document.getElementById("amountdue").innerHtml = result["priceInfoB"].totalDue;
-			document.getElementById("grossPremium").value = result["priceInfoB"].totalDue;
+			if (selValue == "Plan A") {
+				//var totalDue = parseInt(result["priceInfoA"].totalDue);
+				
+				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				
+			} else {
+				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
+				$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+				$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+				
+			}
 		}
 	}
 </script>
@@ -1094,9 +1101,11 @@
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		var selected_div;
 		var idArray = [];
+
 		$('.travelproductbox').each(function() {
 			idArray.push(this.id);
 		});
+
 		var index = idArray.indexOf(id);
 		if (index > -1) {
 			idArray.splice(index, 1);
@@ -1105,8 +1114,13 @@
 				$('#' + idArray).addClass("plan-box3");
 			}
 		}
+
 		var selected_price = $('#' + id).find('h6').text();
-		$('#amountdue').html(totalDue);
+		selected_price = parseInt(selected_price).toFixed(2);
+		
+		$('#amountdue').html(parseInt(totalDue).toFixed(2));
+		
+		
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
@@ -1115,12 +1129,18 @@
 
 		$('#' + id).addClass("plan-box4");
 
-		$('#discountAmt').html(discountAmt);
+		$('#discountAmt').html(parseInt(discountAmt).toFixed(2));
+		
 		document.getElementById("selectedAmountDue").value = totalDue.trim();
+		
 		document.getElementById("selectedDiscountAmt").value = discountAmt
 				.trim();
 		document.getElementById("txtgrossPremiumAmt").value = selected_price
 				.trim();
+		
+		if(promoData !== '')
+			setValue(promoData);
+		
 	}
 
 	function sendEmail() {
