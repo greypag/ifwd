@@ -110,7 +110,7 @@
 							style="visibility: visible;">
 							<h2>Your options</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
 								<div class="order-status">
