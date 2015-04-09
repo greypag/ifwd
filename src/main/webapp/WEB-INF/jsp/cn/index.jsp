@@ -283,7 +283,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
           <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"> 放長假前必做六件事  <i class="fa fa-caret-right"></i> </a></h3>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank">放長假前必做七件事  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
