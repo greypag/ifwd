@@ -160,11 +160,12 @@
               <c:if test="${planDetails.getTotalChildTraveller() !=0 }">孩子: ${planDetails.getTotalChildTraveller()} <br></c:if> 
               <c:if test="${planDetails.getTotalOtherTraveller() !=0}">其他: ${planDetails.getTotalOtherTraveller()} <br></c:if> 
               <c:if test="${planDetails.getTravellerCount() !=0}">旅客: ${planDetails.getTravellerCount()}</c:if>" readonly>  -->
-              	<div class="input-group wd2 datepicker form-control"> 
-              		<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">父母: ${planDetails.getTotalAdultTraveller()} <br></c:if> 
-              		<c:if test="${planDetails.getTotalChildTraveller() !=0 }">孩子: ${planDetails.getTotalChildTraveller()} <br></c:if> 
-              		<c:if test="${planDetails.getTotalOtherTraveller() !=0}">其他: ${planDetails.getTotalOtherTraveller()} <br></c:if> 	
-              	</div>
+                <div class="input-group wd2 datepicker form-control"> 
+                  <c:if test="${planDetails.getTotalAdultTraveller() !=0 }">父母: ${planDetails.getTotalAdultTraveller()} <br></c:if> 
+                  <c:if test="${planDetails.getTotalChildTraveller() !=0 }">孩子: ${planDetails.getTotalChildTraveller()} <br></c:if> 
+                  <c:if test="${planDetails.getTotalOtherTraveller() !=0}">其他: ${planDetails.getTotalOtherTraveller()} <br></c:if> 
+                  <c:if test="${planDetails.getTravellerCount() !=0}">旅客: ${planDetails.getTravellerCount()}</c:if> 
+                </div>
               </div>
               
                            
