@@ -390,7 +390,7 @@
 							<div id="childtraveller">
 								<div class="col-xs-12 col-sm-12 col-md-12 pad-15 insure-travel">
 									<h4 class="color1 top-mrg-10">
-										配偶
+										子女
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
