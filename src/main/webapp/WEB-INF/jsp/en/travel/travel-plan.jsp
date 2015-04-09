@@ -1097,20 +1097,19 @@
 									</div>
 								</div>
 								<h3>Travellers</h3>
-	
-								<div class="form-group">
-									<div class="input-group wd2">
-										<input type="text" class="datepicker form-control"
-											value="<c:if
-										test="${not empty travelQuoteBean.getTotalAdultTraveller()}">${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} Adults, </c:if><c:if
-										test="${not empty travelQuoteBean.getTotalChildTraveller()}">${travelQuoteBean.getTotalChildTraveller()} Children, </c:if><c:if
-										test="${not empty travelQuoteBean.getTotalOtherTraveller()}">${travelQuoteBean.getTotalOtherTraveller()} Others</c:if>"
-											readonly> <input type="hidden"
+								<div class="form-group likeDatePicker bcg-trans">
+              						<div class="input-group wd2 datepicker form-control" > 
+									<c:if
+										test="${not empty travelQuoteBean.getTotalAdultTraveller()}">Parent(s): ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} <br> </c:if><c:if
+										test="${not empty travelQuoteBean.getTotalChildTraveller()}">Child(ren): ${travelQuoteBean.getTotalChildTraveller()}<br> </c:if><c:if
+										test="${not empty travelQuoteBean.getTotalOtherTraveller()}">Other(s): ${travelQuoteBean.getTotalOtherTraveller()}</c:if>
+										<input type="hidden"
 											name="totalAdultTraveller" id="totalAdultTraveller"
 											value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
 										<input type="hidden" name="totalChildTraveller"
 											id="totalChildTraveller"
-											value="${travelQuoteBean.getTotalChildTraveller()}"> <input
+											value="${travelQuoteBean.getTotalChildTraveller()}"> 
+										<input
 											type="hidden" name="totalOtherTraveller"
 											id="totalOtherTraveller"
 											value="${travelQuoteBean.getTotalOtherTraveller()}">

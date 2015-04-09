@@ -954,7 +954,8 @@ var promoData = '';
 								</div>
 							</div>
 							<h3>同行人數</h3>
-							<div class="form-group">
+							<div class="form-group likeDatePicker bcg-trans">
+              					<div class="input-group wd2 datepicker form-control" > 
 								<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
@@ -963,11 +964,12 @@ var promoData = '';
 								   else 
 								   {
 								%>
-										<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 ,</c:if>
-										<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子，</c:if>
-										<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他,</c:if>
+										<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 <br></c:if>
+										<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子 <br></c:if>
+										<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他 <br></c:if>
 								<% }
 								%>
+								</div>
 							</div>
 							<input type="hidden" name="totalAdultTraveller"
 								id="totalAdultTraveller"
