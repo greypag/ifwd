@@ -257,7 +257,7 @@ Tag Manager -->
                        與朋友分享，一同取得更多富衛合作夥伴之優惠!<span class="orange-star">*</span> 
                     </p>
                          <div class="clearfix"></div>
-                         <p  class="text-center"> <img src="../images/agoda.png" alt=""/> </p>
+                         <p  class="text-center"> <img src="resources/images/agoda.png" alt=""/> </p>
                      
                       </td>
                   </tr>
