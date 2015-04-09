@@ -104,16 +104,16 @@
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
                   <div class="dropdown-menu bdr1">
                     <div class="drop-content">
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                         <label class="radio radio-warning radio-inline">
                            <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" <%=PersonalPlanChecked%>  >
-                          <label for="personal_plan_desk"> Personal <br>    Plan </label>
+                          <label for="personal_plan_desk"> Personal  Plan </label>
                          </label> 
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-                          <label for="family_plan_desk"> Family <br>  Plan </label>
+                          <label for="family_plan_desk"> Family Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -124,7 +124,7 @@
                         <div class="col-lg-6">
                           <h4>Travellers</h4>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 ">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
@@ -220,6 +220,7 @@
 
 <!--Mobile-form-->
 <div class="slider-form hidden-lg hidden-md">
+<form name="frmTravelGetQuote " id="" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateMobTravel();">
   <div class="form-container">
     <h2>Get your travel insurance</h2>
     <h4>When are you leaving? </h4>
@@ -244,14 +245,14 @@
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
                <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
-              <label for="personal_plan_mob">  Personal <br>Plan </label>
+              <label for="personal_plan_mob">  Personal Plan </label>
 
            </label>
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
-               <label for="family_plan_mob">  Family <br>  Plan </label>
+               <label for="family_plan_mob">  Family Plan </label>
           </label>
           </div>
           <div class="clearfix"></div>
@@ -366,8 +367,13 @@
     </div>
   </div>
   <div class="btn-box text-center">
-    <h3 class="text-center"> <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()"> Get Quote </a> </h3>
+    <h3 class="text-center">
+    <button type="submit" class="bdr-curve-none btn btn-primary btn-lg ">
+             Get Quote
+             </button>
+     <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()"> Get Quote </a>  --></h3>
   </div>
+  </form>
 </div>
 <!--Mobile-form--> 
 <!--/#main-slider-->
@@ -761,13 +767,13 @@ Embark on an adventure<br>
                       <div class="col-lg-6">
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> >
-                          <label for="personal_plan_btm"> Personal <br>    Plan </label>
+                          <label for="personal_plan_btm"> Personal Plan </label>
                          </label> 
                       </div>
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>>
-                          <label for="family_plan_btm"> Family <br>  Plan </label>
+                          <label for="family_plan_btm"> Family  Plan </label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
