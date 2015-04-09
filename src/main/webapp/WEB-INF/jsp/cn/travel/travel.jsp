@@ -87,10 +87,10 @@
 </section>
 
 <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateDeskTravel();">
-<section id="middle" class="hidden-sm hidden-xs">
+<section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 pad-none slide-form fixed-content">
+      <div class="col-lg-12 col-md-12 pad-none slide-form ">
         <h2>立即申請富衛旅遊保險</h2>
       		      <table class="table activation-form3">
 			        <tbody>
