@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%
 	String authenticate = "false";
 	if (request.getSession().getAttribute("authenticate") != null) {
@@ -108,16 +109,20 @@
 									</span></td>
 								</tr>
 								<tr>
-									<td class="pad-none vtop"><select id="selectHkidPass" class="form-control soflow" name="selectedHkidPassApplicant">
-									<option selected="selected">香港身份證號碼</option>
-									<option>護照</option>
-									</select></td>
+									<td class="pad-none vtop">
+									<div class="col-md-10 col-lg-10 pad-none">
+									<t:dropdown 
+										selectables="${mapHkId}"
+										defaultWithFirst="true"
+										valueElmId="selectHkidPass"
+										valueElmName="selectedHkidPassApplicant"
+										containerCss="selectHkidPass"
+									/>
+									</div>
+
+									</td>
 									<td class="pad-none">
-								
-									
-									<input type="text" name="hkid"
-										class="form-control numberinput btm-pad-10"
-										id="inputTxtAppHkid" placeholder="X1234567/護照號碼"> <span
+									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="X1234567/護照號碼"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
@@ -216,7 +221,7 @@
 									
 									<div class="row ">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">受益人全名</label> <input type="text"
+											<label class="bold-500">英文全名</label> <input type="text"
 												id="txtAdFullName${inx}" name="adultName" value=""
 												class="form-control" placeholder="與香港身份證號碼/護照號碼相同"
 												onblur="replaceAlpha(this);"
@@ -224,56 +229,48 @@
 											<span id="errtxtAdFullName${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<!-- <label class="pad-left1 bold-500">HKID</label> -->
-
-
-
-
-
-
-
-
-
-											<select id="selectAdHkidPass${inx}" class="form-control soflow" name="selectedAdHkidPass">
-									<option value="hkId" selected="selected">香港身份證號碼</option>
-
-									<option>護照</option>
-									</select> <input
-												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="X1234567/護照號碼"
-												value="" /> <span id="errtxtInsuHkid${inx}"
-												class="text-red"> </span> <span
-												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
+											<div class="col-md-10 col-lg-10 pad-none">
+											<t:dropdown 
+												selectables="${mapHkId}"
+												defaultWithFirst="true"
+												valueElmId="selectedAdHkidPass${inx}"
+												valueElmName="selectedAdHkidPass"
+												containerCss="selectHkidPass"
+											/>
+											</div>
+										
+											<input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper" placeholder="X1234567/護照號碼" value="" /> 
+											<span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
+											<span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
 										</div>
 									</div>
 									
 									
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">年齡</label> <select
-												name="adultAgeRange" id="selectAgeRange${inx}"
-												class="form-control soflow">
-												<option value="0">請選擇</option>
-												<c:forEach var="ageList" items="${mapSelfType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
-												</c:forEach>
-											</select> <span id="errselectAgeRange${inx}" class="text-red"></span>
+											<label class="bold-500">年齡</label> 
+											<t:dropdown 
+												defaultLabel="請選擇"
+												onChange=""
+												selectables="${mapAgeType}"
+												valueElmId="selectAgeRange${inx}"
+												valueElmName="adultAgeRange"
+											/>
+											<span id="errselectAgeRange${inx}" class="text-red"></span>
 										</div>
 										
 										
 										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500">受益人</label> <select
-												id="adultsselectBenificiary${inx}"
-												onchange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												name="adultBeneficiary" class="soflow">
-												<option value="SE">個人遺產</option>
-												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
-													<option value="${relationshipCodeList.key}"><c:out
-															value="${relationshipCodeList.value}" /></option>
-												</c:forEach>
-											</select> <span id="erradultsselectBenificiary${inx}" class="text-red">
-											</span>
+											<label class="pad-left1 bold-500">受益人</label> 
+											<t:dropdown 
+												defaultLabel="個人遺產"
+												defaultValue="SE"
+												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
+												selectables="${mapRelationshipCode}"
+												valueElmId="adultsselectBenificiary${inx}"
+												valueElmName="adultBeneficiary"
+											/>
+											<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 										<!-- Adult hide box -->
 										<div id="adultsbenificiaryId${inx}" class="hide">
@@ -289,11 +286,17 @@
 											</div>
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
-												<select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedAdBenefitiaryHkidPass">
-									<option value="hkId" selected="selected">香港身份證號碼</option>
-
-									<option>護照</option>
-									</select> <input
+	                                            <div class="col-md-10 col-lg-10 pad-none">
+	                                            <t:dropdown 
+	                                                selectables="${mapHkId}"
+	                                                defaultWithFirst="true"
+	                                                valueElmId="selectAdBenefitiaryHkidPass${inx}"
+	                                                valueElmName="selectedAdBenefitiaryHkidPass"
+	                                                containerCss="selectHkidPass"
+	                                            />
+	                                            </div>
+												
+												<input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="X1234567/護照號碼"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
@@ -752,7 +755,6 @@
 <script>
 	function activeDiv(id, selected) {
 		var selectedValue = $('#' + selected).val();
-
 		if (id.indexOf('adult') > -1) {
 			activeDeactive(selectedValue, id);
 		}
@@ -772,29 +774,7 @@
 		}
 	}
 </script>
-<script>
-	function activeDiv(id, selected) {
-		var selectedValue = $('#' + selected).val();
 
-		if (id.indexOf('adult') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('child') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('other') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-
-	}
-	function activeDeactive(selectedValue, id) {
-		if (selectedValue == "Own estate") {
-			$('#' + id).addClass('hide');
-		} else {
-			$('#' + id).removeClass('hide');
-		}
-	}
-</script>
 <script>
 
 /* UserLogin ajax function */
