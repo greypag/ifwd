@@ -192,7 +192,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><span class=""><%=planDetailsForm.getAdultAgeRange()[i]%></span></td>
+										<td ><span class=""><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
 										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
 										<td  class="">&nbsp;</td>
 										<% } %>

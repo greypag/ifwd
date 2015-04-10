@@ -21,9 +21,9 @@ public class SendEmailService implements SendEmailDao {
 	public boolean sendEmail(String emailId, String promotionalCode,
 			HashMap<String, String> header) {
 		boolean result = false;
-		String message = "Thank your for registering for receiving offers, upgrades and information from FWD*.  Your promotion code is ABC. \n\n"
-				+ "FWD respects your privacy. For more information, please read our privacy policy at <link to FWD or iFWD site>.\n\n"
-				+ "*Note: You may unsubscribe at any time.  To unsubscribe, pls call us at 3123-3123.";
+		String message = "<p>Thank your for registering for receiving offers, upgrades and information from FWD*.  Your promotion code is ABC. <br><p>"
+				+ "FWD respects your privacy. For more information, please read our privacy policy at <a href='http://www.fwd.com.hk/en-US/home/pdo.html'>http://www.fwd.com.hk/en-US/home/pdo.html</a>.<br><p>"
+				+ "*Note: You may unsubscribe at any time.  To unsubscribe, pls call us at 3123-3123.<br><br><br>";
 
 		JSONObject email_params = new JSONObject();
 		email_params.put("to", emailId);
@@ -31,7 +31,10 @@ public class SendEmailService implements SendEmailDao {
 		email_params.put("subject", "FWD Promotion Code");
 		email_params.put("attachment", null);
 		email_params.put("from", "ecommerce.hk@fwd.com");
+		email_params.put("isHtml", true);
 
+		
+		
 		JSONObject resp = restService.consumeApi(HttpMethod.POST,
 				UserRestURIConstants.SEND_MAIL, header, email_params);
 		if (resp != null) {

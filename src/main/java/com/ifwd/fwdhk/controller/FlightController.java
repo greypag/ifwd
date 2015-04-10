@@ -546,7 +546,7 @@ public class FlightController {
 			for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
 				JSONObject other = new JSONObject();
 				other.put("name", planDetailsForm.getOtherName()[inx]);
-				other.put("ageRange", planDetailsForm.getOtherAgeRangeName()[inx]);
+				other.put("ageRange", planDetailsForm.getOtherAgeRange()[inx]);
 				other.put("hkId", planDetailsForm.getOtherHKID()[inx]);
 				/* other.put("passport", "9123" + inx); */
 				other.put("passport", "");
