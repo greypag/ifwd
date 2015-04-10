@@ -43,5 +43,8 @@ Regards,
 			</value>
 		</property>
 	</bean>
-
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="locale/ecomm/messages,ValidationMessages" />
+	</bean>
 </beans>

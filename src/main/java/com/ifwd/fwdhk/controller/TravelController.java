@@ -752,7 +752,7 @@ public class TravelController {
 			planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getChildAgeRange(), UserRestURIConstants.getLanaguage(request)));
 		}
 		
-		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
+		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
 			
 			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), UserRestURIConstants.getLanaguage(request)));
 		}
