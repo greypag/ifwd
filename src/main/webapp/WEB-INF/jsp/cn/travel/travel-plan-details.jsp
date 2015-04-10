@@ -607,10 +607,10 @@
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>
-									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">父母 ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">旅客 ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
 									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>孩子 ${travelQuote.getTotalChildTraveller()}</c:if>
-			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他 ${travelQuote.getTotalOtherTraveller()}</c:if>
-		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}">旅客 ${planDetailsForm.getTravellerCount()}</c:if>
+			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他旅客 ${travelQuote.getTotalOtherTraveller()}</c:if>
+		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
 								</h4>
 								
 								<input type="hidden" name="planSelected" value="${travelQuote.getPlanSelected()}">
