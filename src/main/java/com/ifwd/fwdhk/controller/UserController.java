@@ -81,7 +81,7 @@ public class UserController {
 					session.setAttribute("token", response.get("token")
 							.toString());
 					session.setAttribute("username", userLogin.getUserName());
-					System.out.println("language in sessin" + session.getAttribute("language"));
+					System.out.println("language in sessin" + UserRestURIConstants.getLanaguage(servletRequest));
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
@@ -229,7 +229,7 @@ public class UserController {
 		HttpSession session = servletRequest.getSession(false);
 
 		try {
-
+			
 			JSONObject params = new JSONObject();
 			params.put("userName", userDetails.getUserName());
 			params.put("mobile", userDetails.getMobileNo());
@@ -241,9 +241,57 @@ public class UserController {
 					UserRestURIConstants.USER_JOIN_US,
 					COMMON_HEADERS, params);
 			if (jsonResponse.get("errMsgs") == null) {
-				session.setAttribute("username", jsonResponse.get("userName")
-						.toString());
-				return "success";
+				UserLogin userLogin = new UserLogin();
+				userLogin.setUserName(userDetails.getUserName());
+				userLogin.setPassword(userDetails.getPassword());
+				params = new JSONObject();
+				params.put("userName", userLogin.getUserName());
+				params.put("password", userLogin.getPassword());
+				
+				JSONObject response = restService.consumeApi(HttpMethod.POST,
+						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
+						params);
+				
+				if (response.get("errMsgs") == null && response != null) {
+					/*System.out.println("session set"
+							+ response.get("token").toString());*/
+					session.setAttribute("authenticate", "true");
+					session.setAttribute("token", response.get("token")
+							.toString());
+					session.setAttribute("username", userLogin.getUserName());
+					System.out.println("language in sessin" + session.getAttribute("language"));
+					JSONObject customer = (JSONObject) response.get("customer");
+					session.setAttribute("emailAddress",
+							checkJsonObjNull(customer, "email"));
+					session.setAttribute("referralCode",
+							checkJsonObjNull(customer, "referralCode"));
+
+					UserDetails loginUserDetails = new UserDetails();
+					loginUserDetails.setToken(checkJsonObjNull(response, "token"));
+					loginUserDetails.setFullName(checkJsonObjNull(customer, "name"));
+					loginUserDetails.setEmailAddress(checkJsonObjNull(customer,
+							"email"));
+					loginUserDetails.setMobileNo(checkJsonObjNull(customer,
+							"contactNo"));
+					loginUserDetails.setUserName(userLogin.getUserName());
+					loginUserDetails.setReferralCode(checkJsonObjNull(customer,
+							"referralCode"));
+					loginUserDetails.setReferralCodeUsedCount(checkJsonObjNull(
+							customer, "referralCodeUsedCount"));
+					loginUserDetails.setReferralLink(checkJsonObjNull(customer,
+							"referralLink"));
+					loginUserDetails.setGender(checkJsonObjNull(customer, "gender"));
+					loginUserDetails.setDob(checkJsonObjNull(customer, "dob"));
+					loginUserDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
+					loginUserDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));
+					session.setAttribute("userDetails", loginUserDetails);
+
+					return "success";
+				} else {
+					String errMessage = response.get("errMsgs").toString();
+					return errMessage.replaceAll("\"", "").replace("[", "")
+							.replace("]", "");
+				}
 			} else {
 				return jsonResponse.get("errMsgs").toString()
 						.replaceAll("\"", "").replace("[", "").replace("]", "");
@@ -251,8 +299,9 @@ public class UserController {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return "fail";
 		}
-		return "fail";
+		
 	}
 
 	@RequestMapping(value = "/forgotUser", method = RequestMethod.POST)

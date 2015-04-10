@@ -17,11 +17,10 @@
 	});
 </script>
 <script>
-	function activateUserAccount() {
+	function activateUserAccountJoinUs() {
 		
-		
-		alert(joinus_form);
-		var validateFormVal = validateJoinUsForm();
+
+		var validateFormVal = activateUserAccount();
 		if (validateFormVal == true) {
 			$.ajax({
 						type : 'POST',
@@ -30,29 +29,27 @@
 						async : false,
 						success : function(data) {
 							
-							if (data == 'valid') {
-								alert("success");
+							if (data == 'success') {
+								
 								$('#success-message').show();
 								$('#joinus-err-msg').hide();
 								window.location.hash = '#success-message';
 								$('#success-message').html("User succesfully Register"); 
-								setTimeout(function() {document.joinus_form.action= "useraccount";
+// 								setTimeout(function() {document.joinus_form.action= "useraccount";								
+// 								}, 3000);
+								window.location.href = 'getAccByUsernaneAndPassword';
+// 								setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;								
+// 								}, 3000);
 								
-								}, 3000);
-
-							} else if (data == 'false') {
+								
+							} else {
 								alert("fail");
 								$('#joinus-err-msg').show();
 								alert("fail");
 								window.location.hash = '#joinus-err-msg';
 								$('#joinus-err-msg').html("Please check provided information is valid");
 
-							} else {
-								alert("else");
-								window.location.hash = '#joinus-err-msg';
-								$('#joinus-err-msg').show();
-								$('#joinus-err-msg').html(data);
-							}
+							} 
 						},
 						error : function(xhr, status, error) {
 
@@ -238,7 +235,7 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
 	
-	 <button class="bdr-curve btn btn-primary btn-lg btn-block act-btn" onclick="return activateUserAccount();"> 啟動  </button>
+	 <button class="bdr-curve btn btn-primary btn-lg btn-block act-btn" onclick="return activateUserAccountJoinUs();"> 啟動  </button>
 							</div>
 						</div>
 					</div>

@@ -272,7 +272,7 @@ public class FlightController {
 
 		} else {
 			model.addAttribute("errMsgs", jsonObject.get("errMsgs").toString());
-			model.addAttribute("action", "/homecare");
+			model.addAttribute("action", "/flight");
 			return new ModelAndView("redirect:/redirect");
 		}
 	}

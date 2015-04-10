@@ -17,9 +17,9 @@
 		});
 	</script>
 	<script>
-		function activateUserAccount() {
+		function activateUserAccountJoinUs() {
 
-			var validateFormVal = validateJoinUsForm();
+			var validateFormVal = activateUserAccount();
 			$('#ajax-loading').show();
 			if (validateFormVal == true) {
 
@@ -38,9 +38,7 @@
 							window.location.hash = '#success-message';
 							$('#success-message').html(
 								"User succesfully Register");
-							setTimeout(function() {
-								window.location.href = "indexPage";
-							}, 3000);
+							window.location.href = 'getAccByUsernaneAndPassword';
 
 						} else if (data == 'fail') {
 							$('#joinus-err-msg').show();
@@ -280,7 +278,7 @@
 			<div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
 				<button
 				class="bdr-curve btn btn-primary btn-lg btn-block act-btn"
-				onclick="return activateUserAccount();">Activate</button>
+				onclick="return activateUserAccountJoinUs();">Activate</button>
 			</div>
 		</div>
 	</div>

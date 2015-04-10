@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
@@ -31,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreatePolicy;
+import com.ifwd.fwdhk.model.PlanDetails;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
@@ -50,39 +49,37 @@ public class TravelController {
 	SendEmailDao sendEmail;
 
 	@RequestMapping(value = "/travel")
-	public ModelAndView getTravelHomePage(HttpServletRequest request, Model model) {
-
+	public ModelAndView getTravelHomePage(HttpServletRequest request,
+			Model model) {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
-		
+		// return UserRestURIConstants.checkLangSetPage(request) +
+		// "travel/travel";
+
 		HttpSession session = request.getSession();
-		
 		TravelQuoteBean travelQuote;
-		
+
 		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-		
-		if(travelQuote == null){
-			travelQuote = new TravelQuoteBean();			
+
+		if (travelQuote == null) {
+			travelQuote = new TravelQuoteBean();
 		}
-		
-		//default 
-		if(travelQuote.getPlanSelected() == null || travelQuote.getPlanSelected().isEmpty()) {
+
+		// default
+		if (travelQuote.getPlanSelected() == null
+				|| travelQuote.getPlanSelected().isEmpty())
 			travelQuote.setPlanSelected("personal");
-		}
-		if(travelQuote.getTotalPersonalTraveller() == 0) {
+		if (travelQuote.getTotalPersonalTraveller() == 0)
 			travelQuote.setTotalPersonalTraveller(1);
-		}
-		if(travelQuote.getTotalAdultTraveller() == 0) {
+		if (travelQuote.getTotalAdultTraveller() == 0)
 			travelQuote.setTotalAdultTraveller(1);
-		}	
-		if(travelQuote.getTotalChildTraveller() == 0) {
+		if (travelQuote.getTotalChildTraveller() == 0)
 			travelQuote.setTotalChildTraveller(1);
-		}			
-		
+
 		model.addAttribute("travelQuote", travelQuote);
-		
-		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request) + "travel/travel");			
+
+		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				+ "travel/travel");
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
@@ -154,18 +151,10 @@ public class TravelController {
 				request.getParameter("transNo"));
 		request.getSession().setAttribute("creditCardNo",
 				request.getParameter("cardNo"));
-		
-		String month = request.getParameter("epMonth");
-		System.out.println("month " + month);
-		System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
-		
 		request.getSession().setAttribute(
 				"expiryDate",
-				String.format("%02d", Integer.parseInt(request.getParameter("epMonth")))
+				request.getParameter("epMonth")
 						+ request.getParameter("epYear"));
-		
-		
-		System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
 		request.getSession().setAttribute("emailAddress",
 				request.getParameter("emailAddress"));
 
@@ -184,12 +173,11 @@ public class TravelController {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			
-			// redirect to 1ST step when null 
-			if(travelQuote == null){
-				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
-				return getTravelHomePage(request, model);		
-			}				
+
+			// redirect to 1ST step when null
+			if (travelQuote == null) {
+				return getTravelHomePage(request, model);
+			}
 		}
 
 		try {
@@ -241,35 +229,35 @@ public class TravelController {
 				adultCount = travelQuote.getTotalAdultTraveller();
 				otherCount = travelQuote.getTotalOtherTraveller();
 				selfCover = true;
-				if (adultCount > 1) {
+				if (adultCount > 1)
 					spouseCover = true;
-				} else {
+				else
 					spouseCover = false;
-				}
 			}
-			
+
 			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
 			travelQuoteCount.setSelfCover(selfCover);
 			travelQuoteCount.setSpouseCover(spouseCover);
 			travelQuoteCount.setTotalChildTraveller(childCount);
 			travelQuoteCount.setTotalOtherTraveller(otherCount);
 			session.setAttribute("travelQuoteCount", travelQuoteCount);
-			
-			System.out.println("------------------------------------------------------------");
+
+			System.out
+					.println("------------------------------------------------------------");
 			System.out.println("CALLING API");
 			System.out.println("SELF COVER " + selfCover);
 			System.out.println("SPOUSE COVER " + spouseCover);
 			System.out.println("CHILD COUNT " + childCount);
-			System.out.println("OTHER COUNT " + otherCount);		
-			System.out.print("------------------------------------------------------------");
-			
+			System.out.println("OTHER COUNT " + otherCount);
+			System.out
+					.print("------------------------------------------------------------");
+
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
-					+ "&childInput=" + childCount + "&otherInput="
-					+ otherCount + "&commencementDate="
-					+ commencementDate + "&expiryDate=" + expiryDate
-					+ "&planCode=" + userReferralCode;
+					+ "&childInput=" + childCount + "&otherInput=" + otherCount
+					+ "&commencementDate=" + commencementDate + "&expiryDate="
+					+ expiryDate + "&planCode=" + userReferralCode;
 
 			System.out.println("Travel Quote user " + Url);
 
@@ -356,10 +344,11 @@ public class TravelController {
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
-		String planSelected = (String)session.getAttribute("planSelected");
-		
-		TravelQuoteBean travelQuoteCount = (TravelQuoteBean)session.getAttribute("travelQuoteCount");
-		
+		String planSelected = (String) session.getAttribute("planSelected");
+
+		TravelQuoteBean travelQuoteCount = (TravelQuoteBean) session
+				.getAttribute("travelQuoteCount");
+
 		int adults = travelQuote.getTotalAdultTraveller();
 		int child = travelQuote.getTotalChildTraveller();
 		int others = travelQuote.getTotalPersonalTraveller();
@@ -370,19 +359,17 @@ public class TravelController {
 		spouseCover = travelQuoteCount.isSpouseCover();
 		childCount = travelQuoteCount.getTotalChildTraveller();
 		otherCount = travelQuoteCount.getTotalOtherTraveller();
-		
-		
-		
-		System.out.println("------------------------------------------------------------");
+
+		System.out
+				.println("------------------------------------------------------------");
 		System.out.println("CALLING API");
 		System.out.println("SELF COVER " + selfCover);
 		System.out.println("SPOUSE COVER " + spouseCover);
 		System.out.println("CHILD COUNT " + childCount);
-		System.out.println("OTHER COUNT " + otherCount);		
-		System.out.println("------------------------------------------------------------");
-		
-		
-		
+		System.out.println("OTHER COUNT " + otherCount);
+		System.out
+				.println("------------------------------------------------------------");
+
 		referralCode = request.getParameter("promoCode");
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
@@ -409,38 +396,48 @@ public class TravelController {
 
 			System.out.println("Response Get Travel Quotes API "
 					+ responseJsonObj);
-			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
+			if (responseJsonObj.toJSONString().contains(
+					"Promotion code is not valid"))
 				session.setAttribute("referralCode", "");
-			} else {
+			else
 				session.setAttribute("referralCode", referralCode);
-			}
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
-				
+
 				JSONObject jsonPriceInfoA = new JSONObject();
 				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
 				JSONObject jsonPriceInfoB = new JSONObject();
 				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
 				String planeName[] = { "Plan A", "Plan B" };
 				String grossPrem[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
+						StringHelper.formatPrice(jsonPriceInfoA.get(
+								"grossPremium").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get(
+								"grossPremium").toString()) };
 
 				String discountPercentage[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("discountPercentage").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("discountPercentage").toString()) };
+						StringHelper.formatPrice(jsonPriceInfoA.get(
+								"discountPercentage").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get(
+								"discountPercentage").toString()) };
 
 				String discountAmount[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("discountAmount").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("discountAmount").toString()) };
+						StringHelper.formatPrice(jsonPriceInfoA.get(
+								"discountAmount").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get(
+								"discountAmount").toString()) };
 
 				String totalNetPremium[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("totalNetPremium").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("totalNetPremium").toString()) };
+						StringHelper.formatPrice(jsonPriceInfoA.get(
+								"totalNetPremium").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get(
+								"totalNetPremium").toString()) };
 
 				String totalDue[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("totalDue").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("totalDue").toString()) };
+						StringHelper.formatPrice(jsonPriceInfoA.get("totalDue")
+								.toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("totalDue")
+								.toString()) };
 
 				quoteDetails.setGrossPremium(grossPrem);
 				quoteDetails.setDiscountPercentage(discountPercentage);
@@ -451,12 +448,13 @@ public class TravelController {
 				session.setAttribute("priceInfoA", jsonPriceInfoA);
 				session.setAttribute("priceInfoB", jsonPriceInfoB);
 				request.setAttribute("quoteDetails", quoteDetails);
-				
+
 				session.setAttribute("quoteDetails", quoteDetails);
 			} else {
-			
+
 			}
-			model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
+			model.addAttribute("quoteDetails",
+					session.getAttribute("quoteDetails"));
 			model.addAttribute("travelQuoteBean", travelQuote);
 
 		} catch (Exception e) {
@@ -476,41 +474,44 @@ public class TravelController {
 		HttpSession session = request.getSession();
 		String planName = WebServiceUtils.getParameterValue("planName",
 				session, request);
+		// String planSummary = WebServiceUtils.getParameterValue(
+		// "selectedAmountDue", session, request);
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectPlanName", session, request);
-		System.out.println("Seeeeeee" + selectPlanName);
+		String selectPlanName = WebServiceUtils.getParameterValue("planName",
+				session, request);
+		System.out.println("Seeeeeee " + selectPlanName);
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			
-			// redirect to 1ST step when null 
-			if(travelQuote == null){
-				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
+
+			// redirect to 1ST step when null
+			if (travelQuote == null) {
 				return getTravelHomePage(request, model);
-			}				
+			}
 		}
 		try {
 
 			request.setAttribute("travelQuote", travelQuote);
 
-			
-			
-			
 			model.addAttribute("planName", planName);
-			
+
 			model.addAttribute("selectPlanName", selectPlanName);
-			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+			QuoteDetails quoteDetails = (QuoteDetails) session
+					.getAttribute("quoteDetails");
 			if ("Plan A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
-				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
-				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[0]);
+				model.addAttribute("planDiscount",
+						quoteDetails.getDiscountAmount()[0]);
+				model.addAttribute("planSummary",
+						quoteDetails.getTotalNetPremium()[0]);
 			} else {
 				session.setAttribute("planSelected", "B");
-				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
-				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[1]);
+				model.addAttribute("planDiscount",
+						quoteDetails.getDiscountAmount()[1]);
+				model.addAttribute("planSummary",
+						quoteDetails.getTotalNetPremium()[1]);
 			}
 			travelQuote.setTotalAdultTraveller(travelQuote
 					.getTotalAdultTraveller()
@@ -589,14 +590,10 @@ public class TravelController {
 			e.printStackTrace();
 
 		}
-
-		Map<String,String> mapHkId = new TreeMap<>();
-		mapHkId.put("HKID", "HKID");
-		mapHkId.put("passport", "Passport");;		
-		model.addAttribute("mapHkId", mapHkId);
-		
+		// return UserRestURIConstants.checkLangSetPage(request)
+		// + "travel/travel-plan-details";
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
-				+ "travel/travel-plan-details");		
+				+ "travel/travel-plan-details");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -616,25 +613,38 @@ public class TravelController {
 		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		String planSelected;
 		planSelected = (String) session.getAttribute("planSelected");
-		// redirect to 1ST step when null 
-		if(travelQuote == null || planSelected == null){
-			//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);				
-			return getTravelHomePage(request, model);		
-		}			
-		
+		// redirect to 1ST step when null
+		if (travelQuote == null || planSelected == null) {
+			return getTravelHomePage(request, model);
+		}
+
 		UserDetails userDetails = new UserDetails();
 		DateApi dateApi = new DateApi();
 
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",
-				session, request);
-		String userReferralCode = WebServiceUtils.getParameterValue(
-				"referralCode", session, request);
+		// String dueAmount =
+		// WebServiceUtils.getParameterValue("finalDueAmount",
+		// session, request);
+
+		// String userReferralCode = WebServiceUtils.getParameterValue(
+		// "referralCode", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectedPlanName", session, request);
-		;
+		String dueAmount = "";
+		if (selectPlanName.equals("Plan A")) {
+			JSONObject jsonPriceInfoA = (JSONObject) session
+					.getAttribute("priceInfoA");
+			dueAmount = String.valueOf(jsonPriceInfoA.get("totalDue"));
 
-		System.out.println("inside Controller fro prepare Summa"
-				+ selectPlanName);
+		}
+
+		else {
+			JSONObject jsonPriceInfoB = (JSONObject) session
+					.getAttribute("priceInfoB");
+			dueAmount = String.valueOf(jsonPriceInfoB.get("totalDue"));
+
+		}
+		System.out.println("dueAMount " + dueAmount);
+		String userReferralCode = (String) session.getAttribute("referralCode");
 
 		String deaprtureDate = dateApi.pickDate((String) session
 				.getAttribute("departureDate"));
@@ -708,14 +718,14 @@ public class TravelController {
 		}
 
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", session.getAttribute("planSelected"));
-		
-		//parameters.put("planCode", planDetailsForm.getPlanCode());
-		
+		parameters.put("planCode",
+				(String) session.getAttribute("planSelected"));
+
+		// parameters.put("planCode", planDetailsForm.getPlanCode());
+
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
-
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -737,11 +747,10 @@ public class TravelController {
 			/* adult.put("passport", "1234" + inx); */
 			/* adult.put("passport", ""); */
 			if (inx != 0) {// For other travelers skip first one
-				if (planDetailsForm.getPlanSelected().equals("personal")) {
+				if (planDetailsForm.getPlanSelected().equals("personal"))
 					adult.put("relationship", "FE");
-				} else {
+				else
 					adult.put("relationship", "SP");
-				}
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
 							.isEmpty()) {// If have beneficiary
@@ -784,8 +793,7 @@ public class TravelController {
 												planDetailsForm
 														.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						adult.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary then
@@ -809,8 +817,7 @@ public class TravelController {
 											planDetailsForm
 													.getSelectedAdHkidPass()[inx],
 											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary.put("relationship",
-							"SE");
+					beneficiary.put("relationship", "SE");
 					adult.put("beneficiary", beneficiary);
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
@@ -870,8 +877,7 @@ public class TravelController {
 														.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
 
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						adult.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary then
@@ -975,8 +981,7 @@ public class TravelController {
 								checkPasswortAndHkid(passId, planDetailsForm
 										.getSelectedChldHkidPass()[inx],
 										planDetailsForm.getChildHKID()[inx]));
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						child.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary
@@ -1000,8 +1005,7 @@ public class TravelController {
 											planDetailsForm
 													.getSelectedChldHkidPass()[inx],
 											planDetailsForm.getChildHKID()[inx]));
-					beneficiary.put("relationship",
-							"SE");
+					beneficiary.put("relationship", "SE");
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
@@ -1084,8 +1088,7 @@ public class TravelController {
 												planDetailsForm
 														.getSelectedOtHkidPass()[inx],
 												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						other.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary
@@ -1109,8 +1112,7 @@ public class TravelController {
 											planDetailsForm
 													.getSelectedOtHkidPass()[inx],
 											planDetailsForm.getOtherHKID()[inx]));
-					beneficiary.put("relationship",
-							"SE");
+					beneficiary.put("relationship", "SE");
 					other.put("beneficiary", beneficiary);
 				}
 				insured.add(other);
@@ -1120,10 +1122,11 @@ public class TravelController {
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
-		parameters.put("referralCode", session.getAttribute("referralCode"));
+		String referralCode = (String)session.getAttribute("referralCode");
+		parameters.put("referralCode", referralCode);
 
 		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", session.getAttribute("username"));
+		applicantJsonObj.put("name", applicantFullName);
 		applicantJsonObj.put("gender", "M");
 		applicantJsonObj.put(hkId, applicantHKID);
 		applicantJsonObj.put("dob", "");
@@ -1152,7 +1155,6 @@ public class TravelController {
 		 * System.out.println("headers=====>>>>>" + header);
 		 */
 		// Comment for to avoid over load Data
-
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 		CreatePolicy createPolicy = (CreatePolicy) session
 				.getAttribute("createPolicy");
@@ -1258,25 +1260,31 @@ public class TravelController {
 		System.out.println(path.replace("prepareUserSummary",
 				UserRestURIConstants.checkLangSetPage(request)
 						+ "travel-confirmation"));
+<<<<<<< Updated upstream
 //		model.addAttribute("failurePath",
 //				path.replace("prepareUserSummary", "failure"));
-        model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
-        
-        String  paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
-        String  errorMsg =request.getParameter("errorMsg");
-        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
-            errorMsg = "Payment failure";                    
-        }        
-        model.addAttribute("errormsg", errorMsg);        
-
-        
+		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
+		String  paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
+		String  errorMsg =request.getParameter("errorMsg");
+		if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){			
+			errorMsg = "Payment failure";					
+		}		
+		model.addAttribute("errormsg", errorMsg);		
+				
 //		System.out.println("************"
 //				+ path.replace("prepareUserSummary", "failure"));
+=======
+		model.addAttribute("failurePath",
+				path.replace("prepareUserSummary", "failure"));
+		// System.out.println("************"
+		// + path.replace("prepareUserSummary", "failure"));
+>>>>>>> Stashed changes
 
-//		return UserRestURIConstants.checkLangSetPage(request)
-//				+ "/travel/travel-summary-payment";
+		// return UserRestURIConstants.checkLangSetPage(request)
+		// + "/travel/travel-summary-payment";
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
-				+ "/travel/travel-summary-payment");				
+				+ "/travel/travel-summary-payment");
 	}
 
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
