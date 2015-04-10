@@ -133,18 +133,25 @@ $('.plan').change(function () {
           $('#lblCountBtm').html(familyTraveller + ' Traveller(s)');
           $('#lblPeopleBtm').html('' + familyTraveller);
           $('#family_btm_count').val(familyTraveller);
-         
+ 
       }else
       {
         $('.plan_spinner_' + parent_id + '  #txtAdultsBtm').val(1);
           $('.plan_spinner_' + parent_id + '  #txtChildBtm').val(0);
           $('.plan_spinner_' + parent_id + '  #txtOtherBtm').val(0);
           
-          document.getElementById("divPersonsBtm").style.visibility = "hidden";
+          //document.getElementById("divPersonsBtm").style.visibility = "hidden";
           $('#lblCountBtm').show();
           $('#lblCountBtm').html('');
           $('#lblPeopleBtm').html('');
           $('#family_btm_count').val('');
+          
+          document.getElementById("divPersonsDesk").style.visibility = "visible";
+          $('#txtTravellersBtm').val(1);
+          personalTraveller=$('#txtTravellersBtm').val();
+          $('#lblCountBtm').html(personalTraveller + ' Traveller(s)');
+          $('#lblPeopleBtm').html('' + personalTraveller);
+
       }
       
     }

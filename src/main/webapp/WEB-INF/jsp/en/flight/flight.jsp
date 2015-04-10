@@ -148,8 +148,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
-                            <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTravellerCount()}"/>
+                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number" name="travellerCount" value="${planDetails.getTravellerCount()}" data-min="1" data-max="15" id="txtTravellersDesk" readonly/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -703,8 +702,7 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
-                            <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersBtm" value="${planDetails.getTravellerCount()}"/>
+                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number" name="travellerCount" value="${planDetails.getTravellerCount()}" data-min="1" data-max="15" id="txtTravellersBtm" readonly/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
