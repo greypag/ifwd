@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
@@ -151,8 +152,14 @@
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">Choose a plan</h2>
 						<%
-							QuoteDetails travelQuote = (QuoteDetails) request
-										.getAttribute("quoteDetails");
+							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
+						 
+						 	TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+				    	 	if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
+				    	 	{
+ 					    		travelQuoteBean.setTotalOtherTraveller(0);
+		 			    	}
+				    	 	 
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>

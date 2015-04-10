@@ -149,8 +149,14 @@ var promoData = '';
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">您的選擇</h2>
 						<%
-							QuoteDetails travelQuote = (QuoteDetails) request
-										.getAttribute("quoteDetails");
+							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
+						
+							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+					    	if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
+					    	{
+					    		travelQuoteBean.setTotalOtherTraveller(0);
+					    	}
+						
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
