@@ -67,6 +67,7 @@ jQuery(function($) {'use strict',
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		social_tools: false
 	});	
+	
 });
 
 //Account Drop Down
@@ -154,6 +155,13 @@ $(window).scroll(function (event) {
 	    jQuery('#middle').addClass("fixed-content");
 	  }
 });
-
-
-
+jQuery(document).ready(function() {
+  var clip = new ZeroClipboard(jQuery("#d_clip_button"));
+  clip.on("ready", function() {
+	var oldText = jQuery("#d_clip_button").text();
+    this.on("aftercopy", function(event) {
+    	jQuery("#d_clip_button").width(jQuery("#d_clip_button").width()).text('Copied').css('padding',0);
+    	setTimeout(function(){ jQuery("#d_clip_button").text(oldText) }, 10000);
+    });
+  });
+});
