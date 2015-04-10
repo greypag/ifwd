@@ -142,15 +142,45 @@
 			$('#selectADist').val(selectCADist);
 
 			if (document.getElementById("inlineCARadio3").checked) {
-				document.getElementById("inlineDeskRadio3").checked = true;
+				document.getElementById("inlineDeskRadio31").checked = true;
 			} else if (document.getElementById("inlineCARadio4").checked) {
-				document.getElementById("inlineDeskRadio4").checked = true;
+				document.getElementById("inlineDeskRadio41").checked = true;
 			} else {
-				document.getElementById("inlineDeskRadio5").checked = true;
+				document.getElementById("inlineDeskRadio51").checked = true;
 			}
 
+			if (document.getElementById('inputARoom').readOnly == true)
+			{
+				document.getElementById('inputARoom').readOnly = false;
+				document.getElementById('inputAFloor').readOnly = false;
+				document.getElementById('inputABlock').readOnly = false;
+				document.getElementById('inputABuilding').readOnly = false;
+				document.getElementById('inputAEstate').readOnly = false;
+				document.getElementById('inputAStreetNo').readOnly = false;
+				document.getElementById('inputAStreetName').readOnly = false;
+				document.getElementById('selectADist').disabled = false;
+				document.getElementById('inlineDeskRadio31').disabled = false;
+				document.getElementById('inlineDeskRadio41').disabled = false;
+				document.getElementById('inlineDeskRadio51').disabled = false;
+			}
+			else
+			{	
+			    document.getElementById('inputARoom').readOnly = true;
+			    document.getElementById('inputAFloor').readOnly = true;
+			    document.getElementById('inputABlock').readOnly = true;
+			    document.getElementById('inputABuilding').readOnly = true;
+			    document.getElementById('inputAEstate').readOnly = true;
+			    document.getElementById('inputAStreetNo').readOnly = true;
+			    document.getElementById('inputAStreetName').readOnly = true;
+			    document.getElementById('selectADist').disabled = true;
+			    document.getElementById('inlineDeskRadio31').disabled = true;
+			    document.getElementById('inlineDeskRadio41').disabled = true;
+			    document.getElementById('inlineDeskRadio51').disabled = true;
+			}
+			
 		} else {
-			$('#inputARoom').val();
+
+		    $('#inputARoom').val();
 			$('#inputAFloor').val();
 			$('#inputABlock').val();
 			$('#inputABuilding').val();
@@ -569,13 +599,13 @@
 									<tr>
 										<td height="60" colspan="4"><label
 											class="radio-inline homecare-lb"> <input type="radio"
-												name="aArea" id="inlineDeskRadio3" value="HK" checked=""
+												name="aArea" id="inlineDeskRadio31" value="HK" checked=""
 												class="home-input1"> <span>香港</span></label> <label
 											class="radio-inline homecare-lb"> <input type="radio"
-												name="aArea" id="inlineDeskRadio4" value="KLN"
+												name="aArea" id="inlineDeskRadio41" value="KLN"
 												class="home-input1"> <span>九龍</span>
 										</label> <label class="radio-inline"> <input type="radio"
-												name="aArea" id="inlineDeskRadio5" value="NT"
+												name="aArea" id="inlineDeskRadio51" value="NT"
 												class="home-input1"> <span>新界</span></label></td>
 									</tr>
 								</tbody>
