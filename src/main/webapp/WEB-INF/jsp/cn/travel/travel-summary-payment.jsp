@@ -1,4 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate var="year" value="${now}" pattern="yyyy" />
+
 <script>
 	function confirmPayment() {
 		var geteWayUrl = $('#gateway').val();
@@ -508,12 +514,16 @@
 								<td><select class="pay-details-select" id="year"
 									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
 										<option value="0">年</option>
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-										<option value="2017">2017</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
+<!-- 										<option value="2015">2015</option> -->
+<!-- 										<option value="2016">2016</option> -->
+<!-- 										<option value="2017">2017</option> -->
+<!-- 										<option value="2018">2018</option> -->
+<!-- 										<option value="2019">2019</option> -->
+<!-- 										<option value="2020">2020</option> -->
+									<c:forEach begin="0" end="5" varStatus="loop">
+										<c:set var="currentYear" value="${year + loop.index}" />
+										<option value="${currentYear}">${currentYear}</option>
+									</c:forEach>
 								</select></td>
 							</tr>
 							<tr>

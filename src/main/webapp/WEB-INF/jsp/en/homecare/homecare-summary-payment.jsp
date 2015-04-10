@@ -1,5 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate var="year" value="${now}" pattern="yyyy" />
+
 <section>
 	<div class="container">
 		<div class="row">
@@ -253,12 +258,16 @@
 								<td><select class="pay-details-select" id="year"
 									name="epYear">
 										<option VALUE="">Year</option>
-										<option VALUE="2015">2015</option>
-										<option VALUE="2016">2016</option>
-										<option VALUE="2017">2017</option>
-										<option VALUE="2018">2018</option>
-										<option VALUE="2019">2019</option>
-										<option VALUE="2020">2020</option>
+<!-- 										<option VALUE="2015">2015</option> -->
+<!-- 										<option VALUE="2016">2016</option> -->
+<!-- 										<option VALUE="2017">2017</option> -->
+<!-- 										<option VALUE="2018">2018</option> -->
+<!-- 										<option VALUE="2019">2019</option> -->
+<!-- 										<option VALUE="2020">2020</option> -->
+									<c:forEach begin="0" end="5" varStatus="loop">
+										<c:set var="currentYear" value="${year + loop.index}" />
+										<option value="${currentYear}">${currentYear}</option>
+									</c:forEach>
 								</select></td>
 								<div>
 									<span id="errmonth" class="error-msg"></span> <span
