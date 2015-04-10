@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
@@ -84,7 +85,10 @@ public class TravelController {
 		}			
 		
 		model.addAttribute("travelQuote", travelQuote);
-		
+		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request) + "travel/travel");			
 	}
 
@@ -132,6 +136,10 @@ public class TravelController {
 						session.getAttribute("emailAddress"));
 				model.addAttribute("referralCode",
 						session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 				return "travel/"
 						+ UserRestURIConstants.checkLangSetPage(request)
 						+ "/travel-confirmation";
@@ -332,12 +340,18 @@ public class TravelController {
 				model.addAttribute("quoteDetails", quoteDetails);
 				session.setAttribute("quoteDetails", quoteDetails);
 			}
+			
 			model.addAttribute("travelQuoteBean", travelQuote);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "travel/travel-plan");
 	}
@@ -620,7 +634,11 @@ public class TravelController {
 		mapHkId.put("HKID", "HKID");
 		mapHkId.put("passport", "Passport");;		
 		model.addAttribute("mapHkId", mapHkId);
-		
+		String pageTitle = WebServiceUtils.getPageTitle("page.travelUserDetails", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "travel/travel-plan-details");		
 	}
@@ -1317,6 +1335,12 @@ public class TravelController {
 
 //		return UserRestURIConstants.checkLangSetPage(request)
 //				+ "/travel/travel-summary-payment";
+        String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+
+        
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "/travel/travel-summary-payment");				
 	}

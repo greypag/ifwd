@@ -1,13 +1,21 @@
 package com.ifwd.fwdhk.util;
 
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
+
+
 import com.ifwd.fwdhk.model.DistrictBean;
+import com.ifwd.fwdhk.model.LocaleKeyEnum;
 
 public class WebServiceUtils {
 	public static String transformLanaguage(String language) {
@@ -84,6 +92,36 @@ public class WebServiceUtils {
 		}
 			
 		return ageRangeName;
+	}
+	
+	public static Locale getRequestLocale(String language) {
+		Locale locale = new Locale(LocaleKeyEnum.EN_US.getValue());
+		if (language.equalsIgnoreCase("ZH"))
+			return Locale.TAIWAN;
+		else
+			return Locale.US;
+	}
+	
+	public static String getPageTitle(String key, String language) {
+		
+		
+        try {
+            Properties propEn = new Properties();
+        
+            InputStream stream = null;
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();  
+            if (language.equals("EN"))
+            	 stream = loader.getResourceAsStream("page_en_US.properties");
+            else
+            	stream = loader.getResourceAsStream("page_zh_TW.properties");
+            propEn.load(stream);
+            return  (String)propEn.get(key);
+            
+            
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	return "";
+        }
 	}
 
 }

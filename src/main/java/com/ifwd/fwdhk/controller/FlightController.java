@@ -30,6 +30,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
+
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreateFlightPolicy;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -41,9 +43,12 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.MessageUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
+
+
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -86,7 +91,11 @@ public class FlightController {
 			planDetails.setTotalChildTraveller(1);			
 		
 		model.addAttribute(planDetails);
-		
+		String pageTitle = WebServiceUtils.getPageTitle("page.flight", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flight", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute(planDetails);
 		return new ModelAndView(
 				UserRestURIConstants.checkLangSetPage(request) + "flight/flight");			
 	}
@@ -280,7 +289,10 @@ public class FlightController {
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
-			
+			String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 			return new ModelAndView(
 					UserRestURIConstants.checkLangSetPage(request)
 							+ "flight/flight-plan");
@@ -395,7 +407,11 @@ public class FlightController {
 		if (userDetails != null) {
 			model.addAttribute(userDetails);
 		}
-
+		String pageTitle = WebServiceUtils.getPageTitle("page.flightUserDetails", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightUserDetails", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
 		model.addAttribute("planDetailsForm", planDetails);
 		String returnUrl = UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-plan-details";
@@ -677,6 +693,10 @@ public class FlightController {
 					request.getParameter("emailAddress"));
 			model.addAttribute(createFlightPolicy);
 			model.addAttribute("planDetailsForm", planDetailsForm);
+			String pageTitle = WebServiceUtils.getPageTitle("page.flightPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 			return "success";
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
@@ -838,6 +858,11 @@ public class FlightController {
 		
 //		return UserRestURIConstants.checkLangSetPage(request)
 //				+ "flight/flight-confirmation";
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		session.setAttribute("referralCode", myReferralCode);
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-confirmation");		
@@ -989,6 +1014,10 @@ public class FlightController {
 				"flight-upgrade-travel-summary", "travel-confirmation"));
 		model.addAttribute("failurePath",
 				path.replace("flight-upgrade-travel-summary", "failure"));
+		String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return UserRestURIConstants.checkLangSetPage(request)
 				+ "travel/travel-summary-payment";
 	}

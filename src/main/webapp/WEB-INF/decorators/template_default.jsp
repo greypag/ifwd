@@ -14,7 +14,7 @@
 </script>
 
 <!-- Title -->
-<title><dec:title default="FWDHKPH1A" /></title>
+<title>${pageTitle}</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <% boolean langFlag = false;
  if(session.getAttribute("language") != null){
