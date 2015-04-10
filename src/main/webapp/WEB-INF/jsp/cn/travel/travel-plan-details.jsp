@@ -254,7 +254,7 @@
 												name="adultAgeRange" id="selectAgeRange${inx}"
 												class="form-control soflow">
 												<option value="0">請選擇</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
+												<c:forEach var="ageList" items="${mapSelfType}">
 													<option value="${ageList.key}"><c:out
 															value="${ageList.value}" /></option>
 												</c:forEach>
@@ -349,7 +349,7 @@
 												name="childAgeRange" id="selectchildAgeRange${inx}"
 												class="soflow">
 												<option value="0">請選擇</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
+												<c:forEach var="ageList" items="${mapChildType}">
 													<option value="${ageList.key}"><c:out
 															value="${ageList.value}" /></option>
 												</c:forEach>

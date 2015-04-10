@@ -259,7 +259,7 @@
 											<label class="bold-500">Age Range</label>
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
 												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
+												<c:forEach var="ageList" items="${mapSelfType}">
 													<option value="${ageList.key}"><c:out
 															value="${ageList.value}" /></option>
 												</c:forEach>
@@ -351,7 +351,7 @@
 												name="childAgeRange" class="form-control soflow"
 												id="selectchildAgeRange${inx}">
 												<option value="0">Select One</option>
-												<c:forEach var="ageList" items="${mapAgeType}">
+												<c:forEach var="ageList" items="${mapChildType}">
 													<option value="${ageList.key}"><c:out
 															value="${ageList.value}" /></option>
 												</c:forEach>
