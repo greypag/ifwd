@@ -185,7 +185,7 @@
 
 											<button type="submit"
 												class="bdr-curve btn btn-primary nxt-btn"
-												onclick="return msgAlertDesk()">Get Quote</button>
+												onclick="return msgAlertDesk()">立即報價</button>
 											<!-- <a href="homecare-plan.html" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return msgAlertDesk()">Get Quote</a> -->
 										</div>
 										<div class="clearfix"></div>
@@ -761,7 +761,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 											<button type="submit"
 												class="bdr-curve btn btn-primary nxt-btn"
-												onclick="return msgAlertDesk()">Get Quote</button>
+												onclick="return msgAlertDesk()">立即報價</button>
 											<!-- <a href="homecare-plan.html" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return msgAlertDesk()">Get Quote</a> -->
 										</div>
 										<div class="clearfix"></div>
