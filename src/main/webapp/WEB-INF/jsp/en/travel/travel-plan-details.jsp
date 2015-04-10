@@ -120,7 +120,7 @@
 								</tr>
 								<tr>
 									<td class="pad-none">
-									<div class="col-md-10 col-lg-10 pad-none">
+									<div class="col-md-12 col-lg-12 pad-none">
 									<t:dropdown 
 										selectables="${mapHkId}"
 										defaultWithFirst="true"

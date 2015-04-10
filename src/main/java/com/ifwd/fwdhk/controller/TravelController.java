@@ -13,15 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-
-
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,11 +45,14 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 public class TravelController {
 
 	@Autowired
-	RestServiceDao restService;
+	private RestServiceDao restService;
 
 	@Autowired
-	SendEmailDao sendEmail;
+	private SendEmailDao sendEmail;
 
+	@Autowired
+	private MessageSource messageSource;
+	
 	@RequestMapping(value = "/travel")
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
@@ -580,16 +580,18 @@ public class TravelController {
 					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 					
 					
-					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3"))
+					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3")) {
 						mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+					}
 					
 				}
 				iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
 					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
-					if (mapEntry.getKey().equals("1"))
+					if (mapEntry.getKey().equals("1")) {
 						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+					}
 					
 				}
 				model.addAttribute("mapAgeType", mapAgeType);
@@ -637,8 +639,17 @@ public class TravelController {
 		}
 
 		Map<String,String> mapHkId = new TreeMap<>();
-		mapHkId.put("HKID", "HKID");
-		mapHkId.put("passport", "Passport");;		
+
+		String lang = UserRestURIConstants.getLanaguage(request);
+		// TODO please change to apply message bundle nicely
+		String hkIdLbl = "HKID";
+		String passportLbl = "Passport";
+		if("CN".equals(lang)){
+			hkIdLbl = "香港身份證號碼";
+			passportLbl = "護照";
+		}
+		mapHkId.put("HKID", hkIdLbl);
+		mapHkId.put("passport", passportLbl);		
 		model.addAttribute("mapHkId", mapHkId);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelUserDetails", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
