@@ -4,6 +4,12 @@
 <%@page import="com.ifwd.fwdhk.model.PurchaseHistory"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -69,21 +75,19 @@ Tag Manager -->
 	<div class="container ">
 		<div class="row">
 			<ol class="breadcrumb pad-none">
-				<li><a href="#">Home</a></li>
-				<li class="active"><i class="fa fa-caret-right"></i> FWD Member Account</li>
+				<li><a href="#"><fmt:message key="menu.home" bundle="${msg}" /></a></li>
+				<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="menu.member.account" bundle="${msg}" /></li>
 			</ol>
-			<h2 class="page-title">FWD Member Account</h2>
+			<h2 class="page-title"><fmt:message key="member.account.title" bundle="${msg}" /></h2>
 			<!-- <div class="status alert alert-success" style="display: none"></div>-->
 			<div class="wd2 bdr">
 
 				<div class="col-lg-4 pad-none gry-bg">
 					<nav class="nav-sidebar">
 					<ul class="nav tabs">
-						<li class="active"><a href="#tab1" data-toggle="tab">Member Details</a></li>
-						<li class=""><a href="#tab2" data-toggle="tab">Purchase
-								History</a></li>
-						<li class=""><a href="#tab3" data-toggle="tab">Promotion
-								Code</a></li>
+						<li class="active"><a href="#tab1" data-toggle="tab"><fmt:message key="member.account.tab.details" bundle="${msg}" /></a></li>
+						<li class=""><a href="#tab2" data-toggle="tab"><fmt:message key="member.account.tab.purchaseHistory" bundle="${msg}" /></a></li>
+						<li class=""><a href="#tab3" data-toggle="tab"><fmt:message key="member.account.tab.promotionCode" bundle="${msg}" /></a></li>
 					</ul>
 					</nav>
 				</div>
@@ -94,15 +98,14 @@ Tag Manager -->
 						<table class="table acc-form">
 							<tbody>
 								<tr>
-									<td colspan="2" class="pad-none"><h2
-											class="black-bold pad-none">Member Details</h2></td>
+									<td colspan="2" class="pad-none"><h2 class="black-bold pad-none">Member Details</h2></td>
 								</tr>
 								<tr>
 									<td valign="middle" class="col-sm-4 pad-none"><label
 										for="fullName" class="control-label">Full name</label></td>
 									<td class="pad-none"><input type="text"
 										class="form-control" id="fullName" name="fullName"
-										value="${userDetails.getFullName() }" placeholder="Full name"></td>
+										value="${userDetails.getFullName() }" placeholder="Full name" />"></td>
 								</tr>
 								<tr>
 									<td valign="middle" class="pad-none"><label for="mobileNo"
@@ -196,44 +199,42 @@ Tag Manager -->
 							<table class="table acc-form">
 								<tbody>
 									<tr>
-										<td colspan="2" class="pad-none"><h2
-												class="black-bold pad-none">Member Details</h2></td>
+										<td colspan="2" class="pad-none"><h2 class="black-bold pad-none"><fmt:message key="member.account.details.header" bundle="${msg}" /></h2></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="col-sm-4 pad-none "><label
-											for="inputEmail3" class="control-label h4-4-b">Full
-												name</label></td>
+										<td valign="middle" class="col-sm-4 pad-none ">
+											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.fullName" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
 											class="form-control" id="fullName" name="fullName"
 											disabled="disabled" value="${userDetails.getFullName() }"
-											placeholder="Full name"></td>
+											placeholder="<fmt:message key="member.account.details.label.fullName" bundle="${msg}" />"></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="pad-none"><label
-											for="inputEmail3" class="control-label h4-4-b">Mobile
-												no</label></td>
+										<td valign="middle" class="pad-none">
+											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.mobileNo" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
 											class="form-control" id="mobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo() }" disabled="disabled"
-											placeholder="Mobile Number"></td>
+											placeholder="<fmt:message key="member.account.details.label.mobileNo" bundle="${msg}" />"></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="pad-none"><label
-											for="inputEmail3" class="control-label h4-4-b">Email
-												address</label></td>
+										<td valign="middle" class="pad-none">
+											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.emailAddress" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="email"
 											class="form-control" id="emailAdderss" name="emailAddress"
 											value="${userDetails.getEmailAddress() }" disabled="disabled"
-											placeholder="Email address"></td>
+											placeholder="<fmt:message key="member.account.details.label.emailAddress" bundle="${msg}" />"></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="pad-none"><label
-											for="inputEmail3" class="control-label h4-4-b">Username</label></td>
+										<td valign="middle" class="pad-none">
+											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.Username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
 											disabled="disabled" value="${userDetails.getUserName() }"
-											class="form-control" id="userName" placeholder="Username"
-											name="userName"> <!-- <a href="#" data-toggle="tooltip" data-placement="bottom" 
-   title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="resources/images/ic.png"> </a> --></td>
+											class="form-control" id="userName" placeholder="<fmt:message key="member.account.details.label.Username" bundle="${msg}" />"
+											name="userName"> 
+											<!-- <a href="#" data-toggle="tooltip" data-placement="bottom" 
+   title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="resources/images/ic.png"> </a> -->
+   										</td>
 									</tr>
 									<!-- <tr>
 										<td valign="middle" class="pad-none"><label
@@ -249,8 +250,8 @@ Tag Manager -->
 												password</label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control" id="confirmPassword"
-											name="confirmPassword" placeholder="Confirm Password"></td> -->
-									</tr>
+											name="confirmPassword" placeholder="Confirm Password"></td> 
+									</tr>  -->
 								</tbody>
 							</table>
 							<!-- <h4 class="h4-2 padding5">Declaration</h4>
@@ -294,34 +295,32 @@ Tag Manager -->
 						%>
 						<table class="table purchase-history marg-left">
 							<tbody>
-								<tr>
-									<td class="pad-none"><h2 class="black-bold ">Purchase
-											History</h2></td>
-									<td colspan="2" class="pad-none pull-left">
+<!-- 								<tr> -->
+<!-- 									<td class="pad-none"><h2 class="black-bold ">Purchase History</h2></td> -->
+<!-- 									<td colspan="2" class="pad-none pull-left"> -->
 										<!-- <button
 											type="button" class="btn btn-default claim-form">Download
 											Claim Form</button> -->
-									</td>
+<!-- 									</td> -->
 
-								</tr>
+<!-- 								</tr> -->
 
 								<tr>
-									<td class="pad-none"><span class="h2-claim">TravelCare
-											Insurance </span></td>
+									<!-- TODO, get product type from API -->
+									<td class="pad-none"><h2 class="black-bold ">TravelCare Insurance</h2></td> <!-- <span class="h2-claim"></span> -->
 									<td class="pad-none sub-link">
 										<!-- <a href="#">View Policy</a> -->
 									</td>
 								</tr>
 								<tr>
-									<td class="pad-none h4-5">Reference number : <%
-										out.print(purchaseHistory.getPolicyNumber());
-									%></td>
+									<td class="pad-none h4-5"><fmt:message key="member.account.purchaseHistory.travelCare.label.referenceNo" bundle="${msg}" />
+									<%out.print(purchaseHistory.getPolicyNumber());%></td>
 									<td class="pad-none sub-link"><a href="#"> <!--  Download
 											Policy -->
 									</a></td>
 								</tr>
 								<tr>
-									<td class="pad-none h4-5">Date of purchase : <%
+									<td class="pad-none h4-5"><fmt:message key="member.account.purchaseHistory.travelCare.label.datePurchase" bundle="${msg}" /> <%
 										out.print(purchaseHistory.getSubmissionDate());
 									%><br></td>
 									<td class="pad-none sub-link">
@@ -337,7 +336,7 @@ Tag Manager -->
 						out.print(purchaseHistory.getPlanCode());						
 						
 						%>	 --%>
-						<br> <br>
+						
 
 						<%
 							}
@@ -348,19 +347,17 @@ Tag Manager -->
 						<table class="table purchase-history  ">
 							<tbody>
 								<tr>
-									<td class="pad-none"><h2 class="black-bold ">Share</h2></td>
+									<td class="pad-none"><h2 class="black-bold "><fmt:message key="member.account.promotionCode.share.header" bundle="${msg}" /></h2></td>
 								</tr>
 								<tr>
 									<td><p>
-											Your unique promotion code is:<span class="h2-1">
-												${userDetails.getReferralCode()}</span><br> Share with your
-											friends and get discounts from our partners!
+											<fmt:message key="member.account.promotionCode.share.message.header" bundle="${msg}" /><span class="h2-1">
+												${userDetails.getReferralCode()}</span><br> <fmt:message key="member.account.promotionCode.share.message.body" bundle="${msg}" />
 										</p> <img src="resources/images/agoda.png" alt=""
 										class="text-center col-xs-offset-3" /></td>
 								</tr>
 								<tr>
-									<td><h3 class="h4-3-b">Share your promotion code now
-											to earn discounts and rewards</h3></td>
+									<td><h3 class="h4-3-b"><fmt:message key="member.account.promotionCode.share.social.message.header" bundle="${msg}" /></h3></td>
 								</tr>
 								<tr>
 
@@ -391,7 +388,7 @@ Tag Manager -->
 											</div>
 									</a>
 										<div class="col-lg-4 text-center line-hei ">
-											<h4 class="sub-link-underline">Other sharing options</h4>
+											<h4 class="sub-link-underline"><fmt:message key="member.account.promotionCode.share.social.message.other" bundle="${msg}" /></h4>
 										</div>
 									</td>
 								</tr>
@@ -399,14 +396,9 @@ Tag Manager -->
 						</table>
 						<br>
 						<div class="declaration-content1">
-							<b><span class="orange-star">*</span> Terms & Conditions of
-								Referral Offer</b>
+							<b><span class="orange-star">*</span><fmt:message key="member.account.promotionCode.share.termsAndConditions.message.header" bundle="${msg}" /></b>
 							<p>
-								Referral offers only applicable when one or more of your
-								referrals successfully purchase a TravelCare travel Insurance
-								policy with FWD.<br> Details of the promotion code to
-								redeem your partner offer will be provided in your confirmation
-								email.
+								<fmt:message key="member.account.promotionCode.share.termsAndConditions.message.details" bundle="${msg}" />
 							</p>
 						</div>
 					</div>

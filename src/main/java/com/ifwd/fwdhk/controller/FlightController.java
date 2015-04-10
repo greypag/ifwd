@@ -102,6 +102,15 @@ public class FlightController {
 		HttpSession session = request.getSession();
 		String viewName = "";
 		session.setAttribute("language", selectLang);
+		
+		if(selectLang.compareToIgnoreCase("CN") == 0){
+			session.setAttribute("uiLocale", "zh-HK");
+		}else if(selectLang.compareToIgnoreCase("EN") == 0){
+			session.setAttribute("uiLocale", "en-US");
+		}else{
+			session.setAttribute("uiLocale", "en-US");
+		}
+					
 		viewName = action.replace("/", "");
 		return new ModelAndView("redirect:" + viewName);
 
