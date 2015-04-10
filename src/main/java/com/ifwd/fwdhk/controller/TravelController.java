@@ -777,19 +777,18 @@ public class TravelController {
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
 
+		String langSelected = UserRestURIConstants.getLanaguage(request);
+		
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
-			
-			planDetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), UserRestURIConstants.getLanaguage(request)));
+			planDetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), langSelected));
 		}
 		
 		for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
-			
-			planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getChildAgeRange(), UserRestURIConstants.getLanaguage(request)));
+			planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getChildAgeRange(), langSelected));
 		}
 		
-		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
-			
-			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), UserRestURIConstants.getLanaguage(request)));
+		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {	
+			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), langSelected));		
 		}
 		
 		
@@ -976,7 +975,22 @@ public class TravelController {
 					adult.put("beneficiary", beneficiary);
 				}
 			}
+						
 			insured.add(adult);
+			
+			// update relationship desc
+			String[] relationships = planDetailsForm.getAdultRelationDesc();
+			if(relationships == null){
+				// not found in ModelAttribute
+				relationships = new String[planDetailsForm.getTotalAdultTraveller()];
+			}
+			String[] beneRelationships = planDetailsForm.getAdultBeneRelationDesc();
+			if(beneRelationships == null){
+				// not found in ModelAttribute
+				beneRelationships = new String[planDetailsForm.getTotalAdultTraveller()];
+			}
+			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
+			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
@@ -1082,6 +1096,22 @@ public class TravelController {
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
+				
+				
+				// update relationship desc
+				String[] relationships = planDetailsForm.getChildRelationDesc();
+				if(relationships == null){
+					// not found in ModelAttribute
+					relationships = new String[planDetailsForm.getTotalChildTraveller()];
+				}
+				String[] beneRelationships = planDetailsForm.getChildBeneRelationDesc();
+				if(beneRelationships == null){
+					// not found in ModelAttribute
+					beneRelationships = new String[planDetailsForm.getTotalChildTraveller()];
+				}
+				planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, child.get("relationship").toString(), inx));
+				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));	
+				
 			}
 		}
 
@@ -1190,10 +1220,27 @@ public class TravelController {
 							"SE");
 					other.put("beneficiary", beneficiary);
 				}
+								
 				insured.add(other);
+				
+				// update relationship desc
+				String[] relationships = planDetailsForm.getOtherRelationDesc();
+				if(relationships == null){
+					// not found in ModelAttribute
+					relationships = new String[planDetailsForm.getTotalOtherTraveller()];
+				}
+				String[] beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
+				if(beneRelationships == null){
+					// not found in ModelAttribute
+					beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
+				}
+				planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, other.get("relationship").toString(), inx));
+				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));				
 			}
 		}
 
+		
+		
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */

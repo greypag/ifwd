@@ -191,7 +191,7 @@
             <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"><%-- ${flightQuoteDetails.getToalDue()} --%> &nbsp;</h3>
             
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-              <a href="/FWDHKPH1A/flight" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn">上一頁xx </a> </div>
+              <a href="/FWDHKPH1A/flight" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn">上一頁 </a> </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
             <input type="submit" class="bdr-curve-none btn btn-primary btn-next" Value="下一頁"  />
              </div>
