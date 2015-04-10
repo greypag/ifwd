@@ -259,7 +259,7 @@ id="box<%=i%>">
 									<div class="clearfix"></div>
 								</div>
 								<h5>
-									<a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">Upgrade Now!</a>
+									<a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">立即升級!</a>
 								</h5>
 							</div>
 						</div>
