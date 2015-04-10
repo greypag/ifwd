@@ -1132,7 +1132,7 @@
 							<div class="form-group">
 								<div class="input-group">
 									<span class="text-red" id="errPromoCode"></span> <input
-										type="text" class="form-control" name="referralCode"
+										type="text" class="form-control" name="promoCode"
 										id="referralCode" placeholder="eg.FWD789"> <span
 										class="input-group-addon in black-bold pointer"
 										onclick="applyPromoCode()"><span>APPLY</span></span>

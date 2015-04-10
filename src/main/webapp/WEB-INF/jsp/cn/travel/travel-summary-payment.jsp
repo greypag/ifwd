@@ -455,6 +455,24 @@
 									</div>
 								</td>
 							</tr>
+							<tr style="display: none;">
+							 <td ><label class="control-label h4-5">Payment Method</label></td> 
+								<td colspan="2">
+								<div class="controls">
+								<label class="radio-inline">							
+								 <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
+								</label>	
+								<label class="radio-inline">		
+									<input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
+								</label>
+								</div>
+									<!-- <input type="radio" name="pMethod" value="Diners">Diners
+									Club <input type="radio" name="pMethod" value="JCB">JCB
+									<input type="radio" name="pMethod" value="AMEX">AMEX
+									
+									-->
+									</td> 
+							</tr>
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡號碼</label></td>
 								<td colspan="2">
