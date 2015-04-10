@@ -338,7 +338,7 @@
 										<t:dropdown 
 											defaultLabel="請選擇"
 											onChange=""
-											selectables="${mapAgeType}"
+											selectables="${mapSelfType}"
 											valueElmId="selectAgeRange${inx}"
 											valueElmName="adultAgeRange"
 										/>
@@ -416,7 +416,7 @@
 											<t:dropdown 
 												defaultLabel="請選擇"
 												onChange=""
-												selectables="${mapAgeType}"
+												selectables="${mapChildType}"
 												valueElmId="selectchildAgeRange${inx}"
 												valueElmName="childAgeRange"
 											/>
