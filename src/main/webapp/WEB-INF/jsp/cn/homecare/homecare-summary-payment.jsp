@@ -341,7 +341,7 @@
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<input type="submit"
 									class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center"
-									value="Pay Now">
+									value="確認付款">
 							</div>
 
 

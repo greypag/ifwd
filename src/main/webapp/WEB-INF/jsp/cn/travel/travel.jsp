@@ -217,14 +217,14 @@
     <h4>出發日期 </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" value="${travelQuote.getTrLeavingDate()}">
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" value="${travelQuote.getTrLeavingDate()}" readonly>
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4>回程日期</h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" value="${travelQuote.getTrBackDate()}">
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" value="${travelQuote.getTrBackDate()}" readonly>
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
