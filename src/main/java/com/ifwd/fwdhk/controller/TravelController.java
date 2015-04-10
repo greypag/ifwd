@@ -54,14 +54,14 @@ public class TravelController {
 	SendEmailDao sendEmail;
 
 	@RequestMapping(value = "/travel")
-	public ModelAndView getTravelHomePage(HttpServletRequest request, Model model) {
+	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
 		
 		HttpSession session = request.getSession();
-		
+		session.setAttribute("referralCode", promo);
 		TravelQuoteBean travelQuote;
 		
 		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
@@ -205,7 +205,7 @@ public class TravelController {
 			// redirect to 1ST step when null 
 			if(travelQuote == null){
 				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
-				return getTravelHomePage(request, model);		
+				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
 		}
 
@@ -286,7 +286,7 @@ public class TravelController {
 					+ "&childInput=" + childCount + "&otherInput="
 					+ otherCount + "&commencementDate="
 					+ commencementDate + "&expiryDate=" + expiryDate
-					+ "&planCode=" + userReferralCode;
+					+ "&referralCode=" + userReferralCode;
 
 			System.out.println("Travel Quote user " + Url);
 
@@ -512,7 +512,7 @@ public class TravelController {
 			// redirect to 1ST step when null 
 			if(travelQuote == null){
 				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
-				return getTravelHomePage(request, model);
+				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);
 			}				
 		}
 		try {
@@ -669,7 +669,7 @@ public class TravelController {
 		// redirect to 1ST step when null 
 		if(travelQuote == null || planSelected == null){
 			//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);				
-			return getTravelHomePage(request, model);		
+			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 		}			
 		
 		UserDetails userDetails = new UserDetails();

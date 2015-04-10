@@ -24,6 +24,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
@@ -52,13 +53,13 @@ public class HomeCareController {
 	SendEmailDao sendEmail;
 
 	@RequestMapping(value = "/homecare")
-	public String getHomeCarePage(HttpServletRequest request, Model model) {
+	public String getHomeCarePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
 		String token = null, username = null;
-
+		session.setAttribute("referralCode", promo);
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());
 		Format f = new SimpleDateFormat("dd-MMMM-yyyy");
@@ -148,7 +149,7 @@ public class HomeCareController {
 
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
-			return getHomeCarePage(request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
 
 		String token = session.getAttribute("token").toString();
@@ -165,7 +166,7 @@ public class HomeCareController {
 		}
 		// redirect to 1ST step when null
 		if (answer1 == null || answer2 == null) {
-			return getHomeCarePage(request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
 		/*
 		 * String userReferralCode = (String) request.getSession().getAttribute(
@@ -220,7 +221,7 @@ public class HomeCareController {
 
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
-			return getHomeCarePage(request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
 
 		String token = session.getAttribute("token").toString();
@@ -246,7 +247,7 @@ public class HomeCareController {
 
 				// redirect to 1ST step when null
 				if (homeQuoteDetails == null) {
-					return getHomeCarePage(request, model);
+					return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 				}
 			}
 
@@ -310,7 +311,7 @@ public class HomeCareController {
 
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
-			return getHomeCarePage(request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
 
 		String passportORhkid = WebServiceUtils.getParameterValue(
@@ -335,7 +336,7 @@ public class HomeCareController {
 
 			// redirect to 1ST step when null
 			if (homeCareDetails == null) {
-				return getHomeCarePage(request, model);
+				return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 			}
 		}
 		System.out.println("***************passportORhkid********************");
