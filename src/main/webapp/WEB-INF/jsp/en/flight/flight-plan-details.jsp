@@ -276,7 +276,7 @@ Myself
 											<t:dropdown 
 												defaultLabel="Select One"
 												onChange=""
-												selectables="${mapAgeType}"
+												selectables="${mapSelfType}"
 												valueElmId="selectAgeRange${inx}"
 												valueElmName="adultAgeRange"
 											/>
@@ -357,7 +357,7 @@ Myself
 											<t:dropdown 
 												defaultLabel="Select One"
 												onChange=""
-												selectables="${mapAgeType}"
+												selectables="${mapChildType}"
 												valueElmId="selectchildAgeRange${inx}"
 												valueElmName="childAgeRange"
 											/>
