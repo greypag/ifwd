@@ -53,5 +53,37 @@ public class WebServiceUtils {
 		}
 		return name;
 	}
+	
+	
+
+	public static String[] getAgeRangeNames(String[] ageRanges, String language) {
+		
+		int size = ageRanges.length;
+		String[] name = new String[size];
+		for (int i=0; i< size; i++)
+			name[i] = getAgeRangeName(ageRanges[i], language);
+		return name;
+	}
+
+	private static String getAgeRangeName(String ageRange, String language) {
+		String ageRangeName = "";
+		if (language.equals("EN")) {
+			if (ageRange.equals("1"))
+				ageRangeName = "6 weeks to 17 years old";
+			else if (ageRange.equals("2"))
+				ageRangeName = "18 - 70 years old";
+			else
+				ageRangeName = "71 - 85 years old";
+		} else {
+			if (ageRange.equals("1"))
+				ageRangeName = "6 weeks to 17 years old";
+			else if (ageRange.equals("2"))
+				ageRangeName = "18 - 70 years old";
+			else
+				ageRangeName = "71 - 85 years old";
+		}
+			
+		return ageRangeName;
+	}
 
 }

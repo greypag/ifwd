@@ -18,10 +18,13 @@ public class PlanDetailsForm {
 	private String[] adultName;
 	private String[] adultHKID;
 	private String[] adultAgeRange;
+	private String[] adultAgeRangeName;
 	private String[] childName;
 
 	private String[] childHKID;
 	private String[] childAgeRange;
+	private String[] childAgeRangeName;
+	
 	//	private AdultBeneficiary[] adultBeneficiary;
 	private String[] childBeneficiary;
 	private String[] adultBeneficiary;
@@ -340,7 +343,28 @@ public class PlanDetailsForm {
 
 	private String[] otherHKID;
 	private String[] otherAgeRange;
+	private String[] otherAgeRangeName;
 	private String[] otherBeneficiary;
+
+
+	public String[] getAdultAgeRangeName() {
+		return adultAgeRangeName;
+	}
+	public void setAdultAgeRangeName(String[] adultAgeRangeName) {
+		this.adultAgeRangeName = adultAgeRangeName;
+	}
+	public String[] getChildAgeRangeName() {
+		return childAgeRangeName;
+	}
+	public void setChildAgeRangeName(String[] childAgeRangeName) {
+		this.childAgeRangeName = childAgeRangeName;
+	}
+	public String[] getOtherAgeRangeName() {
+		return otherAgeRangeName;
+	}
+	public void setOtherAgeRangeName(String[] otherAgeRangeName) {
+		this.otherAgeRangeName = otherAgeRangeName;
+	}
 
 
 }

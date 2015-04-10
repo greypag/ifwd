@@ -742,6 +742,22 @@ public class TravelController {
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
 
+		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
+			
+			planDetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), UserRestURIConstants.getLanaguage(request)));
+		}
+		
+		for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
+			
+			planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getChildAgeRange(), UserRestURIConstants.getLanaguage(request)));
+		}
+		
+		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
+			
+			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), UserRestURIConstants.getLanaguage(request)));
+		}
+		
+		
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
