@@ -32,6 +32,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreateFlightPolicy;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -292,6 +294,8 @@ public class FlightController {
 			flightQuoteDetails.setToalDue(StringHelper.formatPrice(checkJsonObjNull(jsonPriceInfoA,
 					"totalDue")));
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
+			
+			
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
 			String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
@@ -892,6 +896,26 @@ public class FlightController {
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
+			
+			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
+				
+				plandetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(plandetailsForm.getAdultAgeRange(), UserRestURIConstants.getLanaguage(request)));
+			}
+			
+			for (int inx = 0; inx < plandetailsForm.getTotalChildTraveller(); inx++) {
+				
+				plandetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(plandetailsForm.getChildAgeRange(), UserRestURIConstants.getLanaguage(request)));
+			}
+			
+			for (int inx = 0; inx < plandetailsForm.getTotalOtherTraveller(); inx++) {
+				
+			}
+			
+			
+			
+			
+			
+			
 		}
 
 		HashMap<String, String> header = new HashMap<String, String>(

@@ -349,6 +349,7 @@
 										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
 										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
 										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneficiary()[i]%></td>
+<!-- 										<td data-title="Relationship" class="travel-tb-h3"></td> -->
 									</tr>
 									<%
 										}
