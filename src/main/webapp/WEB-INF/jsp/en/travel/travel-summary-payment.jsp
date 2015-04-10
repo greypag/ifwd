@@ -53,33 +53,36 @@
 							style="visibility: visible;">
 							<h2>Summary & payment</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
 							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c3"></div>
+								<div class="order-status has-four">
+									<div class="order-status-timeline-new">
+								<!--
+										There can be n '.order-status-timeline-completion'
+										dots-inactive and dots-active color the dots -->
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
-										class="image-order-status image-order-status-new active img-circle">
+										class="image-order-status image-order-status-new active img-circle first">
 										<span class="status color3"> Your Options</span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
-										class="image-order-status image-order-status-intransit  img-circle ">
+										class="image-order-status image-order-status-intransit  img-circle second">
 										<span class="status color3">Your Details</span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle act">
+										class="image-order-status image-order-status-delivered  img-circle act third">
 										<span class="status color2">Summary & Payment</span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle disabled">
+										class="image-order-status image-order-status-completed  img-circle disabled fourth">
 										<span class="status lst-status">Confirmation</span>
 										<div class="icon">4</div>
 									</div>
@@ -88,11 +91,10 @@
 						</div>
 					</div>
 				</div>
-				<br> <br> <br>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
-						<br>
+						
 
 						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
 							<h3 class="margin-left-2 h2-3-existing-fwd-head">
@@ -604,7 +606,7 @@
 								Confirm Payment</button>
 						</div>
 						<br> <br>
-						<div class="pad-none hidden-md hidden-lg">
+						<div class="row hidden-md hidden-lg">
 							<div class="clearfix"></div>
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">

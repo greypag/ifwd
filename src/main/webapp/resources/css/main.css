@@ -4516,6 +4516,8 @@ table.purchase-history tr td {
 }
 /********************************************/
 .travel-tb {
+	width: 100%;
+	table-layout: fixed;
 }
 .travel-tb-head {
 	color: #fff;
@@ -4526,10 +4528,14 @@ table.purchase-history tr td {
 	height: 40px;
 }
 .travel-tb td {
+	min-width: 150px;
 	padding: 5px 20px;
 }
 .travel-tb th {
 	padding: 5px 20px ;
+}
+.travel-tb td img{
+	max-width: 100%;
 }
 .travel-tb-h2 {
 	font-size: 24px;
@@ -4656,8 +4662,8 @@ box-shadow:0 0 6px #f68a1d;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	line-height: normal;
-  padding-top: 12px;
-  padding-bottom: 4px;
+/*  padding-top: 12px;
+  padding-bottom: 4px; */
 }
 
 
@@ -4684,8 +4690,8 @@ box-shadow:0 0 6px #f68a1d;
 	-moz-border-radius: 2px;
 
 	line-height: normal;
-	  padding-top: 12px;
-	  padding-bottom: 4px;
+/*  padding-top: 12px;
+  padding-bottom: 4px; */
 }
 
 .form-horizontal .control-group {
