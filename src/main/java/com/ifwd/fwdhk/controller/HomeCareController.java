@@ -328,6 +328,9 @@ public class HomeCareController {
 		if (createdPolicy.getReferenceNo() != null) {
 			CreatePolicy confirm = homecareService.confirmHomeCarePolicy(
 					userName, token, createdPolicy.getReferenceNo(), UserRestURIConstants.getLanaguage(request));
+			
+			session.setAttribute("HomeCareReferenceNo",
+					createdPolicy.getReferenceNo());
 			session.setAttribute("HomeCareTransactionDate",
 					confirm.getTransactionDate());
 			model.addAttribute("confirm", confirm);
@@ -383,8 +386,8 @@ public class HomeCareController {
 		request.getSession().setAttribute("HomeCareTransactionNo",
 				request.getParameter("orderRef"));
 
-		request.getSession().setAttribute("HomeCareReferenceNo",
-				request.getParameter("referenceNo"));
+//		request.getSession().setAttribute("HomeCareReferenceNo",
+//				request.getParameter("referenceNo"));
 
 		request.getSession().setAttribute("HomeCareCreditCardNo",
 				request.getParameter("cardNo"));
