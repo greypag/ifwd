@@ -188,7 +188,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><span class=""><%=planDetailsForm.getAdultAgeRange()[i]%></span></td>
+										<td ><span class=""><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
 										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
 										<td  class="">&nbsp;</td>
 										<% } %>
@@ -233,7 +233,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><%=planDetailsForm.getChildAgeRange()[i]%></td>
+										<td ><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
 										<td >&nbsp;</td>
 										<% } %>
@@ -276,7 +276,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><%=planDetailsForm.getOtherAgeRange()[i]%></td>
+										<td ><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td >&nbsp;</td>
 										<% } %>
@@ -329,7 +329,7 @@
 										<td data-title="Adult <%=i + 1%>"><span class="h2-1-td">成人
 												<%=i + 1%></span></td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRange()[i]%></span></td>
+										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
 										<td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
 										<td data-title="Relationship"><span class="h4-5">自己 地產</span></td>
 									</tr>
@@ -357,7 +357,7 @@
 									<td data-title="Child <%=i + 1%>"><span class="h2-1-td">孩子
 											<%=i + 1%></span></td>
 									<td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
-									<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRange()[i]%></td>
+									<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
 									<td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>
 									<td class="h4-5" data-title="Relationship">自己 地產</td>
 								</tr>
@@ -386,7 +386,7 @@
 										<td data-title="Other<%=i + 1%>"><span class="h2-1-td">其他
 												<%=i + 1%></span></td>
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
-										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRange()[i]%></td>
+										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<td class=" h4-5" data-title="Relationship">自己 地產</td>
 									</tr>
