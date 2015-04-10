@@ -18,35 +18,35 @@
               <h2> 確認保單</h2>
             </div>
             <br>
-            <br>
             <div id="tr-wizard" class="shop-tracking-status">
-  <div class="order-status">
-        <div class="order-status-timeline1"> 
-          <!-- class names: c0 c1 c2 c3 and c4 -->
-          <div class="c0"></div>
-        </div>
-        <div class="image-order-status image-order-status-new active img-circle"> <span class="status color3"> 您的選擇</span>
+  			<div class="order-status has-four">
+			        <div class="order-status-timeline-new">
+						<div class="order-status-timeline-completion dots-active"></div>
+						<div class="order-status-timeline-completion dots-active"></div>
+						<div class="order-status-timeline-completion dots-active"></div>
+					</div>
+        <div class="image-order-status image-order-status-new active img-circle first"> <span class="status color3"> 您的選擇</span>
           <div class="icon">1</div>
         </div>
         
-        <div class="image-order-status image-order-status-intransit  img-circle "> <span class="status color3">個人資料</span>
+        <div class="image-order-status image-order-status-intransit  img-circle second"> <span class="status color3">個人資料</span>
           <div class="icon">2</div>
         </div>
-        <div class="image-order-status image-order-status-delivered  img-circle"> <span class="status color3"> 總結及付款</span>
+        <div class="image-order-status image-order-status-delivered  img-circle third"> <span class="status color3"> 總結及付款</span>
           <div class="icon">3</div>
         </div>
-        <div class="image-order-status image-order-status-completed  img-circle act"> <span class="status lst-status"> 確認保單</span>
+        <div class="image-order-status image-order-status-completed  img-circle act fourth"> <span class="status lst-status"> 確認保單</span>
           <div class="icon">4</div>
         </div>
       </div>
 </div>
           </div>
         </div>
-        <br>
-        <br>
-      <c:if test="${not empty errormsg}"><div id="confirm-error-msg" class="alert alert-danger hide"
-												role="alert">${errormsg}</div></c:if>
-        <br>
+
+        
+      <c:if test="${not empty errormsg}"><br><div id="confirm-error-msg" class="alert alert-danger hide"
+												role="alert">${errormsg}</div><br></c:if>
+        
         <div class="container pad-none bdr">
           <div class="col-sm-12 gray-bg1" >
 
@@ -66,12 +66,12 @@
          <div class="h4-2 margin-left">立即分享您的專屬推廣編號，尊享額外優惠!</div>
          
          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center">http://i.fwd.com.hk/tc/travel-insurance?${referralCode} </div>
+         <div class=" wht-bg1 text-center" id="toBeCopied">http://i.fwd.com.hk/tc/travel-insurance?${referralCode} </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
               
-                      <div class="copy-link pull-left">複製</div>
-                <div class="addthis_sharing_toolbox" data-url="http://support.addthis.com/customer/portal/articles/125634-setting-the-url-title-to-share" data-title="THE TITLE"></div>
+                      <div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">複製</div>
+                <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
                <!-- <div class="pad-none text-center">
                 <a class="sub-link other-share">其他途徑分享</a>
               </div>-->
@@ -90,7 +90,7 @@
                   受薦人獎賞：<br>
                   - 75折購買富衛旅遊保險<br>
 
-                 請参閱推薦計劃之<a href="http://i.fwd.com.hk/downloads/iFWD_HK_Referral_Campaign_T_Cs.pdf" class="sub-link">條款及細則</a>。
+                 請参閱推薦計劃之<a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" class="sub-link">條款及細則</a>。
                 </p></div>
               </div>
         
@@ -98,7 +98,7 @@
           <div class="clearfix"></div>
         </div>
         <div class="spacer2"></div>
-        <div class="container pad-none hidden-sm hidden-xs">
+        <div class="container pad-none hidden-xs hidden-sm travel-homecare">
           <div class="row-fluid">
             <div class="center " style="visibility: visible;">
               <h4 class="center-h2">您可能有興趣</h4><br><br>
@@ -112,13 +112,13 @@
 				<a href="#" class="border-radius btn btn-primary  get-btn" >立即報價</a>
             </div>
         </div>
-              <br>
+              
             </div>
             
             
           </div>
         </div>
-        <br>
+        
       </form>
     </div>
     <!--/.row--> 
@@ -127,3 +127,6 @@
 </section>
 
 <!--/end- Main Content-->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+<!--End of addthis -->

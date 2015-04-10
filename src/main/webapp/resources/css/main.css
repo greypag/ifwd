@@ -4843,10 +4843,19 @@ div.simulate-drop-down > .btn, div.simulate-drop-down > .dropdown-menu {
 	text-align: left;
 	font-size: 24px;
 }
+div.simulate-drop-down>a{
+	display: block;
+	width: 100%;
+}
 div.simulate-drop-down>.dropdown-menu>li>a:hover, div.simulate-drop-down>.dropdown-menu>li>a:focus {
 	color: white;
 	background-color: rgb(30,144,255);
 	text-decoration: none;
+}
+@media (max-width: 479px){
+	div.simulate-drop-down>.dropdown-menu>li>a {
+	  font-size: 20px;
+	}
 }
 select::-ms-expand {
     display: none;
