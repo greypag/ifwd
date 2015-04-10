@@ -80,7 +80,7 @@
 			                                   人數 <br>
 			                                   旅行
 			               <label id="lblDaysDesk">0</label>
-			               days </h3>
+			               	日 </h3>
 			           </div></td>
 			        	</tr>
 			          <tr>
@@ -471,7 +471,7 @@
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6">以上資料只作參考用途。詳情請查看<a href="../policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf">保單條款。</a></p>
+  <p class="h4-6">以上資料只作參考用途。詳情請查看<a href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank">保單條款。</a></p>
   
   <p class="h4-6"> 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。</p>
 </div>
@@ -714,7 +714,7 @@
                                                 旅行
                     <label id="lblDaysBtm">0</label>
 
-                    days </h3>
+                    	日 </h3>
                 </div>
              </td>
           </tr>

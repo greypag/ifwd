@@ -484,7 +484,7 @@ Embark on an adventure<br>
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6">The features above are indicative only. Please refer to the <a href="policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" class="sub-link" target="_blank">Policy Provisions</a> for details. </p>
+  <p class="h4-6">The features above are indicative only. Please refer to the <a href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" class="sub-link" target="_blank">Policy Provisions</a> for details. </p>
   <p class="h4-6">For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.</p>
 </div>
 <!--/.container-->
