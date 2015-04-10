@@ -179,24 +179,24 @@
 											class="control-label bold-500">Choose Username</label></td>
 										<td class="pad-none"><input type="text"
 											name="regusername" class="form-control  btm-pad-10"
-											id="inputRegUserName" placeholder="Username"> <span
-											id="errRegUser" class="text-red"> </span></td>
+											 id="Username" placeholder="Username"> <span
+											id="UsernameError" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label
 											class="control-label bold-500">Choose Password</label></td>
 										<td class="pad-none"><input type="password"
 											name="regpassword" class="form-control  btm-pad-10"
-											id="inputRegPass" placeholder="Password"> <span
-											id="errRegPass" class="text-red"> </span></td>
+											id="Password" placeholder="Password"> <span
+											id="PasswordError" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label
 											class="control-label bold-500">Confirm password</label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control  btm-pad-10" id="inputRegCPass"
+											class="form-control  btm-pad-10" id="Confirm-Password"
 											placeholder="Confirm password"> <span
-											id="errRegCPass" class="text-red"> </span></td>
+											id="Confirm-PasswordError" class="text-red"> </span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -698,7 +698,7 @@
 						</div>
 						<span id="errUserName" style="color: red"></span>
 						<h4>
-							Password <a href="forgotUserPassword" class="pull-right sub-link">Forgot
+							Password <a href="forgotPassword" class="pull-right sub-link">Forgot
 								password?</a>
 						</h4>
 						<div class="form-group">

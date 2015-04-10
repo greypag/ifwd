@@ -5737,3 +5737,6 @@ transform: translateX(-50%);
 .has-four .fourth{
 	
 }
+.line-height-60-td td .control-label{
+	line-height: 60px !important;
+}
