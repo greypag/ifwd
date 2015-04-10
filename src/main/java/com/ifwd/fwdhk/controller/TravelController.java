@@ -5,12 +5,15 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+
 
 
 import org.joda.time.Days;
@@ -544,12 +547,35 @@ public class TravelController {
 				 * jsonAgeTypeArray);
 				 */
 				Map<String, String> mapAgeType = new HashMap<String, String>();
+				Map<String, String> mapSelfType = new HashMap<String, String>();
+				Map<String, String> mapChildType = new HashMap<String, String>();
 				for (int i = 0; i < jsonAgeTypeArray.size(); i++) {
 					JSONObject obj = (JSONObject) jsonAgeTypeArray.get(i);
 					mapAgeType.put(checkJsonObjNull(obj, "itemCode"),
 							checkJsonObjNull(obj, "itemDesc"));
 				}
+				Iterator iterator = mapAgeType.entrySet().iterator();
+				while (iterator.hasNext()) {
+					Map.Entry mapEntry = (Map.Entry) iterator.next();
+					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+					
+					
+					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3"))
+						mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+					
+				}
+				iterator = mapAgeType.entrySet().iterator();
+				while (iterator.hasNext()) {
+					Map.Entry mapEntry = (Map.Entry) iterator.next();
+					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+					if (mapEntry.getKey().equals("1"))
+						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+					
+				}
 				model.addAttribute("mapAgeType", mapAgeType);
+				model.addAttribute("mapSelfType", mapSelfType);
+				model.addAttribute("mapChildType", mapChildType);
+
 
 				/*
 				 * API Call for get Benifitiary Relationship

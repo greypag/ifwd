@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -278,6 +279,7 @@ public class FlightController {
 	}
 
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
+	@SuppressWarnings("rawtypes")
 	// "Flight Plan" )
 	@RequestMapping(value = "/flight-plan-details")
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
@@ -319,12 +321,35 @@ public class FlightController {
 			System.out.println(" jsonAgeTypeArray ====>>>>>>"
 					+ jsonAgeTypeArray);
 			Map<String, String> mapAgeType = new HashMap<String, String>();
+			Map<String, String> mapSelfType = new HashMap<String, String>();
+			Map<String, String> mapChildType = new HashMap<String, String>();
 			for (int i = 0; i < jsonAgeTypeArray.size(); i++) {
 				JSONObject obj = (JSONObject) jsonAgeTypeArray.get(i);
 				mapAgeType.put(checkJsonObjNull(obj, "itemCode"),
 						checkJsonObjNull(obj, "itemDesc"));
 			}
+			
+			Iterator iterator = mapAgeType.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Map.Entry mapEntry = (Map.Entry) iterator.next();
+				System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+				
+				
+				if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3"))
+					mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+				
+			}
+			iterator = mapAgeType.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Map.Entry mapEntry = (Map.Entry) iterator.next();
+				System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+				if (mapEntry.getKey().equals("1"))
+					mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+				
+			}
 			model.addAttribute("mapAgeType", mapAgeType);
+			model.addAttribute("mapSelfType", mapSelfType);
+			model.addAttribute("mapChildType", mapChildType);
 
 		} else {
 			System.out.println("API failed");
