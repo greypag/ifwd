@@ -80,7 +80,7 @@
 			                                   人數 <br>
 			                                   旅行
 			               <label id="lblDaysDesk">0</label>
-			               days </h3>
+			               	日 </h3>
 			           </div></td>
 			        	</tr>
 			          <tr>
@@ -714,7 +714,7 @@
                                                 旅行
                     <label id="lblDaysBtm">0</label>
 
-                    days </h3>
+                    	日 </h3>
                 </div>
              </td>
           </tr>
