@@ -3,7 +3,6 @@
 <!--   Main Content-->
 
 <script type="text/javascript">
-
 	// personal or family
 	var traveller;	
 	// personal
@@ -19,7 +18,6 @@
  	}else{
  		traveller = personalTraveller;
  	}
-	
     $(document).ready(function(){
          // personal was selected by default
          if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
@@ -31,13 +29,11 @@
  //         	totalTraveller = 1;	     		
          }
      });
-
     function reset_submit()
     {        
     	if(document.getElementById("family_plan_desk").checked)
         {
     		//alert("is family plan");
-    		//${travelQuote.setTotalPersonalTraveller(0)};
     		//$('#txtAdultsDesk').val(familyAdult);
     		//$('#txtOtherDesk').val(familyChild);
     		//$('#txtChildDesk').val(familyOther);
@@ -55,7 +51,6 @@
     	frm.submit();
    	}   
 </script>
-
 <%
    	String PersonalPlanChecked = "";
 	String FamilyPlanChecked = "";
@@ -67,7 +62,6 @@
    		FamilyPlanChecked = "checked";   		
     } 
 %>
-
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
   <img src="resources/images/slider/travel_cn_m.jpg" alt="" class="img-responsive hidden-lg hidden-md"  /> 
@@ -84,7 +78,6 @@
   </div>
   <!--/.carousel--> 
 </section>
-
 <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateDeskTravel();">
 <section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
@@ -119,7 +112,6 @@
 			              </td>
 			            <td class="col-md-3">
 			              <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
-			                
 			                <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
 			                <div class="dropdown-menu bdr1">
 			                  <div class="drop-content">
