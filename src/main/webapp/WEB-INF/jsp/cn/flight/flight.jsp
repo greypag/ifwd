@@ -344,9 +344,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div id="divPersonsMob" style="visibility:hidden;"> <br>
       <small>
       <label id="lblPeopleMob">0</label>
-      people travelling
+      	人數 旅行
       <label id="lblDaysMob">0</label>
-      days </small> <br>
+      	日 </small> <br>
     </div>
   </div>
   <div class="btn-box text-center">
