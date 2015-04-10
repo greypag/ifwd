@@ -357,11 +357,10 @@ $('.btn-number').click(function(e){
         input.val(0);
     }
 });
-$('.input-number').focusin(function(){
-   $(this).data('oldValue', $(this).val());
+$('.number-spinner input[data-min][data-max]').focusin(function(){
+	$(this).data('oldValue', $(this).val());
 });
-$('.input-number').change(function() {
-    
+$('.number-spinner input[data-min][data-max]').change(function() {    
     minValue =  parseInt($(this).attr('data-min'));
     maxValue =  parseInt($(this).attr('data-max'));
     valueCurrent = parseInt($(this).val());
