@@ -26,7 +26,7 @@
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return cpayValid();">
+			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return payValid();">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">主頁</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">旅遊保險</a> <i class="fa fa-caret-right"></i></li>
@@ -155,8 +155,162 @@
 							</table>
 						</div>
 						<div class="clearfix"></div>
-						<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none">
-							<table class="travel-tb wd2">
+						
+						<div id="no-more-tables2">
+							<div class="col-xs-12 col-sm-12">
+								<div class="travel-tb-td hidden-md hidden-lg text-left wd2">
+									<h3 class="color4 h2-1 insur padding-t">受保人</h3>
+									
+									<!-- Mobile Table starts -->
+								</div>
+								<div  class="hidden-md hidden-lg">
+							<table class="col-xs-10 table-condensed cf mob-table">
+								
+								<%
+									PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
+											.getAttribute("planDetailsForm");
+									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
+								%>
+								<tr><td class="col-xs-12"><table class="col-xs-12">
+								
+
+								<tbody>
+									<tr class="">
+										<td  ><span class="bd">成人 <%=i + 1%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td ><span class="bd gy">受益人</span></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class=""><%=planDetailsForm.getAdultName()[i]%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class=""><%=planDetailsForm.getAdultAgeRange()[i]%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="">&nbsp;</td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class=""><%=planDetailsForm.getAdultHKID()[i]%></span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><span class="">自己 地產</span></td>
+										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getAdultBeneficiary()[i]%></td>
+										<% } %>
+									</tr>
+									<tr><td>&nbsp;</td></tr>
+
+									
+								</tbody>
+								</table></td></tr>
+								
+								<%
+									}
+								%>
+								<%
+									for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
+								%>
+								<tr><td class="col-xs-12"><table class="col-xs-12">
+								<tbody>
+									<tr><td>&nbsp;</td></tr>
+									<tr>
+										<td ><span class="bd">孩子 <%=i + 1%></span></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td ><span class="bd gy" >受益人</span></td>
+										<% } %>
+									</tr>
+									<tr>	
+										<td ><%=planDetailsForm.getChildName()[i]%></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td class="gy"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getChildAgeRange()[i]%></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td >&nbsp;</td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getChildHKID()[i]%></td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td >自己 地產</td>
+										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getChildBeneficiary()[i]%></td>
+										<% } %>
+									</tr>
+									<tr><td>&nbsp;</td></tr>
+								</tbody>
+								</table></td></tr>
+
+								<%
+									}
+								%>
+								<%
+									for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
+								%>
+								<tr><td class="col-xs-12"><table class="col-xs-12">
+								<tbody>
+									<tr><td>&nbsp;</td></tr>
+									<tr class="">
+										<td ><span class="bd">其他<%=i + 1%></span></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td ><span  class="bd gy">受益人</span></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getOtherName()[i]%></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getOtherAgeRange()[i]%></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td >&nbsp;</td>
+										<% } %>
+									</tr>
+									<tr>
+										<td ><%=planDetailsForm.getOtherHKID()[i]%></td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getOtherHKID()[i]%></td>
+										<% } %>
+									</tr>
+									<tr>
+										<td >自己 地產</td>
+										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
+										<td  class="gy"><%=planDetailsForm.getOtherBeneficiary()[i]%></td>
+										<% } %>
+									</tr>
+									<tr><td>&nbsp;</td></tr>
+								</tbody>
+								</table></td></tr>
+								<%
+									}
+								%>
+
+
+							</table>
+									<!-- Mobile table ends -->
+								</div>
+							</div>
+						</div>
+						
+						
+						<div id="no-more-tables" class="hidden-sm hidden-xs">
+							
+							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
 
 								<tbody>
 									<tr class="travel-tb-head">
@@ -167,8 +321,7 @@
 										<td class=" h2-1  travel-tb-td">關係</td>
 									</tr>
 									<%
-										PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
-												.getAttribute("planDetailsForm");
+										
 										for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
 									%>
 
@@ -176,9 +329,9 @@
 										<td data-title="Adult <%=i + 1%>"><span class="h2-1-td">成人
 												<%=i + 1%></span></td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
+										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRange()[i]%></span></td>
 										<td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-										<td data-title="Relationship"><span class="h4-5">個人遺產</span></td>
+										<td data-title="Relationship"><span class="h4-5">自己 地產</span></td>
 									</tr>
 									<%
 										if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
@@ -204,7 +357,7 @@
 									<td data-title="Child <%=i + 1%>"><span class="h2-1-td">孩子
 											<%=i + 1%></span></td>
 									<td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
-									<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
+									<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRange()[i]%></td>
 									<td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>
 									<td class="h4-5" data-title="Relationship">自己 地產</td>
 								</tr>
@@ -233,7 +386,7 @@
 										<td data-title="Other<%=i + 1%>"><span class="h2-1-td">其他
 												<%=i + 1%></span></td>
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
-										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
+										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRange()[i]%></td>
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<td class=" h4-5" data-title="Relationship">自己 地產</td>
 									</tr>
@@ -257,11 +410,12 @@
 
 
 							</table>
+						
 						</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="gray-bg1">
+				<div class="gray-bg1 pad20">
 					<div class="clearfix"></div>
 					<h2 class="from-control">付款</h2>
 					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>
@@ -287,14 +441,13 @@
 
 
 
-					<table class="table-responsive travel-tb">
+					<table class="travel-tb">
 						<tbody>
-							<tr class="control-group" style="display: none;">
+							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡類型</label></td>
 								<td class="col-lg-8" colspan="2">
 									<div class="controls">
-										<input type="radio" name="pMethod" value="VISA" id="chkVisa" checked>VISA
-										<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard
+										
 										
 										<div>
 											<img src="resources/images/payment.png" alt="">
@@ -309,9 +462,10 @@
 										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" min="16" title=""
 											onkeyup="validatecardnumber(this.value)"
-											onBlur="chkMinLength(this.value);"
-											onkeypress="return isNumeric(event)" placeholder="信用卡號碼">
-										<span id="errcardno" class="error-msg"></span>
+											placeholder="信用卡號碼"
+											onBlur="chkValidCreditCard(this, 'errcardno');"
+											onkeypress="return isNumeric(event)"> <span
+											id="errcardno" class="error-msg"></span>	<!-- chkMinLength(this.value); -->
 									</div>
 								</td>
 							</tr>
@@ -319,29 +473,29 @@
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5">到期日</label></td>
 								<td class="col-lg-4"><select class="pay-details-select"
 									id="month" name="epMonth">
-										<option>月</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-										<option>7</option>
-										<option>8</option>
-										<option>9</option>
-										<option>10</option>
-										<option>11</option>
-										<option>12</option>
+										<option value="0">月</option>
+										<option value="1">01</option>
+										<option value="2">02</option>
+										<option value="3">03</option>
+										<option value="4">04</option>
+										<option value="5">05</option>
+										<option value="6">06</option>
+										<option value="7">07</option>
+										<option value="8">08</option>
+										<option value="9">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
 								</select></td>
 								<td><select class="pay-details-select" id="year"
-									name="epYear">
-										<option>年</option>
-										<option>2015</option>
-										<option>2016</option>
-										<option>2017</option>
-										<option>2018</option>
-										<option>2019</option>
-										<option>2020</option>
+									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+										<option value="0">年</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
 								</select></td>
 							</tr>
 							<tr>
@@ -357,7 +511,7 @@
 									<div class="controls">
 										<input id="holdername" name="cardHolder" type="text"
 											class="input-block-level" placeholder="持卡人名稱"
-											onblur="replaceAlpha(this);"
+											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
 									</div>
@@ -371,7 +525,7 @@
 											class="input-block-level" autocomplete="off" maxlength="3"
 											title="" placeholder="驗證碼"
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="return isAlphaNumeric(event);" placeholder="驗證碼">
+											onkeypress="return isAlphaNumeric(event);" >
 
 									</div>
 								</td>
@@ -405,7 +559,7 @@
 						<span id="errchk2" class="error-msg"></span>
 						<div class="clearfix"></div>
 						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
-						<div class="hidden-sm hidden-xs pad-none">
+						<!-- <div class="hidden-sm hidden-xs pad-none">
 							<a href="#" onclick="BackMe()"
 								class="bdr-curve btn btn-primary bck-btn2">返回 </a> <input
 								type="submit"
@@ -418,14 +572,60 @@
 							<a href="travel-plan-details.html"
 								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
 							</a>
-						</div>
+						</div> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->
-						<div class="pad-none hidden-md hidden-lg">
+						<!-- <div class="pad-none hidden-md hidden-lg">
 							<input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn"
-								value="確認付款" onclick="confirmPayment()" />
-						<!-- vincent add a button for paymnet confirmation (mobile) -->							
+								value="確認付款" onclick="confirmPayment()" /> -->
+						<!-- vincent add a button for paymnet confirmation (mobile) -->	
+						
+						
+						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+								<a href="#" onclick="BackMe()"
+									class="bdr-curve btn btn-primary bck-btn">返回 </a>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+								<input type="submit"
+									class="bdr-curve-none btn btn-primary nxt-btn "
+									value="確認付款" onclick="confirmPayment()" />
+								
+
+							</div> -->
+							
+							<div class="hidden-sm hidden-xs pad-none">
+							<a href="travel-plan-details.html"
+								class="bdr-curve btn btn-primary bck-btn2">返回 </a>
+							<button onclick="confirmPayment();"
+								class="bdr-curve btn btn-primary nxt-btn margin-left">
+								確認付款</button>
+						</div>
+						<br> <br>
+						<div class="pad-none hidden-md hidden-lg">
+							<div class="clearfix"></div>
+
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+								<a href="#" onclick="BackMe()"
+									class="bdr-curve btn btn-primary bck-btn">返回 </a>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+								
+								<input type="submit"
+									class="bdr-curve-none btn btn-primary nxt-btn"
+									value="確認付款" onclick="confirmPayment()" />
+
+
+							</div>
+							<div class="clearfix"></div>
+							<!--       <a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn col-xs-6 col-sm-6 text-center">Back </a> 
+            <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn col-xs-6 col-sm-6 text-center" onclick="return payValid();">Pay Now</a>
+            <div class="clearfix"></div>-->
+						</div>
+							
+							
+							
+													
 							<div class="clearfix"></div>
 						</div>
 						<br>

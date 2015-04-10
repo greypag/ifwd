@@ -5704,3 +5704,7 @@ table.beneList{margin-left:0 !important;}
 .beneList  tbody:not(:last-of-type) {
     border-bottom:1px solid #87999e;
 }
+
+tr.travel-tb-head  td:first-child{
+  padding-left: 20px !important;
+}
