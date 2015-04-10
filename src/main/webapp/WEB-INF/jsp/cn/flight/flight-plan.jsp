@@ -1,5 +1,6 @@
-<%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
+<%@page import="com.ifwd.fwdhk.model.FlightQuoteDetails"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--/#main-Content-->
@@ -57,6 +58,19 @@
           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
             <h2 class="h2-3-choose hidden-sm hidden-xs"> 您的選擇</h2>
             <%
+            
+            try {
+        		PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails"); 
+            	if(planDetails.getPlanSelected().equalsIgnoreCase("personal"))
+            	{
+            		planDetails.setTotalAdultTraveller(0);
+            		planDetails.setTotalChildTraveller(0);
+	    			planDetails.setTotalOtherTraveller(0);
+	    			System.out.println("rest to 0");
+	    		}
+            } catch (Exception e) {
+            	e.printStackTrace();
+            }
            
             	for(int planCount=1;planCount<=1;planCount++)
             	{
@@ -177,7 +191,7 @@
             <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"><%-- ${flightQuoteDetails.getToalDue()} --%> &nbsp;</h3>
             
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-              <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn">上一頁 </a> </div>
+              <a href="/FWDHKPH1A/flight" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn">上一頁xx </a> </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
             <input type="submit" class="bdr-curve-none btn btn-primary btn-next" Value="下一頁"  />
              </div>
