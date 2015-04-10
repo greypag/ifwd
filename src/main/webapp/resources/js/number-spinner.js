@@ -14,8 +14,11 @@ $(window).load(function(){
       
       var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
       var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-      document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+      var trCount = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
       
+      $("#lblDaysDesk").html(trCount);
+      $('#lblDaysBtm').html(trCount);
+      $('#lblDaysMob').html(trCount);
       
   }
   

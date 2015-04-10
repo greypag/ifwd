@@ -120,7 +120,7 @@
 								</tr>
 								<tr>
 									<td class="pad-none">
-									<div class="col-md-12 col-lg-12 pad-none">
+									<div class="col-md-10 col-lg-10 pad-none">
 									<t:dropdown 
 										selectables="${mapHkId}"
 										defaultWithFirst="true"
@@ -243,10 +243,20 @@
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
-											<select id="selectAdHkidPass${inx}" class="soflow" name="selectedAdHkidPass">
+											<%-- <select id="selectAdHkidPass${inx}" class="soflow" name="selectedAdHkidPass">
 									<option value="HKID" selected="selected">HKID</option>
 									<option value="passport">Passport</option>
-									</select> <input
+									</select> --%> 
+									
+									<t:dropdown 
+												selectables="${mapHkId}"
+												defaultWithFirst="true"
+												valueElmId="selectedAdHkidPass${inx}"
+												valueElmName="selectedAdHkidPass"
+												containerCss="selectHkidPass"
+											/>
+									
+									<input
 												id="txtInsuHkid${inx}" name="adultHKID"
 												class="form-control textUpper" placeholder="X1234567"
 												value="" /> <span id="errtxtInsuHkid${inx}"
