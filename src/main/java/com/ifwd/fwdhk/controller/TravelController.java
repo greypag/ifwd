@@ -187,7 +187,13 @@ public class TravelController {
 	public ModelAndView prepareTravelPlan(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
-
+		
+		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
+		
+		System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
+		System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
+		System.out.println("OTHER " + travelQuote.getTotalOtherTraveller());
+		
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();

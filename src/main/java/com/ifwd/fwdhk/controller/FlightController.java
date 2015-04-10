@@ -235,7 +235,12 @@ public class FlightController {
 			adultCount = planDetails.getTotalAdultTraveller();
 			otherCount = planDetails.getTotalOtherTraveller() + adultCount;
 		}
-
+		TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+		travelQuoteCount.setSelfCover(selfCover);
+		travelQuoteCount.setSpouseCover(spouseCover);
+		travelQuoteCount.setTotalChildTraveller(childCount);
+		travelQuoteCount.setTotalOtherTraveller(otherCount);
+		session.setAttribute("travelQuoteCount", travelQuoteCount);
 		String base = UserRestURIConstants.GETFLIGHTQUOTE
 				+ "?planCode=FlightCare" + "&selfCover=" + selfCover
 				+ "&spouseCover=" + spouseCover + "&childInput=" + childCount
