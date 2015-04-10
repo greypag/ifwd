@@ -259,7 +259,7 @@
 				<div class="btn-box">
 					<h3 class="text-center">
 						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
-							onclick="return msgAlertDesk()">Get Quote</button>
+							onclick="return msgAlertDesk()">立即報價</button>
 					</h3>
 				</div>
 

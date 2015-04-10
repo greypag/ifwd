@@ -1000,7 +1000,7 @@ var promoData = '';
 									<input type="text" id="promoCode" name="promoCode"
 										class="form-control" placeholder="eg.FWD789"> <span
 										class="input-group-addon in black-bold pointer"
-										onclick="applyPromoCode()"><span>APPLY</span></span>
+										onclick="applyPromoCode()"><span>申請</span></span>
 								</div>
 							</div>
 							<div class="travel-italic">
@@ -1026,7 +1026,7 @@ var promoData = '';
 							id="selectedAmountDue" value="">
 							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="#" onclick="BackMe();"
+							<a href="/FWDHKPH1A/travel"
 								class="bdr-curve btn btn-primary bck-btn">上一頁 </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
@@ -1062,8 +1062,8 @@ var promoData = '';
 				<div class="login-form" id="sendmailofpromocode">
 					<form>
 					<div class="form-container">
-						<h2>不要有一个促销代码？输入您的电子邮件地址，我们会送你一个</h2>
-						<h4>电子邮件 </h4>
+						<h2>不要有一個促销代碼？输入您的電子郵件地址，我們會送你一個</h2>
+						<h4>電子郵件 </h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">

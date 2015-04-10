@@ -233,8 +233,8 @@
 				<div class="login-form" id="sendmailofpromocode">
 					<form>
 					<div class="form-container">
-						<h2>不要有一个促销代码？输入您的电子邮件地址，我们会送你一个</h2>
-						<h4>电子邮件 </h4>
+						<h2>不要有一個促销代碼？输入您的電子郵件地址，我們會送你一個</h2>
+						<h4>電子郵件 </h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
