@@ -92,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			                                   人數 <br>
 			                                   旅行
 			               <label id="lblDaysDesk">0</label>
-			               days </h3>
+			               	日 </h3>
 			           </div></td>
 			        	</tr>
 			          <tr>
