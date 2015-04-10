@@ -98,7 +98,7 @@
 						<div class="clearfix"></div>
 						<br>
 						<div class="gray-bdr"></div>
-						<table class="table activation-form margin-left-2">
+						<table class="table activation-form margin-left-2 line-height-60-td">
 							<tbody>
 								<tr>
 									<td colspan="2" class="pad-none"><h3
@@ -108,7 +108,7 @@
 									<td class="col-sm-4 pad-none"><label for="inputFullName"
 										class="control-label bold-500">Full name</label></td>
 									<td class="pad-none"><input type="text"
-										value="${userDetails.getFullName()}" class="form-control"
+										value="${userDetails.getFullName()}" class="form-control btm-pad-10"
 										id="inputFullName" name="fullName"
 										placeholder="As appears on HKID Card"
 										onblur="replaceAlpha(this);"
@@ -126,7 +126,7 @@
 										defaultWithFirst="true"
 										valueElmId="selectHkidPass"
 										valueElmName="selectedHkidPassApplicant"
-										containerCss="selectHkidPass"
+										containerCss="selectHkidPass btm-pad-10"
 									/>
 									</div>
 									</td>
@@ -139,7 +139,7 @@
 									<td class="pad-none"><label for="inputMobileNo"
 										class="control-label bold-500">Mobile number</label></td>
 									<td class="pad-none"><input type="text" name="mobileNo"
-										value="${userDetails.getMobileNo()}" class="form-control"
+										value="${userDetails.getMobileNo()}" class="form-control btm-pad-10"
 										id="inputMobileNo" placeholder="Mobile number"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" /> <span
@@ -148,7 +148,7 @@
 								<tr>
 									<td class="pad-none"><label for="inputEmailId"
 										class="control-label bold-500">Email address</label></td>
-									<td class="pad-none"><input class="form-control"
+									<td class="pad-none"><input class="form-control btm-pad-10"
 										value="${userDetails.getEmailAddress()}" name="emailAddress" id="inputEmailId"
 										placeholder="Email address" maxlength="50"> <span
 										id="emailid" class="text-red"></span></td>
@@ -658,7 +658,7 @@
 				<p class="padding1 hidden-sm hidden-xs">
 					The features above are indicative only. Please refer to the <a
 						class="sub-link"
-						href="policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
+						href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
 						target="_blank">Policy Provisions</a> for details.<br> For a
 					complete explanation of the terms and conditions. Please contact
 					your adviser or our customer service at 3123 3123 for more details.
