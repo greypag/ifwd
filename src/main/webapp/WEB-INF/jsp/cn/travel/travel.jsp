@@ -31,6 +31,29 @@
  //         	totalTraveller = 1;	     		
          }
      });
+
+    function reset_submit()
+    {        
+    	if(document.getElementById("family_plan_desk").checked)
+        {
+    		//alert("is family plan");
+    		//${travelQuote.setTotalPersonalTraveller(0)};
+    		//$('#txtAdultsDesk').val(familyAdult);
+    		//$('#txtOtherDesk').val(familyChild);
+    		//$('#txtChildDesk').val(familyOther);
+    	}
+    	else if (document.getElementById("personal_plan_desk").checked)
+        {
+    		//alert("is personal plan");
+    		$('#txtAdultsDesk').val(0);
+    		$('#txtOtherDesk').val(0);
+    		$('#txtChildDesk').val(0);
+       	}
+    	
+    	var frm = document.getElementById("frmTravelGetQuote");
+    	//alert("reset_submit");
+    	frm.submit();
+   	}   
 </script>
 
 <%
@@ -185,7 +208,7 @@
 			           </div>
 			           </td>
 			         <td class="col-md-2 ">
-			        	     <button type="submit" class="border-radius btn btn-primary get-btn wd2">立即報價</button>
+			         	<button type="button" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()">立即報價</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
 			        </td>
 			       </tr>

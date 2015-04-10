@@ -15,6 +15,7 @@
 
 <!-- Title -->
 <title>${pageTitle}</title>
+<meta name='description' content=${pageMetaDataDescription}>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <% boolean langFlag = false;
  if(session.getAttribute("language") != null){
@@ -24,6 +25,20 @@
  }
 %> 
 <%@ include file="include/setup.jsp"%>
+<link rel="alternate" hreflang="en" href="" />
+<link rel="alternate" hreflang="zh-HK" href="" />
+<link rel="canonical" href=""/>
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Cache-control" content="public">
+<meta property="og:type" content="website" />
+<meta property="og:image" content="" />
+<meta property="og:title" content="" />
+<meta property="og:url" content="" />
+<meta property="og:site_name" content="FWD" />
+<meta property="og:description" content="" />
+<meta name="robots" content="NOODP">
+<meta name='keywords' content="meta keywords here"/>
+
 <dec:head />
 
 </head>

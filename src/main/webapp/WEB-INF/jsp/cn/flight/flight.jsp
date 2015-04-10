@@ -42,6 +42,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  //         	totalTraveller = 1;	     		
          }
      });
+
+     function reset_submit()
+     {        
+     	if(document.getElementById("family_plan_desk").checked)
+         {
+
+     	}
+     	else if (document.getElementById("personal_plan_desk").checked)
+         {
+     		$('#txtAdultsDesk').val(0);
+     		$('#txtOtherDesk').val(0);
+     		$('#txtChildDesk').val(0);
+        	}
+     	
+     	var frm = document.getElementById("freeFlight");
+     	frm.submit();
+    	}  
 </script>
 
 <%
@@ -75,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 
  <section id="middle" class="hidden-sm hidden-xs fixed-content">
-              <form name="freeFlight" method="post" onsubmit="return flightValidateDesk();" action="getFlightDate">
+              <form id="freeFlight" name="freeFlight" method="post" onsubmit="return flightValidateDesk();" action="getFlightDate">
 			<div class="container">
 			  <div class="row">
 			    <div class="col-lg-12 col-md-12 pad-none slide-form">
@@ -92,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			                                   人數 <br>
 			                                   旅行
 			               <label id="lblDaysDesk">0</label>
-			               days </h3>
+			               	日 </h3>
 			           </div></td>
 			        	</tr>
 			          <tr>
@@ -197,7 +214,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			           </div>
 			           
 			         <td class="col-md-2 ">
-			        	   <button type="submit" class="border-radius btn btn-primary  get-btn" >立即申請免費保障!</button>
+			        	   <button type="button" class="border-radius btn btn-primary  get-btn" onclick="reset_submit()">立即申請免費保障!</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即申請免費保障!</a> -->
 			        </td>
 			       </tr>

@@ -19,37 +19,34 @@
               <h2>Confirmation</h2>
             </div>
             <br>
-            <br>
 			<div id="tr-wizard" class="shop-tracking-status">
-			  <div class="order-status">
-			        <div class="order-status-timeline"> 
-			          <!-- class names: c0 c1 c2 c3 and c4 -->
-			          <div class="order-status-timeline-completion order-status-timeline-completion c4"></div>
-			        </div>
-			        <div class="image-order-status image-order-status-new active img-circle"> <span class="status color3">Your Options</span>
+			  <div class="order-status has-four">
+			        <div class="order-status-timeline-new">
+						<div class="order-status-timeline-completion dots-active"></div>
+						<div class="order-status-timeline-completion dots-active"></div>
+						<div class="order-status-timeline-completion dots-active"></div>
+					</div>
+			        <div class="image-order-status image-order-status-new active img-circle first"> <span class="status color3">Your Options</span>
 			          <div class="icon">1</div>
 			        </div>
 			        
-			        <div class="image-order-status image-order-status-intransit  img-circle "> <span class="status color3">Your Details</span>
+			        <div class="image-order-status image-order-status-intransit  img-circle second"> <span class="status color3">Your Details</span>
 			          <div class="icon">2</div>
 			        </div>
-			        <div class="image-order-status image-order-status-delivered  img-circle"> <span class="status color3">Summary & Payment</span>
+			        <div class="image-order-status image-order-status-delivered  img-circle third"> <span class="status color3">Summary & Payment</span>
 			          <div class="icon">3</div>
 			        </div>
-			        <div class="image-order-status image-order-status-completed  img-circle act"> <span class="status color3">Confirmation</span>
+			        <div class="image-order-status image-order-status-completed  img-circle act fourth"> <span class="status color3">Confirmation</span>
 			          <div class="icon">4</div>
 			        </div>
 			      </div>
 			</div>
           </div>
         </div>
+        	<c:if test="${not empty errormsg}"><br><div id="confirm-error-msg" class="alert alert-danger hide"
+												role="alert">${errormsg}</div><br></c:if>
         
-        <br>
-        <br>
-        	<c:if test="${not empty errormsg}"><div id="confirm-error-msg" class="alert alert-danger hide"
-												role="alert">${errormsg}</div></c:if>
         
-        <br>
         <div class="container pad-none bdr">
           <div class="col-sm-12 gray-bg1" >
             <h3>You have successfully completed your purchase of  <strong>TravelCare</strong> travel insurance with <strong>FWD</strong>.
@@ -64,20 +61,18 @@
               </div>
                <div class="clearfix"></div><br><br>
          <div class="h4-2 margin-left">Share your promotion code now to earn discounts and rewards</div>
+         <div >
+         	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
+         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank">http//i.fwd.com.hk/en/travel-insurance/quote?${referralCode}</a></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
+	        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">Copy Link</div>
+	        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
+                <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
+           	</div>
+         </div>
          
-         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http//i.fwd.com.hk/en/travel-insurance/quote?${referralCode}</a></div>
-              </div>
-             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
-              
-                      <div class="copy-link pull-left">Copy Link</div>
-                <div class="fb1 pull-left"><a href="#" class="color-wht"><i class="fa fa-facebook fa-2x"></i></a></div>
-                <div class="twi1 pull-left"><a href="" class="color-wht"> <i class="fa fa-twitter fa-2x"></i></a> </div>
-                <div class="gplus1 pull-left"><a href="" class="color-wht"><i class="fa fa-google-plus fa-2x"></i></a> </div>
-                <div class="pad-none text-center">
-                
-              </div>
-                </div>
+             
                 
               
               <div class="clearfix"></div>
@@ -89,7 +84,7 @@
                   - 5% discount from Agoda<br>
                   - 30% discount on your next purchase of TravelCare<br>
                   Referee will enjoy 25% discount on TravelCare purchase.<br>
-                  	Please review the detailed <a href="http://i.fwd.com.hk/downloads/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.<br>
+                  	Please review the detailed <a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.<br>
                  </p>
                  </div>
               </div>
@@ -98,7 +93,7 @@
           <div class="clearfix"></div>
         </div>
         <div class="spacer2"></div>
-		  <div class="container pad-none">
+		  <div class="container pad-none hidden-xs hidden-sm travel-homecare">
           <div class="row-fluid">
             <div class="center " style="visibility: visible;">
               <h4 class="center-h2">You may also be interested in</h4><br><br>
@@ -121,4 +116,6 @@
   <!--/.container-->
   
 </section>
-
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+<!--End of addthis -->

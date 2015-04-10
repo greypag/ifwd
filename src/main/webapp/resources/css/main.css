@@ -3977,14 +3977,15 @@ article h2 {
 }
 .copy-link {
 	background-color: #f6871e;
-	padding-top: 14px;
 	width: auto;
 	height: 60px;
+	line-height: 60px;
 	color: #fff;
 	padding-left: 15px;
 	text-align: center;
 	padding-right: 15px;
 	font-weight: bold;
+	cursor: pointer;
 }
 .line-hei {
 	margin-top: 12px;
@@ -4302,8 +4303,6 @@ table.purchase-history tr td {
 	padding-left: 0px;
 	font-size: 18px;
 	line-height: 30px;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
 	text-decoration: none !important;
 }
 .col-xs-offset-travel {
@@ -5745,4 +5744,35 @@ transform: translateX(-50%);
 }
 .line-height-60-td td .control-label{
 	line-height: 60px !important;
+}
+@media (max-width: 991px){
+	.referral-url{
+		padding: 10px;
+	}
+	.referral-url a{
+		display: block;
+		width: 100%;
+		padding-left: 0	;
+		padding-right: 0;
+	}
+}
+@media (max-width: 767px){
+	.referral-url a{
+		display: block;
+		width: 100%;
+		padding-left: 0	;
+		padding-right: 0;
+	}
+	.copy-link{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1159px){
+	#tr-wizard.shop-tracking-status .image-order-status-completed{
+		right: 12px;
+	}
+}
+.travel-homecare{
+	margin-bottom: 40px;
 }
