@@ -35,7 +35,7 @@
 						<br>
 						<div class="col-lg-12">
 							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status">
+								<div class="order-status has-four">
 									<div class="order-status-timeline-new">
 								<!--
 										There can be n '.order-status-timeline-completion'
@@ -45,22 +45,22 @@
 										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
-										class="image-order-status image-order-status-new active img-circle">
+										class="image-order-status image-order-status-new active img-circle first">
 										<span class="status color3">Your Options</span>
 										<div class="icon">1</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-intransit  img-circle act">
+										class="image-order-status image-order-status-intransit  img-circle act second">
 										<span class="status color2">Your Details</span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle disabled">
+										class="image-order-status image-order-status-delivered  img-circle disabled third">
 										<span class="status">Summary & Payment</span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle disabled">
+										class="image-order-status image-order-status-completed  img-circle disabled fourth">
 										<span class="status lst-status">Confirmation</span>
 										<div class="icon">4</div>
 									</div>
