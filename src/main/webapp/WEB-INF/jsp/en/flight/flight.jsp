@@ -148,7 +148,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number" name="travellerCount" value="${planDetails.getTravellerCount()}" data-min="1" data-max="15" id="txtTravellersDesk" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
+                            <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTravellerCount()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -166,7 +167,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-							<input type="text" class="text-center drop-down-plus wd4 input-number" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="1" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">1</div>
+							<input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="1"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -179,7 +181,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-							<input type="text" class="text-center drop-down-plus wd4 input-number" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="1" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">1</div>
+							<input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="1"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -192,7 +195,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="text-center drop-down-plus wd4 input-number" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="14" value="0" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">0</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="14" value="0"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -699,7 +703,8 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="form-control text-center drop-down-plus wd4 input-number" name="travellerCount" value="${planDetails.getTravellerCount()}" data-min="1" data-max="15" id="txtTravellersBtm" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
+                            <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersBtm" value="${planDetails.getTravellerCount()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -717,7 +722,8 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="text-center drop-down-plus wd4 input-number" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="1" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">1</div>
+                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="1"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -730,7 +736,8 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="text-center drop-down-plus wd4 input-number" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="14" value="1" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">1</div>
+                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="14" value="1"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -743,7 +750,8 @@ day(s) </h3>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <input type="text" class="text-center drop-down-plus wd4 input-number" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="14" value="0" readonly/>
+                            <div class="text-center drop-down-plus wd4 input-number">0</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="14" value="0"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
