@@ -29,6 +29,12 @@ public class PlanDetailsForm {
 	private String[] childBeneficiary;
 	private String[] adultBeneficiary;
 
+	
+	private String[] adultRelationDesc;	// adult - insured relationship desc
+	private String[] adultBeneRelationDesc;	// adult - bene relationship desc of insured
+	private String[] childRelationDesc;	// child - insured relationship desc
+	private String[] childBeneRelationDesc;	// adult - bene relationship desc of insured
+		
 
 	private String[] adultBenificiaryHkid;
 	private String[] otherBenificiaryHkid;
@@ -345,7 +351,8 @@ public class PlanDetailsForm {
 	private String[] otherAgeRange;
 	private String[] otherAgeRangeName;
 	private String[] otherBeneficiary;
-
+	private String[] otherRelationDesc;	// other - insured relationship desc
+	private String[] otherBeneRelationDesc;	// other - bene relationship desc of insured
 
 	public String[] getAdultAgeRangeName() {
 		return adultAgeRangeName;
@@ -365,6 +372,43 @@ public class PlanDetailsForm {
 	public void setOtherAgeRangeName(String[] otherAgeRangeName) {
 		this.otherAgeRangeName = otherAgeRangeName;
 	}
-
+	
+	
+	public String[] getAdultRelationDesc() {
+		return adultRelationDesc;
+	}
+	public void setAdultRelationDesc(String[] adultRelationDesc) {
+		this.adultRelationDesc = adultRelationDesc;
+	}
+	public String[] getAdultBeneRelationDesc() {
+		return adultBeneRelationDesc;
+	}
+	public void setAdultBeneRelationDesc(String[] adultBeneRelationDesc) {
+		this.adultBeneRelationDesc = adultBeneRelationDesc;
+	}
+	public String[] getChildRelationDesc() {
+		return childRelationDesc;
+	}
+	public void setChildRelationDesc(String[] childRelationDesc) {
+		this.childRelationDesc = childRelationDesc;
+	}
+	public String[] getChildBeneRelationDesc() {
+		return childBeneRelationDesc;
+	}
+	public void setChildBeneRelationDesc(String[] childBeneRelationDesc) {
+		this.childBeneRelationDesc = childBeneRelationDesc;
+	}
+	public String[] getOtherRelationDesc() {
+		return otherRelationDesc;
+	}
+	public void setOtherRelationDesc(String[] otherRelationDesc) {
+		this.otherRelationDesc = otherRelationDesc;
+	}
+	public String[] getOtherBeneRelationDesc() {
+		return otherBeneRelationDesc;
+	}
+	public void setOtherBeneRelationDesc(String[] otherBeneRelationDesc) {
+		this.otherBeneRelationDesc = otherBeneRelationDesc;
+	}
 
 }

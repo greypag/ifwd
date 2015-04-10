@@ -344,7 +344,7 @@
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
 										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
 										<td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-										<td data-title="Relationship"><span class="h4-5">Own estate</span></td>
+										<td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultRelationDesc()[i]%></span></td>
 									</tr>
 
 									<%
@@ -355,7 +355,7 @@
 										<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
 										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneficiary()[i]%></td>
+										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
 										}
@@ -374,7 +374,7 @@
 										<td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
 										<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
 										<td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>
-										<td class="h4-5" data-title="Relationship">Own estate</td>
+										<td class="h4-5" data-title="Relationship"><%=planDetailsForm.getChildRelationDesc()[i]%></td>
 									</tr>
 									<%
 										if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
@@ -384,7 +384,7 @@
 										<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
 										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
-										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneficiary()[i]%></td>
+										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
 										}
@@ -404,7 +404,7 @@
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
 										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
-										<td class=" h4-5" data-title="Relationship">Own estate</td>
+										<td class=" h4-5" data-title="Relationship"><%=planDetailsForm.getOtherRelationDesc()[i]%></td>
 									</tr>
 									<%
 										if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
@@ -414,7 +414,7 @@
 										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
 										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherHKID()[i]%></td>
-										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneficiary()[i]%></td>
+										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
 										}
