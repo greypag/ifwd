@@ -244,14 +244,14 @@
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-               <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
+               <input type="radio" name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
               <label for="personal_plan_mob">  Personal Plan </label>
 
            </label>
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-              <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
+              <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
                <label for="family_plan_mob">  Family Plan </label>
           </label>
           </div>
@@ -267,11 +267,11 @@
           <div class="col-xs-6 col-sm-6">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
-                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" disabled="disabled" data-parent="personal">
+                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number"  data-type="minus" data-field="txtTravellersMob" disabled="disabled" data-parent="personal">
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <input type="text" class="form-control text-center drop-down-plus input-number" value="1" data-min="1" data-max="15" id="txtTravellersMob" readonly />
+              <input type="text" class="form-control text-center drop-down-plus input-number" name="totalPersonalTraveller" value="1" data-min="1" data-max="15" id="txtTravellersMob" readonly />
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal">
                    <span class="glyphicon glyphicon-plus"></span>

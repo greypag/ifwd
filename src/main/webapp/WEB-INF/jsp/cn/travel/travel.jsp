@@ -236,12 +236,12 @@
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-             <input type="radio" name="plan_mob" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
+             <input type="radio" name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
           <label for="personal_plan_mob"> 個人計劃</label></label>
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
-              <input type="radio"  name="plan_mob" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
+              <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
              <label for="family_plan_mob">  家庭計劃</label> </label>
           </div>
           <div class="clearfix"></div>

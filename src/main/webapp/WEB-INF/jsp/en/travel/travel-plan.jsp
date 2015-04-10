@@ -56,7 +56,7 @@
 
 		var selValue = document.getElementById("inputseletedplanname").value;
 		if(result['errMsgs'] !== null){
-			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notVaild.message"));
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
 		}else{
 			$("#errPromoCode").html("");
 			
