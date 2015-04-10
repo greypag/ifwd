@@ -5705,6 +5705,35 @@ table.beneList{margin-left:0 !important;}
     border-bottom:1px solid #87999e;
 }
 
+
 tr.travel-tb-head  td:first-child{
   padding-left: 20px !important;
+}
+
+
+.has-four{
+	position: relative;
+}
+.has-four .first{
+	
+	
+}
+.has-four .second{
+	left: 33%!important;
+	-moz-transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+-o-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+}
+.has-four .third{
+	left: 66%!important;
+	-moz-transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+-o-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+}
+.has-four .fourth{
+	
 }
