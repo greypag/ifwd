@@ -84,6 +84,13 @@ public class TravelController {
 			travelQuote.setTotalChildTraveller(1);
 		}			
 		
+		travelQuote.setTotalPersonalTraveller(1);
+		travelQuote.setTotalAdultTraveller(1);
+		travelQuote.setTotalChildTraveller(1);
+		travelQuote.setTotalOtherTraveller(0);
+
+		
+		
 		model.addAttribute("travelQuote", travelQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));

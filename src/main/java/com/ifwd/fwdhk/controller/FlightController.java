@@ -771,7 +771,7 @@ public class FlightController {
 
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		String myReferralCode = "nathaniel.kw.cheung@fwd.com";
+		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
 		HttpSession session = request.getSession();
 
 		/* Get Travel Policies */
@@ -840,7 +840,7 @@ public class FlightController {
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&referralCode=" + myReferralCode;
+					+ expiryDate + "&referralCode=" + upgradeReferralCode;
 			System.out.println("Travel Quote user " + Url);
 
 			HashMap<String, String> header = new HashMap<String, String>(
@@ -920,7 +920,7 @@ public class FlightController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		session.setAttribute("referralCode", myReferralCode);
+		session.setAttribute("referralCode", upgradeReferralCode);
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-confirmation");		
 	}
