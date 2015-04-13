@@ -206,7 +206,7 @@ id="box<%=i%>">
 <h2>
 									<%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
-									<br> <%if (travelQuote.getPlanName()[i].equals("Plan A"))
+									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%> Superior Cover<br> HK$ 1,000,000 Medical
 								<%}	else{ %>
 								Standard Cover<br> HK$	500,000 Medical

@@ -868,7 +868,7 @@ public class FlightController {
 				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
 				JSONObject jsonPriceInfoB = new JSONObject();
 				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-				String planeName[] = { "Plan A", "Plan B" };
+				String planeName[] = { "A", "B" };
 				String grossPrem[] = {
 						jsonPriceInfoA.get("grossPremium").toString(),
 						jsonPriceInfoB.get("grossPremium").toString() };

@@ -221,7 +221,7 @@ id="box<%=i%>">
 <h2>
 									<%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
-									<br> <%if (travelQuote.getPlanName()[i].equals("Plan A"))
+									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%>  優越保障<br> HK$ 1,000,000 Medical
 								<%}	else{ %>
 								经济封面<br> HK$	500,000 Medical
@@ -301,7 +301,7 @@ id="box<%=i%>">
 
 
 				<input type="hidden" name="upgradeStatus" value="true">
-				<!-- End Travel Create Travel Plan Attribute -->
+				
 				<input type="hidden" name="planName" id="inputseletedplanname"
 					value="">
 

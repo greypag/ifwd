@@ -314,7 +314,7 @@ public class TravelController {
 				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
 				JSONObject jsonPriceInfoB = new JSONObject();
 				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-				String planeName[] = { "Plan A", "Plan B" };
+				String planeName[] = { "A", "B" };
 				String grossPrem[] = {
 						jsonPriceInfoA.get("grossPremium").toString(),
 						jsonPriceInfoB.get("grossPremium").toString() };
@@ -444,7 +444,7 @@ public class TravelController {
 				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
 				JSONObject jsonPriceInfoB = new JSONObject();
 				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-				String planeName[] = { "Plan A", "Plan B" };
+				String planeName[] = { "A", "B" };
 				String grossPrem[] = {
 						StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
 						StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
@@ -526,7 +526,7 @@ public class TravelController {
 			
 			model.addAttribute("selectPlanName", selectPlanName);
 			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
-			if ("Plan A".equals(selectPlanName)) {
+			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
 				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[0]);

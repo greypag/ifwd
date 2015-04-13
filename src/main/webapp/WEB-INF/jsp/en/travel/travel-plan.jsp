@@ -61,7 +61,7 @@
 		}else{
 			$("#errPromoCode").html("");
 			
-			if (selValue == "Plan A") {
+			if (selValue == "A") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
 				
 				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
@@ -174,7 +174,7 @@
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br>
 									<%
-										if (travelQuote.getPlanName()[i].equals("Plan A")) {
+										if (travelQuote.getPlanName()[i].equals("A")) {
 									%>
 									Premium Cover<br> HK$ 1,000,000 Medical
 									<%

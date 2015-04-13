@@ -61,7 +61,7 @@ var promoData = '';
 		}else{
 			$("#errPromoCode").html("");
 			
-			if (selValue == "Plan A") {
+			if (selValue == "A") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
 				
 				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
@@ -171,7 +171,7 @@ var promoData = '';
 								<h2>
 									<%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
-									<br> <%if (travelQuote.getPlanName()[i].equals("Plan A"))
+									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%>  優越保障<br> HK$ 1,000,000 Medical
 								<%}	else{ %>
 								经济封面<br> HK$	500,000 Medical
