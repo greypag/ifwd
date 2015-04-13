@@ -69,7 +69,7 @@
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="<%=request.getContextPath()%>">主頁</a></li>
 							<li> | </li>
-							<li><a href="indexPage"
+							<li><a href="home"
 								target="_blank">關於我們</a></li>
 							<li> | </li>
 							<li><a href="joinus">加入我們</a></li>
@@ -275,7 +275,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="indexPage"><img
+			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="home"><img
 				src="resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
@@ -324,7 +324,7 @@
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
-		<li><a href="indexPage">Home</a></li>
+		<li><a href="home">Home</a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
 			href="flight">航空保險</a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel">旅遊保險</a></li>

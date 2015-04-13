@@ -86,7 +86,7 @@
 						id="headerLoginForm">
 
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="indexPage">HOME</a></li>
+							<li class="active"><a href="home">HOME</a></li>
 							<li> | </li>
 							<li><a href="http://www.fwd.com.hk/en-US/about/index.html"
 								target="_blank">ABOUT</a></li>
@@ -264,7 +264,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container pad-none">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="indexPage"><img
+				<a class="navbar-brand" href="home"><img
 					src="resources/images/logo.jpg" alt="logo"></a>
 			</div>
 			<div class="col-lg-6 col-md-6 pull-right">
@@ -304,7 +304,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="indexPage"><img
+			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="home"><img
 				src="resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
@@ -372,7 +372,7 @@
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
-		<li><a href="indexPage">Home</a></li>
+		<li><a href="home">Home</a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
 			href="flight">Flight Insurance</a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel">Travel Insurance</a></li>
