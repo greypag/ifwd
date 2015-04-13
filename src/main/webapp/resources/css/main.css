@@ -5563,6 +5563,7 @@ table.hor-padding >tbody>tr>td{
 	font-weight: normal;
 	padding: 20px 0;
 	border: 1px solid #f68a1d;
+	text-align: center;
 }
 table.vert-middle td{
 	vertical-align: middle !important;

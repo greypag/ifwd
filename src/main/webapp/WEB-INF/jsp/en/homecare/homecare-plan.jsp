@@ -195,33 +195,35 @@
 						<div class="center" style="visibility: visible;">
 							<h2>Your options</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status">
-									<div class="order-status-timeline">
+								<div class="order-status has-four">
+									
 										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c1"></div>
-									</div>
+										<div class="order-status-timeline-new">
+											<div class="order-status-timeline-completion dots-inactive"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
+										</div>
 									<div
-										class="image-order-status image-order-status-new active img-circle act">
+										class="image-order-status image-order-status-new active img-circle act first">
 										<span class="status">Your Options</span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
-										class="image-order-status image-order-status-intransit  img-circle disabled">
+										class="image-order-status image-order-status-intransit  img-circle disabled second">
 										<span class="status">Your Details</span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle disabled">
+										class="image-order-status image-order-status-delivered  img-circle disabled third">
 										<span class="status">Summary & Payment</span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle disabled">
+										class="image-order-status image-order-status-completed  img-circle disabled fourth">
 										<span class="status lst-status">Confirmation</span>
 										<div class="icon">4</div>
 									</div>
@@ -230,7 +232,7 @@
 						</div>
 					</div>
 				</div>
-				<br> <br> <br>
+				
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
@@ -696,7 +698,7 @@
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t">Discount
 							</h3>
 							<h3 id="discountAmt"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">-${planQuote.getDiscountAmount()}
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">${planQuote.getDiscountAmount()}
 							</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
@@ -725,12 +727,12 @@
             <div class="col-lg-6 col-md-6 text-right"> <a href="homecare-plan-details.html" class="bdr-curve btn btn-primary nxt-btn ">Next</a> </div>-->
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="homecare.html"
+								<a href="homecare"
 									class="bdr-curve btn btn-primary bck-btn">Back </a>
 							</div>
 							<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> <a href="homecare-plan-details.html" class="bdr-curve btn btn-primary nxt-btn " onclick="return pageValidate();"> Next</a> </div> -->
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn">Next</button>
+								<button type="submit" class="bdr-curve btn btn-primary btn-next">Next</button>
 							</div>
 
 							<div class="clearfix"></div>
@@ -743,7 +745,7 @@
 				<p class="padding1 hidden-sm hidden-xs">
 					The features above are indicative only. Please refer to the <a
 						class="sub-link"
-						href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+						href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 						target="_blank">Policy Provisions</a> for details.<br> For a
 					complete explanation of the terms and conditions, feel free to
 					contact an adviser or our 24-hour hotline at 3123 3123 for more
@@ -760,36 +762,44 @@
 	<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 		action="getYourDetails" method="post"
 		modelAttribute="planQuoteDetails">
-		<div class="row hidden-lg hidden-md text-center">
+		<div class="hidden-lg hidden-md text-center">
 			<br>
 			<div class="col-sm-12 col-xs-12 gray-bg">
-				<h3 class="col-sm-6 col-xs-6">Promotion Code</h3>
-				<h5 class="col-sm-6 col-xs-6 padding7">
+			<div class="row">
+				<h3 class="col-sm-6 col-xs-6 text-left">Promotion Code</h3>
+				<h5 class="col-sm-6 col-xs-6 padding7  text-right">
 					<a href="" class="sub-link" data-toggle="modal"
 						data-target=".bs-promo-modal-lg"><i>How do I get a
-							pramotion code?</i></a>
+							promotion code?</i></a>
 				</h5>
-				<div class="clearfix"></div>
-
+			</div>
+				
+			<div class="clearfix"></div>
+			<div class="row">
 				<div class="form-group col-sm-12 col-xs-12">
 					<div class="input-group">
 						<span class="text-red" id="errPromoCode"></span> <input
 							id="referralCode" name="referralCode" type="text"
 							class="form-control placeholder-fl" placeholder="eg.FWD789">
-						<span class="input-group-addon in"><span class="apply"><input
+						<!--  <span class="input-group-addon in"><span class="apply"><input
 								type="button" name="Apply" value="APPLY"
-								onclick="applyPromoCode()"></span></span>
+								onclick="applyPromoCode()"></span></span> -->
+						<span class="input-group-addon in black-bold"> <span class="apply pointer" onclick="applyPromoCode()">APPLY</span>
+											<!-- <input type="button" name="Apply" value="APPLY" onclick="applyPromoCode()"> -->
+										</span>
+						
+						
 					</div>
 				</div>
 			</div>
-
+			</div>
 		</div>
 
 		<div class="row-fluid hidden-lg hidden-md text-center">
 			<div class="">
 				<button type="submit"
-					class="btn-box bdr-curve btn btn-primary nxt-btn">
-					<h3 class="text-center marg-t">Next</h3>
+					class="btn-box bdr-curve btn btn-primary btn-next">
+					Next
 				</button>
 			</div>
 				<!-- 
