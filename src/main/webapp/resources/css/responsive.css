@@ -953,5 +953,7 @@
     {
           margin-left:0px;
     }
-    
+    table.activation-form td .control-label{
+    	line-height: 1.3;
+    }
 }

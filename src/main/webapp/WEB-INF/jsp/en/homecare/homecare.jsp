@@ -276,8 +276,8 @@
 			<div class="center">
 				<div class="spacer3"></div>
 				<!--desktop-->
-				<h2 class="hidden-sm hidden-xs">Protect your home for around
-					HK$1 a day, against loss or damage from fire, flood, bursting
+				<h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs">Protect your home for around
+					HK$1 a day, against loss or damage from fire, flood,<br>bursting
 					pipes, typhoon, theft, and accidents.</h2>
 				<!--end desktop-->
 

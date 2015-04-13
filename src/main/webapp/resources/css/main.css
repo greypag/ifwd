@@ -5443,10 +5443,10 @@ font-family: 'Foco-bold';
 
 .textUpper{text-transform:uppercase;}
 
-.travel-special{top:7px; position:relative;}
+.travel-special{top:5px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
-.chin .travel-special{top:21px;}
+.chin .travel-special{top:18px;}
 .chin .travel-and-home-tab{top:52px;}
 
 .chin .flight-form{
