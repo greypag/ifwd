@@ -1106,19 +1106,19 @@
 								<h3>Travellers</h3>
 								<div class="form-group likeDatePicker bcg-trans">
               						<div class="input-group wd2 datepicker form-control" > 
-        						<%	
+								<%	
         						if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 								{ 
 								%>
-									<c:if test="${not empty travelQuoteBean.getTotalAdultTraveller()}">Parent(s): ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} <br> </c:if>
+									<c:if test="${not empty travelQuoteBean.getTotalAdultTraveller()}">Traveller(s): ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} <br> </c:if>
 									<input type="hidden"  name="totalAdultTraveller"  id="totalAdultTraveller"  value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
 								<% 
 								}
 								else{						
 								%>
-									<c:if test="${not empty travelQuoteBean.getTotalAdultTraveller()}">Parent(s): ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} <br> </c:if>
-									<c:if test="${not empty travelQuoteBean.getTotalChildTraveller()}">Child(ren): ${travelQuoteBean.getTotalChildTraveller()}<br> </c:if>
-									<c:if test="${not empty travelQuoteBean.getTotalOtherTraveller()}">Other(s): ${travelQuoteBean.getTotalOtherTraveller()}</c:if>									
+									<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">Parent(s): ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} <br> </c:if>
+									<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">Child(ren): ${travelQuoteBean.getTotalChildTraveller()}<br> </c:if>
+									<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">Other(s): ${travelQuoteBean.getTotalOtherTraveller()}</c:if>									
 									
 									<input type="hidden"  name="totalAdultTraveller"  id="totalAdultTraveller"  value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
 									<input type="hidden"  name="totalChildTraveller"  id="totalChildTraveller"  value="${travelQuoteBean.getTotalChildTraveller()}"> 
