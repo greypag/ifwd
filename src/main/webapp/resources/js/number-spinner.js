@@ -1,8 +1,3 @@
-// HIDE PAGE LOAD DIV FOR PLAN
-$('#family_plan_desk_spinner').hide();
-$('#family_plan_btm_spinner').hide();
-$('#family_plan_mob_spinner').hide();
-// ONCHANGE EVENT FOR PLAN RADIO BUTTON 
 
 $(window).load(function(){
   if($('#divPersonsDesk').length){
@@ -52,125 +47,53 @@ $('.plan').change(function () {
 
     $('.plan_spinner_' + parent_id).hide();
     $(show_div).show();
-    // TODO, to be checked
-    $('#family_desk_count').val(0);
-    $('#family_btm_count').val(0);
-    $('#family_mob_count').val(0);
 
-  // to set 0 val when change event occurence 
-
+	var defaultTravellersTotal = 1;
+	var defaultFamilyAdults = 1;
+	var defaultFamilyChildren = 1;
+	var defaultFamilyOthers = 0;
+	var defaultFamilyTotal = defaultFamilyAdults + defaultFamilyChildren + defaultFamilyOthers;
+	
     if(parent_id =='desk')
     {
-      $('#lblCountDesk').html('');
-        if(id == 'personal_plan_desk')
-		{
-        	document.getElementById("divPersonsDesk").style.visibility = "visible";
-            $('#lblCountDesk').show();
-            $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
-            $('#lblPeopleDesk').html('' + personalTraveller);
-            
-            var parent = $('.plan_spinner_' + parent_id);
-        	changeSpinnerValue(parent.find(' #txtAdultsDesk'), 1);
-        	changeSpinnerValue(parent.find(' #txtChildDesk'), 0);
-        	changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
-        	
-			changeSpinnerValue($('#txtTravellersDesk'), 1);
-			
-            personalTraveller=$('#txtTravellersDesk').val();
-            $('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
-            $('#lblPeopleDesk').html('' + personalTraveller);
-        }
-        else if(id  == 'family_plan_desk') 
-        {   
-        	var parent = $('.plan_spinner_' + parent_id);
-        	changeSpinnerValue(parent.find(' #txtAdultsDesk'), familyAdult);
-        	changeSpinnerValue(parent.find(' #txtChildDesk'), familyChild);
-        	changeSpinnerValue(parent.find(' #txtOtherDesk'), familyOther);
-            
-            document.getElementById("divPersonsDesk").style.visibility = "visible";
-            $('#lblCountDesk').show();
-            $('#lblCountDesk').html(familyTraveller + ' Traveller(s)');
-            $('#lblPeopleDesk').html('' + familyTraveller);
-            $('#family_desk_count').val(familyTraveller);
-        }else
-        {
-            document.getElementById("divPersonsDesk").style.visibility = "hidden";
-            $('#lblCountDesk').show();
-            $('#lblCountDesk').html('');
-            $('#lblPeopleDesk').html('');
-            $('#family_desk_count').val('');       
-        }
+        var parent = $('.plan_spinner_' + parent_id);
+        changeSpinnerValue($('#txtTravellersDesk'), defaultTravellersTotal);
+    	changeSpinnerValue(parent.find(' #txtAdultsDesk'), defaultFamilyAdults);
+    	changeSpinnerValue(parent.find(' #txtChildDesk'), defaultFamilyChildren);
+    	changeSpinnerValue(parent.find(' #txtOtherDesk'), defaultFamilyOthers);
+    	$('#family_desk_count').val(defaultFamilyTotal);
+	
+		var labelTotal = (id == 'family_plan_desk')?defaultFamilyTotal:defaultTravellersTotal;
+        $('#lblCountDesk').html(labelTotal + ' Traveller(s)');
+        $('#lblPeopleDesk').html('' + labelTotal);
         
     }else if(parent_id =='mob')
     {      
-      $('#lblCountMob').html('');      
-      if(id  == 'family_plan_mob') 
-      {
-    	  var parent = $('.plan_spinner_' + parent_id);
-    	  changeSpinnerValue(parent.find(' #txtAdultsMob'), familyAdult);
-    	  changeSpinnerValue(parent.find(' #txtChildMob'), familyChild);
-    	  changeSpinnerValue(parent.find(' #txtOtherMob'), familyOther);
-    	  
-          document.getElementById("divPersonsMob").style.visibility = "visible";
-          $('#lblCountMob').show();
-          $('#lblCountMob').html(familyTraveller + ' Traveller(s)');
-          $('#lblPeopleMob').html('' + familyTraveller);
-          $('#family_mob_count').val(familyTraveller);
-         
-      }else
-      {
-    	  var parent = $('.plan_spinner_' + parent_id);
-    	  changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
-    	  changeSpinnerValue(parent.find(' #txtChildMob'), 0);
-    	  changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
-          
-          document.getElementById("divPersonsMob").style.visibility = "hidden";
-          changeSpinnerValue($("#txtTravellersMob"), 1);
-          
-          $('#lblCountMob').show();
-          $('#lblCountMob').html('');
-          $('#lblPeopleMob').html('');
-          $('#family_mob_count').val('');
-      }
-      
+	  	  var parent = $('.plan_spinner_' + parent_id);
+	  	  changeSpinnerValue($('#txtTravellersMob'), defaultTravellersTotal);
+		  changeSpinnerValue(parent.find(' #txtAdultsMob'), defaultFamilyAdults);
+		  changeSpinnerValue(parent.find(' #txtChildMob'), defaultFamilyChildren);
+		  changeSpinnerValue(parent.find(' #txtOtherMob'), defaultFamilyOthers);
+		  $('#family_mob_count').val(defaultFamilyTotal);
+		  
+		  var labelTotal = (id == 'family_plan_mob')?defaultFamilyTotal:defaultTravellersTotal;
+		  $('#lblCountMob').html(labelTotal + ' Traveller(s)');
+	      $('#lblPeopleMob').html('' + labelTotal);
 
     }else   // Bottom plan selector
     {
 
-      $('#lblCountBtm').html('');      
-      if(id  == 'family_plan_btm') 
-      {
-    	  var parent = $('.plan_spinner_' + parent_id);
-    	  changeSpinnerValue(parent.find(' #txtAdultsBtm'), familyAdult);
-    	  changeSpinnerValue(parent.find(' #txtChildBtm'), familyChild);
-    	  changeSpinnerValue(parent.find(' #txtOtherBtm'), familyOther);
-    	  
-          document.getElementById("divPersonsBtm").style.visibility = "visible";
-          $('#lblCountBtm').show();
-          $('#lblCountBtm').html(familyTraveller + ' Traveller(s)');
-          $('#lblPeopleBtm').html('' + familyTraveller);
-          $('#family_btm_count').val(familyTraveller);
- 
-      }else
-      {
-    	  var parent = $('.plan_spinner_' + parent_id);
-    	  changeSpinnerValue(parent.find(' #txtAdultsBtm'), 1);
-    	  changeSpinnerValue(parent.find(' #txtChildBtm'), 0);
-    	  changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
-    	  
-          $('#lblCountBtm').show();
-          $('#lblCountBtm').html('');
-          $('#lblPeopleBtm').html('');
-          $('#family_btm_count').val('');
-          
-          document.getElementById("divPersonsDesk").style.visibility = "visible";          
-          changeSpinnerValue($('#txtTravellersBtm'), 1);          
-          personalTraveller=$('#txtTravellersBtm').val();
-          $('#lblCountBtm').html(personalTraveller + ' Traveller(s)');
-          $('#lblPeopleBtm').html('' + personalTraveller);
-
-      }
-      
+	  	  var parent = $('.plan_spinner_' + parent_id);
+	  	  changeSpinnerValue($('#txtTravellersBtm'), defaultTravellersTotal);
+		  changeSpinnerValue(parent.find(' #txtAdultsBtm'), defaultFamilyAdults);
+		  changeSpinnerValue(parent.find(' #txtChildBtm'), defaultFamilyChildren);
+		  changeSpinnerValue(parent.find(' #txtOtherBtm'), defaultFamilyOthers);
+		  $('#family_btm_count').val(defaultFamilyTotal);
+		  
+		  var labelTotal = (id == 'family_plan_btm')?defaultFamilyTotal:defaultTravellersTotal;
+		  $('#lblCountBtm').html(labelTotal + ' Traveller(s)');
+	      $('#lblPeopleBtm').html('' + labelTotal);
+    	
     }
     
 });

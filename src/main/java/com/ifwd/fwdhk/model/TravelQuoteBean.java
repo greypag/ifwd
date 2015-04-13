@@ -90,6 +90,11 @@ public class TravelQuoteBean {
 	public void setTotalOtherTraveller(int totalOtherTraveller) {
 		this.totalOtherTraveller = totalOtherTraveller;
 	}
+	
+	public int getTotalFamilyTravellers(){
+		return totalAdultTraveller + totalChildTraveller + totalOtherTraveller;
+	}
+	
 	public int getTotalTravellingDays() {
 		return totalTravellingDays;
 	}
