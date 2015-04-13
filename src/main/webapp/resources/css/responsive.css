@@ -43,6 +43,10 @@
     .homecare h4 {
 	  height: 90px;
 	}
+	.plan-box4 h3,
+	.plan-box4 h6{
+		margin-left: 0;
+	}
 }
 /* sm */
 
