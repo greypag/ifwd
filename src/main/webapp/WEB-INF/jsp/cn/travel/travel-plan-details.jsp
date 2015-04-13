@@ -587,7 +587,7 @@
 							<div class="orange-bdr"></div>
 							<div class="form-container">
 								<h3 class="txt-bold">
-									出發日期 <a href="travel"> <span
+									出發日期 <a href="<%=request.getContextPath()%>/travel"> <span
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrLeavingDate()}</h4>
@@ -595,7 +595,7 @@
 									value="01-01-2015">
 
 								<h3 class="txt-bold">
-									回程日期 <a href="<%=request.getContextPath()%>"><span
+									回程日期 <a href="<%=request.getContextPath()%>/travel"><span
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrBackDate()}</h4>
@@ -603,7 +603,7 @@
 									value="${travelQuote.getTrBackDate()}">
 
 								<h3 class="txt-bold">
-									同行人數 <a href="travel"> <span
+									同行人數 <a href="<%=request.getContextPath()%>/travel"> <span
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>
