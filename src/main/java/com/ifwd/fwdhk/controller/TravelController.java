@@ -508,6 +508,8 @@ public class TravelController {
 				session, request);
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue(
+				"selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectPlanName", session, request);
 		System.out.println("Seeeeeee" + selectPlanName);
@@ -536,11 +538,14 @@ public class TravelController {
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
-				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[0]);
+				model.addAttribute("planSummary", quoteDetails.getToalDue()[0]);
+				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[0]);
+				
 			} else {
 				session.setAttribute("planSelected", "B");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
-				model.addAttribute("planSummary", quoteDetails.getTotalNetPremium()[1]);
+				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
+				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
 			}
 			travelQuote.setTotalAdultTraveller(travelQuote
 					.getTotalAdultTraveller()
@@ -638,6 +643,8 @@ public class TravelController {
 
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
+			model.addAttribute("planPremium", selectPlanPremium);
+			
 
 			model.addAttribute("travelQuote", travelQuote);
 		} catch (Exception e) {
