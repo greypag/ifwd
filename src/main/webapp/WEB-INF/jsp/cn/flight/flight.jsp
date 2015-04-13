@@ -156,7 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			                 <!-- start of family plan bottom spinner-->
 			                 <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
 			                   <div class="col-lg-6">
-			                     <h4>成人</h4>
+			                     <h4>家長</h4>
 			                   </div>
 			                   <div class="col-lg-6">
 			                     <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
