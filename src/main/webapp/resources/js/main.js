@@ -155,6 +155,29 @@ $(window).scroll(function (event) {
 	    jQuery('#middle').addClass("fixed-content");
 	  }
 });
+if($('#homecare-scroll').length){
+	var winh = $(window).height();
+	var conh = $('#main-slider').height() + $('#header').height() + 50;
+	console.log(conh, winh);
+	if(conh > winh)
+	{
+		var bottom = $('#homecare-scroll').outerHeight() - $('#homecare-scroll h2').outerHeight() - 30;
+		jQuery('#homecare-scroll').css('bottom', -bottom);
+		$(window).scroll(function (event) {
+			var scroll = $(window).scrollTop();
+			var winh = $(window).height();
+			var diff = $('.carousel').height()  + 60 + 200- winh;
+			
+		    // Do something
+		    if (scroll > diff) {
+			    jQuery('#homecare-scroll').removeClass("fixed-content");
+			  } else {
+			    jQuery('#homecare-scroll').addClass("fixed-content");
+			  }
+			});
+	}
+}
+
 jQuery(document).ready(function() {
   var clip = new ZeroClipboard(jQuery("#d_clip_button"));
   clip.on("ready", function() {

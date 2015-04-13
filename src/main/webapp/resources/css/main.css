@@ -277,7 +277,7 @@ width: 100%;
 	color: #fff;
 	font-size: 36px;
 	line-height: 26px;
-	font-family: 'Foco-bold';
+	font-weight: 700;
 }
 #bottom-form h3 {
 	color: #fff;
@@ -365,7 +365,7 @@ width: 100%;
 }
 
 .home-features .content {
-	margin:50px 0px;
+	margin:45px 0px;
 }
 
 #recent-works { background-color: #061d2a;}
@@ -644,7 +644,7 @@ vertical-align:middle;
 }
 .chin .join-us-label small
 {
-	font-size:12px;
+    font-size:12px;
 }
 /*************Old**************/
 
@@ -695,10 +695,9 @@ vertical-align:middle;
 
 }
 .h4-3 {
-;
-	font-size: 28px;
+	font-size: 25px;
 	font-weight: normal;
-	line-height: 42px;
+	line-height: 1.4;
 	color: #061d2a;
 }
 
@@ -3350,7 +3349,6 @@ del {
 	font-weight: normal;
 }
 .nxt-btn {
-	font-family: 'Foco-bold';
 	font-size: 28px;
 	line-height: 31.5px;
 	font-weight: normal;
@@ -4657,7 +4655,7 @@ box-shadow:0 0 6px #f68a1d;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 8px 8px 6px;
+    padding: 8px 8px 6px;
 	font-size: 24px;
 	color: #000;
 	-webkit-border-radius: 2px;
@@ -4980,15 +4978,21 @@ td[data-title]:before,  td[data-title]:before {
 .homecare {
 	width: 100%;
 	background-color: #fff;
-	min-height: 270px;
+	//min-height: 270px;
+	padding: 20px 0;
 	background: #616163;
+}
+.fixed-content.homecare{
+	padding-top: 10px;
+}
+.fixed-content.homecare h2{
+	margin-top: 10px;
 }
 .item-border {
 	border-bottom: none !important;
 }
 .homecare h2 {
-	font-size: 48px;
-	font-family: 'Foco-bold';
+	font-size: 36px;
 	/* line-height: 60px; */
 	color: #fff;
 }
@@ -4997,8 +5001,6 @@ td[data-title]:before,  td[data-title]:before {
 	font-weight: normal;
 	line-height: 31.5px;
 	color: #fff;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
 	height:70px;
 }
 .home-input {
@@ -5021,14 +5023,11 @@ td[data-title]:before,  td[data-title]:before {
 	margin-top: 80px;
 	/*padding: 4px 20px !important;*/
 	font-size: 30px;
-	font-family: 'Foco-bold';
 /*	width:100%;*/
 }
 .homecare p {
 	color: #fff;
 	font-size: 18px;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
 }
 .homecare-lb {
 	padding-right: 45px;
@@ -5787,4 +5786,25 @@ transform: translateX(-50%);
 }
 .travel-homecare{
 	margin-bottom: 40px;
+}
+.btn-next.btn-next2{
+	padding: 20px 60px;
+	width: auto;
+	margin: 0 auto;
+}
+.btn-next2.btn-homecare{
+	margin-top: 60px;
+}
+.radio-homecare+.radio-homecare {
+  margin-left: 35px;
+}
+p.mute{
+	opacity: 0.7;
+}
+#homecare-scroll.fixed-content{
+  bottom: 0;
+  z-index: 1000;
+}
+.marg20{
+	margin: 20px 0;
 }

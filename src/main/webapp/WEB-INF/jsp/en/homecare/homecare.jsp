@@ -131,15 +131,24 @@
 		<div class="carousel slide hidden-xs hidden-sm">
 			<div class="carousel-inner">
 				<div class="item active item-border">
-					<div class="homecare homecare-hei">
-						<div class="container pad-none">
+					
+					<img src="resources/images/slider/home_en.jpg" alt="" />
+				</div>
+				<!--/.item-->
+			</div>
+			<!--/.carousel-inner-->
+		</div>
+	</section>
+	
+		<div class="homecare fixed-content hidden-xs hidden-sm" id="homecare-scroll">
+						<div class="container">
 							<div class="row">
 
 								<form:form name="getHomeQuote" id="getHomeQuote"
 									action="getHomePlan" method="post"
 									modelAttribute="homeCarelPlan">
-									<div class="col-lg-12 col-md-12 hidden-xs hidden-sm pad-none">
-										<h2>Get your Easy HomeCare insurance now</h2>
+									<div class="hidden-xs hidden-sm">
+										<h2 class="col-xs-12">Get your Easy HomeCare insurance now</h2>
 										<%
 											List lst = (List) request
 														.getAttribute("homeCareQuetionariesList");
@@ -152,12 +161,12 @@
 															.next();
 										%>
 
-										<div class="col-lg-4 col-md-4">
+										<div class="col-md-4">
 											<h4>
 												<%=quetionList.getQuetion()%>
 											</h4>
 											<input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
-											<label class="radio radio-warning radio-inline"> <input
+											<label class="radio radio-warning radio-inline radio-homecare"> <input
 												name="home_situated<%=quetionList.getQid()%>"
 												id="inlineDeskRadio1<%=quetionList.getQid()%>"
 												data-id="btm" class="plan"
@@ -165,7 +174,7 @@
 												type="radio"> <label
 												for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
 											</label>
-											</label> <label class="radio radio-warning radio-inline"> <input
+											</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 												name="home_situated<%=quetionList.getQid()%>"
 												id="inlineDeskRadio2<%=quetionList.getQid()%>"
 												data-id="btm" class="plan"
@@ -180,15 +189,15 @@
 											}
 												i++;
 										%>
-										<div class="col-lg-4 col-md-4">
+										<div class="col-md-4">
 											<button type="submit"
-												class="bdr-curve btn btn-primary nxt-btn"
+												class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
 												onclick="return msgAlertDesk()">Get Quote</button>
 										</div>
 										<div class="clearfix"></div>
-										<p class="pad-none">
-											FWD Easy HomeCare*<br>
-											<br> *applicable to any home below gross area of 1,000 sq. ft.
+										<p class="col-xs-12 mute">
+											<!--  FWD Easy HomeCare*<br>
+											<br>  -->*applicable to any home below gross area of 1,000 sq. ft.
 										</p>
 										
 									</div>
@@ -197,19 +206,12 @@
 							</div>
 						</div>
 					</div>
-					<img src="resources/images/slider/home_en.jpg" alt="" />
-				</div>
-				<!--/.item-->
-			</div>
-			<!--/.carousel-inner-->
-		</div>
-
 		<!--mobile-->
 		<form:form name="getHomeQuote" id="getHomeQuote" action="getHomePlan"
 			method="post" modelAttribute="homeCarelPlan">
 			<div
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">
-				<h2 class="center">Get your Easy HomeCare insurance now</h2>
+				<h2 class="center">Get your Easy HomeCare <br> insurance now</h2>
 				<%
 					List lst = (List) request
 								.getAttribute("homeCareQuetionariesList");
@@ -222,13 +224,13 @@
 									.next();
 				%>
 
-				<div class="col-lg-3 col-md-3  col-xs-offset-1 ">
+				<div class="col-lg-3 col-md-3 marg20 ">
 					<h4>
 						<%=quetionList.getQuetion()%>
 					</h4>
 					<input type="hidden" name="questionCount" id="lblCount"
 						value="<%=lst.size()%>"></input> <label
-						class="radio radio-warning radio-inline"> <input
+						class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
 						class="plan" value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
@@ -237,7 +239,7 @@
 								<%=quetionList.getAnswer1()%>
 						</span>
 					</label>
-					</label> <label class="radio radio-warning radio-inline"> <input
+					</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
 						class="plan" value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
@@ -256,16 +258,13 @@
                 <a href="homecare-plan.html" type="button" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return flightValidateBtmTravel()">Get Quote</a>
             </div>-->
 				<div class="btn-box">
-					<h3 class="text-center">
 						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
 							onclick="return msgAlertDesk()">Get Quote</button>
-					</h3>
 				</div>
 
 			</div>
 		</form:form>
 		<!--/.carousel-->
-	</section>
 	<!--Mobile-form-->
 
 	<!--Mobile-form-->
@@ -359,7 +358,7 @@
 			</div>
 
 			<!--mob-Features-->
-			<div class="row mob-features hidden-lg hidden-md">
+			<div class="mob-features hidden-lg hidden-md">
 				<div class="col-xs-4 col-sm-4 text-center">
 					<img class="img-responsive" src="resources/images/homecare1.png"
 						alt="" />
@@ -429,7 +428,7 @@
 
 				<p class="h4-6">
 					The features above are indicative only. Please refer to the <a
-						href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+						href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 						target="_blank" class="sub-link"> Policy Provisions </a> for
 					details.<br> For a complete explanation of the terms and
 					conditions, feel free to contact an adviser or our 24-hour hotline
@@ -475,7 +474,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap-mid wrap text-center">
 						<div class="recent-work-inner">
 							<img src="resources/images/secure.png" alt="" />
-							<h1>Secure &amp; Stable</h1>
+							<h1>Secure <br> &amp; Stable</h1>
 							<p>
 								We have been assigned strong financial strength ratings by
 								international rating agencies -- we have been rated "A3" by
@@ -538,7 +537,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<div class="recent-work-inner">
 									<img src="resources/images/secure.png" alt="" />
 									<h1>
-										Secure &amp; <br> Stable
+										Secure <br> &amp; Stable
 									</h1>
 									<p>
 										We have been assigned strong financial strength ratings by
@@ -598,7 +597,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none">I immediately switched my home insurance
+							<p class="pad-none text-italic">I immediately switched my home insurance
 								to FWD Easy HomeCare plan when I realized that it was probably
 								the best plan in town yet the cheapest I can find so far. The
 								process was quick and easy; it only took me a few minutes to
@@ -616,7 +615,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none">FWD HomeCare is my first insurance with
+							<p class="pad-none text-italic">FWD HomeCare is my first insurance with
 								FWD. At first, I just planned to find a simple product with
 								personal liability coverage but I found a comprehensive product
 								from FWD with “All Risks” coverage online, that could even
@@ -660,7 +659,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="container">
 						<div class="row slide-margin">
 							<div class="testimonials-wrap text-center">
-								<div class="testimonials-inner text-center">
+								<div class="testimonials-inner travel-testimonial text-center">
 									<div class="h1-1">
 										<blockquote class="testimonial"></blockquote>
 									</div>
@@ -682,7 +681,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="container">
 						<div class="row slide-margin">
 							<div class="testimonials-wrap text-center">
-								<div class="testimonials-inner text-center">
+								<div class="testimonials-inner travel-testimonial text-center">
 									<div class="h1-1">
 										<blockquote class="testimonial"></blockquote>
 									</div>
@@ -721,10 +720,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-lg-4 col-md-4 pad-none">
 					<div class="services-wrap service-bx1">
 						<div>
-							<img class="img-responsive bdr-img"
-								src="resources/images/home8.png" alt="">
+							<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank"><img class="img-responsive bdr-img"
+								src="resources/images/home8.png" alt=""></a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/" target="_blank">
+								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank">
 									Protecting your family <br /> heirlooms <i
 									class="fa fa-caret-right"></i>
 								</a>
@@ -736,10 +735,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-lg-4 col-md-4 pad-none">
 					<div class="services-wrap service-bx2">
 						<div>
+							<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank">
 							<img class="img-responsive bdr-img"
 								src="resources/images/home9.png" alt="">
+								</a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/" target="_blank"> Top tips
+								<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank"> Top tips
 									to make a small flat stylish <i class="fa fa-caret-right"></i>
 								</a>
 							</h3>
@@ -750,10 +751,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-lg-4 col-md-4 pad-none">
 					<div class="services-wrap service-bx3">
 						<div>
+						<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
 							<img class="img-responsive bdr-img"
-								src="resources/images/home10.png" alt="">
+								src="resources/images/home10.png" alt=""></a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/" target="_blank">
+								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
 									Preventing household <br /> accidents <i
 									class="fa fa-caret-right"></i>
 								</a>
@@ -785,7 +787,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<!--/#services-->
 
 	<!--bottom-form-->
-	<section id="bottom-form" class="hidden-sm hidden-xs">
+	<section id="bottom-form" class="hidden-sm hidden-xs homecare">
 		<div class="container">
 			<div class="row">
 				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom"
@@ -808,7 +810,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<h4>
 								<%=bQuetionList.getQuetion()%>
 							</h4>
-							<label class="radio radio-warning radio-inline"> <input
+							<label class="radio radio-warning radio-inline radio-homecare"> <input
 								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio5<%=bQuetionList.getQid()%>" data-id="btm"
@@ -817,7 +819,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									<span> <%=bQuetionList.getAnswer1()%>
 								</span>
 							</label>
-							</label> <label class="radio radio-warning radio-inline"> <input
+							</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio6<%=bQuetionList.getQid()%>" data-id="btm"
 								class="plan" value="personal" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
@@ -833,13 +835,13 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						%>
 						<div class="col-lg-4 col-md-2 ">
 							<button type="submit"
-								class="border-radius btn btn-primary  get-btn get-btn-home"
+								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
 								onclick="return msgAlertDesk()">Get Quote</button>
 						</div>
 						<div class="clearfix"></div>
-						<p class="pad-none">
-							FWD Easy HomeCare*<br>
-							<br> *applicable to any home below gross area of 1,000 sq.
+						<p class="pad-none mute">
+							<!-- FWD Easy HomeCare*<br>
+							<br>  -->*applicable to any home below gross area of 1,000 sq.
 							ft.
 						</p>
 					</div>

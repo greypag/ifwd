@@ -40,6 +40,9 @@
     .acc-tool-input {
         width: 100%;
     }
+    .homecare h4 {
+	  height: 90px;
+	}
 }
 /* sm */
 
@@ -185,6 +188,7 @@
     }
     .homecare h4 {
         color: #000;
+        height: auto;
     }
     .home-input {
         background-color: #e5e5e5 !important;
@@ -492,6 +496,7 @@
     }
     .homecare h4 {
         color: #000;
+        height: auto;
     }
     .home-input {
         background-color: #e5e5e5 !important;
