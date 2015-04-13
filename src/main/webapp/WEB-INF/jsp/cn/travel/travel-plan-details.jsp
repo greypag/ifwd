@@ -578,7 +578,7 @@
 									<div class="text-left pad-right1 h2-2 h2">
 										<div class="hk">
 											港幣
-											<div class="flightcare-hk">${planPremium}</div>
+											<div class="flightcare-hk">${selectPlanPremium}</div>
 										</div>
 									</div>
 								</div>
@@ -629,7 +629,7 @@
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">小計 </h3>
-		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planPremium}</h3>
+		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${selectPlanPremium}</h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠 </h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planDiscount} </h3>
 		            <div class="clearfix"></div>
