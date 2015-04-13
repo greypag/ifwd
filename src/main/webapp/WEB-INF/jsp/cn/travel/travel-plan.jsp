@@ -79,6 +79,10 @@ var promoData = '';
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				
 			}
+			$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 		}
 	}
 </script>
@@ -165,7 +169,7 @@ var promoData = '';
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pad-none">
+							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
 								<%-- <h2><%=travelQuote.getPlanName()[i]%><br> 優越保障<br>
 									HK$1,000,000 醫療保障
 								</h2> --%>
@@ -184,10 +188,33 @@ var promoData = '';
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 								<br>
 								<h3>港幣</h3>
-								<h6>
-									<span id="grossPremium" class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getGrossPremium()[i]%></span>
+								<%
+										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
+									%>
+									<h6>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
-								<p class="actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></p>
+								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
+									<%
+										} else {
+									%>
+									<h6>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getToalDue()[i]%></span>
+									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
+								</h6>
+								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=travelQuote.getGrossPremium()[i]%></del></span>
+									<%
+										}
+									%>
+								
+								
+								
+								
+								
+								
+								
+								
 							</div>
 							<div class="clearfix"></div>
 							<!-- Plan benefits -->
@@ -1135,7 +1162,7 @@ var promoData = '';
 			}
 		}
 
-		var selected_price = $('#' + id).find('h6').text();
+		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
 		selected_price = parseInt(selected_price).toFixed(2);
 		
 		$('#amountdue').html(parseInt(totalDue).toFixed(2));

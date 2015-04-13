@@ -68,10 +68,6 @@
 				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
 				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				
-				//$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 				
 				
@@ -84,6 +80,11 @@
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				
 			}
+			
+			$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 		}
 	}
 </script>
@@ -218,10 +219,29 @@
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 								<br>
 								<h3>HK$</h3>
-								<h6>
+								<%
+										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
+									%>
+									<h6>
 									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
-								<p class="actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></p>
+								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
+									<%
+										} else {
+									%>
+									<h6>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getToalDue()[i]%></span>
+									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
+								</h6>
+								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=travelQuote.getGrossPremium()[i]%></del></span>
+									<%
+										}
+									%>
+									
+									
+								
+								
 							</div>
 							<div class="clearfix"></div>
 							<!-- Plan benefits -->
@@ -1320,7 +1340,7 @@
 			}
 		}
 
-		var selected_price = $('#' + id).find('h6').text();
+		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
 		selected_price = parseInt(selected_price).toFixed(2);
 		
 		$('#amountdue').html(parseInt(totalDue).toFixed(2));
