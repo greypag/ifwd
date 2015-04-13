@@ -160,7 +160,6 @@ jQuery(document).ready(function() {
 	if($('#homecare-scroll').length){
 	    var winh = $(window).height();
 	    var conh = $('#main-slider').height() + $('#header').height() + 50;
-	    console.log(conh, winh);
 	    if(conh > winh)
 	    {
 	        var bottom = $('#homecare-scroll').outerHeight() - $('#homecare-scroll h2').outerHeight() - 30;
