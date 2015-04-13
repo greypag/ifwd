@@ -68,6 +68,7 @@ var promoData = '';
 				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
 				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 				
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
@@ -75,6 +76,7 @@ var promoData = '';
 				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
 				$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				
 			}
 		}
@@ -183,8 +185,9 @@ var promoData = '';
 								<br>
 								<h3>港幣</h3>
 								<h6>
-									<span id="grossPremium"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span id="grossPremium" class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
+								<p class="actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></p>
 							</div>
 							<div class="clearfix"></div>
 							<!-- Plan benefits -->
@@ -1030,6 +1033,8 @@ var promoData = '';
 							id="amountdue">0</h3>
 						<input type="hidden" name="selectedAmountDue"
 							id="selectedAmountDue" value="">
+						<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
+							
 							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 							<a href="/FWDHKPH1A/travel"
@@ -1139,8 +1144,9 @@ var promoData = '';
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
-		$('#seletedplanname').html('Plan '+planName);
+		$('#seletedplanname').html('計劃'+planName);
 		$('#inputseletedplanname').val(planName);
+		$('#selectPlanPremium').val(totalDue);
 
 		$('#' + id).addClass("plan-box4");
 

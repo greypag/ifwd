@@ -578,7 +578,7 @@
 									<div class="text-left pad-right1 h2-2 h2">
 										<div class="hk">
 											港幣
-											<div class="flightcare-hk">${planSummary}</div>
+											<div class="flightcare-hk">${planPremium}</div>
 										</div>
 									</div>
 								</div>
@@ -608,7 +608,7 @@
 								</h3>
 								<h4>
 									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">旅客 ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>子女 ${travelQuote.getTotalChildTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>孩子 ${travelQuote.getTotalChildTraveller()}</c:if>
 			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他旅客 ${travelQuote.getTotalOtherTraveller()}</c:if>
 		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
 								</h4>
@@ -629,7 +629,7 @@
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">小計 </h3>
-		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planSummary}</h3>
+		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planPremium}</h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠 </h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planDiscount} </h3>
 		            <div class="clearfix"></div>
