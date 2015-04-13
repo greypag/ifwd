@@ -196,7 +196,7 @@
 									<div class="order-status-timeline-new">
 										<div class="order-status-timeline-completion dots-inactive"></div>
 										<div class="order-status-timeline-completion dots-inactive"></div>
-										
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act first">

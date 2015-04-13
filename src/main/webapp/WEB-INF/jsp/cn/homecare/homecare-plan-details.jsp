@@ -661,11 +661,20 @@
 										class="margin-left-2"></span> 同意此申請書及聲明將構成本人與富衛之間的合約根據。
 									</label>
 								</div>
+								<div class="checkbox">
+									<input id="checkbox3" type="checkbox" name="declarration2">
+									<label for="checkbox3">本人已參閱及明白 <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">"收集個人資料聲明"</a>，並同意接受其約束。
+									</label>
+								</div>
+								<hr>
+								<div>
+									若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。
+								</div>
 								<span id="chk1" class="text-red"></span>
 								<div class="checkbox">
 									<input id="checkbox2" type="checkbox" name="readAndUnderstood">
-									<label for="checkbox2"> 本人(等) 已參閱及明白
-										"收集個人資料聲明"，並同意接受其約束。 <br>
+									<label for="checkbox2"> 請不要將直接促銷資料發給本人。
+ <br>
 
 									</label>
 								</div>
@@ -679,7 +688,7 @@
 									<input id="checkbox4" type="checkbox"
 										name="donotWishDirectMarketing"> <label
 										for="checkbox4">
-										若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。
+										請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。
 										<br> <br>
 									</label>
 								</div>

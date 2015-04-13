@@ -349,32 +349,32 @@
 							<div class="center" style="visibility: visible;">
 								<h2>Your details</h2>
 							</div>
-							<br> <br>
+							<br>
 							<div class="col-lg-12">
 								<div id="tr-wizard" class="shop-tracking-status">
-									<div class="order-status">
-										<div class="order-status-timeline">
-											<!-- class names: c0 c1 c2 c3 and c4 -->
-											<div
-												class="order-status-timeline-completion order-status-timeline-completion c2"></div>
+									<div class="order-status has-four">
+										<div class="order-status-timeline-new">
+											<div class="order-status-timeline-completion dots-active"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
 										</div>
 										<div
-											class="image-order-status image-order-status-new active img-circle">
+											class="image-order-status image-order-status-new active img-circle first">
 											<span class="status color3">Your Options</span>
 											<div class="icon">1</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-intransit  img-circle act">
+											class="image-order-status image-order-status-intransit  img-circle act second">
 											<span class="status color2"> Your Details</span>
 											<div class="icon">2</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-delivered  img-circle disabled">
+											class="image-order-status image-order-status-delivered  img-circle disabled third">
 											<span class="status">Summary & Payment</span>
 											<div class="icon">3</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-completed  img-circle disabled">
+											class="image-order-status image-order-status-completed  img-circle disabled fourth">
 											<span class="status lst-status">Confirmation</span>
 											<div class="icon">4</div>
 										</div>
@@ -383,9 +383,6 @@
 							</div>
 						</div>
 					</div>
-					<br>
-					<br>
-					<br>
 					<div class="container pad-none bdr ur-opt-content gray-bg3">
 
 						<div
@@ -401,7 +398,7 @@
 								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
 								data-toggle="modal" data-target=".bs-example-modal-lg">Login</a>
 							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
-								<h3 class="btn-box-3 text-left">
+								<h3 class="text-left or-continue">
 									<span>Or,</span> continue as a guest.
 								</h3>
 							</div>
@@ -411,7 +408,7 @@
 
 							<div class="clearfix"></div>
 							<div class="gray-bdr"></div>
-							<table class="table activation-form margin-left-2">
+							<table class="table activation-form margin-left-2 vert-middle">
 								<tbody>
 									<tr>
 										<td colspan="2" class="pad-none"><h3
@@ -781,14 +778,16 @@
 										for insurance; or been refused renewal by any insurer; and<br>
 										iv. <span class="margin-left-2"></span> Agree that this
 										application shall be the basis of the contract between me and
-										FWD. v. <span class="margin-left-2"></span> this Proposal Form
+										FWD.<br>v. <span class="margin-left-2"></span> this Proposal Form
 										is applied and signed at HKSAR, in case of fraud or factual
 										misrepresentation, the cover for me or for the Insured
 										Person(s) may be invalidated.
-										<br/>
-										
-										 I have read and understood <a
-										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+									</label>
+								</div>
+								<div class="checkbox">
+									<input id="checkbox2" name="declarration2" type="checkbox">
+									<label for="checkbox2">I have read and understood <a
+										href="<%=request.getContextPath()%>resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 										 class="sub-link"> Personal Information Collection
 											Statement</a> and agree to be bound by the same. <br> 
 									</label>

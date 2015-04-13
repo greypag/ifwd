@@ -203,7 +203,7 @@
 									</div></td>
 							</tr>
 
-							<tr>
+							<tr style="display: none;">
 								
 								<td class="col-lg-4 ht1">
 								<label class="control-label h4-5">Payment Method</label></td>

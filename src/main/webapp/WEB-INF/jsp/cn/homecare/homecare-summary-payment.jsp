@@ -193,7 +193,7 @@
 										</div>
 									</div></td>
 							</tr>
-							<tr>
+							<tr class="" style="display: none;">
 								<td align="right">Payment Method</td>
 								<td><input type="radio" name="pMethod" value="VISA" id="chkVisa">VISA
 									<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard

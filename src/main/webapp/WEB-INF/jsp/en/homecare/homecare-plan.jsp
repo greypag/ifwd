@@ -760,7 +760,7 @@
 	<!--Apply-->
 
 	<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
-		action="getYourDetails" method="post"
+		action="getYourHomeCareDetails" method="post"
 		modelAttribute="planQuoteDetails">
 		<div class="hidden-lg hidden-md text-center">
 			<br>

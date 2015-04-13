@@ -196,7 +196,7 @@
 							</h4>
 							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 								<h5>
-									Your unique promotion code is:<span> <%=session.getAttribute("myReferralCode")%></span>
+									Your unique promotion code is:<span> ${referralCode}</span>
 								</h5>
 								<div class="h4-3-b margin-left">
 								Share with your friends and get discounts from our partners!*
@@ -214,7 +214,7 @@
 
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
 								<div class=" wht-bg1 text-center">
-									<a class="padding6 h4-5-b " href="">http://uat-ecom.i.fwd.com.hk/homecare?promo=<%=session.getAttribute("myReferralCode")%></a>
+									<a class="padding6 h4-5-b " href="">http://i.fwd.com.hk/en/home-insurance/quote?${referralCode}</a>
 								</div>
 								<div class=" text-left">
 									<!--<a class="sub-link other-share">Other sharing options</a>-->
