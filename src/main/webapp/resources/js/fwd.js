@@ -3329,6 +3329,10 @@ function activateUserAccount(){
 		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
 		check = false;
 	}
+	if(name == password){
+		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
+		check = false;
+	}
 	if(isMobile(mobile) != true){
 		$('#errorEmptyMob').text(isMobile(mobile));
 		check = false;
@@ -3350,6 +3354,10 @@ function activateUserAccount(){
 		$('#errorEmptyConfPass').text(passMatch(password, checkPassword));
 		check = false;
 	};
+	
+	
+	
+	
 	if(!declaration){
 		check = false;
 	}
