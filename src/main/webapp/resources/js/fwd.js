@@ -1655,7 +1655,7 @@ function tPlanValid()
 			else
 			{
 				document.getElementById("errotherBenefitiaryName" + i).innerHTML = "";
-				flag = false;
+				//flag = false;
 			}
 
 			
