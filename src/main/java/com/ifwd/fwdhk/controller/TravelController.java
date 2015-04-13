@@ -88,7 +88,8 @@ public class TravelController {
 		travelQuote.setTotalAdultTraveller(1);
 		travelQuote.setTotalChildTraveller(1);
 		travelQuote.setTotalOtherTraveller(0);
-
+		travelQuote.setPlanSelected("personal");
+		
 		
 		
 		model.addAttribute("travelQuote", travelQuote);

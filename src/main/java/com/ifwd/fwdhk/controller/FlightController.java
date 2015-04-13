@@ -95,6 +95,13 @@ public class FlightController {
 			planDetails.setTotalAdultTraveller(1);	
 		if(planDetails.getTotalChildTraveller() == 0)
 			planDetails.setTotalChildTraveller(1);			
+
+		planDetails.setTotalPersonalTraveller(1);
+		planDetails.setTotalAdultTraveller(1);
+		planDetails.setTotalChildTraveller(1);
+		planDetails.setTotalOtherTraveller(0);
+		planDetails.setPlanSelected("personal");
+		planDetails.setTravellerCount(1);
 		
 		model.addAttribute(planDetails);
 		String pageTitle = WebServiceUtils.getPageTitle("page.flight", UserRestURIConstants.getLanaguage(request));
