@@ -228,7 +228,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr>
-										<td ><span class="bd">孩子 <%=i + 1%></span></td>
+										<td ><span class="bd">子女 <%=i + 1%></span></td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
 										<td ><span class="bd gy" >受益人</span></td>
 										<% } %>
@@ -271,7 +271,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr class="">
-										<td ><span class="bd">其他<%=i + 1%></span></td>
+										<td ><span class="bd">其他旅客<%=i + 1%></span></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td ><span  class="bd gy">受益人</span></td>
 										<% } %>
