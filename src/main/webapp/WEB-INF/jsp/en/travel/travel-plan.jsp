@@ -170,7 +170,7 @@
 							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
 								<h2>
-									<%=travelQuote.getPlanName()[i]%>
+									Plan <%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br>
 									<%
@@ -1299,7 +1299,7 @@
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
-		$('#seletedplanname').html(planName);
+		$('#seletedplanname').html('Plan '+planName);
 		$('#inputseletedplanname').val(planName);
 
 		$('#' + id).addClass("plan-box4");

@@ -219,7 +219,7 @@ id="box<%=i%>">
 									</h2> --%>
 
 <h2>
-									<%=travelQuote.getPlanName()[i]%>
+									計劃 <%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%>  優越保障<br> HK$ 1,000,000 Medical

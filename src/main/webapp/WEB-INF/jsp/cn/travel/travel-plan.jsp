@@ -169,7 +169,7 @@ var promoData = '';
 								</h2> --%>
 								
 								<h2>
-									<%=travelQuote.getPlanName()[i]%>
+									計劃 <%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%>  優越保障<br> HK$ 1,000,000 Medical
@@ -1139,7 +1139,7 @@ var promoData = '';
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
-		$('#seletedplanname').html(planName);
+		$('#seletedplanname').html('Plan '+planName);
 		$('#inputseletedplanname').val(planName);
 
 		$('#' + id).addClass("plan-box4");

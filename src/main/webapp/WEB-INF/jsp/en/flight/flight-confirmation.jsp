@@ -204,7 +204,7 @@ class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-box">
 id="box<%=i%>">
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
 <h2>
-									<%=travelQuote.getPlanName()[i]%>
+									Plan <%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%> Superior Cover<br> HK$ 1,000,000 Medical
