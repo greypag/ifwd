@@ -232,19 +232,19 @@
 						value="<%=lst.size()%>"></input> <label
 						class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
-						id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
+						id="inlineDeskRadio5<%=quetionList.getQid()%>" data-id="btm"
 						class="plan" value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
 						type="radio"> <label
-						for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span>
+						for="inlineDeskRadio5<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer1()%>
 						</span>
 					</label>
 					</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
-						id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
+						id="inlineDeskRadio6<%=quetionList.getQid()%>" data-id="btm"
 						class="plan" value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
 						type="radio"> <label
-						for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
+						for="inlineDeskRadio6<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer2()%></span>
 					</label>
 					</label>
@@ -813,17 +813,17 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<label class="radio radio-warning radio-inline radio-homecare"> <input
 								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
-								id="inlineDeskRadio5<%=bQuetionList.getQid()%>" data-id="btm"
+								id="inlineDeskRadio3<%=bQuetionList.getQid()%>" data-id="btm"
 								class="plan" value="personal" <%=bQuetionList.getAnswer1Checked()%> type="radio">
-								<label for="inlineDeskRadio5<%=bQuetionList.getQid()%>">
+								<label for="inlineDeskRadio3<%=bQuetionList.getQid()%>">
 									<span> <%=bQuetionList.getAnswer1()%>
 								</span>
 							</label>
 							</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
-								id="inlineDeskRadio6<%=bQuetionList.getQid()%>" data-id="btm"
+								id="inlineDeskRadio3<%=bQuetionList.getQid()%>" data-id="btm"
 								class="plan" value="personal" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
-								for="inlineDeskRadio6<%=bQuetionList.getQid()%>"> <span>
+								for="inlineDeskRadio3<%=bQuetionList.getQid()%>"> <span>
 										<%=bQuetionList.getAnswer2()%>
 								</span>
 							</label>

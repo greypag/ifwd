@@ -69,12 +69,19 @@
 				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 				
+				//$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				
+				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				
+				
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 				$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
 				$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				
 			}
 		}
@@ -212,8 +219,9 @@
 								<br>
 								<h3>HK$</h3>
 								<h6>
-									<span id="grossPremium"<%=i%> ><%=travelQuote.getGrossPremium()[i]%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
+								<p class="actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></p>
 							</div>
 							<div class="clearfix"></div>
 							<!-- Plan benefits -->
@@ -1194,6 +1202,7 @@
 								id="amountdue">0</h3>
 							<input type="hidden" name="selectedAmountDue"
 								ID="selectedAmountDue" value="">
+							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
 								<span class="text-red" id="errDue"></span>
 							</div>
@@ -1322,6 +1331,7 @@
 		$('#plansummary').html(selected_price);
 		$('#seletedplanname').html('Plan '+planName);
 		$('#inputseletedplanname').val(planName);
+		$('#selectPlanPremium').val(totalDue);
 
 		$('#' + id).addClass("plan-box4");
 

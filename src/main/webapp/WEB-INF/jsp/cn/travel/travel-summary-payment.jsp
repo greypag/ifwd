@@ -228,7 +228,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr>
-										<td ><span class="bd">孩子 <%=i + 1%></span></td>
+										<td ><span class="bd">子女 <%=i + 1%></span></td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
 										<td ><span class="bd gy" >受益人</span></td>
 										<% } %>
@@ -271,7 +271,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr class="">
-										<td ><span class="bd">其他<%=i + 1%></span></td>
+										<td ><span class="bd">其他旅客<%=i + 1%></span></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td ><span  class="bd gy">受益人</span></td>
 										<% } %>
@@ -595,7 +595,7 @@
 						<div class="clearfix"></div>
 						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
 						<!-- <div class="hidden-sm hidden-xs pad-none">
-							<a href="#" onclick="BackMe()"
+							
 								class="bdr-curve btn btn-primary bck-btn2">返回 </a> <input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn margin-left"
@@ -630,7 +630,7 @@
 							</div> -->
 							
 							<div class="hidden-sm hidden-xs pad-none">
-							<a href="travel-plan-details.html"
+							<a href="/FWDHKPH1A/getYourDetails"
 								class="bdr-curve btn btn-primary bck-btn2">返回 </a>
 							<button onclick="confirmPayment();"
 								class="bdr-curve btn btn-primary nxt-btn margin-left">
@@ -641,7 +641,7 @@
 							<div class="clearfix"></div>
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="#" onclick="BackMe()"
+								<a href="/FWDHKPH1A/getYourDetails" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn">返回 </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
