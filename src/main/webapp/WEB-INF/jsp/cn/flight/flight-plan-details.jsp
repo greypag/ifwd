@@ -281,7 +281,7 @@
 							受保人資料<br>
 						</h3>
 
-<div class="insure-travel">
+					<div class="insure-travel pad-15">
 						<!-- Bellow fields are dynamically generated -->
 						<c:set var="totalAdultCount" value="${0}" />
 						<c:set var="totalAdultCount"
