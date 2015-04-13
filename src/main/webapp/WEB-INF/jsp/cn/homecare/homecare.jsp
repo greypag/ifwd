@@ -232,10 +232,10 @@
 					<label class="radio radio-warning radio-inline"> 
 						<input
 							name="home_situated<%=quetionList.getQid()%>"
-							id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
+							id="inlineDeskRadio5<%=quetionList.getQid()%>" data-id="btm"
 							class="plan" value="<%=quetionList.getAnswer1()%>"
 							type="radio"> 
-						<label for="inlineDeskRadio1<%=quetionList.getQid()%>">
+						<label for="inlineDeskRadio5<%=quetionList.getQid()%>">
 							<span>
 								<%=quetionList.getAnswer1()%>
 							</span>
@@ -243,10 +243,10 @@
 					</label>
 					<label class="radio radio-warning radio-inline"> <input
 						name="home_situated<%=quetionList.getQid()%>"
-						id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
+						id="inlineDeskRadio6<%=quetionList.getQid()%>" data-id="btm"
 						class="plan" value="<%=quetionList.getAnswer2()%>" checked
 						type="radio"> <label
-						for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
+						for="inlineDeskRadio6<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer2()%></span>
 					</label>
 					</label>
@@ -714,7 +714,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<!--/#services-->
 
 	<!--bottom-form-->
-	<section id="bottom-form" class="hidden-sm hidden-xs">
+	<section id="bottom-form" class="hidden-sm hidden-xs homecare">
 		<div class="container">
 			<div class="row">
 				<form:form name="getHomeQuote" id="getHomeQuote"
@@ -722,7 +722,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									modelAttribute="homeCarelPlan">
 
 
-									<div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare">
+									<div class="col-lg-12 col-md-12 pad-none ">
 										<h2>立即取得易安心家居保</h2>
 
 										<%
@@ -744,17 +744,17 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 											<input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
 											<label class="radio radio-warning radio-inline radio-homecare"> <input
 												name="home_situated<%=quetionList.getQid()%>"
-												id="inlineDeskRadio1<%=quetionList.getQid()%>" data-id="btm"
+												id="inlineDeskRadio3<%=quetionList.getQid()%>" data-id="btm"
 												class="plan" value="<%=quetionList.getAnswer1()%>"
 												checked="" type="radio"> <label
-												for="inlineDeskRadio1<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
+												for="inlineDeskRadio3<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
 											</label>
 											</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 												name="home_situated<%=quetionList.getQid()%>"
-												id="inlineDeskRadio2<%=quetionList.getQid()%>" data-id="btm"
+												id="inlineDeskRadio4<%=quetionList.getQid()%>" data-id="btm"
 												class="plan" value="<%=quetionList.getAnswer2()%>"
 												checked="" type="radio"> <label
-												for="inlineDeskRadio2<%=quetionList.getQid()%>"> <span>
+												for="inlineDeskRadio4<%=quetionList.getQid()%>"> <span>
 														<%=quetionList.getAnswer2()%></span>
 											</label>
 											</label>
