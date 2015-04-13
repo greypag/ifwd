@@ -109,17 +109,17 @@ public class WebServiceUtils {
 			else if (relationship.equals("SP"))
 				desc = "配偶";
 			else if (relationship.equals("EE"))
-				desc = "Employee";			
+				desc = "員工";
 			else if (relationship.equals("FE"))
 				desc = "朋友";
 			else if (relationship.equals("OT"))
-				desc = "其他";	
+				desc = "其他";
 			else if (relationship.equals("RE"))
-				desc = "Relative";	
+				desc = "親友";	
 			else if (relationship.equals("SE"))
-				desc = "個人遺產";	
+				desc = "我自己";	
 			else if (relationship.equals("ST"))
-				desc = "Student";		
+				desc = "學生";		
 			else
 				desc = relationship;
 		}

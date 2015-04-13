@@ -34,6 +34,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
+
+
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreateFlightPolicy;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -465,6 +469,8 @@ public class FlightController {
 				dateApi.pickDate(planDetailsForm.getReturnDate()));
 		JSONArray insured = new JSONArray();
 
+		String langSelected = UserRestURIConstants.getLanaguage(request);
+		
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 
 			JSONObject beneficiary = new JSONObject();
@@ -543,6 +549,20 @@ public class FlightController {
 				}
 			}
 			insured.add(adult);
+			
+			// update relationship desc
+			String[] relationships = planDetailsForm.getAdultRelationDesc();
+			if(relationships == null){
+				// not found in ModelAttribute
+				relationships = new String[planDetailsForm.getTotalAdultTraveller()];
+			}
+			String[] beneRelationships = planDetailsForm.getAdultBeneRelationDesc();
+			if(beneRelationships == null){
+				// not found in ModelAttribute
+				beneRelationships = new String[planDetailsForm.getTotalAdultTraveller()];
+			}
+			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
+			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
@@ -579,6 +599,20 @@ public class FlightController {
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
+				
+				// update relationship desc
+				String[] relationships = planDetailsForm.getChildRelationDesc();
+				if(relationships == null){
+					// not found in ModelAttribute
+					relationships = new String[planDetailsForm.getTotalChildTraveller()];
+				}
+				String[] beneRelationships = planDetailsForm.getChildBeneRelationDesc();
+				if(beneRelationships == null){
+					// not found in ModelAttribute
+					beneRelationships = new String[planDetailsForm.getTotalChildTraveller()];
+				}
+				planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, child.get("relationship").toString(), inx));
+				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));					
 			}
 		}
 		if (planDetailsForm.getTotalOtherTraveller() > 0) {
@@ -617,6 +651,20 @@ public class FlightController {
 					other.put("beneficiary", beneficiary);
 				}
 				insured.add(other);
+				
+				// update relationship desc
+				String[] relationships = planDetailsForm.getOtherRelationDesc();
+				if(relationships == null){
+					// not found in ModelAttribute
+					relationships = new String[planDetailsForm.getTotalOtherTraveller()];
+				}
+				String[] beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
+				if(beneRelationships == null){
+					// not found in ModelAttribute
+					beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
+				}
+				planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, other.get("relationship").toString(), inx));
+				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));					
 			}
 		}
 

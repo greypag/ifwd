@@ -111,7 +111,10 @@ public class UserRestURIConstants {
 		String lang = "CN";
 		if(session.getAttribute("language")!=null){
 			lang = session.getAttribute("language").toString();
+		}else{
+			session.setAttribute("language", lang);
 		}
+			
 		return lang;
 	}
 	
