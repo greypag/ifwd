@@ -154,6 +154,11 @@ public class PlanDetails {
 		this.travellerCount = travellerCount;
 	}
 
+	public int getTotalFamilyTravellers(){
+		return totalAdultTraveller + totalChildTraveller + totalOtherTraveller;
+	}
+	
+	
 	public String getReturnDate() {
 		return returnDate;
 	}
