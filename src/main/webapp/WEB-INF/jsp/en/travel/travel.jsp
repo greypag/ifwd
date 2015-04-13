@@ -32,6 +32,23 @@
  //         	totalTraveller = 1;	     		
          }
      });
+
+    function reset_submit()
+    {        
+    	if(document.getElementById("family_plan_desk").checked)
+        {
+    	}
+    	else if (document.getElementById("personal_plan_desk").checked)
+        {
+    		$('#txtAdultsDesk').val(0);
+    		$('#txtOtherDesk').val(0);
+    		$('#txtChildDesk').val(0);
+       	}
+    	
+    	var frm = document.getElementById("frmTravelGetQuote");
+    	//alert("reset_submit");
+    	frm.submit();
+   	}
 </script>
 
 <%
@@ -198,7 +215,7 @@
                 
               <td class="col-md-2 pad-none"> 
               
-                <button type="submit" class="border-radius btn btn-primary get-btn wd2">Get Quote</button>
+                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()">Get Quote</button>
                 </td>
             </tr>
             <tr>
@@ -722,7 +739,7 @@ Embark on an adventure<br>
       <div class="clearfix"></div>
     </div>
     
-    <p>The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information.</p>
+    <p>The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information</p>
     
     
     <!--/.row--> 
