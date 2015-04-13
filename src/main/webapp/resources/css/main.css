@@ -642,7 +642,10 @@ vertical-align:middle;
 	line-height:10px !important;
 	font-size:14px;
 }
-
+.chin .join-us-label small
+{
+	font-size:12px;
+}
 /*************Old**************/
 
 .h2-1 {
@@ -4654,7 +4657,7 @@ box-shadow:0 0 6px #f68a1d;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 8px;
+	padding: 8px 8px 6px;
 	font-size: 24px;
 	color: #000;
 	-webkit-border-radius: 2px;

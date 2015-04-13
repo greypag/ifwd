@@ -105,7 +105,7 @@
 								<tr>
 									<td class="col-sm-4"><label for="txtFullName"
 										class="join-us-label">英文全名<br>
-											<small>（與香港身份證號碼/護照號碼相同）</small></label></td>
+											<small>(與香港身份證號碼/護照號碼相同）</small></label></td>
 									<td><input type="text"
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="英文全名"
