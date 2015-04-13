@@ -651,8 +651,8 @@
 
 						<!--mob-hidden-->
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/travel"
-								class="bdr-curve btn btn-primary bck-btn">Back </a>
+							<a href="/FWDHKPH1A/getTravelQuote"
+								class="bdr-curve btn btn-primary bck-btn">Backx </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<input type="submit"

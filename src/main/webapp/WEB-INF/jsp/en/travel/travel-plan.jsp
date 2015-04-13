@@ -153,8 +153,29 @@
 						<h2 class="h2-3-choose hidden-sm hidden-xs">Choose a plan</h2>
 						<%
 							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
-						 
 						 	TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+						 	
+						 	if (travelQuote != null)
+						 	{
+						 		//System.out.println("travelQuote is not null");
+						 		//session.setAttribute("travelQuoteBean", travelQuoteBean);
+						 		session.setAttribute("tq", travelQuote);
+						 		
+						 		//System.out.println(session.getAttribute("travelQuoteBean").toString());
+
+						 	}
+						 	else {
+						 		//System.out.println("travelQuote is null 1");
+						 		// travelQuoteBean = (TravelQuoteBean) session.getAttribute("travelQuoteBean");
+						 		// System.out.println(session.getAttribute("tqXX").getClass());
+						 		travelQuote = (QuoteDetails) session.getAttribute("tq");
+						 	}
+						 	
+						 	if (travelQuote == null) {
+						 		//System.out.println("travelQuote is null 2");
+						 		travelQuote = (QuoteDetails) session.getAttribute("tq");
+						 	}
+						 	
 				    	 	if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
 				    	 	{
  					    		travelQuoteBean.setTotalOtherTraveller(0);
