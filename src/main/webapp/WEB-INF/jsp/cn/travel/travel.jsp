@@ -687,8 +687,8 @@
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children-2/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children-2/" target="_blank">親子旅行小貼士  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank">親子旅行小貼士  <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>
