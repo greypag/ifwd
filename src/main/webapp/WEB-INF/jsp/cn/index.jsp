@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <h2></h2>
                         
                         <a href="flight" class="border-radius btn btn-primary  home-btn">航空保險</a>
-                        <a href="traveL" class="border-radius btn btn-primary  home-btn">旅遊保險</a>
+                        <a href="travel" class="border-radius btn btn-primary  home-btn">旅遊保險</a>
                          <a href="homecare" class="border-radius btn btn-primary  home-btn">家居保險</a>
                         <div class="clearfix"></div>
                      

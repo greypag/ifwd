@@ -53,7 +53,7 @@
              An email has been sent to  <strong>${emailAddress}</strong> with the details of your policy.</h3>
             <h4>Policy Number: <span> ${policyNo}</span></h4>
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-            <h5>Your unique promotion code is:<span> ${referralCode}</span></h5>
+            <h5>Your unique promotion code is:<span> <%=session.getAttribute("myReferralCode")%></span></h5>
             <div class="h4-3-b margin-left">Share with your friends and get discounts from our partners!*</div>
             </div>
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -63,7 +63,7 @@
          <div class="h4-2 margin-left">Share your promotion code now to earn discounts and rewards</div>
          <div >
          	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
-         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank">http//i.fwd.com.hk/en/travel-insurance/quote?${referralCode}</a></div>
+         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank">http://uat-ecom.i.fwd.com.hk/travel?promo=<%=session.getAttribute("myReferralCode")%></a></div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 	        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">Copy Link</div>
