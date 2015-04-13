@@ -21,28 +21,38 @@
  		traveller = personalTraveller;
  	}
 	
-    $(document).ready(function(){
-         // personal was selected by default
-         if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
-     		$(".plan").trigger("change");
- //         	//reset to defalut value
- //         	totalAdult = '1';
- //         	totalChild = '0';
- //         	totalOther = '0';
- //         	totalTraveller = 1;	     		
-         }
-     });
+
+    function reset_submit()
+    {        
+    	if(document.getElementById("family_plan_desk").checked)
+        {
+    	}
+    	else if (document.getElementById("personal_plan_desk").checked)
+        {
+    		$('#txtAdultsDesk').val(0);
+    		$('#txtOtherDesk').val(0);
+    		$('#txtChildDesk').val(0);
+       	}
+    	
+    	var frm = document.getElementById("frmTravelGetQuote");
+    	//alert("reset_submit");
+    	frm.submit();
+   	}
 </script>
 
 <%
    	String PersonalPlanChecked = "";
 	String FamilyPlanChecked = "";
+	String personalSpinnerStyle = "";
+	String familySpinnerStyle = "style='display:none'";
 	TravelQuoteBean travelQuote = (TravelQuoteBean)request.getAttribute("travelQuote"); 
     if(travelQuote.getPlanSelected().equalsIgnoreCase("personal")){
   		PersonalPlanChecked = "checked";
     }
     else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){   		
    		FamilyPlanChecked = "checked";   		
+   		personalSpinnerStyle = "style='display:none'";
+   		familySpinnerStyle = "";   		
     } 
 %>
 
@@ -119,8 +129,8 @@
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan desk spinner-->
-                      <input type="hidden" name="familyPlan" id="family_desk_count" value="">
-                      <div class="plan_spinner_desk" id="personal_plan_desk_spinner">
+                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${travelQuote.getTotalFamilyTravellers()}">
+                      <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4>Travellers</h4>
                         </div>
@@ -139,7 +149,7 @@
                       <div class="clearfix"></div>
                       
                       <!-- start of family plan desk spinner-->
-                      <div class="plan_spinner_desk" id="family_plan_desk_spinner">
+                      <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4>Parent</h4>
                         </div>
@@ -147,8 +157,8 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">1</div>
-			                       <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="1"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
+			                       <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -162,8 +172,8 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">1</div>
-                            <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="1"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
+                            <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -176,8 +186,8 @@
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">0</div>
-                            <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="0"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -198,7 +208,7 @@
                 
               <td class="col-md-2 pad-none"> 
               
-                <button type="submit" class="border-radius btn btn-primary get-btn wd2">Get Quote</button>
+                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()">Get Quote</button>
                 </td>
             </tr>
             <tr>
@@ -262,8 +272,8 @@
           <div class="clearfix"></div>
           <hr>
          <!-- Start of personal plan mobile spinner-->
-          <input type="hidden" name="" id="family_mob_count" value="">
-          <div class="plan_spinner_mob" id="personal_plan_mob_spinner">
+          <input type="hidden" name="" id="family_mob_count" value="${travelQuote.getTotalFamilyTravellers()}">
+          <div class="plan_spinner_mob" id="personal_plan_mob_spinner" <%=personalSpinnerStyle%>>
 
           <div class="col-xs-6 col-sm-6">
             <h4>Travellers</h4>
@@ -275,8 +285,8 @@
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">1</div>
-              <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="1"/>
+              <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalPersonalTraveller()}</div>
+              <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${travelQuote.getTotalPersonalTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -288,7 +298,7 @@
          </div>
           <!-- End of personal plan mobile spinner-->
            <!-- Start of family plan mobile spinner-->
-         <div class="plan_spinner_mob" id="family_plan_mob_spinner">
+         <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
 
           <div class="col-xs-6 col-sm-6">
             <h4>Parent</h4>
@@ -300,8 +310,8 @@
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">0</div>
-              <input type="hidden" id="txtAdultsMob" data-min="0" data-max="15" value="0"/>
+              <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
+              <input type="hidden" id="txtAdultsMob" data-min="0" data-max="15" value="${travelQuote.getTotalAdultTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -321,8 +331,8 @@
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">0</div>
-              <input type="hidden" id="txtChildMob" data-min="0" data-max="15" value="0"/>
+              <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
+              <input type="hidden" id="txtChildMob" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -342,8 +352,8 @@
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">0</div>
-              <input type="hidden" id="txtOtherMob" data-min="0" data-max="15" value="0"/>
+              <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
+              <input type="hidden" id="txtOtherMob" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -722,7 +732,7 @@ Embark on an adventure<br>
       <div class="clearfix"></div>
     </div>
     
-    <p>The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information.</p>
+    <p>The information provided in the blogs is for reference only.  While FWD Life Insurance Company (Bermuda) Limited and its affiliates (“FWD”) use reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof.  FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material.  Users should carefully evaluate the information</p>
     
     
     <!--/.row--> 
@@ -787,8 +797,8 @@ Embark on an adventure<br>
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan bottom spinner-->
-                      <input type="hidden" name="" id="family_btm_count" value="">
-                      <div class="plan_spinner_btm" id="personal_plan_btm_spinner">
+                      <input type="hidden" name="" id="family_btm_count" value="${travelQuote.getTotalFamilyTravellers()}">
+                      <div class="plan_spinner_btm" id="personal_plan_btm_spinner" <%=personalSpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4>Travellers</h4>
                         </div>
@@ -807,7 +817,7 @@ Embark on an adventure<br>
                       <div class="clearfix"></div>
                       
                       <!-- start of family plan bottom spinner-->
-                      <div class="plan_spinner_btm" id="family_plan_btm_spinner">
+                      <div class="plan_spinner_btm" id="family_plan_btm_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4>Parent</h4>
                         </div>
@@ -815,8 +825,8 @@ Embark on an adventure<br>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">1</div>
-                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="1"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
+                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -830,8 +840,8 @@ Embark on an adventure<br>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">1</div>
-                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="15" value="1"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
+                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -844,8 +854,8 @@ Embark on an adventure<br>
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">0</div>
-                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="15" value="0"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

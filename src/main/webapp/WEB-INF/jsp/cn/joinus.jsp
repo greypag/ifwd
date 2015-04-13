@@ -103,9 +103,9 @@
 											class="black-bold">會員資料</h3></td>
 								</tr>
 								<tr>
-									<td class="col-sm-4"><label for="txtFullName"
+									<td class="col-sm-3 col-lg-4 col-xs-4"><label for="txtFullName"
 										class="join-us-label">英文全名<br>
-											<small>（與香港身份證號碼/護照號碼相同）</small></label></td>
+											<small>(與香港身份證號碼/ 護照號碼相同)</small></label></td>
 									<td><input type="text"
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="英文全名"
@@ -127,7 +127,7 @@
 								</tr>
 								<tr>
 									<td><label for="txtEmailId"
-										class="join-us-label">電郵地址<br> <small>(保險證書將發送到此電郵地址）</small>
+										class="join-us-label">電郵地址<br> <small>(保險證書將發送到 此電郵地址)</small>
 									</label></td>
 									<td><input type="email"
 										class="form-control" id="txtEmailId"
