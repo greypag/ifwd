@@ -178,7 +178,7 @@
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
 											class="control-label bold-500">Choose Username</label></td>
 										<td class="pad-none"><input type="text"
-											name="regusername" class="form-control  btm-pad-10"
+											name="username" class="form-control  btm-pad-10"
 											 id="Username" placeholder="Username"> <span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
@@ -186,7 +186,7 @@
 										<td class="pad-none"><label
 											class="control-label bold-500">Choose Password</label></td>
 										<td class="pad-none"><input type="password"
-											name="regpassword" class="form-control  btm-pad-10"
+											name="password" class="form-control  btm-pad-10"
 											id="Password" placeholder="Password"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>

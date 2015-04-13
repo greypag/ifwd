@@ -164,7 +164,7 @@
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
 											class="control-label bold-500">用戶名稱</label></td>
 										<td class="pad-none"><input type="text"
-											name="regusername" class="form-control btm-pad-10"
+											name="username" class="form-control btm-pad-10"
 											id="Username" placeholder="用戶名稱"><span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
@@ -172,7 +172,7 @@
 										<td class="pad-none"><label
 											class="control-label bold-500">個人密碼</label></td>
 										<td class="pad-none"><input type="password"
-											name="regpassword" class="form-control btm-pad-10"
+											name="password" class="form-control btm-pad-10"
 											id="Password" placeholder="個人密碼"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>
@@ -324,7 +324,7 @@
 									</h4>
 									<div class="row ">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">受益人全名</label> <input type="text"
+											<label class="bold-500">英文全名</label> <input type="text"
 												name="childName" id="txtChldFullName${inx}" value=""
 												class="form-control " placeholder="與香港身份證號碼/護照號碼相同"
 												onblur="replaceAlpha(this);"
@@ -415,7 +415,7 @@
 									</h4>
 									<div class="row ">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500">受益人全名</label> <input type="text"
+											<label class="bold-500">英文全名</label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
 												class="form-control " placeholder="英文全名（與香港身份證號碼/護照號碼相同）"
 												onblur="replaceAlpha(this);"

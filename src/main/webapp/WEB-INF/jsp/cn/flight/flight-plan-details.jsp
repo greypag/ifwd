@@ -360,10 +360,10 @@
 
 									<div id="adultsbenificiaryId${inx}" class="hide">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500">受益人全名</label> <input type="text"
+											<label class="bold-500">英文全名</label> <input type="text"
 												name="adultBenificiaryFullName"
 												id="adultBenefitiaryId${inx}" value="" class="form-control "
-												placeholder="受益人全名" onblur="replaceAlpha(this);"
+												placeholder="英文全名" onblur="replaceAlpha(this);"
 												onkeypress="  return alphaOnly(event);" maxlength="100" />
 											<span id="erradultBenefitiaryId${inx}" class="text-red">
 											</span>
