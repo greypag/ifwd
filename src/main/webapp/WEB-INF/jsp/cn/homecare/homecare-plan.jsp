@@ -104,7 +104,7 @@
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <script>
-	function applyPromoCode() {
+	/* function applyPromoCode() {
 		$.ajax({
 			type : 'POST',
 			url : 'applyHomePromoCode',
@@ -117,6 +117,30 @@
 			}
 
 		});
+	} */
+	function applyPromoCode() {
+		$.ajax({
+			type : 'POST',
+			url : 'applyHomePromoCode',
+			data : $('#frmHomeCarePlan input').serialize(),
+			success : function(data) {
+
+				var json = JSON.parse(data);
+				console.log(data);
+				console.log("json " + json);
+				setValue(json);
+			}
+
+		});
+	}
+
+	function setValue(result) {
+
+		var totalDue = parseInt(result["priceInfo"].totalDue);
+		$("#subtotal").html(result["priceInfo"].grossPremium);
+		$("#discountAmt").html(result["priceInfo"].discountAmount);
+		$("#amountdue").html(result["priceInfo"].totalDue);
+
 	}
 	function BackMe() {
 		window.history.back();
@@ -165,33 +189,33 @@
 							style="visibility: visible;">
 							<h2>您的選擇</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12">
 							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c1"></div>
+								<div class="order-status has-four">
+									<div class="order-status-timeline-new">
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										
 									</div>
 									<div
-										class="image-order-status image-order-status-new active img-circle act">
+										class="image-order-status image-order-status-new active img-circle act first">
 										<span class="status">您的選擇</span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
-										class="image-order-status image-order-status-intransit  img-circle disabled">
+										class="image-order-status image-order-status-intransit  img-circle disabled second">
 										<span class="status"> 個人資料</span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle disabled">
+										class="image-order-status image-order-status-delivered  img-circle disabled third">
 										<span class="status">總結及付款</span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle disabled">
+										class="image-order-status image-order-status-completed  img-circle disabled fourth">
 										<span class="status lst-status">確認保單</span>
 										<div class="icon">4</div>
 									</div>
@@ -200,9 +224,6 @@
 						</div>
 					</div>
 				</div>
-				<br> <br> <br>
-				
-				
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">選擇計劃</h2>
@@ -548,7 +569,7 @@
 								</div>
 								<h3>推廣編號</h3>
 								<div class="form-group">
-									<div class="input-group">
+									<!-- <div class="input-group">
 										<span class="text-red" id="errPromoCode"></span> <input
 											type="text" id="promoCode" name="promoCode"
 											class="form-control" placeholder="eg.FWD789"> <span
@@ -557,7 +578,16 @@
 											onclick="applyPromoCode()">
 										</span>
 										<!--<input name="promoCode" id="promoCode" type="text" class="form-control placeholder-fl" placeholder="eg.FWD789">
-                  <span class="input-group-addon in"><span class="apply">使用</span></span>-->
+                  <span class="input-group-addon in"><span class="apply">使用</span></span>
+									</div>  -->
+									<div class="input-group">
+										<span class="text-red" id="errPromoCode"></span>
+										<input type="text" id="referralCode" name="referralCode"
+											class="form-control" placeholder="eg.FWD789"> <span
+											class="input-group-addon in black-bold"> <span
+											class="apply pointer" onclick="applyPromoCode()">使用</span>
+											<!-- <input type="button" name="Apply" value="APPLY" onclick="applyPromoCode()"> -->
+										</span>
 									</div>
 								</div>
 
@@ -567,13 +597,13 @@
 								</div>
 							</div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">小計</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="subtotal">${planQuote.getTotalDue()}</h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">-${planQuote.getDiscountAmount()}</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="discountAmt">${planQuote.getDiscountAmount()}</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="amountdue">${planQuote.getTotalDue()}</h3>
 
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
@@ -598,7 +628,7 @@
 									class="bdr-curve btn btn-primary bck-btn">上一頁</button>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<button class="bdr-curve btn btn-primary nxt-btn"
+								<button class="bdr-curve btn btn-primary btn-next"
 									onclick="return pageValidate();">下一頁</button>
 							</div>
 
@@ -624,55 +654,58 @@
 	<!--mob-#bottom-->
 	<!--Apply-->
 
-	<div class="row hidden-lg hidden-md text-center">
+	<div class="hidden-lg hidden-md text-center">
 		<br>
 		<div class="col-sm-12 col-xs-12 gray-bg">
-			<h3 class="col-sm-6 col-xs-6">推廣編號</h3>
-			<h5 class="col-sm-6 col-xs-6 padding7">
-				<a href="" class="sub-link" data-toggle="modal"
-					data-target=".bs-promo-modal-lg"><i>如何取得推廣編號?</i></a>
-			</h5>
-			<div class="clearfix"></div>
-
-			<div class="form-group col-sm-12 col-xs-12">
-				<div class="input-group">
-					<input name="" type="text" class="form-control placeholder-fl"
-						placeholder="eg.FWD789"> <span
-						class="input-group-addon in"><span class="apply">使用</span></span>
-				</div>
+			<div class="row">
+				<h3 class="col-sm-6 col-xs-6 text-left">推廣編號</h3>
+				<h5 class="col-sm-6 col-xs-6 padding7  text-right">
+					<a href="" class="sub-link" data-toggle="modal"
+						data-target=".bs-promo-modal-lg"><i>如何取得推廣編號?</i></a>
+				</h5>
 			</div>
+			<div class="clearfix"></div>
+			<div class="row">
+				<div class="form-group col-sm-12 col-xs-12">
+					<div class="input-group">
+						<input name="" type="text" class="form-control placeholder-fl"
+							placeholder="eg.FWD789"> <span
+							class="input-group-addon in" onclick="applyPromoCode()"><span class="apply">使用</span></span>
+					</div>
+				</div>
+				</div>
 		</div>
 
 	</div>
 	
 	<!-- fix 下一頁  button for Moible -->
 			<div class="row-fluid hidden-lg hidden-md text-center">
-			<div class="">
+			
 			
 				<button type="submit"
-					class="btn-box bdr-curve btn btn-primary nxt-btn">
-					<h3 class="text-center marg-t">下一頁</h3>
+					class="btn-box bdr-curve btn btn-primary btn-next">
+					下一頁
 				</button>
 			<!-- 		
 				<button class="bdr-curve btn btn-primary nxt-btn"
 									onclick="return pageValidate();">下一頁</button>
 									-->
-				
-			</div>
+				</div>
+			
 			
 			</form:form>
 	<!-- fix 下一頁  button for Moible -->
-
+<!-- 
 	<div class="row-fluid hidden-lg hidden-md text-center">
 		<div class="btn-box">
 			<h3 class="text-center">
 				<a href="http://blog.fwd.com.hk" target="_blank">博客</a>
 			</h3>
 		</div>
-		<!--
-		<p class="text-center mob-bottom">&copy; 2015 FWD 富衛香港 版權所有 不得轉載</p>
-		-->
-	</div>
+	
+		<p class="text-center mob-bottom">&copy; 2015 FWD 富衛香港 版權所有 不得轉載</p> // This was commented
+		
+	</div> -->
 	<!--/mob-#bottom-->
 
 
@@ -716,10 +749,6 @@
 		</div>
 	</div>
 	<!--/ Get promotion code popup-->
-
-
-
-
-
 </body>
+
 </html>
