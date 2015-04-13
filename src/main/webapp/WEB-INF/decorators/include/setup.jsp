@@ -16,6 +16,17 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
 <script>
+
+	// handle when console is null/undefined especially in IE
+	if (typeof console == "undefined") {
+		this.console = {
+	    	log: function() {},
+	    	info: function() {},
+	    	error: function() {},
+	    	warn: function() {}
+	  	};
+	}
+	
 	// global variables
 	var UILANGUAGE = '<%=session.getAttribute("language")%>';
 	
