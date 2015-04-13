@@ -234,7 +234,7 @@ id="box<%=i%>">
 									<span id="totalDue"></span>
 									<h6><%=travelQuote.getToalDue()[i]%></h6>
 									<p>
-										<!-- <del> 540</del> -->
+										 <del><%=travelQuote.getGrossPremium()[i]%></del> 
 									</p>
 								</div>
 								<div class="clearfix"></div>

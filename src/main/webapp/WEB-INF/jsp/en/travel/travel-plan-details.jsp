@@ -178,7 +178,7 @@
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
 											class="control-label bold-500">Choose Username</label></td>
 										<td class="pad-none"><input type="text"
-											name="regusername" class="form-control  btm-pad-10"
+											name="username" class="form-control  btm-pad-10"
 											 id="Username" placeholder="Username"> <span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
@@ -186,7 +186,7 @@
 										<td class="pad-none"><label
 											class="control-label bold-500">Choose Password</label></td>
 										<td class="pad-none"><input type="password"
-											name="regpassword" class="form-control  btm-pad-10"
+											name="password" class="form-control  btm-pad-10"
 											id="Password" placeholder="Password"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>
@@ -584,22 +584,22 @@
 							<div class="orange-bdr"></div>
 							<div class="form-container">
 								<h3 class="txt-bold">
-									Departure date<a href="<%=request.getContextPath()%>"> <span
-										class="span2 uline">Change</span></a>
+									出發日期 <a href="<%=request.getContextPath()%>/travel"> <span
+										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrLeavingDate()}</h4>
 								<input type="hidden" name="departureDate" id="departureDate"
 									value="${travelQuote.getTrLeavingDate()}">
 								<h3 class="txt-bold">
-									Return date<a href="<%=request.getContextPath()%>"> <span
-										class="span2 uline">Change</span></a>
+									回程日期 <a href="<%=request.getContextPath()%>/travel"><span
+										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrBackDate()}</h4>
 								<input type="hidden" name="backDate" id="backDate"
 									value="${travelQuote.getTrBackDate()}">
 								<h3 class="txt-bold">
-									Travellers <a href="<%=request.getContextPath()%>"><span
-										class="span2 uline">Change</span></a>
+									同行人數 <a href="<%=request.getContextPath()%>/travel"> <span
+										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>
 								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}">Traveller(s): ${travelQuote.getTotalPersonalTraveller()}
