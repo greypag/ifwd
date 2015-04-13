@@ -971,9 +971,9 @@ var promoData = '';
 									   else 
 									   {
 									%>
-											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 父母 <br></c:if>
-											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 孩子 <br></c:if>
-											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他 <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 家長 <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 子女 <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他旅客 <br></c:if>
 									<% }
 									%>
 									</div>
