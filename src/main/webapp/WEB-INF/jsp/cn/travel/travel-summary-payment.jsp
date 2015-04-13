@@ -207,7 +207,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><span class="">自己 地產</span></td>
+										<td ><span class="">個人遺產</span></td>
 										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
 										<td  class="gy"><%=planDetailsForm.getAdultBeneficiary()[i]%></td>
 										<% } %>
@@ -252,7 +252,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td >自己 地產</td>
+										<td >個人遺產</td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
 										<td  class="gy"><%=planDetailsForm.getChildBeneficiary()[i]%></td>
 										<% } %>
@@ -295,7 +295,7 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td >自己 地產</td>
+										<td >個人遺產</td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td  class="gy"><%=planDetailsForm.getOtherBeneficiary()[i]%></td>
 										<% } %>

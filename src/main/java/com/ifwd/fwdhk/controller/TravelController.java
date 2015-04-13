@@ -999,15 +999,18 @@ public class TravelController {
 				JSONObject beneficiary = new JSONObject();
 				child.put("name", planDetailsForm.getChildName()[inx]);
 				child.put("ageRange", planDetailsForm.getChildAgeRange()[inx]);
-				/* child.put(hkId, planDetailsForm.getChildHKID()[inx]); */
-				/* child.put("passport", "5432" + inx); */
-				/* child.put(passId, ""); */
-				beneficiary.put(
+				
+				
+				
+				
+				
+				
+				child.put(
 						hkId,
 						checkPasswortAndHkid(hkId,
 								planDetailsForm.getSelectedChldHkidPass()[inx],
 								planDetailsForm.getChildHKID()[inx]));
-				beneficiary.put(
+				child.put(
 						passId,
 						checkPasswortAndHkid(passId,
 								planDetailsForm.getSelectedChldHkidPass()[inx],
@@ -1120,9 +1123,6 @@ public class TravelController {
 				JSONObject other = new JSONObject();
 				other.put("name", planDetailsForm.getOtherName()[inx]);
 				other.put("ageRange", planDetailsForm.getOtherAgeRange()[inx]);
-				/* other.put(hkId, planDetailsForm.getOtherHKID()[inx]); */
-				/* other.put("passport", "9123" + inx); */
-				/* other.put(passId, ""); */
 				other.put(
 						hkId,
 						checkPasswortAndHkid(hkId,
@@ -1137,8 +1137,6 @@ public class TravelController {
 
 				JSONObject beneficiary = new JSONObject();
 
-				/* String strings = planDetailsForm.getAdultBeneficiary()[inx]; */
-				/* JSONObject beneficiary = new JSONObject(); */
 				if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getOtherBenificiaryFullName()[inx]
 							.isEmpty()) {

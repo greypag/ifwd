@@ -29,6 +29,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -376,8 +377,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String homePage(HttpServletRequest req) {
+	public String homePage(HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession(true);
+		String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		
 		String dir = UserRestURIConstants.checkLangSetPage(req);
 		
 //		session.setAttribute("language", "EN");

@@ -377,7 +377,7 @@ public class FlightController {
 			iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+				//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 				if (mapEntry.getKey().equals("1"))
 					mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
 				
