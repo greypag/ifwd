@@ -584,22 +584,22 @@
 							<div class="orange-bdr"></div>
 							<div class="form-container">
 								<h3 class="txt-bold">
-									Departure date<a href="<%=request.getContextPath()%>"> <span
-										class="span2 uline">Change</span></a>
+									出發日期 <a href="<%=request.getContextPath()%>/travel"> <span
+										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrLeavingDate()}</h4>
 								<input type="hidden" name="departureDate" id="departureDate"
 									value="${travelQuote.getTrLeavingDate()}">
 								<h3 class="txt-bold">
-									Return date<a href="<%=request.getContextPath()%>"> <span
-										class="span2 uline">Change</span></a>
+									回程日期 <a href="<%=request.getContextPath()%>/travel"><span
+										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>${travelQuote.getTrBackDate()}</h4>
 								<input type="hidden" name="backDate" id="backDate"
 									value="${travelQuote.getTrBackDate()}">
 								<h3 class="txt-bold">
-									Travellers <a href="<%=request.getContextPath()%>"><span
-										class="span2 uline">Change</span></a>
+									同行人數 <a href="<%=request.getContextPath()%>/travel"> <span
+										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>
 								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}">Traveller(s): ${travelQuote.getTotalPersonalTraveller()}
