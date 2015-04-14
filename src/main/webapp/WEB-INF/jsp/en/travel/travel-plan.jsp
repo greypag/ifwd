@@ -1266,6 +1266,9 @@
 					<div class="form-container">
 						<h2>Don't have a promotion code? Enter your email address and
 							we'll send you one.</h2>
+							
+							<div class="alert alert-success hide proSuccess"></div>
+
 						<h4>Email</h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
@@ -1361,6 +1364,7 @@
 	}
 
 	function sendEmail() {
+		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
@@ -1370,8 +1374,10 @@
 				success : function(data) {
 					
 					if (data == 'success') {
+						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
 					} else {
-
+						
+						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
 
 				},
@@ -1381,4 +1387,5 @@
 		}
 		return false;
 	}
+	
 </script>
