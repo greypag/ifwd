@@ -124,10 +124,25 @@ public class HomeCareController {
 			String pageMetaDataDescription = WebServiceUtils
 					.getPageTitle("meta.homeCare",
 							UserRestURIConstants.getLanaguage(request));
+			
+			String ogTitle = WebServiceUtils.getPageTitle("flight.og.title", UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle("flight.og.type", UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle("flight.og.url", UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle("flight.og.image", UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle("flight.og.description", UserRestURIConstants.getLanaguage(request));
+
+			
+			
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription",
 					pageMetaDataDescription);
 
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
+			
 			return UserRestURIConstants.checkLangSetPage(request)
 					+ "homecare/homecare";
 
@@ -179,6 +194,7 @@ public class HomeCareController {
 				userReferralCode, answer1, answer2,
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("planQuote", planQuote);
+		request.setAttribute("planQuote", planQuote);
 		model.addAttribute("answer1", answer1);
 		model.addAttribute("answer2", answer2);
 		String pageTitle = WebServiceUtils.getPageTitle(

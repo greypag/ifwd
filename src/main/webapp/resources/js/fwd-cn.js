@@ -372,16 +372,18 @@ function replaceNumeric(id) {
     id.value = string;
 }
 function alphaOnly(evt) {
-    evt = (evt) ? evt : event;
-    var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
-    if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
-        return false;
-    }
+//    evt = (evt) ? evt : event;
+//    var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+//    if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+//        return false;
+//    }
     return true;
 }
 function replaceAlpha(id) {
-    var string = id.value;
-    string = string.replace(/[^a-zA-Z0-9 ]/g, '');
+	var string = id.value;
+//    string = string.replace(/[^a-zA-Z0-9 ]/g, '');
+//    id.value = string;
+//    
     id.value = string;
 }
 

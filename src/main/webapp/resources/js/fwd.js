@@ -651,6 +651,18 @@ function fPlanValid()
 	return flag;
 
 }
+
+function allLetter(inputtxt) {
+	var letters = /^[A-Za-z]+$/;
+	console.log("all letter called");
+	if (inputtxt.match(letters)) {
+		
+		return true;
+	} else {
+		
+		return false;
+	}
+}	
 $(function () {
 	if($('#inputFullName').length > 0){   // run only for the flight-plan-details page
 		
@@ -794,6 +806,16 @@ $(function () {
 					$("#errtxtChldFullName"+errNo).html( getBundle(getBundleLanguage, "insured.name.notNull.message"));//"Please enter your Name in English.";
 					return false;
 				}
+				
+				if (allLetter(fullname) == false) {
+					
+					$("#fullnameinvalid")
+							.html(
+									getBundle(getBundleLanguage,
+											"applicant.name.notNull.message"));
+					return false;
+				}
+					
 				$("#errtxtChldFullName"+errNo).html('');
 		});
 		$( "input[id^='txtChldInsuHkid']" ).on( "change blur", function() {
