@@ -167,6 +167,8 @@ public class WebServiceUtils {
 				desc = "姊妹";
 			else if (relationship.equals("SP"))
 				desc = "配偶";
+			else if (relationship.equals("FM"))
+				desc = "未婚夫";			
 			else if (relationship.equals("GP"))
 				desc = "祖父母";
 			else if (relationship.equals("GR"))

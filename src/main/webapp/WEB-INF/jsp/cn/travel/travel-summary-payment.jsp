@@ -207,9 +207,9 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><span class="">個人遺產</span></td>
+										<td ></td>	<!-- hide relationship if insured -->
 										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getAdultBeneficiary()[i]%></td>
+										<td  class="gy"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
 										<% } %>
 									</tr>
 									<tr><td>&nbsp;</td></tr>
@@ -252,9 +252,9 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td >個人遺產</td>
+										<td ></td>	<!-- hide relationship if insured -->
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getChildBeneficiary()[i]%></td>
+										<td  class="gy"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
 										<% } %>
 									</tr>
 									<tr><td>&nbsp;</td></tr>
@@ -295,9 +295,9 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td >個人遺產</td>
+										<td ></td>	<!-- hide relationship if insured -->
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getOtherBeneficiary()[i]%></td>
+										<td  class="gy"><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
 										<% } %>
 									</tr>
 									<tr><td>&nbsp;</td></tr>
@@ -338,7 +338,7 @@
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
 										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
 										<td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-										<td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultRelationDesc()[i]%></span></td>
+										<td data-title="Relationship"><span class="h4-5"></span></td>	<!-- hide relationship if insured -->
 									</tr>
 									<%
 										if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
@@ -367,9 +367,8 @@
 											<%=i + 1%></span></td>
 									<td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
 									<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
-									<td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>
-									
-									<td class="h4-5" data-title="Relationship"><%=planDetailsForm.getChildRelationDesc()[i]%></td>
+									<td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>									
+									<td class="h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
 								</tr>
 								<%
 									if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
@@ -399,8 +398,7 @@
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
 										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
-										
-										<td class=" h4-5" data-title="Relationship"><%=planDetailsForm.getOtherRelationDesc()[i]%></td>
+										<td class=" h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
 									</tr>
 									<%
 										if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
@@ -409,8 +407,7 @@
 										<td data-title="Adult1"><span class="h4-6-td">受益人</span></td>
 										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherHKID()[i]%></td>
-										
+										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherHKID()[i]%></td>										
 										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
