@@ -837,7 +837,7 @@
 												<div class="hk1">HK$</div>
 												<div class="hk1 top-mrg-10">
 													<div class="flightcare-hk">
-														${homeQuoteDetails.getTotalDue()}</div>
+														<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
 												</div>
 											</div>
 										</div>
