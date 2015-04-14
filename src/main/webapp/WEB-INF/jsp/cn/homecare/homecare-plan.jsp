@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,9 +139,10 @@
 	function setValue(result) {
 
 		var totalDue = parseInt(result["priceInfo"].totalDue);
-		$("#subtotal").html(result["priceInfo"].grossPremium);
-		$("#discountAmt").html(result["priceInfo"].discountAmount);
-		$("#amountdue").html(result["priceInfo"].totalDue);
+		$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
+		$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
+		$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+
 
 	}
 	function BackMe() {
@@ -224,6 +227,9 @@
 						</div>
 					</div>
 				</div>
+								<%
+							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
+				
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">選擇計劃</h2>
@@ -262,7 +268,7 @@
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 								<br>
 								<h3>港幣</h3>
-								<h6><span id="grossPremium">${planQuote.getGrossPremium()}</span></h6>
+								<h6><span id="grossPremium"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span></h6>
 							</div>
 							<div class="clearfix"></div>
 
@@ -555,7 +561,7 @@
 									<div class="text-left pad-right1 h2-2 h2">
 										<div class="hk">
 											港幣
-											<div class="flightcare-hk">${planQuote.getGrossPremium()}</div>
+											<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
 										</div>
 									</div>
 								</div>
@@ -597,13 +603,15 @@
 								</div>
 							</div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">小計</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="subtotal">${planQuote.getTotalDue()}</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="subtotal"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>
+</h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="discountAmt">${planQuote.getDiscountAmount()}</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="discountAmt"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%>
+</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="amountdue">${planQuote.getTotalDue()}</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" id="amountdue"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
 
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
