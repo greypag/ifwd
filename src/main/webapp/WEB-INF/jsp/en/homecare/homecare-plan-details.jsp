@@ -788,7 +788,7 @@
 								<div class="checkbox">
 									<input id="checkbox2" name="declarration2" type="checkbox">
 									<label for="checkbox2">I have read and understood <a
-										href="<%=request.getContextPath()%>resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 										 class="sub-link" target="_blank"> Personal Information Collection
 											Statement</a> and agree to be bound by the same. <br> 
 									</label>
