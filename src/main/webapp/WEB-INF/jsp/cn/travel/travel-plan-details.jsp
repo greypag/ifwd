@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
@@ -208,12 +209,12 @@
 												配偶 
 												</c:when>
 													<c:when test="${totalAdultCount != 2}">
-												成人旅客 <c:out value="${inx-1}"></c:out>
+												旅客 <c:out value="${inx-1}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
 											<c:when test="${inx == 1}">
-											我自己 
+											自己 
 										</c:when>	
 										</c:choose>
 									</h4>
@@ -607,10 +608,26 @@
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>
-									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">旅客 ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>孩子 ${travelQuote.getTotalChildTraveller()}</c:if>
-			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他旅客 ${travelQuote.getTotalOtherTraveller()}</c:if>
+								<%	
+									QuoteDetails travelQuote = null;
+							 		if (travelQuote == null) {
+							 			//System.out.println("travelQuote is null 2");
+							 			travelQuote = (QuoteDetails) session.getAttribute("tq");
+							 		}
+								
+									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									{ 
+								%>
+										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">旅客: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+								<%  }
+									else
+									{
+								%>
+									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">家長: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>子女: ${travelQuote.getTotalChildTraveller()}</c:if>
+			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他旅客: ${travelQuote.getTotalOtherTraveller()}</c:if>
 		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
+		                        <%  } %>
 								</h4>
 								
 								<input type="hidden" name="planSelected" value="${travelQuote.getPlanSelected()}">
