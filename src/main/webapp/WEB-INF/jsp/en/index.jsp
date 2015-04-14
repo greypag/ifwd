@@ -126,7 +126,7 @@
 				<div class="item active item-border">
 					<div
 						class="col-lg-12 col-md-12 hidden-xs pad-none homecare home-main homecare-hei center">
-						<h2>A whole new insurance experience with FWD</h2>
+						<h2></h2>
 
 						<a href="flight" class="border-radius btn btn-primary  home-btn">Flight
 							Insurance</a> <a href="travel"
@@ -147,7 +147,7 @@
 		</div>
 		<div
 			class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
-			<h2 class="center">A whole new insurance experience with FWD</h2>
+			<h2 class="center"></h2>
 			<div class="col-sm-12 col-xs-12">
 				<a href="flight"
 					class="border-radius btn btn-primary  home-btn home-btn-main">Flight

@@ -251,6 +251,9 @@ public class TravelController {
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
 
+			
+
+			
 			if (travelQuote.getPlanSelected().equals("personal")) {
 				selfCover = true;
 				spouseCover = false;
@@ -262,8 +265,8 @@ public class TravelController {
 
 			} else {
 				travelQuote.setTotalPersonalTraveller(0);
-				childCount = travelQuote.getTotalChildTraveller();
 				adultCount = travelQuote.getTotalAdultTraveller();
+				childCount = travelQuote.getTotalChildTraveller();
 				otherCount = travelQuote.getTotalOtherTraveller();
 				selfCover = true;
 				if (adultCount > 1) {

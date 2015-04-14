@@ -180,7 +180,7 @@
             <h3>你已成功申請富衛易安心家居保。確認電郵將會發送至 <strong>${emailAddress}</strong> , 內附保單內容及細節。</h3>
             <h4>申請編號:<span> ${policyNo }</span></h4>
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-            <h5>您的專屬推廣編號:<span> ${referralCode}</span></h5>
+            <h5>您的專屬推廣編號:<span> <%=session.getAttribute("myReferralCode")%></span></h5>
             <div class="h4-3-b margin-left">與朋友分享,一同取得更多富衛合作夥伴之優惠!</div>
             </div>
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -190,7 +190,7 @@
          <div class="h4-2 margin-left">立即分享您的專屬推廣編號,尊享額外優惠!</div>
          
          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http i.fwd.com.hk travel referal?${referralCode}</a></div>
+         <div class=" wht-bg1 text-center"><a class="padding6 h4-5-b " href="">http://uat-ecom.i.fwd.com.hk/travel?promo=<%=session.getAttribute("myReferralCode")%></a></div>
           <div class=" text-left">
                 <a class="sub-link other-share">其他途徑分享</a>
               </div>

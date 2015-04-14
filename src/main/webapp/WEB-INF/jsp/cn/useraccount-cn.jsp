@@ -253,7 +253,7 @@ Tag Manager -->
                   </tr>
                   <tr>
                     <td class="pad-none">
-                    <p>您的專屬推廣編號:<span class="h2-1"> JOHNDOE0001</span><br>
+                    <p>您的專屬推廣編號:<span class="h2-1"><%=session.getAttribute("myReferralCode")%></span><br>
                        與朋友分享，一同取得更多富衛合作夥伴之優惠!<span class="orange-star">*</span> 
                     </p>
                          <div class="clearfix"></div>
@@ -265,7 +265,7 @@ Tag Manager -->
                     <td class="pad-none"><h3 class="h4-3-b">立即分享您的專屬推廣編號，尊享額外優惠!</h3></td>
                   </tr>
                  <!-- <tr>
-                    <td class=" gry-bg1 text-center"><a class="padding6 h4-5-b " href="">http i.fwd.com.hk travel referal?johndoe0001</a></td>
+                    <td class=" gry-bg1 text-center"><a class="padding6 h4-5-b " href="">http://uat-ecom.i.fwd.com.hk/travel?promo=<%=session.getAttribute("myReferralCode")%></a></td>
                   </tr>-->
                   <tr>
                     <td class="pad-none">

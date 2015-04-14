@@ -235,18 +235,26 @@ public class FlightController {
 
 		if (planDetails.getPlanSelected().equals("personal")) {
 			selfCover = true;
+			spouseCover = false;
 			otherCount = planDetails.getTravellerCount();
 			planDetails.setTotalChildTraveller(0);
 			planDetails.setTotalAdultTraveller(0);
 			planDetails.setTotalOtherTraveller(0);
+			otherCount = otherCount - 1;
 
 		} else if (planDetails.getPlanSelected().equals("family")) {
-			spouseCover = true;
 			selfCover = true;
+			
+			
 			planDetails.setTravellerCount(0);
 			childCount = planDetails.getTotalChildTraveller();
 			adultCount = planDetails.getTotalAdultTraveller();
-			otherCount = planDetails.getTotalOtherTraveller() + adultCount;
+			if (adultCount > 1 ) 
+				spouseCover = true;
+			else
+				spouseCover = false;
+			
+			otherCount = planDetails.getTotalOtherTraveller();
 		}
 		TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
 		travelQuoteCount.setSelfCover(selfCover);
@@ -257,7 +265,7 @@ public class FlightController {
 		String base = UserRestURIConstants.GETFLIGHTQUOTE
 				+ "?planCode=FlightCare" + "&selfCover=" + selfCover
 				+ "&spouseCover=" + spouseCover + "&childInput=" + childCount
-				+ "&otherInput=" + (otherCount - 1) + "&commencementDate="
+				+ "&otherInput=" + otherCount + "&commencementDate="
 				+ commencementDate + "&expiryDate=" + expiryDate
 				+ "&referralCode=" + userReferralCode;
 
@@ -828,19 +836,26 @@ public class FlightController {
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
 
-			if (createFlightPolicy.getPlanSelected().equals("personal")) {
-				selfCover = true;
-				otherCount += (createFlightPolicy.getTravellerCount() + createFlightPolicy
-						.getTotalAdultTraveller());
-			} else {
-				spouseCover = true;
-				selfCover = true;
-				childCount = createFlightPolicy.getTotalChildTraveller();
-				adultCount = createFlightPolicy.getTotalAdultTraveller();
-				otherCount = createFlightPolicy.getTotalOtherTraveller()
-						+ adultCount;
-			}
-
+//			if (createFlightPolicy.getPlanSelected().equals("personal")) {
+//				selfCover = true;
+//				otherCount += (createFlightPolicy.getTravellerCount() + createFlightPolicy
+//						.getTotalAdultTraveller());
+//			} else {
+//				spouseCover = true;
+//				selfCover = true;
+//				childCount = createFlightPolicy.getTotalChildTraveller();
+//				adultCount = createFlightPolicy.getTotalAdultTraveller();
+//				otherCount = createFlightPolicy.getTotalOtherTraveller()
+//						+ adultCount;
+//			}
+			//RETRIEVE FROM SESSION OF PREVIOUSLY QUOTATION
+			TravelQuoteBean travelQuoteCount = (TravelQuoteBean) session.getAttribute("travelQuoteCount");
+			selfCover = travelQuoteCount.isSelfCover();
+			spouseCover= travelQuoteCount.isSpouseCover();
+			childCount = travelQuoteCount.getTotalChildTraveller();
+			otherCount = travelQuoteCount.getTotalOtherTraveller();
+			
+			
 			
 			
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"

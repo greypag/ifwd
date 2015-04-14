@@ -265,7 +265,7 @@ Tag Manager -->
                     <td class="pad-none"><h3 class="h4-3-b">立即分享您的專屬推廣編號，尊享額外優惠!</h3></td>
                   </tr>
                  <!-- <tr>
-                    <td class=" gry-bg1 text-center"><a class="padding6 h4-5-b " href="">http i.fwd.com.hk travel referal?johndoe0001</a></td>
+                    <td class=" gry-bg1 text-center"><a class="padding6 h4-5-b " href="">http://uat-ecom.i.fwd.com.hk/travel?promo=</a></td>
                   </tr>-->
                   <tr>
                     <td class="pad-none">
