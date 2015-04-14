@@ -661,7 +661,7 @@
 								<br>
 								<h4>
 
-								<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">位家長: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
+								<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">家長: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
 								<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }">子女: ${planDetailsForm.getTotalChildTraveller()} <br></c:if>
 								<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}">其他旅客: ${planDetailsForm.getTotalOtherTraveller()} <br></c:if>
 								<c:if test="${planDetailsForm.getTravellerCount() !=0}">旅客： ${planDetailsForm.getTravellerCount()}</c:if>
