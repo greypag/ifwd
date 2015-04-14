@@ -3,6 +3,7 @@
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 <script>
 	function submitLoginForm(formID) {
+		
 		$('#ajax-loading').show();
 		$('#login-err-msg').html("");
 		$('#login-err-msg').hide();
@@ -199,7 +200,7 @@
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm(loginform);"
+														<button type="button" onclick="return submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5">Log
 															In</button>
 													</div>

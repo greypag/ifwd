@@ -785,7 +785,8 @@ public class TravelController {
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-
+		
+		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
 
@@ -840,156 +841,115 @@ public class TravelController {
 							planDetailsForm.getSelectedAdHkidPass()[inx],
 							planDetailsForm.getAdultHKID()[inx]));
 
-			/* adult.put("hkId", planDetailsForm.getAdultHKID()[inx]); */
-			/* adult.put("passport", "1234" + inx); */
-			/* adult.put("passport", ""); */
+
 			if (inx != 0) {// For other travelers skip first one
+				
 				if (planDetailsForm.getPlanSelected().equals("personal")) {
 					adult.put("relationship", "FE");
 				} else {
 					adult.put("relationship", "SP");
 				}
+				
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
-							.isEmpty()) {// If have beneficiary
-						beneficiary
-								.put("name", planDetailsForm
-										.getAdultBenificiaryFullName()[inx]);
+					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty() 
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
+						beneficiary.put("name", planDetailsForm.getAdultBenificiaryFullName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm
-														.getAdultBenificiaryHkid()[inx]));
+												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+												planDetailsForm.getAdultBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm
-														.getAdultBenificiaryHkid()[inx]));
-						beneficiary.put("relationship",
-								planDetailsForm.getAdultBeneficiary()[inx]);
+												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+												planDetailsForm.getAdultBenificiaryHkid()[inx]));
+						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name",
-								planDetailsForm.getAdultName()[inx]);
+						beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedAdHkidPass()[inx],
+												planDetailsForm.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedAdHkidPass()[inx],
+												planDetailsForm.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						adult.put("beneficiary", beneficiary);
+						
+						// clear bene info if bene relationship is SE
+						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
+						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
+						
 					}
 				} else {// If don't have beneficiary then
-					beneficiary
-							.put("name", planDetailsForm.getAdultName()[inx]);
-					/*
-					 * beneficiary.put(hkId,
-					 * planDetailsForm.getAdultHKID()[inx]);
-					 */
-					/* beneficiary.put("passport", "3451" + inx); */
-					/* beneficiary.put(passId, ""); */
+					beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
 					beneficiary
 							.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedAdHkidPass()[inx],
+									checkPasswortAndHkid(hkId, 
+											planDetailsForm.getSelectedAdHkidPass()[inx],
 											planDetailsForm.getAdultHKID()[inx]));
 					beneficiary
 							.put(passId,
 									checkPasswortAndHkid(
 											passId,
-											planDetailsForm
-													.getSelectedAdHkidPass()[inx],
+											planDetailsForm.getSelectedAdHkidPass()[inx],
 											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary.put("relationship",
-							"SE");
-					adult.put("beneficiary", beneficiary);
+					beneficiary.put("relationship", "SE");
+					adult.put("beneficiary", beneficiary);				
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
 				adult.put("relationship", relationOfSelfTraveller);
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
-							.isEmpty()) {// If have beneficiary
-						beneficiary
-								.put("name", planDetailsForm
-										.getAdultBenificiaryFullName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getAdultBenificiaryHkid()[inx]);
-						 */
-						/* beneficiary.put("passport", "3451" + inx); */
-						/* beneficiary.put(passId, ""); */
+					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
+						beneficiary.put("name", planDetailsForm.getAdultBenificiaryFullName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm
-														.getAdultBenificiaryHkid()[inx]));
+												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+												planDetailsForm.getAdultBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm
-														.getAdultBenificiaryHkid()[inx]));
-						beneficiary.put("relationship",
-								planDetailsForm.getAdultBeneficiary()[inx]);
+												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+												planDetailsForm.getAdultBenificiaryHkid()[inx]));
+						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name",
-								planDetailsForm.getAdultName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getAdultHKID()[inx]);
-						 */
-						/* beneficiary.put("passport", "3451" + inx); */
-						/* beneficiary.put(passId, ""); */
+						beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedAdHkidPass()[inx],
+												planDetailsForm.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedAdHkidPass()[inx],
+												planDetailsForm.getSelectedAdHkidPass()[inx],
 												planDetailsForm.getAdultHKID()[inx]));
 
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						adult.put("beneficiary", beneficiary);
+						
+						// clear bene info if bene relationship is SE
+						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
+						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary then
-					beneficiary
-							.put("name", planDetailsForm.getAdultName()[inx]);
-					/*
-					 * beneficiary.put(hkId,
-					 * planDetailsForm.getAdultHKID()[inx]);
-					 */
-					/* beneficiary.put("passport", "3451" + inx); */
-					/* beneficiary.put(passId, ""); */
+					beneficiary .put("name", planDetailsForm.getAdultName()[inx]);
 					beneficiary
 							.put(hkId,
 									checkPasswortAndHkid(hkId, planDetailsForm
@@ -1031,11 +991,6 @@ public class TravelController {
 				child.put("name", planDetailsForm.getChildName()[inx]);
 				child.put("ageRange", planDetailsForm.getChildAgeRange()[inx]);
 				
-				
-				
-				
-				
-				
 				child.put(
 						hkId,
 						checkPasswortAndHkid(hkId,
@@ -1051,45 +1006,25 @@ public class TravelController {
 				/* String strings = planDetailsForm.getAdultBeneficiary()[inx]; */
 				/* JSONObject beneficiary = new JSONObject(); */
 				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getChildBenificiaryFullName()[inx]
-							.isEmpty()) {// If have beneficiary
-						beneficiary
-								.put("name", planDetailsForm
-										.getChildBenificiaryFullName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getChildBenificiaryHkid()[inx]);
-						 */
-						/* beneficiary.put("passport", "2345" + inx); */
-						/* beneficiary.put(passId, ""); */
+					if (!planDetailsForm.getChildBenificiaryFullName()[inx].isEmpty()
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If have beneficiary
+						beneficiary.put("name", planDetailsForm.getChildBenificiaryFullName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedChldBenefitiaryHkidPass()[inx],
-												planDetailsForm
-														.getChildBenificiaryHkid()[inx]));
+												planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
+												planDetailsForm.getChildBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedChldBenefitiaryHkidPass()[inx],
-												planDetailsForm
-														.getChildBenificiaryHkid()[inx]));
-						beneficiary.put("relationship",
-								planDetailsForm.getChildBeneficiary()[inx]);
+												planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
+												planDetailsForm.getChildBenificiaryHkid()[inx]));
+						beneficiary.put("relationship", planDetailsForm.getChildBeneficiary()[inx]);
 						child.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name",
-								planDetailsForm.getChildName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getChildHKID()[inx]);
-						 */
-						/* beneficiary.put("passport", "9876" + inx); */
-						/* beneficiary.put(passId, ""); */
+						beneficiary.put("name", planDetailsForm.getChildName()[inx]);
 						beneficiary.put(
 								hkId,
 								checkPasswortAndHkid(hkId, planDetailsForm
@@ -1100,19 +1035,15 @@ public class TravelController {
 								checkPasswortAndHkid(passId, planDetailsForm
 										.getSelectedChldHkidPass()[inx],
 										planDetailsForm.getChildHKID()[inx]));
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship", "SE");
 						child.put("beneficiary", beneficiary);
+						
+						// clear bene info if bene relationship is SE
+						planDetailsForm.getChildBenificiaryFullName()[inx] = "";
+						planDetailsForm.getChildBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary
-					beneficiary
-							.put("name", planDetailsForm.getChildName()[inx]);
-					/*
-					 * beneficiary.put(hkId,
-					 * planDetailsForm.getChildHKID()[inx]);
-					 */
-					/* beneficiary.put("passport", "9876" + inx); */
-					/* beneficiary.put(passId, ""); */
+					beneficiary.put("name", planDetailsForm.getChildName()[inx]);
 					beneficiary
 							.put(hkId,
 									checkPasswortAndHkid(hkId, planDetailsForm
@@ -1125,8 +1056,7 @@ public class TravelController {
 											planDetailsForm
 													.getSelectedChldHkidPass()[inx],
 											planDetailsForm.getChildHKID()[inx]));
-					beneficiary.put("relationship",
-							"SE");
+					beneficiary.put("relationship","SE");
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
@@ -1169,70 +1099,46 @@ public class TravelController {
 				JSONObject beneficiary = new JSONObject();
 
 				if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getOtherBenificiaryFullName()[inx]
-							.isEmpty()) {
-						beneficiary
-								.put("name", planDetailsForm
-										.getOtherBenificiaryFullName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getOtherBenificiaryHkid()[inx]);
-						 */
-						/* beneficiary.put("passport", "9234" + inx); */
-						/* beneficiary.put(passId, ""); */
+					if (!planDetailsForm.getOtherBenificiaryFullName()[inx].isEmpty()
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getOtherBeneficiary()[inx]) != 0) {
+						beneficiary.put("name", planDetailsForm.getOtherBenificiaryFullName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedOtherBenefitiaryHkidPass()[inx],
-												planDetailsForm.getOtherHKID()[inx]));
+												planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
+												planDetailsForm.getOtherBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedOtherBenefitiaryHkidPass()[inx],
-												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary.put("relationship",
-								planDetailsForm.getOtherBeneficiary()[inx]);
+												planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
+												planDetailsForm.getOtherBenificiaryHkid()[inx]));
+						beneficiary.put("relationship", planDetailsForm.getOtherBeneficiary()[inx]);
 						other.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name",
-								planDetailsForm.getOtherName()[inx]);
-						/*
-						 * beneficiary.put(hkId,
-						 * planDetailsForm.getOtherHKID()[inx]);
-						 */
-						/* beneficiary.put("passport", "8912" + inx); */
-						/* beneficiary.put(passId, ""); */
+						beneficiary.put("name",planDetailsForm.getOtherName()[inx]);
 						beneficiary
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm
-														.getSelectedOtHkidPass()[inx],
+												planDetailsForm.getSelectedOtHkidPass()[inx],
 												planDetailsForm.getOtherHKID()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm
-														.getSelectedOtHkidPass()[inx],
+												planDetailsForm.getSelectedOtHkidPass()[inx],
 												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary.put("relationship",
-								"SE");
+						beneficiary.put("relationship","SE");
 						other.put("beneficiary", beneficiary);
+						
+						// clear bene info if bene relationship is SE
+						planDetailsForm.getOtherBenificiaryFullName()[inx] = "";
+						planDetailsForm.getOtherBenificiaryHkid()[inx] = "";						
 					}
 				} else {// If don't have beneficiary
-					beneficiary
-							.put("name", planDetailsForm.getOtherName()[inx]);
-					/*
-					 * beneficiary.put(hkId,
-					 * planDetailsForm.getOtherHKID()[inx]);
-					 */
-					/* beneficiary.put("passport", "8912" + inx); */
-					/* beneficiary.put(passId, ""); */
+					beneficiary.put("name", planDetailsForm.getOtherName()[inx]);
 					beneficiary
 							.put(hkId,
 									checkPasswortAndHkid(hkId, planDetailsForm
@@ -1245,8 +1151,7 @@ public class TravelController {
 											planDetailsForm
 													.getSelectedOtHkidPass()[inx],
 											planDetailsForm.getOtherHKID()[inx]));
-					beneficiary.put("relationship",
-							"SE");
+					beneficiary.put("relationship","SE");
 					other.put("beneficiary", beneficiary);
 				}
 								

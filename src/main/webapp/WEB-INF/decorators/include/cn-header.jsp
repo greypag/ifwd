@@ -2,43 +2,43 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 <script>
-	function submitLoginForm() {
-		$('#ajax-loading').show();
-		$('#login-err-msg').html("");
-		$('#login-err-msg').hide();
-		if (validUser()) {
-			$.ajax({
-				type : "POST",
-				url : "userLogin",
-				data : $("#headerLoginForm form").serialize(),
-				async : false,
-				success : function(data) {
+function submitLoginForm(formID) {
+	
+	$('#ajax-loading').show();
+	$('#login-err-msg').html("");
+	$('#login-err-msg').hide();
+	if (validUser(formID)) {
+		$.ajax({
+			type : "POST",
+			url : "userLogin",
+			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
+			async : false,
+			success : function(data) {
+				$('#ajax-loading').hide();
+				if (data == 'success') {
 					$('#ajax-loading').hide();
-					if (data == 'success') {
-						$('#ajax-loading').hide();
-						var Backlen = history.length;
-						history.go(-Backlen);
-						window.location.href = "getAccByUsernaneAndPassword";
-					} else if (data == 'fail') {
-						$('#ajax-loading').hide();
-						$('#login-err-msg').show();
-						$('#login-err-msg').html(
-								'Please Check Login Credential');
-					} else {
-						$('#ajax-loading').hide();
-						$('#login-err-msg').show();
-						$('#login-err-msg').html(data);
-					}
-
-				},
-				error : function() {
+					var Backlen = history.length;
+					history.go(-Backlen);
+					window.location.href = "getAccByUsernaneAndPassword";
+				} else if (data == 'fail') {
 					$('#ajax-loading').hide();
+					$("#"+formID+' #login-err-msg').show();
+					$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
+				} else {
+					$('#ajax-loading').hide();
+					$("#"+formID+' #login-err-msg').show();
+					$("#"+formID+' #login-err-msg').html(data);
 				}
-			});
-		}
-		$('#ajax-loading').hide();
-		return false;
+
+			},
+			error : function() {
+				$('#ajax-loading').hide();
+			}
+		});
 	}
+	$('#ajax-loading').hide();
+	return false;
+}
 </script>
 
 <!-- Session is alive or not -->
@@ -119,7 +119,7 @@
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm();"
+														<button type="button" onclick="return submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5">登入</button>
 													</div>
 													<h3
@@ -178,7 +178,7 @@
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm();"
+														<button type="button" onclick="return submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5">登入</button>
 													</div>
 													<h3
@@ -286,9 +286,80 @@
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-		<!--  <button type="button" onclick="return submitLoginForm();"
-			class="dropdown-toggle color-wht log-to-acc"></button> -->
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" data-toggle="dropdown"><i class="fa fa-lock"></i> 登入 </a>
+		
+		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
+		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> 登入  </a>
+		<div class="dropdown-menu drop-width">
+									<form name="loginform" id="loginform2">
+										<div class="login-form">
+											<div
+												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												id="ajax-loading">
+												<img
+													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													src="resources/images/ajax-loader.gif">
+											</div>
+											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
+											<div class="form-container">
+												<h2>登入富衛客戶網上服務</h2>
+												<h4 class="margin-shift">用戶名稱 <a href="forgotUserName"
+														class="pull-right sub-link">忘記用戶名稱?</a>
+												</h4>
+
+												<div class="form-group">
+													<input type="text" name="userName" class="form-control"
+														placeholder="" id="headerUserName">
+												</div>
+												<span id="errUserName" style="color: red"></span>
+												<h4 class="margin-shift">個人密碼 <a href="forgotPassword"
+														class="pull-right sub-link">忘記密碼?</a>
+												</h4>
+												<div class="form-group">
+													<input type="password" name="password" class="form-control"
+														id="headerPassword">
+												</div>
+												<span id="errPass" style="color: red"></span> <br>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-xs-6">
+														<button type="button" onclick="return submitLoginForm('loginform2');"
+															class="bdr-curve btn btn-primary btn-lg wd5">登入</button>
+													</div>
+													<h3 class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+														<span> 新用戶?</span><br> <a href="joinus">
+															請註冊</a>
+													</h3>
+													<div class="clearfix"></div>
+												</div>
+												
+											</div>
+										</div>
+									</form>
+								</div>
+		
+		<% }else{ %>
+		
+			<a href="#" class="dropdown-toggle" id="fwd-login"
+								data-toggle="dropdown">歡迎 <%=session.getAttribute("username")%> <i
+									class="fa fa-caret-right"></i>
+							</a>
+								<div class="dropdown-menu drop-width">
+									<ul>
+									<% if(!"direct".equalsIgnoreCase(request.getSession()
+											.getAttribute("authenticate").toString())){ %>
+										<li><a href="getAccByUsernaneAndPassword" class="color1">
+												富衛會員帳戶</a></li>
+												<%} %>
+										<li><a href="userLogout" class="color1">登出</a></li>
+									</ul>
+								</div>
+		
+		
+		<% } %>
+		
+		
+		
+		
+		<!-- <a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" data-toggle="dropdown"><i class="fa fa-lock"></i> 登入 </a>
 		<div class="dropdown-menu full-width">
 			<div class="moblogin">
 				<div class="form-container">
@@ -320,7 +391,7 @@
 					<p>本人在此同意通過本網站（以下簡稱“計劃”）購買指定保險計劃，將我的個人資料從富衛電子服務轉移到計劃的簽發人。</p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">

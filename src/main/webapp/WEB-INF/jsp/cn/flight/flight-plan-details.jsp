@@ -689,7 +689,7 @@
 						</div>
 						<!--mob-hidden-->
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="#" onclick="BackMe();"
+							<a href="getFlightDate" onclick="BackMe();"
 								class="bdr-curve btn btn-primary bck-btn">上一頁 </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">

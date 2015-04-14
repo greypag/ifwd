@@ -78,7 +78,9 @@ $(function () {
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
+	var tillDate_from= new Date((new Date()).getTime() + 29*24*60*60*1000);
+	var duration = $('#frmTravelGetQuote').length > 0 ? 120*24*60*60*1000 :30*24*60*60*1000;
+	
 	var checkout;
 	/* desktoip datepicker*/
 	$("#txtStartDateDesk").blur(function() {
@@ -126,7 +128,7 @@ $(function () {
 			newDate.setDate(newDate.getDate());
 			
 			checkout.datepicker("update", newDate);
-			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + 30*24*60*60*1000));
+			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
 		}
 		
@@ -147,7 +149,7 @@ $(function () {
 				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
 				
-				return date.valueOf() >= checkin.datepicker("getDate").valueOf() && date.valueOf() < checkin.datepicker("getDate").valueOf()+30*24*60*60*1000;
+				return date.valueOf() >= checkin.datepicker("getDate").valueOf() && date.valueOf() < checkin.datepicker("getDate").valueOf()+duration;
 			}
 		},
 		autoclose: true,
@@ -167,7 +169,8 @@ $(function () {
 	/* mobile datepicker */
 	var checkin2 = $('#dp3').datepicker({
 		beforeShowDay: function (date) {
-			return date.valueOf() >= now.valueOf();
+			//return date.valueOf() >= now.valueOf();
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
 		},
 		autoclose: true,
 		todayHighlight: true,
@@ -189,10 +192,17 @@ $(function () {
 	});
 	var checkout2 = $('#dp4').datepicker({
 		beforeShowDay: function (date) {
+//			if (!checkin2.datepicker("getDate").valueOf()) {
+//				return date.valueOf() >= new Date().valueOf();
+//			} else {
+//				return date.valueOf() >= checkin2.datepicker("getDate").valueOf();
+//			}
 			if (!checkin2.datepicker("getDate").valueOf()) {
-				return date.valueOf() >= new Date().valueOf();
+
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
-				return date.valueOf() >= checkin2.datepicker("getDate").valueOf();
+				
+				return date.valueOf() >= checkin2.datepicker("getDate").valueOf() && date.valueOf() < checkin2.datepicker("getDate").valueOf()+duration;
 			}
 		},
 		autoclose: true,
@@ -212,7 +222,8 @@ $(function () {
 	/* bottom datepicker */
 	var checkin3 = $('#dp5').datepicker({
 		beforeShowDay: function (date) {
-			return date.valueOf() >= now.valueOf();
+			//return date.valueOf() >= now.valueOf();
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
 		},
 		autoclose: true,
 		todayHighlight: true,
@@ -233,11 +244,18 @@ $(function () {
 	});
 	var checkout3 = $('#dp6').datepicker({
 		beforeShowDay: function (date) {
+//			if (!checkin3.datepicker("getDate").valueOf()) {
+//
+//				return date.valueOf() >= new Date().valueOf();
+//			} else {
+//				return date.valueOf() >= checkin3.datepicker("getDate").valueOf();
+//			}
 			if (!checkin3.datepicker("getDate").valueOf()) {
 
-				return date.valueOf() >= new Date().valueOf();
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
-				return date.valueOf() >= checkin3.datepicker("getDate").valueOf();
+				
+				return date.valueOf() >= checkin3.datepicker("getDate").valueOf() && date.valueOf() < checkin3.datepicker("getDate").valueOf()+duration;
 			}
 		},
 		autoclose: true,
@@ -433,18 +451,17 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
+<<<<<<< Updated upstream
+			for (var j = 1; j <= i-1; j++)
+=======
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
@@ -519,19 +536,14 @@ function fPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
-				{
-					document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+				{					
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
 			}
@@ -606,18 +618,13 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
@@ -1210,18 +1217,17 @@ function fcPlanValid()
 			}
 
 			if (hkid.trim() != "") {
-				if (hkid.toUpperCase() == appHkid.toUpperCase())
-				{
-					document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
-					flag = false;
-				}
-			
+<<<<<<< Updated upstream
+				for (var j = 1; j <= i-1 ; j++)
+=======
 				for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 				{
 					var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
 					if (hkid.toUpperCase() == hkid1.toUpperCase())
 					{
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = "";						
 						document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 						flag = false;
 					}
@@ -1299,18 +1305,17 @@ function fcPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
-				flag = false;
-			}
-		
+<<<<<<< Updated upstream
+			for (var j = 1; j <= i-1 ; j++)
+=======
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
@@ -1389,18 +1394,17 @@ function fcPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
-				flag = false;
-			}
-		
+<<<<<<< Updated upstream
+			for (var j = 1; j <= i-1 ; j++)
+=======
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
@@ -1580,14 +1584,8 @@ function tPlanValid()
 			}
 		}
 
-		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+		if (hkid.trim() != "") {		
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
@@ -1703,13 +1701,7 @@ function tPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtChldInvalidInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = i; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
@@ -1827,13 +1819,7 @@ function tPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtOtherInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
@@ -2436,25 +2422,45 @@ function validUser(formID)
 	var flag = true;
 	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
 	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
-
+	
 	//document.getElementById("errUserName").innerHTML = "";
 	//document.getElementById("errPass").innerHTML = "";
-	$("#"+formID+" #errUserName").val();
-	$("#"+formID+" #errPass").val();
+	$("#"+formID+" #errUserName").html("");
+	$("#"+formID+" #errPass").html("");
 
 	if (password.trim() == "")
 	{    	
-		$("#"+formID+" #errPass").val(getBundle(getBundleLanguage, "user.username.notValid.message")); 
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message")); 
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		$("#"+formID+" #errUserName").val(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.notValid.message"));
 		
 		flag = false;
 	}
 
 	return flag;
 }
+var device = 0; // 0 of desktop and 1 for mob
+$(window).resize(function() {
+	  var width = $(window).width();
+	  console.log(width);
+	  
+	  if(width>=992 && device == 1){
+		 if($('body').hasClass('canvas-slid')){
+			  $('.navmenu').offcanvas('hide');
+			  $('.offcanvas').hide();
+			  $('#overlay').remove();
+	  	}
+		  device = 0;
+	  }else if( width <= 991 && device == 0){
+		  $('#myDropdown').removeClass('open');
+		  $('#overlay').remove();
+		  device = 1;
+	  }
+	  
+	  
+})
 
 
 

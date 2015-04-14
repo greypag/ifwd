@@ -5096,8 +5096,6 @@ td[data-title]:before,  td[data-title]:before {
 	margin-left: 10px;
 	font-size: 24px;
 	line-height: 42px;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
 }
 .pad-right-home {
 	padding-right: 10px !important;
@@ -5814,4 +5812,25 @@ p.mute{
 }
 #loginform2 #login-err-msg{
 	  white-space: normal;
+}
+.home-summary-heading-row{
+	margin:20px 20px 0 0;
+}
+.home-summary-heading{
+	font-size: 30px;
+	font-weight: 700;
+	margin-left: 15px !important;
+}
+.home-summary-applicant{
+	display: block;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.td-vert-middle{
+	vertical-align: middle !important;
+}
+@media (max-width: 767px){
+	.home-summary-change{
+		font-size: 16px !important;
+	}
 }

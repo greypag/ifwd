@@ -129,8 +129,6 @@
 			var applicantStreetNo = $('#inputCAStreetNo').val();
 			var applicantStreetName = $('#inputCAStreetName').val();
 			var selectCADist = $('#selectCADist').val();
-
-			
 			/* var applicantAreaCode = $('#applicantArea').checked */
 
 			//alert(applicantAreaCode);
@@ -142,23 +140,12 @@
 			$('#inputAEstate').val(applicantEstate);
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);
+			$('#selectADist').val(selectCADist);
 
-			//$('#selectADist').val(selectCADist);
-
-			console.log(selectCADist);
-// 			 $("#selectADist option").filter(function() {
-// 			        return $(this).attr('value') ==selectCADist;
-// 			    }).attr('selected', true);
-			//$('#selectADist').val(selectCADist);
-			$('#selectADist option[value='+selectCADist+']').attr('selected','selected');
-
-			console.log($('#selectCADist').val());
-			    
-			
 			if (document.getElementById("inlineCARadio3").checked) {
 				document.getElementById("inlineDeskRadio31").checked = true;
-// 			} else if (document.getElementById("inlineCARadio4").checked) {
-// 				document.getElementById("inlineDeskRadio41").checked = true;
+			} else if (document.getElementById("inlineCARadio4").checked) {
+				document.getElementById("inlineDeskRadio41").checked = true;
 			} else {
 				document.getElementById("inlineDeskRadio51").checked = true;
 			}
@@ -287,33 +274,33 @@
 								style="visibility: visible;">
 								<h2>您的保單</h2>
 							</div>
-							<br> <br>
+							<br>
 							<div class="col-lg-12">
 								<div id="tr-wizard" class="shop-tracking-status">
-									<div class="order-status">
-										<div class="order-status-timeline">
-											<!-- class names: c0 c1 c2 c3 and c4 -->
-											<div
-												class="order-status-timeline-completion order-status-timeline-completion c2"></div>
+									<div class="order-status has-four">
+										<div class="order-status-timeline-new">
+											<div class="order-status-timeline-completion dots-active"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
 										</div>
 										<div
-											class="image-order-status image-order-status-new active img-circle">
+											class="image-order-status image-order-status-new active img-circle first">
 											<span class="status color3">您的選擇</span>
 											<div class="icon">1</div>
 										</div>
 
 										<div
-											class="image-order-status image-order-status-intransit  img-circle act">
+											class="image-order-status image-order-status-intransit  img-circle act second">
 											<span class="status color2">您的保單</span>
 											<div class="icon">2</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-delivered  img-circle disabled">
+											class="image-order-status image-order-status-delivered  img-circle disabled third">
 											<span class="status"> 總結及付款</span>
 											<div class="icon">3</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-completed  img-circle disabled">
+											class="image-order-status image-order-status-completed  img-circle disabled fourth">
 											<span class="status lst-status">確認保單</span>
 											<div class="icon">4</div>
 										</div>
@@ -322,9 +309,6 @@
 							</div>
 						</div>
 					</div>
-					<br>
-					<br>
-					<br>
 					<div class="container pad-none bdr ur-opt-content gray-bg3">
 						<div
 							class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
@@ -348,17 +332,17 @@
 						%>
 							<div class="clearfix"></div>
 							<div class="gray-bdr"></div>
-							<table class="table activation-form margin-left-2">
+							<table class="table activation-form margin-left-2 vert-middle-small">
 								<tbody>
 									<tr>
-										<td colspan="2" class="pad-none"><h3
+										<td colspan="2"><h3
 												class="black-bold pad-none">申請人資料</h3></td>
 									</tr>
 									<tr>
-										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500">中文全名</label></td>
-										<td class="pad-none"><input type="text"
-											class="form-control" id="inputFullName" name="applicantName"
+										<td class=""><input type="text"
+											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
 											placeholder="中文全名" onblur="replaceAlpha(this);"
 											onkeypress="    return alphaOnly(event);" maxlength="100" />
@@ -372,31 +356,31 @@
 									<tr>
 
 
-										<td class="pad-none"><select name="apphkidandpassport"
-											id="selectHkidPass" class="form-control soflow">
-												<option value="appHkid" selected="selected">香港身份證</option>
+										<td class=""><select name="apphkidandpassport"
+											id="selectHkidPass" class="form-control soflow full-control">
+												<option value="appHkid" selected="selected">香港身份證號碼</option>
 												<option value="appPassport">護照</option>
 										</select></td>
-										<td class="pad-none"><input type="text" name="hkId"
-											class="form-control numberinput textUpper" id="txtAppHkid"
+										<td class=""><input type="text" name="hkId"
+											class="form-control numberinput textUpper full-control" id="txtAppHkid"
 											placeholder="X1234567/Passport No"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 									</tr>
 
 									<tr>
-										<td class="pad-none"><label
+										<td class=""><label
 											class="control-label bold-500">手提電話</label></td>
-										<td class="pad-none"><input type="text"
-											class="form-control" id="inputMobileNo" name="mobileNo"
+										<td class=""><input type="text"
+											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
 											placeholder="手提電話" onkeypress="return isNumeric(event)"
 											onblur="replaceNumeric(this);" maxlength="8" /> <span
 											id="errMobileNo" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td class="pad-none"><label
+										<td class=""><label
 											class="control-label bold-500">電郵地址</label></td>
-										<td class="pad-none"><input class="form-control"
+										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
 											placeholder="電郵地址" maxlength="50"> <span
@@ -408,36 +392,36 @@
 							if (authenticate.equals("false")) {
 						%>
 							<div class="gray-bg3-wid">
-								<table class="table plandetail-form margin-left-2"
+								<table class="table plandetail-form margin-left-2 vert-middle"
 									id="input-white">
 									<tbody>
 										<tr>
-											<td colspan="2" class="pad-none"><h3 class="pad-none">建立富衛帳戶?
+											<td colspan="2" class=""><h3 class="pad-none">建立富衛帳戶?
 												</h3> <i>如不需要建立戶口，請留空此欄</i> <br></td>
 										</tr>
 										<tr>
-											<td colspan="2" class="pad-none">&nbsp;</td>
+											<td colspan="2" class="">&nbsp;</td>
 										</tr>
 										<tr>
-											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
+											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 												class="control-label bold-500">用戶名稱</label></td>
-											<td class="pad-none"><input type="text"
-												class="form-control" id="inputRegUserName"
+											<td class=""><input type="text"
+												class="form-control full-control" id="inputRegUserName"
 												placeholder="用戶名稱"> <span id="errRegUserName"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
-											<td class="pad-none"><label
+											<td class=""><label
 												class="control-label bold-500">個人密碼</label></td>
-											<td class="pad-none"><input type="password"
-												class="form-control" id="inputRegPass" placeholder="個人密碼">
+											<td class=""><input type="password"
+												class="form-control full-control" id="inputRegPass" placeholder="個人密碼">
 												<span id="errRegPass" class="text-red"> </span></td>
 										</tr>
 										<tr>
-											<td class="pad-none"><label
+											<td class=""><label
 												class="control-label bold-500">確認密碼</label></td>
-											<td class="pad-none"><input type="password"
-												class="form-control" id="inputRegCPass" placeholder="確認密碼">
+											<td class=""><input type="password"
+												class="form-control full-control" id="inputRegCPass" placeholder="確認密碼">
 												<span id="errRegCPass" class="text-red"> </span></td>
 										</tr>
 									</tbody>
@@ -451,32 +435,32 @@
 								<tbody>
 									<tr>
 										<td width="88" rowspan="5" valign="top"
-											class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											for="inputFullName" class="control-label bold-500">通訊地址
 										</label></td>
 										<td width="33%" height="54" colspan="2"><input
-											type="text" class="form-control wd2" id="inputCARoom"
+											type="text" class="form-control wd2 full-control" id="inputCARoom"
 											name="applicantRoom" placeholder="室"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control full-control "
 											id="inputCAFloor" name="applicantFloor" placeholder="樓 "
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control  full-control"
 											id="inputCABlock" name="applicantBlock" placeholder="座"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputCABuilding"
+											class="form-control full-control" id="inputCABuilding"
 											name="applicantBuilding" placeholder="大廈"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputCAEstate"
+											class="form-control full-control" id="inputCAEstate"
 											name="applicantEstate" placeholder="屋苑"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
@@ -484,13 +468,13 @@
 									</tr>
 									<tr>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputCAStreetNo"
+											class="form-control full-control" id="inputCAStreetNo"
 											name="applicantStreetNo" placeholder="街道號碼"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 										</td>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputCAStreetName"
+											class="form-control full-control" id="inputCAStreetName"
 											name="applicantStreetName" placeholder="街道名稱"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
@@ -499,7 +483,7 @@
 									</tr>
 									<tr>
 										<td height="60" colspan="4"><select name="applicantDistrict"
-											class="form-control soflow" id="selectCADist">
+											class="form-control soflow full-control" id="selectCADist">
 												<option value="">地區</option>
 												<%
                       List lst= (List)request.getAttribute("districtList");
@@ -531,12 +515,12 @@
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td colspan="2" class="pad-none"><h3
+										<td colspan="2" class=""><h3
 												class="black-bold pad-none">Address Details</h3></td>
 									</tr>
 
 									<tr>
-										<td class="pad-none">
+										<td class="">
 											<div class="checkbox">
 
 												<input id="checkbox3" type="checkbox"
@@ -553,43 +537,43 @@
 								<tbody>
 									<tr>
 										<td width="88" rowspan="5" valign="top"
-											class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500">通訊地址 </label></td>
 										<td width="33%" height="54" colspan="2"><input
-											type="text" class="form-control wd2" id="inputARoom"
+											type="text" class="form-control wd2 full-control" id="inputARoom"
 											name="aRoom" placeholder="室"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control full-control"
 											id="inputAFloor" name="aFloor" placeholder="樓"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control full-control "
 											id="inputABlock" name="aBlock" placeholder="座"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputABuilding" name="aBuilding"
+											class="form-control full-control" id="inputABuilding" name="aBuilding"
 											placeholder="大廈" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputAEstate" name="aEstate"
+											class="form-control full-control" id="inputAEstate" name="aEstate"
 											placeholder="屋苑" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputAStreetNo" name="aStreetNo"
+											class="form-control full-control" id="inputAStreetNo" name="aStreetNo"
 											placeholder="街道號碼" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /></td>
 										<td height="60" colspan="2"><input type="text"
-											class="form-control" id="inputAStreetName" name="aStreetName"
+											class="form-control full-control" id="inputAStreetName" name="aStreetName"
 											placeholder="街道名稱" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /></td>
@@ -597,7 +581,7 @@
 									<tr>
 										<td height="60" colspan="4">
 										
-										<select onchange="setDropArea2(this.value)" id="selectADist" class="form-control soflow" name="aDistrict">
+										<select onchange="setDropArea2(this.value)" id="selectADist" class="form-control soflow full-control" name="aDistrict">
 										
 												<option value="">地區</option>
 												<%
@@ -631,10 +615,10 @@
 								<tbody>
 
 									<tr>
-										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 home-line">實用面積(平方尺)</label></td>
-										<td class="pad-none"><select name="netFloorArea"
-											class="form-control soflow" id="selectNFA">
+										<td ><select name="netFloorArea"
+											class="form-control soflow full-control full-control" id="selectNFA">
 												<option value="">Please Select</option>
 												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
 													<option value="${floorAreaList.key}">
@@ -644,15 +628,15 @@
 										</select> <span id="errNFA" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 home-line">保單生效日期 </label></td>
-										<td class="pad-none">
-											<div class="form-group">
+										<td class="">
+											<div class="form-group full-control">
 												<div class="input-group date" id="homecareDp">
-													<span class="input-group-addon bg-img in"><span><img
+													<span class="input-group-addon bg-img in border-radius"><span><img
 															src="resources/images/calender1.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
-														class="datepicker form-control" id="txtEffDate" />
+														class="datepicker form-control border-radius" id="txtEffDate" />
 												</div>
 											</div> <span id="errEffDate" class="text-red"></span>
 									</tr>
@@ -717,19 +701,19 @@
 							<div class="hidden-sm hidden-xs">
 
 								<div class="wd2">
-									<div class="pull-left">
-										<h2 class="h2-3-choose">${homeQuoteDetails.getPlanCode()}
+										<div class="col-md-7 col-lg-7">
+											<h2 class="h2-3-choose pad-none">${homeQuoteDetails.getPlanCode()}
 											保</h2>
-										<h4>計劃慨覽</h4>
-									</div>
-									<div class="pull-right">
-										<h2 class="text-left  h2-2">
-											<div class="home-hk">
-												港幣
-												<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
-											</div>
-										</h2>
-									</div>
+											<h4>計劃慨覽</h4>
+										</div>
+										<div class="col-md-5 col-lg-5 pull-right">
+											<h2 class="text-left  h2-2  pad-none">
+												<div class="home-hk" style="margin: 0">
+													港幣
+													<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
+												</div>
+											</h2>
+										</div>
 								</div>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
@@ -789,7 +773,7 @@
 									class="bdr-curve btn btn-primary bck-btn">上一頁 </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<input type="submit" class="bdr-curve btn btn-primary nxt-btn"
+								<input type="submit" class="bdr-curve btn btn-primary btn-next"
 									onclick="return hc_planValid();" value="下一頁">
 							</div>
 							<div class="clearfix"></div>
@@ -797,8 +781,7 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<p class="padding1 hidden-sm hidden-xs">以上資料只作參考用途。詳情請查看保單條款。</p>
-					<p class="padding1 hidden-sm hidden-xs">以上資料只作參考用途。詳情請查看保單條款。
+					<p class="padding1 hidden-sm hidden-xs">以上資料只作參考用途。詳情請查看<a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">保單條款</a>。
 						有關條款細則的詳細資料,請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。</p>
 				</form:form>
 			</div>

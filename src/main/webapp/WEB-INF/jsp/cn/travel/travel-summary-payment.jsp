@@ -291,7 +291,7 @@
 									<tr>
 										<td ><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getOtherHKID()[i]%></td>
+										<td  class="gy"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>
 										<% } %>
 									</tr>
 									<tr>
@@ -407,7 +407,7 @@
 										<td data-title="Adult1"><span class="h4-6-td">受益人</span></td>
 										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherHKID()[i]%></td>										
+										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>										
 										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
