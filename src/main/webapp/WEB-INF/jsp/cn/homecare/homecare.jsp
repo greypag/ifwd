@@ -401,7 +401,7 @@
 				<div class="spacer1"></div>
 
 
-				<p class="h4-6">以上資料只作參考用途 。<a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link">詳情請查看保單條款</a>。<br>
+				<p class="col-xs-12 h4-6">以上資料只作參考用途 。<a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link">詳情請查看保單條款</a>。<br>
     有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。</p>
 				<!-- <p class="h4-6">
 				The features above are indicative only. Please refer to the <a
@@ -779,7 +779,23 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 			</div>
 		</div>
 	</section>
-
+	<div class="modal fade bs-example-modal-lg " id="oldHome"
+	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+	aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content plan-modal">
+			<div class="login-form">
+				<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h2 class="modal-title" id="exampleModalLabel">Sorry</h2>
+			      </div>
+			   <div class="modal-body">
+			   		<p class="errorMsg">no</p>
+	      		</div>
+      		</div>
+		</div>
+	</div>
+</div>
 	<!--/mob-#bottom-->
 
 </body>

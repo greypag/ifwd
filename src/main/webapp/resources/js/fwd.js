@@ -2776,12 +2776,14 @@ function msgAlertDesk() {
     }
     
     if (flag == false) {
-        alert("Thank you for your interests in our products, sorry that we are unable to accept your application online. For any enquiry, please call our customer service hotline at 3123 3123.");
-    
+    	$('#oldHome').modal('show');
 	}
     return flag;    
 }
-
+$('#oldHome').on('show.bs.modal', function (event) {
+	  var modal = $(this);
+	  modal.find('.errorMsg').text("Thank you for your interests in our products, sorry that we are unable to accept your application online. For any enquiry, please call our customer service hotline at 3123 3123.")
+	})
 
 // common function
 String.format = function() {

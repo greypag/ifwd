@@ -426,7 +426,7 @@
 				<div class="spacer1"></div>
 
 
-				<p class="h4-6">
+				<p class="col-xs-12 h4-6">
 					The features above are indicative only. Please refer to the <a
 						href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 						target="_blank" class="sub-link"> Policy Provisions </a> for
@@ -851,6 +851,22 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	</section>
 
 	<!--/mob-#bottom-->
-
+	<div class="modal fade bs-example-modal-lg " id="oldHome"
+	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+	aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content plan-modal">
+			<div class="login-form">
+				<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h2 class="modal-title" id="exampleModalLabel">Sorry</h2>
+			      </div>
+			   <div class="modal-body">
+			   		<p class="errorMsg">no</p>
+	      		</div>
+      		</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
