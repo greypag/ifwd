@@ -162,7 +162,7 @@
 										class="control-label bold-500">英文全名</label></td>
 									<td class="pad-none"><input type="text" name="fullName"
 										class="form-control" value="${userDetails.getFullName()}"
-										id="inputFullName" placeholder="英文全名(與香港身份證號碼)"
+										id="inputFullName" placeholder="英文全名(與香港身份證)"
 										onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" /> <span
 										id="fullname" style="display: none"> <label
@@ -177,7 +177,7 @@
 
 
 									<td valign="middle" class="pad-none"><label
-										for="inputEmail3" class="control-label bold-500">香港身份證號碼</label></td>
+										for="inputEmail3" class="control-label bold-500">香港身份證</label></td>
 									<td class="pad-none"><input type="text" name="hkid"
 										class="form-control numberinput textUpper" id="txtAppHkid"
 										placeholder="X1234567"> <span id="errAppHkid"

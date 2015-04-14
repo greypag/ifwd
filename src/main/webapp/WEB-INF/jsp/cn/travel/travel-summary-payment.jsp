@@ -147,7 +147,7 @@
 									</tr>
 									<tr>
 
-										<td class="h2-1 pad-none ">香港身份證號碼/護照號碼</td>
+										<td class="h2-1 pad-none ">香港身份證/護照號碼</td>
 										<td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
 									</tr>
 									<tr>
@@ -324,7 +324,7 @@
 										<td class=" h2-1  travel-tb-td">受保人</td>
 										<td class=" h2-1  travel-tb-td">英文全名</td>
 										<td class=" h2-1  travel-tb-td">年齡</td>
-										<td class=" h2-1  travel-tb-td">香港身份證號碼 /護照號碼</td>
+										<td class=" h2-1  travel-tb-td">香港身份證 /護照號碼</td>
 										<td class=" h2-1  travel-tb-td">關係</td>
 									</tr>
 									<%

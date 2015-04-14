@@ -12,6 +12,7 @@
 		
 	QuoteDetails travelQuote = null;
 		if (travelQuote == null) {
+			//System.out.println("travelQuote is null 2");
 			travelQuote = (QuoteDetails) session.getAttribute("tq");
 		}
 
