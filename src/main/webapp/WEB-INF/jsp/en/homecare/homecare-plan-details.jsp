@@ -408,17 +408,17 @@
 
 							<div class="clearfix"></div>
 							<div class="gray-bdr"></div>
-							<table class="table activation-form margin-left-2 vert-middle">
+							<table class="table activation-form margin-left-2 vert-middle-small">
 								<tbody>
 									<tr>
-										<td colspan="2" class="pad-none"><h3
+										<td colspan="2"><h3
 												class="black-bold pad-none">Applicant's Details</h3></td>
 									</tr>
 									<tr>
-										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500">Full name</label></td>
-										<td class="pad-none"><input type="text"
-											class="form-control" id="inputFullName" name="applicantName"
+										<td class=""><input type="text"
+											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
 											placeholder="Full name" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
 											onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
@@ -426,23 +426,23 @@
 									</tr>
 									<tr>
 
-										<td class="pad-none"><select name="apphkidandpassport"
-											id="selectHkidPass" class="form-control soflow">
+										<td class=""><select name="apphkidandpassport"
+											id="selectHkidPass" class="form-control soflow full-control">
 												<option value="appHkid" selected="selected">HKID</option>
 												<option value="appPassport">Passport</option>
 										</select></td>
-										<td class="pad-none"><input type="text" name="hkId"
-											class="form-control numberinput textUpper" id="txtAppHkid"
+										<td class=""><input type="text" name="hkId"
+											class="form-control numberinput textUppe full-control" id="txtAppHkid"
 											placeholder="X1234567/Passport No"
 											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
 									</tr>
 									<tr>
-										<td class="pad-none"><label
+										<td class=""><label
 											class="control-label bold-500">Mobile number</label></td>
-										<td class="pad-none"><input type="text"
-											class="form-control" id="inputMobileNo" name="mobileNo"
+										<td class=""><input type="text"
+											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
 											placeholder="Mobile number"
 											onkeypress="return isNumeric(event)"
@@ -450,9 +450,9 @@
 											id="errMobileNo" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td class="pad-none"><label
+										<td class=""><label
 											class="control-label bold-500">Email address</label></td>
-										<td class="pad-none"><input class="form-control"
+										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
 											placeholder="Email address" 
@@ -469,40 +469,40 @@
 
 
 							<div class="gray-bg3-wid">
-								<table class="table plandetail-form margin-left-2"
+								<table class="table plandetail-form margin-left-2 vert-middle"
 									id="input-white">
 									<tbody>
 										<tr>
-											<td colspan="2" class="pad-none">
+											<td colspan="2" class="">
 												<h3 class="pad-none">Create FWD Member Account?</h3> <i>
 													Leave blank if you do not want an member account to be
 													created </i> <br>
 											</td>
 										</tr>
 										<tr>
-											<td colspan="2" class="pad-none">&nbsp;</td>
+											<td colspan="2" class="">&nbsp;</td>
 										</tr>
 										<tr>
-											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none "><label
+											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 												class="control-label bold-500">Choose Username</label></td>
-											<td class="pad-none"><input type="text"
-												class="form-control marginbt" id="inputRegUserName"
+											<td class=""><input type="text"
+												class="form-control marginbt full-control" id="inputRegUserName"
 												placeholder="Username"> <span id="errRegUser"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
-											<td class="pad-none"><label
+											<td class=""><label
 												class="control-label bold-500">Choose Password</label></td>
-											<td class="pad-none"><input type="password"
-												class="form-control marginbt" id="inputRegPass"
+											<td class=""><input type="password"
+												class="form-control marginbt full-control" id="inputRegPass"
 												placeholder="Password"> <span id="errRegPass"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
-											<td class="pad-none"><label
+											<td class=""><label
 												class="control-label bold-500">Confirm Password</label></td>
-											<td class="pad-none"><input type="password"
-												class="form-control marginbt" id="inputRegCPass"
+											<td class=""><input type="password"
+												class="form-control marginbt full-control" id="inputRegCPass"
 												placeholder="Confirm password"> <span
 												id="errRegCPass" class="text-red"> </span></td>
 										</tr>
@@ -517,46 +517,46 @@
 								<tbody>
 									<tr>
 										<td rowspan="5"
-											class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500">Correspondence Address</label></td>
 										<td><input type="text" class="form-control wd2"
 											id="inputCARoom" name="applicantRoom" placeholder="Room/Flat"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control full-control"
 											id="inputCAFloor" name="applicantFloor" placeholder="Floor "
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control full-control"
 											id="inputCABlock" name="applicantBlock" placeholder="Block"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" /></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputCABuilding" name="applicantBuilding"
 											placeholder="Building" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
-										<td><input type="text" class="form-control"
+										<td><input type="text" class="form-control full-control"
 											id="inputCAEstate" name="applicantEstate"
 											placeholder="Estate" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputCAStreetNo" name="applicantStreetNo"
 											placeholder="Street No." onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" /></td>
-										<td><input type="text" class="form-control"
+										<td><input type="text" class="form-control full-control"
 											id="inputCAStreetName" name="applicantStreetName"
 											placeholder="Street Name" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" /></td>
 									</tr>
 									<tr>
 										<td colspan="3"><select name="applicantDistrict"
-											class="form-control soflow" id="selectCADist"
+											class="form-control soflow full-control" id="selectCADist"
 											onchange="setDropArea(this.value)">
 												<option value="">District</option>
 												<%
@@ -573,7 +573,7 @@
 										</select>
 											<div class="hidden">
 												<select name="applicantDistrictHid"
-													class="form-control soflow" id="selectCADistHid">
+													class="form-control soflow full-control" id="selectCADistHid">
 													<option value="">District</option>
 													<%
 														List lst1 = (List) request.getAttribute("districtList");
@@ -611,7 +611,7 @@
 												Address Details</h3></td>
 									</tr>
 									<tr>
-										<td class="pad-none"><div class="checkbox">
+										<td class="pad-none"><div class="checkbox btm-pad-10">
 												<input id="checkbox3" type="checkbox"
 													onclick="autofillFields()"> <label for="checkbox3">
 													Same as applicant's correspondence address<br>
@@ -627,38 +627,38 @@
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
 											class="control-label bold-500">Insured Address</label></td>
 										<td colspan="2"><input type="text"
-											class="form-control wd2" id="inputARoom" name="aRoom"
+											class="form-control wd2 full-control" id="inputARoom" name="aRoom"
 											placeholder="Room/Flat" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control  full-control"
 											id="inputAFloor" name="aFloor" placeholder="Floor "
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
-										<td><input type="text" class="form-control "
+										<td><input type="text" class="form-control  full-control"
 											id="inputABlock" name="aBlock" placeholder="Block"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputABuilding" name="aBuilding" placeholder="Building"
 											onblur="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
-										<td colspan="2"><input type="text" class="form-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputAEstate" name="aEstate" placeholder="Estate"
 											onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputAStreetNo" name="aStreetNo" placeholder="Street No."
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /></td>
-										<td colspan="2"><input type="text" class="form-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputAStreetName" name="aStreetName"
 											placeholder="Street Name" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
@@ -666,7 +666,7 @@
 									</tr>
 									<tr>
 										<td colspan="4"><select name="aDistrict"
-											class="form-control soflow" id="selectADist"
+											class="form-control soflow full-control" id="selectADist"
 											onchange="setDropArea2(this.value)">
 												<option value="">District</option>
 												<%
@@ -721,11 +721,11 @@
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 "><label
 											class="control-label bold-500 home-line">Net Floor
 												Area<br> (square feet)
 										</label></td>
-										<td class="pad-none">
+										<td class="">
 											<%--  <select name="" class="form-control soflow" id="selectNFA">
                       <option value="">Please Select</option>
                       <option value="< 500"> Less Than 500</option>
@@ -733,7 +733,7 @@
                       <option value="701-850">701-850</option>
                       <option value="851-1000">851-1000</option>
                     </select> --%> <select name="netFloorArea"
-											class="form-control soflow" id="selectNFA" onBlur="chkNotNullIANetFloorArea(this, 'errNFA');">
+											class="form-control soflow full-control" id="selectNFA" onBlur="chkNotNullIANetFloorArea(this, 'errNFA');">
 												<option value="">Please Select</option>
 												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
 													<option value="${floorAreaList.key}"><c:out
@@ -744,16 +744,16 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
+										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 home-line">Effective
 												Date of <br> Coverage
 										</label></td>
-										<td class="pad-none"><div class="form-group">
+										<td class=""><div class="form-group">
 												<div class="input-group date" id="homecareDp">
 													<span class="input-group-addon bg-img in"><span><img
 															src="resources/images/calender1.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
-														class="datepicker form-control" id="txtEffDate"
+														class="datepicker form-control full-control" id="txtEffDate"
 														onBlur="chkValidIAEffDate(this, 'errEffDate', 'Effective Date');" />
 												</div>
 											</div> <span id="errEffDate" class="text-red"></span></td>
@@ -788,7 +788,7 @@
 									<input id="checkbox2" name="declarration2" type="checkbox">
 									<label for="checkbox2">I have read and understood <a
 										href="<%=request.getContextPath()%>resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-										 class="sub-link"> Personal Information Collection
+										 class="sub-link" target="_blank"> Personal Information Collection
 											Statement</a> and agree to be bound by the same. <br> 
 									</label>
 								</div>
@@ -801,9 +801,9 @@
 								</div>
 								<span id="chk2" class="text-red"></span>
 								<div class="checkbox">
-									<input id="checkbox2" type="checkbox"
+									<input id="checkbox33" type="checkbox"
 										name="donotWishDirectMarketing"> <label
-										for="checkbox2"> Please do not send direct marketing
+										for="checkbox33"> Please do not send direct marketing
 										information to me. <br> <br>
 									</label>
 								</div>
@@ -819,21 +819,23 @@
 							</div>
 						</div>
 						<div
-							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg pad-none wht-bg3">
+							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3">
 							<div class="hidden-sm hidden-xs">
 								<div class="wd2">
-									<div class="pull-left">
-										<h2 class="h2-3-choose">${homeQuoteDetails.getPlanCode()}
-											Insurance</h2>
-										<h4>Plan summary</h4>
-									</div>
-
-									<div class="pull-right">
-										<div class="text-left pad-right1 h2-2 h2">
-											<div class="hk1">HK$</div>
-											<div class="hk1 top-mrg-10">
-												<div class="flightcare-hk">
-													${homeQuoteDetails.getTotalDue()}</div>
+									<div class="row">
+										<div class="col-md-7 col-lg-8">
+											<h2 class="h2-3-choose">${homeQuoteDetails.getPlanCode()}
+												Insurance</h2>
+											<h4>Plan summary</h4>
+										</div>
+	
+										<div class="col-md-5 col-lg-4 pull-right">
+											<div class="text-left pad-right1 h2-2 h2">
+												<div class="hk1">HK$</div>
+												<div class="hk1 top-mrg-10">
+													<div class="flightcare-hk">
+														${homeQuoteDetails.getTotalDue()}</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -874,7 +876,7 @@
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 									${homeQuoteDetails.getTotalDue() }</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Discount</h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">-${homeQuoteDetails.getDiscountAmount()}
+								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${homeQuoteDetails.getDiscountAmount()}
 								</h3>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
@@ -890,17 +892,14 @@
 								type="hidden" name="answer2" value="${answer2}">
 
 							<!--mob-->
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="getHomePlan"
-									class="bdr-curve btn btn-primary bck-btn">Back </a>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+									<a href="getHomePlan" class="bdr-curve btn btn-primary bck-btn">Back </a>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="Next" />
+								</div>
 							</div>
-
-
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<input type="submit"
-									class="bdr-curve-none btn btn-primary nxt-btn " value="Next" />
-							</div>
-
 							<!--
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
               <a href="homecare-summary-payment.html" class="bdr-curve btn btn-primary nxt-btn" onclick="return hc_planValid();">
@@ -916,7 +915,7 @@
 					<p class="padding1 hidden-sm hidden-xs">
 						The features above are indicative only. Please refer to the <a
 							class="sub-link"
-							href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+							href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 							target="_blank">Policy Provisions</a> for details. <br> For
 						a complete explanation of the terms and conditions, feel free to
 						contact an adviser or our 24-hour hotline at 3123 3123 for more
