@@ -9,6 +9,12 @@
 		authenticate = request.getSession()
 				.getAttribute("authenticate").toString();
 	}
+		
+	QuoteDetails travelQuote = null;
+		if (travelQuote == null) {
+			travelQuote = (QuoteDetails) session.getAttribute("tq");
+		}
+
 %>
 
 
@@ -209,12 +215,33 @@
 												配偶 
 												</c:when>
 													<c:when test="${totalAdultCount != 2}">
-												旅客 <c:out value="${inx-1}"></c:out>
+								<%								
+									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									{ 
+								%>
+											旅客
+								<% 	}
+									else 
+									{
+								%>
+											家長
+								<%  } %> 
+												<c:out value="${inx-1}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
 											<c:when test="${inx == 1}">
-											自己 
+								<%								
+									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									{ 
+								%>
+											旅客
+								<% 	}
+									else 
+									{
+								%>
+											家長
+								<%  } %> 
 										</c:when>	
 										</c:choose>
 									</h4>
@@ -411,7 +438,7 @@
 								end="${travelQuote.getTotalOtherTraveller()}">
 								<div id="childtraveller">
 									<h4 class="color1 top-mrg-10">
-										其他的旅行者
+										其他旅客
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
@@ -608,13 +635,7 @@
 										class="span2 uline">更改</span></a>
 								</h3>
 								<h4>
-								<%	
-									QuoteDetails travelQuote = null;
-							 		if (travelQuote == null) {
-							 			//System.out.println("travelQuote is null 2");
-							 			travelQuote = (QuoteDetails) session.getAttribute("tq");
-							 		}
-								
+								<%								
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
