@@ -4210,10 +4210,10 @@ a.h4-4 {
 	line-height: 42px;
 	
 }
-.plan-box3 p del {
+.plan-box3 span.del del {
 	
 	line-height: 32px;
-	margin-left: 50px;
+	margin-left: 30px;
 	font-size: 36px;
 	
 }
@@ -4264,10 +4264,10 @@ a.h4-4 {
 	font-size: 30px;
 	font-weight: bold;
 }
-.plan-box4 p del {
+.plan-box4 span.del del {
 	color: #fff;
 	line-height: 32px;
-	margin-left: 50px;
+	margin-left: 30px;
 	font-size: 36px;
 	
 }
