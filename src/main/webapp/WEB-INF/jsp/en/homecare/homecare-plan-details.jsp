@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@page import="java.util.*"%>
 <%
 	String authenticate = "false";
@@ -855,7 +856,7 @@
 									<div class="form-group">
 										<p class="h4-5 pad-none">Standard Cover, Annual</p>
 									</div>
-									<h3>Promotion code</h3>
+									<!-- <h3>Promotion code</h3>
 									<span class="text-red" id="errPromoCode"></span>
 									<div class="form-group">
 										<div class="input-group">
@@ -870,19 +871,23 @@
 										<a href="#" class="sub-link" data-toggle="modal"
 											data-target=".bs-promo-modal-lg"><i> How do I get a
 												promotion code?</i> </a>
-									</div>
+									</div> -->
 								</div>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-									${homeQuoteDetails.getTotalDue() }</h3>
+								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
+									</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Discount</h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${homeQuoteDetails.getDiscountAmount()}
+								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
+								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getDiscountAmount()))%>
+								
 								</h3>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-									${homeQuoteDetails.getTotalDue() }</h3>
+								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
+									</h3>
 							</div>
 							<input type="hidden" name="totalDue"
 								value="${ homeQuoteDetails.getTotalDue()}"> <input

@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
 
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
@@ -123,8 +124,10 @@
 									<tr>
 										<td class="pad-none"><span class="h4-4-orange-b pad-none">Amount
 												due </span></td>
+												<%
+												HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");%>
 										<td class=" "><span class="h4-4-orange-b pad-none">HK$
-												${totalDue} </span></td>
+												<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
 									</tr>
 								</tbody>
 							</table>

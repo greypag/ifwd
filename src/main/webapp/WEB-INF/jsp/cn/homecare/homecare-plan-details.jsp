@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@page import="java.util.*"%>
 <%
 	String authenticate = "false";
@@ -694,6 +695,9 @@
 								</div>
 							</div>
 						</div>
+						<%
+							HomeQuoteBean homeQuoteDetails = (HomeQuoteBean) request.getAttribute("homeQuoteDetails");%>
+						
 						<div
 							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg pad-none wht-bg3">
 
@@ -709,7 +713,7 @@
 										<h2 class="text-left  h2-2">
 											<div class="home-hk">
 												港幣
-												<div class="flightcare-hk">${homeQuoteDetails.getTotalDue()}</div>
+												<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
 											</div>
 										</h2>
 									</div>
@@ -748,15 +752,15 @@
 								</div>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">小計</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-									${homeQuoteDetails.getTotalDue() }</h3>
+									<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">折扣優惠</h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">-${homeQuoteDetails.getDiscountAmount()}
+								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getDiscountAmount()))%>
 								</h3>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6">所需保費</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-									${homeQuoteDetails.getTotalDue() }</h3>
+									<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></h3>
 
 							</div>
 							<input type="hidden" name="totalDue"
