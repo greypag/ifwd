@@ -78,7 +78,9 @@ $(function () {
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var tillDate_from= new Date((new Date()).getTime() + 30*24*60*60*1000);
+	var tillDate_from= new Date((new Date()).getTime() + 29*24*60*60*1000);
+	var duration = $('#frmTravelGetQuote').length > 0 ? 120*24*60*60*1000 :30*24*60*60*1000;
+	
 	var checkout;
 	/* desktoip datepicker*/
 	$("#txtStartDateDesk").blur(function() {
@@ -126,7 +128,7 @@ $(function () {
 			newDate.setDate(newDate.getDate());
 			
 			checkout.datepicker("update", newDate);
-			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + 30*24*60*60*1000));
+			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
 		}
 		
@@ -147,7 +149,7 @@ $(function () {
 				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
 				
-				return date.valueOf() >= checkin.datepicker("getDate").valueOf() && date.valueOf() < checkin.datepicker("getDate").valueOf()+30*24*60*60*1000;
+				return date.valueOf() >= checkin.datepicker("getDate").valueOf() && date.valueOf() < checkin.datepicker("getDate").valueOf()+duration;
 			}
 		},
 		autoclose: true,
@@ -167,7 +169,8 @@ $(function () {
 	/* mobile datepicker */
 	var checkin2 = $('#dp3').datepicker({
 		beforeShowDay: function (date) {
-			return date.valueOf() >= now.valueOf();
+			//return date.valueOf() >= now.valueOf();
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
 		},
 		autoclose: true,
 		todayHighlight: true,
@@ -189,10 +192,17 @@ $(function () {
 	});
 	var checkout2 = $('#dp4').datepicker({
 		beforeShowDay: function (date) {
+//			if (!checkin2.datepicker("getDate").valueOf()) {
+//				return date.valueOf() >= new Date().valueOf();
+//			} else {
+//				return date.valueOf() >= checkin2.datepicker("getDate").valueOf();
+//			}
 			if (!checkin2.datepicker("getDate").valueOf()) {
-				return date.valueOf() >= new Date().valueOf();
+
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
-				return date.valueOf() >= checkin2.datepicker("getDate").valueOf();
+				
+				return date.valueOf() >= checkin2.datepicker("getDate").valueOf() && date.valueOf() < checkin2.datepicker("getDate").valueOf()+duration;
 			}
 		},
 		autoclose: true,
@@ -212,7 +222,8 @@ $(function () {
 	/* bottom datepicker */
 	var checkin3 = $('#dp5').datepicker({
 		beforeShowDay: function (date) {
-			return date.valueOf() >= now.valueOf();
+			//return date.valueOf() >= now.valueOf();
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
 		},
 		autoclose: true,
 		todayHighlight: true,
@@ -233,11 +244,18 @@ $(function () {
 	});
 	var checkout3 = $('#dp6').datepicker({
 		beforeShowDay: function (date) {
+//			if (!checkin3.datepicker("getDate").valueOf()) {
+//
+//				return date.valueOf() >= new Date().valueOf();
+//			} else {
+//				return date.valueOf() >= checkin3.datepicker("getDate").valueOf();
+//			}
 			if (!checkin3.datepicker("getDate").valueOf()) {
 
-				return date.valueOf() >= new Date().valueOf();
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
 			} else {
-				return date.valueOf() >= checkin3.datepicker("getDate").valueOf();
+				
+				return date.valueOf() >= checkin3.datepicker("getDate").valueOf() && date.valueOf() < checkin3.datepicker("getDate").valueOf()+duration;
 			}
 		},
 		autoclose: true,
