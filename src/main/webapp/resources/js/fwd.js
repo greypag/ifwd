@@ -2430,25 +2430,45 @@ function validUser(formID)
 	var flag = true;
 	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
 	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
-
+	
 	//document.getElementById("errUserName").innerHTML = "";
 	//document.getElementById("errPass").innerHTML = "";
-	$("#"+formID+" #errUserName").val();
-	$("#"+formID+" #errPass").val();
+	$("#"+formID+" #errUserName").html("");
+	$("#"+formID+" #errPass").html("");
 
 	if (password.trim() == "")
 	{    	
-		$("#"+formID+" #errPass").val(getBundle(getBundleLanguage, "user.username.notValid.message")); 
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message")); 
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		$("#"+formID+" #errUserName").val(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.notValid.message"));
 		
 		flag = false;
 	}
 
 	return flag;
 }
+var device = 0; // 0 of desktop and 1 for mob
+$(window).resize(function() {
+	  var width = $(window).width();
+	  console.log(width);
+	  
+	  if(width>=992 && device == 1){
+		 if($('body').hasClass('canvas-slid')){
+			  $('.navmenu').offcanvas('hide');
+			  $('.offcanvas').hide();
+			  $('#overlay').remove();
+	  	}
+		  device = 0;
+	  }else if( width <= 991 && device == 0){
+		  $('#myDropdown').removeClass('open');
+		  $('#overlay').remove();
+		  device = 1;
+	  }
+	  
+	  
+})
 
 
 
