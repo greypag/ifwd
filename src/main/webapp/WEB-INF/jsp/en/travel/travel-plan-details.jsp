@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>s
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
@@ -8,6 +9,12 @@
 		authenticate = request.getSession()
 				.getAttribute("authenticate").toString();
 	}
+	
+	QuoteDetails travelQuote = null;
+ 	if (travelQuote == null) 
+ 	{
+ 		travelQuote = (QuoteDetails) session.getAttribute("tq");
+ 	}
 %>
 
 
@@ -228,7 +235,17 @@
 												</c:choose>
 											</c:when>
 											<c:when test="${inx == 1}">
-											Myself 
+								<%								
+									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									{ 
+								%>
+											Traveller(s)
+								<% 	}
+									else 
+									{
+								%>
+											Parent(s)
+								<%  } %> 
 										</c:when>
 										</c:choose>
 									</h4>
@@ -602,16 +619,25 @@
 										class="span2 uline">Change</span></a>
 								</h3>
 								<h4>
+						<%								
+							if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+							{ 
+						%>
+								
 								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}">Traveller(s): ${travelQuote.getTotalPersonalTraveller()}
-								 </c:if>
-									<c:if test="${  travelQuote.getTotalAdultTraveller()!=0}">Parent(s): ${travelQuote.getTotalAdultTraveller()}
-										</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>Child(ren): ${travelQuote.getTotalChildTraveller()}
-								  
-								</c:if>
-									<c:if test="${  travelQuote.getTotalOtherTraveller()!=0}"><br>Other(s):	${travelQuote.getTotalOtherTraveller()}
-								 </c:if>
+								 	</c:if>
+						<% }
+						   else
+						   { 
+						%>
+								<c:if test="${ travelQuote.getTotalAdultTraveller()!=0 }">Parent(s): ${travelQuote.getTotalAdultTraveller()}
+									</c:if>
+								<c:if test="${ travelQuote.getTotalChildTraveller()!=0 }"><br>Child(ren): ${travelQuote.getTotalChildTraveller()}
+									</c:if>
+								<c:if test="${ travelQuote.getTotalOtherTraveller()!=0 }"><br>Other(s):	${travelQuote.getTotalOtherTraveller()}
+									 </c:if>
 								</h4>
+						<% } %>
 
 								<br>
 								<h3 class="txt-bold">
