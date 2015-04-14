@@ -2,15 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 <script>
-	function submitLoginForm() {
+	function submitLoginForm(formID) {
 		$('#ajax-loading').show();
 		$('#login-err-msg').html("");
 		$('#login-err-msg').hide();
-		if (validUser()) {
+		if (validUser(formID)) {
 			$.ajax({
 				type : "POST",
 				url : "userLogin",
-				data : $("#headerLoginForm form").serialize(),
+				data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 				async : false,
 				success : function(data) {
 					$('#ajax-loading').hide();
@@ -21,13 +21,12 @@
 						window.location.href = "getAccByUsernaneAndPassword";
 					} else if (data == 'fail') {
 						$('#ajax-loading').hide();
-						$('#login-err-msg').show();
-						$('#login-err-msg').html(
-								'Please Check Login Credential');
+						$("#"+formID+' #login-err-msg').show();
+						$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
 					} else {
 						$('#ajax-loading').hide();
-						$('#login-err-msg').show();
-						$('#login-err-msg').html(data);
+						$("#"+formID+' #login-err-msg').show();
+						$("#"+formID+' #login-err-msg').html(data);
 					}
 
 				},
@@ -137,7 +136,7 @@
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm();"
+														<button type="button" onclick="return submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5">Log
 															In</button>
 													</div>
@@ -200,7 +199,7 @@
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm();"
+														<button type="button" onclick="return submitLoginForm(loginform);"
 															class="bdr-curve btn btn-primary btn-lg wd5">Log
 															In</button>
 													</div>
@@ -274,7 +273,7 @@
 							<br>Insurance </a></li>
 					<li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active" <%} %>"><a
 						href="travel" class="travel-and-home-tab"> Travel<br> Insurance</a></li>
-					<li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("homecare")){ %> active" <%} %>"><a
+					<li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active" <%} %>"><a
 						class="travel-and-home-tab" href="homecare"> Home <br> <span
 							class="Insurance">Insurance</span></a></li>
 				</ul>
@@ -315,11 +314,78 @@
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
+	
+	
+		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
 		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> Log in to account  </a>
+		<div class="dropdown-menu drop-width">
+									<form name="loginform" id="loginform2">
+										<div class="login-form">
+											<div
+												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												id="ajax-loading">
+												<img
+													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													src="resources/images/ajax-loader.gif">
+											</div>
+											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
+											<div class="form-container">
+												<h2>Log in to FWD</h2>
+												<h4 class="margin-shift">Username <a href="forgotUserName"
+														class="pull-right sub-link">Forgot username?</a>
+												</h4>
 
-
-
-
+												<div class="form-group">
+													<input type="text" name="userName" class="form-control"
+														placeholder="" id="headerUserName">
+												</div>
+												<span id="errUserName" style="color: red"></span>
+												<h4 class="margin-shift">Password <a href="forgotPassword"
+														class="pull-right sub-link">Forgot password?</a>
+												</h4>
+												<div class="form-group">
+													<input type="password" name="password" class="form-control"
+														id="headerPassword">
+												</div>
+												<span id="errPass" style="color: red"></span> <br>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-xs-6">
+														<button type="button" onclick="return submitLoginForm('loginform2');"
+															class="bdr-curve btn btn-primary btn-lg wd5">Log
+															In</button>
+													</div>
+													<h3 class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+														<span> New Member?</span><br> <a href="joinus">
+															Register here</a>
+													</h3>
+													<div class="clearfix"></div>
+												</div>
+												
+											</div>
+										</div>
+									</form>
+								</div>
+		
+		<% }else{ %>
+		
+			<a href="#" class="dropdown-toggle" id="fwd-login"
+								data-toggle="dropdown">Welcome <%=session.getAttribute("username")%> <i
+									class="fa fa-caret-right"></i>
+							</a>
+								<div class="dropdown-menu drop-width">
+									<ul>
+									<% if(!"direct".equalsIgnoreCase(request.getSession()
+											.getAttribute("authenticate").toString())){ %>
+										<li><a href="getAccByUsernaneAndPassword" class="color1">
+												Manage FWD Member Account</a></li>
+												<%} %>
+										<li><a href="userLogout" class="color1">Log Out</a></li>
+									</ul>
+								</div>
+		
+		
+		<% } %>
+		<!--  <a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> Log in to account  </a>
 
 		<div class="dropdown-menu full-width">
 			<div class="moblogin">
@@ -357,9 +423,7 @@
 
 							</h3>
 							<div class="clearfix"></div>
-							<!-- <div class="col-xs-10 col-sm-12 pad-none descli">
-							For the purpose of purchasing a specified insurance plan through this website ("the Plan"), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.
-							</div> -->
+							
 							<div class="clearfix"></div>
 							
 						</div>
@@ -368,8 +432,16 @@
 
 
 			</div>
-		</div>
+		</div>-->
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
 		<li><a href="home">Home</a></li>
