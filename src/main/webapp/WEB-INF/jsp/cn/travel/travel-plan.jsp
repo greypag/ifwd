@@ -996,14 +996,14 @@ var promoData = '';
 									<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 										{ 
 									%>
-											<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}">   ${travelQuoteBean.getTotalPersonalTraveller()} 旅客   </c:if>
+											<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}"> 旅客: ${travelQuoteBean.getTotalPersonalTraveller()}    </c:if>
 									<% } 
 									   else 
 									   {
 									%>
-											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}">    ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()} 家長 <br></c:if>
-											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}">    ${travelQuoteBean.getTotalChildTraveller()} 子女 <br></c:if>
-											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}">    ${travelQuoteBean.getTotalOtherTraveller()} 其他旅客 <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}"> 家長: ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}  <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}"> 子女: ${travelQuoteBean.getTotalChildTraveller()} <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}"> 其他旅客: ${travelQuoteBean.getTotalOtherTraveller()} <br></c:if>
 									<% }
 									%>
 									</div>
