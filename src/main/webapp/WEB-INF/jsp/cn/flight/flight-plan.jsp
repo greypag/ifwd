@@ -66,7 +66,8 @@
             		planDetails.setTotalAdultTraveller(0);
             		planDetails.setTotalChildTraveller(0);
 	    			planDetails.setTotalOtherTraveller(0);
-	    			System.out.println("rest to 0");
+	    			session.setAttribute("flightPlan.planDetails", planDetails);
+	    			//System.out.println("rest to 0");
 	    		}
             } catch (Exception e) {
             	e.printStackTrace();

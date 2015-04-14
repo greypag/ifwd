@@ -1,4 +1,5 @@
 <%@page import="com.ifwd.fwdhk.model.PlanDetailsForm"%>
+<%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.FlightQuoteDetails"%>
 <%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
@@ -12,6 +13,8 @@
 	if (session.getAttribute("authenticate") != null) {
 		authenticate = session.getAttribute("authenticate").toString();
 	}
+	
+	PlanDetails planDetails = (PlanDetails) session.getAttribute("flightPlan.planDetails");
 %>
 
 <script>
@@ -300,12 +303,33 @@
 												配偶 
 												</c:when>
 												<c:when test="${totalAdultCount != 2}">
-												成人旅客 <c:out value="${inx-1}"></c:out>
+								<%								
+									if (planDetails.getPlanSelected() != null && planDetails.getPlanSelected().equals("personal"))
+									{ 
+								%>
+											旅客
+								<% 	}
+									else 
+									{
+								%>
+											家長
+								<%  } %>  
+												<c:out value="${inx-1}"></c:out>
 												</c:when>
 											</c:choose>
 										</c:when>
 										<c:when test="${inx == 1}">
-											我自己 
+								<%								
+									if (planDetails.getPlanSelected() != null && planDetails.getPlanSelected().equals("personal"))
+									{ 
+								%>
+											旅客
+								<% 	}
+									else 
+									{
+								%>
+											家長
+								<%  } %>  
 										</c:when>
 									</c:choose>
 								</h4>
