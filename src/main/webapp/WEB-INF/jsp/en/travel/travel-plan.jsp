@@ -223,7 +223,7 @@
 										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></span>
 									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
 								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
@@ -231,10 +231,10 @@
 										} else {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=travelQuote.getToalDue()[i]%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></span>
 									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=travelQuote.getGrossPremium()[i]%></del></span>
+								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del></span>
 									<%
 										}
 									%>

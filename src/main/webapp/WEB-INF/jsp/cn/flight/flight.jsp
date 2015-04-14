@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         	}
      	
      	var frm = document.getElementById("freeFlight");
-     	frm.submit();
+     	//frm.submit();
     	}  
 </script>
 

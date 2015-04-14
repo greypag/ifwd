@@ -38,7 +38,7 @@
     	
     	var frm = document.getElementById("frmTravelGetQuote");
     	//alert("reset_submit");
-    	frm.submit();
+    	//frm.submit();
    	}   
 </script>
 <%

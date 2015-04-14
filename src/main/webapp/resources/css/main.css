@@ -4753,8 +4753,7 @@ h2.from-control {
 	line-height: 25px;
 	color: #f68a1d;
 	text-decoration: underline;
-	font-family: 'Foco-Regular';
-	font-family: 'Foco_Lt';
+	margin-top:12px;
 }
 .form-group .input-group-addon1 {
 	position: absolute;
@@ -5808,4 +5807,11 @@ p.mute{
 }
 .marg20{
 	margin: 20px 0;
+}
+#loginform2 .form-container {
+	float: left;
+  	width: 100%;
+}
+#loginform2 #login-err-msg{
+	  white-space: normal;
 }

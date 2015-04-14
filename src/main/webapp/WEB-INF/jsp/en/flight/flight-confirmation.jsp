@@ -218,9 +218,10 @@ id="box<%=i%>">
 <br>
 <h3>HK$</h3>
 <span id="totalDue"></span>
-<h6><%=travelQuote.getToalDue()[i]%></h6>
+<h6><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></h6>
+    
 <p>
-<del><%=travelQuote.getGrossPremium()[i]%></del> 
+<del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del> 
 </p>
 </div>
 <div class="clearfix"></div>

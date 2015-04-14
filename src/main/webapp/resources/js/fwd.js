@@ -2401,22 +2401,25 @@ function resetPassword() {
 	return flag;
 }
 
-function validUser()
+function validUser(formID)
 {
 	var flag = true;
-	var userName = document.getElementById("headerUserName").value;
-	var password = document.getElementById("headerPassword").value;
+	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
+	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
 
-	document.getElementById("errUserName").innerHTML = "";
-	document.getElementById("errPass").innerHTML = "";
+	//document.getElementById("errUserName").innerHTML = "";
+	//document.getElementById("errPass").innerHTML = "";
+	$("#"+formID+" #errUserName").val();
+	$("#"+formID+" #errPass").val();
 
 	if (password.trim() == "")
 	{    	
-		document.getElementById("errPass").innerHTML  = "Please enter your Password.";
+		$("#"+formID+" #errPass").val(getBundle(getBundleLanguage, "user.username.notValid.message")); 
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		document.getElementById("errUserName").innerHTML = "Please enter your Username.";
+		$("#"+formID+" #errUserName").val(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		
 		flag = false;
 	}
 

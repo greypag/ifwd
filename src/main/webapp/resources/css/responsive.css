@@ -954,6 +954,21 @@
           margin-left:0px;
     }
     table.activation-form td .control-label{
-    	line-height: 1.3;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 991px) {
+    .drop-width {
+      min-width: 300px !important;
+    }
+    .login-form {
+      padding: 0px;
+    }
+    .drop-width .btn-lg {
+        padding: 12px 22px !important;
+    }
+    .navmenu .btn-lg a{
+        font-size: 16px;
     }
 }
