@@ -451,12 +451,13 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1; j++)
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
@@ -531,19 +532,14 @@ function fPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
-				{
-					document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+				{					
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
 			}
@@ -618,18 +614,13 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
@@ -1222,12 +1213,13 @@ function fcPlanValid()
 			}
 
 			if (hkid.trim() != "") {
-				for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+				for (var j = 1; j <= i-1 ; j++)
 				{
 					var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
 					if (hkid.toUpperCase() == hkid1.toUpperCase())
 					{
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = "";						
 						document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 						flag = false;
 					}
@@ -1305,12 +1297,13 @@ function fcPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
@@ -1389,12 +1382,13 @@ function fcPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
@@ -1574,14 +1568,8 @@ function tPlanValid()
 			}
 		}
 
-		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+		if (hkid.trim() != "") {		
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
@@ -1697,13 +1685,7 @@ function tPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtChldInvalidInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = i; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
@@ -1821,13 +1803,7 @@ function tPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtOtherInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
