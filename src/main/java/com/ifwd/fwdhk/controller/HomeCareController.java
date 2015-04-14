@@ -511,7 +511,7 @@ public class HomeCareController {
 			header.put("token", token);
 
 			// sendEmail.sendEmail(emailId, referenceNo, header);
-			model.addAttribute("policy", finalize.getPolicyNo());
+			model.addAttribute("policyNo", finalize.getPolicyNo());
 		}
 		model.addAttribute("emailID", emailId);
 
