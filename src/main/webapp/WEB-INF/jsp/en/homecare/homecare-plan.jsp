@@ -766,7 +766,7 @@
 	<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 		action="getYourHomeCareDetails" method="post"
 		modelAttribute="planQuoteDetails">
-		<div class="hidden-lg hidden-md text-center">
+		<div class="hidden-lg hidden-md text-center clearfix">
 			<br>
 			<div class="col-sm-12 col-xs-12 gray-bg">
 			<div class="row">
