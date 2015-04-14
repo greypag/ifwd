@@ -321,26 +321,30 @@
             <span id="errchk2" class="error-msg"></span> -->
 						<div class="clearfix"></div>
 						<div class="hidden-sm hidden-xs pad-none">
-							<input type="button" class="bdr-curve btn btn-primary bck-btn"
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
+							<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()"
 								value="返回">
+								</div>
 							<!--<a href="homecare-plan-details-cn.html" class="bdr-curve btn btn-primary bck-btn">返回 </a>-->
 							<!--<a href="homecare-confirmation-cn.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a>-->
-							<input type="submit"
-								class="bdr-curve btn btn-primary nxt-btn margin-left"
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+								<input type="submit"
+								class="bdr-curve btn btn-primary btn-next margin-left"
 								value="確認付款">
-
+							</div>
+							
 						</div>
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad-none">
-								<a href="travel-plan-details-cn.html"
+								<a href="#" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
 								</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<input type="submit"
-									class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center"
+									class="bdr-curve btn btn-primary btn-next margin-left text-center"
 									value="確認付款">
 							</div>
 

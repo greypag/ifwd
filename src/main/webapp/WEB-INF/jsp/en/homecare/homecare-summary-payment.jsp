@@ -347,7 +347,7 @@
 									class="bdr-curve btn btn-primary nxt-btn margin-left"
 									onclick="confirmPayment()" value="Confirm Payment"> -->
 								<input type="submit"
-									class="bdr-curve btn btn-primary nxt-btn margin-left"
+									class="bdr-curve btn btn-primary btn-next margin-left"
 									value="Confirm Payment">
 							</div>
 
@@ -364,7 +364,7 @@
 
 
 								<input type="submit"
-									class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center"
+									class="bdr-curve btn btn-primary btn-next margin-left text-center"
 									value="Pay Now">
 							</div>
 
