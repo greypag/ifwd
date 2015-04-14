@@ -819,6 +819,8 @@
 
 							</div>
 						</div>
+						<%
+							HomeQuoteBean homeQuoteDetails = (HomeQuoteBean) request.getAttribute("homeQuoteDetails");%>
 						<div
 							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3">
 							<div class="hidden-sm hidden-xs">
