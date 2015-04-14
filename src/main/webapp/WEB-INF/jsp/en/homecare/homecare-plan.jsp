@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,9 +148,9 @@
 	function setValue(result) {
 
 		var totalDue = parseInt(result["priceInfo"].totalDue);
-		$("#subtotal").html(result["priceInfo"].grossPremium);
-		$("#discountAmt").html(result["priceInfo"].discountAmount);
-		$("#amountdue").html(result["priceInfo"].totalDue);
+		$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
+		$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
+		$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
 
 	}
 </script>
@@ -233,6 +234,8 @@
 					</div>
 				</div>
 				
+				<%
+							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
@@ -250,8 +253,7 @@
 								<br>
 								<div class="h4">
 									HK$ <br>
-									<div class="flightcare-hk">
-										${planQuote.getGrossPremium()}</div>
+									<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
 								</div>
 							</div>
 							<div class="clearfix"></div>
@@ -650,8 +652,8 @@
 									<div class="text-left pad-right1 h2-2 h2">
 										<div class="hk1">HK$</div>
 										<div class="hk1 top-mrg-10">
-											<div class="flightcare-hk">
-												${planQuote.getGrossPremium()}</div>
+											<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%>
+												</div>
 										</div>
 									</div>
 								</div>
@@ -693,18 +695,20 @@
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
 							<h3 id="subtotal"
 								class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								${planQuote.getTotalDue()}</h3>
+								<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>
+								</h3>
 
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t">Discount
 							</h3>
 							<h3 id="discountAmt"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t">${planQuote.getDiscountAmount()}
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%>
+								
 							</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr"></div>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
 							<h3 id="amountdue"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planQuote.getTotalDue()}</h3>
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
 
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
