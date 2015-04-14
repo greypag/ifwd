@@ -147,31 +147,32 @@
 							<div class="center" style="visibility: visible;">
 								<h2>Confirmation</h2>
 							</div>
-							<br> <br>
+							<br>
 							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status">
-									<div class="order-status-timeline1">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div class="c4"></div>
+								<div class="order-status has-four">
+									<div class="order-status-timeline-new">
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-active"></div>
 									</div>
 									<div
-										class="image-order-status image-order-status-new active img-circle">
+										class="image-order-status image-order-status-new active img-circle first">
 										<span class="status color3">Your Options</span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
-										class="image-order-status image-order-status-intransit  img-circle ">
+										class="image-order-status image-order-status-intransit  img-circle second">
 										<span class="status color3">Your Details</span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle">
+										class="image-order-status image-order-status-delivered  img-circle third">
 										<span class="status color3">Summary & Payment</span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle act">
+										class="image-order-status image-order-status-completed  img-circle act fourth">
 										<span class="status lst-status">Confirmation</span>
 										<div class="icon">4</div>
 									</div>
@@ -179,7 +180,6 @@
 							</div>
 						</div>
 					</div>
-					<br> <br> <br>
 					<c:if test="${not empty errormsg}">
 						<div id="confirm-error-msg" class="alert alert-danger hide"
 							role="alert">${errormsg}</div>
@@ -212,62 +212,19 @@
 							Share your promotion code now to earn discounts and rewards
 							</div>
 
-							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-								<div class=" wht-bg1 text-center">
-									<a class="padding6 h4-5-b " href="">http://uat-ecom.i.fwd.com.hk/travel?promo=<%=session.getAttribute("myReferralCode")%></a>
-								</div>
-								<div class=" text-left">
-									<!--<a class="sub-link other-share">Other sharing options</a>-->
-								</div>
-							</div>
-
-
-							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
-
-								<div class="copy-link pull-left">Copy Link</div>
-								<div class="fb1 pull-left">
-									<!--<a href="#" class="color-wht"><i class="fa fa-facebook fa-2x"></i></a>-->
-									<iframe
-										src="//www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;layout=button_count"
-										scrolling="no" frameborder="0"
-										style="border: none; overflow: hidden;"
-										allowTransparency="true"></iframe>
-
-								</div>
-								<div class="twi1 pull-left">
-									<a href="https://twitter.com/share"
-										class="twitter-share-button" data-dnt="true" data-count="none"
-										data-via="twitterdev"> Tweet </a>
-									<script>
-										window.twttr = (function(d, s, id) {
-											var js, fjs = d
-													.getElementsByTagName(s)[0], t = window.twttr
-													|| {};
-											if (d.getElementById(id))
-												return;
-											js = d.createElement(s);
-											js.id = id;
-											js.src = "https://platform.twitter.com/widgets.js";
-											fjs.parentNode
-													.insertBefore(js, fjs);
-											t._e = [];
-											t.ready = function(f) {
-												t._e.push(f);
-											};
-											return t;
-										}(document, "script", "twitter-wjs"));
-									</script>
-								</div>
-								<div class="gplus1 pull-left">
-									<!-- Place this tag in your head or just before your close body tag. -->
-									<script src="https://apis.google.com/js/platform.js" async
-										defer></script>
-
-									<!-- Place this tag where you want the share button to render. -->
-									<div class="g-plus" data-action="share" data-annotation="none"
-										data-height="24"></div>
-								</div>
-							</div>
+							<div >
+					         	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
+					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank">http://uat-ecom.i.fwd.com.hk/travel?promo=<%=session.getAttribute("myReferralCode")%></a></div>
+					            </div>
+					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
+						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">Copy Link</div>
+						        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
+					                <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
+					           	</div>
+					         </div>
+					         <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+<!--End of addthis -->
 							<div class="clearfix"></div>
 							<br>
 							<div class="col-lg-12 col-md-12 travel-b">
@@ -278,7 +235,7 @@
 										- 5% discount from Agoda <br>
 										- 30% discount on your next purchase of TravelCare <br>
 										Referee will enjoy 8% discount on Easy HomeCare purchase. <br>
-										Please review the detailed <a href="http://i.fwd.com.hk/downloads/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.
+										Please review the detailed <a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.
 									</p>
 									<br>
 								</div>
@@ -287,14 +244,14 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="spacer2 hidden-sm hidden-xs"></div>
-					<div class="container pad-none hidden-sm hidden-xs">
+					<div class="container pad-none hidden-xs hidden-sm travel-homecare">
 						<div class="row-fluid">
 							<div class="center " style="visibility: visible;">
 								<h4 class="center-h2">You may also be interested in</h4>
 								<br>
 								<br>
 								<div class="col-md-3 col-lg-3 text-left pad-none">
-									<img src="images/t-care.png" alt="">
+									<img src="resources/images/t-care.png" alt="">
 								</div>
 								<div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
 									<div>
@@ -319,4 +276,5 @@
 
 
 </body>
+
 </html>
