@@ -2429,7 +2429,6 @@ function validUser(formID)
 var device = 0; // 0 of desktop and 1 for mob
 $(window).resize(function() {
 	  var width = $(window).width();
-	  console.log(width);
 	  
 	  if(width>=992 && device == 1){
 		 if($('body').hasClass('canvas-slid')){
