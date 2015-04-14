@@ -433,12 +433,6 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
@@ -1210,12 +1204,6 @@ function fcPlanValid()
 			}
 
 			if (hkid.trim() != "") {
-				if (hkid.toUpperCase() == appHkid.toUpperCase())
-				{
-					document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
-					flag = false;
-				}
-			
 				for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
 				{
 					var hkid1 = document.getElementById("txtInsuHkid" + j).value;
@@ -1299,12 +1287,6 @@ function fcPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
-				flag = false;
-			}
-		
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
@@ -1389,12 +1371,6 @@ function fcPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
-				flag = false;
-			}
-		
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
