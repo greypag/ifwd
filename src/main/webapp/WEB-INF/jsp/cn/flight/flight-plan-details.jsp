@@ -314,7 +314,7 @@
 									<div class="col-xs-12  col-sm-6 col-md-6">
 										<label class="bold-500">英文全名</label> <input type="text"
 											name="adultName" id="txtAdFullName${inx}"
-											class="form-control " placeholder="英文全名(與香港身份證號碼)"
+											class="form-control " placeholder="英文全名(與香港身份證)"
 											onblur="replaceAlpha(this);"
 											onkeypress="    return alphaOnly(event);" maxlength="100" />
 										<span id="fullname1" class="text-red"> </span> <span
@@ -322,7 +322,7 @@
 									</div>
 
 									<div class="col-xs-12  col-sm-6 col-md-6">
-										<label class="pad-left1 bold-500">身份證號碼</label> <input
+										<label class="pad-left1 bold-500">香港身份證</label> <input
 											id="txtInsuHkid${inx}" name="adultHKID" class="form-control"
 											placeholder="X1234567" value="" /> <span
 											id="errtxtInvalidInsuHkid${inx}" class="text-red">&nbsp;
