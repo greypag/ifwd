@@ -673,7 +673,15 @@ $(function () {
 				$("#fullnameinvalid").html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));//"Please enter your Name in English.";
 				return false;
 			}
-			
+			if (allLetter(fullname) == false) {
+				
+				$("#fullnameinvalid")
+						.html(
+								getBundle(getBundleLanguage,
+										"applicant.name.notNull.message"));
+				return false;
+			}
+				
 			$("#txtAdFullName1").val($(this).val());
 			$("#fullnameinvalid").html('');
 		});
@@ -812,7 +820,7 @@ $(function () {
 					$("#fullnameinvalid")
 							.html(
 									getBundle(getBundleLanguage,
-											"applicant.name.notNull.message"));
+											"insured.name.notNull.message"));
 					return false;
 				}
 					
