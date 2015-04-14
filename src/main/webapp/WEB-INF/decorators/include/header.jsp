@@ -42,13 +42,13 @@
 	function changeLang(){
 		var language = $('#selectLang').val();
 		if(language == "EN"){
-			alert("En");
+
 			$('#selectLang').val('CN');
 			$('#anchor-lang').html('中文');
 			document.changeLang.action ="changeLang";			
 		}
 		if(language == "CN"){
-			alert("CN");
+
 			$('#selectLang').val('EN');
 			$('#anchor-lang').html('ENG');
 			document.changeLang.action ="changeLang";

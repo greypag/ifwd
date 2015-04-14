@@ -385,9 +385,26 @@ public class UserController {
 		HttpSession session = req.getSession(true);
 		String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
+
+		String ogTitle = WebServiceUtils.getPageTitle("index.og.title", UserRestURIConstants.getLanaguage(req));
+		String ogType = WebServiceUtils.getPageTitle("index.og.type", UserRestURIConstants.getLanaguage(req));
+		String ogUrl = WebServiceUtils.getPageTitle("index.og.url", UserRestURIConstants.getLanaguage(req));
+		String ogImage = WebServiceUtils.getPageTitle("index.og.image", UserRestURIConstants.getLanaguage(req));
+		String ogDescription = WebServiceUtils.getPageTitle("index.og.description", UserRestURIConstants.getLanaguage(req));
+
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
+		
+		
+
 		
 		String dir = UserRestURIConstants.checkLangSetPage(req);
 		

@@ -15,7 +15,9 @@
 
 <!-- Title -->
 <title>${pageTitle}</title>
-<meta name='description' content=${pageMetaDataDescription}>
+<meta name='description' content=${pageMetaDataDescription} >
+
+
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <% boolean langFlag = false;
  if(session.getAttribute("language") != null){

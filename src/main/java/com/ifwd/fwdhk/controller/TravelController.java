@@ -97,6 +97,19 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		String ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
+
+
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request) + "travel/travel");			
 	}
 

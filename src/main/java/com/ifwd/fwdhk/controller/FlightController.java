@@ -38,6 +38,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreateFlightPolicy;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -106,8 +107,23 @@ public class FlightController {
 		model.addAttribute(planDetails);
 		String pageTitle = WebServiceUtils.getPageTitle("page.flight", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flight", UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle("flight.og.title", UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle("flight.og.type", UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle("flight.og.url", UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle("flight.og.image", UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle("flight.og.description", UserRestURIConstants.getLanaguage(request));
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
+		
 		model.addAttribute(planDetails);
 		return new ModelAndView(
 				UserRestURIConstants.checkLangSetPage(request) + "flight/flight");			
