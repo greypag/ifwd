@@ -285,7 +285,7 @@
          <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
 
            <div class="col-xs-8 col-sm-8">
-            <h4>位成人</h4>
+            <h4>家長</h4>
           </div>
            <div class="col-xs-4 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
@@ -306,7 +306,7 @@
          <div class="clearfix"></div>
 
           <div class="col-xs-8 col-sm-8">
-            <h4>位子女</h4>
+            <h4>子女</h4>
           </div>
            <div class="col-xs-4 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
@@ -327,7 +327,7 @@
          <div class="clearfix"></div>
 
           <div class="col-xs-8 col-sm-8">
-            <h4>Other</h4>
+            <h4>其他旅客</h4>
           </div>
            <div class="col-xs-4 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
