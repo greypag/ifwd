@@ -26,14 +26,14 @@
 							style="visibility: visible;">
 							<h2>您的賬單</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status">
-									<div class="order-status-timeline">
-										<!-- class names: c0 c1 c2 c3 and c4 -->
-										<div
-											class="order-status-timeline-completion order-status-timeline-completion c3"></div>
+								<div class="order-status has-four">
+									<div class="order-status-timeline-new">
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-active"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle">
@@ -61,15 +61,23 @@
 						</div>
 					</div>
 				</div>
-				<br> <br> <br>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
-						<br>
+						<div class="row home-summary-heading-row">
+							<div class="col-xs-6 col-md-7">
+								<h3 class="margin-left-2 h2-3-existing-fwd-head home-summary-heading">摘要</h3>
+							</div>
+							<div class="col-xs-6 col-md-5">
+								<h4 class="h4-trav-full text-right home-summary-change">
+									<a href="#" onclick="BackMe()">更改資料</a>
+								</h4>
+							</div>
+						</div>
 
 
 						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
-							<h3 class="margin-left-2 h2-3-existing-fwd-head">摘要</h3>
+							<!-- <h3 class="margin-left-2 h2-3-existing-fwd-head">摘要</h3> -->
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
@@ -79,7 +87,7 @@
 									<tr>
 										<td class="h2-1 ">保險計劃</td>
 										<td class="h4-5 ">基本保障<br> 家居保障<br>
-											<h4 class="h4-4-full">+ 承保範圍</h4></td>
+											<!-- <h4 class="h4-4-full">+ 承保範圍</h4> --></td>
 									</tr>
 									<tr>
 										<td class="h2-1 ">通訊地址</td>
@@ -115,24 +123,24 @@
 											${effectiveEndDate}</td>
 									</tr>
 									<tr>
-										<td class="pad-none"><span class="h4-4-orange-b pad-none">所需保費
+										<td class="td-vert-middle"><span class="h4-4-orange-b pad-none">所需保費
 										</span></td>
 										<%
 												HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");%>
-										<td><span class="h4-4-orange-b ">HK$ <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
+										<td><span class="h4-4-orange-b pad-none">HK$ <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 						<div
 							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
-							<h4 class="h4-trav-full col-xs-offset-8">
+							<!-- <h4 class="h4-trav-full col-xs-offset-8">
 								<a href="homecare-plan-details.html">更改資料</a>
-							</h4>
+							</h4>  -->
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="pad-none h2-3-existing-fwd-head ">申請人資料</td>
+										<td class="pad-none "><span class="home-summary-applicant h2-3-existing-fwd-head">申請人資料</span></td>
 										<td class="pad-none h4-5 "></td>
 									</tr>
 									<tr>
@@ -182,11 +190,11 @@
 						<input type="hidden" id="gateway" name="gateway"
 							value="${createdPolicy.getPaymentGateway()}">
 											
-				<div class="gray-bg1">
+				<div class="gray-bg1 pad20">
 					<div class="clearfix"></div>
 					<h2 class="from-control">付款</h2>
 					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>
-					<table class="table-responsive travel-tb">
+					<table class=" travel-tb">
 						<tbody>
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label h4-5">信用卡類型</label></td>
@@ -323,8 +331,8 @@
             </div>
             <span id="errchk2" class="error-msg"></span> -->
 						<div class="clearfix"></div>
-						<div class="hidden-sm hidden-xs pad-none">
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
+						<div class="row hidden-sm hidden-xs pad-none">
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 							<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()"
 								value="返回">
 								</div>
@@ -332,7 +340,7 @@
 							<!--<a href="homecare-confirmation-cn.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a>-->
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<input type="submit"
-								class="bdr-curve btn btn-primary btn-next margin-left"
+								class="bdr-curve btn btn-primary btn-next"
 								value="確認付款">
 							</div>
 							
@@ -340,14 +348,14 @@
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
 
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad-none">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<a href="#" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
 								</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<input type="submit"
-									class="bdr-curve btn btn-primary btn-next margin-left text-center"
+									class="bdr-curve btn btn-primary btn-next text-center"
 									value="確認付款">
 							</div>
 
