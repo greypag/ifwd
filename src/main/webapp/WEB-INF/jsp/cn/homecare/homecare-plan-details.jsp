@@ -662,8 +662,8 @@
 									</label>
 								</div>
 								<div class="checkbox">
-									<input id="checkbox3" type="checkbox" name="declarration2">
-									<label for="checkbox3">本人已參閱及明白 <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">"收集個人資料聲明"</a>，並同意接受其約束。
+									<input id="checkbox5" type="checkbox" name="declarration2">
+									<label for="checkbox5">本人已參閱及明白 <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">"收集個人資料聲明"</a>，並同意接受其約束。
 									</label>
 								</div>
 								<hr>
