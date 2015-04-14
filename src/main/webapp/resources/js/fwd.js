@@ -123,14 +123,15 @@ $(function () {
 
 
 	}).on('changeDate', function (ev) {
-		if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+		
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
 			checkout.datepicker("update", newDate);
 			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
-		}
+		//}
 		
 		
 		
@@ -177,11 +178,11 @@ $(function () {
 		format: "dd MM yyyy"
 
 	}).on('changeDate', function (ev) {
-		if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
+		//if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			checkout2.datepicker("update", newDate);
-		}
+		//}
 		$('#dp4')[0].focus();
 
 		var startDate = new Date($('#dp3').datepicker("getDate").valueOf());
@@ -230,11 +231,11 @@ $(function () {
 		format: "dd MM yyyy"
 
 	}).on('changeDate', function (ev) {
-		if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
+		//if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			checkout3.datepicker("update", newDate);
-		}
+		//}
 		$('#dp6')[0].focus();
 		var startDate = new Date($('#dp5').datepicker("getDate").valueOf());
 		var endDate = new Date($('#dp6').datepicker("getDate").valueOf());
@@ -2587,14 +2588,14 @@ function get_promo_val()
 	// Email Address Validation
 	if (emailId.trim() == "") {
 		document.getElementById("errPromoEmail").style.display = "block";
-		document.getElementById("errPromoEmail").innerHTML = "Your E-mail Address is invalid.";
+		document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notNull.message");//"Your E-mail Address is invalid.";
 		valid = false;
 
 	} else {
 
 		if (emailreg.test(emailId) == false) {
 			document.getElementById("errPromoEmail").style.display = "block";
-			document.getElementById("errPromoEmail").innerHTML = "Your E-mail Address is invalid.";
+			document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notValid.message");//"Your E-mail Address is invalid.";
 			valid = false;
 		}
 	}

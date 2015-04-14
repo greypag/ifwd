@@ -1114,6 +1114,7 @@ var promoData = '';
 					<form>
 					<div class="form-container">
 						<h2>不要有一個促销代碼？输入您的電子郵件地址，我們會送你一個</h2>
+						<div class="alert alert-success hide proSuccess"></div>
 						<h4>電子郵件 </h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
@@ -1205,6 +1206,7 @@ var promoData = '';
 	}
 
 	function sendEmail() {
+		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
@@ -1212,10 +1214,14 @@ var promoData = '';
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
-					alert(data);
+					
 					if (data == 'success') {
+						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
 					} else {
+						
+						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
+
 				},
 				error : function() {
 				}
