@@ -3564,3 +3564,12 @@ function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
 
 }
 
+
+//Homecare Calender
+var checkin = $('#homecareDp').datepicker({
+	//startDate:nowTemp,
+	//endDate:  tillDate_from,
+	autoclose: true,
+	todayHighlight: true,
+	format: "dd MM yyyy"
+});
