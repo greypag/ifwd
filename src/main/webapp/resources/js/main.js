@@ -158,12 +158,13 @@ $(window).scroll(function (event) {
 
 jQuery(document).ready(function() {
 	if($('#homecare-scroll').length){
-	    var winh = $(window).height();
-	    var conh = $('#main-slider').height() + $('#header').height() + 50;
-	    if(conh > winh)
-	    {
-	        var bottom = $('#homecare-scroll').outerHeight() - $('#homecare-scroll h2').outerHeight() - 30;
-	        jQuery('#homecare-scroll').css('bottom', -bottom);
+	    //var winh = $(window).height();
+	    // var conh = $('#main-slider').height() + $('#header').height() + 50;
+	    //var conh = $('#main-slider').height() + 50;
+	    //if(conh > winh)
+	    //{
+	        //var bottom = $('#homecare-scroll').outerHeight() - $('#homecare-scroll h2').outerHeight() - 30;
+	        //jQuery('#homecare-scroll').css('bottom', -bottom);
 	        $(window).scroll(function (event) {
 	            var scroll = $(window).scrollTop();
 	            var winh = $(window).height();
@@ -176,7 +177,7 @@ jQuery(document).ready(function() {
 	                jQuery('#homecare-scroll').addClass("fixed-content");
 	              }
 	            });
-	    }
+	    //}
 	}
 
 	if(jQuery("#d_clip_button").length){
