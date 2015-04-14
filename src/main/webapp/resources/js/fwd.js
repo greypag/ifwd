@@ -2909,7 +2909,7 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 	        	document.getElementById(errElementId).innerHTML = msg;
 	            return false;
 		    }
-	        if (dateDiff > 30) {
+	        if (dateDiff > 31) {
 	        	var msg = getBundle(getBundleLanguage, "flight.returnDate.notValid.message");
 	        	document.getElementById(errElementId).innerHTML = msg;
 	            return false;
