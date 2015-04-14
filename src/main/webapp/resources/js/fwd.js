@@ -303,15 +303,15 @@ function fPlanValid()
 {
 
 	var flag=true;
-	document.getElementById("fullnameinvalid").innerHTML = "";
-	document.getElementById("errAppHkid").innerHTML = "";
-	document.getElementById("emailid").innerHTML = "";    
-	document.getElementById("mobileNo").innerHTML = "";
-	
-	document.getElementById("chk1").innerHTML = "";
+//	document.getElementById("fullnameinvalid").innerHTML = "";
+//	document.getElementById("errAppHkid").innerHTML = "";
+//	document.getElementById("emailid").innerHTML = "";    
+//	document.getElementById("mobileNo").innerHTML = "";
+//	
+//	document.getElementById("chk1").innerHTML = "";
 	$('#chk2').html('');
-	
-	var fullname = document.getElementById("inputFullName").value;
+	console.log($('#selectCADist').val());
+/*	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
 	var appHkid = document.getElementById("inputTxtAppHkid").value;
@@ -360,7 +360,7 @@ function fPlanValid()
 		}
 	}
 
-
+    console.log($('#selectCADist').val());
     if (mobileNo.trim() == "") {
         document.getElementById("mobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         flag = false;
@@ -386,7 +386,7 @@ function fPlanValid()
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
 	var rowCountOther=document.getElementById("totalCountOther").value;
 
-	/* Adult Beneficiary validation */
+	 Adult Beneficiary validation 
 	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
 	{
 
@@ -476,13 +476,13 @@ function fPlanValid()
 
 	}
 
-	/* Child Beneficiary validation */
+	 Child Beneficiary validation 
 	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
 	{
 		var hkid = document.getElementById("txtChldInsuHkid" + i).value;
 		var fullname = document.getElementById("txtChldFullName" + i).value;
 		var age = document.getElementById("selectchildAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
+		var benefitiary = document.getElementById("childselectBenificiary" + i).value;
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
@@ -497,10 +497,10 @@ function fPlanValid()
 			document.getElementById("errchildRange" + i).innerHTML = "";
 		}
 
-		/*if (benefitiary.trim() == "") {
+		if (benefitiary.trim() == "") {
 			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
-		}*/
+		}
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 
@@ -560,13 +560,13 @@ function fPlanValid()
 
 	}
 
-	/* Other Beneficiary validation */
+	 Other Beneficiary validation 
 	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
 	{
 		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
 		var fullname = document.getElementById("txtOtherFullName" + i).value;
 		var age = document.getElementById("selectOtherAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
+		var benefitiary = document.getElementById("childselectBenificiary" + i).value;
 
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
@@ -583,10 +583,10 @@ function fPlanValid()
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
 		}
 
-		/*if (benefitiary.trim() == "") {
+		if (benefitiary.trim() == "") {
 			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
-		}*/
+		}
 
 		document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 
@@ -645,9 +645,9 @@ function fPlanValid()
 				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "";
 			}
 		}
-	}
+	}*/
 
-
+	console.log($('#selectCADist').val());
 	return flag;
 
 }
@@ -3212,7 +3212,7 @@ function chkNotNullCreditCareName(element, errElementId){
 }
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
-	alert(errElementId);
+	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;

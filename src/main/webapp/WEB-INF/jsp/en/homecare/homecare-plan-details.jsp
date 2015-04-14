@@ -167,8 +167,13 @@
 			$('#inputAEstate').val(applicantEstate);
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);
+
 			$('#selectADist').val(selectCADist);
 
+			
+			var element = document.getElementById('selectADist');
+			element.value = selectCADist;
+			$('#selectADist').val('AD123');
 			if (document.getElementById("inlineCARadio3").checked) {
 				document.getElementById("inlineDeskRadio31").checked = true;
 			} else if (document.getElementById("inlineCARadio4").checked) {

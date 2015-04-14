@@ -129,6 +129,8 @@
 			var applicantStreetNo = $('#inputCAStreetNo').val();
 			var applicantStreetName = $('#inputCAStreetName').val();
 			var selectCADist = $('#selectCADist').val();
+
+			
 			/* var applicantAreaCode = $('#applicantArea').checked */
 
 			//alert(applicantAreaCode);
@@ -140,12 +142,23 @@
 			$('#inputAEstate').val(applicantEstate);
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);
-			$('#selectADist').val(selectCADist);
 
+			//$('#selectADist').val(selectCADist);
+
+			console.log(selectCADist);
+// 			 $("#selectADist option").filter(function() {
+// 			        return $(this).attr('value') ==selectCADist;
+// 			    }).attr('selected', true);
+			//$('#selectADist').val(selectCADist);
+			$('#selectADist option[value='+selectCADist+']').attr('selected','selected');
+
+			console.log($('#selectCADist').val());
+			    
+			
 			if (document.getElementById("inlineCARadio3").checked) {
 				document.getElementById("inlineDeskRadio31").checked = true;
-			} else if (document.getElementById("inlineCARadio4").checked) {
-				document.getElementById("inlineDeskRadio41").checked = true;
+// 			} else if (document.getElementById("inlineCARadio4").checked) {
+// 				document.getElementById("inlineDeskRadio41").checked = true;
 			} else {
 				document.getElementById("inlineDeskRadio51").checked = true;
 			}
@@ -361,7 +374,7 @@
 
 										<td class="pad-none"><select name="apphkidandpassport"
 											id="selectHkidPass" class="form-control soflow">
-												<option value="appHkid" selected="selected">香港身份證號碼</option>
+												<option value="appHkid" selected="selected">香港身份證</option>
 												<option value="appPassport">護照</option>
 										</select></td>
 										<td class="pad-none"><input type="text" name="hkId"
