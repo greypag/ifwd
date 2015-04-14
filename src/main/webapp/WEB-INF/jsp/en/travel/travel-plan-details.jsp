@@ -624,8 +624,9 @@
 							{ 
 						%>
 								
-								<c:if test="${  travelQuote.getTotalPersonalTraveller()!=0}">Traveller(s): ${travelQuote.getTotalPersonalTraveller()}
-								 	</c:if>
+								<c:if test="${travelQuote.getTotalAdultTraveller()!=0}">
+									Traveller(s): ${travelQuote.getTotalAdultTraveller()}
+								 </c:if>
 						<% }
 						   else
 						   { 
