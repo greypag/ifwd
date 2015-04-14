@@ -327,18 +327,18 @@ public class HomeCareServiceImpl implements HomeCareService {
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
 		parameters.put("planCode", homeCareDetails.getPlanCode());
 
-		correspondenceAddress.put("room", homeCareDetails.getApplicantRoom());
-		correspondenceAddress.put("floor", homeCareDetails.getApplicantFloor());
-		correspondenceAddress.put("block", homeCareDetails.getApplicantBlock());
-		correspondenceAddress.put("building",
+		insuredAddress.put("room", homeCareDetails.getApplicantRoom());
+		insuredAddress.put("floor", homeCareDetails.getApplicantFloor());
+		insuredAddress.put("block", homeCareDetails.getApplicantBlock());
+		insuredAddress.put("building",
 				homeCareDetails.getApplicantBuilding());
-		correspondenceAddress.put("estate",
+		insuredAddress.put("estate",
 				homeCareDetails.getApplicantEstate());
-		correspondenceAddress.put("streetNo",
+		insuredAddress.put("streetNo",
 				homeCareDetails.getApplicantStreetName());
-		correspondenceAddress.put("district",
+		insuredAddress.put("district",
 				homeCareDetails.getApplicantDistrict());
-		correspondenceAddress.put("area", homeCareDetails.getApplicantArea());
+		insuredAddress.put("area", homeCareDetails.getApplicantArea());
 
 		parameters.put("correspondenceAddress", correspondenceAddress);
 
@@ -357,17 +357,17 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		parameters.put("applicant", applicant);
 
-		insuredAddress.put("room", homeCareDetails.getaRoom());
+		correspondenceAddress.put("room", homeCareDetails.getaRoom());
 
-		insuredAddress.put("floor", homeCareDetails.getaFloor());
+		correspondenceAddress.put("floor", homeCareDetails.getaFloor());
 
-		insuredAddress.put("block", homeCareDetails.getaBlock());
-		insuredAddress.put("building", homeCareDetails.getaBuilding());
-		insuredAddress.put("estate", homeCareDetails.getaEstate());
-		insuredAddress.put("streetNo", homeCareDetails.getaStreetNo());
-		insuredAddress.put("streetName", homeCareDetails.getaStreetName());
-		insuredAddress.put("district", homeCareDetails.getaDistrict());
-		insuredAddress.put("area", homeCareDetails.getaArea());
+		correspondenceAddress.put("block", homeCareDetails.getaBlock());
+		correspondenceAddress.put("building", homeCareDetails.getaBuilding());
+		correspondenceAddress.put("estate", homeCareDetails.getaEstate());
+		correspondenceAddress.put("streetNo", homeCareDetails.getaStreetNo());
+		correspondenceAddress.put("streetName", homeCareDetails.getaStreetName());
+		correspondenceAddress.put("district", homeCareDetails.getaDistrict());
+		correspondenceAddress.put("area", homeCareDetails.getaArea());
 		parameters.put("insuredAddress", insuredAddress);
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);

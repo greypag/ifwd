@@ -293,7 +293,7 @@ function pageValidate() {
     var mobileNo = document.getElementById("inputMobileNo").value;
     var flag = true;
     if (appHkid.trim() == "") {
-        document.getElementById("errAppHkid").innerHTML = "請輸入正確/有效的 香港身份證號碼";
+        document.getElementById("errAppHkid").innerHTML = "請輸入正確/有效的 香港身份證";
         flag = false;
     }
 	else
@@ -1233,7 +1233,7 @@ function hc_planValid() {
         flag = false;
     }
     if (appHkid.trim() == "") {
-        document.getElementById("errAppHkid").innerHTML = "請輸入正確/有效的 香港身份證號碼";
+        document.getElementById("errAppHkid").innerHTML = "請輸入正確/有效的 香港身份證";
         flag = false;
     }
     else {
@@ -1382,13 +1382,13 @@ function travel_planValid() {
     var selectBenificiary = document.getElementById("selectBenificiary").value;
 
     if (appHkid.trim() == "") {
-        document.getElementById("errAppHkid").innerHTML = "請輸入正確/有效的 香港身份證號碼";
+        document.getElementById("errAppHkid").innerHTML = "請輸入正確/有效的 香港身份證";
         flag = false;
     }
     else {
         var tr = chkTravelHKPass(appHkid.trim());
         if (tr == false) {
-            document.getElementById("errAppHkid").innerHTML = "必須填寫香港身份證號碼/護照號碼其中一欄";
+            document.getElementById("errAppHkid").innerHTML = "必須填寫香港身份證/護照號碼其中一欄";
             flag = false;
         }
     }

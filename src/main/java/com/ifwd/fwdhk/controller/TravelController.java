@@ -676,7 +676,7 @@ public class TravelController {
 		String hkIdLbl = "HKID";
 		String passportLbl = "Passport";
 		if("CN".equals(lang)){
-			hkIdLbl = "香港身份證號碼";
+			hkIdLbl = "香港身份證";
 			passportLbl = "護照";
 		}
 		mapHkId.put("HKID", hkIdLbl);

@@ -15,7 +15,15 @@
 
 <!-- Title -->
 <title>${pageTitle}</title>
-<meta name='description' content=${pageMetaDataDescription} >
+<meta name='description' content="${pageMetaDataDescription}" >
+
+<meta property="og:title" content="${ogTitle}" />
+<meta property="og:type" content="${ogType}" />
+<meta property="og:url" content="${ogUrl}" />
+<meta property="og:image" content="${ogImage}" />
+<meta property="og:description" content="${ogDescription}"/>
+
+
 
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />

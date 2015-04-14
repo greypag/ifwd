@@ -321,15 +321,15 @@ function fPlanValid()
 {
 
 	var flag=true;
-	document.getElementById("fullnameinvalid").innerHTML = "";
-	document.getElementById("errAppHkid").innerHTML = "";
-	document.getElementById("emailid").innerHTML = "";    
-	document.getElementById("mobileNo").innerHTML = "";
-	
-	document.getElementById("chk1").innerHTML = "";
+//	document.getElementById("fullnameinvalid").innerHTML = "";
+//	document.getElementById("errAppHkid").innerHTML = "";
+//	document.getElementById("emailid").innerHTML = "";    
+//	document.getElementById("mobileNo").innerHTML = "";
+//	
+//	document.getElementById("chk1").innerHTML = "";
 	$('#chk2').html('');
-	
-	var fullname = document.getElementById("inputFullName").value;
+	console.log($('#selectCADist').val());
+/*	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
 	var appHkid = document.getElementById("inputTxtAppHkid").value;
@@ -378,7 +378,7 @@ function fPlanValid()
 		}
 	}
 
-
+    console.log($('#selectCADist').val());
     if (mobileNo.trim() == "") {
         document.getElementById("mobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         flag = false;
@@ -404,7 +404,7 @@ function fPlanValid()
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
 	var rowCountOther=document.getElementById("totalCountOther").value;
 
-	/* Adult Beneficiary validation */
+	 Adult Beneficiary validation 
 	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
 	{
 
@@ -451,12 +451,17 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
+<<<<<<< Updated upstream
+			for (var j = 1; j <= i-1; j++)
+=======
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
@@ -488,13 +493,13 @@ function fPlanValid()
 
 	}
 
-	/* Child Beneficiary validation */
+	 Child Beneficiary validation 
 	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
 	{
 		var hkid = document.getElementById("txtChldInsuHkid" + i).value;
 		var fullname = document.getElementById("txtChldFullName" + i).value;
 		var age = document.getElementById("selectchildAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
+		var benefitiary = document.getElementById("childselectBenificiary" + i).value;
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
@@ -509,10 +514,10 @@ function fPlanValid()
 			document.getElementById("errchildRange" + i).innerHTML = "";
 		}
 
-		/*if (benefitiary.trim() == "") {
+		if (benefitiary.trim() == "") {
 			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
-		}*/
+		}
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 
@@ -531,19 +536,14 @@ function fPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
-				{
-					document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+				{					
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
 			}
@@ -572,13 +572,13 @@ function fPlanValid()
 
 	}
 
-	/* Other Beneficiary validation */
+	 Other Beneficiary validation 
 	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
 	{
 		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
 		var fullname = document.getElementById("txtOtherFullName" + i).value;
 		var age = document.getElementById("selectOtherAgeRange" + i).value;
-		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
+		var benefitiary = document.getElementById("childselectBenificiary" + i).value;
 
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
@@ -595,10 +595,10 @@ function fPlanValid()
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
 		}
 
-		/*if (benefitiary.trim() == "") {
+		if (benefitiary.trim() == "") {
 			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
-		}*/
+		}
 
 		document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 
@@ -618,18 +618,13 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
 					flag = false;
 				}
@@ -657,9 +652,9 @@ function fPlanValid()
 				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "";
 			}
 		}
-	}
+	}*/
 
-
+	console.log($('#selectCADist').val());
 	return flag;
 
 }
@@ -1222,12 +1217,17 @@ function fcPlanValid()
 			}
 
 			if (hkid.trim() != "") {
+<<<<<<< Updated upstream
+				for (var j = 1; j <= i-1 ; j++)
+=======
 				for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 				{
 					var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
 					if (hkid.toUpperCase() == hkid1.toUpperCase())
 					{
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = "";						
 						document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 						flag = false;
 					}
@@ -1305,12 +1305,17 @@ function fcPlanValid()
 		}
 
 		if (hkid.trim() != "") {
+<<<<<<< Updated upstream
+			for (var j = 1; j <= i-1 ; j++)
+=======
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
@@ -1389,12 +1394,17 @@ function fcPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
+<<<<<<< Updated upstream
+			for (var j = 1; j <= i-1 ; j++)
+=======
 			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+>>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
@@ -1574,14 +1584,8 @@ function tPlanValid()
 			}
 		}
 
-		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+		if (hkid.trim() != "") {		
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
@@ -1697,13 +1701,7 @@ function tPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtChldInvalidInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = i; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
@@ -1821,13 +1819,7 @@ function tPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-			if (hkid.toUpperCase() == appHkid.toUpperCase())
-			{
-				$('#errtxtOtherInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
-				flag = false;
-			}
-		
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			for (var j = 1; j <= i-1 ; j++)
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
@@ -2430,25 +2422,45 @@ function validUser(formID)
 	var flag = true;
 	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
 	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
-
+	
 	//document.getElementById("errUserName").innerHTML = "";
 	//document.getElementById("errPass").innerHTML = "";
-	$("#"+formID+" #errUserName").val();
-	$("#"+formID+" #errPass").val();
+	$("#"+formID+" #errUserName").html("");
+	$("#"+formID+" #errPass").html("");
 
 	if (password.trim() == "")
 	{    	
-		$("#"+formID+" #errPass").val(getBundle(getBundleLanguage, "user.username.notValid.message")); 
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message")); 
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		$("#"+formID+" #errUserName").val(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.notValid.message"));
 		
 		flag = false;
 	}
 
 	return flag;
 }
+var device = 0; // 0 of desktop and 1 for mob
+$(window).resize(function() {
+	  var width = $(window).width();
+	  console.log(width);
+	  
+	  if(width>=992 && device == 1){
+		 if($('body').hasClass('canvas-slid')){
+			  $('.navmenu').offcanvas('hide');
+			  $('.offcanvas').hide();
+			  $('#overlay').remove();
+	  	}
+		  device = 0;
+	  }else if( width <= 991 && device == 0){
+		  $('#myDropdown').removeClass('open');
+		  $('#overlay').remove();
+		  device = 1;
+	  }
+	  
+	  
+})
 
 
 
@@ -3206,7 +3218,7 @@ function chkNotNullCreditCareName(element, errElementId){
 }
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
-	alert(errElementId);
+	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
