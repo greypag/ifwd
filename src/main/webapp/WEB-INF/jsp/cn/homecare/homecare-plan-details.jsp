@@ -274,33 +274,33 @@
 								style="visibility: visible;">
 								<h2>您的保單</h2>
 							</div>
-							<br> <br>
+							<br>
 							<div class="col-lg-12">
 								<div id="tr-wizard" class="shop-tracking-status">
-									<div class="order-status">
-										<div class="order-status-timeline">
-											<!-- class names: c0 c1 c2 c3 and c4 -->
-											<div
-												class="order-status-timeline-completion order-status-timeline-completion c2"></div>
+									<div class="order-status has-four">
+										<div class="order-status-timeline-new">
+											<div class="order-status-timeline-completion dots-active"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
+											<div class="order-status-timeline-completion dots-inactive"></div>
 										</div>
 										<div
-											class="image-order-status image-order-status-new active img-circle">
+											class="image-order-status image-order-status-new active img-circle first">
 											<span class="status color3">您的選擇</span>
 											<div class="icon">1</div>
 										</div>
 
 										<div
-											class="image-order-status image-order-status-intransit  img-circle act">
+											class="image-order-status image-order-status-intransit  img-circle act second">
 											<span class="status color2">您的保單</span>
 											<div class="icon">2</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-delivered  img-circle disabled">
+											class="image-order-status image-order-status-delivered  img-circle disabled third">
 											<span class="status"> 總結及付款</span>
 											<div class="icon">3</div>
 										</div>
 										<div
-											class="image-order-status image-order-status-completed  img-circle disabled">
+											class="image-order-status image-order-status-completed  img-circle disabled fourth">
 											<span class="status lst-status">確認保單</span>
 											<div class="icon">4</div>
 										</div>
@@ -309,9 +309,6 @@
 							</div>
 						</div>
 					</div>
-					<br>
-					<br>
-					<br>
 					<div class="container pad-none bdr ur-opt-content gray-bg3">
 						<div
 							class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
