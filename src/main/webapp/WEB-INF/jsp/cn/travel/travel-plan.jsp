@@ -161,7 +161,16 @@ var promoData = '';
 					    	if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
 					    	{
 					    		travelQuoteBean.setTotalOtherTraveller(0);
+	
+							 		//System.out.println("travelQuote is not null");
+							 		//session.setAttribute("travelQuoteBean", travelQuoteBean);
+							
 					    	}
+					    	
+					    	if (travelQuote != null)
+						 	{
+					    	 	session.setAttribute("tq", travelQuote);
+						 	}
 						
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
@@ -993,7 +1002,11 @@ var promoData = '';
 								<h3>同行人數</h3>
 								<div class="form-group likeDatePicker bcg-trans">
 	              					<div class="input-group wd2 datepicker form-control" > 
-									<%	if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									<%	
+										if (travelQuote == null)
+								 			travelQuote = (QuoteDetails) session.getAttribute("tq");
+									
+										if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
 										{ 
 									%>
 											<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}"> 旅客: ${travelQuoteBean.getTotalPersonalTraveller()}    </c:if>
