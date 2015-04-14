@@ -634,7 +634,7 @@
 											class="control-label bold-500 home-line">保單生效日期 </label></td>
 										<td class="pad-none">
 											<div class="form-group">
-												<div class="input-group date" id="dp1">
+												<div class="input-group date" id="homecareDp">
 													<span class="input-group-addon bg-img in"><span><img
 															src="resources/images/calender1.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
