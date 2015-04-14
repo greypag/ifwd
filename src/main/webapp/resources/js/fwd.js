@@ -432,6 +432,25 @@ function fPlanValid()
 			}
 		}
 
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+					flag = false;
+				}
+			}
+		}
+		
 		var selectedValue = document.getElementById("adultsselectBenificiary" + i).value;
 
 		if(selectedValue != "SE"){
@@ -498,6 +517,26 @@ function fPlanValid()
 				flag = false;
 			}
 		}
+		
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					document.getElementById("txtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+					flag = false;
+				}
+			}
+		}
+
 		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
 		if(selectedValue != "SE"){
 			if (document.getElementById("childBenefitiaryName" + i).value == "")
@@ -563,6 +602,25 @@ function fPlanValid()
 			{
 				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Insured Person's HKID No. is invalid.";
 				flag = false;
+			}
+		}
+
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+					flag = false;
+				}
 			}
 		}
 
@@ -1120,7 +1178,26 @@ function fcPlanValid()
 					flag = false;
 				}
 			}
+
+			if (hkid.trim() != "") {
+				if (hkid.toUpperCase() == appHkid.toUpperCase())
+				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+					flag = false;
+				}
 			
+				for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+				{
+					var hkid1 = document.getElementById("txtInsuHkid" + j).value;
+
+					if (hkid.toUpperCase() == hkid1.toUpperCase())
+					{
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+						flag = false;
+					}
+				}
+			}
+
 			var selectedValue = document.getElementById("adultsselectBenificiary" + i).value;
 			
 			if(selectedValue != "SE"){
@@ -1190,7 +1267,26 @@ function fcPlanValid()
 				flag = false;
 			}
 		}
+
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+				flag = false;
+			}
 		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+					flag = false;
+				}
+			}
+		}
+
 		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
 		
 		if(selectedValue != "SE")
@@ -1262,6 +1358,25 @@ function fcPlanValid()
 			}
 		}
 		
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+					flag = false;
+				}
+			}
+		}
+
 		var selectedValue = document.getElementById("otherSelectBenificiary" + i).value;
 		if(selectedValue != "SE"){
 			if (document.getElementById("otherBenefitiaryName" + i).value == "")
@@ -1435,6 +1550,24 @@ function tPlanValid()
 			}
 		}
 
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				$('#errtxtInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					$('#errtxtInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
+					flag = false;
+				}					
+			}
+		}
 
 		var selectedValue = document.getElementById("adultsselectBenificiary" + i).value;
 
@@ -1539,6 +1672,24 @@ function tPlanValid()
 			}
 		}
 		
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				$('#errtxtChldInvalidInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					$('#errtxtChldInvalidInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
+					flag = false;
+				}					
+			}
+		}
 		
 		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
 		if(selectedValue != "SE"){
@@ -1642,6 +1793,25 @@ function tPlanValid()
 					document.getElementById("errtxtOtherInsuHkid"+i).innerHTML = getBundle(getBundleLanguage, "inusred.passport.lengthViolation.message");//"Insured Person's Passport No. is invalid.";
 					flag = false;
 				}
+			}
+		}
+
+		if (hkid.trim() != "") {
+			if (hkid.toUpperCase() == appHkid.toUpperCase())
+			{
+				$('#errtxtOtherInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
+				flag = false;
+			}
+		
+			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
+			{
+				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
+
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{
+					$('#errtxtOtherInsuHkid'+i).html(getBundle(getBundleLanguage, "duplicate_hkid_no.message"));
+					flag = false;
+				}					
 			}
 		}
 
