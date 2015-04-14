@@ -2912,7 +2912,7 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 	        	document.getElementById(errElementId).innerHTML = msg;
 	            return false;
 		    }
-	        if (dateDiff > 30) {
+	        if (dateDiff > 31) {
 	        	var msg = getBundle(getBundleLanguage, "flight.returnDate.notValid.message");
 	        	document.getElementById(errElementId).innerHTML = msg;
 	            return false;
@@ -3567,3 +3567,12 @@ function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
 
 }
 
+
+//Homecare Calender
+var checkin = $('#homecareDp').datepicker({
+	//startDate:nowTemp,
+	//endDate:  tillDate_from,
+	autoclose: true,
+	todayHighlight: true,
+	format: "dd MM yyyy"
+});

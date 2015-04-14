@@ -111,7 +111,7 @@
 									<td class="pad-none"><input type="text" name="fullName"
 										class="form-control" id="inputFullName"
 										value="${userDetails.getFullName()}"
-										placeholder="與香港身份證號碼/護照號碼相同" onblur="replaceAlpha(this);"
+										placeholder="與香港身份證/護照號碼相同" onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" />
 									<span id="fullnameinvalid" class="text-red">
 									</span></td>
@@ -252,7 +252,7 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500">英文全名</label> <input type="text"
 												id="txtAdFullName${inx}" name="adultName" value=""
-												class="form-control" placeholder="與香港身份證號碼/護照號碼相同"
+												class="form-control" placeholder="與香港身份證/護照號碼相同"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"></span>
@@ -307,7 +307,7 @@
 												<label class="bold-500">英文全名</label> <input type="text"
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value=""
-													class="form-control " placeholder="英文全名（與香港身份證號碼/護照號碼相同）"
+													class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
@@ -355,7 +355,7 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500">英文全名</label> <input type="text"
 												name="childName" id="txtChldFullName${inx}" value=""
-												class="form-control " placeholder="與香港身份證號碼/護照號碼相同"
+												class="form-control " placeholder="與香港身份證/護照號碼相同"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtChldFullName${inx}" class="text-red"></span>
@@ -363,7 +363,7 @@
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectChldHkidPass${inx}" class="form-control soflow" name="selectedChldHkidPass">
-									<option value="hkId" selected="selected">香港身份證號碼</option>
+									<option value="hkId" selected="selected">香港身份證</option>
 
 									<option>護照</option>
 									</select> <input
@@ -406,7 +406,7 @@
 												<label class="bold-500">英文全名</label> <input type="text"
 													name="childBenificiaryFullName"
 													id="childBenefitiaryName${inx}" value=""
-													class="form-control " placeholder="英文全名（與香港身份證號碼/護照號碼相同）"
+													class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
@@ -414,7 +414,7 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label>  -->
 												<select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedChldBenefitiaryHkidPass">
-									<option  selected="selected">香港身份證號碼</option>
+									<option  selected="selected">香港身份證</option>
 									<option>護照</option>
 									</select><input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
@@ -446,7 +446,7 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500">英文全名</label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
-												class="form-control " placeholder="英文全名（與香港身份證號碼/護照號碼相同）"
+												class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
@@ -454,7 +454,7 @@
 										<div class="col-xs-6 col-md-6">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectOtHkidPass${inx}" class="form-control soflow" name="selectedOtHkidPass">
-									<option selected="selected">香港身份證號碼</option>
+									<option selected="selected">香港身份證</option>
 									<option>護照</option>
 									</select> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
@@ -497,7 +497,7 @@
 												<label class="bold-500">英文全名</label> <input type="text"
 													name="otherBenificiaryFullName"
 													id="otherBenefitiaryName${inx}" value=""
-													class="form-control " placeholder="英文全名（與香港身份證號碼/護照號碼相同）"
+													class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errotherBenefitiaryName${inx}" class="text-red"></span>
@@ -505,7 +505,7 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 												<select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedOtherBenefitiaryHkidPass">
-									<option selected="selected">香港身份證號碼</option>
+									<option selected="selected">香港身份證</option>
 									<option>護照</option>
 									</select> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
