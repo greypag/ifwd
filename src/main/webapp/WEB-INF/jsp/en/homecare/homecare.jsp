@@ -857,12 +857,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content plan-modal">
 			<div class="login-form">
-				<div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h2 class="modal-title" id="exampleModalLabel">Sorry</h2>
-			      </div>
 			   <div class="modal-body">
-			   		<p class="errorMsg">no</p>
+			   		<p class="errorMsg"></p>
 	      		</div>
       		</div>
 		</div>
