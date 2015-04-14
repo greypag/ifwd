@@ -379,7 +379,7 @@ function fPlanValid()
 		}
 	}
 
-    console.log($('#selectCADist').val());
+
     if (mobileNo.trim() == "") {
         document.getElementById("mobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         flag = false;
@@ -405,7 +405,7 @@ function fPlanValid()
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
 	var rowCountOther=document.getElementById("totalCountOther").value;
 
-	 Adult Beneficiary validation 
+	/* Adult Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
 	{
 
@@ -452,11 +452,7 @@ function fPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-<<<<<<< Updated upstream
 			for (var j = 1; j <= i-1; j++)
-=======
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
->>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
@@ -494,13 +490,13 @@ function fPlanValid()
 
 	}
 
-	 Child Beneficiary validation 
+	/* Child Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
 	{
 		var hkid = document.getElementById("txtChldInsuHkid" + i).value;
 		var fullname = document.getElementById("txtChldFullName" + i).value;
 		var age = document.getElementById("selectchildAgeRange" + i).value;
-		var benefitiary = document.getElementById("childselectBenificiary" + i).value;
+		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
@@ -515,10 +511,10 @@ function fPlanValid()
 			document.getElementById("errchildRange" + i).innerHTML = "";
 		}
 
-		if (benefitiary.trim() == "") {
+		/*if (benefitiary.trim() == "") {
 			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
-		}
+		}*/
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 
@@ -573,13 +569,13 @@ function fPlanValid()
 
 	}
 
-	 Other Beneficiary validation 
+	/* Other Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
 	{
 		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
 		var fullname = document.getElementById("txtOtherFullName" + i).value;
 		var age = document.getElementById("selectOtherAgeRange" + i).value;
-		var benefitiary = document.getElementById("childselectBenificiary" + i).value;
+		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
@@ -596,10 +592,10 @@ function fPlanValid()
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
 		}
 
-		if (benefitiary.trim() == "") {
+		/*if (benefitiary.trim() == "") {
 			document.getElementById("errselectChildbenificiary" + i).innerHTML = "Please enter Insured Person's Name in English.";
 			flag = false;
-		}
+		}*/
 
 		document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
 
@@ -653,9 +649,9 @@ function fPlanValid()
 				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "";
 			}
 		}
-	}*/
+	}
 
-	console.log($('#selectCADist').val());
+
 	return flag;
 
 }
@@ -1218,11 +1214,7 @@ function fcPlanValid()
 			}
 
 			if (hkid.trim() != "") {
-<<<<<<< Updated upstream
 				for (var j = 1; j <= i-1 ; j++)
-=======
-				for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
->>>>>>> Stashed changes
 				{
 					var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 
@@ -1306,11 +1298,7 @@ function fcPlanValid()
 		}
 
 		if (hkid.trim() != "") {
-<<<<<<< Updated upstream
 			for (var j = 1; j <= i-1 ; j++)
-=======
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
->>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 
@@ -1395,11 +1383,7 @@ function fcPlanValid()
 		}
 		
 		if (hkid.trim() != "") {
-<<<<<<< Updated upstream
 			for (var j = 1; j <= i-1 ; j++)
-=======
-			for (var j = 1; j <= parseInt(rowCountAdult)-1 ; j++)
->>>>>>> Stashed changes
 			{
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 
