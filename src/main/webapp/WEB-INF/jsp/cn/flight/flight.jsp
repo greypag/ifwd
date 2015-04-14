@@ -206,7 +206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			           </div>
 			           
 			         <td class="col-md-2 ">
-			        	   <button type="button" class="border-radius btn btn-primary  get-btn" onclick="reset_submit()">立即申請免費保障!</button>
+			        	   <button type="submit" class="border-radius btn btn-primary  get-btn" onclick="reset_submit()">立即申請免費保障!</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即申請免費保障!</a> -->
 			        </td>
 			       </tr>

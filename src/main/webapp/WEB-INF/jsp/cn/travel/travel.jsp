@@ -194,7 +194,7 @@
 			           </div>
 			           </td>
 			         <td class="col-md-2 ">
-			         	<button type="button" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()">立即報價</button>
+			         	<button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()">立即報價</button>
 			           <!-- 	<a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
 			        </td>
 			       </tr>
