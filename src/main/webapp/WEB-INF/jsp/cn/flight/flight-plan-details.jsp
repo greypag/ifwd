@@ -358,16 +358,17 @@
 
 								<div class="row top-mrg-10">
 									<div class="col-xs-12  col-sm-6 col-md-6">
-										<label class="bold-500"> 年齡</label>
-										<t:dropdown 
-											defaultLabel="請選擇"
-											onChange=""
-											selectables="${mapSelfType}"
-											valueElmId="selectAgeRange${inx}"
-											valueElmName="adultAgeRange"
-										/>
-										<span id="errselectAgeRange${inx}" class="text-red"></span>
-									</div>
+											<label class="bold-500"> 年齡</label>
+											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
+												<option value="0">請選擇</option>
+												<c:forEach var="ageList" items="${mapSelfType}">
+													<option value="${ageList.key}"><c:out
+															value="${ageList.value}" /></option>
+												</c:forEach>
+											</select> <span id="errselectAgeRange${inx}" class="text-red">
+											</span>
+										</div>
+
 									<div class="col-xs-12 col-sm-6 col-md-6">
 										<label class="pad-left1 bold-500">受益人</label>
 										

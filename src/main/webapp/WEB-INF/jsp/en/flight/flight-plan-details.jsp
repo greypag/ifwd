@@ -271,16 +271,16 @@ Myself
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-12 col-sm-6 col-md-6">
+										<div class="col-xs-6 col-md-6">
 											<label class="bold-500">Age Range</label>
-											<t:dropdown 
-												defaultLabel="Select One"
-												onChange=""
-												selectables="${mapSelfType}"
-												valueElmId="selectAgeRange${inx}"
-												valueElmName="adultAgeRange"
-											/>
-											<span id="errselectAgeRange${inx}" class="text-red"></span>
+											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
+												<option value="0">Select One</option>
+												<c:forEach var="ageList" items="${mapSelfType}">
+													<option value="${ageList.key}"><c:out
+															value="${ageList.value}" /></option>
+												</c:forEach>
+											</select> <span id="errselectAgeRange${inx}" class="text-red">
+											</span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500">Beneficiary</label> 
