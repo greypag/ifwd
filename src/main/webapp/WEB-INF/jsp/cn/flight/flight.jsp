@@ -299,7 +299,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <!-- Start of family plan mobile spinner-->
           <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
             <div class="col-xs-6 col-sm-6">
-              <h4>成人</h4>
+              <h4>家長</h4>
             </div>
             <div class="col-xs-6 col-sm-6">
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn">
@@ -731,7 +731,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <!-- start of family plan bottom spinner-->
                       <div class="plan_spinner_btm" id="family_plan_btm_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
-                          <h4>成人</h4>
+                          <h4>家長</h4>
 
                         </div>
                         <div class="col-lg-6">
