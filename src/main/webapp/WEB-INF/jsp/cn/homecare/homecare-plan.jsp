@@ -120,7 +120,23 @@
 
 		});
 	} */
+	function chkPromoCode() {
+		var flag = false;
+		var promoCode = document.getElementById("referralCode").value;
+	
+		if (promoCode.trim() == "") {
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			flag = false;
+		} else
+			flag = true;
+	
+		return flag;
+	}
 	function applyPromoCode() {
+		
+		$("#errPromoCode").html("");
+		
+		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
 			url : 'applyHomePromoCode',
@@ -128,8 +144,8 @@
 			success : function(data) {
 
 				var json = JSON.parse(data);
-				console.log(data);
-				console.log("json " + json);
+
+				//console.log("json " + json);
 				setValue(json);
 			}
 
@@ -137,14 +153,47 @@
 	}
 
 	function setValue(result) {
-
-		var totalDue = parseInt(result["priceInfo"].totalDue);
-		$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
-		$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
-		$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
-
-
+		if(result['errMsgs'] !== null){
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+		}else{
+			var totalDue = parseInt(result["priceInfo"].totalDue);
+			$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
+			$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
+			$("#discountAmount").val(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
+			
+			$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+			$("#totalDue").val(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+			
+			$('.totalPrice').html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+			$('.actualPrice del').html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
+		}
 	}
+	
+	function sendEmail() {
+		$('.proSuccess').addClass('hide');
+		if (get_promo_val()) {
+			$.ajax({
+				type : "POST",
+				url : "sendEmail",
+				data : $("#sendmailofpromocode form").serialize(),
+				async : false,
+				success : function(data) {
+					
+					if (data == 'success') {
+						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+					} else {
+						
+						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+					}
+
+				},
+				error : function() {
+				}
+			});
+		}
+		return false;
+	}
+	
 	function BackMe() {
 		window.history.back();
 	}
@@ -268,7 +317,12 @@
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 								<br>
 								<h3>港幣</h3>
-								<h6><span id="grossPremium"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span></h6>
+								<h6><span id="grossPremium" class="totalPrice">
+								
+								<%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
+								<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
+								<span class="del actualPrice"><del></del></span>
+								</h6>
 							</div>
 							<div class="clearfix"></div>
 
@@ -726,6 +780,7 @@
 					<form>
 					<div class="form-container">
 						<h2>不要有一个促销代码？输入您的电子邮件地址，我们会送你一个</h2>
+						<div class="alert alert-success hide proSuccess"></div>
 						<h4>电子邮件 </h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""

@@ -45,7 +45,9 @@
 		f.parentNode.insertBefore(j, f);
 	})(window, document, 'script', 'dataLayer', 'GTMK7TX8B');
 
+
 	function sendEmail() {
+		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
@@ -53,10 +55,12 @@
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
-
+					
 					if (data == 'success') {
+						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
 					} else {
-
+						
+						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
 
 				},
@@ -129,7 +133,23 @@
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <script>
+	function chkPromoCode() {
+		var flag = false;
+		var promoCode = document.getElementById("referralCode").value;
+	
+		if (promoCode.trim() == "") {
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			flag = false;
+		} else
+			flag = true;
+	
+		return flag;
+	}
 	function applyPromoCode() {
+		
+		$("#errPromoCode").html("");
+		
+		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
 			url : 'applyHomePromoCode',
@@ -138,7 +158,7 @@
 
 				var json = JSON.parse(data);
 
-				console.log("json " + json);
+				//console.log("json " + json);
 				setValue(json);
 			}
 
@@ -146,12 +166,20 @@
 	}
 
 	function setValue(result) {
-
-		var totalDue = parseInt(result["priceInfo"].totalDue);
-		$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
-		$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
-		$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
-
+		if(result['errMsgs'] !== null){
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+		}else{
+			var totalDue = parseInt(result["priceInfo"].totalDue);
+			$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
+			$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
+			$("#discountAmount").val(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
+			
+			$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+			$("#totalDue").val(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+			
+			$('.totalPrice').html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
+			$('.actualPrice del').html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
+		}
 	}
 </script>
 </head>
@@ -253,7 +281,9 @@
 								<br>
 								<div class="h4">
 									HK$ <br>
-									<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
+									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
+									<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
+									<span class="del actualPrice"><del></del></span>
 								</div>
 							</div>
 							<div class="clearfix"></div>
@@ -678,6 +708,7 @@
 								<span class="text-red" id="errPromoCode"></span>
 								<div class="form-group">
 									<div class="input-group">
+										<span class="text-red" id="errPromoCode"></span>
 										<input type="text" id="referralCode" name="referralCode"
 											class="form-control" placeholder="eg.FWD789"> <span
 											class="input-group-addon in black-bold"> <span
@@ -827,6 +858,7 @@
 					<div class="form-container">
 						<h2>Don't have a promotion code? Enter your email address and
 							we'll send you one.</h2>
+						<div class="alert alert-success hide proSuccess"></div>
 						<h4>Email</h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""

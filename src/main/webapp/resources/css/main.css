@@ -4271,6 +4271,9 @@ a.h4-4 {
 	font-size: 36px;
 	
 }
+.plan-box4 span.actualPrice del {
+	margin-left: 0px;
+}
 .plan-box4 h6 {
 	color: #fff;
 	line-height: 42px;

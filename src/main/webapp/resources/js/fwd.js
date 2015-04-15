@@ -2781,16 +2781,22 @@ function hc_planValid() {
 
 
 ////home care page validation
-function msgAlertDesk() {
+function msgAlertDesk(formName) {
     var flag = true;
    
-    if (document.getElementById("inlineDeskRadio11").checked){
+   
+   
+    if (document.getElementById("inlineDeskRadio1a1").checked){
     	flag=false;
-    } else if (document.getElementById("inlineDeskRadio12").checked){
+    } else if (document.getElementById("inlineDeskRadio1a2").checked){
     	flag=false;
-    } else if (document.getElementById("inlineDeskRadio51").checked){
+    } else if (document.getElementById("inlineDeskRadio2a1").checked){
     	flag=false;
-    } else if (document.getElementById("inlineDeskRadio52").checked){
+    } else if (document.getElementById("inlineDeskRadio2a2").checked){
+    	flag=false;
+    }else if (document.getElementById("inlineDeskRadio3a1").checked){
+    	flag=false;
+    } else if (document.getElementById("inlineDeskRadio3a2").checked){
     	flag=false;
     }
     
