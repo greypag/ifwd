@@ -3401,8 +3401,6 @@ del {
 .flightcare-hk {
 	text-align: left;
 	font-size: 48px;
-	
-	font-family: 'Foco-bold';
 }
 .hk {
 	color: #f68a1d;
@@ -4272,8 +4270,9 @@ a.h4-4 {
 	
 }
 .plan-box4 span.actualPrice del {
-	margin-left: 0px;
+    margin-left: 0px;
 }
+
 .plan-box4 h6 {
 	color: #fff;
 	line-height: 42px;
@@ -5836,4 +5835,11 @@ p.mute{
 	.home-summary-change{
 		font-size: 16px !important;
 	}
+}
+.text-right-imp{
+	text-align: right !important;
+}
+.plan-box4.double-dot h2,
+.plan-box4.double-dot h4{
+	margin-left: 0;
 }
