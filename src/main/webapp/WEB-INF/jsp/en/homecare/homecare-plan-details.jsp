@@ -827,26 +827,26 @@
 						<%
 							HomeQuoteBean homeQuoteDetails = (HomeQuoteBean) request.getAttribute("homeQuoteDetails");%>
 						<div
-							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3">
+							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3 pad-none">
 							<div class="hidden-sm hidden-xs">
 								<div class="wd2">
-									<div class="row">
+									
 										<div class="col-md-7 col-lg-8">
-											<h2 class="h2-3-choose">${homeQuoteDetails.getPlanCode()}
+											<h2 class="h2-3-choose pad-none">${homeQuoteDetails.getPlanCode()}
 												Insurance</h2>
-											<h4>Plan summary</h4>
+											<h4 class="pad-none">Plan summary</h4>
 										</div>
 	
 										<div class="col-md-5 col-lg-4 pull-right">
-											<div class="text-left pad-right1 h2-2 h2">
-												<div class="hk1">HK$</div>
+											<div class="text-left  h2-2 h2">
+												<div class="hk1 text-right-imp">HK$</div>
 												<div class="hk1 top-mrg-10">
-													<div class="flightcare-hk">
+													<div class="flightcare-hk text-right-imp">
 														<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
 												</div>
 											</div>
 										</div>
-									</div>
+									
 									<%-- <div class="pull-right">
 										<div class="text-left pad-right1 h2-2 h2">
 											<div class="hk1">
@@ -904,14 +904,14 @@
 								type="hidden" name="answer2" value="${answer2}">
 
 							<!--mob-->
-							<div class="row">
+							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 									<a href="getHomePlan" class="bdr-curve btn btn-primary bck-btn">Back </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="Next" />
 								</div>
-							</div>
+							
 							<!--
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
               <a href="homecare-summary-payment.html" class="bdr-curve btn btn-primary nxt-btn" onclick="return hc_planValid();">

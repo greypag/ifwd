@@ -271,7 +271,7 @@
 						</h2>
 
 
-						<div class="col-lg-12 col-md-12 plan-box4">
+						<div class="col-lg-12 col-md-12 plan-box4 double-dot">
 							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
 								<h2>${planQuote.getPlanCode() }
 									<br> Insurance
@@ -287,32 +287,34 @@
 								</div>
 							</div>
 							<div class="clearfix"></div>
-
+							<div class="col-xs-12">
 							<!-- Plan benefits -->
-							<div class="fwdpanel">
-								<div class="fwdpanel-heading">
-									<h4 class="benefits">
-										<span><i class="fa fa-plus"></i> <a href="#"
-											class="fwdpanel-minimize uline color-wht">Plan benefits </a>
-										</span>
-									</h4>
+								<div class="fwdpanel">
+									<div class="fwdpanel-heading">
+										<h4 class="benefits">
+											<span>
+												<a href="#" class="fwdpanel-minimize uline color-wht">
+													<i class="fa fa-plus"></i> Plan benefits 
+												</a>
+											</span>
+										</h4>
+									</div>
+	
+									<div class="fwdpanel-body" style="display: none;">
+										<p class="color-wht pad-none">
+											<i class="fa fa-plus"></i> Window, Door Lock & Key Replacement
+											$3,000 per year<br> <i class="fa fa-plus"></i> Temporary
+											Removal $50,000 per year <br> <i class="fa fa-plus"></i>
+											Home Removal $50,000 per year<br> <i class="fa fa-plus"></i>
+											Personal Accident $50,000 per person <br>
+										</p>
+									</div>
+	
+									<div class="clearfix"></div>
+	
 								</div>
-
-								<div class="fwdpanel-body" style="display: none;">
-									<p class="color-wht">
-										<i class="fa fa-plus"></i> Window, Door Lock & Key Replacement
-										$3,000 per year<br> <i class="fa fa-plus"></i> Temporary
-										Removal $50,000 per year <br> <i class="fa fa-plus"></i>
-										Home Removal $50,000 per year<br> <i class="fa fa-plus"></i>
-										Personal Accident $50,000 per person <br>
-									</p>
-								</div>
-
-								<div class="clearfix"></div>
-
-							</div>
 							<!-- / Plan benefits -->
-
+							</div>
 
 							<!-- <div><h4 class="uline">+ Plan benefits</h4></div>-->
 						</div>
@@ -673,16 +675,16 @@
 							action="getYourHomeCareDetails" method="post"
 							modelAttribute="planQuoteDetails">
 							<div class="wd2">
-								<div class="pull-left">
-									<h2 class="h2-3-choose">${planQuote.getPlanCode() }
+								<div class="col-xs-6">
+									<h2 class="h2-3-choose pad-none">${planQuote.getPlanCode() }<br>
 										Insurance</h2>
-									<h4>Plan Summary</h4>
+									<h4 class="pad-none">Plan Summary</h4>
 								</div>
-								<div class="pull-right">
-									<div class="text-left pad-right1 h2-2 h2">
-										<div class="hk1">HK$</div>
+								<div class="col-xs-6 pull-right">
+									<div class="text-left  h2-2 h2">
+										<div class="hk1 text-right">HK$</div>
 										<div class="hk1 top-mrg-10">
-											<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%>
+											<div class="flightcare-hk text-right-imp"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%>
 												</div>
 										</div>
 									</div>
