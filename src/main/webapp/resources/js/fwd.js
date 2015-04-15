@@ -79,7 +79,7 @@ $(function () {
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 29*24*60*60*1000);
-	var duration = $('#frmTravelGetQuote').length > 0 ? 120*24*60*60*1000 :30*24*60*60*1000;
+	var duration = $('#frmTravelGetQuote').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	
 	var checkout;
 	/* desktoip datepicker*/
