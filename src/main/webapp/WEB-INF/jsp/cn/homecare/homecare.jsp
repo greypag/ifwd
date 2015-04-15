@@ -14,29 +14,7 @@
 	content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 <!-- core CSS -->
 
-<!--Google Code for SEO-->
 
-<noscript>
-	<iframe src="//www.googletagmanager.com/ns.html?id=GTMK7TX8B"
-		height="0" width="0" style="display: none; visibility: hidden"></iframe>
-</noscript>
-<script>
-	(function(w, d, s, l, i) {
-		w[l] = w[l] || [];
-		w[l].push({
-			'gtm.start' : new Date().getTime(),
-			event : 'gtm.js'
-		});
-		var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
-				+ l
-				: '';
-		j.async = true;
-		j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-		f.parentNode.insertBefore(j, f);
-	})(window, document, 'script', 'dataLayer', 'GTMK7TX8B');
-</script>
-
-<!--END -Google Code for SEO-->
 
 <!--VWO-->
 <!-- Start Visual Website Optimizer Asynchronous Code -->
@@ -99,27 +77,6 @@
 
 </head>
 <body class="chin">
-	<!-- Google Tag Manager -->
-	<noscript>
-		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWPF25"
-			height="0" width="0" style="display: none; visibility: hidden"></iframe>
-	</noscript>
-	<script>
-		(function(w, d, s, l, i) {
-			w[l] = w[l] || [];
-			w[l].push({
-				'gtm.start' : new Date().getTime(),
-				event : 'gtm.js'
-			});
-			var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
-					+ l
-					: '';
-			j.async = true;
-			j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-			f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-MWPF25');
-	</script>
-	<!-- End Google Tag Manager-->
 
 
 	<!--   Main Content-->

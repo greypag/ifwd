@@ -24,55 +24,7 @@
    
 </script>-->
 
-<!--Google Code for SEO-->
 
-<noscript>
-	<iframe src="//www.googletagmanager.com/ns.html?id=GTMK7TX8B"
-		height="0" width="0" style="display: none; visibility: hidden"></iframe>
-</noscript>
-<script>
-	(function(w, d, s, l, i) {
-		w[l] = w[l] || [];
-		w[l].push({
-			'gtm.start' : new Date().getTime(),
-			event : 'gtm.js'
-		});
-		var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
-				+ l
-				: '';
-		j.async = true;
-		j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-		f.parentNode.insertBefore(j, f);
-	})(window, document, 'script', 'dataLayer', 'GTMK7TX8B');
-
-
-	function sendEmail() {
-		$('.proSuccess').addClass('hide');
-		if (get_promo_val()) {
-			$.ajax({
-				type : "POST",
-				url : "sendEmail",
-				data : $("#sendmailofpromocode form").serialize(),
-				async : false,
-				success : function(data) {
-					
-					if (data == 'success') {
-						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
-					} else {
-						
-						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
-					}
-
-				},
-				error : function() {
-				}
-			});
-		}
-		return false;
-	}
-</script>
-
-<!--END -Google Code for SEO-->
 
 <!--VWO-->
 <!-- Start Visual Website Optimizer Asynchronous Code -->
@@ -184,27 +136,6 @@
 </script>
 </head>
 <body>
-	<!-- Google Tag Manager -->
-	<noscript>
-		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWPF25"
-			height="0" width="0" style="display: none; visibility: hidden"></iframe>
-	</noscript>
-	<script>
-		(function(w, d, s, l, i) {
-			w[l] = w[l] || [];
-			w[l].push({
-				'gtm.start' : new Date().getTime(),
-				event : 'gtm.js'
-			});
-			var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
-					+ l
-					: '';
-			j.async = true;
-			j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-			f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-MWPF25');
-	</script>
-	<!-- End Google Tag Manager-->
 	<!--Desktop-header-->
 
 
