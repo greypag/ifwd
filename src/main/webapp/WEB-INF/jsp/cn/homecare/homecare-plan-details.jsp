@@ -456,23 +456,23 @@ function setDropArea2(id2) {
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 												class="control-label bold-500">用戶名稱</label></td>
 											<td class=""><input type="text"
-												class="form-control full-control" id="inputRegUserName"
-												placeholder="用戶名稱"> <span id="errRegUserName"
+												class="form-control full-control" id="Username"
+												placeholder="用戶名稱"> <span id="UsernameError"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
 											<td class=""><label
 												class="control-label bold-500">個人密碼</label></td>
 											<td class=""><input type="password"
-												class="form-control full-control" id="inputRegPass" placeholder="個人密碼">
-												<span id="errRegPass" class="text-red"> </span></td>
+												class="form-control full-control" id="Password" placeholder="個人密碼">
+												<span id="PasswordError" class="text-red"> </span></td>
 										</tr>
 										<tr>
 											<td class=""><label
 												class="control-label bold-500">確認密碼</label></td>
 											<td class=""><input type="password"
-												class="form-control full-control" id="inputRegCPass" placeholder="確認密碼">
-												<span id="errRegCPass" class="text-red"> </span></td>
+												class="form-control full-control" id="Confirm-Password" placeholder="確認密碼">
+												<span id="Confirm-PasswordError" class="text-red"> </span></td>
 										</tr>
 									</tbody>
 								</table>

@@ -514,25 +514,25 @@
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 												class="control-label bold-500">Choose Username</label></td>
 											<td class=""><input type="text"
-												class="form-control marginbt full-control" id="inputRegUserName"
-												placeholder="Username"> <span id="errRegUser"
+												class="form-control marginbt full-control" id="Username"
+												placeholder="Username"> <span id="UsernameError"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
 											<td class=""><label
 												class="control-label bold-500">Choose Password</label></td>
 											<td class=""><input type="password"
-												class="form-control marginbt full-control" id="inputRegPass"
-												placeholder="Password"> <span id="errRegPass"
+												class="form-control marginbt full-control" id="Password"
+												placeholder="Password"> <span id="PasswordError"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
 											<td class=""><label
 												class="control-label bold-500">Confirm Password</label></td>
 											<td class=""><input type="password"
-												class="form-control marginbt full-control" id="inputRegCPass"
+												class="form-control marginbt full-control" id="Confirm-Password"
 												placeholder="Confirm password"> <span
-												id="errRegCPass" class="text-red"> </span></td>
+												id="Confirm-PasswordError" class="text-red"> </span></td>
 										</tr>
 									</tbody>
 								</table>
