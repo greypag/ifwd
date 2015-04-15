@@ -1167,7 +1167,7 @@ function fcPlanValid()
 		
 			var fullname = document.getElementById("txtAdFullName" + i).value;
 			if (fullname.trim() == "") {
-				document.getElementById("errtxtAdFullName" + i).innerHTML = "請輸?��???;
+				document.getElementById("errtxtAdFullName" + i).innerHTML = "請輸入姓名";
 				flag = false;
 			}else{
 				document.getElementById("errtxtAdFullName" + i).innerHTML = "";
@@ -1176,7 +1176,7 @@ function fcPlanValid()
 			var age = document.getElementById("selectAgeRange" + i).value;
 			alert('age:'+age);
 			if (age.trim() == "0") {
-				document.getElementById("errselectAgeRange" + i).innerHTML = "請選??年齡組別 ";
+				document.getElementById("errselectAgeRange" + i).innerHTML = ""請選擇 年齡組別 "";
 				flag = false;
 			}else{
 				document.getElementById("errselectAgeRange" + i).innerHTML = "";
@@ -1197,14 +1197,14 @@ function fcPlanValid()
 			document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 			
 			if (hkid.trim() == "") {
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = "请用?��?输入身份证号 ";
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = "请用英文输入身份证号 ";
 				flag = false;
 			}else
 			{
 				var tr=IsHKID(hkid.trim());
 				if(tr==false)
 				{
-					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "?�輸?��?香港身份證�?碼�?�?��??;
+					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
 					flag = false;
 				}
 			}
@@ -1217,7 +1217,7 @@ function fcPlanValid()
 					if (hkid.toUpperCase() == hkid1.toUpperCase())
 					{
 						document.getElementById("errtxtInsuHkid" + i).innerHTML = "";						
-						document.getElementById("errtxtInsuHkid" + i).innerHTML = "?�復香港身份證�?碼�?;
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 						flag = false;
 					}
 				}
@@ -1228,7 +1228,7 @@ function fcPlanValid()
 			if(selectedValue != "SE"){
 				if (document.getElementById("adultBenefitiaryId" + i).value == "")
 				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML="請輸?�全?��?i）�?請輸?�英??;
+					document.getElementById("erradultBenefitiaryId" + i).innerHTML="請輸入全名（i）和請輸入英文";
 					flag = false;             
 				}
 				else
@@ -1236,7 +1236,7 @@ function fcPlanValid()
 					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 				}
 				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "  請輸?�正�??��???香港身份證�?�?";
+					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML =  "  請輸入正確/有效的 香港身份證號碼 ";
 					flag = false;
 				}
 				else {
@@ -1257,14 +1257,14 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "請輸?��???;
+			document.getElementById("errtxtChldFullName" + i).innerHTML = "請輸入姓名";
 			flag = false;
 		}else{
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
 		}
 		
 		if (age.trim() == "") {
-			document.getElementById("errchildRange" + i).innerHTML = "請選??年齡組別 ";
+			document.getElementById("errchildRange" + i).innerHTML = "請選擇 年齡組別 ";
 			flag = false;
 		}else{
 			document.getElementById("errchildRange" + i).innerHTML = "";
@@ -1280,7 +1280,7 @@ function fcPlanValid()
 		//document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "请用?��?输入身份证号  ";
+			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "请用英文输入身份证号  ";
 			flag = false;
 		}
 		else
@@ -1288,7 +1288,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
 				flag = false;
 			}
 		}
@@ -1301,7 +1301,7 @@ function fcPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "?�復香港身份證�?碼�?;
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
 			}
@@ -1313,7 +1313,7 @@ function fcPlanValid()
 		{
 			if (document.getElementById("childBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errchildBenefitiaryName" + i).innerHTML="請輸?�全?��?i）�?請輸?�英??;
+				document.getElementById("errchildBenefitiaryName" + i).innerHTML="請輸入全名（i）和請輸入英文";
 				flag = false;             
 			}
 			else
@@ -1323,7 +1323,7 @@ function fcPlanValid()
 			}
 			
 			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "  請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "  請輸入正確/有效的 香港身份證號碼 ";
 				flag = false;
 			}
 			else {
@@ -1342,7 +1342,7 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "請輸?�全?��?i）�?請輸?�英??;
+			document.getElementById("errtxtOtherFullName" + i).innerHTML = "請輸入全名（i）和請輸入英文";
 			flag = false;
 		}else{
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "";
@@ -1350,7 +1350,7 @@ function fcPlanValid()
 		
 		
 		if (age.trim() == "") {
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "請選??年齡組別 ";
+			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "請選擇 年齡組別 ";
 			flag = false;
 		}else{
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
@@ -1365,7 +1365,7 @@ function fcPlanValid()
 		
 
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "请用?��?输入身份证号 ";
+			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "请用英文输入身份证号 ";
 			flag = false;
 		}
 		else
@@ -1373,7 +1373,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
 				flag = false;
 			}
 		}
@@ -1386,7 +1386,7 @@ function fcPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "?�復香港身份證�?碼�?;
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
 					flag = false;
 				}
 			}
@@ -1396,7 +1396,7 @@ function fcPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("otherBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML="請輸?�全?��?i）�?請輸?�英??;
+				document.getElementById("errotherBenefitiaryName" + i).innerHTML="請輸入全名（i）和請輸入英文";
 				flag = false;             
 			}
 			else
@@ -1406,7 +1406,7 @@ function fcPlanValid()
 			}
 
 			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "請輸入正確/有效的 香港身份證號碼 ";
 				flag = false;
 			}
 			else {
