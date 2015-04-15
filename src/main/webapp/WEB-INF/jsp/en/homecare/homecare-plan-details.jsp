@@ -975,51 +975,58 @@
 		aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
-				<form name="popUploginform" id="popUploginform" class="">
-					<div class="login-form">
-						<%-- <%request.setAttribute("is-flight-plan", "true"); %> --%>
-						<div id="login-err-msg" class="alert alert-danger hide">
-							<div id="login-err-msg" class="alert alert-danger" role="alert"></div>
-						</div>
-						<div class="form-container">
-							<h2>Log in to FWD</h2>
-							<h4>
-								Username <a href="forgotUserName" class="pull-right sub-link">Forgot
-									username?</a>
-							</h4>
-							<div class="form-group">
-								<input type="text" name="userName" class="form-control"
-									placeholder="" id="txtUserName">
-							</div>
-							<span id="errUserName" style="color: red"></span>
-							<h4>
-								Password <a href="forgotUserPassword"
-									class="pull-right sub-link">Forgot password?</a>
-							</h4>
-							<div class="form-group">
-								<input type="password" class="form-control" name="password"
-									id="txtPass">
-							</div>
-							<span id="errPass" style="color: red"></span> <br>
-							<div class="row">
-								<div class="text-left col-lg-6 col-md-6">
-									<button class="bdr-curve-none btn btn-primary btn-lg  wd5"
-										type="button" onclick="return userLoginFnc();" tabindex="3">Log
-										In</button>
-								</div>
-								<h3 class="text-left col-lg-6 col-md-6 pad-none margin-none">
-									<span> New Member?</span><br> <a href="joinus"
-										class="sub-link"> Register here</a>
-								</h3>
-								<div class="clearfix"></div>
-							</div>
-							<p>For the purpose of purchasing a specified insurance plan
-								through this website (“the Plan”), I hereby consent the transfer
-								of my personal data from FWD eServices to the issuer of the
-								Plan.</p>
-						</div>
-					</div>
-				</form>
+				<form name="loginform" id="loginform">
+										<div class="login-form">
+											<div
+												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												id="ajax-loading">
+												<img
+													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													src="resources/images/ajax-loader.gif">
+											</div>
+											<div id="login-err-msg" class="alert alert-danger"
+												role="alert" style="display: none;"></div>
+											<div class="form-container">
+												<h2>Log in to FWD</h2>
+												<h4 class="margin-shift">
+													Username <a href="forgotUserName"
+														class="pull-right sub-link">Forgot username?</a>
+												</h4>
+
+												<div class="form-group">
+													<input type="text" name="userName" class="form-control"
+														placeholder="" id="headerUserName">
+												</div>
+												<span id="errUserName" style="color: red"></span>
+												<h4 class="margin-shift">
+													Password <a href="forgotPassword"
+														class="pull-right sub-link">Forgot password?</a>
+												</h4>
+												<div class="form-group">
+													<input type="password" name="password" class="form-control"
+														id="headerPassword">
+												</div>
+												<span id="errPass" style="color: red"></span> <br>
+												<div class="row">
+													<div class="col-lg-6 col-md-6">
+														<button type="button" onclick="return submitLoginForm('loginform');"
+															class="bdr-curve btn btn-primary btn-lg wd5">Log
+															In</button>
+													</div>
+													<h3
+														class="text-left col-lg-6 col-md-6 pad-none margin-none">
+														<span> New Member?</span><br> <a href="joinus">
+															Register here</a>
+													</h3>
+													<div class="clearfix"></div>
+												</div>
+												<p>For the purpose of purchasing a specified insurance
+													plan through this website (“the Plan”), I hereby consent
+													the transfer of my personal data from FWD eServices to the
+													issuer of the Plan.</p>
+											</div>
+										</div>
+									</form>
 			</div>
 		</div>
 	</div>

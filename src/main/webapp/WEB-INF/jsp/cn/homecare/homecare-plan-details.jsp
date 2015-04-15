@@ -373,9 +373,9 @@ function setDropArea2(id2) {
 								data-toggle="modal" data-target=".bs-example-modal-lg">登入</a>
 
 							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
-								<h3 class="btn-box-3 text-left">
-									<span>or</span> 或以訪客身份登記
-								</h3>
+								<div class="btn-box-3 text-left">
+									<span>or</span> <strong>或以訪客身份登記</strong>
+								</div>
 							</div>
 							<%
 							}
@@ -852,40 +852,54 @@ function setDropArea2(id2) {
 		role="dialog" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
-				<div class="login-form">
-					<div class="form-container">
-						  <h2>登入富衛客戶網上服務</h2>
-						<h4>
-							用戶名稱 <a href="forgotUserName"
-								class="pull-right sub-link">忘記用戶名稱?</a>
-						</h4>
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder=""
-								id="txtPopUserName">
-						</div>
-						<span id="errPopUserName" class="text-red"></span>
-						<h4>
-							密碼 <a href="forgotUserPassword" class="pull-right sub-link">忘記密碼?</a>
-						</h4>
-						<div class="form-group">
-							<input type="password" class="form-control" id="txtPopUserPass">
-						</div>
-						  <span id="errPass" class="text-red"></span> <br>
-				          <div class="row">
-									<div class="text-left col-lg-6 col-md-6">
-										<button class="bdr-curve-none btn btn-primary btn-lg  wd5"
-											type="button" onclick="return userLoginFnc();" tabindex="3">登入</button>
-									</div>
-									<h3 class="text-left col-lg-6 col-md-6 pad-none margin-none">
-										<span> 新用戶?</span><br> <a href="joinus"
-											class="sub-link">請註冊 </a>
-									</h3>
-									<div class="clearfix"></div>
-						 </div>
+				<form name="loginform" id="loginform">
+										<div class="login-form">
+											<div
+												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												id="ajax-loading">
+												<img
+													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													src="resources/images/ajax-loader.gif">
+											</div>
+											<div id="login-err-msg" class="alert alert-danger"
+												role="alert" style="display: none;"></div>
+											<div class="form-container">
+												<h2>登入富衛客戶網上服務</h2>
+												<h4>
+													用戶名稱 <a href="forgotUserName"
+														class="pull-right sub-link">忘記用戶名稱?</a>
+												</h4>
 
-						<p>我同意提交我的電子郵件地址作為接收富衛的推廣編號之用，並在未來接收其他優惠資訊。</p>
-					</div>
-				</div>
+												<div class="form-group">
+													<input type="text" name="userName" class="form-control"
+														placeholder="" id="headerUserName">
+												</div>
+												<span id="errUserName" style="color: red"></span>
+												<h4>
+													個人密碼 <a href="forgotPassword"
+														class="pull-right sub-link">忘記密碼?</a>
+												</h4>
+												<div class="form-group">
+													<input type="password" name="password" class="form-control"
+														id="headerPassword">
+												</div>
+												<span id="errPass" style="color: red"></span> <br>
+												<div class="row">
+													<div class="col-lg-6 col-md-6">
+														<button type="button" onclick="return submitLoginForm('loginform');"
+															class="bdr-curve btn btn-primary btn-lg wd5">登入</button>
+													</div>
+													<h3
+														class="text-left col-lg-6 col-md-6 pad-none margin-none">
+														<span> 新用戶?</span><br> <a href="joinus">
+															 請註冊</a>
+													</h3>
+													<div class="clearfix"></div>
+												</div>
+												<p>本人在此同意通過本網站（以下簡稱“計劃”）購買指定保險計劃，將我的個人資料從富衛電子服務轉移到計劃的簽發人。</p>
+											</div>
+										</div>
+									</form>
 			</div>
 		</div>
 	</div>
