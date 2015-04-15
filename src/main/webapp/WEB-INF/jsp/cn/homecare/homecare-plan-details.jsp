@@ -704,13 +704,13 @@
 										<div class="col-md-7 col-lg-7">
 											<h2 class="h2-3-choose pad-none">${homeQuoteDetails.getPlanCode()}
 											保</h2>
-											<h4>計劃慨覽</h4>
+											<h4 class="pad-none">計劃慨覽</h4>
 										</div>
 										<div class="col-md-5 col-lg-5 pull-right">
 											<h2 class="text-left  h2-2  pad-none">
-												<div class="home-hk" style="margin: 0">
+												<div class="home-hk text-right-imp" style="margin: 0">
 													港幣
-													<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
+													<div class="flightcare-hk text-right-imp"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
 												</div>
 											</h2>
 										</div>

@@ -283,11 +283,25 @@
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">選擇計劃</h2>
 
-						<div class="col-lg-12 col-md-12 plan-box4">
-							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pad-none">
+						<div class="col-lg-12 col-md-12 plan-box4 double-dot">
+							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
 								<h2>${planQuote.getPlanCode() }<br>家居保險
 								</h2>
-								
+							</div>
+							
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <br>
+                                <div class="h4">
+									 港幣<br>
+                                	<span id="grossPremium" class="totalPrice">
+                                		<%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%>
+                               		</span>
+                                	<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
+                                	<span class="del actualPrice"><del></del></span>
+                                </div>
+                            </div>
+							
+							<div class="col-xs-12">
 								<!-- Plan benefits -->
 								<div class="fwdpanel">
 									<div class="fwdpanel-heading">
@@ -299,8 +313,8 @@
 									</div>
 
 									<div class="fwdpanel-body" style="display: none;">
-										<p class="color-wht">
-											<i class="fa fa-plus"></i>住院或檢疫現金津貼 $10,000<br> <i
+										<p class="color-wht pad-none">
+											<i class="fa fa-plus"></i> 住院或檢疫現金津貼 $10,000<br> <i
 												class="fa fa-plus"></i> 全球緊急支援服務 <br> <i
 												class="fa fa-plus"></i> 租車自負額 $5,000 <br> <i
 												class="fa fa-plus"></i> 高爾夫球“一桿入洞” $3,000 <br> <i
@@ -314,16 +328,7 @@
 								</div>
 								<!-- / Plan benefits -->
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-								<br>
-								<h3>港幣</h3>
-								<h6><span id="grossPremium" class="totalPrice">
-								
-								<%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
-								<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
-								<span class="del actualPrice"><del></del></span>
-								</h6>
-							</div>
+							
 							<div class="clearfix"></div>
 
 
@@ -607,15 +612,15 @@
 							action="getYourHomeCareDetails" method="post"
 							modelAttribute="getYoursDetails">
 							<div class="wd2">
-								<div class="pull-left">
-									<h2 class="h2-3-choose">${planQuote.getPlanCode() }</h2>
-									<h4>計劃慨覽</h4>
+								<div class="col-xs-6">
+									<h2 class="h2-3-choose pad-none">${planQuote.getPlanCode() }</h2>
+									<h4 class="pad-none">計劃慨覽</h4>
 								</div>
-								<div class="pull-right">
-									<div class="text-left pad-right1 h2-2 h2">
-										<div class="hk">
+								<div class="col-xs-6 pull-right">
+									<div class="text-left h2-2 h2">
+										<div class="hk text-right">
 											港幣
-											<div class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
+											<div class="flightcare-hk text-right-imp"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
 										</div>
 									</div>
 								</div>

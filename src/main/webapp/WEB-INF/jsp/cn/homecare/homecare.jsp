@@ -660,7 +660,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								</a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/protecting-your-family-heirlooms/" target="_blank">
-									傳家之寶收藏法 <br /> <i
+									傳家之寶收藏法 <i
 									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
