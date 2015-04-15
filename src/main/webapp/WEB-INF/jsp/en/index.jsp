@@ -323,7 +323,7 @@
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none">I always go for FWD Travel Insurance
+							<p class="pad-none text-italic">I always go for FWD Travel Insurance
 								because there is always someone to pick up my calls, 24/7, which
 								is particularly important after office hours and while I am
 								travelling overseas.</p>
@@ -340,7 +340,7 @@
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none">I am a backpacker. The only 2 things I
+							<p class="pad-none text-italic">I am a backpacker. The only 2 things I
 								carry with me are my FWD TravelCare policy no. and ISOS
 								emergency number – especially when you don’t know what to expect
 								in the Amazon jungle.</p>

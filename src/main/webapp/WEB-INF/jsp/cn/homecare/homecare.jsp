@@ -260,7 +260,7 @@
                 <a href="homecare-plan.html" type="button" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return flightValidateBtmTravel()">Get Quote</a>
             </div>-->
 				<div class="btn-box">
-						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
+						<button type="submit" class="bdr-curve btn btn-primary  btn-next btn-next2 btn-homecare"
 							onclick="return msgAlertDesk()">立即報價</button>
 				</div>
 
