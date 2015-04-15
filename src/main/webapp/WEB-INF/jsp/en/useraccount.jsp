@@ -80,53 +80,62 @@ Tag Manager -->
 			</ol>
 			<h2 class="page-title"><fmt:message key="member.account.title" bundle="${msg}" /></h2>
 			<!-- <div class="status alert alert-success" style="display: none"></div>-->
-			<div class="wd2 bdr">
+			<div class="wd2 bdr account-block">
 
-				<div class="col-lg-4 pad-none gry-bg">
-					<nav class="nav-sidebar">
-					<ul class="nav tabs">
-						<li class="active"><a href="#tab1" data-toggle="tab"><fmt:message key="member.account.tab.details" bundle="${msg}" /></a></li>
-						<li class=""><a href="#tab2" data-toggle="tab"><fmt:message key="member.account.tab.purchaseHistory" bundle="${msg}" /></a></li>
-						<li class=""><a href="#tab3" data-toggle="tab"><fmt:message key="member.account.tab.promotionCode" bundle="${msg}" /></a></li>
-					</ul>
+				<div class="col-md-4 pad-none gry-bg clearfix">
+					<nav class="nav-sidebar hidden-xs hidden-sm">
+						<ul class="nav tabs" id="tab-dropdown">
+							<li class="active"><a href="#tab1" data-toggle="tab"><fmt:message key="member.account.tab.details" bundle="${msg}" /></a></li>
+							<li class=""><a href="#tab2" data-toggle="tab"><fmt:message key="member.account.tab.purchaseHistory" bundle="${msg}" /></a></li>
+							<li class=""><a href="#tab3" data-toggle="tab"><fmt:message key="member.account.tab.promotionCode" bundle="${msg}" /></a></li>
+						</ul>
 					</nav>
+					<div class="btn-group account-dropdown hidden-md hidden-lg clearfix">
+					  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					    <span class="button-text"><fmt:message key="member.account.tab.details" bundle="${msg}" /></span> <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					    <li class="active"><a href="#tab1" data-toggle="tab"><fmt:message key="member.account.tab.details" bundle="${msg}" /></a></li>
+					    <li><a href="#tab2" data-toggle="tab"><fmt:message key="member.account.tab.purchaseHistory" bundle="${msg}" /></a></li>
+					    <li><a href="#tab3" data-toggle="tab"><fmt:message key="member.account.tab.promotionCode" bundle="${msg}" /></a></li>
+					  </ul>
+					</div>
 				</div>
-
 				<div class="col-sm-8 pull-right" style="display: none;">
 					<form:form modelAttribute="userDetails" name="userAcccountForm"
 						id="userAcccountForm">
 						<table class="table acc-form">
 							<tbody>
 								<tr>
-									<td colspan="2" class="pad-none"><h2 class="black-bold pad-none">Member Details</h2></td>
+									<td colspan="2" class=""><h2 class="black-bold pad-none">Member Details</h2></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="col-sm-4 pad-none"><label
+									<td valign="middle" class="col-sm-4 "><label
 										for="fullName" class="control-label">Full name</label></td>
-									<td class="pad-none"><input type="text"
+									<td class=""><input type="text"
 										class="form-control" id="fullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="Full name" />"></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label for="mobileNo"
+									<td valign="middle" class=""><label for="mobileNo"
 										class="control-label">Mobile no</label></td>
-									<td class="pad-none"><input type="text"
+									<td class=""><input type="text"
 										class="form-control" id="mobileNo" name="mobileNo"
 										value="${userDetails.getMobileNo() }"
 										placeholder="Mobile number"></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
+									<td valign="middle" class=""><label
 										for="emailAddress" class="control-label">Email address</label></td>
-									<td class="pad-none"><input type="email"
+									<td class=""><input type="email"
 										class="form-control" id="emailAdderss" name="emailAddress"
 										value="${userDetails.getEmailAddress() }"
 										placeholder="Email address"></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label for="userName"
+									<td valign="middle" class=""><label for="userName"
 										class="control-label">Username</label></td>
-									<td class="pad-none"><input type="text"
+									<td class=""><input type="text"
 										value="${userDetails.getUserName() }" class="form-control"
 										id="userName" placeholder="Username" name="userName"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
@@ -136,9 +145,9 @@ Tag Manager -->
 									</a></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label for="password"
+									<td valign="middle" class=""><label for="password"
 										class="control-label">Password</label></td>
-									<td class="pad-none"><input type="password"
+									<td class=""><input type="password"
 										name="password" id="password" class="form-control"
 										id="inputEmail3" placeholder="Password"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
@@ -148,10 +157,10 @@ Tag Manager -->
 									</a></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
+									<td valign="middle" class=""><label
 										for="confirmPassword" class="control-label">Confirm
 											password</label></td>
-									<td class="pad-none"><input type="password"
+									<td class=""><input type="password"
 										class="form-control" id="confirmPassword"
 										name="confirmPassword" placeholder="Confirm Password"></td>
 								</tr>
@@ -192,7 +201,7 @@ Tag Manager -->
 				</div>
 
 				<!-- tab content -->
-				<div class="tab-content col-lg-8">
+				<div class="tab-content col-md-8">
 					<div class="tab-pane text-style active padding3" id="tab1">
 						<form:form name="userAcccountForm" id="userAcccountForm"
 							modelAttribute="userDetails">
@@ -202,33 +211,33 @@ Tag Manager -->
 										<td colspan="2" class="pad-none"><h2 class="black-bold pad-none"><fmt:message key="member.account.details.header" bundle="${msg}" /></h2></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="col-sm-4 pad-none ">
+										<td valign="middle" class="col-sm-4 ">
 											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.fullName" bundle="${msg}" /></label></td>
-										<td class="pad-none"><input type="text"
+										<td class=""><input type="text"
 											class="form-control" id="fullName" name="fullName"
 											disabled="disabled" value="${userDetails.getFullName() }"
 											placeholder="<fmt:message key="member.account.details.label.fullName" bundle="${msg}" />"></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="pad-none">
+										<td valign="middle" class="">
 											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.mobileNo" bundle="${msg}" /></label></td>
-										<td class="pad-none"><input type="text"
+										<td class=""><input type="text"
 											class="form-control" id="mobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo() }" disabled="disabled"
 											placeholder="<fmt:message key="member.account.details.label.mobileNo" bundle="${msg}" />"></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="pad-none">
+										<td valign="middle" class="">
 											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.emailAddress" bundle="${msg}" /></label></td>
-										<td class="pad-none"><input type="email"
+										<td class=""><input type="email"
 											class="form-control" id="emailAdderss" name="emailAddress"
 											value="${userDetails.getEmailAddress() }" disabled="disabled"
 											placeholder="<fmt:message key="member.account.details.label.emailAddress" bundle="${msg}" />"></td>
 									</tr>
 									<tr>
-										<td valign="middle" class="pad-none">
+										<td valign="middle" class="">
 											<label for="inputEmail3" class="control-label h4-4-b"><fmt:message key="member.account.details.label.Username" bundle="${msg}" /></label></td>
-										<td class="pad-none"><input type="text"
+										<td class=""><input type="text"
 											disabled="disabled" value="${userDetails.getUserName() }"
 											class="form-control" id="userName" placeholder="<fmt:message key="member.account.details.label.Username" bundle="${msg}" />"
 											name="userName"> 
@@ -361,7 +370,7 @@ Tag Manager -->
 								</tr>
 								<tr>
 
-									<td class=" gry-bg1 text-center">
+									<td class=" gry-bg1 text-center" id="toBeCopied">
 										<%-- <a
 										class="padding6 h4-5-b " href="">${userDetails.getReferralLink()}</a>
 										<input type="hidden" value="${userDetails.getReferralLink()}"
@@ -371,25 +380,8 @@ Tag Manager -->
 								</tr>
 								<tr>
 									<td class="pad-none" colspan="2">
-										<!-- <input type="button"
-										id="copy" name="copy" onclick="copy();"
-										class="copy-link pull-left" value="Copy Link" /> --> <a
-										href="#">
-											<div class="fb1 pull-left">
-												<i class="fa fa-facebook fa-2x"></i>
-											</div>
-									</a> <a href="#">
-											<div class="twi1 pull-left">
-												<i class="fa fa-twitter fa-2x"></i>
-											</div>
-									</a> <a href="#">
-											<div class="gplus1 pull-left">
-												<i class="fa fa-google-plus fa-2x"></i>
-											</div>
-									</a>
-										<div class="col-lg-4 text-center line-hei ">
-											<h4 class="sub-link-underline"><fmt:message key="member.account.promotionCode.share.social.message.other" bundle="${msg}" /></h4>
-										</div>
+										<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied">Copy Link</div>
+										<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
 									</td>
 								</tr>
 							</tbody>
@@ -409,24 +401,10 @@ Tag Manager -->
 		</div>
 		<!--/.row-->
 	</div>
-
+	
 	<!--/.container--> </section>
-	<script type="text/javascript">
-		function copy() {
-
-			//create client
-			var clip = new ZeroClipboard.Client();
-			//event
-			clip.addEventListener('mousedown', function() {
-				clip.setText(document.getElementById('box-content').value);
-			});
-			clip.addEventListener('complete', function(client, text) {
-				alert('copied: ' + text);
-			});
-			//glue it to the button
-			clip.glue('copy');
-		}
-	</script>
-
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+	<!--End of addthis -->
 </body>
 </html>

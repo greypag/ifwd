@@ -190,5 +190,30 @@ jQuery(document).ready(function() {
 	    });
 	  });
 	}
-  
+	if($('.account-dropdown').length && $('#tab-dropdown').length){
+		$('.account-dropdown .dropdown-menu a').click(function(){
+			var $this = $(this);
+			var anchor = $(this).attr('href');
+			$('.tab-content .tab-pane').hide();
+			$(anchor).show();
+			$this.parents('.account-dropdown').children('button').children('.button-text').text($this.text());
+			$this.parents('.dropdown-menu').children('li').removeClass('active');
+			$this.parent('li').addClass('active');
+		});
+		$('#tab-dropdown li a').click(function(){
+			var $this = $(this);
+			var anchor = $(this).attr('href');
+			var anchor = $(this).attr('href');
+			$('.tab-content .tab-pane').hide();
+			$(anchor).show();
+			$('.account-dropdown').children('button').children('.button-text').text($this.text());
+			$('.account-dropdown .dropdown-menu').children('li').removeClass('active');
+			$('.account-dropdown .dropdown-menu').children('li').each(function(){
+				$(this).removeClass('active');
+				if($(this).children('a').attr('href') == anchor){
+					$(this).addClass('active');
+				}
+			});
+		});
+	}
 });

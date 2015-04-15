@@ -3346,6 +3346,7 @@ del {
 	
 	font-size: 18px;
 	line-height: 31.5px;
+	
 	font-weight: normal;
 }
 .nxt-btn {
@@ -4247,6 +4248,12 @@ a.h4-4 {
 	font-size: 28px;
 	line-height: 42px;
 	
+}
+.plan-box3.travelproductbox h3,
+.plan-box3.travelproductbox h6,
+.plan-box4.travelproductbox h3,
+.plan-box4.travelproductbox h6 {
+	margin-left: 0;
 }
 .plan-box4 h4 {
 	color: #fff;
@@ -5842,4 +5849,40 @@ p.mute{
 .plan-box4.double-dot h2,
 .plan-box4.double-dot h4{
 	margin-left: 0;
+}
+.account-block{
+	margin-bottom: 50px;
+}
+.account-dropdown button{
+	display: block;
+	width: 100%;
+	  line-height: 74px;
+	  background: #f6871e;
+	padding-left: 30px!important;
+	color: #fff;
+	-webkit-transition: all 0.08s linear;
+	-moz-transition: all 0.08s linear;
+	-o-transition: all 0.08s linear;
+	transition: all 0.08s linear;
+	font-size: 24px;
+	font-weight: bold;
+	border: 0;
+}
+.account-dropdown button:hover{
+	background: #f6871e;
+	color: #fff;
+}
+.account-dropdown button + .dropdown-menu{
+	width: 100%;
+	font-size: 24px;
+	color: #606062;
+}
+.account-dropdown button + .dropdown-menu li:hover,
+.account-dropdown button + .dropdown-menu li:active,
+.account-dropdown button + .dropdown-menu li.active a,
+.account-dropdown button + .dropdown-menu li.active a:hover,
+.account-dropdown button + .dropdown-menu li a:hover,
+.account-dropdown .open .dropdown-toggle.btn-default{
+	background: #f6871e;
+	color: #fff;
 }
