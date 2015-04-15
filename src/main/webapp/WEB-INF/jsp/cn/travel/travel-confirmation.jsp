@@ -109,7 +109,7 @@
             <br>
 
            <p class="h4-5">每天只需約港幣$1,便可保障家居因火災、水浸、水渠爆裂、颱風、盜竊或意外導致的損失或毀壞。</p><br>
-				<a href="#" class="border-radius btn btn-primary  get-btn" >立即報價</a>
+				<a href="homecare" class="border-radius btn btn-primary  get-btn" >立即報價</a>
             </div>
         </div>
               

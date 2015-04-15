@@ -102,7 +102,7 @@
           <div>
            		 <div class="h2-32">Easy HomeCare</div>
             	<p class="h4-5">Protect your home for around HK$1 a day, against loss or damage from fire, flood, bursting pipes, typhoon, theft, and accidents.</p>
-      			 <a href="#" class="border-radius btn btn-primary  get-btn" >Get Quote</a>
+      			 <a href="homecare" class="border-radius btn btn-primary  get-btn" >Get Quote</a>
             </div>
         </div>
               <br>
