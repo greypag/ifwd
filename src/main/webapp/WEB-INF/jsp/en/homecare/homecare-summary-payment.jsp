@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<form name="paymentForm" id="paymentForm"
-				onsubmit="confirmHomeCarePayment(this, 'gateway', 'paymentForm');" method="post">
+				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">Easy HomeCare </a> <i
@@ -236,7 +236,7 @@
 											class="input-block-level" maxlength="16" data-min="16"
 											title="" placeholder="Credit card number"
 											onkeyup="validatecardnumber(this.value)"
-											onBlur="chkMinLength(this.value);"
+											onBlur="chkValidCreditCard(this, 'errcardno');"
 											onkeypress="return isNumeric(event)"> <span
 											id="errcardno" class="error-msg"></span>
 
@@ -278,10 +278,12 @@
 										<option value="${currentYear}">${currentYear}</option>
 									</c:forEach>
 								</select></td>
-								<div>
-									<span id="errmonth" class="error-msg"></span> <span
-										id="erryear" class="error-msg"></span>
-								</div>
+								
+							</tr>
+							<tr>
+								<td></td>
+								<td><span id="errmonth" class="error-msg"></span></td>
+								<td><span id="erryear" class="error-msg"></span></td>
 							</tr>
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Name
@@ -290,7 +292,7 @@
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder" class="input-block-level"
 											title="" placeholder="Name on credit card"
-											onblur="replaceAlpha(this);"
+											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
 									</div>
@@ -307,9 +309,11 @@
 
 									</div></td>
 								<td><img src="resources/images/cards.png" alt=""></td>
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<span id="errcode" class="error-msg"></span>
-								</div>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span id="errcode" class="error-msg"></span></td>
+								<td></td>
 							</tr>
 
 

@@ -116,6 +116,37 @@
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <script>
+function setDropArea(id) {
+	$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
+	var skillsSelect = document.getElementById("selectCADistHid");
+	var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+	
+	/*if(selectedText.trim() == 'District'){
+		$('#errCADist').html(getBundle(getBundleLanguage, "insured.address.netFloorArea.notNull.message"));
+	}
+	else*/ 
+	if (selectedText.trim() == "HK")
+		document.getElementById("inlineCARadio3").checked = true;
+	else if (selectedText.trim() == "KL")
+		document.getElementById("inlineCARadio4").checked = true;
+	else
+		document.getElementById("inlineCARadio5").checked = true;
+	
+	
+}
+
+function setDropArea2(id2) {
+	$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
+	var skillsSelect = document.getElementById("selectADistHid");
+
+	var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+	if (selectedText.trim() == "HK")
+		document.getElementById("inlineDeskRadio3").checked = true;
+	else if (selectedText.trim() == "KL")
+		document.getElementById("inlineDeskRadio4").checked = true;
+	else
+		document.getElementById("inlineDeskRadio5").checked = true;
+}
 	function autofillFields() {
 
 		var chk = $('#checkbox3').val();
@@ -137,11 +168,30 @@
 			$('#inputAFloor').val(applicantFloor);
 			$('#inputABlock').val(applicantBlock);
 			$('#inputABuilding').val(applicantBuilding);
+
+			if(applicantBuilding.trim() != ''){
+				$('#errABuilding').html('');
+			}else{
+				$('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
+			}
+			
 			$('#inputAEstate').val(applicantEstate);
+			
+			if(applicantEstate.trim() != ''){
+				$('#errAEstate').html('');
+			}else{
+				$('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
+			}
+			
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);
+
 			$('#selectADist').val(selectCADist);
 
+			
+			var element = document.getElementById('selectADist');
+			element.value = selectCADist;
+			//$('#selectADist').val('AD123');
 			if (document.getElementById("inlineCARadio3").checked) {
 				document.getElementById("inlineDeskRadio31").checked = true;
 			} else if (document.getElementById("inlineCARadio4").checked) {
@@ -261,7 +311,7 @@
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
 					action="prepareUserSummaryForHome" method="post"
-					onsubmit="return fPlanValid();" modelAttribute="frmYourDetails">
+					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
 						<li><a href="#">主頁</a> <i class="fa fa-caret-right"></i></li>
 						<li><a href="#">家居保險 </a> <i class="fa fa-caret-right"></i></li>
@@ -314,7 +364,7 @@
 							class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
 							<br>
 							<%
-							if (authenticate.equals("false")) {
+							if (authenticate.equals("false") || authenticate.equals("direct")) {
 						%>
 							<h3 class="margin-left-2 h2-3-existing-fwd-head">是否FWD
 								eServices現有會員？</h3>
@@ -344,7 +394,7 @@
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
-											placeholder="中文全名" onblur="replaceAlpha(this);"
+											placeholder="中文全名" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
 											onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="appfullname" class="text-red"></span></td>
 									</tr>
@@ -363,7 +413,7 @@
 										</select></td>
 										<td class=""><input type="text" name="hkId"
 											class="form-control numberinput textUpper full-control" id="txtAppHkid"
-											placeholder="X1234567/Passport No"> <span id="errAppHkid"
+											placeholder="X1234567/Passport No" onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 									</tr>
 
@@ -374,7 +424,7 @@
 											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
 											placeholder="手提電話" onkeypress="return isNumeric(event)"
-											onblur="replaceNumeric(this);" maxlength="8" /> <span
+											onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
 											id="errMobileNo" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -383,13 +433,13 @@
 										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
-											placeholder="電郵地址" maxlength="50"> <span
+											placeholder="電郵地址" onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
 											id="errEmailid" class="text-red"> </span></td>
 									</tr>
 								</tbody>
 							</table>
 							<%
-							if (authenticate.equals("false")) {
+							if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession().getAttribute("authenticate").toString())) {
 						%>
 							<div class="gray-bg3-wid">
 								<table class="table plandetail-form margin-left-2 vert-middle"
@@ -456,13 +506,13 @@
 										<td height="60" colspan="2"><input type="text"
 											class="form-control full-control" id="inputCABuilding"
 											name="applicantBuilding" placeholder="大廈"
-											onblur="replaceAlphaNumeric(this);"
+											onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
 										<td height="60" colspan="2"><input type="text"
 											class="form-control full-control" id="inputCAEstate"
 											name="applicantEstate" placeholder="屋苑"
-											onblur="replaceAlphaNumeric(this);"
+											onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCAEstate" class="text-red"> </span></td>
 									</tr>
@@ -556,13 +606,13 @@
 									<tr>
 										<td height="60" colspan="2"><input type="text"
 											class="form-control full-control" id="inputABuilding" name="aBuilding"
-											placeholder="大廈" onblur="replaceAlphaNumeric(this);"
+											placeholder="大廈" onchange="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
 										<td height="60" colspan="2"><input type="text"
 											class="form-control full-control" id="inputAEstate" name="aEstate"
-											placeholder="屋苑" onblur="replaceAlphaNumeric(this);"
+											placeholder="屋苑" onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errAEstate" class="text-red"> </span></td>
 									</tr>
@@ -618,7 +668,7 @@
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 home-line">實用面積(平方尺)</label></td>
 										<td ><select name="netFloorArea"
-											class="form-control soflow full-control full-control" id="selectNFA">
+											class="form-control soflow full-control full-control" id="selectNFA" onChange="chkNotNullIANetFloorArea(this, 'errNFA');">
 												<option value="">Please Select</option>
 												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
 													<option value="${floorAreaList.key}">
@@ -659,19 +709,22 @@
 										class="margin-left-2"></span> 同意此申請書及聲明將構成本人與富衛之間的合約根據。
 									</label>
 								</div>
+								<span id="chk1" class="text-red"></span>
+								<br/>
 								<div class="checkbox">
-									<input id="checkbox5" type="checkbox" name="declarration2">
-									<label for="checkbox5">本人已參閱及明白 <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">"收集個人資料聲明"</a>，並同意接受其約束。
+									<input id="checkbox2" type="checkbox" name="declarration2">
+									<label for="checkbox2">本人已參閱及明白 <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">"收集個人資料聲明"</a>，並同意接受其約束。
 									</label>
 								</div>
+								<span id="chk2" class="text-red"></span>
 								<hr>
 								<div>
 									若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。
 								</div>
-								<span id="chk1" class="text-red"></span>
+								
 								<div class="checkbox">
-									<input id="checkbox2" type="checkbox" name="readAndUnderstood">
-									<label for="checkbox2"> 請不要將直接促銷資料發給本人。
+									<input id="checkbox3" type="checkbox" name="readAndUnderstood">
+									<label for="checkbox3"> 請不要將直接促銷資料發給本人。
  <br>
 
 									</label>
@@ -680,7 +733,7 @@
 								
 								
 								
-								<span id="chk2" class="text-red"></span>
+								
 
 								<div class="checkbox">
 									<input id="checkbox4" type="checkbox"

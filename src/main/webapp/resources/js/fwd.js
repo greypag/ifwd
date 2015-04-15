@@ -688,7 +688,7 @@ $(function () {
 		$("#inputTxtAppHkid, #txtAppHkid").blur(function() {
 			var appHkid = $(this).val();
 				
-			if($('#selectHkidPass').length > 0 && $('#selectHkidPass').val().toLowerCase() == 'passport'){
+			if($('#selectHkidPass').length > 0 && ($('#selectHkidPass').val().toLowerCase() == 'passport' || $('#selectHkidPass').val().toLowerCase() == 'apppassport')){
 
 				if (appHkid.trim() == "") {
 					$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
@@ -2520,38 +2520,33 @@ function payValid()
 	if(cardno.length<16)
 	{
 		flag=false;
-		document.getElementById('errcardno').innerHTML="Credit card No. must be 16-digit.";
+		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
 	}
 	if(month=="")
 	{
 		flag=false;
-		document.getElementById('errmonth').innerHTML="Please select your credit card's Expiry Month.";
+		$('#errmonth').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.month.notValid.message"));
 	}
 	if(year=="")
 	{
 		flag=false;
-		document.getElementById('erryear').innerHTML="Please select your credit card's Expiry Year.";
+		$('#erryear').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.year.notValid.message"));
 	}
 	if(holdername.trim()=="")
 	{
 		flag=false;
-		document.getElementById('errname').innerHTML="Please enter Name on credit card.";
+		$('#errname').html(getBundle(getBundleLanguage, "payment.creditCard.name.notValid.message"));
 	}
 	if(seccode.trim()=="")
 	{
 		flag=false;
-		document.getElementById('errcode').innerHTML="Please enter Security Code on credit card.";
+		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));
 	}
 	if (document.getElementById("checkbox3").checked == false)
 	{
-		document.getElementById("errchk1").innerHTML = "Please read and accept the Payment Authorization.";
+		$('#errchk1').html(getBundle(getBundleLanguage, "payment.tnc.notChecked.message"));
 		flag = false;
 	}
-	/*if (document.getElementById("checkbox2").checked == false)
-	{
-		document.getElementById("errchk2").innerHTML = "Please read and accept the Policy Coverage and Terms & Conditions before submitting the application.";
-		flag = false;
-	}*/
 	
 	return flag;
 }
@@ -2658,10 +2653,12 @@ function hc_planValid() {
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
     var new_start = new Date(EffDate);
     var startdays = dateDiffInDays(now, new_start);
+    
     document.getElementById("chk1").innerHTML = "";
     document.getElementById("chk2").innerHTML = "";
+    
     /**** VAlidation for HKID and Passport ***/
-	var selectHkidPass = document.getElementById("selectHkidPass").value;
+	/*var selectHkidPass = document.getElementById("selectHkidPass").value;
     if (appHkid.trim() == "") {
         document.getElementById("errAppHkid").innerHTML = "Please fill in your HKID or Passport No.";
         flag = false;
@@ -2681,9 +2678,45 @@ function hc_planValid() {
                 flag = false;
             }
         }
-    }
+    }*/
+//   
+    var selectHkidPass = document.getElementById("selectHkidPass").value;
+	if (appHkid.trim() == "") {
+		if (selectHkidPass.toLowerCase() == "hkid") {
+			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
+			flag = false;
+		}
+		else {
+			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
+			flag = false;
+		}
+	}
+	else {
+		if (selectHkidPass.toLowerCase() == "hkid") {
+			var tr = IsHKID(appHkid.trim());
+			if (tr == false) {
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
+				flag = false;
+			}
+		}
+		else {
+			var tr = chkTravelHKPass(appHkid.trim());
+			if (tr == false) {
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
+				
+				flag = false;
+			}
+		}
+	}
+    
+    
+    
+    
+    
+    
+//    
     if (appFullName.trim() == "") {
-        document.getElementById("appfullname").innerHTML = "Please enter your Name.";
+        document.getElementById("appfullname").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
         flag = false;
     }
     /*if (appHkid.trim() == "") {
@@ -2699,28 +2732,29 @@ function hc_planValid() {
         }
     }*/
     if (mobileNo.trim() == "") {
-        document.getElementById("errMobileNo").innerHTML = "Please enter your Mobile No.";
+        document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         flag = false;
     }
-    else {
+    else {        
         if (mobile_pattern.test(mobileNo) == false) {
-            
-            document.getElementById("errMobileNo").innerHTML = "Please enter an 8-digit Mobile No.";
+            document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
             flag = false;
-            
         }
     }
     
     if (EmailId.trim() == "") {
-        document.getElementById("errEmailid").innerHTML = "Your E-mail Address is invalid.";
+        document.getElementById("errEmailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notNull.message");
         flag = false;
     }
     else {
         if (emailreg.test(EmailId) == false) {
-            document.getElementById("errEmailid").innerHTML = "Your E-mail Address is invalid.";
+
+            document.getElementById("errEmailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notValid.message");
             flag = false;
         }
-    } 
+    }
+    
+
     /*if (RegUserName.trim() != "") {
         if (reg.test(RegUserName) == false) {
             document.getElementById("errRegUser").innerHTML = "Please enter an Username";
@@ -2738,41 +2772,50 @@ function hc_planValid() {
         }
     }*/
     if (CABuilding.trim() == "") {
-        document.getElementById("errCABuilding").innerHTML = "Name of Building is invalid.";
+        //document.getElementById("errCABuilding").innerHTML = "Name of Building is invalid.";
+        $('#errCABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
         flag = false;
     }
     if (CAEstate.trim() == "") {
-        document.getElementById("errCAEstate").innerHTML = "Name of Estate in invalid.";
+        //document.getElementById("errCAEstate").innerHTML = "Name of Estate in invalid.";
+        $('#errCAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
         flag = false;
     }
     if (ABuilding.trim() == "") {
-        document.getElementById("errABuilding").innerHTML = "Please enter your Corresponding Address.";
+        //document.getElementById("errABuilding").innerHTML = "Please enter your Corresponding Address.";
+        $('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
         flag = false;
     }
-    if (CAEstate.trim() == "") {
-        document.getElementById("errAEstate").innerHTML = "Name of Estate in invalid.";
+    if (AEstate.trim() == "") {
+        //document.getElementById("errAEstate").innerHTML = "Name of Estate in invalid.";
+        $('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
         flag = false;
     } 
     if (NFA.trim() == "") {
-        document.getElementById("errNFA").innerHTML = "Please select Net Floor Area.";
+        //document.getElementById("errNFA").innerHTML = "Please select Net Floor Area.";
+        $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
         flag = false;
     }
     if (EffDate.trim() == "") {
-        document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
+       // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
+        $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
         flag = false;
     }
     else {
         if (startdays > 60) {
-            document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
+           // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
+            $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
             flag = false;
         }
     }
     if (document.getElementById("checkbox1").checked == false) {
-        document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
+        //document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
+        $('#chk1').html(getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"));
         flag = false;
     }
     if (document.getElementById("checkbox2").checked == false) {
-        document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application.";
+        //document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application.";
+        $('#chk2').html(getBundle(getBundleLanguage, "homecare.tnc.notChecked.message"));
         flag = false;
     }
     
@@ -2973,14 +3016,24 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 	if(type == ""){
 		type="HKID";
 	}
-
-	if(isNull(element)){
+	
+	if(isNull(element) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
-	}else if(!IsHKID(element.value)){
+	}else if(!IsHKID(element.value) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notValid.message");
+		msg = String.format(msg, type);
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else if(isNull(element) && type == 'Passport'){
+		var msg = getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message");
+		msg = String.format(msg, type);
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else if(!chkTravelHKPass(element.value) && type == 'Passport'){
+		var msg = getBundle(getBundleLanguage, "applicant.passport.notEnglish.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
@@ -3585,16 +3638,34 @@ function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
 						}
 					}
 				});
-	}
+		return true;
+	}else return false;
 
 }
 
 
-//Homecare Calender
-var checkin = $('#homecareDp').datepicker({
-	//startDate:nowTemp,
-	//endDate:  tillDate_from,
-	autoclose: true,
-	todayHighlight: true,
-	format: "dd MM yyyy"
+
+$(function () {
+
+	
+	
+	var nowTemp = new Date();
+	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+	var tillDate_from_home= new Date((new Date()).getTime() + 59*24*60*60*1000);
+	
+	//Homecare Calender
+	var checkin = $('#homecareDp').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from_home;
+		},
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd MM yyyy"
+	}).on('changeDate', function (ev) {
+		$('#errEffDate').html('');
+	});
+	
 });
+
+
+

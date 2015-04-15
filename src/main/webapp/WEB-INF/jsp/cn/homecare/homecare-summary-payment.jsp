@@ -11,7 +11,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 			<form name="homeCarepaymentForm" id="homeCarepaymentForm"
-				onsubmit="confirmHomeCarePayment(this, 'gateway', 'homeCarepaymentForm');" method="post">			
+				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'homeCarepaymentForm');" method="post">			
 				<ol class="breadcrumb pad-none">
 					<li><a href="#">主頁</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">家居保險 </a> <i class="fa fa-caret-right"></i></li>
@@ -82,7 +82,9 @@
 								<tbody>
 									<tr>
 										<td class="h2-1 pad-left1 col-lg-5">申請號碼</td>
-										<td class=" h4-5">${createdPolicy.getReferenceNo() }</td>
+										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
+											type="hidden" name="referenceNo"
+											value="${createdPolicy.getReferenceNo()}"></td>
 									</tr>
 									<tr>
 										<td class="h2-1 ">保險計劃</td>
@@ -206,7 +208,7 @@
 							</tr>
 							<tr class="" style="display: none;">
 								<td align="right">Payment Method</td>
-								<td><input type="radio" name="pMethod" value="VISA" id="chkVisa">VISA
+								<td><input type="radio" name="pMethod" value="VISA" id="chkVisa"  checked="checked">VISA
 									<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard
 								</td>
 							</tr>
@@ -217,7 +219,7 @@
 										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" min="16" title=""
 											onkeyup="validatecardnumber(this.value)"
-											onBlur="chkMinLength(this.value);"
+											onBlur="chkValidCreditCard(this, 'errcardno');"
 											onkeypress="return isNumeric(event)" placeholder="信用卡號碼">
 										<span id="errcardno" class="error-msg"></span>
 									</div>
@@ -258,6 +260,7 @@
 										<option value="${currentYear}">${currentYear}</option>
 									</c:forEach>
 								</select></td>
+								
 							</tr>
 
 
@@ -275,7 +278,7 @@
 									<div class="controls">
 										<input id="holdername" name="cardHolder" type="text"
 											class="input-block-level" placeholder="持卡人名稱"
-											onblur="replaceAlpha(this);"
+											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
 									</div>

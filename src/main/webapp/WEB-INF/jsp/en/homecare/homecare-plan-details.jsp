@@ -117,21 +117,26 @@
 <!--End VWO-->
 <script>
 	function setDropArea(id) {
-		$('#selectCADistHid').find('option[value="' + id + '"]').attr(
-				'selected', 'selected');
+		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
 		var skillsSelect = document.getElementById("selectCADistHid");
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+		
+		/*if(selectedText.trim() == 'District'){
+			$('#errCADist').html(getBundle(getBundleLanguage, "insured.address.netFloorArea.notNull.message"));
+		}
+		else*/ 
 		if (selectedText.trim() == "HK")
 			document.getElementById("inlineCARadio3").checked = true;
 		else if (selectedText.trim() == "KL")
 			document.getElementById("inlineCARadio4").checked = true;
 		else
 			document.getElementById("inlineCARadio5").checked = true;
+		
+		
 	}
 
 	function setDropArea2(id2) {
-		$('#selectADistHid').find('option[value="' + id2 + '"]').attr(
-				'selected', 'selected');
+		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
 		var skillsSelect = document.getElementById("selectADistHid");
 
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
@@ -164,7 +169,21 @@
 			$('#inputAFloor').val(applicantFloor);
 			$('#inputABlock').val(applicantBlock);
 			$('#inputABuilding').val(applicantBuilding);
+			
+			if(applicantBuilding.trim() != ''){
+				$('#errABuilding').html('');
+			}else{
+				$('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
+			}
+			
 			$('#inputAEstate').val(applicantEstate);
+			
+			if(applicantEstate.trim() != ''){
+				$('#errAEstate').html('');
+			}else{
+				$('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
+			}
+			
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);
 
@@ -173,7 +192,7 @@
 			
 			var element = document.getElementById('selectADist');
 			element.value = selectCADist;
-			$('#selectADist').val('AD123');
+			//$('#selectADist').val('AD123');
 			if (document.getElementById("inlineCARadio3").checked) {
 				document.getElementById("inlineDeskRadio31").checked = true;
 			} else if (document.getElementById("inlineCARadio4").checked) {
@@ -210,6 +229,9 @@
 			    document.getElementById('inlineDeskRadio41').disabled = true;
 			    document.getElementById('inlineDeskRadio51').disabled = true;
 			}
+			
+			
+			
 		} else {
 						
 			$('#inputARoom').val();
@@ -532,11 +554,11 @@
 										<td><input type="text" class="form-control full-control"
 											id="inputCAFloor" name="applicantFloor" placeholder="Floor "
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5"/></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputCABlock" name="applicantBlock" placeholder="Block"
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
@@ -554,11 +576,11 @@
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputCAStreetNo" name="applicantStreetNo"
 											placeholder="Street No." onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputCAStreetName" name="applicantStreetName"
 											placeholder="Street Name" onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
 									</tr>
 									<tr>
 										<td colspan="3"><select name="applicantDistrict"
@@ -648,7 +670,8 @@
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputABuilding" name="aBuilding" placeholder="Building"
-											onblur="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
+											
+											onChange="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
@@ -739,7 +762,7 @@
                       <option value="701-850">701-850</option>
                       <option value="851-1000">851-1000</option>
                     </select> --%> <select name="netFloorArea"
-											class="form-control soflow full-control" id="selectNFA" onBlur="chkNotNullIANetFloorArea(this, 'errNFA');">
+											class="form-control soflow full-control" id="selectNFA" onChange="chkNotNullIANetFloorArea(this, 'errNFA');">
 												<option value="">Please Select</option>
 												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
 													<option value="${floorAreaList.key}"><c:out
@@ -760,7 +783,7 @@
 															src="resources/images/calender1.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
 														class="datepicker form-control full-control" id="txtEffDate"
-														onBlur="chkValidIAEffDate(this, 'errEffDate', 'Effective Date');" />
+														readonly />
 												</div>
 											</div> <span id="errEffDate" class="text-red"></span></td>
 									</tr>
@@ -790,6 +813,8 @@
 										Person(s) may be invalidated.
 									</label>
 								</div>
+								<span id="chk1" class="text-red"></span>
+								<br/>
 								<div class="checkbox">
 									<input id="checkbox2" name="declarration2" type="checkbox">
 									<label for="checkbox2">I have read and understood <a
@@ -798,6 +823,7 @@
 											Statement</a> and agree to be bound by the same. <br> 
 									</label>
 								</div>
+								<span id="chk2" class="text-red"></span>
 								<hr/>
 								<div>
 									If you do NOT wish The Company to use Your Personal Data in direct
@@ -805,7 +831,7 @@
 										companies for their use in direct marketing, please tick the
 										appropriate box(es) below to exercise
 								</div>
-								<span id="chk2" class="text-red"></span>
+								
 								<div class="checkbox">
 									<input id="checkbox33" type="checkbox"
 										name="donotWishDirectMarketing"> <label
