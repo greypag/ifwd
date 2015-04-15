@@ -43,11 +43,11 @@
 								
 								
 							} else {
-								alert("fail");
+								
 								$('#joinus-err-msg').show();
-								alert("fail");
+								
 								window.location.hash = '#joinus-err-msg';
-								$('#joinus-err-msg').html("Please check provided information is valid");
+								$('#joinus-err-msg').html(data);
 
 							} 
 						},

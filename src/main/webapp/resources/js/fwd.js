@@ -322,15 +322,10 @@ function fPlanValid()
 {
 
 	var flag=true;
-//	document.getElementById("fullnameinvalid").innerHTML = "";
-//	document.getElementById("errAppHkid").innerHTML = "";
-//	document.getElementById("emailid").innerHTML = "";    
-//	document.getElementById("mobileNo").innerHTML = "";
-//	
-//	document.getElementById("chk1").innerHTML = "";
+
 	$('#chk2').html('');
 	console.log($('#selectCADist').val());
-/*	var fullname = document.getElementById("inputFullName").value;
+	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
 	var appHkid = document.getElementById("inputTxtAppHkid").value;
