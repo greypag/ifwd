@@ -3,6 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <%@page import="java.util.*"%>
 <%
 	String authenticate = "false";
@@ -119,11 +122,11 @@
 
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		if (selectedText.trim() == "HK")
-			document.getElementById("inlineDeskRadio31").checked = true;
+			document.getElementById("inlineDeskRadio3").checked = true;
 		else if (selectedText.trim() == "KL")
-			document.getElementById("inlineDeskRadio41").checked = true;
+			document.getElementById("inlineDeskRadio4").checked = true;
 		else
-			document.getElementById("inlineDeskRadio51").checked = true;
+			document.getElementById("inlineDeskRadio5").checked = true;
 	}
 
 	function autofillFields() {
@@ -166,7 +169,6 @@
 			$('#inputAStreetName').val(applicantStreetName);
 
 			$('#selectADist').val(selectCADist);
-			$('#selectADistHid').val(selectCADist);
 
 			
 			var element = document.getElementById('selectADist');
@@ -324,17 +326,16 @@
 					action="prepareUserSummaryForHome" method="post"
 					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
-						<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#">Easy HomeCare </a> <i
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i
 							class="fa fa-caret-right"></i></li>
-						<li><a href="#">Your options </a></li>
-						<li class="active "><i class="fa fa-caret-right"></i> Your
-							details</li>
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a></li>
+						<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></li>
 					</ol>
 					<div class="container ">
 						<div class="col-md-12 shop-tracking-status">
 							<div class="center" style="visibility: visible;">
-								<h2>Your details</h2>
+								<h2><fmt:message key="home.details.jumbo" bundle="${msg}" /></h2>
 							</div>
 							<br>
 							<div class="col-lg-12">
@@ -347,22 +348,22 @@
 										</div>
 										<div
 											class="image-order-status image-order-status-new active img-circle first">
-											<span class="status color3">Your Options</span>
+											<span class="status color3"><fmt:message key="home.breadcrumb2.item1" bundle="${msg}" /></span>
 											<div class="icon">1</div>
 										</div>
 										<div
 											class="image-order-status image-order-status-intransit  img-circle act second">
-											<span class="status color2"> Your Details</span>
+											<span class="status color2"><fmt:message key="home.breadcrumb2.item2" bundle="${msg}" /></span>
 											<div class="icon">2</div>
 										</div>
 										<div
 											class="image-order-status image-order-status-delivered  img-circle disabled third">
-											<span class="status">Summary & Payment</span>
+											<span class="status"><fmt:message key="home.breadcrumb2.item3" bundle="${msg}" /></span>
 											<div class="icon">3</div>
 										</div>
 										<div
 											class="image-order-status image-order-status-completed  img-circle disabled fourth">
-											<span class="status lst-status">Confirmation</span>
+											<span class="status lst-status"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
 											<div class="icon">4</div>
 										</div>
 									</div>
@@ -379,14 +380,13 @@
 								if (authenticate.equals("false")
 											|| authenticate.equals("direct")) {
 							%>
-							<h3 class="margin-left-2 h2-3-existing-fwd-head">Existing
-								FWD eServices member?</h3>
+							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
 							<a href="#"
 								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-								data-toggle="modal" data-target=".bs-example-modal-lg">Login</a>
+								data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
 							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
 								<h3 class="text-left or-continue">
-									<span>Or,</span> continue as a guest.
+									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span><fmt:message key="home.details.login.other.part2" bundle="${msg}" />
 								</h3>
 							</div>
 							<%
@@ -399,11 +399,11 @@
 								<tbody>
 									<tr>
 										<td colspan="2"><h3
-												class="black-bold pad-none">Applicant's Details</h3></td>
+												class="black-bold pad-none"><fmt:message key="home.details.applicant.heading" bundle="${msg}" /></h3></td>
 									</tr>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500">Full name</label></td>
+											class="control-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label></td>
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
@@ -415,8 +415,9 @@
 
 										<td class=""><select name="apphkidandpassport"
 											id="selectHkidPass" class="form-control soflow full-control">
-												<option value="appHkid" selected="selected">HKID</option>
-												<option value="appPassport">Passport</option>
+												<option value="appHkid" selected="selected">
+												<fmt:message key="home.details.applicant.hkid" bundle="${msg}" /></option>
+												<option value="appPassport"><fmt:message key="home.details.applicant.passport" bundle="${msg}" /></option>
 										</select></td>
 										<td class=""><input type="text" name="hkId"
 											class="form-control numberinput textUppe full-control" id="txtAppHkid"
@@ -427,7 +428,7 @@
 									</tr>
 									<tr>
 										<td class=""><label
-											class="control-label bold-500">Mobile number</label></td>
+											class="control-label bold-500"><fmt:message key="home.details.applicant.mobile" bundle="${msg}" /></label></td>
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
@@ -438,7 +439,7 @@
 									</tr>
 									<tr>
 										<td class=""><label
-											class="control-label bold-500">Email address</label></td>
+											class="control-label bold-500"><fmt:message key="home.details.applicant.email" bundle="${msg}" /></label></td>
 										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
@@ -461,9 +462,8 @@
 									<tbody>
 										<tr>
 											<td colspan="2" class="">
-												<h3 class="pad-none">Create FWD Member Account?</h3> <i>
-													Leave blank if you do not want an member account to be
-													created </i> <br>
+												<h3 class="pad-none"><fmt:message key="home.details.registration.heading" bundle="${msg}" /></h3> <i>
+													<fmt:message key="home.details.registration.desc" bundle="${msg}" /></i> <br>
 											</td>
 										</tr>
 										<tr>
@@ -471,7 +471,7 @@
 										</tr>
 										<tr>
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-												class="control-label bold-500">Choose Username</label></td>
+												class="control-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
 											<td class=""><input type="text"
 												class="form-control marginbt full-control" id="Username"
 												placeholder="Username"> <span id="UsernameError"
@@ -479,7 +479,7 @@
 										</tr>
 										<tr>
 											<td class=""><label
-												class="control-label bold-500">Choose Password</label></td>
+												class="control-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Password"
 												placeholder="Password"> <span id="PasswordError"
@@ -487,7 +487,7 @@
 										</tr>
 										<tr>
 											<td class=""><label
-												class="control-label bold-500">Confirm Password</label></td>
+												class="control-label bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Confirm-Password"
 												placeholder="Confirm password"> <span
@@ -505,7 +505,7 @@
 									<tr>
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500">Correspondence Address</label></td>
+											class="control-label bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
 										<td><input type="text" class="form-control wd2"
 											id="inputCARoom" name="applicantRoom" placeholder="Room/Flat"
 											onblur="replaceAlphaNumeric(this);"
@@ -545,7 +545,7 @@
 										<td colspan="3"><select name="applicantDistrict"
 											class="form-control soflow full-control" id="selectCADist"
 											onchange="setDropArea(this.value)">
-												<option value="">District</option>
+												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 												<%
 													List lst = (List) request.getAttribute("districtList");
 														Iterator itr = lst.iterator();
@@ -561,7 +561,7 @@
 											<div class="hidden">
 												<select name="applicantDistrictHid"
 													class="form-control soflow full-control" id="selectCADistHid">
-													<option value="">District</option>
+													<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 													<%
 														List lst1 = (List) request.getAttribute("districtList");
 															Iterator itr1 = lst1.iterator();
@@ -595,13 +595,13 @@
 								<tbody>
 									<tr>
 										<td class="pad-none"><h3 class="black-bold pad-none">
-												Address Details</h3></td>
+												<fmt:message key="home.details.registration.addressdetails" bundle="${msg}" /></h3></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><div class="checkbox btm-pad-10">
 												<input id="checkbox3" type="checkbox"
 													onclick="autofillFields()"> <label for="checkbox3">
-													Same as applicant's correspondence address<br>
+													<fmt:message key="home.details.registration.addressdetails.msg" bundle="${msg}" /><br>
 												</label>
 											</div></td>
 									</tr>
@@ -612,7 +612,7 @@
 									<tr>
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
-											class="control-label bold-500">Insured Address</label></td>
+											class="control-label bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label></td>
 										<td colspan="2"><input type="text"
 											class="form-control wd2 full-control" id="inputARoom" name="aRoom"
 											placeholder="Room/Flat" onblur="replaceAlphaNumeric(this);"
@@ -656,7 +656,7 @@
 										<td colspan="4"><select name="aDistrict"
 											class="form-control soflow full-control" id="selectADist"
 											onchange="setDropArea2(this.value)">
-												<option value="">District</option>
+												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 												<%
 													List list = (List) request.getAttribute("districtList");
 														Iterator itrr = list.iterator();
@@ -676,7 +676,7 @@
 											<div class="hidden">
 												<select name="applicantDistrictHid"
 													class="form-control soflow" id="selectADistHid">
-													<option value="">District</option>
+													<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 													<%
 														List list1 = (List) request.getAttribute("districtList");
 															Iterator itrr1 = list1.iterator();
@@ -710,8 +710,7 @@
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 "><label
-											class="control-label bold-500 home-line">Net Floor
-												Area<br> (square feet)
+											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
 										</label></td>
 										<td class="">
 											<%--  <select name="" class="form-control soflow" id="selectNFA">
@@ -722,7 +721,7 @@
                       <option value="851-1000">851-1000</option>
                     </select> --%> <select name="netFloorArea"
 											class="form-control soflow full-control" id="selectNFA" onChange="chkNotNullIANetFloorArea(this, 'errNFA');">
-												<option value="">Please Select</option>
+												<option value=""><fmt:message key="home.details.registration.select" bundle="${msg}" /></option>
 												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
 													<option value="${floorAreaList.key}"><c:out
 															value="${floorAreaList.value}" /></option>
@@ -733,8 +732,7 @@
 									</tr>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500 home-line">Effective
-												Date of <br> Coverage
+											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
 										</label></td>
 										<td class=""><div class="form-group">
 												<div class="input-group date" id="homecareDp">
@@ -749,61 +747,43 @@
 								</tbody>
 							</table>
 							<div class="clearfix"></div>
-							<h4 class="h4-2 padding3">Declaration:-</h4>
+							<h4 class="h4-2 padding3"><fmt:message key="home.details.declarations.heading" bundle="${msg}" /></h4>
 							<div class="declaration-content">
 								<div class="checkbox">
 									<input id="checkbox1" name="declarration" type="checkbox">
-									<label for="checkbox1"> I have read and understand the
-										policy provisions and hereby declare that:- <br> i. <span
-										class="margin-left-2"></span> Declare that the particulars are
-										true to the best of my knowledge, belief and complete; <br>
-										ii. <span class="margin-left-2"></span> Declare the Home is
-										constructed from bricks, stone or concrete with concrete roof
-										and occupied by me and my family as private dwelling; <br>
-										iii. <span class="margin-left-2"></span> Declare that I or my
-										family member living with me have not sustained any loss
-										during the last three years from any of the risks now proposed
-										for insurance; or been refused renewal by any insurer; and<br>
-										iv. <span class="margin-left-2"></span> Agree that this
-										application shall be the basis of the contract between me and
-										FWD.<br>v. <span class="margin-left-2"></span> this Proposal Form
-										is applied and signed at HKSAR, in case of fraud or factual
-										misrepresentation, the cover for me or for the Insured
-										Person(s) may be invalidated.
+									<label for="checkbox1"> <fmt:message key="home.details.declarations.tnc" bundle="${msg}" /><br> 
+										i. <span class="margin-left-2"></span> <fmt:message key="home.details.declarations.tnc.desc1" bundle="${msg}" /><br>
+										ii. <span class="margin-left-2"></span> <fmt:message key="home.details.declarations.tnc.desc2" bundle="${msg}" /> <br>
+										iii. <span class="margin-left-2"></span> <fmt:message key="home.details.declarations.tnc.desc3" bundle="${msg}" /><br>
+										iv. <span class="margin-left-2"></span> <fmt:message key="home.details.declarations.tnc.desc4" bundle="${msg}" /><br>
+										v. <span class="margin-left-2"></span> <fmt:message key="home.details.declarations.tnc.desc5" bundle="${msg}" /><br/>
 									</label>
 								</div>
 								<span id="chk1" class="text-red"></span>
 								<br/>
 								<div class="checkbox">
 									<input id="checkbox2" name="declarration2" type="checkbox">
-									<label for="checkbox2">I have read and understood <a
+									<label for="checkbox2"><fmt:message key="home.details.declarations.PICS.part1" bundle="${msg}" />  <a
 										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-										 class="sub-link" target="_blank"> Personal Information Collection
-											Statement</a> and agree to be bound by the same. <br> 
+										 class="sub-link" target="_blank"> <fmt:message key="home.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="home.details.declarations.PICS.part3" bundle="${msg}" /> <br> 
 									</label>
 								</div>
 								<span id="chk2" class="text-red"></span>
 								<hr/>
 								<div>
-									If you do NOT wish The Company to use Your Personal Data in direct
-										marketing or provide Your Personal Data to other persons or
-										companies for their use in direct marketing, please tick the
-										appropriate box(es) below to exercise
+									<fmt:message key="home.details.declarations.PDPO" bundle="${msg}" />
 								</div>
 								
 								<div class="checkbox">
 									<input id="checkbox33" type="checkbox"
 										name="donotWishDirectMarketing"> <label
-										for="checkbox33"> Please do not send direct marketing
-										information to me. <br> <br>
+										for="checkbox33"> <fmt:message key="home.details.declarations.PDPO.option1" bundle="${msg}" /> <br> <br>
 									</label>
 								</div>
 								<div class="checkbox">
 									<input id="checkbox34" type="checkbox"
 										name="donotWishDirectMarketing3"> <label
-										for="checkbox34"> Please do not provide my personal
-										data to other persons or companies for their use in direct
-										marketing. <br>
+										for="checkbox34"> <fmt:message key="home.details.declarations.PDPO.option2" bundle="${msg}" /><br>
 									</label>
 								</div>
 
@@ -818,8 +798,8 @@
 									
 										<div class="col-md-7 col-lg-8">
 											<h2 class="h2-3-choose pad-none">${homeQuoteDetails.getPlanCode()}
-												Insurance</h2>
-											<h4 class="pad-none">Plan summary</h4>
+												<fmt:message key="home.details.summary.product" bundle="${msg}" /></h2>
+											<h4 class="pad-none"><fmt:message key="home.details.summary.desc1" bundle="${msg}" /></h4>
 										</div>
 	
 										<div class="col-md-5 col-lg-4 pull-right">
@@ -844,9 +824,9 @@
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
 								<div class="form-container">
-									<h3>Plan Type</h3>
+									<h3><fmt:message key="home.details.summary.desc2" bundle="${msg}" /></h3>
 									<div class="form-group">
-										<p class="h4-5 pad-none">Standard Cover, Annual</p>
+										<p class="h4-5 pad-none"><fmt:message key="home.details.summary.desc3" bundle="${msg}" /></p>
 									</div>
 									<!-- <h3>Promotion code</h3>
 									<span class="text-red" id="errPromoCode"></span>
@@ -861,22 +841,21 @@
 									</div>
 									<div class="travel-italic">
 										<a href="#" class="sub-link" data-toggle="modal"
-											data-target=".bs-promo-modal-lg"><i> How do I get a
-												promotion code?</i> </a>
+											data-target=".bs-promo-modal-lg"><i><fmt:message key="home.details.summary.promocode.help" bundle="${msg}" /></i> </a>
 									</div> -->
 								</div>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
+								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
 									</h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Discount</h3>
+								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.discount" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getDiscountAmount()))%>
 								
 								</h3>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
+								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.amountDue" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
 									</h3>
@@ -891,7 +870,7 @@
 							<!--mob-->
 							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<a href="getHomePlan" class="bdr-curve btn btn-primary bck-btn">Back </a>
+									<a href="getHomePlan" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="Next" />
@@ -910,13 +889,10 @@
 						<div class="clearfix"></div>
 					</div>
 					<p class="padding1 hidden-sm hidden-xs">
-						The features above are indicative only. Please refer to the <a
+						<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a
 							class="sub-link"
 							href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-							target="_blank">Policy Provisions</a> for details. <br> For
-						a complete explanation of the terms and conditions, feel free to
-						contact an adviser or our 24-hour hotline at 3123 3123 for more
-						details.
+							target="_blank"><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> <fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 					</p>
 				</form:form>
 			</div>
@@ -946,10 +922,10 @@
 											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>
 											<div class="form-container">
-												<h2>Log in to FWD</h2>
+												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4 class="margin-shift">
-													Username <a href="forgotUserName"
-														class="pull-right sub-link">Forgot username?</a>
+													<fmt:message key="header.login.username" bundle="${msg}" /> <a href="forgotUserName"
+														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
 												<div class="form-group">
@@ -958,8 +934,8 @@
 												</div>
 												<span id="errUserName" style="color: red"></span>
 												<h4 class="margin-shift">
-													Password <a href="forgotPassword"
-														class="pull-right sub-link">Forgot password?</a>
+													<fmt:message key="header.login.password" bundle="${msg}" /> <a href="forgotPassword"
+														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
 													<input type="password" name="password" class="form-control"
@@ -969,20 +945,16 @@
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
 														<button type="button" onclick="return submitLoginForm('loginform');"
-															class="bdr-curve btn btn-primary btn-lg wd5">Log
-															In</button>
+															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3
 														class="text-left col-lg-6 col-md-6 pad-none margin-none">
-														<span> New Member?</span><br> <a href="joinus">
-															Register here</a>
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus">
+															<fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>
 												</div>
-												<p>For the purpose of purchasing a specified insurance
-													plan through this website (“the Plan”), I hereby consent
-													the transfer of my personal data from FWD eServices to the
-													issuer of the Plan.</p>
+												<p><fmt:message key="header.login.disclaimer" bundle="${msg}" /></p>
 											</div>
 										</div>
 									</form>

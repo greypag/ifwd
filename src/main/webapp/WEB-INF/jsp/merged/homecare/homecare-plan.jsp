@@ -2,6 +2,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,15 +148,14 @@
 			<div class="row">
 
 				<ol class="breadcrumb pad-none">
-					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Easy HomeCare </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> Your
-						options</li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a></li>
+					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
 						<div class="center" style="visibility: visible;">
-							<h2>Your options</h2>
+							<h2><fmt:message key="home.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
 						<div class="col-lg-12 col-md-12">
@@ -168,23 +170,23 @@
 										</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act first">
-										<span class="status">Your Options</span>
+										<span class="status"><fmt:message key="home.breadcrumb2.item1" bundle="${msg}" /></span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
 										class="image-order-status image-order-status-intransit  img-circle disabled second">
-										<span class="status">Your Details</span>
+										<span class="status"><fmt:message key="home.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle disabled third">
-										<span class="status">Summary & Payment</span>
+										<span class="status"><fmt:message key="home.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle disabled fourth">
-										<span class="status lst-status">Confirmation</span>
+										<span class="status lst-status"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -282,22 +284,15 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i> Product Highlights </a> </span>
+															class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
-												<p>Household Contents cover up to a limit as high as
-													HK$500,000</p>
-												<p>Personal Liability Insurance covers up to
-													HK$5,000,000 as owner and/or occupier of your home or as a
-													private individual anywhere in the world</p>
-												<p>Protects household contents inside the home, such as
-													furniture, electrical appliances etc., against loss or
-													damage arising from fire, flood, bursting pipes, typhoon,
-													theft and other accidents</p>
+												<p><fmt:message key="home.quote.highlight.desc1" bundle="${msg}" /></p>
+												<p><fmt:message key="home.quote.highlight.desc2" bundle="${msg}" /></p>
+												<p><fmt:message key="home.quote.highlight.desc3" bundle="${msg}" /></p>
 												<br>
-												<p>Applicable to Home for Net Floor Area up to 1,000
-													square feet</p>
+												<p><fmt:message key="home.quote.highlight.desc4" bundle="${msg}" /></p>
 											</div>
 										</div>
 										<!-- /  Product Highlights -->
@@ -307,28 +302,17 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i>Summary of Coverage </a> </span>
+															class="fa fa-plus"></i><fmt:message key="home.quote.summary.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 
 												<h4 class="h4-2">
-													<strong> Section 1. Household Contents</strong>
+													<strong> <fmt:message key="home.quote.summary.subheading1" bundle="${msg}" /> </strong>
 												</h4>
-												<p>Your household contents at home are insured for 'All
-													Risks' cover. This 'All Risks' cover protects your contents
-													against accidental loss or damage arising from, including
-													but not limited to, fire, flood, typhoon, explosion or
-													theft, up to a maximum of HK$500,000 per year. Maximum
-													limit of the coverage for any one item of your household
-													contents is HK$100,000. Valuables, such as jewellery, gold,
-													silver, watches, photographic equipment, furs, musical
-													instruments (except pianos), are covered up to HK$10,000
-													per item and with an aggregate maximum of HK$100,000 per
-													year.</p>
+												<p><fmt:message key="home.quote.summary.subheading1.desc1" bundle="${msg}" /></p>
 												<br>
-												<p>Except the above mentioned coverage, this insurance
-													also provides the following extra benefits:</p>
+												<p><fmt:message key="home.quote.summary.subheading1.desc2" bundle="${msg}" /></p>
 												<br>
 												<table id="Premium" class="table table-bordred">
 													<tbody>
@@ -445,22 +429,14 @@
 													</tbody>
 												</table>
 												<h4 class="h4-2">
-													<strong> Section 1. Household Contents</strong>
+													<strong><fmt:message key="home.quote.summary.subheading2" bundle="${msg}" /></strong>
 												</h4>
-												<p>Easy HomeCare provides worldwide cover of your legal
-													liability up to HK$5,000,000 against any claim for bodily
-													injury or property damage resulting from the negligence of
-													you or your family members normally living with you.
-													Provided that the legal proceedings is submitted to the
-													Hong Kong court.</p>
-												<p>a) as occupier of the home</p>
-												<p>b) as owner of the home (including common areas of
-													the building)</p>
-												<p>c) as a private individual (anywhere in the world)</p>
+												<p><fmt:message key="home.quote.summary.subheading2.desc1" bundle="${msg}" /></p>
+												<p><fmt:message key="home.quote.summary.subheading2.desc2" bundle="${msg}" /></p>
+												<p><fmt:message key="home.quote.summary.subheading2.desc3" bundle="${msg}" /></p>
+												<p><fmt:message key="home.quote.summary.subheading2.desc4" bundle="${msg}" /></p>
 
-												<p>Cover your legal liability being a Tenant of the home
-													against the damage caused to the structure of the home and
-													landlord's fixtures and fittings.</p>
+												<p><fmt:message key="home.quote.summary.subheading2.desc5" bundle="${msg}" /></p>
 
 
 
@@ -518,22 +494,13 @@
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 												<p>
-													The following is only a summary of the major exclusions.
-													Please refer to the Policy for details.<br>
+													<fmt:message key="home.quote.exclusion.desc1" bundle="${msg}" /><br>
 												<ul>
-													<li>Loss or damage arising from uninsurable risks such
-														as scratching, wear and tear, mechanical or electrical
-														fault or breakdown, misuse or domestic animals</li>
-													<li>Loss of or damage to mobile phones, household
-														contents contained in open areas or on roofs, spectacles,
-														contact lenses, sporting equipment whilst in use, computer
-														system records, aerial devices or satellite dish</li>
-													<li>Loss or damage if the home is unoccupied for more
-														than 60 consecutive days</li>
-													<li>Personal Liability for travelling out of Hong Kong
-														exceeding 90 consecutive days</li>
-													<li>Loss or damage due to war risks, radioactive
-														risks, sonic bangs or any act of terrorism</li>
+													<li><fmt:message key="home.quote.exclusion.desc2" bundle="${msg}" /></li>
+													<li><fmt:message key="home.quote.exclusion.desc3" bundle="${msg}" /></li>
+													<li><fmt:message key="home.quote.exclusion.desc4" bundle="${msg}" /></li>
+													<li><fmt:message key="home.quote.exclusion.desc5" bundle="${msg}" /></li>
+													<li><fmt:message key="home.quote.exclusion.desc6" bundle="${msg}" /></li>
 
 												</ul>
 
@@ -547,7 +514,7 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i> Excess </a> </span>
+															class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">

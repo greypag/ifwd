@@ -511,7 +511,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 					+ finalizeObject.getPolicyNo());
 			finalizeObject.setReferralCode(referenceNo);
 		} else {
-			finalizeObject.setErrMsgs((String)apiResponsObject.get("errMsgs"));
+			finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());
 		}
 		return finalizeObject;
 	}

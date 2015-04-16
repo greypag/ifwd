@@ -1,3 +1,10 @@
+<%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,22 +94,22 @@
 			<div class="row">
 				<form>
 					<ol class="breadcrumb pad-none">
-						<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#">Easy HomeCare </a> <i
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /> </a> <i
 							class="fa fa-caret-right"></i></li>
-						<li><a href="#">Your options</a> <i
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a> <i
 							class="fa fa-caret-right"></i></li>
-						<li><a href="#">Your details </a> <i
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></a> <i
 							class="fa fa-caret-right"></i></li>
-						<li><a href="#">Summary & Payment </a></li>
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item5" bundle="${msg}" /> </a></li>
 						<li class="active "><i class="fa fa-caret-right"></i>
-						Confirmation
+						<fmt:message key="home.breadcrumb1.item6" bundle="${msg}" />
 						</li>
 					</ol>
 					<div class="container ">
 						<div class="col-md-12 shop-tracking-status">
 							<div class="center" style="visibility: visible;">
-								<h2>Confirmation</h2>
+								<h2><fmt:message key="home.confirmation.jumbo" bundle="${msg}" /></h2>
 							</div>
 							<br>
 							<div id="tr-wizard" class="shop-tracking-status">
@@ -114,23 +121,23 @@
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle first">
-										<span class="status color3">Your Options</span>
+										<span class="status color3"><fmt:message key="home.breadcrumb2.item1" bundle="${msg}" /></span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
 										class="image-order-status image-order-status-intransit  img-circle second">
-										<span class="status color3">Your Details</span>
+										<span class="status color3"><fmt:message key="home.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle third">
-										<span class="status color3">Summary & Payment</span>
+										<span class="status color3"><fmt:message key="home.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle act fourth">
-										<span class="status lst-status">Confirmation</span>
+										<span class="status lst-status"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -144,19 +151,19 @@
 					<div class="container pad-none bdr">
 						<div class="col-sm-12 gray-bg1">
 							<h3>
-								You have successfully completed your purchase of <strong>Easy HomeCare</strong>
-								insurance with <strong>FWD</strong>.<br>
-								An email has been sent to  <strong>${emailID}</strong> with the details of your policy.
+								<fmt:message key="home.confirmation.msg.part1" bundle="${msg}" /> <strong><fmt:message key="home.confirmation.msg.part2" bundle="${msg}" /></strong>
+								<fmt:message key="home.confirmation.msg.part3" bundle="${msg}" /><strong><fmt:message key="home.confirmation.msg.part4" bundle="${msg}" /></strong>.<br>
+								<fmt:message key="home.confirmation.msg.part5" bundle="${msg}" /> <strong>${emailID}</strong> <fmt:message key="home.confirmation.msg.part6" bundle="${msg}" />
 							</h3>
 							<h4>
 								Policy Number: <span> ${policy }</span>
 							</h4>
 							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 								<h5>
-									Your unique promotion code is:<span> <%=session.getAttribute("myReferralCode")%></span>
+									<fmt:message key="home.confirmation.promocode" bundle="${msg}" /><span> <%=session.getAttribute("myReferralCode")%></span>
 								</h5>
 								<div class="h4-3-b margin-left">
-								Share with your friends and get discounts from our partners!*
+								<fmt:message key="home.confirmation.share" bundle="${msg}" />
 								</div>
 							</div>
 							<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -166,7 +173,7 @@
 							<br>
 							<br>
 							<div class="h4-2 margin-left">
-							Share your promotion code now to earn discounts and rewards
+							<fmt:message key="home.confirmation.sharenow" bundle="${msg}" />
 							</div>
 
 							<div >
@@ -186,13 +193,13 @@
 							<br>
 							<div class="col-lg-12 col-md-12 travel-b">
 								<div class="declaration-content1">
-									<b><span class="orange-star">*</span>Referral Program</b>
+									<b><span class="orange-star">*</span><fmt:message key="home.confirmation.referral.heading" bundle="${msg}" /></b>
 									<p class="margin-none">
-										Referrer will enjoy:  <br>
-										- 5% discount from Agoda <br>
-										- 30% discount on your next purchase of TravelCare <br>
-										Referee will enjoy 8% discount on Easy HomeCare purchase. <br>
-										Please review the detailed <a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank">terms and conditions</a> of the referral program.
+										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" />  <br>
+										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
+										<fmt:message key="home.confirmation.referral.desc3" bundle="${msg}" /> <br>
+										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
+										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
 									</p>
 									<br>
 								</div>
@@ -204,7 +211,7 @@
 					<div class="container pad-none hidden-xs hidden-sm travel-homecare">
 						<div class="row-fluid">
 							<div class="center " style="visibility: visible;">
-								<h4 class="center-h2">You may also be interested in</h4>
+								<h4 class="center-h2"><fmt:message key="home.confirmation.other.heading" bundle="${msg}" /></h4>
 								<br>
 								<br>
 								<div class="col-md-3 col-lg-3 text-left pad-none">
@@ -212,9 +219,9 @@
 								</div>
 								<div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
 									<div>
-										<div class="h2-32">TravelCare</div>
-										<p class="h4-5">Embark on an adventure abroad with a comprehensive travel protection companion</p>
-										<a href="travel" class="border-radius btn btn-primary get-btn">Get Quote</a>
+										<div class="h2-32"><fmt:message key="home.confirmation.other.subheading" bundle="${msg}" /></div>
+										<p class="h4-5"><fmt:message key="home.confirmation.other.desc" bundle="${msg}" /></p>
+										<a href="travel" class="border-radius btn btn-primary get-btn"><fmt:message key="home.confirmation.other.quote" bundle="${msg}" /></a>
 									</div>
 								</div>
 

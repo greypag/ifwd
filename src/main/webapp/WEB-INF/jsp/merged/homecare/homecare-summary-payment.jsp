@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
@@ -12,19 +14,19 @@
 			<form name="paymentForm" id="paymentForm"
 				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');" method="post">
 				<ol class="breadcrumb pad-none">
-					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Easy HomeCare </a> <i
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a> <i
 						class="fa fa-caret-right"></i></li>
-					<li><a href="#">Your options </a><i class="fa fa-caret-right"></i>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a><i class="fa fa-caret-right"></i>
 					</li>
-					<li><a href="#">Your details </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> Summary & payment</li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></a></li>
+					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item5" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
 						<div class="center" style="visibility: visible;">
-							<h2>Summary & payment</h2>
+							<h2><fmt:message key="home.summary.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -37,23 +39,23 @@
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle first">
-										<span class="status color3">Your Options</span>
+										<span class="status color3"><fmt:message key="home.breadcrumb2.item1" bundle="${msg}" /></span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
 										class="image-order-status image-order-status-intransit  img-circle second">
-										<span class="status color3">Your Details</span>
+										<span class="status color3"><fmt:message key="home.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle act third">
-										<span class="status color2">Summary & Payment</span>
+										<span class="status color2"><fmt:message key="home.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle disabled fourth">
-										<span class="status lst-status">Confirmation</span>
+										<span class="status lst-status"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -82,19 +84,18 @@
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="h2-1 pad-left1 col-lg-5">Request No.</td>
+										<td class="h2-1 pad-left1 col-lg-5"><fmt:message key="home.summary.plansummary.desc1" bundle="${msg}" /></td>
 										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
 											type="hidden" name="referenceNo"
 											value="${createdPolicy.getReferenceNo()}"></td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Plan</td>
-										<td class="h4-5 ">Standard Cover<br> Household
-											Contents<br>
+										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
+										<td class="h4-5 "><fmt:message key="home.summary.plansummary.desc3" bundle="${msg}" /><br> <fmt:message key="home.summary.plansummary.desc4" bundle="${msg}" /> <br>
 											<h4 class="h4-4-full"><!-- + Full coverage details --></h4></td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Correspondence <br>Address
+										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc5.part1" bundle="${msg}" /> <br><fmt:message key="home.summary.plansummary.desc5.part2" bundle="${msg}" />
 										</td>
 										<td class=" h4-5 ">${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},
 										${homeCareDetails.getApplicantBlock()},<br>
@@ -105,7 +106,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Insured Address</td>
+										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
 										<td class=" h4-5 ">${homeCareDetails.getaRoom()}/${homeCareDetails.getaFloor()},
 											${homeCareDetails.getaBlock() },
 											${homeCareDetails.getaBuilding()},
@@ -115,23 +116,22 @@
 											${homeCareDetails.getaArea() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Net Floor<br>Area(square feet)
+										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc7.part2" bundle="${msg}" />
 										</td>
 										<td class=" h4-5 ">${homeCareDetails.getNetFloorArea()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Period of Insurance</td>
+										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
 										<td class=" h4-5 ">Yearly</td>
 									</tr>
 									<tr>
-										<td class="h2-1 ">Effective Date of <br>Coverage
+										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" />
 										</td>
 										<td class=" h4-5 ">From ${effectiveDate } to
 											${effectiveEndDate}</td>
 									</tr>
 									<tr>
-										<td class="td-vert-middle"><span class="h4-4-orange-b pad-none">Amount
-												due </span></td>
+										<td class="td-vert-middle"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></td>
 												<%
 												HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");%>
 										<td class=" "><span class="h4-4-orange-b pad-none">HK$
@@ -146,23 +146,23 @@
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="pad-none "><span class="home-summary-applicant h2-3-existing-fwd-head">Applicant</span></td>
+										<td class="pad-none "><span class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
 										<td class="pad-none h4-5 "></td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">Full name</td>
+										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getFullName()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">HKID</td>
+										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getHkid() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">Email Address</td>
+										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getEmailAddress()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none ">Mobile Number</td>
+										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getMobileNo()}</td>
 									</tr>
 								</tbody>
@@ -197,14 +197,13 @@
 							value="${createdPolicy.getPaymentGateway()}">
 				<div class="gray-bg1 pad20">
 					<div class="clearfix"></div>
-					<h2 class="from-control">Payment Details</h2>
+					<h2 class="from-control"><fmt:message key="home.summary.pmtdetail.heading" bundle="${msg}" /></h2>
 					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>
 					<table class="travel-tb">
 						<tbody>
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5">Card
-										Type</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc1" bundle="${msg}" /></label></td>
 								<td class="col-lg-8" colspan="2"><div class="controls">
 										<div>
 											<img src="resources/images/payment.png" alt="">
@@ -224,8 +223,7 @@
 							</tr>
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5">Credit
-										card number</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc2" bundle="${msg}" /></label></td>
 								<td colspan="2"><div class="controls">
 										<!-- <input id="cardnumber" name="cardnumber" type="text"
 											class="input-block-level" maxlength="16" min="16" title=""
@@ -246,8 +244,7 @@
 
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Expiry
-										Date</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label></td>
 								<td><select class="pay-details-select" id="month"
 									name="epMonth">
 										<option VALUE="">Month</option>
@@ -286,8 +283,7 @@
 								<td><span id="erryear" class="error-msg"></span></td>
 							</tr>
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Name
-										on credit card</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc4" bundle="${msg}" /></label></td>
 								<td colspan="2">
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder" class="input-block-level"
@@ -299,8 +295,7 @@
 								</td>
 							</tr>
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5">Security
-										Code</label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc5" bundle="${msg}" /></label></td>
 								<td><div class="controls">
 										<input id="seccode" name="securityCode" type="password" class="input-block-level"
 											autocomplete="off" maxlength="3" title="" placeholder="CVV"
@@ -319,8 +314,7 @@
 
 							<tr class="control-group">
 								<td></td>
-								<td colspan="2"><!--<a class="sub-link" href="#">What is my
-										security code?</a>--></td>
+								<td colspan="2"><!--<a class="sub-link" href="#"><fmt:message key="home.summary.pmtdetail.desc6" bundle="${msg}" /></a>--></td>
 							</tr>
 
 
@@ -333,9 +327,7 @@
 					<div class="declaration-content margin-left-small">
 						<div class="checkbox">
 							<input id="checkbox3" type="checkbox"> <label
-								for="checkbox3"> I hereby authorize FWD General
-								Insurance Company Limited to debit my Credit Card Account for
-								the premium of this insurance. </label>
+								for="checkbox3"> <fmt:message key="home.summary.declarations" bundle="${msg}" /> </label>
 							<div class="clearfix"></div>
 						</div>
 						<span id="errchk1" class="error-msg"></span>

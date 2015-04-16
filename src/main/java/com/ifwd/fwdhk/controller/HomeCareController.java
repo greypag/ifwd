@@ -144,13 +144,13 @@ public class HomeCareController {
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
 			
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";
 
 		} else {
 			model.addAttribute("errMsgs", "Question lists cannot be retrieved");
 			model.addAttribute("action", "/");
-			String dir = UserRestURIConstants.checkLangSetPage(request);
+			String dir = UserRestURIConstants.getSitePath(request);
 			return "../jsp/" + dir + "/index";
 
 		}
@@ -206,7 +206,7 @@ public class HomeCareController {
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 	
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare-plan";
 		} else {
 			model.addAttribute("errMsgs", planQuote.getErrormsg());
@@ -278,7 +278,7 @@ public class HomeCareController {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 
-		return UserRestURIConstants.checkLangSetPage(request)
+		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-plan-details";
 	}
 
@@ -367,7 +367,7 @@ public class HomeCareController {
 			model.addAttribute("confirm", confirm);
 		} else {
 			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare-plan-details";
 		}
 
@@ -411,7 +411,7 @@ public class HomeCareController {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 
-		return UserRestURIConstants.checkLangSetPage(request)
+		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-summary-payment";
 	}
 
@@ -470,7 +470,7 @@ public class HomeCareController {
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
 		} else {
 			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare-confirmation";
 		}
 			
@@ -486,7 +486,7 @@ public class HomeCareController {
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		return UserRestURIConstants.checkLangSetPage(request)
+		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-confirmation";
 	}
 
@@ -497,6 +497,6 @@ public class HomeCareController {
 		System.out.println("Error Message" + errormsg);
 		model.addAttribute("errormsg", errormsg);
 
-		return UserRestURIConstants.checkLangSetPage(request) + "failure";
+		return UserRestURIConstants.getSitePath(request) + "failure";
 	}
 }

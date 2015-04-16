@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeCareQuetionaries"%>
 <%@page import="java.util.*"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,7 +149,7 @@
 									action="getHomePlan" method="post"
 									modelAttribute="homeCarelPlan">
 									<div class="hidden-xs hidden-sm">
-										<h2 class="col-xs-12">##home.main.quote.top.heading@@</h2>
+										<h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2>
 										<%
 											List lst = (List) request
 														.getAttribute("homeCareQuetionariesList");
@@ -194,8 +197,8 @@
 										</div>
 										<div class="clearfix"></div>
 										<p class="col-xs-12 mute">
-											##home.main.quote.subheading@@<br>
-											<br> ##home.main.quote.terms@@
+											<fmt:message key="home.main.quote.subheading" bundle="${msg}" /><br>
+											<br> <fmt:message key="home.main.quote.terms" bundle="${msg}" />
 										</p>
 										
 									</div>
@@ -209,7 +212,7 @@
 			method="post" modelAttribute="homeCarelPlan">
 			<div
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">
-				<h2 class="center">##home.main.quote.bottom.heading@@</h2>
+				<h2 class="center"><fmt:message key="home.main.quote.bottom.heading" bundle="${msg}" /></h2>
 				<%
 					List lst = (List) request
 								.getAttribute("homeCareQuetionariesList");
@@ -257,7 +260,7 @@
             </div>-->
 				<div class="btn-box">
 						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
-							onclick="return msgAlertDesk()">##home.main.quote.bottom.action@@</button>
+							onclick="return msgAlertDesk()"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 				</div>
 
 			</div>
@@ -274,11 +277,11 @@
 			<div class="center">
 				<div class="spacer3"></div>
 				<!--desktop-->
-				<h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs">##home.main.desc@@</h2>
+				<h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="home.main.desc" bundle="${msg}" /></h2>
 				<!--end desktop-->
 
 				<!--Mobile-->
-				<h2 class="hidden-lg hidden-md feature-ttl">##home.main.desc@@</h2>
+				<h2 class="hidden-lg hidden-md feature-ttl"><fmt:message key="home.main.desc" bundle="${msg}" /></h2>
 				<!--end Mobile-->
 			</div>
 
@@ -291,10 +294,10 @@
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
 							<h2>
-								##home.main.feature1.heading.part1@@ <br> ##home.main.feature1.heading.part2@@
+								<fmt:message key="home.main.feature1.heading.part1" bundle="${msg}" /> <br> <fmt:message key="home.main.feature1.heading.part2" bundle="${msg}" />
 							</h2>
-							<p class="h4-3">##home.main.feature1.paragraph@@</p>
-							<a href="" class="h4-4 scrollToTop">##home.main.feature.getquote@@</a>
+							<p class="h4-3"><fmt:message key="home.main.feature1.paragraph" bundle="${msg}" /></p>
+							<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -302,11 +305,11 @@
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
 							<h2>
-								##home.main.feature2.heading.part1@@ <br> ##home.main.feature2.heading.part2@@
+								<fmt:message key="home.main.feature2.heading.part1" bundle="${msg}" /> <br> <fmt:message key="home.main.feature2.heading.part2" bundle="${msg}" />
 
 							</h2>
-							<p class="h4-3">##home.main.feature2.paragraph@@</p>
-							<a href="" class="h4-4 scrollToTop">##home.main.feature.getquote@@</a>
+							<p class="h4-3"><fmt:message key="home.main.feature2.paragraph" bundle="${msg}" /></p>
+							<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none text-center">
