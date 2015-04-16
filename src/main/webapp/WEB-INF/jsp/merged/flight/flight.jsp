@@ -37,35 +37,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
      function reset_submit()
      {        
-     	if(document.getElementById("family_plan_desk").checked)
+      if(document.getElementById("family_plan_desk").checked)
         {
 
-     	}
-     	else if (document.getElementById("personal_plan_desk").checked)
+      }
+      else if (document.getElementById("personal_plan_desk").checked)
          {
-     		$('#txtAdultsDesk').val(0);
-     		$('#txtOtherDesk').val(0);
-     		$('#txtChildDesk').val(0);
-        	}
-     	
-     	var frm = document.getElementById("freeFlight");
-     	//frm.submit();
+        $('#txtAdultsDesk').val(0);
+        $('#txtOtherDesk').val(0);
+        $('#txtChildDesk').val(0);
+        
+        //$('#txtAdultsMob, #txtChildMob, #txtOtherMob').val(0);
+        //$('#txtAdultsBtm, #txtChildBtn, #txtOtherBtn').val(0);
+        
+        
+        }
+      
+      var frm = document.getElementById("freeFlight");
+      //frm.submit();
      }  
 </script>
 
 <%
-	String PersonalPlanChecked = "";
-	String FamilyPlanChecked = "";
-	String personalSpinnerStyle = "";
-	String familySpinnerStyle = "style='display:none'";
-	PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails");
+  String PersonalPlanChecked = "";
+  String FamilyPlanChecked = "";
+  String personalSpinnerStyle = "style='display:none'";
+  String familySpinnerStyle = "style='display:none'";
+  PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails");
     if(planDetails.getPlanSelected().equalsIgnoreCase("personal")){
-     PersonalPlanChecked = "checked";
+      PersonalPlanChecked = "checked";
+      personalSpinnerStyle = "style='display:block'";
     }
     else if(planDetails.getPlanSelected().equalsIgnoreCase("family")){
-		FamilyPlanChecked = "checked";
-   		personalSpinnerStyle = "style='display:none'";
-   		familySpinnerStyle = "";
+    FamilyPlanChecked = "checked";
+      //personalSpinnerStyle = "style='display:none'";
+      familySpinnerStyle = "style='display:block'";
     } 
 %>
 
@@ -181,7 +187,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalAdultTraveller()}</div>
-							<input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
+              <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -195,7 +201,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
-							<input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
+              <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

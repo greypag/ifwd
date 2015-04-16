@@ -1980,6 +1980,12 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 		}
 	}
 	
+	if($('#'+depDateId).closest('form').find('input:radio[name=planSelected]:checked').val() == 'personal'){
+		$('#txtAdultsMob, #txtChildMob, #txtOtherMob').val(0);
+ 		$('#txtAdultsBtm, #txtChildBtn, #txtOtherBtn').val(0);
+ 		$('#txtAdultsDesk, #txtOtherDesk, #txtChildDesk').val(0);
+	}
+	
 	return flag;
 }
 
@@ -2819,6 +2825,10 @@ function hc_planValid() {
         flag = false;
     }
     
+    //Remove the disabled select
+    if(flag){
+    	$('#selectADist').removeAttr('disabled');
+    }
     return flag;
 }
 
@@ -3620,8 +3630,12 @@ function activateUserAccount(){
 
 // 1. save credit card info by calling processHomeCarePayment
 // 2. post to payment gatway when step 1 success 
+var clicked = false;
 function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-	if (payValid()) {
+	if (payValid() && clicked === false) {
+		clicked = true;
+		$("#PaymentingDiv").show();
+
 		var gatewayUrlId = '#' + gatewayUrlId;
 		var paymentFormId = '#' + paymentFormId;
 		var method = "processHomeCarePayment";

@@ -400,6 +400,11 @@
 </section>
 <!--/end Main Content-->
 
+<div id="PaymentingDiv" class="waitingDiv" style="display:none">    
+    <img style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%" src="resources/images/ajax-loader.gif">        
+</div>   
+
+
 <script>
 // moved to fwd.js
 // 	function confirmPayment(form) {
