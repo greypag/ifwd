@@ -127,8 +127,6 @@ a {
 	-o-transition: color 300ms, background-color 300ms;
 	transition: color 300ms, background-color 300ms;
 }
-
-p{font-family: 'Calibri';}
 .center h2 {
 	  font-size: 48px;
   margin-bottom: 30px;
@@ -235,7 +233,7 @@ bottom: 0px;
 #middle h2 {
 	color: #fff;
 	font-size: 36px;
-	line-height: 26px;
+
 	font-weight: 700;
 }
 #middle h3 {
@@ -354,7 +352,6 @@ width: 100%;
 .home-features h2 {
 	color: #061d2a;
 	font-size: 36px;
-	font-weight: normal;
 	padding: 0px;
 	text-align:left;
 }
@@ -3719,7 +3716,7 @@ h2.feature-ttl {
 }
 .mob-features .h2-3 {
 	color: #000;
-	font-weight: 500;
+	font-weight: 700;
 	line-height: 22px;
 	font-size: 18px;
 }
@@ -5449,10 +5446,10 @@ font-family: 'Foco-bold';
 
 .textUpper{text-transform:uppercase;}
 
-.travel-special{top:5px; position:relative;}
+.travel-special{top:7px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
-.chin .travel-special{top:18px;}
+.chin .travel-special{top:20px;}
 .chin .travel-and-home-tab{top:52px;}
 
 .chin .flight-form{
@@ -5522,6 +5519,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 .marg-t2.pad-increase{
 	margin-top: 0;
 	padding: 13px 30px !important;
+	  min-width: 300px;
 }
 @media screen and (min-width:992px) and (max-width:1199px){
 	.plan-box3 h3 {
@@ -5886,6 +5884,10 @@ p.mute{
 	background: #f6871e;
 	color: #fff;
 }
+.less-padding-orange{
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
 .waitingDiv
 {
     position: fixed;
@@ -5901,4 +5903,9 @@ p.mute{
     z-index: 2147483647 !important;
     padding-top: 20%;
     color: white;
+}
+.ol-disclaimer{
+	list-style: lower-roman outside;
+	margin-bottom: 0;
+	margin-top: 10px;
 }

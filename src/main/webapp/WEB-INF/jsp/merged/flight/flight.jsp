@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
-      <form id=="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="getFlightDate">    
+      <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="getFlightDate">    
         <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
        
              <table class="table activation-form3">
@@ -117,8 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i2">
                     <label id="lblPeopleDesk">0</label>
-                    <fmt:message key="flight.main.quote.total.people.line1" bundle="${msg}" /> <br>
-                    <fmt:message key="flight.main.quote.total.people.line2" bundle="${msg}" />
+                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> : 
                     <label id="lblDaysDesk">0</label>
                     <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3>
                 </div>
@@ -278,7 +277,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
-    <h4>When will you be back? </h4>
+    <h4><fmt:message key="flight.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
         <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
@@ -379,7 +378,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div id="divPersonsMob" style="visibility:hidden;"> <br>
       <small>
       <label id="lblPeopleMob">0</label>
-       <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />
+       <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> : 
       <label id="lblDaysMob">0</label>
        <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </small> <br>
     </div>
@@ -415,7 +414,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="content">
             <h2><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
             <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getQuote" bundle="${msg}" /></a> </div>
+            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
         <div class="clearfix"></div>
         <br>
@@ -423,7 +422,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="content">
             <h2><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
             <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getQuote" bundle="${msg}" /></a> </div>
+            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
         <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
         <div class="clearfix"></div>
@@ -433,7 +432,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="content">
             <h2><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
             <p class="details-text"><fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getQuote" bundle="${msg}" /></a> </div>
+            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
         <div class="clearfix"></div>
         <div class="other-benefits col-lg-12 col-md-12 pad-none">
@@ -472,7 +471,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
           <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getQuote" bundle="${msg}" /></a> </div>
+          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
       </div>
       <div class="clearfix"></div>
       <br>
@@ -481,7 +480,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
           <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getQuote" bundle="${msg}" /></a> </div>
+          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
       </div>
       <div class="clearfix"></div>
       <br>
@@ -490,7 +489,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
           <p class="details-text"><fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getQuote" bundle="${msg}" /></a> </div>
+          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -511,14 +510,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <h1><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h1>
             <p>
-              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /><a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
+              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
             </p>
             </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap  text-center">
-          <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
+          <div class="recent-work-inner less-padding-orange"> <img src="resources/images/secure.png" alt=""  />
             <h1><fmt:message key="flight.main.highlight2.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight2.heading.line2" bundle="${msg}" /></h1>
               <p><fmt:message key="flight.main.highlight2.desc" bundle="${msg}" /><br>
@@ -531,7 +530,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="recent-work-wrap wrap  text-center">
           <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
              <h1><fmt:message key="flight.main.highlight3.heading.line1" bundle="${msg}" /><br>
-              <fmt:message key="flight.main.highlight3.heading.line1" bundle="${msg}" /></h1>
+              <fmt:message key="flight.main.highlight3.heading.line2" bundle="${msg}" /></h1>
             <p><fmt:message key="flight.main.highlight3.desc" bundle="${msg}" /></p>
           </div>
         </div>
@@ -554,7 +553,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
                 <h2><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h2>
-                <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /><a  href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
+                <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a  href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -579,7 +578,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
-                <h2><fmt:message key="flight.main.highlight3.heading.line3" bundle="${msg}" /> <fmt:message key="flight.main.highlight3.heading.line2" bundle="${msg}" /></h2>
+                <h2><fmt:message key="flight.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight3.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="flight.main.highlight3.desc" bundle="${msg}" /></p>
               </div>
             </div>
@@ -617,7 +616,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="img-responsive bdr-img"
                 src="resources/images/home5.png" alt=""></a>
               <h3>
-                <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"> Staying connected while travelling abroad <i
+                <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"> <fmt:message key="flight.main.blog.subheading2" bundle="${msg}" /> <i
                   class="fa fa-caret-right"></i>
                 </a>
               </h3>
@@ -670,13 +669,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </td>
             <td>
               <div id="divPersonsBtm" style="visibility:hidden;">
-                  <h3 class="h3-i2">
+                  <h3 class="h3-i2">                    
                     <label id="lblPeopleBtm">0</label>
-                    <fmt:message key="flight.main.quote.total.people.line1" bundle="${msg}" /> <br>
-                    <fmt:message key="flight.main.quote.total.people.line2" bundle="${msg}" />
+                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> : 
                     <label id="lblDaysBtm">0</label>
                     <input type="hidden" id="lblDaysBtm" name="daysJsp">
-<fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3> 
+					<fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3> 
                 </div>
             </td>
           </tr>

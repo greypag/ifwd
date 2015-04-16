@@ -82,21 +82,23 @@
 							for (int planCount = 1; planCount <= 1; planCount++) {
 						%>
 						<div class="plan-box plan-box-flight">
-							<div class="col-lg-9 col-md-9 col-sm-6">
+							<div class="col-md-7 col-sm-6">
 								<h2>
-									<fmt:message key="flight.quote.plan" bundle="${msg}" /><br> <fmt:message key="flight.quote.price" bundle="${msg}" /><br> <span><fmt:message key="flight.quote.price.desc" bundle="${msg}" /></span>
+									<fmt:message key="flight.quote.plan" bundle="${msg}" /><br> 
 								</h2>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
-								<br>
-								<div class="h4">
+							<div class="col-md-5 col-sm-6">
+								
+								<h2>
 									<%-- HK$ <br>
 									<div class="flightcare-hk">${flightQuoteDetails.getToalDue()}
 									</div> --%>
-								</div>
+									<fmt:message key="flight.quote.price" bundle="${msg}" />
+									<br> <span><fmt:message key="flight.quote.price.desc" bundle="${msg}" /></span>
+								</h2>
 							</div>
 							<div class="clearfix"></div>
-							<div></div>
+							
 						</div>
 
 						<!--Full coverage -->
@@ -200,10 +202,10 @@
               	
               
               		<%-- <input type="text" class="datepicker form-control" value=" --%>
-								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent(s): ${planDetails.getTotalAdultTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child(ren): ${planDetails.getTotalChildTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTotalOtherTraveller() !=0}">Other(s): ${planDetails.getTotalOtherTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTravellerCount() !=0}">Traveller(s): ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.quote.traveller.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.quote.traveller.children" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.quote.traveller.other" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.quote.traveller.traveller" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
 								
               	</div>
               </div>
@@ -223,12 +225,12 @@
 						</h3>
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> 
+							<a href="flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 							</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary btn-next " Value="Next" />
+								class="bdr-curve-none btn btn-primary btn-next " Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 						</div>
 
 

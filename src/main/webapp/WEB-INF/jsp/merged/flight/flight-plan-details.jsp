@@ -126,15 +126,15 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						<table class="table activation-form margin-left-2 vert-middle">
 							<tbody>
 								<tr>
-									<td colspan="2" class="pad-none"><h3
+									<td colspan="2"><h3
 											class="black-bold pad-none"><fmt:message key="flight.details.applicant.heading" bundle="${msg}" /></h3></td>
 								</tr>
 								<tr>
 
 
-									<td valign="middle" class="col-sm-4 pad-none"><label
+									<td valign="middle" class="col-sm-4"><label
 										for="inputFullName" class="control-label bold-500"><fmt:message key="flight.details.applicant.name" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input type="text"
+									<td class=""><input type="text"
 										value="${userDetails.getFullName()}" class="form-control"
 										id="inputFullName" name="fullName"
 										placeholder="as appears on HKID Card/Passport"
@@ -143,17 +143,17 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										id="fullnameinvalid" class="text-red"></span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
+									<td valign="middle" class=""><label
 										for="inputEmail3" class="control-label bold-500"><fmt:message key="flight.details.applicant.hkid" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input type="text" name="hkid"
+									<td class=""><input type="text" name="hkid"
 										class="form-control numberinput textUpper"
 										id="inputTxtAppHkid" placeholder="X1234567"> <span
 										id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
+									<td valign="middle" class=""><label
 										for="inputMobileNo" class="control-label bold-500"><fmt:message key="flight.details.applicant.mobile" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input type="text"
+									<td class=""><input type="text"
 										value="${userDetails.getMobileNo()}" class="form-control"
 										name="mobileNo" id="inputMobileNo" placeholder="Mobile Number"
 										onkeypress="return isNumeric(event)"
@@ -161,9 +161,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										id="mobileNo" class="text-red"></span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class="pad-none"><label
+									<td valign="middle" class=""><label
 										for="inputEmailId" class="control-label bold-500"><fmt:message key="flight.details.applicant.email" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input class="form-control"
+									<td class=""><input class="form-control"
 										value="${userDetails.getEmailAddress()}" name="emailAddress"
 										id="inputEmailId" placeholder="Email address" maxlength="50">
 										<span id="emailid" class="text-red"></span></td>
@@ -267,7 +267,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 										</div>
 									</div>
 									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
+										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500"><fmt:message key="flight.details.insured.age" bundle="${msg}" /></label>
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
 												<option value="0">Select One</option>
@@ -477,16 +477,19 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 						<div class="declaration-content">
 							<div class="checkbox">
 								<input id="checkbox1" name="checkbox1" type="checkbox">
-								<label for="checkbox1"> <fmt:message key="flight.details.declarations.tnc" bundle="${msg}" /><br> 
-									i. <span class="margin-left-2"></span><fmt:message key="flight.details.declarations.tnc.desc1" bundle="${msg}" /><br> 
-									ii. <span class="margin-left-2"></span><fmt:message key="flight.details.declarations.tnc.desc2" bundle="${msg}" /> <br>
-									iii. <span class="margin-left-2"></span><fmt:message key="flight.details.declarations.tnc.desc3" bundle="${msg}" /><br /> 
-									iv. <span class="margin-left-2"></span><fmt:message key="flight.details.declarations.tnc.desc4" bundle="${msg}" /><br /> 
-									v. <span class="margin-left-2"></span><fmt:message key="flight.details.declarations.tnc.desc5" bundle="${msg}" /> <br/>
+								<label for="checkbox1"> <fmt:message key="flight.details.declarations.tnc" bundle="${msg}" />
+									<ol class="ol-disclaimer">
+										<li><fmt:message key="flight.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+										<li><fmt:message key="flight.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+										<li><fmt:message key="flight.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+										<li><fmt:message key="flight.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+										<li><fmt:message key="flight.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+									</ol>
+									
 								</label>
 							</div>
 							<span id="chk1" class="text-red"> </span>
-							<br />
+							
 							
 							<div class="checkbox">
 								<input id="checkbox2" type="checkbox"> <label for="checkbox2">
