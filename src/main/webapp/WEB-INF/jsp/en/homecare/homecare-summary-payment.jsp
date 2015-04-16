@@ -216,8 +216,8 @@
 								
 								<td class="col-lg-4 ht1">
 								<label class="control-label h4-5">Payment Method</label></td>
-								<td><input type="radio" name="pMethod" value="VISA">VISA
-									<input type="radio" name="pMethod" value="Master">MasterCard
+								<td><input type="radio" name="pMethod" id="chkVisa" value="VISA">VISA
+									<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard
 									<!-- <input type="radio" name="pMethod" value="Diners">Diners
 									Club <input type="radio" name="pMethod" value="JCB">JCB
 									<input type="radio" name="pMethod" value="AMEX">AMEX --></td>

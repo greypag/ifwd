@@ -119,11 +119,11 @@ function setDropArea2(id2) {
 
 	var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 	if (selectedText.trim() == "HK")
-		document.getElementById("inlineDeskRadio3").checked = true;
+		document.getElementById("inlineDeskRadio31").checked = true;
 	else if (selectedText.trim() == "KL")
-		document.getElementById("inlineDeskRadio4").checked = true;
+		document.getElementById("inlineDeskRadio41").checked = true;
 	else
-		document.getElementById("inlineDeskRadio5").checked = true;
+		document.getElementById("inlineDeskRadio51").checked = true;
 }
 	function autofillFields() {
 
@@ -491,7 +491,7 @@ function setDropArea2(id2) {
 									</tr>
 									<tr>
 										<td height="60" colspan="4"><select name="applicantDistrict"
-											class="form-control soflow full-control" id="selectCADist">
+											class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
 												<option value="">地區</option>
 												<%
                       List lst= (List)request.getAttribute("districtList");
@@ -501,7 +501,23 @@ function setDropArea2(id2) {
                 %>
 												<option value="<%=districtList.getCode()%>"><%=districtList.getDescription() %></option>
 												<%} %>
-										</select> <span id="errCADist" class="text-red"> </span></td>
+										</select> 
+										<div class="hidden">
+												<select name="applicantDistrictHid"
+													class="form-control soflow full-control" id="selectCADistHid">
+													<option value="">District</option>
+													<%
+														List lst1 = (List) request.getAttribute("districtList");
+															Iterator itr1 = lst1.iterator();
+															while (itr1.hasNext()) {
+																DistrictBean districtList = (DistrictBean) itr1.next();
+													%>
+													<option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+													<%
+														}
+													%>
+												</select>
+											</div> <span id="errCADist" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td height="60" colspan="4"><label
@@ -509,10 +525,10 @@ function setDropArea2(id2) {
 												name="applicantArea" id="inlineCARadio3" value="HK"
 												checked="" class="home-input1"> <span>香港 </span></label> <label
 											class="radio-inline homecare-lb"> <input type="radio"
-												name="applicantArea" id="inlineDeskRadio4" value="KLN"
+												name="applicantArea" id="inlineCARadio4" value="KLN"
 												class="home-input1"> <span>九龍</span>
 										</label> <label class="radio-inline"> <input type="radio"
-												name="applicantArea" id="inlineDeskRadio5" value="NT"
+												name="applicantArea" id="inlineCARadio5" value="NT"
 												class="home-input1"> <span>新界</span>
 										</label></td>
 									</tr>
