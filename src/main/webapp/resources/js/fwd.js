@@ -1176,7 +1176,7 @@ function fcPlanValid()
 			var age = document.getElementById("selectAgeRange" + i).value;
 			alert('age:'+age);
 			if (age.trim() == "0") {
-				document.getElementById("errselectAgeRange" + i).innerHTML = ""請選擇 年齡組別 "";
+				document.getElementById("errselectAgeRange" + i).innerHTML = "請選擇 年齡組別";
 				flag = false;
 			}else{
 				document.getElementById("errselectAgeRange" + i).innerHTML = "";

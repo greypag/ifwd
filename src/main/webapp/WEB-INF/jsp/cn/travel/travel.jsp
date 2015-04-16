@@ -295,7 +295,7 @@
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
-              <input type="hidden" id="txtAdultsMob" data-min="0" data-max="15" value="${travelQuote.getTotalAdultTraveller()}"/>
+              <input type="hidden" name="totalAdultTraveller" id="txtAdultsMob" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -316,7 +316,7 @@
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
-              <input type="hidden" id="txtChildMob" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
+              <input type="hidden" name="totalChildTraveller" id="txtChildMob" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -337,7 +337,7 @@
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
-              <input type="hidden" id="txtOtherMob" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
+              <input type="hidden" name="totalOtherTraveller" id="txtOtherMob" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>

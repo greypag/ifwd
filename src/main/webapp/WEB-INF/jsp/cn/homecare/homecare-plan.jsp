@@ -250,7 +250,7 @@
                                 <br>
                                 <div class="h4">
 									 港幣<br>
-                                	<span id="grossPremium" class="totalPrice">
+                                	<span id="grossPremium" class="totalPrice flightcare-hk">
                                 		<%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%>
                                		</span>
                                 	<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>

@@ -119,11 +119,11 @@
 
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		if (selectedText.trim() == "HK")
-			document.getElementById("inlineDeskRadio3").checked = true;
+			document.getElementById("inlineDeskRadio31").checked = true;
 		else if (selectedText.trim() == "KL")
-			document.getElementById("inlineDeskRadio4").checked = true;
+			document.getElementById("inlineDeskRadio41").checked = true;
 		else
-			document.getElementById("inlineDeskRadio5").checked = true;
+			document.getElementById("inlineDeskRadio51").checked = true;
 	}
 
 	function autofillFields() {
@@ -166,6 +166,7 @@
 			$('#inputAStreetName').val(applicantStreetName);
 
 			$('#selectADist').val(selectCADist);
+			$('#selectADistHid').val(selectCADist);
 
 			
 			var element = document.getElementById('selectADist');
