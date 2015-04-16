@@ -1982,7 +1982,7 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	
 	if($('#'+depDateId).closest('form').find('input:radio[name=planSelected]:checked').val() == 'personal'){
 		$('#txtAdultsMob, #txtChildMob, #txtOtherMob').val(0);
- 		$('#txtAdultsBtm, #txtChildBtn, #txtOtherBtn').val(0);
+ 		$('#txtAdultsBtm, #txtChildBtm, #txtOtherBtm').val(0);
  		$('#txtAdultsDesk, #txtOtherDesk, #txtChildDesk').val(0);
 	}
 	
