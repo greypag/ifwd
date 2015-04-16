@@ -252,7 +252,7 @@ public class TravelController {
 				model.addAttribute("travelQuoteBean", travelQuote);
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "travel/travel");
 			}
 				
@@ -262,7 +262,7 @@ public class TravelController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel");
 		}
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
@@ -530,7 +530,7 @@ public class TravelController {
 				}
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "travel/travel-plan");		
 			}
 
@@ -543,7 +543,7 @@ public class TravelController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-plan");		
 		}
 		Map<String,String> mapHkId = new TreeMap<>();
@@ -566,7 +566,7 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-plan-details");		
 	}
 
@@ -1166,7 +1166,7 @@ public class TravelController {
 				path.replace("prepareUserSummary", "travel-confirmation"));
 
 		System.out.println(path.replace("prepareUserSummary",
-				UserRestURIConstants.checkLangSetPage(request)
+				UserRestURIConstants.getSitePath(request)
 						+ "travel-confirmation"));
         model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
@@ -1179,7 +1179,7 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/travel/travel-summary-payment");				
 	}
 	
@@ -1209,7 +1209,7 @@ public class TravelController {
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
 			model.addAttribute("errormsg", "Session Expired");
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-confirmation";
 		}
 		
@@ -1257,16 +1257,16 @@ public class TravelController {
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				return "travel/" + UserRestURIConstants.checkLangSetPage(request) + "/travel-confirmation";
+				return "travel/" + UserRestURIConstants.getSitePath(request) + "/travel-confirmation";
 			} else {
 				System.out.println(responsObject.get("errMsgs").toString());
 				model.addAttribute("errormsg", responsObject.get("errMsgs")
 						.toString());
-				return UserRestURIConstants.checkLangSetPage(request)
+				return UserRestURIConstants.getSitePath(request)
 						+ "travel/travel-confirmation";
 			}
 		} finally {
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-confirmation";
 		}
 	}
