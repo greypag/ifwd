@@ -39,6 +39,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreateFlightPolicy;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -71,31 +72,20 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;	
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = "/flight")
+	@RequestMapping(value = {"/flight", "/flight-insurance"})
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.checkLangSetPage(request) + "flight/flight";
 		
 		HttpSession session = request.getSession();
-		PlanDetails planDetails;
-		
-		planDetails = (PlanDetails) session
+		PlanDetails planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");
 		
 		if(planDetails == null){
 			planDetails = new PlanDetails();			
 		}
 		
-		//default 
-		if(planDetails.getPlanSelected() == null || planDetails.getPlanSelected().isEmpty())
-			planDetails.setPlanSelected("personal");
-		if(planDetails.getTravellerCount() == 0)
-			planDetails.setTravellerCount(1);
-		if(planDetails.getTotalAdultTraveller() == 0)
-			planDetails.setTotalAdultTraveller(1);	
-		if(planDetails.getTotalChildTraveller() == 0)
-			planDetails.setTotalChildTraveller(1);			
 
 		planDetails.setTotalPersonalTraveller(1);
 		planDetails.setTotalAdultTraveller(1);
@@ -126,7 +116,7 @@ public class FlightController {
 		
 		model.addAttribute(planDetails);
 		return new ModelAndView(
-				UserRestURIConstants.checkLangSetPage(request) + "flight/flight");			
+				UserRestURIConstants.getSitePath(request) + "flight/flight");			
 	}
 
 	@RequestMapping(value = "/redirect")
@@ -182,32 +172,25 @@ public class FlightController {
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/getFlightDate")
+	@RequestMapping(value = {"/getFlightDate", "/flight-insurance/quote"})
 	public ModelAndView getDate(HttpServletRequest request,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
-
+		HttpSession session = request.getSession();
 		
 		removeSessionAttribute(request);
-		
-		
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
-		HttpSession session = request.getSession();
 		if (planDetails.getDepartureDate() != null) {
 			session.setAttribute("flightPlanDetails", planDetails);
 		} else {
 			planDetails = (PlanDetails) session
 					.getAttribute("flightPlanDetails");
-			
-			// redirect to 1ST step when null 
 			if(planDetails == null){
 				return flight(request, model);				
 			}			
 		}
-
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
 				+ planDetails.getReturnDate());
@@ -219,9 +202,7 @@ public class FlightController {
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		planDetails.setDays(days + 1);
-
 		if (session != null) {
-
 			System.out.println(planDetails.getDepartureDate() + " "
 					+ planDetails.getReturnDate() + " "
 					+ planDetails.getPlanSelected() + " "
@@ -238,12 +219,10 @@ public class FlightController {
 			session.setAttribute("totalOtherTraveller",
 					planDetails.getTotalOtherTraveller());
 			session.setAttribute("referralCode",
-					planDetails.getReferralCode());
+					StringHelper.emptyIfNull(planDetails.getReferralCode()));
 			
 		}
 
-		String userReferralCode = (String) request.getSession().getAttribute(
-				"referralCode");
 
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
@@ -260,8 +239,6 @@ public class FlightController {
 
 		} else if (planDetails.getPlanSelected().equals("family")) {
 			selfCover = true;
-			
-			
 			planDetails.setTravellerCount(0);
 			childCount = planDetails.getTotalChildTraveller();
 			adultCount = planDetails.getTotalAdultTraveller();
@@ -269,7 +246,6 @@ public class FlightController {
 				spouseCover = true;
 			else
 				spouseCover = false;
-			
 			otherCount = planDetails.getTotalOtherTraveller();
 		}
 		TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
@@ -283,7 +259,7 @@ public class FlightController {
 				+ "&spouseCover=" + spouseCover + "&childInput=" + childCount
 				+ "&otherInput=" + otherCount + "&commencementDate="
 				+ commencementDate + "&expiryDate=" + expiryDate
-				+ "&referralCode=" + userReferralCode;
+				+ "&referralCode=" + (String)session.getAttribute("referralCode");
 
 		System.out.println("Fight Quote user " + base);
 
@@ -295,10 +271,9 @@ public class FlightController {
 			username = session.getAttribute("username").toString();
 		} else {
 			restService.consumeLoginApi(request);
-			if ((session.getAttribute("token") != null)) {
-				token = session.getAttribute("token").toString();
-				username = session.getAttribute("username").toString();
-			}
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+			
 		}
 
 		HashMap<String, String> header = new HashMap<String, String>(
@@ -312,9 +287,7 @@ public class FlightController {
 		System.out.println(jsonObject);
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
-			jsonObject.get("referralCode");
-			jsonObject.get("referralName");
-			jsonObject.get("priceInfoA");
+			
 			JSONObject jsonPriceInfoA = new JSONObject();
 			jsonPriceInfoA = (JSONObject) jsonObject.get("priceInfoA");
 
@@ -329,8 +302,6 @@ public class FlightController {
 			flightQuoteDetails.setToalDue(StringHelper.formatPrice(checkJsonObjNull(jsonPriceInfoA,
 					"totalDue")));
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
-			
-			
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
 			String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
@@ -342,25 +313,24 @@ public class FlightController {
 							+ "flight/flight-plan");
 
 		} else {
-			model.addAttribute("errMsgs", jsonObject.get("errMsgs").toString());
-			model.addAttribute("action", "/flight");
-			return new ModelAndView("redirect:/redirect");
+			return flight(request, model);
 		}
 	}
 
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	@SuppressWarnings("rawtypes")
 	// "Flight Plan" )
-	@RequestMapping(value = "/flight-plan-details")
+	@RequestMapping(value = {"/flight-plan-details", "/flight-insurance/user-details"})
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
-
 		HttpSession session = request.getSession();
 		
+		if (session.getAttribute("token") == null) {
+			return flight(request, model);				
+		}
 		// redirect to 1ST step when null
 		planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");		
@@ -464,18 +434,23 @@ public class FlightController {
 		return new ModelAndView(returnUrl);
 	}
 
-	@RequestMapping(value = "/flight-confirmation")
+	@RequestMapping(value = {"/flight-confirmation", "/flight-insurance/confirmation"})
 	@ResponseBody
 	public String flightConfirmation(
 			HttpServletRequest request,
 			@ModelAttribute("confirmationData") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model) {
+		HttpSession session = request.getSession();
 
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			model.addAttribute("action", "/flight");
+			return "fail";		
+		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
-		HttpSession session = request.getSession();
-
+		
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -788,22 +763,28 @@ public class FlightController {
 			return "success";
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
-			model.addAttribute("action", "/homecare");
+			model.addAttribute("action", "/flight");
 			return "fail";
 		}
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/flight-confrimation-page")
+	@RequestMapping(value = {"/flight-confrimation-page", "/flight-insurance/confirmation-page"})
 	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
 			@ModelAttribute("createFlightPolicy") CreateFlightPolicy createFlightPolicy) {
+		HttpSession session = request.getSession();
 
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			model.addAttribute("action", "/flight");
+			return new ModelAndView("/flight-plan-details");		
+		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
-		HttpSession session = request.getSession();
+		
 
 		/* Get Travel Policies */
 		try {
@@ -843,27 +824,10 @@ public class FlightController {
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
 			createFlightPolicy.setDays(days + 1);
 
-			String userReferralCode = "";
-			if (session.getAttribute("referralCode") != null) {
-				userReferralCode = (String) session
-						.getAttribute("referralCode");
-			}
-
+			
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
 
-//			if (createFlightPolicy.getPlanSelected().equals("personal")) {
-//				selfCover = true;
-//				otherCount += (createFlightPolicy.getTravellerCount() + createFlightPolicy
-//						.getTotalAdultTraveller());
-//			} else {
-//				spouseCover = true;
-//				selfCover = true;
-//				childCount = createFlightPolicy.getTotalChildTraveller();
-//				adultCount = createFlightPolicy.getTotalAdultTraveller();
-//				otherCount = createFlightPolicy.getTotalOtherTraveller()
-//						+ adultCount;
-//			}
 			//RETRIEVE FROM SESSION OF PREVIOUSLY QUOTATION
 			TravelQuoteBean travelQuoteCount = (TravelQuoteBean) session.getAttribute("travelQuoteCount");
 			selfCover = travelQuoteCount.isSelfCover();
@@ -946,19 +910,22 @@ public class FlightController {
 				request.setAttribute("emailAddress",
 						request.getParameter("emailAddress"));
 
+			} else {
+				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				return new ModelAndView("/flight-plan-details");		
+				
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("errMsgs", "System Error");
+			return new ModelAndView("/flight-plan-details");		
 		}
-		
-//		return UserRestURIConstants.checkLangSetPage(request)
-//				+ "flight/flight-confirmation";
-		
 		String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		session.setAttribute("referralCode", upgradeReferralCode);
+		session.setAttribute("referralCode", StringHelper.emptyIfNull(upgradeReferralCode));
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "flight/flight-confirmation");		
 	}
@@ -982,25 +949,15 @@ public class FlightController {
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
-			
 			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
-				
 				plandetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(plandetailsForm.getAdultAgeRange(), UserRestURIConstants.getLanaguage(request)));
 			}
-			
 			for (int inx = 0; inx < plandetailsForm.getTotalChildTraveller(); inx++) {
-				
 				plandetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(plandetailsForm.getChildAgeRange(), UserRestURIConstants.getLanaguage(request)));
 			}
-			
 			for (int inx = 0; inx < plandetailsForm.getTotalOtherTraveller(); inx++) {
 				
 			}
-			
-			
-			
-			
-			
 			
 		}
 
@@ -1012,10 +969,6 @@ public class FlightController {
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		String referralCode = (String)session.getAttribute("referralCode");
 		parameters.put("referralCode", referralCode);
-		/*
-		 * System.out.println("headers=====>>>>>" + header);
-		 */
-		// Comment for to avoid over load Data
 		
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 
@@ -1069,34 +1022,25 @@ public class FlightController {
 			createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
 					"transactionDate"));
 			model.addAttribute(createPolicy);
-
-			/*
-			 * System.out.println("Traveling Date==================>>" +
-			 * createPolicy.getTransactionDate());
-			 * System.out.println("Reference Numnber" + referenceNo);
-			 */
-
 			session.setAttribute("transactionDate",
 					createPolicy.getTransactionDate());
 			session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
 			session.setAttribute("transNo", createPolicy.getTransactionNo());
 			/* System.out.println("Session Id" + request.getSession().getId()); */
+		} else {
+			return UserRestURIConstants.checkLangSetPage(request)
+					+ "travel/travel";
 		}
+			
 
 		String dueAmount = request.getParameter("selectedAmountDue");
-		String userReferralCode = (String) session.getAttribute("referralCode");
+		
 
 		String applicantFullName = request.getParameter("fullName");
 		String applicantHKID = request.getParameter("hkid");
 		String applicantMobNo = request.getParameter("mobileNo");
 		String emailAddress = request.getParameter("emailAddress");
 		String totalTravallingDays = request.getParameter("days");
-		String totalTravallers = request.getParameter("totalTravallingDays");
-		/* System.out.println("applicantHKID=="+applicantHKID); */
-		String strChildCount = request.getParameter("totalChildTraveller");
-		String strAdultCount = request.getParameter("totalAdultTraveller");
-		String strOtherCount = request.getParameter("totalOtherTraveller");
-
 		System.out.println("inside Controller fro prepare Summa");
 
 		TravelQuoteBean travelBean = new TravelQuoteBean();
@@ -1146,10 +1090,6 @@ public class FlightController {
 	}
 
 	
-	public String formatPrice(String price) {
-		String formattedPrice = price + "0";
-		return formattedPrice;
-	}
 	
 	
 	public String checkStringNull(String checkByStr) {

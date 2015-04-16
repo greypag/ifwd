@@ -61,7 +61,7 @@ public class TravelController {
 		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("referralCode", promo);
+		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		TravelQuoteBean travelQuote;
 		
 		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
@@ -71,19 +71,6 @@ public class TravelController {
 		}
 		
 		//default 
-		if(travelQuote.getPlanSelected() == null || travelQuote.getPlanSelected().isEmpty()) {
-			travelQuote.setPlanSelected("personal");
-		}
-		if(travelQuote.getTotalPersonalTraveller() == 0) {
-			travelQuote.setTotalPersonalTraveller(1);
-		}
-		if(travelQuote.getTotalAdultTraveller() == 0) {
-			travelQuote.setTotalAdultTraveller(1);
-		}	
-		if(travelQuote.getTotalChildTraveller() == 0) {
-			travelQuote.setTotalChildTraveller(1);
-		}			
-		
 		travelQuote.setTotalPersonalTraveller(1);
 		travelQuote.setTotalAdultTraveller(1);
 		travelQuote.setTotalChildTraveller(1);
@@ -95,15 +82,13 @@ public class TravelController {
 		model.addAttribute("travelQuote", travelQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		String ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
 		String ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
 		String ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
 		String ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
 		String ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
-
-
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		model.addAttribute("ogTitle", ogTitle);
 		model.addAttribute("ogType", ogType);
 		model.addAttribute("ogUrl", ogUrl);
@@ -113,96 +98,7 @@ public class TravelController {
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request) + "travel/travel");			
 	}
 
-	@SuppressWarnings({ "unchecked", "finally" })
-	@RequestMapping(value = "/travel-confirmation")
-	public String processPayment(Model model, HttpServletRequest request,
-			@RequestParam String Ref) {
-
-		UserRestURIConstants.setController("Travel");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-
-		HttpSession session = request.getSession();
-
-		JSONObject responsObject = new JSONObject();
-
-		try {
-			JSONObject parameters = new JSONObject();
-			parameters.put("referenceNo",
-					session.getAttribute("finalizeReferenceNo"));
-			parameters
-					.put("transactionNumber", session.getAttribute("transNo"));
-			parameters.put("transactionDate",
-					session.getAttribute("transactionDate"));
-			parameters
-					.put("creditCardNo", session.getAttribute("creditCardNo"));
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
-
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
-			System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
-					+ parameters);
-			System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
-			responsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
-					parameters);
-			if (responsObject.get("errMsgs") == null) {
-				session.setAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
-				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				model.addAttribute("pageTitle", pageTitle);
-				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				return "travel/"
-						+ UserRestURIConstants.checkLangSetPage(request)
-						+ "/travel-confirmation";
-			} else {
-				System.out.println(responsObject.get("errMsgs").toString());
-				model.addAttribute("errormsg", responsObject.get("errMsgs")
-						.toString());
-				return UserRestURIConstants.checkLangSetPage(request)
-						+ "travel/travel-confirmation";
-			}
-		} finally {
-			return UserRestURIConstants.checkLangSetPage(request)
-					+ "travel/travel-confirmation";
-		}
-	}
-
-	@RequestMapping(value = "/processTravePayment")
-	@ResponseBody
-	public String processPayment(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
-
-		request.getSession().setAttribute("transactionNo",
-				request.getParameter("transNo"));
-		request.getSession().setAttribute("creditCardNo",
-				request.getParameter("cardNo"));
-		
-		String month = request.getParameter("epMonth");
-		System.out.println("month " + month);
-		System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
-		
-		request.getSession().setAttribute(
-				"expiryDate",
-				String.format("%02d", Integer.parseInt(request.getParameter("epMonth")))
-						+ request.getParameter("epYear"));
-		
-		
-		System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
-		request.getSession().setAttribute("emailAddress",
-				request.getParameter("emailAddress"));
-
-		return "success";
-	}
+	
 
 	@RequestMapping(value = "/getTravelQuote")
 	public ModelAndView prepareTravelPlan(
@@ -210,7 +106,6 @@ public class TravelController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		
 		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
-		
 		System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
 		System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
 		System.out.println("OTHER " + travelQuote.getTotalOtherTraveller());
@@ -222,17 +117,12 @@ public class TravelController {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			
-			// redirect to 1ST step when null 
 			if(travelQuote == null){
-				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
 		}
-
 		try {
 			String token = null, username = null;
-
 			if ((session.getAttribute("token") != null)
 					&& (session.getAttribute("username") != null)) {
 				token = session.getAttribute("token").toString();
@@ -255,18 +145,8 @@ public class TravelController {
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
 			travelQuote.setTotalTravellingDays(days + 1);
 
-			String userReferralCode = "";
-			if (request.getSession().getAttribute("referralCode") != null) {
-				userReferralCode = (String) request.getSession().getAttribute(
-						"referralCode");
-			}
-
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
-
-			
-
-			
 			if (travelQuote.getPlanSelected().equals("personal")) {
 				selfCover = true;
 				spouseCover = false;
@@ -310,7 +190,7 @@ public class TravelController {
 					+ "&childInput=" + childCount + "&otherInput="
 					+ otherCount + "&commencementDate="
 					+ commencementDate + "&expiryDate=" + expiryDate
-					+ "&referralCode=" + userReferralCode;
+					+ "&referralCode=" + (String) session.getAttribute("referralCode");
 
 			System.out.println("Travel Quote user " + Url);
 
@@ -369,12 +249,21 @@ public class TravelController {
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
 				session.setAttribute("quoteDetails", quoteDetails);
+				model.addAttribute("travelQuoteBean", travelQuote);
+			} else {
+				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+						+ "travel/travel");
 			}
+				
 			
-			model.addAttribute("travelQuoteBean", travelQuote);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("errMsgs", "System Error");
+			return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+					+ "travel/travel");
 		}
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
@@ -395,6 +284,10 @@ public class TravelController {
 
 		JSONObject responseJsonObj = new JSONObject();
 		HttpSession session = request.getSession();
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			return "fail";		
+		}
 		int days = 0;
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
@@ -403,23 +296,11 @@ public class TravelController {
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
-		String planSelected = (String)session.getAttribute("planSelected");
-		
 		TravelQuoteBean travelQuoteCount = (TravelQuoteBean)session.getAttribute("travelQuoteCount");
-		
-		int adults = travelQuote.getTotalAdultTraveller();
-		int child = travelQuote.getTotalChildTraveller();
-		int others = travelQuote.getTotalPersonalTraveller();
-		boolean isSpouseCover = false;
-		String referralCode = "";
-
 		selfCover = travelQuoteCount.isSelfCover();
 		spouseCover = travelQuoteCount.isSpouseCover();
 		childCount = travelQuoteCount.getTotalChildTraveller();
 		otherCount = travelQuoteCount.getTotalOtherTraveller();
-		
-		
-		
 		System.out.println("------------------------------------------------------------");
 		System.out.println("CALLING API");
 		System.out.println("SELF COVER " + selfCover);
@@ -428,16 +309,13 @@ public class TravelController {
 		System.out.println("OTHER COUNT " + otherCount);		
 		System.out.println("------------------------------------------------------------");
 		
-		
-		
-		referralCode = request.getParameter("promoCode");
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&referralCode=" + referralCode;
+					+ expiryDate + "&referralCode=" + request.getParameter("promoCode");
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -459,7 +337,7 @@ public class TravelController {
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
 			} else {
-				session.setAttribute("referralCode", referralCode);
+				session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
 			}
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
@@ -500,29 +378,36 @@ public class TravelController {
 				request.setAttribute("quoteDetails", quoteDetails);
 				
 				session.setAttribute("quoteDetails", quoteDetails);
+				System.out.println(responseJsonObj.toString());
+				return responseJsonObj.toString();
 			} else {
-			
+				model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
+				System.out.println(responseJsonObj.toString());
+				return (String)responseJsonObj.get("errMsgs");
 			}
-			model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
-			model.addAttribute("travelQuoteBean", travelQuote);
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("errMsgs", "System Error");
+			return "System Error";
 		}
-		System.out.println(responseJsonObj.toString());
-		return responseJsonObj.toString();
+		
 	}
 
 	@RequestMapping(value = "/getYourDetails")
 	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
-
+		HttpSession session = request.getSession();
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
+		}
+		
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		HttpSession session = request.getSession();
-		String planName = WebServiceUtils.getParameterValue("planName",
-				session, request);
+		
+		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue(
@@ -534,8 +419,6 @@ public class TravelController {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			
-			// redirect to 1ST step when null 
 			if(travelQuote == null){
 				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);
@@ -544,10 +427,6 @@ public class TravelController {
 		try {
 
 			request.setAttribute("travelQuote", travelQuote);
-
-			
-			
-			
 			model.addAttribute("planName", planName);
 			
 			model.addAttribute("selectPlanName", selectPlanName);
@@ -591,10 +470,6 @@ public class TravelController {
 			if (responseJsonObj.get("errMsgs") == null) {
 				JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
 						.get("optionItemDesc");
-				/*
-				 * System.out.println(" jsonAgeTypeArray ====>>>>>>" +
-				 * jsonAgeTypeArray);
-				 */
 				Map<String, String> mapAgeType = new HashMap<String, String>();
 				Map<String, String> mapSelfType = new HashMap<String, String>();
 				Map<String, String> mapChildType = new HashMap<String, String>();
@@ -606,9 +481,6 @@ public class TravelController {
 				Iterator iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
-					
-					
 					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3")) {
 						mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
 					}
@@ -656,6 +528,10 @@ public class TravelController {
 							mapRelationshipCode);
 
 				}
+			} else {
+				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+						+ "travel/travel-plan");		
 			}
 
 			model.addAttribute("planName", planName);
@@ -666,9 +542,10 @@ public class TravelController {
 			model.addAttribute("travelQuote", travelQuote);
 		} catch (Exception e) {
 			e.printStackTrace();
-
+			model.addAttribute("errMsgs", "System Error");
+			return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+					+ "travel/travel-plan");		
 		}
-
 		Map<String,String> mapHkId = new TreeMap<>();
 
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -678,6 +555,9 @@ public class TravelController {
 		if("CN".equals(lang)){
 			hkIdLbl = "香港身份證";
 			passportLbl = "護照";
+		} else {
+			hkIdLbl = "HKID";
+			passportLbl = "Passport";
 		}
 		mapHkId.put("HKID", hkIdLbl);
 		mapHkId.put("passport", passportLbl);		
@@ -686,7 +566,6 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "travel/travel-plan-details");		
 	}
@@ -696,36 +575,35 @@ public class TravelController {
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
-
 		String hkId = "hkId", passId = "passport";
-
-		UserRestURIConstants.setController("Travel");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-
 		HttpSession session = request.getSession();
-
-		TravelQuoteBean travelQuote;
-		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-		String planSelected;
-		planSelected = (String) session.getAttribute("planSelected");
-		// redirect to 1ST step when null 
+		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		String planSelected = (String) session.getAttribute("planSelected");
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
+		}
 		if(travelQuote == null || planSelected == null){
 			//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);				
 			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
-		}			
+		}
+		UserRestURIConstants.setController("Travel");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		 
+		
+		// redirect to 1ST step when null 
+		
 		
 		UserDetails userDetails = new UserDetails();
 		DateApi dateApi = new DateApi();
 
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",
 				session, request);
-		String userReferralCode = WebServiceUtils.getParameterValue(
-				"referralCode", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectedPlanName", session, request);
 		;
 
-		System.out.println("inside Controller fro prepare Summa"
+		System.out.println("inside Controller fro prepare Summary"
 				+ selectPlanName);
 
 		String deaprtureDate = dateApi.pickDate((String) session
@@ -1230,22 +1108,14 @@ public class TravelController {
 				JSONObject jsonPriceInfoA = (JSONObject) responsObject
 						.get("priceInfoA");
 
-				finalizeReferenceNo = checkJsonObjNull(responsObject,
-						"referenceNo");
-				createPolicy.setReferenceNo(checkJsonObjNull(responsObject,
-						"referenceNo"));
-				createPolicy.setCurrCode(checkJsonObjNull(responsObject,
-						"currCode"));
-				createPolicy.setMerchantId(checkJsonObjNull(responsObject,
-						"merchantId"));
-				createPolicy.setPolicyNo(checkJsonObjNull(responsObject,
-						"policyNo"));
+				finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
+				createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
+				createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
+				createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
+				createPolicy.setPolicyNo(checkJsonObjNull(responsObject, "policyNo"));
 				createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
-
-				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject,
-						"paymentGateway"));
-				createPolicy.setPaymentType(checkJsonObjNull(responsObject,
-						"paymentType"));
+				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
+				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
 
 				// Calling Api of Confirm Travel Care Policy
 				JSONObject confirmPolicyParameter = new JSONObject();
@@ -1269,22 +1139,11 @@ public class TravelController {
 						"transactionDate"));
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
-				/*
-				 * System.out.println("Traveling Date==================>>" +
-				 * createPolicy.getTransactionDate());
-				 * System.out.println("Reference Numnber" + referenceNo);
-				 */
-
-				/*
-				 * System.out.println("Session Id" +
-				 * request.getSession().getId());
-				 */
 			}
 
-		} else {
-			session.setAttribute("finalizeReferenceNo",
-					createPolicy.getReferenceNo());
-		}
+		} 
+		session.setAttribute("finalizeReferenceNo",
+				createPolicy.getReferenceNo());
 		session.setAttribute("transactionDate",
 				createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
@@ -1296,14 +1155,7 @@ public class TravelController {
 				+ planDetailsForm.getTotalChildTraveller()
 				+ planDetailsForm.getTotalOtherTraveller()
 				+ planDetailsForm.getTravellerCount());
-		/*
-		 * System.out .println(
-		 * "===========>+>+>+>+>+>+.=...............>>>>>>+=====>>>>>>>>>>>>>>>>>>>>>+"
-		 * + dueAmount);
-		 */
-
 		String path = request.getRequestURL().toString();
-		System.out.println("*****************" + selectPlanName);
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount);
 		model.addAttribute("totalTravallingDays", totalTravallingDays);
@@ -1316,33 +1168,110 @@ public class TravelController {
 		System.out.println(path.replace("prepareUserSummary",
 				UserRestURIConstants.checkLangSetPage(request)
 						+ "travel-confirmation"));
-//		model.addAttribute("failurePath",
-//				path.replace("prepareUserSummary", "failure"));
         model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
-        
-        String  paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
-        String  errorMsg =request.getParameter("errorMsg");
+        String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
+        String errorMsg =request.getParameter("errorMsg");
         if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
-            errorMsg = "Payment failure";                    
+            errorMsg = "Payment failure";     
         }        
         model.addAttribute("errormsg", errorMsg);        
-
-        
-//		System.out.println("************"
-//				+ path.replace("prepareUserSummary", "failure"));
-
-//		return UserRestURIConstants.checkLangSetPage(request)
-//				+ "/travel/travel-summary-payment";
         String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-
-        
 		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
 				+ "/travel/travel-summary-payment");				
 	}
+	
 
+
+	@RequestMapping(value = "/processTravePayment")
+	@ResponseBody
+	public String processPayment(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		String month = request.getParameter("epMonth");
+		System.out.println("month " + month);
+		System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
+		System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
+		session.setAttribute("transactionNo", request.getParameter("transNo"));
+		session.setAttribute("creditCardNo", request.getParameter("cardNo"));
+		session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+		session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+		return "success";
+	}
+
+	@SuppressWarnings({ "unchecked", "finally" })
+	@RequestMapping(value = "/travel-confirmation")
+	public String processPayment(Model model, HttpServletRequest request,
+			@RequestParam String Ref) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("token") == null) {
+			System.out.println("Session Expired");
+			model.addAttribute("errormsg", "Session Expired");
+			return UserRestURIConstants.checkLangSetPage(request)
+					+ "travel/travel-confirmation";
+		}
+		
+		UserRestURIConstants.setController("Travel");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		
+
+		JSONObject responsObject = new JSONObject();
+
+		try {
+			JSONObject parameters = new JSONObject();
+			parameters.put("referenceNo",
+					session.getAttribute("finalizeReferenceNo"));
+			parameters
+					.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate",
+					session.getAttribute("transactionDate"));
+			parameters
+					.put("creditCardNo", session.getAttribute("creditCardNo"));
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
+					+ parameters);
+			System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
+			responsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
+					parameters);
+			if (responsObject.get("errMsgs") == null) {
+				session.removeAttribute("creditCardNo");
+				session.removeAttribute("expiryDate");
+				session.setAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("emailAddress",
+						session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",
+						session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return "travel/" + UserRestURIConstants.checkLangSetPage(request) + "/travel-confirmation";
+			} else {
+				System.out.println(responsObject.get("errMsgs").toString());
+				model.addAttribute("errormsg", responsObject.get("errMsgs")
+						.toString());
+				return UserRestURIConstants.checkLangSetPage(request)
+						+ "travel/travel-confirmation";
+			}
+		} finally {
+			return UserRestURIConstants.checkLangSetPage(request)
+					+ "travel/travel-confirmation";
+		}
+	}
+	
+	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();

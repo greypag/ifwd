@@ -34,6 +34,13 @@ public class StringHelper {
     	else
     		return true;
 	}
+    
+    public static String emptyIfNull(String string) {
+    	if (string == null)
+    		return "";
+    	else
+    		return string;
+    }
  
    
 }

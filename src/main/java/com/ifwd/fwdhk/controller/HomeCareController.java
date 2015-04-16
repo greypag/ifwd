@@ -41,6 +41,7 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
@@ -52,14 +53,14 @@ public class HomeCareController {
 	@Autowired
 	SendEmailDao sendEmail;
 
-	@RequestMapping(value = "/homecare")
+	@RequestMapping(value = {"/homecare", "/home-insurance"})
 	public String getHomeCarePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
 		String token = null, username = null;
-		session.setAttribute("referralCode", promo);
+		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());
 		Format f = new SimpleDateFormat("dd-MMMM-yyyy");
@@ -148,14 +149,15 @@ public class HomeCareController {
 
 		} else {
 			model.addAttribute("errMsgs", "Question lists cannot be retrieved");
-
 			model.addAttribute("action", "/");
-			return "redirect:/redirect";
+			String dir = UserRestURIConstants.checkLangSetPage(request);
+			return "../jsp/" + dir + "/index";
+
 		}
 
 	}
 
-	@RequestMapping(value = "/getHomePlan")
+	@RequestMapping(value = {"/getHomePlan", "/home-insurance/quote"})
 	public String getHomeCarePlanage(Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -183,51 +185,37 @@ public class HomeCareController {
 		if (answer1 == null || answer2 == null) {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
-		/*
-		 * String userReferralCode = (String) request.getSession().getAttribute(
-		 * "referralCode");
-		 */
-		//
+		
 		String userReferralCode = "";
 
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
 				userReferralCode, answer1, answer2,
 				UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("planQuote", planQuote);
-		request.setAttribute("planQuote", planQuote);
-		model.addAttribute("answer1", answer1);
-		model.addAttribute("answer2", answer2);
-		String pageTitle = WebServiceUtils.getPageTitle(
-				"page.homeCareQuotation",
-				UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-				"meta.homeCareQuotation",
-				UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-
-		return UserRestURIConstants.checkLangSetPage(request)
-				+ "homecare/homecare-plan";
-
-		// NAT REMOVE THE ERROR HANDLING
-		// if (planQuote.getErrormsg() == null) {
-		// model.addAttribute("planQuote", planQuote);
-		// model.addAttribute("answer1", answer1);
-		// model.addAttribute("answer2", answer2);
-		//
-		// return UserRestURIConstants.checkLangSetPage(request)+
-		// "homecare/homecare-plan";
-		// } else {
-		// model.addAttribute("errMsgs", planQuote.getErrormsg());
-		//
-		//
-		// model.addAttribute("action", "/homecare");
-		// return "redirect:/redirect";
-		// }
-
+		if (planQuote.getErrormsg().equals("null")) {
+		
+			model.addAttribute("planQuote", planQuote);
+			request.setAttribute("planQuote", planQuote);
+			model.addAttribute("answer1", answer1);
+			model.addAttribute("answer2", answer2);
+			String pageTitle = WebServiceUtils.getPageTitle(
+					"page.homeCareQuotation",
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta.homeCareQuotation",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+	
+			return UserRestURIConstants.checkLangSetPage(request)
+					+ "homecare/homecare-plan";
+		} else {
+			model.addAttribute("errMsgs", planQuote.getErrormsg());
+			System.out.println("errMsgs " + planQuote.getErrormsg());
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+		}
 	}
 
-	@RequestMapping(value = "/getYourHomeCareDetails")
+	@RequestMapping(value = {"/getYourHomeCareDetails", "/home-insurance/user-details"})
 	public String prepareYoursDetails(
 			@ModelAttribute("planQuoteDetails") HomeQuoteBean homeQuoteDetails,
 			Model model, HttpServletRequest request) {
@@ -301,56 +289,46 @@ public class HomeCareController {
 		HttpSession session = request.getSession();
 		String token = session.getAttribute("token").toString();
 		String username = session.getAttribute("username").toString();
+		if (session.getAttribute("token") == null) {
+			return "fail";
+		}
 
 		String referralCode = request.getParameter("referralCode");
 		String planQuote = homecareService.getHomePlanToString(token, username,
 				referralCode, "NO", "NO",
 				UserRestURIConstants.getLanaguage(request));
-
 		if (!planQuote.contains("Promotion Code is not valid")) {
-			session.setAttribute("referralCode", referralCode);
+			session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
 		} else {
 			session.setAttribute("referralCode", "");
 		}
-
 		return planQuote;
 	}
 
-	@RequestMapping(value = "/prepareUserSummaryForHome")
+	@RequestMapping(value = {"/prepareUserSummaryForHome", "/home-insurance/home-summary"})
 	public String prepareSummary(
 			@ModelAttribute("frmYourDetails") HomeCareDetailsBean homeCareDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
-		UserRestURIConstants.setController("Homecare");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-		UserDetails userDetails = new UserDetails();
 		HttpSession session = request.getSession();
-
-		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
+		
+		UserRestURIConstants.setController("Homecare");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		UserDetails userDetails = new UserDetails();
 
-		String passportORhkid = WebServiceUtils.getParameterValue(
-				"apphkidandpassport", session, request);
-		String hkId = WebServiceUtils.getParameterValue("hkId", session,
-				request);
-		String applicantName = WebServiceUtils.getParameterValue(
-				"applicantName", session, request);
-		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",
-				session, request);
-		String mobileNo = WebServiceUtils.getParameterValue("mobileNo",
-				session, request);
-		String totalDue = WebServiceUtils.getParameterValue("totalDue",
-				session, request);
-		String planCode = WebServiceUtils.getParameterValue("planCode",
-				session, request);
+		String passportORhkid = WebServiceUtils.getParameterValue("apphkidandpassport", session, request);
+		String hkId = WebServiceUtils.getParameterValue("hkId", session, request);
+		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
+		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
+		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
+		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		if (homeCareDetails.getTotalDue() != null) {
 			session.setAttribute("homeCareDetails", homeCareDetails);
 		} else {
-			homeCareDetails = (HomeCareDetailsBean) session
-					.getAttribute("homeCareDetails");
-
-			// redirect to 1ST step when null
+			homeCareDetails = (HomeCareDetailsBean) session.getAttribute("homeCareDetails");
 			if (homeCareDetails == null) {
 				return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 			}
@@ -360,17 +338,13 @@ public class HomeCareController {
 			userDetails.setHkid(hkId);
 		} else {
 			userDetails.setPassport(hkId);
-
 		}
-
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		HomeCareService homecareService = new HomeCareServiceImpl();
-		/* API not Working thats why code commented */
-
 		CreatePolicy createdPolicy = (CreatePolicy) session
 				.getAttribute("createdPolicy");
 		if (createdPolicy == null) {
@@ -378,10 +352,10 @@ public class HomeCareController {
 					token, homeCareDetails, userDetails,
 					UserRestURIConstants.getLanaguage(request));
 		}
-
+		
 		model.addAttribute("createdPolicy", createdPolicy);
 
-		if (createdPolicy.getReferenceNo() != null) {
+		if (createdPolicy.getErrMsgs() == null) {
 			CreatePolicy confirm = homecareService.confirmHomeCarePolicy(
 					userName, token, createdPolicy.getReferenceNo(),
 					UserRestURIConstants.getLanaguage(request));
@@ -391,22 +365,21 @@ public class HomeCareController {
 			session.setAttribute("HomeCareTransactionDate",
 					confirm.getTransactionDate());
 			model.addAttribute("confirm", confirm);
+		} else {
+			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
+			return UserRestURIConstants.checkLangSetPage(request)
+					+ "homecare/homecare-plan-details";
 		}
 
-		System.out.println("pAYtyPE===>" + createdPolicy.getPaymentType());
+		System.out.println("PayType===>" + createdPolicy.getPaymentType());
 
-		System.out.println("Curr Code ID==>"
-				+ createdPolicy.getPaymentGateway());
+		System.out.println("Curr Code ID==>" + createdPolicy.getPaymentGateway());
 		System.out.println("M ID==>" + createdPolicy.getMerchantId());
 
 		model.addAttribute("totalDue", totalDue);
 		model.addAttribute("planCode", planCode);
 		model.addAttribute("createdPolicy", createdPolicy);
 		model.addAttribute("userDetails", userDetails);
-
-		/*
-		 * Format Next Year Date for Home Care Yearly Plan Effective End Date
-		 */
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date(homeCareDetails.getEffectiveDate()));
 		Format f = new SimpleDateFormat("dd MMMM yyyy");
@@ -414,16 +387,11 @@ public class HomeCareController {
 		String endDate = f.format(date.getTime());
 
 		String path = request.getRequestURL().toString();
-		String failurePath = request.getRequestURL().toString();
 		model.addAttribute("effectiveDate", homeCareDetails.getEffectiveDate());
 		model.addAttribute("effectiveEndDate", endDate);
 		model.addAttribute("homeCareDetails", homeCareDetails);
 		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
 				"homecare-confirmation"));
-
-		// model.addAttribute("failurePath",
-		// failurePath.replace("prepareUserSummaryForHome",
-		// "failure"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 
 		String paymentGatewayFlag = request.getParameter("paymentGatewayFlag");
@@ -451,55 +419,36 @@ public class HomeCareController {
 	@ResponseBody
 	public String processHomeCarePayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		session.setAttribute("HomeCareTransactionNo", request.getParameter("orderRef"));
+		session.setAttribute("HomeCareCreditCardNo", request.getParameter("cardNo"));
 
-		request.getSession().setAttribute("HomeCareTransactionNo",
-				request.getParameter("orderRef"));
+		session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 
-		// request.getSession().setAttribute("HomeCareReferenceNo",
-		// request.getParameter("referenceNo"));
-
-		request.getSession().setAttribute("HomeCareCreditCardNo",
-				request.getParameter("cardNo"));
-
-		request.getSession().setAttribute(
-				"HomeCareCardexpiryDate",
-				String.format("%02d",
-						Integer.parseInt(request.getParameter("epMonth")))
-						+ request.getParameter("epYear"));
-
-		request.getSession().setAttribute("emailAddress",
-				request.getParameter("emailAddress"));
+		session.setAttribute("emailAddress", request.getParameter("emailAddress"));
 		System.out.println("cardNo : ");
 		System.out.println(request.getParameter("cardNo"));
 		System.out.println("emailAddress : ");
 		System.out.println(request.getParameter("emailAddress"));
-		System.out
-				.println("*********************************inside Process Payment*****************************************");
-
+		System.out.println("********************************* Inside Process Payment **********************************************");
 		return "success";
 	}
 
-	@RequestMapping(value = "/homecare-confirmation")
+	@RequestMapping(value = {"/homecare-confirmation", "/home-insurance/confirmation"})
 	public String processHomePayment(Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 
-		String referenceNo = (String) session
-				.getAttribute("HomeCareReferenceNo");
-		String transactionNumber = (String) session
-				.getAttribute("HomeCareTransactionNo");
-		String transactionDate = (String) session
-				.getAttribute("HomeCareTransactionDate");
-		String creditCardNo = (String) session
-				.getAttribute("HomeCareCreditCardNo");
-		String expiryDate = (String) session
-				.getAttribute("HomeCareCardexpiryDate");
+		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
+		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+		String creditCardNo = (String) session.getAttribute("HomeCareCreditCardNo");
+		String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
 		String userName = (String) session.getAttribute("username");
 		String token = (String) session.getAttribute("token");
 		String emailId = (String) session.getAttribute("emailAddress");
-		System.out
-				.println("********************Inside Confirmation*****************");
+		System.out.println("********************Inside Confirmation*****************");
 		System.out.println("referenceNo=" + referenceNo);
 		System.out.println("Transaction Number==>" + transactionNumber);
 		System.out.println("Transaction Date==>" + transactionDate);
@@ -509,26 +458,22 @@ public class HomeCareController {
 		System.out.println("token==>>" + token);
 
 		HomeCareService homecareService = new HomeCareServiceImpl();
-		/*
-		 * FinalizePolicy finalize =new FinalizePolicy(); finalize =
-		 * homecareService.finalizeHomeCarePolicy( userName, token, referenceNo,
-		 * transactionNumber, transactionDate, creditCardNo, expiryDate,
-		 * emailId);
-		 */
-
-		CreatePolicy finalize = homecareService.finalizeHomeCarePolicy(
+		CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
 				userName, token, referenceNo, transactionNumber,
 				transactionDate, creditCardNo, expiryDate, emailId,
 				UserRestURIConstants.getLanaguage(request));
-		if (finalize.getPolicyNo() != null) {
+		if (finalizePolicy.getErrMsgs() == null) {
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			header.put("userName", userName);
 			header.put("token", token);
-
-			// sendEmail.sendEmail(emailId, referenceNo, header);
-			model.addAttribute("policyNo", finalize.getPolicyNo());
+			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
+		} else {
+			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
+			return UserRestURIConstants.checkLangSetPage(request)
+					+ "homecare/homecare-confirmation";
 		}
+			
 		model.addAttribute("emailID", emailId);
 
 		// model.addAttribute("finalize", finalize);

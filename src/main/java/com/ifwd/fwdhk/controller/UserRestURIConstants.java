@@ -132,6 +132,12 @@ public class UserRestURIConstants {
 			return "/en/";
 		}
 	}
+	
+	public static String getSitePath(HttpServletRequest request){
+		
+		return "/merged/";
+		
+	}
 
     public static String checkLangSetPage(String lang){
         if("EN".equals(lang)){

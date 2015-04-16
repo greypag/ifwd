@@ -174,8 +174,6 @@ public class HomeCareServiceImpl implements HomeCareService {
 			quoteDetails.setErrormsg(checkJsonObjNull(jsonGetPlanResponse,
 					"errMsgs"));
 		} else {
-			JSONArray jsonArrayMsg = (JSONArray) jsonGetPlanResponse
-					.get("errMsgs");
 			quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
 		}
 		return quoteDetails;
@@ -385,9 +383,9 @@ public class HomeCareServiceImpl implements HomeCareService {
 		System.out.println("WS Response=====>>>>" + responsObject);
 
 		JSONObject resultObj = new JSONObject();
-		if (resultObj.get("errMsgs") == null) {
-			resultObj.get("referenceNo");
-			resultObj.get("referralCode");
+		System.out.println("errMsgs" + responsObject.get("errMsgs"));
+		if (responsObject.get("errMsgs") == null) {
+			
 
 			createPolicy.setReferralCode(checkJsonObjNull(responsObject,
 					"referralCode"));
@@ -404,7 +402,10 @@ public class HomeCareServiceImpl implements HomeCareService {
 			createPolicy.setPaymentType(checkJsonObjNull(responsObject,
 					"paymentType"));
 			createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
+		} else {
+			createPolicy.setErrMsgs((String)responsObject.get("errMsgs"));
 		}
+		
 		return createPolicy;
 	}
 
@@ -505,15 +506,12 @@ public class HomeCareServiceImpl implements HomeCareService {
 		System.out.println("final homeCare Policy Response" + apiResponsObject);
 
 		if (apiResponsObject.get("errMsgs") == null) {
-
-			// finalizeObject.setPolicyNo((String
-			// )apiResponsObject.get("policy"));
-			finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject,
-					"policyNo"));
-
+			finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
 			System.out.println("POlicy Number in Impl after WS "
 					+ finalizeObject.getPolicyNo());
 			finalizeObject.setReferralCode(referenceNo);
+		} else {
+			finalizeObject.setErrMsgs((String)apiResponsObject.get("errMsgs"));
 		}
 		return finalizeObject;
 	}

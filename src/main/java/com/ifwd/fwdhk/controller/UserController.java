@@ -29,6 +29,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
@@ -87,7 +88,7 @@ public class UserController {
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
 					session.setAttribute("referralCode",
-							checkJsonObjNull(customer, "referralCode"));
+							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 
@@ -209,7 +210,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/joinus", method = RequestMethod.GET)
+	@RequestMapping(value = {"/joinus", "/join-us"}, method = RequestMethod.GET)
 	public String signup(Model model, HttpServletRequest req) {
 		/* UserDetails userDetails = new UserDetails(); */
 		UserDetails userDetails = new UserDetails();
@@ -224,7 +225,7 @@ public class UserController {
 		return "useraccount";
 	}
 
-	@RequestMapping(value = "/joinus", method = RequestMethod.POST)
+	@RequestMapping(value = {"/joinus", "/join-us"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String registerUser(
 			@ModelAttribute("userDetails") UserDetails userDetails,
@@ -267,7 +268,7 @@ public class UserController {
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
 					session.setAttribute("referralCode",
-							checkJsonObjNull(customer, "referralCode"));
+							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 
@@ -309,7 +310,7 @@ public class UserController {
 		
 	}
 
-	@RequestMapping(value = "/forgotUser", method = RequestMethod.POST)
+	@RequestMapping(value = {"/forgotUser", "forget-user-name"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String forgotUserName(
 			@ModelAttribute("forgotUserName") UserDetails userDetails,
@@ -333,12 +334,12 @@ public class UserController {
 		return "fail";
 	}
 
-	@RequestMapping(value = "/forgotUserName", method = RequestMethod.GET)
+	@RequestMapping(value = {"/forgotUserName", "/forgot-user-name"}, method = RequestMethod.GET)
 	public String forgotUserNameFields(HttpServletRequest req) {
 		return UserRestURIConstants.checkLangSetPage(req) + "forgot-username";
 	}
 
-	@RequestMapping(value = "/forgotUserPassword", method = RequestMethod.POST)
+	@RequestMapping(value = {"/forgotUserPassword", "/forgot-password"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String forgotPassword(
 			@ModelAttribute("forgotUserName") UserDetails userDetails,
@@ -361,7 +362,7 @@ public class UserController {
 		return "fail";
 	}
 
-	@RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
+	@RequestMapping(value = {"/forgotPassword", "/forgot-password"}, method = RequestMethod.GET)
 	public String forgotUserPasswordFields(HttpServletRequest req) {
 		return UserRestURIConstants.checkLangSetPage(req) + "forgot-password";
 	}
