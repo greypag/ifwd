@@ -134,9 +134,18 @@ public class UserRestURIConstants {
 	}
 	
 	public static String getSitePath(HttpServletRequest request){
-		
-		return "/merged/";
-		
+		HttpSession session = request.getSession();	
+		String lang = "CN";
+		if(session.getAttribute("language")!=null){
+			lang = session.getAttribute("language").toString();
+		}
+		if("EN".equals(lang)){
+			return "/en/";
+		}else if("CN".equals(lang)){
+			return "/cn/";
+		} else{
+			return "/en/";
+		}
 	}
 
     public static String checkLangSetPage(String lang){

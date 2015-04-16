@@ -2,7 +2,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <style>
 
 </style>
@@ -16,18 +18,18 @@ modelAttribute="travelQuote" method="post"
 action="flight-upgrade-travel-summary">
 
 <ol class="breadcrumb pad-none">
-<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-<li><a href="#">FlightCare </a> <i class="fa fa-caret-right"></i></li>
-<li><a href="#">Your options </a> <i class="fa fa-caret-right"></i></li>
-<li><a href="#">Your details </a></li>
-<li class="active "><i class="fa fa-caret-right"></i> Confirmation</li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /> </a></li>
+<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item5" bundle="${msg}" /></li>
 </ol>
 <div class="container ">
 <div
 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
 <div class="center wow fadeInDown animated"
 style="visibility: visible;">
-<h2>Confirmation</h2>
+<h2><fmt:message key="flight.confirmation.jumbo" bundle="${msg}" /></h2>
 </div>
 <br> <br>
 <div class="order-status">
@@ -42,16 +44,16 @@ style="visibility: visible;">
 <div
 class="image-order-status image-order-status-new  img-circle">
 <div class="icon">1</div>
-<span class="status status-working">Your Options</span>
+<span class="status status-working"><fmt:message key="flight.breadcrumb2.item1" bundle="${msg}" /></span>
 </div>
 <div
 class="image-order-status image-order-status-active  img-circle">
 <div class="icon">2</div>
-<span class="status status-working">Your Details</span>
+<span class="status status-working"><fmt:message key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
 </div>
 <div class="image-order-status image-order-status-intransit active  img-circle">
 	<div class="icon">3</div>
-	<span class="status min-left">Confirmation</span>
+	<span class="status min-left"><fmt:message key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
 </div>
 </div>
 </div>
@@ -62,12 +64,12 @@ class="image-order-status image-order-status-active  img-circle">
 <div class="container pad-none bdr">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gray-bg1">
 <h3>
-You have successfully completed your purchase of <strong>FlightCare</strong>
-flight insurance with <strong>FWD</strong>. An email has been
-sent to <strong> <%-- <%=request.getAttribute("email")%> --%>
+<fmt:message key="flight.confirmation.msg.part1" bundle="${msg}" /> <strong><fmt:message key="flight.confirmation.msg.part2" bundle="${msg}" /></strong>
+<fmt:message key="flight.confirmation.msg.part3" bundle="${msg}" /> <strong><fmt:message key="flight.confirmation.msg.part4" bundle="${msg}" /></strong><fmt:message key="flight.confirmation.msg.part5" bundle="${msg}" /><strong> <%-- <%=request.getAttribute("email")%> --%>
+
 <%=request.getSession().getAttribute(
 "setEmailForConfirmation")%>
-</strong> with the details of your policy.
+</strong> <fmt:message key="flight.confirmation.msg.part6" bundle="${msg}" />
 </h3>
 <%-- <h4>Reference Number :<span>${createFlightPolicy.getReferenceNo()}</span></h4> --%>
 <h4>
@@ -94,9 +96,8 @@ Policy Number: <span><%=request.getSession().getAttribute(
 <div class="container pad-none">
 <div class="row-fluid">
 <div class="center " style="visibility: visible;">
-<h4 class="center-h2">Get More Coverage with TravelCare at
-20% off!</h4>
-<h3 class="center-h3">Exclusively for our FlightCare customers</h3>
+<h4 class="center-h2"><fmt:message key="flight.confirmation.heading" bundle="${msg}" /></h4>
+<h3 class="center-h3"><fmt:message key="flight.confirmation.subheading" bundle="${msg}" /></h3>
 <br>
 </div>
 <!--Start Travel Plan  -->
@@ -207,9 +208,9 @@ id="box<%=i%>">
 									Plan <%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
-									{%> Superior Cover<br> HK$ 1,000,000 Medical
+									{%> <fmt:message key="flight.confirmation.upgrade.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="flight.confirmation.upgrade.plan1.medical" bundle="${msg}" /> 
 								<%}	else{ %>
-								Standard Cover<br> HK$	500,000 Medical
+								<fmt:message key="flight.confirmation.upgrade.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="flight.confirmation.upgrade.plan2.medical" bundle="${msg}" />
 									<%} %>
 									
 								</h2>
@@ -229,23 +230,23 @@ id="box<%=i%>">
 <div class="fwdpanel-heading">
 <h4 class="benefits">
 <span><i class="fa fa-plus"></i> <a href="#"
-class="fwdpanel-minimize uline">See All Benefits </a> </span>
+class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.plan1.benefits" bundle="${msg}" />  </a> </span>
 </h4>
 </div>
 
 <div class="fwdpanel-body" style="display: none;">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<p>
-			<i class="fa fa-plus"></i> Hospital or quarantine cash $5,000 <br> 
-			<i class="fa fa-plus"></i> Worldwide emergency assistance Fully Covered<br> 
-			<i class="fa fa-plus"></i> Rental vehicle excess $3,000<br>
-			<i class="fa fa-plus"></i> Golfer Hole in one $1,000<br>
+			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc1" bundle="${msg}" /> <br> 
+			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc2" bundle="${msg}" /><br> 
+			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc3" bundle="${msg}" /><br>
+			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc4" bundle="${msg}" /><br>
 		</p>
 	</div>
 </div>
 <div class="clearfix"></div>
 </div>
-<h5> <a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')">Upgrade Now!</a> </h5>
+<h5> <a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
 </div>
 </div>
 

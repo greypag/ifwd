@@ -309,7 +309,8 @@ public class FlightController {
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 			return new ModelAndView(
-					UserRestURIConstants.checkLangSetPage(request)
+					
+					UserRestURIConstants.getSitePath(request)
 							+ "flight/flight-plan");
 
 		} else {
