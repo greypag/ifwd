@@ -76,7 +76,7 @@ public class FlightController {
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//return UserRestURIConstants.checkLangSetPage(request) + "flight/flight";
+		//return UserRestURIConstants.getSitePath(request) + "flight/flight";
 		
 		HttpSession session = request.getSession();
 		PlanDetails planDetails = (PlanDetails) session
@@ -428,7 +428,7 @@ public class FlightController {
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
 		model.addAttribute("planDetailsForm", planDetails);
-		String returnUrl = UserRestURIConstants.checkLangSetPage(request)
+		String returnUrl = UserRestURIConstants.getSitePath(request)
 				+ "flight/flight-plan-details";
 		System.out.println("returnUrl " + returnUrl);
 		//return returnUrl;
@@ -927,7 +927,7 @@ public class FlightController {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(upgradeReferralCode));
-		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "flight/flight-confirmation");		
 	}
 
@@ -1029,7 +1029,7 @@ public class FlightController {
 			session.setAttribute("transNo", createPolicy.getTransactionNo());
 			/* System.out.println("Session Id" + request.getSession().getId()); */
 		} else {
-			return UserRestURIConstants.checkLangSetPage(request)
+			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel";
 		}
 			
@@ -1078,7 +1078,7 @@ public class FlightController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		return UserRestURIConstants.checkLangSetPage(request)
+		return UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-summary-payment";
 	}
 

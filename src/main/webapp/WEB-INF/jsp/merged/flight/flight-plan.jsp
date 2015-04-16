@@ -2,8 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 
 
 
@@ -34,16 +35,16 @@
 
 
 			<ol class="breadcrumb pad-none">
-					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">FlightCare </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> Your options</li>
+					<li><a href="#"><fmt:message key="flight.quote.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="flight.quote.breadcrumb1.item2" bundle="${msg}" /> </a></li>
+					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.quote.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div
 						class="col-md-12 col-lg-12 col-sm-12 col-xs-12  shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
-							<h2>Your options</h2>
+							<h2><fmt:message key="flight.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br> <br>
 						<div class="order-status">
@@ -58,17 +59,17 @@
 							<div
 								class="image-order-status image-order-status-new active  img-circle">
 								<div class="icon">1</div>
-								<span class="status">Your Options</span>
+								<span class="status"><fmt:message key="flight.quote.breadcrumb2.item1" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-active disabled  img-circle">
 								<div class="icon">2</div>
-								<span class="status">Your Details</span>
+								<span class="status"><fmt:message key="flight.quote.breadcrumb2.item2" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-intransit disabled  img-circle">
 								<div class="icon">3</div>
-								<span class="status min-left">Confirmation</span>
+								<span class="status min-left"><fmt:message key="flight.quote.breadcrumb2.item3" bundle="${msg}" /></span>
 							</div>
 						</div>
 					</div>
@@ -76,14 +77,14 @@
 				<br> <br> <br>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-						<h2 class="h2-3-choose hidden-sm hidden-xs">Choose a plan</h2>
+						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="flight.quote.choose" bundle="${msg}" /></h2>
 						<%
 							for (int planCount = 1; planCount <= 1; planCount++) {
 						%>
 						<div class="plan-box plan-box-flight">
 							<div class="col-lg-9 col-md-9 col-sm-6">
 								<h2>
-									FlightCare<br> FREE<br> <span>during the promotion period</span>
+									<fmt:message key="flight.quote.plan" bundle="${msg}" /><br> <fmt:message key="flight.quote.price" bundle="${msg}" /><br> <span><fmt:message key="flight.quote.price.desc" bundle="${msg}" /></span>
 								</h2>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
@@ -106,24 +107,24 @@
 										}
 									%>
 									<span><a href="#" class="fwdpanel-minimize"><i
-											class="fa fa-plus"></i> Full Coverage Details </a> </span>
+											class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> </span>
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
 								<div class="row">
 									<div class="col-md-12">
-										<h4 class="h4-3-b">Key features</h4>
+										<h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.keyFeature" bundle="${msg}" /></h4>
 										<ol class="major-exc">
-											<li>Provide accidental death coverage of HK$ 500,000</li>
-											<li>Maximum coverage limit is HK$ 500,000 per insured person for all FlightCare policies</li>
-											<li>Fit well with any travel insurance plan</li>
+											<li><fmt:message key="flight.quote.fullDetails.keyFeature.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="flight.quote.fullDetails.keyFeature.desc2" bundle="${msg}" /></li>
+											<li><fmt:message key="flight.quote.fullDetails.keyFeature.desc3" bundle="${msg}" /></li>
 											
 										</ol>
 										<br>
-										<h4 class="h4-3-b">Eligibility</h4>
+										<h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.eligibility" bundle="${msg}" /></h4>
 										 <ul class="major-exc">
-											<li>Applicable to Hong Kong ID cardholders only</li>
-											<li>Minimum age of 6 weeks up to a maximum age of 85 years</li>
+											<li><fmt:message key="flight.quote.fullDetails.eligibility.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="flight.quote.fullDetails.eligibility.desc2" bundle="${msg}" /></li>
 										</ul>
 									</div>
 									<!-- / col-md-12 -->
@@ -134,15 +135,14 @@
 						</div>
 						<br>
 						<!--Full coverage end -->
-						<h4 class="h4-3-b">Major Terms & Conditions:</h4>
+						<h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
 						<ol class="major-exc">
-							<li>Applicable only when the insured is riding as a fare-paying passenger in or on any public transport or carriers (excluding contractor, chartered or private carriers, and any carriers which are operated primarily for sight-seeing service and amusement of the passengers).</li>
-							<li>Applicable journey must originate from and return to Hong Kong.</li>
-							<li>No restriction on the number of flights during a journey.</li>
-							<li>Maximum period of insurance must be  30 consecutive calendar days.</li>
-							<li>The application date must be within 30 days of the departure date.</li>
-							<li>Not applicable to crew member or an operator of any carrier, tour guide or tour escort, and armed force service.
-.</li>
+							<li><fmt:message key="flight.quote.other.tnc.desc1" bundle="${msg}" /></li>
+							<li><fmt:message key="flight.quote.other.tnc.desc2" bundle="${msg}" /></li>
+							<li><fmt:message key="flight.quote.other.tnc.desc3" bundle="${msg}" /></li>
+							<li><fmt:message key="flight.quote.other.tnc.desc4" bundle="${msg}" /></li>
+							<li><fmt:message key="flight.quote.other.tnc.desc5" bundle="${msg}" /></li>
+							<li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" />.</li>
 						</ol>
 						<br>
 
@@ -150,8 +150,8 @@
 					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs">
 						<div class="wd2">
 							<div class="pull-left">
-								<h2 class="h2-3-choose">FlightCare Insurance</h2>
-								<h4>Plan Summary </h4>
+								<h2 class="h2-3-choose"><fmt:message key="flight.quote.summary.product" bundle="${msg}" /></h2>
+								<h4><fmt:message key="flight.quote.summary.desc" bundle="${msg}" /> </h4>
 							</div>
 							<div class="pull-right">
 								<div class="text-left pad-right1 h2-2 h2">
@@ -168,14 +168,14 @@
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
 						<div class="form-container">
-							<h3>Departure Date</h3>
+							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /></h3>
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
 								</div>
 							</div>
-							<h3>Return Date</h3>
+							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /></h3>
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
@@ -183,7 +183,7 @@
 										readonly>
 								</div>
 							</div>
-							<h3>Travellers</h3>
+							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /></h3>
 						
 <!--						<div class="form-group">
 								
@@ -212,7 +212,7 @@
 							
 							
 							<h3>
-								No. of days: <span>${days}</span>
+								<fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span>${days}</span>
 							</h3>
 						</div>
 						<div class="orange-bdr"></div>
@@ -223,7 +223,7 @@
 						</h3>
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="flight" class="bdr-curve btn btn-primary bck-btn">Back
+							<a href="flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> 
 							</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
@@ -241,10 +241,10 @@
 					<div class="clearfix"></div>
 				</div>
 				<p class="padding1 hidden-sm hidden-xs">
-				The features above are indicative only. Please refer to the <a class="sub-link"
+				<fmt:message key="flight.quote.other.disclaimer.part1" bundle="${msg}" /> <a class="sub-link"
 						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
-						target="_blank">Policy Provisions</a> for details. <br>
-For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
+						target="_blank"><fmt:message key="flight.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.quote.other.disclaimer.part3" bundle="${msg}" /> <br>
+                        <fmt:message key="flight.quote.other.disclaimer.part4" bundle="${msg}" />
 					</p>
 			</form>
 		</div>
@@ -260,7 +260,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 <div class="hidden-lg hidden-md text-center">
 	<div class="btn-box">
 		<h3 class="text-center marg-t">
-			<a href="flight-plan-details">Next</a>
+			<a href="flight-plan-details"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
 		</h3>
 	</div>
 
@@ -276,9 +276,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 			<div class="login-form" id="sendmailofpromocode">
 				<form>
 					<div class="form-container">
-						<h2>Don't have a promotion code? Enter your email address and
-							we'll send you one.</h2>
-						<h4>Email</h4>
+						<h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
+						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
@@ -287,7 +286,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
 								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return sendEmail()">Submit</a>
+									onclick="return sendEmail()"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
 							</div>
 							<div class="col-md-2">
 								<br>
@@ -297,8 +296,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</div>
 							<br> <br>
 							<div class="col-lg-12 col-md-12">
-								<p>By submitting my email address I agree to receive FWD's
-									promotion code and other offers in the future.</p>
+								<p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
 							</div>
 						</div>
 					</div>
