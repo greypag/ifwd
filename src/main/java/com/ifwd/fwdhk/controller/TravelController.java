@@ -271,7 +271,7 @@ public class TravelController {
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
 		
-		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request)
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-plan");
 	}
 
