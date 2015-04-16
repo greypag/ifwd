@@ -95,7 +95,7 @@ public class TravelController {
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
 		
-		return new ModelAndView(UserRestURIConstants.checkLangSetPage(request) + "travel/travel");			
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");			
 	}
 
 	

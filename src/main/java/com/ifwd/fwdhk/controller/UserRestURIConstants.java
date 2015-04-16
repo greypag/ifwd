@@ -112,7 +112,10 @@ public class UserRestURIConstants {
 		if(session.getAttribute("language")!=null){
 			lang = session.getAttribute("language").toString();
 		}else{
+			// defalut language
 			session.setAttribute("language", lang);
+			// default locale
+			session.setAttribute("uiLocale", "zh-HK");
 		}
 			
 		return lang;
