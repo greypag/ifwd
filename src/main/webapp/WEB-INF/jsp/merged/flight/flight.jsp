@@ -160,7 +160,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <input type="hidden" name="" id="family_desk_count" value="${planDetails.getTotalFamilyTravellers()}">
                       <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
                         <div class="col-lg-6">
-                          <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /></h4>
+                          <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /> </h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
@@ -179,7 +179,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <!-- start of family plan desk spinner-->
                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
-                          <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /></h4>
+                          <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /> </h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
@@ -207,7 +207,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-6">
-                          <h4>Other</h4>
+                          <h4><fmt:message key="flight.main.quote.plan2.type3" bundle="${msg}" /></h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
