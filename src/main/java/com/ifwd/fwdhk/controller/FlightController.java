@@ -75,7 +75,7 @@ public class FlightController {
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
 	@RequestMapping(value = {"/flight", "/{language}/flight-insurance"})
-	public ModelAndView flight(HttpServletRequest request, Model model, @PathVariable String language) {
+	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.getSitePath(request) + "flight/flight";
@@ -190,7 +190,8 @@ public class FlightController {
 			planDetails = (PlanDetails) session
 					.getAttribute("flightPlanDetails");
 			if(planDetails == null){
-				return flight(request, model, "tc");				
+//				return flight(request, model, "tc");
+				return flight(request, model);	
 			}			
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
@@ -316,7 +317,8 @@ public class FlightController {
 							+ "flight/flight-plan");
 
 		} else {
-			return flight(request, model, "tc");
+//			return flight(request, model, "tc");
+			return flight(request, model);
 		}
 	}
 
@@ -332,13 +334,16 @@ public class FlightController {
 		HttpSession session = request.getSession();
 		
 		if (session.getAttribute("token") == null) {
-			return flight(request, model, "tc");				
+			return flight(request, model);
+//			return flight(request, model, "tc");
+			
 		}
 		// redirect to 1ST step when null
 		planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");		
 		if(planDetails == null){
-			return flight(request, model, "tc");	
+//			return flight(request, model, "tc");	
+			return flight(request, model);	
 		}
 		
 		planDetails.setTotalDue(request.getParameter("ToalDue"));
@@ -814,7 +819,9 @@ public class FlightController {
 				
 				// redirect to 1ST step when null 
 				if(createFlightPolicy == null){
-					return flight(request, model, "tc");				
+					//return flight(request, model, "tc");
+					return flight(request, model);
+					
 				}				
 			}
 
