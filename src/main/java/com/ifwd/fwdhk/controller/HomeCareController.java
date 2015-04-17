@@ -231,8 +231,7 @@ public class HomeCareController {
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 
-		String answer1 = request.getParameter("answer1");
-		String answer2 = request.getParameter("answer2");
+
 
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		try {
@@ -259,8 +258,7 @@ public class HomeCareController {
 			model.addAttribute("districtList", districtList);
 			model.addAttribute("mapNetFloorArea", mapNetFloorArea);
 
-			model.addAttribute("answer1", answer1);
-			model.addAttribute("answer2", answer2);
+
 
 		}
 
@@ -350,7 +348,7 @@ public class HomeCareController {
 		if (createdPolicy == null) {
 			createdPolicy = homecareService.createHomeCarePolicy(userName,
 					token, homeCareDetails, userDetails,
-					UserRestURIConstants.getLanaguage(request));
+					UserRestURIConstants.getLanaguage(request), (String)session.getAttribute("referralCode"));
 		}
 		
 		model.addAttribute("createdPolicy", createdPolicy);

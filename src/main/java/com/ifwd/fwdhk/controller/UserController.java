@@ -402,12 +402,14 @@ public class UserController {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
-		
-		
+		String lang = "CN";
+		session.setAttribute("language", lang);
+		// default locale
+		session.setAttribute("uiLocale", "zh-HK");
 		
 
 		
-		String dir = UserRestURIConstants.checkLangSetPage(req);
+		String dir = UserRestURIConstants.getSitePath(req);
 		
 //		session.setAttribute("language", "EN");
 		return "../jsp/" + dir + "/index";

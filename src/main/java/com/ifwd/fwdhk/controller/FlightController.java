@@ -23,11 +23,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 
 
 
@@ -72,8 +74,8 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;	
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = {"/flight", "/flight-insurance"})
-	public ModelAndView flight(HttpServletRequest request, Model model) {
+	@RequestMapping(value = {"/flight", "/{language}/flight-insurance"})
+	public ModelAndView flight(HttpServletRequest request, Model model, @PathVariable String language) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.getSitePath(request) + "flight/flight";
@@ -188,7 +190,7 @@ public class FlightController {
 			planDetails = (PlanDetails) session
 					.getAttribute("flightPlanDetails");
 			if(planDetails == null){
-				return flight(request, model);				
+				return flight(request, model, "tc");				
 			}			
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
@@ -314,7 +316,7 @@ public class FlightController {
 							+ "flight/flight-plan");
 
 		} else {
-			return flight(request, model);
+			return flight(request, model, "tc");
 		}
 	}
 
@@ -330,13 +332,13 @@ public class FlightController {
 		HttpSession session = request.getSession();
 		
 		if (session.getAttribute("token") == null) {
-			return flight(request, model);				
+			return flight(request, model, "tc");				
 		}
 		// redirect to 1ST step when null
 		planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");		
 		if(planDetails == null){
-			return flight(request, model);	
+			return flight(request, model, "tc");	
 		}
 		
 		planDetails.setTotalDue(request.getParameter("ToalDue"));
@@ -812,7 +814,7 @@ public class FlightController {
 				
 				// redirect to 1ST step when null 
 				if(createFlightPolicy == null){
-					return flight(request, model);				
+					return flight(request, model, "tc");				
 				}				
 			}
 

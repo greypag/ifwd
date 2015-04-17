@@ -383,7 +383,7 @@ public class TravelController {
 			} else {
 				model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
 				System.out.println(responseJsonObj.toString());
-				return (String)responseJsonObj.get("errMsgs");
+				return responseJsonObj.get("errMsgs").toString();
 			}
 
 		} catch (Exception e) {

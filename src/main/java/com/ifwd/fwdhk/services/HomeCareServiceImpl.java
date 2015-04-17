@@ -403,7 +403,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 					"paymentType"));
 			createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
 		} else {
-			createPolicy.setErrMsgs((String)responsObject.get("errMsgs"));
+			createPolicy.setErrMsgs(responsObject.get("errMsgs").toString());
 		}
 		
 		return createPolicy;

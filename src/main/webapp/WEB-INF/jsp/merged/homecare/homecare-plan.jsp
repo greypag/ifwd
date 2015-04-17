@@ -313,7 +313,7 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
+															class="fa fa-plus"></i>ABC123 <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -375,7 +375,7 @@
 																	loss of or damage to household contents:<br /> (a)
 																	whilst in transit between current home and new home by
 																	professional removers within Hong Kong; or<br /> (b)
-																	whilst in temporary storage, for up to 7 days in a
+																	whilst in temporar`y storage, for up to 7 days in a
 																	furniture depository; or<br /> (c) whilst at the new
 																	home but before occupied as permanent residence up to 2
 																	months<br /> (you have to notify us before your move)

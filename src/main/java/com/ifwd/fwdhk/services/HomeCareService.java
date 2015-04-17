@@ -28,7 +28,7 @@ public interface  HomeCareService {
 	
 	public Map<String, String> getNetFloorArea(String userName, String token, String language); 
 	
-	public CreatePolicy createHomeCarePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language);
+	public CreatePolicy createHomeCarePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language, String referralCode);
 	public CreatePolicy confirmHomeCarePolicy(String userName, String token,
 			String referenceNo, String language);
 	/*public List<String>confirmHomeCare(String userName, String token, String referenceNo, String transactionNumber,String transactionDate, String creditCardNo, String expiryDate);*/ 

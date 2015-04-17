@@ -1,6 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
+
 <%-- <%
 	session.setAttribute("language", "EN");
 	session.setAttribute("page", request.getServletPath());
@@ -52,35 +57,21 @@
 <dec:head />
 
 </head>
-
-
 	<%
-		if (langFlag && "EN".equals(session.getAttribute("language").toString())) {
+	if (langFlag && "EN".equals(session.getAttribute("language").toString())) {
 	%>
-	<body>
-	<%@ include file="include/header.jsp"%>
+		<body>
 	<%
-		} else {
+	} else {
 	%>
-	<body class="chin">
-	<%@ include file="include/cn-header.jsp"%>
+		<body class="chin">	
 	<%
-		}
+	}
 	%>
+	<%@ include file="include/merged/header.jsp"%>
 	<dec:body />
-
-	<%
-		if (langFlag && "EN".equals(session.getAttribute("language").toString())) {
-	%>
-	<%@ include file="include/footer.jsp"%>
-	<%
-		} else {
-	%>
-	<%@ include file="include/cn-footer.jsp"%>
-	<%
-		}
-	%>
-
+	<%@ include file="include/merged/footer.jsp"%>
+	
 	<script type="text/javascript">
 		window.status = "Done";
 	</script>
