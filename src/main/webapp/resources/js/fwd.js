@@ -695,11 +695,18 @@ $(function () {
 					return false;
 				}else{
 					var tr = chkTravelHKPass(appHkid.trim());
+                    var tr1 = chkTravelHKPassLen(appHkid.trim());
+                    
 					if (tr == false) {
 						$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 						
 						return false;
 					}	
+					if (tr1 == false) {
+						$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message"));
+						
+						return false;						
+					}
 				}
 				
 			}else{ 
@@ -1479,11 +1486,17 @@ function tPlanValid()
 		}
 		else {
 			var tr = chkTravelHKPass(appHkid.trim());
+			var tr1 = chkTravelHKPassLen(appHkid.trim());
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 				
 				flag = false;
 			}
+			if (tr1 == false) {
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message"));
+				
+				flag = false;
+			}			
 		}
 	}
 
@@ -2587,6 +2600,19 @@ $(window).load(function(){
 	});
 });//]]> 
 
+function chkTravelHKPassLen(value) {
+   var len = value.length;
+   
+   if (len > 15)
+   {
+	   return false;
+   }
+   else
+   {
+	   return true;
+   }
+}
+
 function chkTravelHKPass(value) {
     var flag = true;
     var filter = /^[!??%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
@@ -2700,11 +2726,18 @@ function hc_planValid() {
 		}
 		else {
 			var tr = chkTravelHKPass(appHkid.trim());
+			var tr1  = chkTravelHKPassLen(appHkid.trim());
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 				
 				flag = false;
 			}
+			if (tr1 == false) {
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message"));
+				
+				flag = false;
+			}			
+			
 		}
 	}
     
@@ -3031,6 +3064,11 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		return false;
 	}else if(!IsHKID(element.value) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notValid.message");
+		msg = String.format(msg, type);
+		document.getElementById(errElementId).innerHTML = msg;
+		return false;
+	}else if(!chkTravelHKPassLen(element.value) && type == 'Passport'){
+		var msg = getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
