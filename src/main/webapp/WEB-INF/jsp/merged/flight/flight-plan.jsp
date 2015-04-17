@@ -35,9 +35,9 @@
 
 
 			<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="flight.quote.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="flight.quote.breadcrumb1.item2" bundle="${msg}" /> </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.quote.breadcrumb1.item3" bundle="${msg}" /></li>
+					<li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </a></li>
+					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div
@@ -59,17 +59,17 @@
 							<div
 								class="image-order-status image-order-status-new active  img-circle">
 								<div class="icon">1</div>
-								<span class="status"><fmt:message key="flight.quote.breadcrumb2.item1" bundle="${msg}" /></span>
+								<span class="status"><fmt:message key="flight.quote.breadcrumb1.item1" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-active disabled  img-circle">
 								<div class="icon">2</div>
-								<span class="status"><fmt:message key="flight.quote.breadcrumb2.item2" bundle="${msg}" /></span>
+								<span class="status"><fmt:message key="flight.quote.breadcrumb1.item2" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-intransit disabled  img-circle">
 								<div class="icon">3</div>
-								<span class="status min-left"><fmt:message key="flight.quote.breadcrumb2.item3" bundle="${msg}" /></span>
+								<span class="status min-left"><fmt:message key="flight.quote.breadcrumb1.item3" bundle="${msg}" /></span>
 							</div>
 						</div>
 					</div>
@@ -202,11 +202,11 @@
               	
               
               		<%-- <input type="text" class="datepicker form-control" value=" --%>
-								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.quote.traveller.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.quote.traveller.children" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.quote.traveller.other" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
+								<c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
 								<c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.quote.traveller.traveller" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
-								
+																
               	</div>
               </div>
 							
