@@ -93,16 +93,27 @@ function submitLoginForm(formID) {
 						id="headerLoginForm">
 
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="<%=request.getContextPath()%>">主頁</a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li><a href="home"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li><a href="joinus"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
-							<li><a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a></li>
+							<li>
+							<%
+							if ("EN".equals(session.getAttribute("language").toString())) {
+							%>
+								<a id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+							<%
+							} else {
+							%>
+								<a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
+							<%
+							}
 							
-
+							 %>
+							 </li>
 							<%
 								if (session.getAttribute("authenticate") == null ) {
 							%>

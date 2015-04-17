@@ -1,6 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -210,7 +213,7 @@
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label
 								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /><a
-								href="http://fwd.com.hk/zh-HK/home/pdo.html" class="sub-link">#member.registration.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								href="http://fwd.com.hk/zh-HK/home/pdo.html" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 								<hr />
 								若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。 <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 							</label>

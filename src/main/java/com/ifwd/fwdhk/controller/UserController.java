@@ -194,7 +194,8 @@ public class UserController {
 					}
 
 					servletRequest.setAttribute("al", al);
-					return new ModelAndView(UserRestURIConstants.checkLangSetPage(servletRequest)+"useraccount");
+					return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+"useraccount");
+//					return new ModelAndView(UserRestURIConstants.checkLangSetPage(servletRequest)+"useraccount");
 					/*
 					 * } else{ return new
 					 * ModelAndView("useraccount","messageFromCtrl"
@@ -202,7 +203,7 @@ public class UserController {
 					 */
 				}
 			}
-			return new ModelAndView(UserRestURIConstants.checkLangSetPage(servletRequest)+ "useraccount");
+			return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+ "useraccount");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -215,7 +216,8 @@ public class UserController {
 		/* UserDetails userDetails = new UserDetails(); */
 		UserDetails userDetails = new UserDetails();
 		model.addAttribute("userDetails", userDetails);
-		return UserRestURIConstants.checkLangSetPage(req)+ "joinus";
+		return UserRestURIConstants.getSitePath(req)+ "joinus";
+//		return UserRestURIConstants.checkLangSetPage(req)+ "joinus";
 	}
 
 	@RequestMapping(value = "/useraccount", method = RequestMethod.GET)
@@ -326,7 +328,7 @@ public class UserController {
 			if (jsonResponse.get("errMsgs") == null) {
 				return jsonResponse.get("userName").toString();
 			} else {
-				return "~~~" + jsonResponse.get("errMsgs").toString();
+				return jsonResponse.get("errMsgs").toString();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -336,7 +338,8 @@ public class UserController {
 
 	@RequestMapping(value = {"/forgotUserName", "/forgot-user-name"}, method = RequestMethod.GET)
 	public String forgotUserNameFields(HttpServletRequest req) {
-		return UserRestURIConstants.checkLangSetPage(req) + "forgot-username";
+		//return UserRestURIConstants.checkLangSetPage(req) + "forgot-username";
+		return UserRestURIConstants.getSitePath(req) + "forgot-username";
 	}
 
 	@RequestMapping(value = {"/forgotUserPassword", "/forgot-password"}, method = RequestMethod.POST)
@@ -364,7 +367,9 @@ public class UserController {
 
 	@RequestMapping(value = {"/forgotPassword", "/forgot-password"}, method = RequestMethod.GET)
 	public String forgotUserPasswordFields(HttpServletRequest req) {
-		return UserRestURIConstants.checkLangSetPage(req) + "forgot-password";
+		//return UserRestURIConstants.checkLangSetPage(req) + "forgot-password";
+		return UserRestURIConstants.getSitePath(req) + "forgot-password";
+		
 	}
 
 	@RequestMapping(value = "/indexPage", method = RequestMethod.GET)
@@ -403,10 +408,10 @@ public class UserController {
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
 		String lang = "CN";
-		session.setAttribute("language", lang);
-		// default locale
-		session.setAttribute("uiLocale", "zh-HK");
-		
+//		session.setAttribute("language", lang);
+//		// default locale
+//		session.setAttribute("uiLocale", "zh-HK");
+//		
 
 		
 		String dir = UserRestURIConstants.getSitePath(req);

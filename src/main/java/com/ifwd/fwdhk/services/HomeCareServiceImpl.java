@@ -367,7 +367,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		correspondenceAddress.put("district", homeCareDetails.getaDistrict());
 		correspondenceAddress.put("area", homeCareDetails.getaArea());
 		parameters.put("insuredAddress", insuredAddress);
-
+		parameters.put("referralCode", referralCode);
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", userName);
 		header.put("token", token);
