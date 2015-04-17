@@ -193,7 +193,7 @@
 										<div class="col-md-4">
 											<button type="submit"
 												class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
-												onclick="return msgAlertDesk('getHomeQuote')">Get Quote</button>
+												onclick="return msgAlertDesk('getHomeQuote')"><fmt:message key="home.main.quote.top.action" bundle="${msg}" /></button>
 										</div>
 										<div class="clearfix"></div>
 										<p class="col-xs-12 mute">
@@ -323,19 +323,18 @@
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
 							<h2>
-								Protection that covers your <br> home, you and your family
+								<fmt:message key="home.main.feature3.heading.part1" bundle="${msg}" />
+								<fmt:message key="home.main.feature3.heading.part2" bundle="${msg}" />
 
 							</h2>
 							<p class="h4-3">
-								Easy HomeCare's personal liability coverage provides protection
-								for you and your family. If someone sustains a accidential
-								bodily injury or accidental property damage and you, or your
-								family members, are responsible, we’ll pay up to HK$5 million on
-								legal expenses*...anywhere in the world! <br>
-								<br> <small>*provided that the legal proceedings is
-									submitted to the Hong Kong court.</small>
+							
+							
+								<fmt:message key="home.main.feature3.paragraph.part1" bundle="${msg}" /><br>
+								<br> <small><fmt:message key="home.main.feature3.paragraph.part2" bundle="${msg}" />
+								</small>
 							</p>
-							<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
+							<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -355,13 +354,14 @@
 				<div class="col-xs-8 col-sm-8">
 					<div>
 						<h2 class="h2-3">
-							Protection for everything <br> that matters to you
+							<fmt:message key="home.main.feature1.heading.part1" bundle="${msg}" /><br>
+							<fmt:message key="home.main.feature1.heading.part2" bundle="${msg}" />
+						
+
 						</h2>
-						<p class="h4-3">You’ll receive extensive 'All Risks' cover: up
-							to HK$500,000 on Household Contents as well as up to HK$100,000
-							for personal items, with a maximum of $10,000 per item. So with
-							us, from your furniture to your freezer food you are protected.</p>
-						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
+						<p class="h4-3"><fmt:message key="home.main.feature1.paragraph" bundle="${msg}" /><br>
+							</p>
+						<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -373,14 +373,11 @@
 				<div class="col-xs-8 col-sm-8">
 					<div>
 						<h2 class="h2-3">
-							Protection that goes <br> beyond just replacements
+							<fmt:message key="home.main.feature2.heading.part1" bundle="${msg}" /><br>
+							<fmt:message key="home.main.feature2.heading.part2" bundle="${msg}" />
 						</h2>
-						<p class="h4-3">In an event where your home becomes
-							uninhabitable as a result of accidental loss or damage, we will
-							help you with the costs of alternative accommodation of up to
-							HK$1,000 per day / HK$50,000 per year so things can get back on
-							track.</p>
-						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
+						<p class="h4-3"><fmt:message key="home.main.feature2.paragraph" bundle="${msg}" /></p>
+						<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -392,19 +389,15 @@
 				<div class="col-xs-8 col-sm-8">
 					<div>
 						<h2 class="h2-3">
-							Protection that covers your <br> home, you and your family
+							<fmt:message key="home.main.feature3.heading.part1" bundle="${msg}" /><br>
+							<fmt:message key="home.main.feature3.heading.part2" bundle="${msg}" />
 						</h2>
 						<p class="h4-3">
-							Easy HomeCare's personal liability coverage provides protection
-							for you and your family. If someone sustains a accidential bodily
-							injury or accidental property damage and you, or your family
-							members, are responsible, we’ll pay up to HK$5 million on legal
-							expenses*...anywhere in the world! <br>
-							<small>*provided that the legal proceedings is submitted
-								to the Hong Kong court.</small>
+							<fmt:message key="home.main.feature3.paragraph.part1" bundle="${msg}" /><br>
+							<small><fmt:message key="home.main.feature3.paragraph.part2" bundle="${msg}" /></small>
 
 						</p>
-						<a href="" class="h4-4 scrollToTop">Get a quote to learn more</a>
+						<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 					</div>
 				</div>
 				<div class="text-red"><c:out value="${errMsgs}" /></div>
@@ -416,12 +409,12 @@
 
 
 				<p class="col-xs-12 h4-6">
-					The features above are indicative only. Please refer to the <a
-						href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-						target="_blank" class="sub-link"> Policy Provisions </a> for
-					details.<br> For a complete explanation of the terms and
-					conditions, feel free to contact an adviser or our 24-hour hotline
-					at 3123 3123 for more details.
+				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /><br>
+							
+					<a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
+					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
+					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
 
 
 				</p>
@@ -447,14 +440,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="recent-work-inner">
 							<img src="resources/images/time.png" alt="" />
 							<h1>
-								Here When<br> You Need Us
+								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
 							</h1>
 							<p>
-								Our 24x7 call centre support, 5 drop-in locations across Hong
-								Kong and our <a
+								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
 									href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
-									target="_blank">app</a> ensures you get the support you need,
-								when you need it.
+									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 							</p>
 						</div>
 					</div>
@@ -463,11 +454,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap-mid wrap text-center">
 						<div class="recent-work-inner">
 							<img src="resources/images/secure.png" alt="" />
-							<h1>Secure <br> &amp; Stable</h1>
+							<h1><fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" /></h1>
 							<p>
-								We have been assigned strong financial strength ratings by
-								international rating agencies -- we have been rated "A3" by
-								Moody's and "A" by Fitch. <br>
+								<fmt:message key="home.main.highlight2.desc" bundle="${msg}" /><br>
 							</p>
 						</div>
 					</div>
@@ -476,12 +465,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
 							<img src="resources/images/rewards.png" alt="" />
-							<h1>
-								Rewards &amp;<br> Benefits
-							</h1>
-							<p>We continue to find you great rewards and benefits that
-								let you get more from your insurance -- discounts on future
-								insurance, special offers from partners and more.</p>
+							<h1><fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" /></h1>
+							<p>
+								<fmt:message key="home.main.highlight3.desc" bundle="${msg}" /><br>
+							</p>
 
 						</div>
 					</div>
@@ -503,16 +490,17 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
 									<img src="resources/images/time.png" alt="" />
+									
 									<h1>
-										Here When<br> You Need Us
-									</h1>
-									<p>
-										Our 24x7 call centre support, 5 drop-in locations across Hong
-										Kong and our <a
-											href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
-											target="_blank">app</a> ensures you get the support you need,
-										when you need it.
-									</p>
+								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
+							</h1>
+									
+								<p>
+								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
+									href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
+									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
+								</p>
+									
 								</div>
 							</div>
 						</div>
@@ -525,13 +513,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="recent-work-wrap-mid text-center">
 								<div class="recent-work-inner">
 									<img src="resources/images/secure.png" alt="" />
-									<h1>
-										Secure <br> &amp; Stable
-									</h1>
+										<h1>
+								<fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" />
+							</h1>
 									<p>
-										We have been assigned strong financial strength ratings by
-										international rating agencies -- we have been rated "A3" by
-										Moody's and "A" by Fitch. <br>
+										<fmt:message key="home.main.highlight2.desc" bundle="${msg}" /><br>
 									</p>
 								</div>
 							</div>
@@ -546,11 +532,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<div class="recent-work-inner">
 									<img src="resources/images/rewards.png" alt="" />
 									<h1>
-										Rewards &amp;<br> Benefits
+										<fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" />
 									</h1>
-									<p>We continue to find you great rewards and benefits that
-										let you get more from your insurance -- discounts on future
-										insurance, special offers from partners and more.</p>
+									<p><fmt:message key="home.main.highlight3.desc" bundle="${msg}" /><br></p>
 
 								</div>
 							</div>
@@ -578,7 +562,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 			<!--desktop-testimonials-->
 			<div class="hidden-sm hidden-xs">
 				<div class="center">
-					<h2>Customer testimonials</h2>
+					<h2><fmt:message key="home.main.testimonial.heading" bundle="${msg}" /></h2>
 				</div>
 				<div class="col-lg-5 col-md-5 pad-none pull-left">
 					<div class="testimonials-wrap text-center">
@@ -586,14 +570,13 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none text-italic">I immediately switched my home insurance
-								to FWD Easy HomeCare plan when I realized that it was probably
-								the best plan in town yet the cheapest I can find so far. The
-								process was quick and easy; it only took me a few minutes to
-								complete the process.</p>
+							<p class="pad-none text-italic">
+								<fmt:message key="home.main.testimonial.customer1" bundle="${msg}" />
+								
+							</p>
 							<br>
 							<div class="hr1"></div>
-							<h2>Michelle</h2>
+							<h2><fmt:message key="home.main.testimonial.customer1.name" bundle="${msg}" /></h2>
 							<h4></h4>
 						</div>
 					</div>
@@ -604,15 +587,13 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="h1-1">
 								<blockquote class="testimonial"></blockquote>
 							</div>
-							<p class="pad-none text-italic">FWD HomeCare is my first insurance with
-								FWD. At first, I just planned to find a simple product with
-								personal liability coverage but I found a comprehensive product
-								from FWD with “All Risks” coverage online, that could even
-								protect my valuables at home! I would recommend this Home
-								Insurance plan to anyone!</p>
+							<p class="pad-none text-italic">
+							
+								<fmt:message key="home.main.testimonial.customer2" bundle="${msg}" />
+								</p>
 							<div class="hr1"></div>
-							<h2>Adrian</h2>
-							<h4>(One very happy customer)</h4>
+							<h2><fmt:message key="home.main.testimonial.customer2.name1" bundle="${msg}" /></h2>
+							<h4><fmt:message key="home.main.testimonial.customer2.name2" bundle="${msg}" /></h4>
 						</div>
 					</div>
 				</div>
@@ -621,11 +602,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 				<br>
 				<P class="pad-none p1">
-					<br> The opinion and view expressed here are entirely the
-					writer's own and do not represent the views of FWD Life Insurance
-					Company (Bermuda) Limited or its affiliates (“FWD”). FWD does not
-					take any responsibility for that opinion and view, nor endorse
-					their accuracy or completeness.
+					<br> <fmt:message key="home.main.testimonial.disclaimer" bundle="${msg}" />
 
 				</P>
 			</div>
@@ -641,7 +618,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<section id="testimonials-mob" class="hidden-lg hidden-md">
 		<div class="carousel slide">
 			<div class="center">
-				<h2>Customer Testimonials</h2>
+				<h2><fmt:message key="home.main.testimonial.heading" bundle="${msg}" /></h2>
 			</div>
 			<div class="carousel-inner">
 				<div class="item active">
@@ -652,13 +629,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									<div class="h1-1">
 										<blockquote class="testimonial"></blockquote>
 									</div>
-									<p>I immediately switched my home insurance to FWD Easy
-										HomeCare plan when I realized that it was probably the best
-										plan in town yet the cheapest I can find so far. The process
-										was quick and easy; it only took me a few minutes to complete
-										the process.</p>
+									<p>
+									<fmt:message key="home.main.testimonial.customer1" bundle="${msg}" />
+									</p>
 									<div class="hr1"></div>
-									<h2>Michelle</h2>
+									<h2><fmt:message key="home.main.testimonial.customer1.name" bundle="${msg}" /></h2>
 									<h4></h4>
 								</div>
 							</div>
@@ -674,15 +649,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									<div class="h1-1">
 										<blockquote class="testimonial"></blockquote>
 									</div>
-									<p>FWD HomeCare is my first insurance with FWD. At first, I
-										just planned to find a simple product with personal liability
-										coverage but I found a comprehensive product from FWD with
-										“All Risks” coverage online, that could even protect my
-										valuables at home! I would recommend this Home Insurance plan
-										to anyone!</p>
+									<p>
+									<fmt:message key="home.main.testimonial.customer2" bundle="${msg}" />
+									</p>
 									<div class="hr1"></div>
-									<h2>Adrian</h2>
-									<h4>(One very happy customer)</h4>
+									<h2><fmt:message key="home.main.testimonial.customer2.name1" bundle="${msg}" /></h2>
+									<h4><fmt:message key="home.main.testimonial.customer2.name2" bundle="${msg}" /></h4>
 								</div>
 							</div>
 						</div>
@@ -703,7 +675,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<section class="blog-item hidden-sm hidden-xs">
 		<div class="container pad-none">
 			<div class="center">
-				<h2>Read more from our blog</h2>
+				<h2><fmt:message key="home.main.blog.heading" bundle="${msg}" /></h2>
 			</div>
 			<div>
 				<div class="col-lg-4 col-md-4 pad-none">
@@ -713,7 +685,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home8.png" alt=""></a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank">
-									Protecting your family <br /> heirlooms <i
+									<fmt:message key="home.main.blog.subheading1.part1" bundle="${msg}" /> <br /> <fmt:message key="home.main.blog.subheading1.part2" bundle="${msg}" /><i
 									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
@@ -729,8 +701,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home9.png" alt="">
 								</a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank"> Top tips
-									to make a small flat stylish <i class="fa fa-caret-right"></i>
+								<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank"> 
+								<fmt:message key="home.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
 								</a>
 							</h3>
 
@@ -745,7 +717,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home10.png" alt=""></a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
-									Preventing household <br /> accidents <i
+									<fmt:message key="home.main.blog.subheading3.part1" bundle="${msg}" /> <br /> <fmt:message key="home.main.blog.subheading3.part2" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
@@ -757,16 +729,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="clearfix"></div>
 			</div>
 
-			<p>The information provided in the blogs is for reference only.
-				While FWD Life Insurance Company (Bermuda) Limited and its
-				affiliates (“FWD”) use reasonable efforts to ensure the information
-				is accurate, FWD makes no warranties or representations as to the
-				accuracy or completeness of any of the information and assumes no
-				liability for any errors or omissions thereof. FWD shall not be
-				liable for any direct, incidental, consequential, indirect or
-				punitive damages arising out of access to, use of or inability to
-				use the information, or any errors or omissions in the content of
-				this material. Users should carefully evaluate the information.</p>
+			<p>
+			<fmt:message key="home.main.blog.disclaimer" bundle="${msg}" />
+			
+			</p>
 
 
 			<!--/.row-->
@@ -782,7 +748,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom"
 					action="getHomePlan" method="post" modelAttribute="homeCarelPlan">
 					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare">
-						<h2>Get your Easy HomeCare insurance now</h2>
+						<h2><fmt:message key="home.main.quote.bottom.heading" bundle="${msg}" /></h2>
 						<%
 							List blst = (List) request
 										.getAttribute("homeCareQuetionariesList");
@@ -825,13 +791,13 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="col-lg-4 col-md-2 ">
 							<button type="submit"
 								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
-								onclick="return msgAlertDesk('getHomeQuoteBottom')">Get Quote</button>
+								onclick="return msgAlertDesk('getHomeQuoteBottom')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>
 						<p class="pad-none mute">
 							<!-- FWD Easy HomeCare*<br>
-							<br>  -->*applicable to any home below gross area of 1,000 sq.
-							ft.
+							<br>  -->
+							<fmt:message key="home.main.quote.terms" bundle="${msg}" />
 						</p>
 					</div>
 				</form:form>
