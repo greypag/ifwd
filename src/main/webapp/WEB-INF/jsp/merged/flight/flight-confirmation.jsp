@@ -216,7 +216,7 @@ id="box<%=i%>">
 								</h2>
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-<br>
+
 <h3>HK$</h3>
 <span id="totalDue"></span>
 <h6><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></h6>
@@ -246,7 +246,7 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 </div>
 <div class="clearfix"></div>
 </div>
-<h5> <a href="javascript:void(0)" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary btn-next" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
 </div>
 </div>
 

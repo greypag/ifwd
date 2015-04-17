@@ -473,8 +473,9 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 
 						</div>
 
-						<h4 class="h4-2 padding3"><fmt:message key="flight.details.declarations.heading" bundle="${msg}" /></h4>
+						
 						<div class="declaration-content">
+							<h4 class="h4-2"><fmt:message key="flight.details.declarations.heading" bundle="${msg}" /></h4>
 							<div class="checkbox">
 								<input id="checkbox1" name="checkbox1" type="checkbox">
 								<label for="checkbox1"> <fmt:message key="flight.details.declarations.tnc" bundle="${msg}" />
@@ -490,7 +491,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 							</div>
 							<span id="chk1" class="text-red"> </span>
 							
-							
+								
 							<div class="checkbox">
 								<input id="checkbox2" type="checkbox"> <label for="checkbox2">
 									<fmt:message key="flight.details.declarations.PICS.part1" bundle="${msg}" /> <a
@@ -609,7 +610,7 @@ onclick="return flightPlanValidation();">Next</button> -->
 				<p class="padding1 hidden-sm hidden-xs">
 					<fmt:message key="flight.details.other.disclaimer.part1" bundle="${msg}" /> <a
 						class="sub-link"
-						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="flight.details.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="flight.details.other.disclaimer.part3" bundle="${msg}" /><br><fmt:message key="flight.details.other.disclaimer.part4" bundle="${msg}" />
+						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="flight.details.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.details.other.disclaimer.part3" bundle="${msg}" /><br><fmt:message key="flight.details.other.disclaimer.part4" bundle="${msg}" />
 				</p>
 			</form:form>
 		</div>

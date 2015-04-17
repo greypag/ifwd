@@ -135,7 +135,7 @@
 							</div>
 
 						</div>
-						<br>
+						
 						<!--Full coverage end -->
 						<h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
 						<ol class="major-exc">

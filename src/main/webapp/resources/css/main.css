@@ -128,9 +128,9 @@ a {
 	transition: color 300ms, background-color 300ms;
 }
 .center h2 {
-	  font-size: 48px;
+	  font-size: 40px;
   margin-bottom: 30px;
-	/*font-family: 'Foco-bold';*/
+	
 	color: #f68a1d;
 }
 
@@ -225,7 +225,7 @@ ul.maintabs li a span.offer:hover{
 .travel-and-home-tab{top:38px; position:relative;}
 /**/
 #middle {
-background: #616163;
+background: #505759;
 z-index: 11;
 width: 100%;
 bottom: 0px;
@@ -274,7 +274,6 @@ width: 100%;
 #bottom-form h2 {
 	color: #fff;
 	font-size: 36px;
-	line-height: 26px;
 	font-weight: 700;
 }
 #bottom-form h3 {
@@ -351,7 +350,7 @@ width: 100%;
 
 .home-features h2 {
 	color: #061d2a;
-	font-size: 36px;
+	font-size: 28px;
 	padding: 0px;
 	text-align:left;
 }
@@ -685,7 +684,7 @@ vertical-align:middle;
 	padding-left: 20px;
 }
 .h4-2 {
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: bold;
 	line-height: 31.5px;
 	color: #061d2a;
@@ -699,7 +698,7 @@ vertical-align:middle;
 }
 
 .h4-3-b {
-	font-size: 24px;
+	font-size: 22px;
 	line-height: 31.5px;
 	line-height: 20px;
 	color: #061d2a;
@@ -709,7 +708,7 @@ vertical-align:middle;
 	font-weight: 500;
 }
 .h4-4 {
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 42px;
 	color: #f68a1d;
 	text-decoration: underline;
@@ -722,15 +721,14 @@ vertical-align:middle;
 	
 }
 .h4-5 {
-	font-size: 24px;
-	line-height: 42px;
+	font-size: 18px;
+	line-height: 1.4;
 	color: #061d2a;
 	
 	margin-bottom: 0;
 }
 .h4-6 {
-	font-size: 18px;
-	line-height: 24px;
+	font-size: 16px;
 	color: #061d2a;
 	
 	margin-bottom: 0;
@@ -3061,19 +3059,20 @@ h2.page-title {
   color: #fff !important;}
 .plan-box-flight:hover{background-color:#616163;}
 /* .plan-box:hover, .plan-box:hover a , .plan-box:hover h3 {color:#fff;  } */
-.plan-box a {color: #061d2a; }
+.plan-box a { }
 .plan-box {
 	/*background-color: #616163;*/
 	padding: 10px;
 	color: #061d2a;
 	/*border: 1px solid #616163;*/
 }
-.plan-box span{font-size:18px;}
+.plan-box span{
+	font-size:18px;
+	font-style: italic;
+}
 .plan-box h2 {
-	
-	line-height: 32px;
 	margin-left: 35px;
-	font-size: 24px;
+	font-size: 32px;
 	line-height: 42px;
 }
 .plan-box h3 {
@@ -3087,7 +3086,7 @@ h2.page-title {
 
 .plan-box h4 {
 	
-	margin-left: 50px;
+	margin-left: 35px;
 	font-size: 24px;
 	line-height: 42px;
 	
@@ -3105,8 +3104,9 @@ h2.page-title {
 .plan-box h5 {
 	
 	line-height: 32px;
-	margin-left: 50px;
-	font-size: 30px;
+	margin-left: 35px;
+	margin-right: 35px;
+	font-size: 36px;
 	font-weight:bold;
 }
 .plan-box p del {
@@ -3175,8 +3175,7 @@ h2.page-title {
 del {
 	font-size: 24px;
 	line-height: 31.5px;
-	
-	
+	font-style: italic;	
 }
 .plan-box2 h6 {
 	color: #061d2a;
@@ -3338,13 +3337,7 @@ del {
 	
 }
 .major-exc {
-	padding-left: 20px !important;
-	margin: 0px 10px;
-	
-	font-size: 18px;
-	line-height: 31.5px;
-	
-	font-weight: normal;
+	padding-left: 24px;	
 }
 .nxt-btn {
 	font-size: 28px;
@@ -4080,10 +4073,13 @@ article h2 {
 .other-benefits ul.bullets {
 	list-style-type: disc;
 	color: #f68a1d;
-	padding: 0px 30px;
-	font-size: 24px;
-	line-height: 42px;
+	padding: 0px 18px;
+	font-size: 18px;
+	line-height: 1.4;
 }
+.other-benefits ul.bullets li{
+	margin-bottom: 10px;
+} 
 .wrap {
 	height: 511px !important;
 }
@@ -5478,7 +5474,11 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
     padding: 0;
 }
 
-.major-exc li {padding:3px 0;}
+.major-exc li {
+	font-size: 18px;
+	line-height: 1.4;
+	margin-bottom: 10px;
+}
 .plan-box-flight {
 	margin-top:15px;	
 }
@@ -5544,9 +5544,9 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	border: 1px solid #616163;
 	color: #fff;
 }
-.travelproductbox:hover a,
+.travelproductbox:hover .fwdpanel .fwdpanel-heading a,
 .travelproductbox:hover h3{
-	color: #fff !important;
+	color: #fff ;
 }
 table.hor-padding >tbody>tr>td{
 	padding: 0 8px;
@@ -5646,7 +5646,7 @@ table.registration td .control-label{
 	margin: 0 !important;
 }
 .home-features .details-text{
-	  font-size: 27px;
+	  font-size: 20px;
   font-weight: normal;
   line-height: 1.2;
   color: #061d2a;
@@ -5908,4 +5908,14 @@ p.mute{
 	list-style: lower-roman outside;
 	margin-bottom: 0;
 	margin-top: 10px;
+	padding-left: 27px;
+}
+.ol-disclaimer li{
+	margin-bottom: 10px;
+}
+.pad-left-none{
+	padding-left: 0 !important;
+}
+table.activation-form3 > tbody > tr > td:not(.pad-none){
+	padding-left: 0;
 }

@@ -104,20 +104,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              <table class="table activation-form3">
           <tbody>
           <tr>
-              <td>
+              <td class="pad-left-none">
                 <h3><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h3>
               </td>
-              <td>
+              <td class="pad-left-none">
                 <h3><fmt:message key="flight.main.quote.q2" bundle="${msg}" /></h3>
               </td>
-              <td>
+              <td class="pad-left-none">
                 <h3><fmt:message key="flight.main.quote.q3" bundle="${msg}" /></h3>
               </td>
-              <td>
+              <td class="pad-left-none">
                 <div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i2">
                     <label id="lblPeopleDesk">0</label>
-                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> : 
+                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />; 
                     <label id="lblDaysDesk">0</label>
                     <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3>
                 </div>
@@ -395,10 +395,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!--/#main-slider-->
 
 <section id="feature" >
-  <div class="container pad-none">
+  <div class="container">
     <div class="center"> 
       <!--desktop-->
-      <h2 class="hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
+      <h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
       <!--end-desktop--> 
       
       <!--Mobile-->
@@ -458,7 +458,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </li>
           </ul>
           <div class="spacer3"></div>
-          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /><a href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
+          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         </div>
       </div>
