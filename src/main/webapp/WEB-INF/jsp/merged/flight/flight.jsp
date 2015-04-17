@@ -117,7 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i2">
                     <label id="lblPeopleDesk">0</label>
-                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />; 
+                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />
                     <label id="lblDaysDesk">0</label>
                     <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3>
                 </div>
