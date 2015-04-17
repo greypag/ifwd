@@ -378,7 +378,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div id="divPersonsMob" style="visibility:hidden;"> <br>
       <small>
       <label id="lblPeopleMob">0</label>
-       <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> : 
+       <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />; 
       <label id="lblDaysMob">0</label>
        <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </small> <br>
     </div>
@@ -408,9 +408,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <!--desktop Features-->
     <div class="hidden-xs hidden-sm">
-      <div class="col-lg-12 col-md-12 pad-none home-features">
-        <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home-flight1.png" alt=""  /> </div>
-        <div class="col-md-6 col-lg-6 pad-none">
+      <div class="col-md-10 col-md-offset-1 pad-none home-features">
+        <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight1.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
             <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
@@ -418,16 +418,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="clearfix"></div>
         <br>
-        <div class="col-md-6 col-lg-6 pad-none">
+        <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
             <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
             <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
-        <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
         <div class="clearfix"></div>
         <br>
-        <div class="col-md-6 col-lg-6 text-center pad-none"> <img src="resources/images/home-flight3.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight3.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
@@ -435,7 +435,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
         <div class="clearfix"></div>
-        <div class="other-benefits col-lg-12 col-md-12 pad-none">
+        <div class="other-benefits col-lg-12 col-md-12">
           <h3 class="h4-2"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h3>
           <ul class="bullets">
             <li>
@@ -671,7 +671,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i2">                    
                     <label id="lblPeopleBtm">0</label>
-                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> : 
+                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />; 
                     <label id="lblDaysBtm">0</label>
                     <input type="hidden" id="lblDaysBtm" name="daysJsp">
 					<fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3> 

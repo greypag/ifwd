@@ -64,12 +64,12 @@ class="image-order-status image-order-status-active  img-circle">
 <div class="container pad-none bdr">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gray-bg1">
 <h3>
-<fmt:message key="flight.confirmation.msg.part1" bundle="${msg}" /> <strong><fmt:message key="flight.confirmation.msg.part2" bundle="${msg}" /></strong>
-<fmt:message key="flight.confirmation.msg.part3" bundle="${msg}" /> <strong><fmt:message key="flight.confirmation.msg.part4" bundle="${msg}" /></strong><fmt:message key="flight.confirmation.msg.part5" bundle="${msg}" /><strong> <%-- <%=request.getAttribute("email")%> --%>
+<fmt:message key="flight.confirmation.msg.part1" bundle="${msg}" /> <fmt:message key="flight.confirmation.msg.part2" bundle="${msg}" />
+<fmt:message key="flight.confirmation.msg.part3" bundle="${msg}" /> <fmt:message key="flight.confirmation.msg.part4" bundle="${msg}" /> <br> <fmt:message key="flight.confirmation.msg.part5" bundle="${msg}" /> <%-- <%=request.getAttribute("email")%> --%>
 
 <%=request.getSession().getAttribute(
 "setEmailForConfirmation")%>
-</strong> <fmt:message key="flight.confirmation.msg.part6" bundle="${msg}" />
+ <fmt:message key="flight.confirmation.msg.part6" bundle="${msg}" />
 </h3>
 <%-- <h4>Reference Number :<span>${createFlightPolicy.getReferenceNo()}</span></h4> --%>
 <h4>
@@ -234,17 +234,17 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 </h4>
 </div>
 
-<div class="fwdpanel-body" style="display: none;">
+<div class="fwdpanel-body clearfix" style="display: none;">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<p>
-			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc1" bundle="${msg}" /> <br> 
-			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc2" bundle="${msg}" /><br> 
-			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc3" bundle="${msg}" /><br>
-			<i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc4" bundle="${msg}" /><br>
-		</p>
+		<ul>
+			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc1" bundle="${msg}" /></li> 
+			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc2" bundle="${msg}" /></li> 
+			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc3" bundle="${msg}" /></li>
+			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc4" bundle="${msg}" /></li>
+		</ul>
 	</div>
 </div>
-<div class="clearfix"></div>
+
 </div>
 <h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary btn-next" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
 </div>
