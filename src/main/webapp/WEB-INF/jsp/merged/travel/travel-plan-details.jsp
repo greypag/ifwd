@@ -119,7 +119,7 @@
 									<td class="pad-none"><input type="text" name="fullName"
 										class="form-control" id="inputFullName"
 										value="${userDetails.getFullName()}"
-										placeholder="與香港身份證/護照號碼相同" onblur="replaceAlpha(this);"
+										placeholder="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" />
 									<span id="fullnameinvalid" class="text-red">
 									</span></td>
@@ -138,7 +138,7 @@
 
 									</td>
 									<td class="pad-none">
-									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="X1234567/護照號碼"> <span
+									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
@@ -146,7 +146,7 @@
 										class="control-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="mobileNo" type="text"
 										class="form-control" value="${userDetails.getMobileNo().trim()}"
-										id="inputMobileNo" placeholder="手機號碼"
+										id="inputMobileNo" placeholder="<fmt:message key="travel.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" /> <span
 										id="mobileNo" class="text-red">
@@ -157,7 +157,7 @@
 										class="control-label bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input class="form-control" name="emailAddress"
 										value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
-										placeholder="電郵地址" maxlength="50"> <span id="emailid" class="text-red"></span></td>
+										placeholder="<fmt:message key="travel.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50"> <span id="emailid" class="text-red"></span></td>
 								</tr>
 							</tbody>
 						</table>
@@ -260,9 +260,9 @@
 									
 									<div class="row ">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
+											<label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label> <input type="text"
 												id="txtAdFullName${inx}" name="adultName" value=""
-												class="form-control" placeholder="與香港身份證/護照號碼相同"
+												class="form-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"></span>
@@ -278,7 +278,7 @@
 											/>
 											</div>
 										
-											<input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper" placeholder="X1234567/護照號碼" value="" /> 
+											<input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
 											<span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
 											<span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
 										</div>
@@ -317,7 +317,7 @@
 												<label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value=""
-													class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
+													class="form-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="erradultBenefitiaryId${inx}" class="text-red">
@@ -337,7 +337,7 @@
 												
 												<input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
-													class="form-control textUpper" placeholder="X1234567/護照號碼"
+													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
@@ -365,7 +365,7 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
 												name="childName" id="txtChldFullName${inx}" value=""
-												class="form-control " placeholder="與香港身份證/護照號碼相同"
+												class="form-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtChldFullName${inx}" class="text-red"></span>
@@ -378,7 +378,7 @@
 									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
-												class="form-control textUpper" placeholder="X1234567/護照號碼"
+												class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 												value="" /> <span id="errtxtChldInsuHkid${inx}"
 												class="text-red"> </span><span
 												id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -416,7 +416,7 @@
 												<label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
 													name="childBenificiaryFullName"
 													id="childBenefitiaryName${inx}" value=""
-													class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
+													class="form-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
@@ -428,7 +428,7 @@
 									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select><input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
-													class="form-control textUpper" placeholder="X1234567/護照號碼"
+													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 													value="" /> <span id="errtxtchildInsuHkid${inx}"
 													class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
 													class="text-red"> </span>
@@ -456,7 +456,7 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
-												class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
+												class="form-control " placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
@@ -468,7 +468,7 @@
 									<option><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
 									</select> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
-												class="form-control textUpper" placeholder="X1234567/護照號碼"
+												class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
 												value="" /> <span id="errtxtOtherInsuHkid${inx}"
 												class="text-red"> </span><span
 												id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -507,7 +507,7 @@
 												<label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
 													name="otherBenificiaryFullName"
 													id="otherBenefitiaryName${inx}" value=""
-													class="form-control " placeholder="英文全名（與香港身份證/護照號碼相同）"
+													class="form-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errotherBenefitiaryName${inx}" class="text-red"></span>
@@ -519,7 +519,7 @@
 									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
-													class="form-control textUpper" placeholder="X1234567/護照號碼"
+													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 													value="" /> <span id="errtxtOtherBenInsuHkid${inx}"
 													class="text-red"> </span>
 													<span id="errtxtOtherInvalidBenInsuHkid${inx}"
