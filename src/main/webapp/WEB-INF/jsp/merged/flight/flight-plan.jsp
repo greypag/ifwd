@@ -59,17 +59,17 @@
 							<div
 								class="image-order-status image-order-status-new active  img-circle">
 								<div class="icon">1</div>
-								<span class="status"><fmt:message key="flight.quote.breadcrumb1.item1" bundle="${msg}" /></span>
+								<span class="status"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-active disabled  img-circle">
 								<div class="icon">2</div>
-								<span class="status"><fmt:message key="flight.quote.breadcrumb1.item2" bundle="${msg}" /></span>
+								<span class="status"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-intransit disabled  img-circle">
 								<div class="icon">3</div>
-								<span class="status min-left"><fmt:message key="flight.quote.breadcrumb1.item3" bundle="${msg}" /></span>
+								<span class="status min-left"><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></span>
 							</div>
 						</div>
 					</div>

@@ -114,7 +114,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 							<h3 class="text-left or-continue">
-								<span><fmt:message key="flight.details.login.other.part1" bundle="${msg}" /></span><fmt:message key="flight.details.login.other.part2" bundle="${msg}" />
+								<span><fmt:message key="flight.details.login.other.part1" bundle="${msg}" />
+								</span>
+									  <fmt:message key="flight.details.login.other.part2" bundle="${msg}" />
 							</h3>
 						</div>
 						<%
@@ -179,7 +181,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								id="input-white">
 								<tbody>
 									<tr>
-										<td colspan="2" class="pad-none"><h3 class="pad-none"><fmt:message key="flight.details.registration.heading " bundle="${msg}" /></h3> <i><fmt:message key="flight.details.registration.desc" bundle="${msg}" /></i> <br></td>
+										<td colspan="2" class="pad-none"><h3 class="pad-none"><fmt:message key="flight.details.registration.heading" bundle="${msg}" /></h3> <i><fmt:message key="flight.details.registration.desc" bundle="${msg}" /></i> <br></td>
 									</tr>
 									<tr>
 										<td colspan="2" class="pad-none">&nbsp;</td>

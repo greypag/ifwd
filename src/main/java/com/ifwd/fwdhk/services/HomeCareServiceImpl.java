@@ -225,32 +225,26 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		RestServiceDao restService = new RestServiceImpl();
 		List<DistrictBean> districtList = new ArrayList<DistrictBean>();
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", userName);
 		header.put("token", token);
+		header.put("language", UserRestURIConstants.getWSLang(language));
 
 		JSONObject jsonResponseDistrict = restService.consumeApi(
 				HttpMethod.GET, Url, header, null);
 
-		System.out.println("jsonResponseDistrict=====>>>"
-				+ jsonResponseDistrict);
-
 		if (jsonResponseDistrict.get("errMsgs") == null) {
-			JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict
-					.get("districtList");
-			Iterator<?> itr = jsonDistrictArray.iterator();
-
-			while (itr.hasNext()) {
-				JSONObject jsonDistrictObj = (JSONObject) itr.next();
+			JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict.get("optionItemDesc");
+			for (int i = 0; i < jsonDistrictArray.size(); i++) {
+				JSONObject obj = (JSONObject) jsonDistrictArray.get(i);
+				
 				DistrictBean district = new DistrictBean();
-				district.setArea(checkJsonObjNull(jsonDistrictObj, "Area"));
-				district.setCode(checkJsonObjNull(jsonDistrictObj, "Code"));
-				district.setDescription(checkJsonObjNull(jsonDistrictObj,
-						"Description"));
+				//district.setArea();
+				district.setCode(checkJsonObjNull(obj, "itemCode"));
+				district.setDescription(checkJsonObjNull(obj, "itemDesc"));
 
 				districtList.add(district);
-			}
+			}			
 		}
 
 		return districtList;
@@ -270,6 +264,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 				COMMON_HEADERS);
 		header.put("userName", userName);
 		header.put("token", token);
+		header.put("language", UserRestURIConstants.getWSLang(language));
 
 		JSONObject jsonResponseNetFloorArea = restService.consumeApi(
 				HttpMethod.GET, url, header, null);
