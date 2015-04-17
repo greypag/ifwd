@@ -1056,7 +1056,7 @@ var promoData = '';
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
 		<p class="padding1 hidden-sm hidden-xs">
-			<fmt:message key="travel.main.other.disclaimer.part" bundle="${msg}" />
+			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
 				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
