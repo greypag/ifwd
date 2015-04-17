@@ -357,7 +357,7 @@ width: 100%;
 
 
 .home-features img {
-	margin:50px;
+	margin:47px 0;
 }
 
 .home-features .content {
@@ -724,7 +724,7 @@ vertical-align:middle;
 	font-size: 18px;
 	line-height: 1.4;
 	color: #061d2a;
-	
+	text-align: justify;
 	margin-bottom: 0;
 }
 .h4-6 {
@@ -883,10 +883,16 @@ body > section {
 .navbar>.container .navbar-brand {
 	margin-left: 0;
 }
+/* nav.navbar.navbar-inverse .col-lg-6.col-md-6.pull-right{
+	padding: 0
+} */
 .top-bar {
 	background: #061d2a;
 	line-height: 36px;
 }
+/* .top-bar .col-lg-7.col-md-7{
+	padding: 0;
+} */
 .top-bar a {
 	color: #fefdf8;
 }
@@ -3059,7 +3065,9 @@ h2.page-title {
   color: #fff !important;}
 .plan-box-flight:hover{background-color:#616163;}
 /* .plan-box:hover, .plan-box:hover a , .plan-box:hover h3 {color:#fff;  } */
-.plan-box a { }
+.plan-box a.btn {
+	font-weight: 700;
+}
 .plan-box {
 	/*background-color: #616163;*/
 	padding: 10px;
@@ -3087,6 +3095,7 @@ h2.page-title {
 .plan-box h4 {
 	
 	margin-left: 35px;
+	margin-bottom: 0;
 	font-size: 24px;
 	line-height: 42px;
 	
@@ -3113,7 +3122,7 @@ h2.page-title {
 	
 	line-height: 32px;
 	margin-left: 0px;
-	font-size: 36px;
+	font-size: 26px;
 	
 }
 .plan-box h6 {
@@ -4097,8 +4106,8 @@ article h2 {
 	padding: 15px;
 	font-weight: normal;
 	font-size: 28px;
-	line-height: 42px;
-	
+	line-height: 1.4;
+	margin-bottom: 0;
 }
 .gray-bg1 h5 {
 	color: #061d2a;
@@ -5442,10 +5451,10 @@ font-family: 'Foco-bold';
 
 .textUpper{text-transform:uppercase;}
 
-.travel-special{top:7px; position:relative;}
+.travel-special{top:5px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
-.chin .travel-special{top:20px;}
+.chin .travel-special{top:18px;}
 .chin .travel-and-home-tab{top:52px;}
 
 .chin .flight-form{
@@ -5478,6 +5487,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	font-size: 18px;
 	line-height: 1.4;
 	margin-bottom: 10px;
+	text-align: justify;
 }
 .plan-box-flight {
 	margin-top:15px;	
@@ -5650,6 +5660,7 @@ table.registration td .control-label{
   font-weight: normal;
   line-height: 1.2;
   color: #061d2a;
+  text-align: justify;
 }
 .h4-6 + .h4-6{
 	margin-top: 10px;
@@ -5909,6 +5920,7 @@ p.mute{
 	margin-bottom: 0;
 	margin-top: 10px;
 	padding-left: 27px;
+	text-align: justify;
 }
 .ol-disclaimer li{
 	margin-bottom: 10px;
@@ -5918,4 +5930,10 @@ p.mute{
 }
 table.activation-form3 > tbody > tr > td:not(.pad-none){
 	padding-left: 0;
+}
+.pad150{
+	padding: 0 15px;
+}
+.fwdpanel{
+	margin-bottom: 20px;
 }
