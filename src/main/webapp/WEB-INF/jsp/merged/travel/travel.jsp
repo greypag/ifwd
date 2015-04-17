@@ -93,8 +93,7 @@
                   <td><div id="divPersonsDesk" style="visibility:hidden;">
                    <h3 class="h3-i">
                       <label id="lblPeopleDesk">0</label>
-                <fmt:message key="travel.main.quote.total.people.line1" bundle="${msg}" /><br>
-                <fmt:message key="travel.main.quote.total.people.line2" bundle="${msg}" />
+                    <fmt:message key="travel.main.quote.total.people" bundle="${msg}" />
                       <label id="lblDaysDesk">0</label>
                     <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></h3>
                   </div></td>
