@@ -392,28 +392,36 @@
 </section>
 <!--/end Main Content-->
 
-<script>
-// moved to fwd.js
-// 	function confirmPayment(form) {
-// 		if (payValid()) {
-// 			var geteWayUrl = $('#gateway').val();
-// 			$
-// 					.ajax({
-// 						type : "POST",
-// 						url : "processHomeCarePayment",
-// 						data : $("#paymentForm").serialize(),
-// 						async : false,
-// 						success : function(data) {
-// 							if (data == 'success') {
-// 								/* form.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
-// 								/* form.action = "https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp"; */
-// 								form.action = geteWayUrl;
-// 							}
-// 						}
-// 					});
-// 		}
+<div id="PaymentingDiv" class="waitingDiv" style="display:none">    
+    <img style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%" src="resources/images/ajax-loader.gif">        
+</div>   
 
-// 	}
+
+<script>
+ // moved to fwd.js -- re-added by Sneh( cannot find in fwd.js)
+ var pay = false;
+ 	function confirmPayment(form) {
+ 		if (payValid() && !pay) {
+ 			pay = true;
+ 			$('#PaymentingDiv').show();
+ 			var geteWayUrl = $('#gateway').val();
+ 				$.ajax({
+ 						type : "POST",
+ 						url : "processHomeCarePayment",
+ 						data : $("#paymentForm").serialize(),
+ 						async : false,
+ 						success : function(data) {
+ 							if (data == 'success') {
+ 								/* form.action = "https:test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
+ 								/* form.action = "https:test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp"; */
+ 								form.action = geteWayUrl;
+ 								$('#PaymentingDiv').hide();
+ 							}
+ 						}
+ 					});
+ 		}
+
+ 	}
 	
 	function BackMe() {
 		window.history.back();

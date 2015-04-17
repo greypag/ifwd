@@ -627,14 +627,14 @@
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control full-control"
+										<td colspan="3"><input type="text" class="form-control full-control"
 											id="inputABuilding" name="aBuilding" placeholder="Building"
 											
 											onChange="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
-										<td colspan="2"><input type="text" class="form-control full-control"
+										<td colspan=""><input type="text" class="form-control full-control"
 											id="inputAEstate" name="aEstate" placeholder="Estate"
 											onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />

@@ -136,6 +136,35 @@
 			$('.actualPrice del').html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
 		}
 	}
+	
+	function sendEmail() {
+		$('.proSuccess').addClass('hide');
+		if (get_promo_val()) {
+			$.ajax({
+				type : "POST",
+				url : "sendEmail",
+				data : $("#sendmailofpromocode form").serialize(),
+				async : false,
+				success : function(data) {
+					
+					if (data == 'success') {
+						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+					} else {
+						
+						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+					}
+
+				},
+				error : function() {
+				}
+			});
+		}
+		return false;
+	}
+	
+	function BackMe() {
+		window.history.back();
+	}
 </script>
 </head>
 <body>
@@ -568,11 +597,11 @@
 
 					</div>
 					<div
-						class="col-lg-5 col-md-5 col-sm-5 col-xs-5 gray-bg pad-none hidden-sm hidden-xs">
+						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
 						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 							action="getYourHomeCareDetails" method="post"
 							modelAttribute="planQuoteDetails">
-							<div class="wd2">
+							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
 									<h2 class="h2-3-choose pad-none">${planQuote.getPlanCode() }<br>
 										Insurance</h2>
@@ -591,20 +620,19 @@
 							</div>
 							<div class="orange-bdr"></div>
 							<div class="form-container">
-								<h3>Plan Type</h3>
-								<div class="form-group">
+								<h3 class="hidden-sm hidden-xs">Plan Type</h3>
+								<div class="form-group hidden-sm hidden-xs">
 									<p class="h4-5 pad-none">Standard Cover, Annual</p>
 								</div>
 
-								<h3>Promotion code</h3>
-
-								<!-- <div class="form-group">
-									<div class="input-group">
-										<input name="" type="text" class="form-control placeholder-fl"
-											placeholder="eg.FWD789"> <span
-											class="input-group-addon in"><span class="apply">APPLY</span></span>
-									</div>
-								</div> -->
+								<h3 class="col-sm-6 col-xs-6 col-md-12">Promotion code</h3>
+								<div class="travel-italic hidden-lg hidden-md col-sm-6 col-xs-6 padding7  text-right" >
+									<a href="" class="sub-link" data-toggle="modal"
+										data-target=".bs-promo-modal-lg"><i>How do I get a
+											promotion code?</i></a>
+								</div>
+								<div class="clearfix"></div>
+								
 								<span class="text-red" id="errPromoCode"></span>
 								<div class="form-group">
 									<div class="input-group">
@@ -613,33 +641,33 @@
 											class="form-control" placeholder="eg.FWD789"> <span
 											class="input-group-addon in black-bold"> <span
 											class="apply pointer" onclick="applyPromoCode()">APPLY</span>
-											<!-- <input type="button" name="Apply" value="APPLY" onclick="applyPromoCode()"> -->
+											
 										</span>
 									</div>
 								</div>
-								<div class="travel-italic">
+								<div class="travel-italic hidden-sm hidden-xs">
 									<a href="" class="sub-link" data-toggle="modal"
 										data-target=".bs-promo-modal-lg"><i>How do I get a
 											promotion code?</i></a>
 								</div>
 							</div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Subtotal</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs">Subtotal</h3>
 							<h3 id="subtotal"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right">
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right hidden-sm hidden-xs">
 								<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>
 								</h3>
 
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t">Discount
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t hidden-sm hidden-xs">Discount
 							</h3>
 							<h3 id="discountAmt"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%>
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t hidden-sm hidden-xs"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%>
 								
 							</h3>
 							<div class="clearfix"></div>
-							<div class="orange-bdr"></div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3>
+							<div class="orange-bdr hidden-sm hidden-xs"></div>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs">Amount due</h3>
 							<h3 id="amountdue"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
+								class="h4-1-orange-b col-lg-6 col-md-6 text-right hidden-sm hidden-xs"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
 
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
@@ -658,15 +686,14 @@
 							<input type="hidden" name="answer1" value="${answer1}">
 							<input type="hidden" name="answer2" value="${answer2}">
 
-							<!-- <h3 class="back-to-travel col-lg-6 col-md-6 text-right"><a href="homecare.html">Back to home</a> </h3>
-            <div class="col-lg-6 col-md-6 text-right"> <a href="homecare-plan-details.html" class="bdr-curve btn btn-primary nxt-btn ">Next</a> </div>-->
+							
 
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
 								<a href="homecare"
 									class="bdr-curve btn btn-primary bck-btn">Back </a>
 							</div>
-							<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> <a href="homecare-plan-details.html" class="bdr-curve btn btn-primary nxt-btn " onclick="return pageValidate();"> Next</a> </div> -->
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+							
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right full-width-button">
 								<button type="submit" class="bdr-curve btn btn-primary btn-next">Next</button>
 							</div>
 
@@ -694,7 +721,7 @@
 	</section>
 	<!--Apply-->
 
-	<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
+<%-- 	<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 		action="getYourHomeCareDetails" method="post"
 		modelAttribute="planQuoteDetails">
 		<div class="hidden-lg hidden-md text-center clearfix">
@@ -716,9 +743,7 @@
 						<span class="text-red" id="errPromoCode"></span> <input
 							id="referralCode" name="referralCode" type="text"
 							class="form-control placeholder-fl" placeholder="eg.FWD789">
-						<!--  <span class="input-group-addon in"><span class="apply"><input
-								type="button" name="Apply" value="APPLY"
-								onclick="applyPromoCode()"></span></span> -->
+						
 						<span class="input-group-addon in black-bold"> <span class="apply pointer" onclick="applyPromoCode()">APPLY</span>
 											<!-- <input type="button" name="Apply" value="APPLY" onclick="applyPromoCode()"> -->
 										</span>
@@ -737,13 +762,10 @@
 					Next
 				</button>
 			</div>
-				<!-- 
-				<p class="text-center mob-bottom">&copy; 2015 FWD Hong Kong. All
-					rights reserved.</p>
-				-->
+				
 		</div>
-		<!--/mob-#bottom-->
-	</form:form>
+		
+	</form:form> --%>
 
 	<!--/end Main Content-->
 

@@ -2834,23 +2834,27 @@ function hc_planValid() {
 
 
 ////home care page validation
-function msgAlertDesk(formName) {
+function msgAlertDesk(formID) {
     var flag = true;
-   
-   
-   
-    if (document.getElementById("inlineDeskRadio1a1").checked){
-    	flag=false;
-    } else if (document.getElementById("inlineDeskRadio1a2").checked){
-    	flag=false;
-    } else if (document.getElementById("inlineDeskRadio2a1").checked){
-    	flag=false;
-    } else if (document.getElementById("inlineDeskRadio2a2").checked){
-    	flag=false;
-    }else if (document.getElementById("inlineDeskRadio3a1").checked){
-    	flag=false;
-    } else if (document.getElementById("inlineDeskRadio3a2").checked){
-    	flag=false;
+
+    if(formID == 'getHomeQuote'){
+    	if (document.getElementById("inlineDeskRadio1a1").checked){
+        	flag=false;
+        } else if (document.getElementById("inlineDeskRadio1a2").checked){
+        	flag=false;
+        }
+    }else if(formID == 'getHomeQuoteMob'){
+    	if (document.getElementById("inlineDeskRadio2a1").checked){
+        	flag=false;
+        } else if (document.getElementById("inlineDeskRadio2a2").checked){
+        	flag=false;
+        }
+    }else if(formID == 'getHomeQuoteBottom'){
+    	if (document.getElementById("inlineDeskRadio3a1").checked){
+        	flag=false;
+        } else if (document.getElementById("inlineDeskRadio3a2").checked){
+        	flag=false;
+        }
     }
     
     if (flag == false) {

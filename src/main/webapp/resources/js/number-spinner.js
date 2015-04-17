@@ -143,7 +143,7 @@ $('.plan').change(function () {
       }
       
 
-    }else   // Bottom plan selector
+    }else if(parent_id =='btm')  // Bottom plan selector
     {
 
       $('#lblCountBtm').html('');      

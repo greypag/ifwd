@@ -170,7 +170,7 @@
 											<label class="radio radio-warning radio-inline radio-homecare"> <input
 												name="home_situated<%=quetionList.getQid()%>"
 												id="inlineDeskRadio1a<%=quetionList.getQid()%>"
-												data-id="btm" class="plan"
+												data-id="home" class="plan"
 												value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
 												type="radio"> <label
 												for="inlineDeskRadio1a<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
@@ -178,7 +178,7 @@
 											</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 												name="home_situated<%=quetionList.getQid()%>"
 												id="inlineDeskRadio1b<%=quetionList.getQid()%>"
-												data-id="btm" class="plan"
+												data-id="home" class="plan"
 												value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
 												type="radio"> <label
 												for="inlineDeskRadio1b<%=quetionList.getQid()%>"> <span>
@@ -193,7 +193,7 @@
 										<div class="col-md-4">
 											<button type="submit"
 												class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
-												onclick="return msgAlertDesk()">Get Quote</button>
+												onclick="return msgAlertDesk('getHomeQuote')">Get Quote</button>
 										</div>
 										<div class="clearfix"></div>
 										<p class="col-xs-12 mute">
@@ -208,7 +208,7 @@
 						</div>
 					</div>
 		<!--mobile-->
-		<form:form name="getHomeQuote" id="getHomeQuote" action="getHomePlan"
+		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="getHomePlan"
 			method="post" modelAttribute="homeCarelPlan">
 			<div
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">
@@ -233,7 +233,7 @@
 						value="<%=lst.size()%>"></input> <label
 						class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
-						id="inlineDeskRadio2a<%=quetionList.getQid()%>" data-id="btm"
+						id="inlineDeskRadio2a<%=quetionList.getQid()%>" data-id="home"
 						class="plan" value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
 						type="radio"> <label
 						for="inlineDeskRadio2a<%=quetionList.getQid()%>"> <span>
@@ -242,7 +242,7 @@
 					</label>
 					</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
-						id="inlineDeskRadio2b<%=quetionList.getQid()%>" data-id="btm"
+						id="inlineDeskRadio2b<%=quetionList.getQid()%>" data-id="home"
 						class="plan" value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
 						type="radio"> <label
 						for="inlineDeskRadio2b<%=quetionList.getQid()%>"> <span>
@@ -260,7 +260,7 @@
             </div>-->
 				<div class="btn-box">
 						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
-							onclick="return msgAlertDesk()"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
+							onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 				</div>
 
 			</div>
@@ -802,7 +802,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<label class="radio radio-warning radio-inline radio-homecare"> <input
 								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
-								id="inlineDeskRadio3a<%=bQuetionList.getQid()%>" data-id="btm"
+								id="inlineDeskRadio3a<%=bQuetionList.getQid()%>" data-id="home"
 								class="plan" value="personal" <%=bQuetionList.getAnswer1Checked()%> type="radio">
 								<label for="inlineDeskRadio3a<%=bQuetionList.getQid()%>">
 									<span> <%=bQuetionList.getAnswer1()%>
@@ -810,7 +810,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</label>
 							</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
-								id="inlineDeskRadio3b<%=bQuetionList.getQid()%>" data-id="btm"
+								id="inlineDeskRadio3b<%=bQuetionList.getQid()%>" data-id="home"
 								class="plan" value="personal" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
 								for="inlineDeskRadio3b<%=bQuetionList.getQid()%>"> <span>
 										<%=bQuetionList.getAnswer2()%>
@@ -825,7 +825,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="col-lg-4 col-md-2 ">
 							<button type="submit"
 								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
-								onclick="return msgAlertDesk()">Get Quote</button>
+								onclick="return msgAlertDesk('getHomeQuoteBottom')">Get Quote</button>
 						</div>
 						<div class="clearfix"></div>
 						<p class="pad-none mute">
