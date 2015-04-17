@@ -156,7 +156,7 @@
 								<fmt:message key="home.confirmation.msg.part5" bundle="${msg}" /> <strong>${emailID}</strong> <fmt:message key="home.confirmation.msg.part6" bundle="${msg}" />
 							</h3>
 							<h4>
-								Policy Number: <span> ${policy }</span>
+								Policy Number: <span> ${policyNo}</span>
 							</h4>
 							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 								<h5>
@@ -186,9 +186,7 @@
 					                <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
 					           	</div>
 					         </div>
-					         <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
-<!--End of addthis -->
+					         
 							<div class="clearfix"></div>
 							<br>
 							<div class="col-lg-12 col-md-12 travel-b">
@@ -237,7 +235,9 @@
 		</div>
 		<!--/.container-->
 	</section>
-
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+<!--End of addthis -->
 
 </body>
 
