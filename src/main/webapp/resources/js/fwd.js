@@ -1182,13 +1182,6 @@ function fcPlanValid()
 				document.getElementById("errselectAgeRange" + i).innerHTML = "";
 			}
 			
-//			var benefitiary = document.getElementById("adultsselectBenificiary" + i).value;
-//			if (benefitiary.trim() == "") {
-//				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "è«‹è¼¸?¥å???;
-//				flag = false;
-//			}else{
-//				document.getElementById("erradultsselectBenificiary" + i).innerHTML = "";
-//			}
 			
 			
 			var hkid = document.getElementById("txtInsuHkid" + i).value;
