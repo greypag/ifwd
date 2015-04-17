@@ -716,45 +716,9 @@
 
  -->
 
-<!--Plan login popup-->
-<div class="modal fade bs-example-modal-lg " id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content plan-modal">
-    <form name="popUploginform" id="popUploginform" class="">
-      <div class="login-form">
-        <div class="form-container">
-           <h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
-          <h4><fmt:message key="header.login.username" bundle="${msg}" /> <a href="forgotUserName" class="pull-right"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a></h4>
-          <div class="form-group">
-            <input type="text" name="userName" class="form-control" placeholder=""	id="txtUserName">
-          </div>
-          <span id="errUserName" class="text-red"></span>
-          <h4><fmt:message key="header.login.password" bundle="${msg}" /> <a href="forgotUserPassword" class="pull-right"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a></h4>
-          <div class="form-group">
-          <input type="password"  name="password" class="form-control" id="txtPass">
-          </div>
-     	  <span id="errPass" class="text-red"></span> <br>
-          <div class="row">
-					<div class="text-left col-lg-6 col-md-6">
-						<button class="bdr-curve-none btn btn-primary btn-lg  wd5"
-							type="button" onclick="return userLoginFnc();" tabindex="3"><fmt:message key="header.login.action" bundle="${msg}" /></button>
-					</div>
-					<h3 class="text-left col-lg-6 col-md-6 pad-none margin-none">
-						<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus"
-							class="sub-link"><fmt:message key="header.login.registration.action" bundle="${msg}" /> </a>
-					</h3>
-					<div class="clearfix"></div>
-		 </div>
-         
+<!--Plan-login-popup-->
+	<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
 
-          <p><fmt:message key="header.login.disclaimer" bundle="${msg}" /></p>
-        </div>
-      </div>
-      </form>
-    </div>
-    
-  </div>
-</div>
 
 
 

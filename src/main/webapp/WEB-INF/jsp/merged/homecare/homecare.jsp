@@ -803,7 +803,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio3a<%=bQuetionList.getQid()%>" data-id="home"
-								class="plan" value="personal" <%=bQuetionList.getAnswer1Checked()%> type="radio">
+								class="plan" value="<%=bQuetionList.getAnswer1()%>" <%=bQuetionList.getAnswer1Checked()%> type="radio">
 								<label for="inlineDeskRadio3a<%=bQuetionList.getQid()%>">
 									<span> <%=bQuetionList.getAnswer1()%>
 								</span>
@@ -811,7 +811,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio3b<%=bQuetionList.getQid()%>" data-id="home"
-								class="plan" value="personal" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
+								class="plan" value="<%=bQuetionList.getAnswer2()%>" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
 								for="inlineDeskRadio3b<%=bQuetionList.getQid()%>"> <span>
 										<%=bQuetionList.getAnswer2()%>
 								</span>
