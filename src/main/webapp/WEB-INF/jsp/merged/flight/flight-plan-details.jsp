@@ -598,7 +598,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary btn-next " value="Next" />
+								class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 							<!-- <button class="bdr-curve-none btn btn-primary nxt-btn "
 onclick="return flightPlanValidation();">Next</button> -->
 						</div>
