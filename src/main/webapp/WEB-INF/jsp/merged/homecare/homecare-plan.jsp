@@ -638,7 +638,7 @@
 									<div class="input-group">
 										<span class="text-red" id="errPromoCode"></span>
 										<input type="text" id="referralCode" name="referralCode"
-											class="form-control" placeholder="eg.FWD789"> <span
+											class="form-control" placeholder="<fmt:message key="home.detail.summary.promocode.placeholder" bundle="${msg}" />"> <span
 											class="input-group-addon in black-bold"> <span
 											class="apply pointer" onclick="applyPromoCode()">APPLY</span>
 											
