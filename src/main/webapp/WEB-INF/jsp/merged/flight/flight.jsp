@@ -732,7 +732,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <!-- start of family plan bottom spinner-->
                       <div class="plan_spinner_btm" id="family_plan_btm_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
-                          <h4><fmt:message key="flight.main.quote.plan1.type1" bundle="${msg}" /></h4>
+                          <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /></h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
@@ -746,7 +746,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-6">
-                          <h4><fmt:message key="flight.main.quote.plan1.type2" bundle="${msg}" /></h4>
+                          <h4><fmt:message key="flight.main.quote.plan2.type2" bundle="${msg}" /></h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
@@ -760,7 +760,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-6">
-                          <h4><fmt:message key="flight.main.quote.plan1.type3" bundle="${msg}" /></h4>
+                          <h4><fmt:message key="flight.main.quote.plan2.type3" bundle="${msg}" /></h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
