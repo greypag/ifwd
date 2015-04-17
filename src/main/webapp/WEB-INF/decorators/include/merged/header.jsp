@@ -283,7 +283,7 @@ function submitLoginForm(formID) {
 				<ul class="maintabs">
        <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="flight" class="travel-special"><span class="offer"> SPECIAL OFFER</span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="travel" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab text-left latter-space-1"   href="homecare"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab text-left"   href="homecare"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
 				
 			</div>
@@ -432,7 +432,7 @@ function submitLoginForm(formID) {
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
-		<li><a href="home"><fmt:message key="header.menu.home" bundle="${msg}" />/a></li>
+		<li><a href="home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
 			href="flight"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
