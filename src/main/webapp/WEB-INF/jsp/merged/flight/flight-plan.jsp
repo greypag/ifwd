@@ -205,7 +205,7 @@
 								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
 								<c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
 								<c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.quote.traveller.traveller" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+								<c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
 																
               	</div>
               </div>
