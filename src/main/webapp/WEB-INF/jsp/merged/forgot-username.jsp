@@ -56,10 +56,10 @@
 			<div class="row">
 
 				<ol class="breadcrumb pad-none">
-					<li><a href="#">##header.menu.home@@</a></li>
-					<li class="active"><i class="fa fa-caret-right"></i>##header.login.username.forget.part1@@</li>
+					<li><a href="#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li class="active"><i class="fa fa-caret-right"></i><fmt:message key="header.login.username.forget.part1" bundle="${msg}" /></li>
 				</ol>
-				<h2 class="page-title">##header.login.username.forget.part1@@</h2>
+				<h2 class="page-title"><fmt:message key="header.login.username.forget.part1" bundle="${msg}" /></h2>
 				<div
 					style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 					id="ajax-loading">
@@ -89,10 +89,10 @@
 							<tbody>
 								<tr>
 									<td colspan="2" class="pad-none"><h3
-											class="black-bold pad-none">##member.registration.tab.details@@</h3></td>
+											class="black-bold pad-none"><fmt:message key="member.registration.tab.details" bundle="${msg}" /></h3></td>
 								</tr>
 								<tr>
-									<td class="pad-none"><label class="control-label">##member.registration.details.label.mobileNo@@</label></td>
+									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input type="text" name="mobileNo"
 										class="form-control" id="mobileNo" placeholder="手機號碼">
 										<span id="errorEmptyMob" class="hide1"> <label
@@ -102,7 +102,7 @@
 									</span></td>
 								</tr>
 								<tr>
-									<td class="pad-none"><label class="control-label">##member.registration.details.label.emailAddress@@
+									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />
 									</label></td>
 									<td class="pad-none"><input type="email"
 										name="emailAddress" class="form-control" id="emailAddress"
@@ -118,7 +118,7 @@
 								<tr>
 									<td colspan="2">
 										<button type="button" onclick="getForgotUserName()"
-											class="bdr-curve-none btn btn-primary btn-lg ">##header.login.action2@@</button>
+											class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>
 									</td>
 								</tr>
 							</tbody>
