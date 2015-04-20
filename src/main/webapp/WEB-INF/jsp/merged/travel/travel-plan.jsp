@@ -228,7 +228,7 @@ var promoData = '';
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
-										<table class="col-xs-12">
+										<table class="col-xs-11 col-xs-offset-1">
 										<tr>
 											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
 													<i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits.desc" bundle="${msg}" /></td>
