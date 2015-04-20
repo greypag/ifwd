@@ -5963,3 +5963,27 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
   background-position: 15px 15px !important;
 }
 .at-share-tbx-element .at-share-btn{ margin:0 !important;}
+
+.styled-select select {
+   background: transparent !important; 
+   /* width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1; */
+   border: 0;
+   /* border-radius: 0;
+   height: 34px; */
+   -webkit-appearance: none;
+   width: 110% !important;
+}
+.styled-select {
+/*    width: 240px;
+   height: 34px; */
+   overflow: hidden;
+   
+   background-image:  url("../images/down-arrow.png") ;
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    background-color: rgb(245, 245, 245);
+   /* border: 1px solid #ccc; */
+   }
