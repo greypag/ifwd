@@ -597,7 +597,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 						<!--mob-hidden-->
 						<br><br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="/FWDHKPH1A/getFlightDate" class="bdr-curve btn btn-primary bck-btn">XX <fmt:message key="flight.details.action.back" bundle="${msg}" /></a>
+							<a href="/FWDHKPH1A/getFlightDate" class="bdr-curve btn btn-primary bck-btn"> <fmt:message key="flight.details.action.back" bundle="${msg}" /></a>
 						</div>
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
