@@ -538,23 +538,24 @@
 
                        <div class="clearfix"></div>
 						<div class="spacer3"></div>
-							<h4 class="h4-2 padding3"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
+							
 							<div class="declaration-content">
+								<h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
 								<div class="checkbox">
-									<input id="checkbox1" type="checkbox"> <label for="checkbox1"> 
-										<fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /><br> 
-										i. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /><br>
-										ii. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /><br>
-										iii. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /><br/>
-										iv. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /><br/>
-										v. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" />
+									<input id="checkbox1" type="checkbox"> 
+									<label for="checkbox1">
+										<fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /> 
+										<ol class="ol-disclaimer">
+											<li><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+										</ol>
 										
-										<br/>
 									</label>
 								</div>	
 								<span id="chk1" class="text-red"></span>		
-										
-									<br/>
 								<div class="checkbox">
 									<input id="checkbox2" type="checkbox"> <label
 										for="checkbox2">
@@ -577,7 +578,7 @@
 									<input id="checkbox3" type="checkbox"> <label
 
 										for="checkbox3"> <fmt:message key="travel.details.declarations.PDPO.option1" bundle="${msg}" /><br>
-										<br>
+										
 									</label>
 								</div>
 								<div class="checkbox">
@@ -585,7 +586,7 @@
 										for="checkbox4">
 
 										<fmt:message key="travel.details.declarations.PDPO.option2" bundle="${msg}" /><br>
-										<br>
+										
 									</label>
 								</div>
 
@@ -602,9 +603,7 @@
 							<div class="wd2">
 								<div class="pull-left">
 									<h2 class="h2-3-choose"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
-									<fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" />
-										${planName}
-										<fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" />
+									<h4><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
 									<input type="hidden" name="selectedPlanName" value="${planName }">
 								</div>
 								<div class="pull-right">

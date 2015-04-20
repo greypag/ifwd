@@ -40,7 +40,7 @@
         <div class="image-order-status image-order-status-delivered  img-circle third"> <span class="status color3"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
           <div class="icon">3</div>
         </div>
-        <div class="image-order-status image-order-status-completed  img-circle act fourth"> <span class="status lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
+        <div class="image-order-status image-order-status-completed  img-circle act fourth"> <span class="status color3 lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
           <div class="icon">4</div>
         </div>
       </div>
@@ -56,19 +56,19 @@
           <div class="col-sm-12 gray-bg1" >
 
       <h3>
-        <fmt:message key="travel.confirmation.msg.part1" bundle="${msg}" /><br/>
-        <fmt:message key="travel.confirmation.msg.part2" bundle="${msg}" /><br/>
-        <fmt:message key="travel.confirmation.msg.part3" bundle="${msg}" /><br/>
+        <fmt:message key="travel.confirmation.msg.part1" bundle="${msg}" />
+        <fmt:message key="travel.confirmation.msg.part2" bundle="${msg}" />
+        <fmt:message key="travel.confirmation.msg.part3" bundle="${msg}" />
         <fmt:message key="travel.confirmation.msg.part4" bundle="${msg}" /><br/>
         <fmt:message key="travel.confirmation.msg.part5" bundle="${msg}" />
-        <strong>${emailAddress}</strong>
+        ${emailAddress}
         <fmt:message key="travel.confirmation.msg.part6" bundle="${msg}" /></h3>
             
             <h4><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /><span> ${policyNo}</span></h4>
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
             <h5><fmt:message key="travel.confirmation.referalCode.member" bundle="${msg}" /><span><%=session.getAttribute("myReferralCode")%></span></h5>
 
-            <div class="h4-3-b margin-left"><fmt:message key="travel.confirmation.referalCode.desc1" bundle="${msg}" /><span class="orange-star">*</span></div>
+            <div class="h4-3-b margin-left"><fmt:message key="travel.confirmation.referalCode.desc1" bundle="${msg}" /><!-- <span class="orange-star">*</span> --></div>
             </div>
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
               <img src="resources/images/agoda.png" alt="" >  
@@ -89,7 +89,7 @@
                 <div class="clearfix"></div>
                 <br>
               <div class="col-lg-12 col-md-12 travel-b">
-              <div class="declaration-content1"> <b><span class="orange-star">*</span><fmt:message key="travel.referral.disclaimer" bundle="${msg}" /></b>
+              <div class="declaration-content1"> <b><fmt:message key="travel.referral.disclaimer" bundle="${msg}" /></b>
                 <p>
                     <fmt:message key="travel.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
                     <fmt:message key="travel.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>

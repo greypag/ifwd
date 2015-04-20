@@ -91,9 +91,9 @@
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div
 						class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1">
-						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
+						<div class="col-xs-12 col-md-7  pad-none">
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
-							<table class="table activation-form margin-left-2">
+							<table class="table activation-form margin-left-2 vert-middle travel-summary">
 								<tbody>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
@@ -125,26 +125,7 @@
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${totalTravallingDays}</td>
 									</tr>
-									<tr>
-										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />
-										</span></td>
-										<td class="pad-none "><span
-											class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div
-							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
-							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="#" onclick="BackMe();" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
-							</h4>
-							<table class="table activation-form margin-left-2">
-								<tbody>
-									<tr>
-										<td class="pad-none h2-3-existing-fwd-head "><fmt:message key="travel.summary.applicant" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 "></td>
-									</tr>
+
 									<tr>
 										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
@@ -162,9 +143,24 @@
 										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
 									</tr>
+									<tr>
+										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />
+										</span></td>
+										<td class="pad-none "><span
+											class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
+						<!-- 
+						<div
+							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
+							<h4 class="h4-trav-full col-xs-offset-8">
+								<a href="#" onclick="BackMe();" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+							</h4>
+							
+						</div> 
+						 -->
 						<div class="clearfix"></div>
 						
 						<div id="no-more-tables2">
@@ -337,7 +333,7 @@
 									%>
 
 									<tr class="hidden-sm hidden-xs">
-										<td data-title="Adult <%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
+										<td class="pad-none" data-title="Adult <%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
 												<%=i + 1%></span></td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
 										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
