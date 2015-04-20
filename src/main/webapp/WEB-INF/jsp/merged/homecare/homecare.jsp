@@ -5,6 +5,7 @@
 <%@page import="java.util.*"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
