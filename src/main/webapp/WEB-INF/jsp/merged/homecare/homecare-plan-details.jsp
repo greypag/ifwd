@@ -493,7 +493,7 @@
 											<td class=""><label
 												class="control-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
-												class="form-control marginbt full-control" id="Password"
+												class="form-control marginbt full-control" id="Password" autocomplete="off"
 												placeholder="Password"> <span id="PasswordError"
 												class="text-red"> </span></td>
 										</tr>
@@ -501,7 +501,7 @@
 											<td class=""><label
 												class="control-label bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
-												class="form-control marginbt full-control" id="Confirm-Password"
+												class="form-control marginbt full-control" id="Confirm-Password" autocomplete="off"
 												placeholder="Confirm password"> <span
 												id="Confirm-PasswordError" class="text-red"> </span></td>
 										</tr>

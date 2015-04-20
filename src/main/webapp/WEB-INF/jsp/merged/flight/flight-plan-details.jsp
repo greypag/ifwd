@@ -198,7 +198,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="pad-none"><label for="inputEmail3"
 											class="control-label bold-500"><fmt:message key="flight.details.registration.password" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control btm-pad-10" name="password" id="Password"
+											class="form-control btm-pad-10" name="password" id="Password" autocomplete="off"
 											placeholder="<fmt:message key="flight.details.registration.password.placeholder" bundle="${msg}" />">
 											<span id="PasswordError" class="text-red"></span>
 											</td>
@@ -207,7 +207,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="pad-none"><label for="inputEmail3"
 											class="control-label bold-500"><fmt:message key="flight.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control btm-pad-10" name="password" id="Confirm-Password"
+											class="form-control btm-pad-10" name="password" id="Confirm-Password" autocomplete="off"
 											placeholder="<fmt:message key="flight.details.registration.confirmPassword.placeholder" bundle="${msg}" />">
 											<span id="Confirm-PasswordError" class="text-red"></span>
 											</td>
@@ -571,7 +571,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sildebar.summary.label.family.parent" bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
 									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sildebar.summary.label.family.child" bundle="${msg}" />: ${planDetailsForm.getTotalChildTraveller()} <br></c:if>
 									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sildebar.summary.label.family.others" bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br></c:if>
-									<c:if test="${planDetailsForm.getTravellerCount() !=0}"><fmt:message key="flight.sildebar.summary.label.personal" bundle="${msg}" />: ${planDetailsForm.getTravellerCount()}</c:if>
+									<c:if test="${planDetailsForm.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetailsForm.getTravellerCount()}</c:if>
 								</h4>
 								<input type="hidden" name="otherInput"
 									value="${planDetailsForm.getTotalOtherTraveller()}"> <input
