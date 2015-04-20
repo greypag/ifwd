@@ -325,7 +325,7 @@ function submitLoginForm(formID) {
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
 		
 		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> ç™»å…¥  </a>
+		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
 		<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform2">
 										<div class="login-form">
