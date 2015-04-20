@@ -84,12 +84,12 @@
 								<table class="table forgot-form">
 									<tbody>
 										<tr>
-											<td colspan="2" class="pad-none"><h3
+											<td colspan="2" class=""><h3
 													class="black-bold pad-none"><fmt:message key="member.registration.tab.details" bundle="${msg}" /></h3></td>
 										</tr>
 										<tr>
-											<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
-											<td class="pad-none"><input type="text" name="mobileNo"
+											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
+											<td class=""><input type="text" name="mobileNo"
 												class="form-control" id="mobileNo" placeholder="手機號碼"
 												onkeypress="return isNumeric(event)"
 												onblur="replaceNumeric(this);"> <span
@@ -100,10 +100,10 @@
 											</span></td>
 										</tr>
 										<tr>
-											<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />
+											<td class=""><label class="control-label lhnormal"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />
 											</label></td>
 
-											<td class="pad-none"><input type="email"
+											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="emailAddress"
 												placeholder="電郵地址"> <span id="errorEmptyEmailId"
 												class="hide1"> <label class="text-red">請輸入電郵地址</label>
@@ -113,9 +113,9 @@
 
 										</tr>
 										<tr>
-											<td class="pad-none"><label class="control-label">用戶名稱
+											<td class=""><label class="control-label">用戶名稱
 											</label></td>
-											<td class="pad-none"><input type="text" name="userName"
+											<td class=""><input type="text" name="userName"
 												class="form-control" id="userName" placeholder="用戶名稱">
 												<span id="errorEmptyUName" class="hide1"> <label
 													class="text-red">請輸入使用者名稱</label>
