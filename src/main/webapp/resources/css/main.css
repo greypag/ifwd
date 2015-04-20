@@ -5987,3 +5987,8 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
     background-color: rgb(245, 245, 245);
    /* border: 1px solid #ccc; */
    }
+.date,
+.date input[disabled],
+.date input[readonly]{
+	cursor: pointer;
+}
