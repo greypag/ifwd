@@ -5,7 +5,8 @@
 	<artifactId>fwdhk</artifactId>
 	<packaging>war</packaging>
 	<version>1.7-SNAPSHOT</version>
-	<name>FWDHKPH1A Webapp</name>
+	<name>Fwd eCommerce </name>
+	
 	<url>http://maven.apache.org</url>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
