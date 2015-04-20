@@ -59,17 +59,17 @@
 							<div
 								class="image-order-status image-order-status-new active  img-circle">
 								<div class="icon">1</div>
-								<span class="status"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></span>
+								<span class="status"><fmt:message key="flight.breadcrumb2.item1" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-active disabled  img-circle">
 								<div class="icon">2</div>
-								<span class="status"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /></span>
+								<span class="status"><fmt:message key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-intransit disabled  img-circle">
 								<div class="icon">3</div>
-								<span class="status min-left"><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></span>
+								<span class="status min-left"><fmt:message key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
 							</div>
 						</div>
 					</div>
@@ -218,12 +218,12 @@
 							</h3>
 						</div>
 						<div class="orange-bdr"></div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6"><!-- Amount due --></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
+						<!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due </h3> -->
+						<%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 							&nbsp;
-							<%-- ${flightQuoteDetails.getToalDue()} --%>
-						</h3>
-
+							${flightQuoteDetails.getToalDue()}
+						</h3> --%>
+						<br> <br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 							<a href="flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 							</a>

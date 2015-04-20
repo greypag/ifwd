@@ -585,15 +585,16 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 								<br>
 							</div>
 							<div class="orange-bdr"></div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6">
-								<!-- Amount due -->
-							</h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								<%-- ${planDetailsForm.getTotalDue()} --%>
+							<!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">
+								Amount due
+							</h3> -->
+							<%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
+								${planDetailsForm.getTotalDue()}
 								&nbsp;
-							</h3>
+							</h3> --%>
 						</div>
 						<!--mob-hidden-->
+						<br><br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 							<a href="flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.details.action.back" bundle="${msg}" /></a>
 						</div>
