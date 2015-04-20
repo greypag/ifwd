@@ -181,18 +181,26 @@ public class FlightController {
 			URISyntaxException {
 		HttpSession session = request.getSession();
 		
-		removeSessionAttribute(request);
+		// removeSessionAttribute(request); // vincent, fix flight-plan-details back btn to flight plan
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		if (planDetails.getDepartureDate() != null) {
+		
+		if (planDetails.getDepartureDate() != null) 
+		{
 			session.setAttribute("flightPlanDetails", planDetails);
-		} else {
-			planDetails = (PlanDetails) session
-					.getAttribute("flightPlanDetails");
-			if(planDetails == null){
+			System.out.println(this.getClass() + " flightPlanDetails set session");
+		} 
+		else 
+		{
+			System.out.println(this.getClass() + " planDetails.getDepartureDate() == null, flightPlanDetails get session");
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+			
+			
+			if(planDetails == null)
+			{
 //				return flight(request, model, "tc");
 				return flight(request, model);	
-			}			
+			}	
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
