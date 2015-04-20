@@ -214,7 +214,8 @@
 							
 							
 							<h3>
-								<fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span>${days}</span>
+								<fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span>${days}</span> 
+								<fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
 							</h3>
 						</div>
 						<div class="orange-bdr"></div>

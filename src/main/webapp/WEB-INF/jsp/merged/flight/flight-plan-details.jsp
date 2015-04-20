@@ -581,6 +581,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 									value="${planDetailsForm.getDays()}">
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option4" bundle="${msg}" /><span>${planDetailsForm.getDays()}</span>
+									<fmt:message key="flight.details.summary.option5" bundle="${msg}" />
 								</h3>
 								<br>
 							</div>
