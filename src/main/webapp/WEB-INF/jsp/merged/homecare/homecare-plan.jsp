@@ -235,8 +235,8 @@
 
 						<div class="col-lg-12 col-md-12 plan-box4 double-dot">
 							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
-								<h2>${planQuote.getPlanCode() }
-									<br> Insurance
+								<h2> <fmt:message key="home.quote.plan" bundle="${msg}" />
+								<!--  ${planQuote.getPlanCode() } -->
 								</h2>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -256,7 +256,7 @@
 										<h4 class="benefits">
 											<span>
 												<a href="#" class="fwdpanel-minimize uline color-wht">
-													<i class="fa fa-plus"></i> Plan benefits 
+													<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits" bundle="${msg}" /> 
 												</a>
 											</span>
 										</h4>
@@ -264,11 +264,10 @@
 	
 									<div class="fwdpanel-body" style="display: none;">
 										<p class="color-wht pad-none">
-											<i class="fa fa-plus"></i> Window, Door Lock & Key Replacement
-											$3,000 per year<br> <i class="fa fa-plus"></i> Temporary
-											Removal $50,000 per year <br> <i class="fa fa-plus"></i>
-											Home Removal $50,000 per year<br> <i class="fa fa-plus"></i>
-											Personal Accident $50,000 per person <br>
+											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc1" bundle="${msg}" /><br> 
+											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc2" bundle="${msg}" /> <br> 
+											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc3" bundle="${msg}" /><br> 
+											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc4" bundle="${msg}" /> <br>
 										</p>
 									</div>
 	
@@ -300,7 +299,7 @@
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
 									<span><a href="#" class="fwdpanel-minimize"><i
-											class="fa fa-plus"></i> Full Coverage Details </a> </span>
+											class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.heading" bundle="${msg}" /> </a> </span>
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
@@ -313,7 +312,7 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i>ABC123 <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
+															class="fa fa-plus"></i><fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -343,7 +342,7 @@
 												<br>
 												<p><fmt:message key="home.quote.summary.subheading1.desc2" bundle="${msg}" /></p>
 												<br>
-												<table id="homecarePremium" class="table table-bordred">
+												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
 															<td><strong>Item</strong></td>
@@ -480,18 +479,18 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i> Premium Table (HK$)</a> </span>
+															class="fa fa-plus"></i><fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 
-												<table id="homecarePremium" class="table table-bordred">
+												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td>Section</td>
-															<td>Coverage</td>
-															<td>Limit of Liability (HK$)</td>
-															<td>Annual Premium (HK$)</td>
+															<th>Section</th>
+															<th>Coverage</th>
+															<th>Limit of Liability (HK$)</th>
+															<th>Annual Premium (HK$)</th>
 														</tr>
 														<tr>
 															<td>Section 1</td>
@@ -507,8 +506,6 @@
 														</tr>
 													</tbody>
 												</table>
-
-
 											</div>
 										</div>
 										<!-- /  Major Exclusions -->
@@ -518,7 +515,7 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i> Major Exclusions </a> </span>
+															class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -587,7 +584,7 @@
 							</div>
 
 							<h4 class="h4-4">
-								<i class="fa fa-download"></i> <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">Download Brochure</a>
+								<i class="fa fa-download"></i> <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="home.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
 						</div>
 						<!--Full coverage end -->
@@ -603,9 +600,9 @@
 							modelAttribute="planQuoteDetails">
 							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
-									<h2 class="h2-3-choose pad-none">${planQuote.getPlanCode() }<br>
-										Insurance</h2>
-									<h4 class="pad-none">Plan Summary</h4>
+									<h2 class="h2-3-choose pad-none"><fmt:message key="home.sidebar.summary.product" bundle="${msg}" />
+									</h2>
+									<h4 class="pad-none"><fmt:message key="home.sidebar.summary.desc" bundle="${msg}" /></h4>
 								</div>
 								<div class="col-xs-6 pull-right">
 									<div class="text-left  h2-2 h2">
@@ -620,16 +617,15 @@
 							</div>
 							<div class="orange-bdr"></div>
 							<div class="form-container">
-								<h3 class="hidden-sm hidden-xs">Plan Type</h3>
+								<h3 class="hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.plantype" bundle="${msg}" /></h3>
 								<div class="form-group hidden-sm hidden-xs">
-									<p class="h4-5 pad-none">Standard Cover, Annual</p>
+									<p class="h4-5 pad-none"><fmt:message key="home.sidebar.summary.plantype.desc" bundle="${msg}" /></p>
 								</div>
 
-								<h3 class="col-sm-6 col-xs-6 col-md-12">Promotion code</h3>
+								<h3 class="col-sm-6 col-xs-6 col-md-12"><fmt:message key="home.sidebar.summary.promocode" bundle="${msg}" /></h3>
 								<div class="travel-italic hidden-lg hidden-md col-sm-6 col-xs-6 padding7  text-right" >
 									<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i>How do I get a
-											promotion code?</i></a>
+										data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 								</div>
 								<div class="clearfix"></div>
 								
@@ -638,7 +634,7 @@
 									<div class="input-group">
 										<span class="text-red" id="errPromoCode"></span>
 										<input type="text" id="referralCode" name="referralCode"
-											class="form-control" placeholder="<fmt:message key="home.detail.summary.promocode.placeholder" bundle="${msg}" />"> <span
+											class="form-control" placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
 											class="input-group-addon in black-bold"> <span
 											class="apply pointer" onclick="applyPromoCode()">APPLY</span>
 											
@@ -647,17 +643,16 @@
 								</div>
 								<div class="travel-italic hidden-sm hidden-xs">
 									<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i>How do I get a
-											promotion code?</i></a>
+										data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 								</div>
 							</div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs">Subtotal</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.subtotal" bundle="${msg}" /></h3>
 							<h3 id="subtotal"
 								class="h4-1-orange-b col-lg-6 col-md-6 text-right hidden-sm hidden-xs">
 								<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>
 								</h3>
 
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t hidden-sm hidden-xs">Discount
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.discount" bundle="${msg}" />
 							</h3>
 							<h3 id="discountAmt"
 								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t hidden-sm hidden-xs"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%>
@@ -665,7 +660,7 @@
 							</h3>
 							<div class="clearfix"></div>
 							<div class="orange-bdr hidden-sm hidden-xs"></div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs">Amount due</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.amountDue" bundle="${msg}" /></h3>
 							<h3 id="amountdue"
 								class="h4-1-orange-b col-lg-6 col-md-6 text-right hidden-sm hidden-xs"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
 
@@ -690,11 +685,11 @@
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
 								<a href="homecare"
-									class="bdr-curve btn btn-primary bck-btn">Back </a>
+									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right full-width-button">
-								<button type="submit" class="bdr-curve btn btn-primary btn-next">Next</button>
+								<button type="submit" class="bdr-curve btn btn-primary btn-next"><fmt:message key="home.action.next" bundle="${msg}" /></button>
 							</div>
 
 							<div class="clearfix"></div>
@@ -705,13 +700,12 @@
 					<div class="clearfix"></div>
 				</div>
 				<p class="padding1 hidden-sm hidden-xs">
-					The features above are indicative only. Please refer to the <a
+					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" /> <a
 						class="sub-link"
-						href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-						target="_blank">Policy Provisions</a> for details.<br> For a
-					complete explanation of the terms and conditions, feel free to
-					contact an adviser or our 24-hour hotline at 3123 3123 for more
-					details.
+						href="<fmt:message key="home.provision.link" bundle="${msg}" />"
+						target="_blank">
+						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
+						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
 				</p>
 
 			</div>
