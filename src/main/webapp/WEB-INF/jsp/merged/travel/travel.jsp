@@ -405,10 +405,10 @@
 
 <!--desktop Features-->
 <div class="hidden-xs hidden-sm">
-    <div class="col-lg-12 col-md-12 home-features pad-none"  >
+    <div class="col-md-10 col-md-offset-1 home-features"  >
     <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home1.png" alt="" /> </div>
     <div class="col-md-6 col-lg-6">
-      <div>
+      <div class="content">
         <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
           <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
         <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
@@ -417,7 +417,7 @@
     <div class="clearfix"></div>
     <br>
     <div class="col-md-6 col-lg-6">
-      <div>
+      <div class="content">
         <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
           <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
         <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
@@ -428,7 +428,7 @@
     <br>
     <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home3.png" alt=""  /> </div>
     <div class="col-md-6 col-lg-6">
-      <div>
+      <div class="content">
         <h2><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
         <p class="details-text"><fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" /></p>
         <a href="#" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
@@ -492,7 +492,7 @@
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /><a href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></a></p>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></a></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
@@ -689,7 +689,7 @@
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
           <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /><i class="fa fa-caret-right"></i> </a></h3>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
@@ -697,7 +697,7 @@
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
           <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="resources/images/home5.png" alt=""></a>
-            <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /><i class="fa fa-caret-right"></i> </a></h3>
+            <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
@@ -705,7 +705,7 @@
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
           <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /><i class="fa fa-caret-right"></i> </a></h3>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>
@@ -736,8 +736,7 @@
             <td><div id="divPersonsBtm" style="visibility:hidden;">
                   <h3 class="h3-i">
                     <label id="lblPeopleBtm">0</label>
-            <fmt:message key="travel.main.quote.total.people" bundle="${msg}" /><br>
-            <fmt:message key="travel.main.quote.total.days" bundle="${msg}" />
+            <fmt:message key="travel.main.quote.total.people" bundle="${msg}" />
                     <label id="lblDaysBtm">0</label>
             <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></h3>
                 </div>

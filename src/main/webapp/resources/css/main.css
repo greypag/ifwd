@@ -456,7 +456,7 @@ width: 100%;
 #testimonials {
 	background: #f5f5f5;
 	background-size: cover;
-	padding:40px 0px 50px 0px;
+	padding:40px 0px;
 }
 .testimonials-wrap {
 	position: relative;
@@ -472,15 +472,15 @@ width: 100%;
 }
 .testimonials-wrap .testimonials-inner h2 {
 	color: #061d2a;
-	font-size: 36px;
-	line-height: 31.5px;
+	font-size: 28px;
 	font-weight:bold;
+	margin-bottom: 0;
 }
 .testimonials-wrap .testimonials-inner h4 {
 	color: #061d2a;
-	font-size: 24px;
-	line-height: 31.5px;
+	font-size: 18px;
 	font-weight:bold;
+	margin-top: 0;
 }
 .p1 {
 	
@@ -492,8 +492,8 @@ width: 100%;
 .testimonials-wrap .testimonials-inner p{
 color: #061d2a;
 
-line-height: 30px;
-font-size: 24px;
+line-height: 1.2;
+font-size: 20px;
 
 margin-top:40px;
 }
@@ -709,16 +709,15 @@ vertical-align:middle;
 }
 .h4-4 {
 	font-size: 20px;
-	line-height: 42px;
 	color: #f68a1d;
+}
+.h4-4 a{
 	text-decoration: underline;
 }
 .h4-4-full {
 	font-size: 24px;
 	line-height: 42px;
 	color: #f68a1d;
-	text-decoration: underline;
-	
 }
 .h4-5 {
 	font-size: 18px;
@@ -3457,8 +3456,7 @@ margin-bottom: 10px;}
 	color: #f68a1d;
 	margin-left: 0px;
 	font-size: 24px;
-	line-height: 42px;
-
+	line-height: 1.1;
 }
 .gray-bg .input-group {
 	position: relative;
@@ -3612,7 +3610,7 @@ margin-bottom: 10px;}
 .color-wht {
 	color: #fff !important;
 }
-.fwdpanel div div p{ padding-left: 30px;}
+
 .aply-now {
 	color: #fff;
 	font-size: 28px;
@@ -4165,10 +4163,13 @@ a.h4-4 {
 }
 .h4-4-travel {
 	font-size: 24px;
-	line-height: 36px;
+	line-height: 1.2;
 	color: #f68a1d;
+	font-weight: 700;
+}
+.h4-4-travel a,
+.fwdpanel .fwdpanel-title a{
 	text-decoration: underline;
-	font-family: 'Foco-bold';
 }
 .txt-deco-none {
 	text-decoration: none !important;
@@ -5471,7 +5472,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	margin-bottom: 0;
 }
 .fwdpanel .fwdpanel-title{
-	margin-bottom: 25px;
+/*	margin-bottom: 25px;  */
 }
 .chin .padding20{
 	padding: 0 20px !important;
@@ -5564,6 +5565,9 @@ table.hor-padding >tbody>tr>td{
 @media (max-width: 991px){
 	.fwdpanel{
 		margin-top: 20px;
+	}
+	.fwdpanel .fwdpanel{
+		margin-bottom: 0;
 	}
 	.major-exc{
 		margin-bottom: 20px;
@@ -5936,6 +5940,19 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 }
 .fwdpanel{
 	margin-bottom: 20px;
+}
+
+.shop-tracking-status .center{
+	margin-left: -30px;
+}
+@media (max-width: 992px){
+	.shop-tracking-status .center{
+		margin-left: 0;
+	}
+}
+.fwdpanel-body ol,
+.fwdpanel-body ul{
+	padding-left: 20px;
 }
 .addthis_32x32_style .at4-icon, .at-share-tbx-element.addthis_32x32_style .at-share-btn{ width:60px !important; height:60px !important;}
 .addthis_32x32_style .at4-icon, .at-share-tbx-element.addthis_32x32_style .at-share-btn{ max-width:60px !important; max-height:60px !important;}
