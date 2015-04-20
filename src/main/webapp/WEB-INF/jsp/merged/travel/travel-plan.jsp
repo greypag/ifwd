@@ -185,7 +185,7 @@ var promoData = '';
 							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">								
 								<h2>
-									計劃 <%=travelQuote.getPlanName()[i]%>									
+									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%>  <fmt:message key="travel.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="travel.quote.plan1.medical" bundle="${msg}" />
 								<%}	else{ %>
