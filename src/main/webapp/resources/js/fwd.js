@@ -406,7 +406,7 @@ function fPlanValid()
 
 		var fullname = document.getElementById("txtAdFullName" + i).value;
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtAdFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
+			document.getElementById("errtxtAdFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); //"Please enter Insured Person's Name in English.";
 			flag = false;
 		}else{
 			document.getElementById("errtxtAdFullName" + i).innerHTML = "";
@@ -414,7 +414,7 @@ function fPlanValid()
 
 		var age = document.getElementById("selectAgeRange" + i).value;
 		if (age.trim() == "") {
-			document.getElementById("errselectAgeRange" + i).innerHTML = "Please select Insured Person's Age Range.";
+			document.getElementById("errselectAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");
 			flag = false;
 		}else{
 			document.getElementById("errselectAgeRange" + i).innerHTML = "";
@@ -434,14 +434,14 @@ function fPlanValid()
 		document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtInsuHkid" + i).innerHTML = "Please enter Insured Person's HKID No.";
+			document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
 			flag = false;
 		}else
 		{
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "Insured Person's HKID No. is invalid.";
+				document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "Insured Person's HKID No. is invalid.";
 				flag = false;
 			}
 		}
@@ -454,7 +454,7 @@ function fPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "Duplicate HKID No.";
 					flag = false;
 				}
 			}
@@ -465,7 +465,7 @@ function fPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("adultBenefitiaryId" + i).value == "")
 			{
-				document.getElementById("erradultBenefitiaryId" + i).innerHTML="Please enter Beneficiary Name in English.";
+				document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "beneficiary.name.notNull.message"); // "Please enter Beneficiary Name in English.";
 				flag = false;             
 			}
 			else
@@ -473,7 +473,7 @@ function fPlanValid()
 				document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 			}
 			if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-				document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "Beneficiary HKID No. is invalid.";
+				document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.name.notValid.message"); // "Beneficiary HKID No. is invalid.";
 				flag = false;
 			}
 			else {
@@ -493,14 +493,14 @@ function fPlanValid()
 		var age = document.getElementById("selectchildAgeRange" + i).value;
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "Please enter Insured Person's Name in English.";
+			document.getElementById("errtxtChldFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message");
 			flag = false;
 		}else{
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
 		}
 
 		if (age.trim() == "") {
-			document.getElementById("errchildRange" + i).innerHTML = "Please select Insured Person's Age Range.";
+			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // "Please select Insured Person's Age Range.";
 			flag = false;
 		}else{
 			document.getElementById("errchildRange" + i).innerHTML = "";
@@ -514,7 +514,7 @@ function fPlanValid()
 		document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
 
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Please enter Insured Person's HKID No.";
+			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message");
 			flag = false;
 		}
 		else
@@ -522,7 +522,7 @@ function fPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Insured Person's HKID No. is invalid.";
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
 				flag = false;
 			}
 		}
@@ -535,7 +535,7 @@ function fPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{					
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "Duplicate HKID No.";
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message");
 					flag = false;
 				}
 			}
