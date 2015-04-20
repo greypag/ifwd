@@ -343,7 +343,7 @@
 												<br>
 												<p><fmt:message key="home.quote.summary.subheading1.desc2" bundle="${msg}" /></p>
 												<br>
-												<table id="Premium" class="table table-bordred">
+												<table id="homecarePremium" class="table table-bordred">
 													<tbody>
 														<tr>
 															<td><strong>Item</strong></td>
@@ -485,7 +485,7 @@
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 
-												<table id="Premium" class="table table-bordred">
+												<table id="homecarePremium" class="table table-bordred">
 													<tbody>
 														<tr>
 															<td>Section</td>

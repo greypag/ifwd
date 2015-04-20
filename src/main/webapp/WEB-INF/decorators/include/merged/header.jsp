@@ -9,8 +9,8 @@
 function submitLoginForm(formID) {
 	
 	$('#ajax-loading').show();
-	$('#login-err-msg').html("");
-	$('#login-err-msg').hide();
+	$("#"+formID+' #login-err-msg').html("");
+	$("#"+formID+' #login-err-msg').hide();
 	if (validUser(formID)) {
 		$.ajax({
 			type : "POST",

@@ -472,7 +472,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
-<div class="other-benefits col-lg-12">
+<div class="other-benefits col-md-12">
   <h3 class="h4-2"><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h3>
   <ul class="bullets">
     <li>

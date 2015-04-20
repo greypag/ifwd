@@ -5446,7 +5446,8 @@ font-family: 'Foco-bold';
 }
 
 #summary tbody tr:first-child td, #summary tbody tr:nth-child(2) td,
-#Premium tbody tr:first-child td, #Premium tbody tr:nth-child(2) td{ color:#fff; background-color: #f68a1d;}
+#Premium tbody tr:first-child td, #Premium tbody tr:nth-child(2) td,
+#homecarePremium tbody tr:first-child td{ color:#fff; background-color: #f68a1d;}
 .fixed-content{ position: fixed;}
 
 
@@ -5991,4 +5992,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 .date input[disabled],
 .date input[readonly]{
 	cursor: pointer;
+}
+.lhnormal{
+	line-height:1.2 !important;
 }

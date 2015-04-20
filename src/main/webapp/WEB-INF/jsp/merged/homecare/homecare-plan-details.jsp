@@ -134,11 +134,11 @@
 
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		if (selectedText.trim() == "HK")
-			document.getElementById("inlineDeskRadio3").checked = true;
+			document.getElementById("inlineDeskRadio31").checked = true;
 		else if (selectedText.trim() == "KL")
-			document.getElementById("inlineDeskRadio4").checked = true;
+			document.getElementById("inlineDeskRadio41").checked = true;
 		else
-			document.getElementById("inlineDeskRadio5").checked = true;
+			document.getElementById("inlineDeskRadio51").checked = true;
 	}
 
 	function autofillFields() {
@@ -517,7 +517,7 @@
 									<tr>
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
+											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
 										<td><input type="text" class="form-control wd2"
 											id="inputCARoom" name="applicantRoom" placeholder="Room/Flat"
 											onblur="replaceAlphaNumeric(this);"
