@@ -190,7 +190,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										<td class="col-sm-4 pad-none"><label for="inputEmail3"
 											class="control-label bold-500"><fmt:message key="flight.details.registration.username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text" name="userName"
-											class="form-control btm-pad-10" placeholder="Username" id="Username">
+											class="form-control btm-pad-10" placeholder="<fmt:message key="flight.details.registration.username.placeholder" bundle="${msg}" />" id="Username">
 											<span id="UsernameError" class="text-red"></span>
 											</td>
 									</tr>
@@ -199,7 +199,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 											class="control-label bold-500"><fmt:message key="flight.details.registration.password" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password" id="Password"
-											placeholder="Password">
+											placeholder="<fmt:message key="flight.details.registration.password.placeholder" bundle="${msg}" />">
 											<span id="PasswordError" class="text-red"></span>
 											</td>
 									</tr>
@@ -208,7 +208,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 											class="control-label bold-500"><fmt:message key="flight.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" name="password" id="Confirm-Password"
-											placeholder="Confirm password">
+											placeholder="<fmt:message key="flight.details.registration.confirmPassword.placeholder" bundle="${msg}" />">
 											<span id="Confirm-PasswordError" class="text-red"></span>
 											</td>
 									</tr>
@@ -272,7 +272,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500"><fmt:message key="flight.details.insured.age" bundle="${msg}" /></label>
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
-												<option value="0">Select One</option>
+												<option value="0"><fmt:message key="flight.details.insured.age.select" bundle="${msg}" /></option>
 												<c:forEach var="ageList" items="${mapSelfType}">
 													<option value="${ageList.key}"><c:out
 															value="${ageList.value}" /></option>
@@ -282,8 +282,8 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 
-											<t:dropdown 
-												defaultLabel="Own Estate"
+											<t:dropdown												 
+												defaultLabel="abc update requied"
 												defaultValue="SE"
 												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
@@ -586,10 +586,10 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 							</div>
 							<div class="orange-bdr"></div>
 							<!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">
-								Amount due
+								 Amount due
 							</h3> -->
 							<%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								${planDetailsForm.getTotalDue()}
+								 ${planDetailsForm.getTotalDue()}
 								&nbsp;
 							</h3> --%>
 						</div>
