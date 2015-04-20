@@ -44,7 +44,7 @@
 <link rel="alternate" hreflang="zh-HK" href="" />
 <link rel="canonical" href=""/>
 <meta name="format-detection" content="telephone=no">
-<meta http-equiv="Cache-control" content="public">
+<meta http-equiv="Cache-control" content="no-cache, no-store">
 <meta property="og:type" content="website" />
 <meta property="og:image" content="" />
 <meta property="og:title" content="" />
