@@ -2682,6 +2682,9 @@ function hc_planValid() {
     document.getElementById("chk1").innerHTML = "";
     document.getElementById("chk2").innerHTML = "";
     
+    $('#errCADist').html('');
+    $('#errADist').html('');
+    
     /**** VAlidation for HKID and Passport ***/
 	/*var selectHkidPass = document.getElementById("selectHkidPass").value;
     if (appHkid.trim() == "") {
@@ -2849,6 +2852,16 @@ function hc_planValid() {
         //document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application.";
         $('#chk2').html(getBundle(getBundleLanguage, "homecare.tnc.notChecked.message"));
         flag = false;
+    }
+    
+    //Distrct Validation
+    if($('#selectCADist').val() == ''){
+    	$('#errCADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+    	flag = false;
+    }
+    if($('#selectADist').val() == ''){
+    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+    	flag = false;
     }
     
     //Remove the disabled select

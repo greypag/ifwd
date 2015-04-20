@@ -98,6 +98,12 @@
 <!--End VWO-->
 <script>
 	function setDropArea(id) {
+		
+		$('#errCADist').html('');
+		if($('#selectCADist').val() == ''){
+	    	$('#errCADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+	    }
+		
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
 		var skillsSelect = document.getElementById("selectCADistHid");
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
@@ -117,6 +123,12 @@
 	}
 
 	function setDropArea2(id2) {
+		
+		$('#errADist').html('');
+		if($('#selectADist').val() == ''){
+	    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+	    }
+		
 		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
 		var skillsSelect = document.getElementById("selectADistHid");
 
@@ -688,7 +700,7 @@
 														}
 													%>
 												</select>
-											</div></td>
+											</div><span id="errADist" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="4"><label class="radio-inline homecare-lb">
