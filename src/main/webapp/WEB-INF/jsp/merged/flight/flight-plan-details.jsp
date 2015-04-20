@@ -568,9 +568,9 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 									<fmt:message key="flight.details.summary.option3" bundle="${msg}" /> <span class="span2 uline"><a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 								</h3>
 								<h4>
-									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sildebar.summary.label.family.parent" bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
-									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sildebar.summary.label.family.child" bundle="${msg}" />: ${planDetailsForm.getTotalChildTraveller()} <br></c:if>
-									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sildebar.summary.label.family.others" bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br></c:if>
+									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
+									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetailsForm.getTotalChildTraveller()} <br></c:if>
+									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br></c:if>
 									<c:if test="${planDetailsForm.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetailsForm.getTravellerCount()}</c:if>
 								</h4>
 								<input type="hidden" name="otherInput"
