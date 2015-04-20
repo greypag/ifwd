@@ -587,7 +587,7 @@
 							</div>
 
 							<h4 class="h4-4">
-								<i class="fa fa-download"></i> <a href="">Download Brochure</a>
+								<i class="fa fa-download"></i> <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank">Download Brochure</a>
 							</h4>
 						</div>
 						<!--Full coverage end -->
