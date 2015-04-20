@@ -78,13 +78,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!--Main Content-->
 <section id="main-slider" class="no-margin"> 
 <!--Mobile banner--> 
-<img src="resources/images/slider/flight_en_m.jpg" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+<img src="<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobile banner-->
   <div class="carousel slide hidden-xs hidden-sm">
     <div class="carousel-inner">
       <div class="item active">
      
-        <img src="resources/images/slider/flight_en.jpg" alt="">
+        <img src="<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="">
          </div>
       <!--/.item--> 
     </div>
