@@ -644,14 +644,14 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">旅客: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
 								<%  }
 									else
 									{
 								%>
-									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">家長: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>子女: ${travelQuote.getTotalChildTraveller()}</c:if>
-			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他旅客: ${travelQuote.getTotalOtherTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${travelQuote.getTotalChildTraveller()}</c:if>
+			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${travelQuote.getTotalOtherTraveller()}</c:if>
 		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
 		                        <%  } %>
 								</h4>
