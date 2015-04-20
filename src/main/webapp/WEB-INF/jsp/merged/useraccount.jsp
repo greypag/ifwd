@@ -125,7 +125,7 @@
 								<tr>
 									<td valign="middle" class=""><label for="password"
 										class="control-label">Password</label></td>
-									<td class=""><input type="password"
+									<td class=""><input type="password" autocomplete="off"
 										name="password" id="password" class="form-control"
 										id="inputEmail3" placeholder="Password"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
@@ -139,7 +139,7 @@
 										for="confirmPassword" class="control-label">Confirm
 											password</label></td>
 									<td class=""><input type="password"
-										class="form-control" id="confirmPassword"
+										class="form-control" id="confirmPassword" autocomplete="off"
 										name="confirmPassword" placeholder="Confirm Password"></td>
 								</tr>
 							</tbody>

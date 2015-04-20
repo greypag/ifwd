@@ -42,7 +42,7 @@
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
-													<input type="password" name="password" class="form-control"
+													<input type="password" name="password" class="form-control" autocomplete="off"
 														id="headerPassword">
 												</div>
 												<span id="errPass" style="color: red"></span> <br>

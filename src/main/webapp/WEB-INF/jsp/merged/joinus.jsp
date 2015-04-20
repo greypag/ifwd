@@ -172,7 +172,7 @@
 										title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"> <img
 											src="resources/images/ic.png" alt=""></a></td>
 									<td>
-											<input type="password" class="form-control"
+											<input type="password" class="form-control" autocomplete="off"
 												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
 
 										 <span id="errorJoinUsPassword" class="text-red"></span>
@@ -189,7 +189,7 @@
 								<tr>
 									<td><label for="txtConfPass"
 										class="join-us-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /> </label></td>
-									<td><input type="password"
+									<td><input type="password" autocomplete="off"
 										name="confirmPassword" class="form-control" id="txtConfPass"
 										placeholder="<fmt:message key="member.registration.details.label.confirmPassword.placeholder" bundle="${msg}" />"> <span
 										id="errorEmptyConfPass" class="text-red"></span></td>
