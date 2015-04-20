@@ -173,13 +173,14 @@ jQuery(document).ready(function() {
 	            });
 	    //}
 	}
-
+	
 	if(jQuery("#d_clip_button").length){
 		var clip = new ZeroClipboard(jQuery("#d_clip_button"));
+		var message = getBundle(getBundleLanguage, "confirmation.share.copy");
 	  clip.on("ready", function() {
 		var oldText = jQuery("#d_clip_button").text();
 	    this.on("aftercopy", function(event) {
-	    	jQuery("#d_clip_button").width(jQuery("#d_clip_button").width()).text('Copied').css('padding',0);
+	    	jQuery("#d_clip_button").width(jQuery("#d_clip_button").width()).text(message).css('padding',0);
 	    	setTimeout(function(){ jQuery("#d_clip_button").text(oldText) }, 10000);
 	    });
 	  });
