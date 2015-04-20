@@ -299,7 +299,7 @@ function submitLoginForm(formID) {
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
 		<span class="callus top-number"> &nbsp&nbsp&nbsp&nbsp <fmt:message key="header.hotline" bundle="${msg}" />  </span> <a href="#"
-			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" />話</span></a> 
+			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
 			<a class="lang pull-right" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 		<div class="clearfix"></div>
 	</div>
