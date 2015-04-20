@@ -5993,3 +5993,6 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 .date input[readonly]{
 	cursor: pointer;
 }
+.lhnormal{
+	line-height:1.2 !important;
+}
