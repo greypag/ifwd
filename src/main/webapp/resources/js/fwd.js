@@ -441,7 +441,7 @@ function fPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "Insured Person's HKID No. is invalid.";
+				document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 				flag = false;
 			}
 		}
@@ -465,7 +465,7 @@ function fPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("adultBenefitiaryId" + i).value == "")
 			{
-				document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "beneficiary.name.notNull.message"); // "Please enter Beneficiary Name in English.";
+				document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "beneficiary.name.notNull.message"); // getBundle(getBundleLanguage, "beneficiary.name.notNull.message");;
 				flag = false;             
 			}
 			else
@@ -473,7 +473,7 @@ function fPlanValid()
 				document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 			}
 			if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-				document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.name.notValid.message"); // "Beneficiary HKID No. is invalid.";
+				document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.name.notValid.message"); // getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");;
 				flag = false;
 			}
 			else {
@@ -500,7 +500,7 @@ function fPlanValid()
 		}
 
 		if (age.trim() == "") {
-			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // "Please select Insured Person's Age Range.";
+			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // getBundle(getBundleLanguage, "insured.age.notValid.message");;
 			flag = false;
 		}else{
 			document.getElementById("errchildRange" + i).innerHTML = "";
@@ -545,7 +545,7 @@ function fPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("childBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errchildBenefitiaryName" + i).innerHTML="Please enter Beneficiary Name in English.";
+				document.getElementById("errchildBenefitiaryName" + i).innerHTML=getBundle(getBundleLanguage, "beneficiary.name.notNull.message");
 				flag = false;             
 			}
 			else
@@ -554,7 +554,7 @@ function fPlanValid()
 			}
 
 			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "Beneficiary HKID No. is invalid.";
+				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");
 				flag = false;
 			}
 			else {
@@ -581,7 +581,7 @@ function fPlanValid()
 
 
 		if (age.trim() == "") {
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "Please select Insured Person's Age Range.";
+			document.getElementById("errselectOtherAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");;
 			flag = false;
 		}else{
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
@@ -604,7 +604,7 @@ function fPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "Insured Person's HKID No. is invalid.";
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 				flag = false;
 			}
 		}
@@ -627,7 +627,7 @@ function fPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("otherBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML="Please enter Beneficiary Name in English.";
+				document.getElementById("errotherBenefitiaryName" + i).innerHTML=getBundle(getBundleLanguage, "beneficiary.name.notNull.message");;
 				flag = false;             
 			}
 			else
@@ -637,7 +637,7 @@ function fPlanValid()
 			}
 
 			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "Beneficiary HKID No. is invalid.";
+				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");;
 				flag = false;
 			}
 			else {
@@ -1174,7 +1174,7 @@ function fcPlanValid()
 		
 			var fullname = document.getElementById("txtAdFullName" + i).value;
 			if (fullname.trim() == "") {
-				document.getElementById("errtxtAdFullName" + i).innerHTML = "請輸入姓名";
+				document.getElementById("errtxtAdFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); // "請輸入姓名";
 				flag = false;
 			}else{
 				document.getElementById("errtxtAdFullName" + i).innerHTML = "";
@@ -1183,7 +1183,7 @@ function fcPlanValid()
 			var age = document.getElementById("selectAgeRange" + i).value;
 			alert('age:'+age);
 			if (age.trim() == "0") {
-				document.getElementById("errselectAgeRange" + i).innerHTML = "請選擇 年齡組別";
+				document.getElementById("errselectAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // "請選擇 年齡組別";
 				flag = false;
 			}else{
 				document.getElementById("errselectAgeRange" + i).innerHTML = "";
@@ -1197,14 +1197,14 @@ function fcPlanValid()
 			document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 			
 			if (hkid.trim() == "") {
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = "请用英文输入身份证号 ";
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message");
 				flag = false;
 			}else
 			{
 				var tr=IsHKID(hkid.trim());
 				if(tr==false)
 				{
-					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
+					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
 					flag = false;
 				}
 			}
@@ -1217,7 +1217,7 @@ function fcPlanValid()
 					if (hkid.toUpperCase() == hkid1.toUpperCase())
 					{
 						document.getElementById("errtxtInsuHkid" + i).innerHTML = "";						
-						document.getElementById("errtxtInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "重復香港身份證號碼。";
 						flag = false;
 					}
 				}
@@ -1228,7 +1228,7 @@ function fcPlanValid()
 			if(selectedValue != "SE"){
 				if (document.getElementById("adultBenefitiaryId" + i).value == "")
 				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML="請輸入全名（i）和請輸入英文";
+					document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "insured.hkId.notValid.message"); //"請輸入全名（i）和請輸入英文";
 					flag = false;             
 				}
 				else
@@ -1236,7 +1236,7 @@ function fcPlanValid()
 					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 				}
 				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML =  "  請輸入正確/有效的 香港身份證號碼 ";
+					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸入正確/有效的 香港身份證號碼 ";
 					flag = false;
 				}
 				else {
@@ -1257,14 +1257,14 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtChldFullName" + i).innerHTML = "請輸入姓名";
+			document.getElementById("errtxtChldFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); // "請輸入姓名";
 			flag = false;
 		}else{
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
 		}
 		
 		if (age.trim() == "") {
-			document.getElementById("errchildRange" + i).innerHTML = "請選擇 年齡組別 ";
+			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notNull.message"); // "請選擇 年齡組別 ";
 			flag = false;
 		}else{
 			document.getElementById("errchildRange" + i).innerHTML = "";
@@ -1280,7 +1280,7 @@ function fcPlanValid()
 		//document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "请用英文输入身份证号  ";
+			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); //"请用英文输入身份证号  ";
 			flag = false;
 		}
 		else
@@ -1288,7 +1288,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "您輸入的香港身份證號碼不正確。";
 				flag = false;
 			}
 		}
@@ -1301,7 +1301,7 @@ function fcPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "重復香港身份證號碼。";
 					flag = false;
 				}
 			}
@@ -1313,7 +1313,7 @@ function fcPlanValid()
 		{
 			if (document.getElementById("childBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errchildBenefitiaryName" + i).innerHTML="請輸入全名（i）和請輸入英文";
+				document.getElementById("errchildBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "benefitiary.name.notValid.message"); //"請輸入全名（i）和請輸入英文";
 				flag = false;             
 			}
 			else
@@ -1323,7 +1323,7 @@ function fcPlanValid()
 			}
 			
 			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "  請輸入正確/有效的 香港身份證號碼 ";
+				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸入正確/有效的 香港身份證號碼 ";
 				flag = false;
 			}
 			else {
@@ -1342,7 +1342,7 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = "請輸入全名（i）和請輸入英文";
+			document.getElementById("errtxtOtherFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸入全名（i）和請輸入英文";
 			flag = false;
 		}else{
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "";
@@ -1350,7 +1350,7 @@ function fcPlanValid()
 		
 		
 		if (age.trim() == "") {
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "請選擇 年齡組別 ";
+			document.getElementById("errselectOtherAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // "請選擇 年齡組別 ";
 			flag = false;
 		}else{
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
@@ -1365,7 +1365,7 @@ function fcPlanValid()
 		
 
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "请用英文输入身份证号 ";
+			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "请用英文输入身份证号 ";
 			flag = false;
 		}
 		else
@@ -1373,7 +1373,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "您輸入的香港身份證號碼不正確。";
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "您輸入的香港身份證號碼不正確。";
 				flag = false;
 			}
 		}
@@ -1386,7 +1386,7 @@ function fcPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "重復香港身份證號碼。";
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "重復香港身份證號碼。";
 					flag = false;
 				}
 			}
@@ -1396,7 +1396,7 @@ function fcPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("otherBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML="請輸入全名（i）和請輸入英文";
+				document.getElementById("errotherBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸入全名（i）和請輸入英文";
 				flag = false;             
 			}
 			else
@@ -1406,7 +1406,7 @@ function fcPlanValid()
 			}
 
 			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "請輸入正確/有效的 香港身份證號碼 ";
+				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸入正確/有效的 香港身份證號碼 ";
 				flag = false;
 			}
 			else {
@@ -1649,7 +1649,7 @@ function tPlanValid()
 		}
 
 		if (age.trim() <= 0) {
-			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");//"Please select Insured Person's Age Range.";
+			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");//getBundle(getBundleLanguage, "insured.age.notValid.message");;
 			flag = false;
 		}else{
 			document.getElementById("errchildRange" + i).innerHTML = "";
@@ -1674,7 +1674,7 @@ function tPlanValid()
 			if (selectChldHkidPass.toLowerCase() == "hkId") {
 				var tr = IsHKID(hkid.trim());
 				if (tr == false) {
-					document.getElementById("errtxtChldInvalidInsuHkid"+i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");//"Insured Person's HKID No. is invalid.";
+					document.getElementById("errtxtChldInvalidInsuHkid"+i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");//getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 					flag = false;
 				}
 			}
@@ -1766,7 +1766,7 @@ function tPlanValid()
 
 
 		if (age.trim() <= 0) {
-			document.getElementById("errselectOtherAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");//"Please select Insured Person's Age Range.";
+			document.getElementById("errselectOtherAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");//getBundle(getBundleLanguage, "insured.age.notValid.message");;
 			flag = false;
 		}else{
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = "";
@@ -1792,7 +1792,7 @@ function tPlanValid()
 			if (selectOtHkidPass.toLowerCase() == "hkId") {
 				var tr = IsHKID(hkid.trim());
 				if (tr == false) {
-					document.getElementById("errtxtOtherInsuHkid"+i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");//"Insured Person's HKID No. is invalid.";
+					document.getElementById("errtxtOtherInsuHkid"+i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");//getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 					flag = false;
 				}
 			}
@@ -2179,20 +2179,20 @@ function validateJoinUsForm() {
 
 	// FULL NAME VALIDATION
 	if (fullName.trim() == "") {
-		document.getElementById("errorEmptyName").innerHTML = "Please enter your Name in English.";
+		document.getElementById("errorEmptyName").innerHTML = getBundle(getBundleLanguage, "memeber.name.notNull.message"); // "Please enter your Name in English.";
 
 		valid = false;
 
 	} 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
-		document.getElementById("errorEmptyMob").innerHTML = "Please enter your Mobile No.";
+		document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notNull.message"); // "Please enter your Mobile No.";
 
 		valid = false;
 
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
-			document.getElementById("errorEmptyMob").innerHTML = "Please enter an 8-digit Mobile No.";
+			document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notValid.message"); // "Please enter an 8-digit Mobile No.";
 
 			valid = false;
 		}
@@ -2200,12 +2200,12 @@ function validateJoinUsForm() {
 
 	// Email Address Validation
 	if (emailId.trim() == "") {
-		document.getElementById("errorEmptyEmailId").innerHTML = "Please enter your Email Address.";
+		document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notNull.message"); // "Please enter your Email Address.";
 
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
-			document.getElementById("errorEmptyEmailId").innerHTML = "Please enter a valid Email Address.";
+			document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notValid.message"); // "Please enter a valid Email Address.";
 
 			valid = false;
 		}
@@ -2213,13 +2213,13 @@ function validateJoinUsForm() {
 	var reg_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
 	// UserName Validation
 	if (userName.trim() == "") {
-		document.getElementById("errorEmptyUName").innerHTML = "Please enter your Username.";
+		document.getElementById("errorEmptyUName").innerHTML = getBundle(getBundleLanguage, "memeber.username.notNull.message"); // "Please enter your Username.";
 
 		valid = false;
 
 	} else {
 		if (reg_user.test(userName) == false) {
-			document.getElementById("errorEmptyUName").innerHTML= "Username must be between 6 and 50 characters.";
+			document.getElementById("errorEmptyUName").innerHTML= getBundle(getBundleLanguage, "memeber.username.notValidLength.message"); // "Username must be between 6 and 50 characters.";
 			valid = false;
 		}
 	}
@@ -2231,35 +2231,35 @@ function validateJoinUsForm() {
 	var spChar = new RegExp(specialChar);
 	var message = "";
 	if (password.trim() == ""){
-		message  = "Please enter your Password.";
+		message  = getBundle(getBundleLanguage, "memeber.password.notNull.message"); // "Please enter your Password.";
 		valid = false;
 	} else if(!rg.test(password)) {  
-		message += "Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
+		message += getBundle(getBundleLanguage, "memeber.password.notValidLength.message"); // "Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
 		valid = false;
 	} else if(spChar.test(password)){
-		message += "\n Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
+		message += getBundle(getBundleLanguage, "memeber.password.notValid.message"); // "\n Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
 		valid = false;
 	}
 	document.getElementById("errorJoinUsPassword").innerHTML = message;
 
 
 	if (confirmPassword.trim() == "") {
-		document.getElementById("errorEmptyConfPass").innerHTML = "Please Confirm Password.";
+		document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notNull.message"); // "Please Confirm Password.";
 		valid = false;
 	} else {
 		if (confirmPassword !== password) {
-			document.getElementById("errorEmptyConfPass").innerHTML = "Passwords you entered do not match. Please enter the same Password in both fields.";
+			document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notMatch.message"); // "Passwords you entered do not match. Please enter the same Password in both fields.";
 			valid = false;
 		}
 	}
 	if (document.getElementById("checkbox1").checked == false)
 	{
-		document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
+		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.tnc.notChecked.message"); // "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		valid = false;
 	}
 	if (document.getElementById("checkbox2").checked == false)
 	{
-		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application.";
+		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.pics.notChecked.message"); // "Please read and accept the Personal Information Collection Statement before submitting the application.";
 		valid = false;
 	}
 
@@ -2389,21 +2389,21 @@ function resetPassword() {
 	if (pass.trim() == "") {
 
 		flag = false;
-		document.getElementById("errpass").innerHTML = "Please enter a Password";
+		document.getElementById("errpass").innerHTML = getBundle(getBundleLanguage, "memeber.password.notNull.message"); // "Please enter a Password";
 	}
 	else {
 		if (password_pattern.test(pass) == false) {
-			document.getElementById("errpass").innerHTML = "Please enter a Valid Password";
+			document.getElementById("errpass").innerHTML = getBundle(getBundleLanguage, "memeber.password.notValid.message"); // "Please enter a Valid Password";
 			flag = false;
 		}
 	}
 
 	if (confpass.trim() == "") {
-		document.getElementById("errconfpass").innerHTML = "Please enter a Confirm Password";
+		document.getElementById("errconfpass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notNull.message"); // "Please enter a Confirm Password";
 		flag = false;
 	} else {
 		if (confpass !== pass) {
-			document.getElementById("errconfpass").innerHTML = "Please enter a Valid Confirm Password";
+			document.getElementById("errconfpass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notValid.message"); // "Please enter a Valid Confirm Password";
 			flag = false;
 		}
 	}
