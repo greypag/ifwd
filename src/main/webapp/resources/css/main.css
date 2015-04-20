@@ -5937,3 +5937,12 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 .fwdpanel{
 	margin-bottom: 20px;
 }
+.addthis_32x32_style .at4-icon, .at-share-tbx-element.addthis_32x32_style .at-share-btn{ width:60px !important; height:60px !important;}
+.addthis_32x32_style .at4-icon, .at-share-tbx-element.addthis_32x32_style .at-share-btn{ max-width:60px !important; max-height:60px !important;}
+.at4-icon.aticon-facebook {
+  background-position: 10px 10px !important;
+}
+.at4-icon.aticon-twitter, .at4-icon.aticon-google_plusone_share {
+  background-position: 15px 15px !important;
+}
+.at-share-tbx-element .at-share-btn{ margin:0 !important;}
