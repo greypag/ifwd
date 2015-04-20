@@ -32,7 +32,7 @@ var promoData = '';
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
-			document.getElementById("errDue").innerHTML = "請至少選擇一個計劃";
+			document.getElementById("errDue").innerHTML = "<fmt:message key="travel.plan.empty" bundle="${msg}" />";
 			flag = false;
 		} else
 			flag = true;
@@ -1058,7 +1058,7 @@ var promoData = '';
 		<p class="padding1 hidden-sm hidden-xs">
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
-				href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+				href="<fmt:message key="travel.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
