@@ -1004,7 +1004,7 @@ var promoData = '';
 							</div>
 						</div>
 						<div class="col-xs-12">
-							<h3><fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /></h3>
+							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 						
 							<span class="text-red" id="errPromoCode"></span>
 							<div class="form-group">
@@ -1149,7 +1149,7 @@ var promoData = '';
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
-		$('#seletedplanname').html('計劃'+planName);
+		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(totalDue);
 
