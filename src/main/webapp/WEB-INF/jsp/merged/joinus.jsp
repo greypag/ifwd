@@ -111,7 +111,7 @@
 											<small><fmt:message key="member.registration.details.label.fullName.desc " bundle="${msg}" /></small></label></td>
 									<td><input type="text"
 										class="form-control" id="txtFullName" name="fullName"
-										value="${userDetails.getFullName() }" placeholder="英文全名"
+										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
 										onkeypress="    return alphaOnly(event);" maxlength="100">
 										<span id="errorEmptyName" class="text-red"></span></td>
@@ -123,18 +123,18 @@
 									<td><input type="text"
 										class="form-control" id="txtMobileNo"
 										value="${userDetails.getMobileNo() }" name="mobileNo"
-										placeholder="手機號碼" onkeypress="return isNumeric(event)"
+										placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />" onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8"> <span
 										id="errorEmptyMob" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
 									<td><label for="txtEmailId"
-										class="join-us-label">電郵地址<br> <small><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></small>
+										class="join-us-label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /><br> <small><fmt:message key="member.registration.details.label.emailAddress.desc" bundle="${msg}" /></small>
 									</label></td>
 									<td><input type="email"
 										class="form-control" id="txtEmailId"
-										value="${userDetails.getEmailAddress() }" placeholder="電郵地址"
+										value="${userDetails.getEmailAddress() }" placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"
 										name="EmailAddress" maxlength="50"> <span
 										id="errorEmptyEmailId" class="text-red"></span></td>
 									<td></td>
@@ -144,13 +144,13 @@
 										class="join-us-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label> <a href="#"
 										class="pull-right tool-tip show-inline-xs"
 										data-toggle="tooltip" data-placement="bottom"
-										title="用戶名稱必須是6至50個字元"><img src="resources/images/ic.png"
+										title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="resources/images/ic.png"
 											alt=""></a></td>
 									<td>
 										
 											<input type="text" class="form-control "
 												id="txtUserName1" value="${userDetails.getUserName() }"
-												placeholder="登入名稱" name="userName">
+												placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />" name="userName">
 
 										
 											
@@ -159,7 +159,7 @@
 									<td><a href="#"
 												class="tool-tip show-inline-md"
 												data-toggle="tooltip" data-placement="bottom"
-												title="用戶名稱必須是6至50個字元"><img src="resources/images/ic.png"
+												title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="resources/images/ic.png"
 												alt=""></a></td>
 								</tr>
 
@@ -169,11 +169,11 @@
 									</label> <a href="#"
 										class="pull-right tool-tip show-inline-xs"
 										data-toggle="tooltip" data-placement="bottom"
-										title="密碼字元至少8位數，必須包含字母（大楷及小楷﹚及數字"> <img
+										title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"> <img
 											src="resources/images/ic.png" alt=""></a></td>
 									<td>
 											<input type="password" class="form-control"
-												id="txtPass1" placeholder="密碼" name="password">
+												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
 
 										 <span id="errorJoinUsPassword" class="text-red"></span>
 									</td>
@@ -181,7 +181,7 @@
 										<a href="#"
 												class="tool-tip show-inline-md"
 												data-toggle="tooltip" data-placement="bottom"
-												title="密碼字元至少8位數，必須包含字母（大楷及小楷﹚及數字"><img
+												title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"><img
 												src="resources/images/ic.png" alt=""></a>
 									</td>
 								</tr>
@@ -191,7 +191,7 @@
 										class="join-us-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /> </label></td>
 									<td><input type="password"
 										name="confirmPassword" class="form-control" id="txtConfPass"
-										placeholder="確認密碼"> <span
+										placeholder="<fmt:message key="member.registration.details.label.confirmPassword.placeholder" bundle="${msg}" />"> <span
 										id="errorEmptyConfPass" class="text-red"></span></td>
 								</tr>
 
@@ -213,13 +213,13 @@
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label
 								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /><a
-								href="http://fwd.com.hk/zh-HK/home/pdo.html" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								href="<fmt:message key="member.PICS.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 								<hr />
-								若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。 <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
 							</label>
 						</div>
 						<span id="chk2" style="display: none"> <label
-							class="text-red">遞交申請表前，請閱讀及接受收集個人資料聲明</label>
+							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
 							<input id="checkbox3" type="checkbox"> <label
@@ -237,7 +237,7 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
 	
-	 <button class="bdr-curve btn btn-primary btn-lg btn-block act-btn" onclick="return activateUserAccountJoinUs();"> 啟動  </button>
+	 <button class="bdr-curve btn btn-primary btn-lg btn-block act-btn" onclick="return activateUserAccountJoinUs();"> <fmt:message key="member.registration.activate" bundle="${msg}" />  </button>
 							</div>
 						</div>
 					</div>
