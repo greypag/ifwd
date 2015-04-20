@@ -358,7 +358,7 @@ function submitLoginForm(formID) {
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6 col-xs-6">
-														<button type="button" onclick="return submitLoginForm('loginform2');"
+														<button type="submit" onclick="return submitLoginForm('loginform2');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3 class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">

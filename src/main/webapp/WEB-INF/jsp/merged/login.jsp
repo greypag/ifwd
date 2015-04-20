@@ -48,7 +48,7 @@
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm('loginform-pop');"
+														<button type="submit" onclick="return submitLoginForm('loginform-pop');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3

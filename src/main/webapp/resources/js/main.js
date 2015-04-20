@@ -146,7 +146,7 @@ jQuery('ul.maintabs li').hover(function () {
 $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
     var winh = $(window).height();
-    var diff = $('.carousel').height() + 40 + 115 + 230- winh;
+    var diff = $('.carousel').height() + 40 + 131 + $('#middle').height() - winh;
    
     // Do something
     if (scroll > diff) {
@@ -158,17 +158,11 @@ $(window).scroll(function (event) {
 
 jQuery(document).ready(function() {
 	if($('#homecare-scroll').length){
-	    //var winh = $(window).height();
-	    // var conh = $('#main-slider').height() + $('#header').height() + 50;
-	    //var conh = $('#main-slider').height() + 50;
-	    //if(conh > winh)
-	    //{
-	        //var bottom = $('#homecare-scroll').outerHeight() - $('#homecare-scroll h2').outerHeight() - 30;
-	        //jQuery('#homecare-scroll').css('bottom', -bottom);
+
 	        $(window).scroll(function (event) {
 	            var scroll = $(window).scrollTop();
 	            var winh = $(window).height();
-	            var diff = $('.carousel').height()  + 60 + 200- winh;
+	            var diff = $('.carousel').height()  + 40 + 131 + 298 - winh;
 	            
 	            // Do something
 	            if (scroll > diff) {

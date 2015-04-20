@@ -554,7 +554,7 @@
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
 									</tr>
 									<tr>
-										<td colspan="3"><select name="applicantDistrict"
+										<td colspan="3" class="styled-select"><select name="applicantDistrict"
 											class="form-control soflow full-control" id="selectCADist"
 											onchange="setDropArea(this.value)">
 												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>

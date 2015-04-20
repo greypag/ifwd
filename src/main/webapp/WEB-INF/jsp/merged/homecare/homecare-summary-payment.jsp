@@ -247,19 +247,19 @@
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label></td>
 								<td><select class="pay-details-select" id="month"
 									name="epMonth">
-										<option VALUE="">Month</option>
-										<option VALUE="01">1</option>
-										<option VALUE="02">2</option>
-										<option VALUE="03">3</option>
-										<option VALUE="04">4</option>
-										<option VALUE="05">5</option>
-										<option VALUE="06">6</option>
-										<option VALUE="07">7</option>
-										<option VALUE="08">8</option>
-										<option VALUE="09">9</option>
-										<option VALUE="10">10</option>
-										<option VALUE="11">11</option>
-										<option VALUE="12">12</option>
+										<option value="0">月</option>
+										<option value="1">01</option>
+										<option value="2">02</option>
+										<option value="3">03</option>
+										<option value="4">04</option>
+										<option value="5">05</option>
+										<option value="6">06</option>
+										<option value="7">07</option>
+										<option value="8">08</option>
+										<option value="9">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
 								</select></td>
 								<td><select class="pay-details-select" id="year"
 									name="epYear">
