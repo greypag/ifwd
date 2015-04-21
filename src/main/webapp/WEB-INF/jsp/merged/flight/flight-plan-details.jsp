@@ -296,7 +296,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 
 											 <select name="adultBeneficiary" class="soflow" id="adultsselectBenificiary${inx}">
-												<option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
+												<option value="SE"><fmt:message key="flight.details.insured.beneficiary.default" bundle="${msg}" /></option>
 												<c:forEach var="relationshipList" items="${mapRelationshipCode}">
 													<option value="${relationshipList.key}"><c:out
 															value="${relationshipList.value}" /></option>
@@ -389,15 +389,16 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 											<span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 
-											<t:dropdown 
-												defaultLabel="Own Estate"
-												defaultValue="SE"
-												onChange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-												selectables="${mapRelationshipCode}"
-												valueElmId="childselectBenificiary${inx}"
-												valueElmName="childBeneficiary"
-											/>											
+											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 									
+											<select id="childselectBenificiary${inx}" name="childBeneficiary"
+												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
+												class="soflow">
+												<option value="SE"><fmt:message key="flight.details.insured.beneficiary.default" bundle="${msg}" /></option>
+												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+													<option value="${relationshipCodeList.key}"><c:out
+															value="${relationshipCodeList.value}" /></option>
+												</c:forEach>
+											</select>										
 											<span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 										<div id="childbenificiaryId${inx}" class="hide">
@@ -476,14 +477,15 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
-											<t:dropdown 
-												defaultLabel="Own Estate"
-												defaultValue="SE"
-												onChange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
-												selectables="${mapRelationshipCode}"
-												valueElmId="otherSelectBenificiary${inx}"
-												valueElmName="otherBeneficiary"
-											/>											
+											<select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
+												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
+												class="form-control soflow">
+												<option value="SE"><fmt:message key="flight.details.insured.beneficiary.default" bundle="${msg}" /></option>
+												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+													<option value="${relationshipCodeList.key}"><c:out
+															value="${relationshipCodeList.value}" /></option>
+												</c:forEach>
+											</select>											
 											<span id="benificiary" style="display: none"> <label
 												style="color: red">Beneficiary which is blank</label>
 											</span>

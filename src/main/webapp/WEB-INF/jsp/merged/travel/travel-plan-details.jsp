@@ -188,7 +188,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
 											name="username" class="form-control btm-pad-10"
-											id="Username" placeholder="?�戶?�稱"><span
+											id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -196,7 +196,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											name="password" class="form-control btm-pad-10"
-											id="Password" placeholder="?�人密碼" autocomplete="off"> <span
+											id="Password" placeholder="<fmt:message key="travel.details.registration.password.placeholder" bundle="${msg}" />" autocomplete="off"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -204,7 +204,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" id="Confirm-Password"
-											placeholder="確�?密碼" autocomplete="off"> <span id="Confirm-PasswordError"
+											placeholder="<fmt:message key="travel.details.registration.confirmPassword.placeholder" bundle="${msg}" />" autocomplete="off"> <span id="Confirm-PasswordError"
 											class="text-red"> </span></td>
 									</tr>
 								</tbody>
@@ -424,11 +424,12 @@
 											</select> <span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> <select
+											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> 
+											<select
 												id="childselectBenificiary${inx}" name="childBeneficiary"
 												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
 												class="soflow">
-												<option value="SE">?�人?�產</option>
+												<option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
 												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
@@ -519,11 +520,11 @@
 											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> <select
-												id="otherSelectBenificiary${inx}" name="otherBeneficiary"
+											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> 
+											<select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
 												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
 												class="form-control soflow">
-												<option value="SE">?�人?�產</option>
+												<option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
 												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
