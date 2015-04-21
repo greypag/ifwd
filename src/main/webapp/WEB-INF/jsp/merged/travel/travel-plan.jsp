@@ -32,7 +32,7 @@ var promoData = '';
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
-			document.getElementById("errDue").innerHTML = "請至少選擇一個計劃";
+			document.getElementById("errDue").innerHTML = "<fmt:message key="travel.plan.empty" bundle="${msg}" />";
 			flag = false;
 		} else
 			flag = true;
@@ -185,7 +185,7 @@ var promoData = '';
 							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">								
 								<h2>
-									計劃 <%=travelQuote.getPlanName()[i]%>									
+									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
 									{%>  <fmt:message key="travel.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="travel.quote.plan1.medical" bundle="${msg}" />
 								<%}	else{ %>
@@ -216,6 +216,14 @@ var promoData = '';
 									<%
 										}
 									%>
+								
+								
+								
+								
+								
+								
+								
+								
 							</div>
 							<div class="clearfix"></div>
 							<!-- Plan benefits -->
@@ -541,7 +549,7 @@ var promoData = '';
 											</div>
 										</div>
 										<!-- / Age limit -->
-										<!--   Premium table (港幣)  -->
+										<!--   Premium table (���)  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel">
@@ -897,7 +905,7 @@ var promoData = '';
 												</p>
 											</div>
 										</div>
-										<!-- / Premium table (港幣) -->
+										<!-- / Premium table (���) -->
 									</div>
 									<!-- / col-md-12 -->
 								</div>
@@ -996,7 +1004,7 @@ var promoData = '';
 							</div>
 						</div>
 						<div class="col-xs-12">
-							<h3><fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /></h3>
+							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 						
 							<span class="text-red" id="errPromoCode"></span>
 							<div class="form-group">
@@ -1050,7 +1058,7 @@ var promoData = '';
 		<p class="padding1 hidden-sm hidden-xs">
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
-				href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+				href="<fmt:message key="travel.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
@@ -1141,7 +1149,7 @@ var promoData = '';
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(selected_price);
 		$('#plansummary').html(selected_price);
-		$('#seletedplanname').html('計劃'+planName);
+		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(totalDue);
 
