@@ -64,14 +64,15 @@
 %>
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
-  <img src="resources/images/slider/travel_cn_m.jpg" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+  <img src="<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobilebanner-->
 <div class="carousel slide hidden-xs hidden-sm">
 <div class="carousel-inner">
 <div class="item active">
 
 <!--/#middle-->
-        <img src="resources/images/slider/travel_cn.jpg" alt=""  /> </div>
+        <img src="<fmt:message key="travel.hero.image" bundle="${msg}" />" alt=""  />
+         </div>
       <!--/.item--> 
     </div>
     <!--/.carousel inner--> 
@@ -472,7 +473,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
-<div class="other-benefits col-md-12">
+<div class="other-benefits col-lg-12">
   <h3 class="h4-2"><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h3>
   <ul class="bullets">
     <li>
