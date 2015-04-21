@@ -108,7 +108,7 @@
 								<tr>
 									<td class="col-sm-3 col-lg-4 col-xs-4"><label for="txtFullName"
 										class="join-us-label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /><br>
-											<small><fmt:message key="member.registration.details.label.fullName.desc " bundle="${msg}" /></small></label></td>
+											<small><fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></small></label></td>
 									<td><input type="text"
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName.placeholder" bundle="${msg}" />"

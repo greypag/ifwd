@@ -419,7 +419,7 @@
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
-											placeholder="Full name" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
+											placeholder="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
 											onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
 											id="appfullname" class="text-red"></span></td>
 									</tr>
@@ -433,7 +433,7 @@
 										</select></td>
 										<td class=""><input type="text" name="hkId"
 											class="form-control numberinput textUppe full-control" id="txtAppHkid"
-											placeholder="X1234567/Passport No"
+											placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
 											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
@@ -444,7 +444,7 @@
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
-											placeholder="Mobile number"
+											placeholder="<fmt:message key="home.details.applicant.mobile.placeholder" bundle="${msg}" />"
 											onkeypress="return isNumeric(event)"
 											onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
 											id="errMobileNo" class="text-red"> </span></td>
@@ -455,7 +455,7 @@
 										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
-											placeholder="Email address" 
+											placeholder="<fmt:message key="home.details.applicant.email.placeholder" bundle="${msg}" />" 
 											onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
 											id="errEmailid" class="text-red"> </span></td>
 									</tr>
@@ -486,7 +486,7 @@
 												class="control-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
 											<td class=""><input type="text"
 												class="form-control marginbt full-control" id="Username"
-												placeholder="Username"> <span id="UsernameError"
+												placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />"> <span id="UsernameError"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
@@ -494,7 +494,7 @@
 												class="control-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Password" autocomplete="off"
-												placeholder="Password"> <span id="PasswordError"
+												placeholder="<fmt:message key="home.details.registration.password.placeholder" bundle="${msg}" />"> <span id="PasswordError"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
@@ -502,7 +502,7 @@
 												class="control-label bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Confirm-Password" autocomplete="off"
-												placeholder="Confirm password"> <span
+												placeholder="<fmt:message key="home.details.registration.confirmPassword.placeholder" bundle="${msg}" />"> <span
 												id="Confirm-PasswordError" class="text-red"> </span></td>
 										</tr>
 									</tbody>
@@ -519,38 +519,38 @@
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
 										<td><input type="text" class="form-control wd2"
-											id="inputCARoom" name="applicantRoom" placeholder="Room/Flat"
+											id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
 										<td><input type="text" class="form-control full-control"
-											id="inputCAFloor" name="applicantFloor" placeholder="Floor "
+											id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5"/></td>
 										<td><input type="text" class="form-control full-control"
-											id="inputCABlock" name="applicantBlock" placeholder="Block"
+											id="inputCABlock" name="applicantBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputCABuilding" name="applicantBuilding"
-											placeholder="Building" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
+											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputCAEstate" name="applicantEstate"
-											placeholder="Estate" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
+											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputCAStreetNo" name="applicantStreetNo"
-											placeholder="Street No." onblur="replaceAlphaNumeric(this);"
+											placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputCAStreetName" name="applicantStreetName"
-											placeholder="Street Name" onblur="replaceAlphaNumeric(this);"
+											placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
 									</tr>
 									<tr>
@@ -628,40 +628,40 @@
 											class="control-label bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label></td>
 										<td colspan="2"><input type="text"
 											class="form-control wd2 full-control" id="inputARoom" name="aRoom"
-											placeholder="Room/Flat" onblur="replaceAlphaNumeric(this);"
+											placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
 										<td><input type="text" class="form-control  full-control"
-											id="inputAFloor" name="aFloor" placeholder="Floor "
+											id="inputAFloor" name="aFloor" placeholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 										<td><input type="text" class="form-control  full-control"
-											id="inputABlock" name="aBlock" placeholder="Block"
+											id="inputABlock" name="aBlock" placeholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
 										<td colspan="3"><input type="text" class="form-control full-control"
-											id="inputABuilding" name="aBuilding" placeholder="Building"
+											id="inputABuilding" name="aBuilding" placeholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />"
 											
 											onChange="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /> <span id="errABuilding" class="text-red">
 										</span></td>
 										<td colspan=""><input type="text" class="form-control full-control"
-											id="inputAEstate" name="aEstate" placeholder="Estate"
+											id="inputAEstate" name="aEstate" placeholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="3"><input type="text" class="form-control full-control"
-											id="inputAStreetNo" name="aStreetNo" placeholder="Street No."
+											id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /></td>
 										<td colspan=""><input type="text" class="form-control full-control"
 											id="inputAStreetName" name="aStreetName"
-											placeholder="Street Name" onblur="replaceAlphaNumeric(this);"
+											placeholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /></td>
 									</tr>

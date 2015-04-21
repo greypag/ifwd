@@ -652,7 +652,7 @@ function fPlanValid()
 }
 
 function allLetter(inputtxt) {
-	var letters = /^[A-Za-z]+$/;
+	var letters = /^[A-Za-z ]+$/;
 	console.log("all letter called");
 	if (inputtxt.match(letters)) {
 		

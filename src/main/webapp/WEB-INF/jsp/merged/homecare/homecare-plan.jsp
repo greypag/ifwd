@@ -566,21 +566,21 @@
 											<div class="fwdpanel-body" style="display: none;">
 
 												<h4 class="h4-2">
-													<strong>fmt:message key="home.quote.excess.heading" bundle="${msg}" /></strong>
+													<strong><fmt:message key="home.quote.excess.heading" bundle="${msg}" /></strong>
 												</h4>
 
 												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td colspan="1" rowspan="2">fmt:message key="home.quote.excess.section1" bundle="${msg}" /></td>
-															<td colspan="2" rowspan="1">fmt:message key="home.quote.excess.section1.desc1" bundle="${msg}" /></td>
+															<td colspan="1" rowspan="2"><fmt:message key="home.quote.excess.section1" bundle="${msg}" /></td>
+															<td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section1.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td colspan="2" rowspan="1">fmt:message key="home.quote.excess.section1.desc2" bundle="${msg}" /></td>
+															<td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section1.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.excess.section2" bundle="${msg}" /></td>
-															<td colspan="2" rowspan="1">fmt:message key="home.quote.excess.section2.desc" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.excess.section2" bundle="${msg}" /></td>
+															<td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section2.desc" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>

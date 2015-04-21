@@ -283,7 +283,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 
 											<t:dropdown												 
-												defaultLabel="abc update requied"
+												defaultLabel="Own Estate"
 												defaultValue="SE"
 												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
