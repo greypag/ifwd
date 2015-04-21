@@ -658,7 +658,7 @@
 								
 								<input type="hidden" name="planSelected" value="${travelQuote.getPlanSelected()}">
 								<h3 class="txt-bold">
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${travelQuote.getTotalTravellingDays()} 天</span>
+									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${travelQuote.getTotalTravellingDays()}</span>
 								</h3>
 								<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 								<!-- <div class="form-group">
