@@ -281,22 +281,30 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
 												<option value="0"><fmt:message key="flight.details.insured.age.select" bundle="${msg}" /></option>
 												<c:forEach var="ageList" items="${mapSelfType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
+													<c:choose> 
+  													  <c:when test="${ageList.key == '2'}">
+  													    <option value="${ageList.key}" selected>
+  													  </c:when>
+  													  <c:otherwise>
+  													  	<option value="${ageList.key}">
+  													  </c:otherwise>
+													</c:choose>
+													<c:out value="${ageList.value}" /></option>
 												</c:forEach>
 											</select> <span id="errselectAgeRange${inx}" class="text-red">
 											</span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 
-											<t:dropdown												 
-												defaultLabel="Own Estate"
-												defaultValue="SE"
-												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												selectables="${mapRelationshipCode}"
-												valueElmId="adultsselectBenificiary${inx}"
-												valueElmName="adultBeneficiary"
-											/>
+											 <select name="adultBeneficiary" class="soflow" id="adultsselectBenificiary${inx}">
+												<option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
+												<c:forEach var="relationshipList" items="${mapRelationshipCode}">
+													<option value="${relationshipList.key}"><c:out
+															value="${relationshipList.value}" /></option>
+												</c:forEach>
+											</select>
+											
+											
 											<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 
@@ -369,8 +377,15 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 											<select name="childAgeRange" class="soflow" id="selectchildAgeRange${inx}">
 												<option value="0"><fmt:message key="flight.details.insured.age.select" bundle="${msg}" /></option>
 												<c:forEach var="ageList" items="${mapChildType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
+													<c:choose> 
+  													  <c:when test="${ageList.key == '1'}">
+  													    <option value="${ageList.key}" selected>
+  													  </c:when>
+  													  <c:otherwise>
+  													  	<option value="${ageList.key}">
+  													  </c:otherwise>
+													</c:choose>
+													<c:out value="${ageList.value}" /></option>
 												</c:forEach>
 											</select> 
 											<span id="errchildRange${inx}" class="text-red"></span>
