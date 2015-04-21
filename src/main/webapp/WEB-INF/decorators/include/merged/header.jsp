@@ -95,7 +95,7 @@ function submitLoginForm(formID) {
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="<%=request.getContextPath()%>"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 							<li> | </li>
-							<li><a href="home"
+							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li><a href="joinus"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
@@ -195,7 +195,7 @@ function submitLoginForm(formID) {
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4>
-													<fmt:message key="header.login.username" bundle="${msg}" />稱 <a href="forgotUserName"
+													<fmt:message key="header.login.username" bundle="${msg}" /><a href="forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 

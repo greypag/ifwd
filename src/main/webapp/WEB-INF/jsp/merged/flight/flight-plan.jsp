@@ -144,7 +144,7 @@
 							<li><fmt:message key="flight.quote.other.tnc.desc3" bundle="${msg}" /></li>
 							<li><fmt:message key="flight.quote.other.tnc.desc4" bundle="${msg}" /></li>
 							<li><fmt:message key="flight.quote.other.tnc.desc5" bundle="${msg}" /></li>
-							<li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" />.</li>
+							<li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" /></li>
 						</ol>
 						<br>
 

@@ -345,134 +345,134 @@
 												<table id="homecarePremium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td><strong>fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
-															<td><strong>fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
-															<td><strong>fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /> Limits<br>(HK$)
+															<td><strong><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
+															<td><strong><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
+															<td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /> Limits<br>(HK$)
 															</strong></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row1.col2.desc1" bundle="${msg}" /><br /> 
-																	fmt:message key="home.quote.summary.table.row1.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row1.col2.desc1" bundle="${msg}" /><br /> 
+																	<fmt:message key="home.quote.summary.table.row1.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row1.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row1.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row2.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row2.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row2.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row2.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row2.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row2.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row2.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row2.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
 															<td>3</td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> 
-																	fmt:message key="home.quote.summary.table.row3.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row3.col2.desc2" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row3.col2.desc4" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row3.col2.desc5" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> 
+																	<fmt:message key="home.quote.summary.table.row3.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row3.col2.desc2" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row3.col2.desc4" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row3.col2.desc5" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row3.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row3.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row4.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row4.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row4.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row4.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row4.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row4.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row4.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row4.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row5.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row5.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row5.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row5.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row5.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row5.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row5.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row5.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row6.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row6.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row6.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row6.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row6.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row6.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row6.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row6.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2">fmt:message key="home.quote.summary.table.row7.col1" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="home.quote.summary.table.row7.col1" bundle="${msg}" /></td>
 															<td>
-																<strong>fmt:message key="home.quote.summary.table.row7.col2.desc1" bundle="${msg}" /></strong>
+																<strong><fmt:message key="home.quote.summary.table.row7.col2.desc1" bundle="${msg}" /></strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row7.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row7.col3.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
 															<td>
-																<strong>fmt:message key="home.quote.summary.table.row7.col2.desc2" bundle="${msg}" /></strong>
+																<strong><fmt:message key="home.quote.summary.table.row7.col2.desc2" bundle="${msg}" /></strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row7.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row7.col3.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row8.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row8.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row8.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row8.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row8.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row8.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row8.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row8.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row9.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row9.col1" bundle="${msg}" /></td>
 															<td>
 																<strong>
-																	fmt:message key="home.quote.summary.table.row9.col2.desc1" bundle="${msg}" /><br />
-																	fmt:message key="home.quote.summary.table.row9.col2.desc2" bundle="${msg}" />
-																	fmt:message key="home.quote.summary.table.row9.col3.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row9.col2.desc1" bundle="${msg}" /><br />
+																	<fmt:message key="home.quote.summary.table.row9.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row9.col3.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row9.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row9.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2">fmt:message key="home.quote.summary.table.row10.col1" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="home.quote.summary.table.row10.col1" bundle="${msg}" /></td>
 															<td rowspan="2">
 																<strong>
-																	fmt:message key="home.quote.summary.table.row10.col2.desc1" bundle="${msg}" /><br /> 
-																	fmt:message key="home.quote.summary.table.row10.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row10.col2.desc1" bundle="${msg}" /><br /> 
+																	<fmt:message key="home.quote.summary.table.row10.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row10.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row10.col3.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row10.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row10.col3.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2">fmt:message key="home.quote.summary.table.row11.col1" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="home.quote.summary.table.row11.col1" bundle="${msg}" /></td>
 															<td rowspan="2">
 																<strong>
-																	fmt:message key="home.quote.summary.table.row11.col2.desc1" bundle="${msg}" /><br /> 
-																	fmt:message key="home.quote.summary.table.row11.col2.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row11.col2.desc1" bundle="${msg}" /><br /> 
+																	<fmt:message key="home.quote.summary.table.row11.col2.desc2" bundle="${msg}" />
 																</strong>
 															</td>
-															<td>fmt:message key="home.quote.summary.table.row11.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row11.col3.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.summary.table.row11.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.summary.table.row11.col3.desc2" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -507,22 +507,22 @@
 												<table id="homecarePremium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></th>
-															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></th>
-															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></th>
-															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></th>
+															<th><fmt:message key="home.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></th>
+															<th><fmt:message key="home.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></th>
+															<th><fmt:message key="home.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></th>
+															<th><fmt:message key="home.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></th>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.section1" bundle="${msg}" /></td>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.coverage1" bundle="${msg}" /></td>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.liability1" bundle="${msg}" /></td>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.annualP1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.section1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.coverage1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.liability1" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.annualP1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.section2" bundle="${msg}" /></td>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.coverage2" bundle="${msg}" /></td>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.liability2" bundle="${msg}" /></td>
-															<td>fmt:message key="home.quote.fullDetails.priceTable.annualP2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.section2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.coverage2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.liability2" bundle="${msg}" /></td>
+															<td><fmt:message key="home.quote.fullDetails.priceTable.annualP2" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>

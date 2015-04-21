@@ -9,7 +9,7 @@
       <div class="col-sm-6 pad-none">
         <ul class="pull-left foot-links">
           <li class="divider margin-left-none"><a href="http://www.fwd.com.hk" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a></li>
-          <li  class="divider"><a href="http://www.fwd.com.hk/zh-HK/about/index.html" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a></li>
+          <li  class="divider"><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a></li>
           <li><a href="http://blog.fwd.com.hk" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a></li>
         </ul>
       </div>
