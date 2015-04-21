@@ -215,6 +215,13 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								</tbody>
 							</table>
 						</div>
+						<input type="hidden" id="isLogin" value="false">
+						<%
+							}
+							else
+							{
+						%>
+								<input type="hidden" id="isLogin" value="true">
 						<%
 							}
 						%>
@@ -690,16 +697,22 @@ $('#login-err-msg').html('Please Check Login Credential');
 return false;
 }
 /* Function for create flight policy */
-function createFlightFnc(form) {
+function createFlightFnc(form) 
+{	
 	var flag = false;
-	if(fPlanValid()){
+	
+	if (fPlanValid())
+	{
+		alert("fPlanValid: true");
 		console.log("ajax called");
-		$.ajax({
+		$.ajax(
+		{
 			type : "POST",
 			url : "flight-confirmation",
 			data : $("#freeFlightForm").serialize(),
 			async : false,
-			success : function(data) {
+			success : function(data) 
+			{
 				if (data == 'success') {
 					$('#errorMessages').hide();
 					flag= true;
@@ -712,7 +725,8 @@ function createFlightFnc(form) {
 		
 			}
 		});
-	}	
+	}
+
 	return flag;
 }
 </script>

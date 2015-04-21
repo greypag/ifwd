@@ -320,7 +320,6 @@ function setDropDownValue(elm, val){
 
 function fPlanValid()
 {
-
 	var flag=true;
 
 	$('#chk2').html('');
@@ -345,7 +344,6 @@ function fPlanValid()
     	document.getElementById("fullnameinvalid").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
         flag = false;
     }
-
 
     if (emailId.trim() == "") {
         document.getElementById("emailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notNull.message");
@@ -374,7 +372,6 @@ function fPlanValid()
 		}
 	}
 
-
     if (mobileNo.trim() == "") {
         document.getElementById("mobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         flag = false;
@@ -386,10 +383,14 @@ function fPlanValid()
         }
     }
 
-	
+   
+// bug fix - avoid unnecessary validation if the user already login
+var isLogin = document.getElementById("isLogin").value;
+if (!isLogin)
+{
    if( verifyUserBookingRegistration() === false)
 	   flag = false;
-    
+}
     
 //	if (document.getElementById("checkbox2").checked == false) {
 //		document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application";
@@ -436,7 +437,8 @@ function fPlanValid()
 		if (hkid.trim() == "") {
 			document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
 			flag = false;
-		}else
+		}
+		else
 		{
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
@@ -1181,7 +1183,7 @@ function fcPlanValid()
 			}
 			
 			var age = document.getElementById("selectAgeRange" + i).value;
-			alert('age:'+age);
+			
 			if (age.trim() == "0") {
 				document.getElementById("errselectAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // "請選擇 年齡組別";
 				flag = false;
@@ -3451,18 +3453,20 @@ function passMatch(pass, confirm){
 	}
 }
 
-function verifyUserBookingRegistration(){
+function verifyUserBookingRegistration()
+{
 	var check = true;
 	var userName = $('#Username').val();
 	var password = $('#Password').val();
 	var checkPassword = $('#Confirm-Password').val();
-	if(userName.trim() === '' && password.trim() === '' && checkPassword.trim() === ''){
-		
+	if(userName.trim() === '' && password.trim() === '' && checkPassword.trim() === '')
+	{
 		$('#UsernameError').text('');
 		$('#PasswordError').text('');
 		$('#Confirm-PasswordError').text('');
 	}
-	else{
+	else
+	{
 		if(isValidUsername(value) !== true){
 			$('#UsernameError').text(isValidUsername(value));
 			
