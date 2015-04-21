@@ -189,7 +189,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											name="password" class="form-control btm-pad-10"
-											id="Password" placeholder="個人密碼" autocomplete="off"> <span
+											id="Password" placeholder="個人密碼"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -197,7 +197,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" id="Confirm-Password"
-											placeholder="確認密碼" autocomplete="off"> <span id="Confirm-PasswordError"
+											placeholder="確認密碼"> <span id="Confirm-PasswordError"
 											class="text-red"> </span></td>
 									</tr>
 								</tbody>
@@ -287,9 +287,9 @@
 									
 									<div class="row top-mrg-10">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label> 
+											<label class="bold-500">年齡</label> 
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
-												<option value="0"><fmt:message key="travel.details.insured.age.select" bundle="${msg}" /></option>
+												<option value="0">請選擇</option>
 												<c:forEach var="ageList" items="${mapSelfType}">
 													<option value="${ageList.key}"><c:out
 															value="${ageList.value}" /></option>
@@ -302,7 +302,7 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> 
 											<t:dropdown 
-												defaultLabel="Own Estate"
+												defaultLabel="個人遺產"
 												defaultValue="SE"
 												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
 												selectables="${mapRelationshipCode}"
@@ -538,23 +538,24 @@
 
                        <div class="clearfix"></div>
 						<div class="spacer3"></div>
-							<h4 class="h4-2 padding3"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
+							
 							<div class="declaration-content">
+								<h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
 								<div class="checkbox">
-									<input id="checkbox1" type="checkbox"> <label for="checkbox1"> 
-										<fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /><br> 
-										i. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /><br>
-										ii. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /><br>
-										iii. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /><br/>
-										iv. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /><br/>
-										v. <span class="margin-left-2"></span><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" />
+									<input id="checkbox1" type="checkbox"> 
+									<label for="checkbox1">
+										<fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /> 
+										<ol class="ol-disclaimer">
+											<li><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+											<li><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+										</ol>
 										
-										<br/>
 									</label>
 								</div>	
 								<span id="chk1" class="text-red"></span>		
-										
-									<br/>
 								<div class="checkbox">
 									<input id="checkbox2" type="checkbox"> <label
 										for="checkbox2">
@@ -577,7 +578,7 @@
 									<input id="checkbox3" type="checkbox"> <label
 
 										for="checkbox3"> <fmt:message key="travel.details.declarations.PDPO.option1" bundle="${msg}" /><br>
-										<br>
+										
 									</label>
 								</div>
 								<div class="checkbox">
@@ -585,7 +586,7 @@
 										for="checkbox4">
 
 										<fmt:message key="travel.details.declarations.PDPO.option2" bundle="${msg}" /><br>
-										<br>
+										
 									</label>
 								</div>
 
@@ -602,9 +603,7 @@
 							<div class="wd2">
 								<div class="pull-left">
 									<h2 class="h2-3-choose"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
-									<fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" />
-										${planName}
-										<fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" />
+									<h4><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
 									<input type="hidden" name="selectedPlanName" value="${planName }">
 								</div>
 								<div class="pull-right">
@@ -644,21 +643,21 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">旅客: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
 								<%  }
 									else
 									{
 								%>
-									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${travelQuote.getTotalChildTraveller()}</c:if>
-			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${travelQuote.getTotalOtherTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">家長: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br>子女: ${travelQuote.getTotalChildTraveller()}</c:if>
+			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br>其他旅客: ${travelQuote.getTotalOtherTraveller()}</c:if>
 		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
 		                        <%  } %>
 								</h4>
 								
 								<input type="hidden" name="planSelected" value="${travelQuote.getPlanSelected()}">
 								<h3 class="txt-bold">
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${travelQuote.getTotalTravellingDays()}</span>
+									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${travelQuote.getTotalTravellingDays()} 天</span>
 								</h3>
 								<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 								<!-- <div class="form-group">
