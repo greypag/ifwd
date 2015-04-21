@@ -10,17 +10,17 @@
 
 <%
 	String authenticate = "false";
-	if (request.getSession().getAttribute("authenticate") != null) {
+	if (request.getSession().getAttribute("authenticate") != null) 
+	{
 		authenticate = request.getSession()
 				.getAttribute("authenticate").toString();
 	}
 		
 	QuoteDetails travelQuote = null;
-		if (travelQuote == null) {
-			//System.out.println("travelQuote is null 2");
+		if (travelQuote == null) 
+		{
 			travelQuote = (QuoteDetails) session.getAttribute("tq");
 		}
-
 %>
 
 
@@ -87,7 +87,8 @@
 						class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
 						<br>
 						<%
-							if (authenticate.equals("false") || authenticate.equals("direct")) {
+							if (authenticate.equals("false") || authenticate.equals("direct")) 
+							{
 						%>
 						<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.details.login" bundle="${msg}" /></h3>
 
@@ -101,6 +102,12 @@
 							</h3>
 						</div>
 						<div class="clearfix"></div>
+						<%
+							}
+							else
+							{
+						%>
+							<input type="hidden" id="isLogin" value="true">
 						<%
 							}
 						%>

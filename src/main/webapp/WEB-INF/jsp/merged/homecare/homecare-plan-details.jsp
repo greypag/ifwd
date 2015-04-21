@@ -389,8 +389,8 @@
 							class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
 							<br>
 							<%
-								if (authenticate.equals("false")
-											|| authenticate.equals("direct")) {
+								if (authenticate.equals("false") || authenticate.equals("direct")) 
+								{
 							%>
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
 							<a href="#"
@@ -401,6 +401,12 @@
 									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span><fmt:message key="home.details.login.other.part2" bundle="${msg}" />
 								</h3>
 							</div>
+							<%
+								}
+								else
+								{
+							%>
+								<input type="hidden" id="isLogin" value="true">
 							<%
 								}
 							%>
