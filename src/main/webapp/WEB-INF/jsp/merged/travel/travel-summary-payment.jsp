@@ -152,15 +152,15 @@
 								</tbody>
 							</table>
 						</div>
-						<!-- 
+						
 						<div
-							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
+							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
 							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="#" onclick="BackMe();" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+								<a href="travel" onclick="BackMe();" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 							</h4>
 							
 						</div> 
-						 -->
+						
 						<div class="clearfix"></div>
 						
 						<div id="no-more-tables2">
