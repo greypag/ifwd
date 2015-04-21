@@ -134,7 +134,7 @@
 			<div class="carousel-inner">
 				<div class="item active item-border">
 					
-					<img src="<fmt:message key="home.hero.image" bundle="${msg}" />" alt="" />
+					<img src="<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="" />
 				</div>
 				<!--/.item-->
 			</div>
