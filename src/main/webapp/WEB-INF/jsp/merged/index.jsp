@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<title>Find affordable home insurance | FWD Hong Kong</title>
+<title>找尋適合您的保障 | 富衛香港 </title>
 <meta name="description" content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 <link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
 <!--Google Code for SEO-->
@@ -56,9 +56,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <!--   Main Content-->
-    <section id="main-slider" class="no-margin">
+    <section id="main-slider" class="no-margin clearfix">
         <!--Mobile-logo-->
-        <img src="<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md" />
+        <img src="resources/images/slider/main_cn.jpg" alt="" class="img-responsive hidden-lg hidden-md" />
         <!--Mobile-logo-->
         <div class="carousel slide hidden-xs hidden-sm">
             <div class="carousel-inner">
@@ -74,17 +74,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
 
-                    <img src="<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" />
+                    <img src="resources/images/slider/main_cn.jpg" alt="" />
                 </div>
                 <!--/.item-->
             </div>
             <!--/.carousel-inner-->
         </div>
         <div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
-            <h2 class="center">Lorem ispum dolor sit amet, consectetur adipiscing elit.</h2>
-            <div class="col-sm-12 col-xs-12" >  <a href="flight-cn.html" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
-                  <div class="col-sm-12 col-xs-12" > <a href="travel-cn.html" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
-                        <div class="col-sm-12 col-xs-12" >      <a href="homecare-cn.html" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
+            <h2 class="center"></h2>
+            <div class="col-sm-12 col-xs-12" >  <a href="/FWDHKPH1A/flight" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
+                  <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/travel" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
+                        <div class="col-sm-12 col-xs-12" >      <a href="/FWDHKPH1A/homecare" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
            </div>
            
             <!--<div class=" col-sm-12  col-xs-12">
@@ -129,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
             <h1><fmt:message key="index.highlight3.heading" bundle="${msg}" /></h1>
             <p><fmt:message key="index.highlight3.paragraph" bundle="${msg}" /></p>
-            <img src="resources/images/agoda-logo.png" alt=""/> </div>
+             </div>
         </div>
       </div>
     </div>
@@ -145,7 +145,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="carousel-inner">
       <div class="item active">
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
                 <h2><fmt:message key="index.highlight1.heading" bundle="${msg}" /></h2>
@@ -158,7 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!--/.item-->
       <div class="item" >
         <div class="container">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
                 <h2><fmt:message key="index.highlight2.heading" bundle="${msg}" /></h2>
@@ -197,7 +197,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="center">
         <h2><fmt:message key="index.customer.heading" bundle="${msg}" /></h2>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 pad-none">
+      <div class="col-xs-12 col-sm-5 col-md-5 pad-none">
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
@@ -208,7 +208,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 pad-none">
+      <div class="col-xs-12 col-sm-5 col-md-5 pad-none pull-right">
         <div class="testimonials-wrap text-center">
           <div class="testimonials-inner text-center">
             <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
@@ -220,8 +220,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
       <br>
-      <P class="padding2 p1"><br>
-       <fmt:message key="index.customer.disclaimer" bundle="${msg}" /></P>
+      <P class="pad-none p1 pull-left"><br>
+      <fmt:message key="index.customer.disclaimer" bundle="${msg}" /></P>
     </div>
     <!--/.row--> 
     <!--/.desktop-testimonials--> 
@@ -258,7 +258,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item" >
         <div class="container">
           <div class="row slide-margin">
-            <div class="testimonials-wrap text-center">
+            <div class="col-xs-12 text-center">
               <div class="testimonials-inner text-center">
                 <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
                 <p><fmt:message key="index.customer2.paragraph" bundle="${msg}" /></p>
@@ -285,24 +285,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <img class="bdr-img" src="resources/images/home4.png" alt="">
-            <h3> <a href="http://blog.fwd.com.hk/" target="_blank"> <fmt:message key="index.blog.desc1" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><fmt:message key="index.blog.desc1" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <img class="bdr-img" src="resources/images/home5.png" alt="">
-            <h3><a href="http://blog.fwd.com.hk/" target="_blank"> <fmt:message key="index.blog.desc2" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="resources/images/home5.png" alt=""></a>
+            <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><fmt:message key="index.blog.desc2" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <img class="bdr-img" src="resources/images/home6.png" alt="">
-            <h3> <a href="http://blog.fwd.com.hk/" target="_blank"><fmt:message key="index.blog.desc3" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
+            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><fmt:message key="index.blog.desc3" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>

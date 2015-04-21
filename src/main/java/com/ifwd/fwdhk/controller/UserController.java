@@ -53,7 +53,8 @@ public class UserController {
 		session = servletRequest.getSession(true);
 		session.setAttribute("language", lang);
 		//return "../.."+ UserRestURIConstants.checkLangSetPage(servletRequest)+ "index";
-		String dir = UserRestURIConstants.checkLangSetPage(lang);
+		String dir = UserRestURIConstants.getSitePath(servletRequest);
+		//return "home";
 		return "../jsp/" + dir + "/index";
 	}
 
@@ -376,7 +377,9 @@ public class UserController {
 	public String indexPage(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		session.setAttribute("language", "EN");
-		String dir = UserRestURIConstants.checkLangSetPage(req);
+		//String dir = UserRestURIConstants.checkLangSetPage(req);
+		String dir = UserRestURIConstants.getSitePath(req);
+		
 		if (session.getAttribute("authenticate") != null) {
 			if (session.getAttribute("authenticate").toString()
 					.equalsIgnoreCase("direct")) {
