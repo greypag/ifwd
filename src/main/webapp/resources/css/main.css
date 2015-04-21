@@ -4988,8 +4988,8 @@ td[data-title]:before,  td[data-title]:before {
 .homecare {
 	width: 100%;
 	background-color: #fff;
-	//min-height: 270px;
-	padding: 20px 0;
+	min-height: 270px;
+	padding: 10px 0;
 	background: #616163;
 }
 .fixed-content.homecare{

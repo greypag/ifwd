@@ -1066,13 +1066,40 @@ $(function () {
 		});	
 	
 	
-	
-		$('input[id^="selectOtherAgeRange"],input[id^="selectAgeRange"]').each(function( index ) {
+		
+		$('select[id^="selectOtherAgeRange"],select[id^="selectAgeRange"]').each(function( index ) {
 			  $(this).val('2');
 		});
-		$('input[id^="selectchildAgeRange"]').each(function( index ) {
+		$('select[id^="selectchildAgeRange"]').each(function( index ) {
 			  $(this).val('1');
 		});
+		
+		$('select[id^="selectAgeRange"]').on( "change",function( index ) {
+			  var errNo = $(this).attr('id').split("selectAgeRange").pop();
+			  if($(this).val() == '' || $(this).val() == 0){
+				  $('#errselectAgeRange'+errNo).html(getBundle(getBundleLanguage, "insured.age.notValid.message"));
+			  }else{
+				  $('#errselectAgeRange'+errNo).html("");
+			  } 
+		});
+		$('select[id^="selectchildAgeRange"]').on( "change",function( index ) {
+			  var errNo = $(this).attr('id').split("selectchildAgeRange").pop();
+			  if($(this).val() == '' || $(this).val() == 0){
+				  $('#errchildRange'+errNo).html(getBundle(getBundleLanguage, "insured.age.notValid.message"));
+			  }else{
+				  $('#errchildRange'+errNo).html("");
+			  } 
+		});		
+		$('select[id^="selectOtherAgeRange"]').on( "change",function( index ) {
+			  var errNo = $(this).attr('id').split("selectOtherAgeRange").pop();
+			  if($(this).val() == '' || $(this).val() == 0){
+				  $('#errselectOtherAgeRange'+errNo).html(getBundle(getBundleLanguage, "insured.age.notValid.message"));
+			  }else{
+				  $('#errselectOtherAgeRange'+errNo).html("");
+			  } 
+		});		
+		
+
 		
 		/*if($('#selectAgeRange1').length > 0){
 			$('#selectAgeRange1').val('2');
@@ -2474,6 +2501,26 @@ function zopim_chat_start(lang)
 }
 zopim_chat_start('en');
 
+
+function isCreditCard(CC) {
+	console.log("cc : ",CC)
+    if (CC.length > 19) return (false);
+  
+    sum = 0;
+    mul = 1;
+    l = CC.length;
+    for (i = 0; i < l; i++) {
+      digit = CC.substring(l - i - 1, l - i);
+      tproduct = parseInt(digit, 10) * mul;
+      if (tproduct >= 10) sum += (tproduct % 10) + 1;
+      else sum += tproduct;
+      if (mul == 1) mul++;
+      else mul--;
+    }
+    if ((sum % 10) == 0) return (true);
+    else return (false);
+}
+
 //travel Payment Summary Payment details//
 function validatecardnumber(cardnumber) {
 	// Strip spaces and dashes
@@ -2484,10 +2531,10 @@ function validatecardnumber(cardnumber) {
 	// The regex will capture the number in one of the capturing groups
 	//var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/.exec(cardnumber);
 	var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/.exec(cardnumber);
-	if (match) {
+	
+	if (match && isCreditCard(cardnumber)) {
 		// List of card types, in the same order as the regex capturing groups
-		var types = ['Visa', 'MasterCard', 'Discover', 'American Express',
-		             'Diners Club', 'JCB'];
+		var types = ['Visa', 'MasterCard', 'Discover', 'American Express', 'Diners Club', 'JCB'];
 		// Find the capturing group that matched
 		// Skip the zeroth element of the match array (the overall match)
 		for (var i = 1; i < match.length; i++) {
@@ -2505,7 +2552,7 @@ function validatecardnumber(cardnumber) {
 			}
 		}
 	} else {
-		document.getElementById('errcardno').innerHTML = '(invalid card number)';
+		document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
 	}
 
 }
@@ -2531,17 +2578,17 @@ function payValid()
 	document.getElementById('errchk1').innerHTML="";
 	/*document.getElementById('errchk2').innerHTML="";*/
 
-	if(cardno.length<16)
+	if(cardno.length<16 || !isCreditCard(cardno))
 	{
 		flag=false;
 		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
 	}
-	if(month=="")
+	if(month=="" || month== 0)
 	{
 		flag=false;
 		$('#errmonth').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.month.notValid.message"));
 	}
-	if(year=="")
+	if(year=="" || year == 0)
 	{
 		flag=false;
 		$('#erryear').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.year.notValid.message"));
