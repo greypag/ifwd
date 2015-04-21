@@ -162,7 +162,7 @@ jQuery(document).ready(function() {
 	        $(window).scroll(function (event) {
 	            var scroll = $(window).scrollTop();
 	            var winh = $(window).height();
-	            var diff = $('.carousel').height()  + 40 + 131 + 298 - winh;
+	            var diff = $('.carousel').height()  + 40 + 131 + $('#homecare-scroll').height() - winh;
 	            
 	            // Do something
 	            if (scroll > diff) {

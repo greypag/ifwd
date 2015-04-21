@@ -231,12 +231,19 @@
 											onkeyup="validatecardnumber(this.value)"
 											onBlur="chkMinLength(this.value);"
 											onkeypress="return isNumeric(event)"> -->
-										<input id="cardnumber" name="cardNo" type="text"
+										<!-- <input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
 											title="" placeholder="Credit card number"
-											onkeyup="validatecardnumber(this.value)"
+											onkeyup="validatecardnumber(this.value)" onkeypress="return isNumeric(event)" 
 											onBlur="chkValidCreditCard(this, 'errcardno');"
-											onkeypress="return isNumeric(event)"> <span
+											 /> -->
+											 <input id="cardnumber" name="cardNo" type="text"
+											class="input-block-level" maxlength="16" data-min="16"
+											title="" placeholder="Credit card number"
+											onkeyup="" onkeypress="return isNumeric(event)" 
+											onBlur="validatecardnumber(this.value)"
+											 />
+											 <span
 											id="errcardno" class="error-msg"></span>
 
 									</div></td>

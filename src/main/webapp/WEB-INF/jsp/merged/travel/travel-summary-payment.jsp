@@ -487,13 +487,25 @@
 								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="travel.payment.card.no" bundle="${msg}" /></label></td>
 								<td colspan="2">
 									<div class="controls">
-										<input id="cardnumber" name="cardNo" type="text"
-											class="input-block-level" maxlength="16" min="16" title=""
+										
+										<!-- <input id="cardnumber" name="cardNo" type="text"
+											class="input-block-level" maxlength="16" data-min="16" title=""
 											onkeyup="validatecardnumber(this.value)"
 											placeholder="信用卡號碼"
 											onBlur="chkValidCreditCard(this, 'errcardno');"
-											onkeypress="return isNumeric(event)"> <span
+											onkeypress="return isNumeric(event)">  -->
+											
+											
+											<input id="cardnumber" name="cardNo" type="text"
+											class="input-block-level" maxlength="16" data-min="16"
+											title="" placeholder="Credit card number"
+											onkeyup="" onkeypress="return isNumeric(event)" 
+											onBlur="validatecardnumber(this.value)"
+											 />
+											
+											<span
 											id="errcardno" class="error-msg"></span>	<!-- chkMinLength(this.value); -->
+											
 									</div>
 								</td>
 							</tr>
