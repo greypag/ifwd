@@ -383,7 +383,7 @@ width: 100%;
 	width: 100%;
 	border-radius: 0;
 	margin-bottom: 0;
-	padding: 20px;
+	padding: 20px 30px;
 }
 .recent-work-wrap .recent-work-inner {
 	top: 0;
@@ -3221,10 +3221,10 @@ del {
 #recent-works-mob .prev:hover, #recent-works-mob .next:hover {
 }
 #recent-works-mob .prev {
-	left: 10px;
+	left: 0;
 }
 #recent-works-mob .next {
-	right: 10px;
+	right: 0;
 }
 #testimonials-mob {
 	position: relative;
@@ -3696,6 +3696,7 @@ margin-bottom: 10px;}
 .mob-topbar .callus {
 	font-weight: bold;
 	padding: 0 16px;
+	padding-left: 5px !important;
 	color:#fff;
 }
 .mob-topbar .lang {

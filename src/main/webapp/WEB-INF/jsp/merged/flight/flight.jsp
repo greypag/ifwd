@@ -375,17 +375,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span id="travelCountMobIn" style="display:none" class="text-red">
     <label class="text-red"><fmt:message key="flight.main.quote.q3.error" bundle="${msg}" /></label>
     </span>
-    <div id="divPersonsMob" style="visibility:hidden;"> <br>
+    <div class="text-center" id="divPersonsMob" style="visibility:hidden;">
       <small>
       <label id="lblPeopleMob">0</label>
        <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />
       <label id="lblDaysMob">0</label>
-       <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </small> <br>
+       <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </small>
     </div>
   </div>
   <div class="btn-box">
     <h3 class="text-center"> 
-  <button type="submit"  class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
+  <button type="submit"  class="bdr-curve-none btn btn-primary btn-lg btn-block "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
   </h3> 
   </div>
   </form>
@@ -402,7 +402,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!--end-desktop--> 
       
       <!--Mobile-->
-      <h2 class="hidden-lg hidden-md feature-ttl"> <br> <fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
+      <h2 class="hidden-lg hidden-md feature-ttl"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
       <!--end mobile--> 
     </div>
     
