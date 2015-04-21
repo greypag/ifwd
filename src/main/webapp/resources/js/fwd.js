@@ -323,7 +323,7 @@ function fPlanValid()
 	var flag=true;
 
 	$('#chk2').html('');
-	console.log($('#selectCADist').val());
+	//console.log($('#selectCADist').val());
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
@@ -414,7 +414,7 @@ if (!isLogin)
 		}
 
 		var age = document.getElementById("selectAgeRange" + i).value;
-		if (age.trim() == "") {
+		if (age.trim() == "" || age.trim() == 0) {
 			document.getElementById("errselectAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");
 			flag = false;
 		}else{
@@ -501,7 +501,7 @@ if (!isLogin)
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
 		}
 
-		if (age.trim() == "") {
+		if (age.trim() == "" || age.trim() == 0) {
 			document.getElementById("errchildRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message"); // getBundle(getBundleLanguage, "insured.age.notValid.message");;
 			flag = false;
 		}else{
@@ -582,7 +582,7 @@ if (!isLogin)
 		}
 
 
-		if (age.trim() == "") {
+		if (age.trim() == "" || age.trim() == 0) {
 			document.getElementById("errselectOtherAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");
 			flag = false;
 		}else{

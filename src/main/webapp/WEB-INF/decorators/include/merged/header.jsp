@@ -156,7 +156,7 @@ function submitLoginForm(formID) {
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm('loginform');"
+														<button type="submit" onclick="return submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3
@@ -215,7 +215,7 @@ function submitLoginForm(formID) {
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="button" onclick="return submitLoginForm('loginform');"
+														<button type="submit" onclick="return submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3
