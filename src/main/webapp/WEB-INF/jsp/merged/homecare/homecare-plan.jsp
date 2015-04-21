@@ -248,8 +248,8 @@
 									<span class="del actualPrice"><del></del></span>
 								</div>
 							</div>
-							<div class="clearfix"></div>
-							<div class="col-xs-12">
+							
+							<div class="col-xs-12 hidden-sm hidden-xs">
 							<!-- Plan benefits -->
 								<div class="fwdpanel">
 									<div class="fwdpanel-heading">
@@ -276,7 +276,7 @@
 								</div>
 							<!-- / Plan benefits -->
 							</div>
-
+							<div class="clearfix"></div>
 							<!-- <div><h4 class="uline">+ Plan benefits</h4></div>-->
 						</div>
 
@@ -295,7 +295,7 @@
 
 
 						<!--Full coverage -->
-						<div class="fwdpanel hidden-sm hidden-xs">
+						<div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
 									<span><a href="#" class="fwdpanel-minimize"><i
