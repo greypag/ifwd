@@ -57,6 +57,7 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_CONFIRM_POLICY = SERVICE_URL + "/gi/homeCare/payments/make";
 	public static final String HOMECARE_FINALIZE_POLICY = SERVICE_URL + "/gi/homeCare/policies";
 	public static final String HOMECARE_GET_DISTRICT = SERVICE_URL + "/option/itemDesc?itemTable=HKDistrict";	//SERVICE_URL + "/option/districts";
+	public static final String HOMECARE_GET_TERRITORY = SERVICE_URL + "/option/itemDesc?itemTable=HKTerritory";	//SERVICE_URL + "/option/districts";
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
 

@@ -384,6 +384,10 @@ public class HomeCareController {
 		date.add(Calendar.YEAR, 1);
 		String endDate = f.format(date.getTime());
 
+		// get netFloorArea desc
+		Map<String, String> netFloorAreas = homecareService.getNetFloorArea(userName, token, UserRestURIConstants.getLanaguage(request));
+		homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(netFloorAreas, homeCareDetails.getNetFloorArea()));
+		
 		String path = request.getRequestURL().toString();
 		model.addAttribute("effectiveDate", homeCareDetails.getEffectiveDate());
 		model.addAttribute("effectiveEndDate", endDate);

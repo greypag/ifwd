@@ -222,7 +222,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 			String language) {
 		// TODO Auto-generated method stub
 		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
-
+		String UrlTerritory = UserRestURIConstants.HOMECARE_GET_TERRITORY;
+		
 		RestServiceDao restService = new RestServiceImpl();
 		List<DistrictBean> districtList = new ArrayList<DistrictBean>();
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -232,15 +233,20 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		JSONObject jsonResponseDistrict = restService.consumeApi(
 				HttpMethod.GET, Url, header, null);
-
+						
+		JSONObject jsonResponseTerritory = restService.consumeApi(
+				HttpMethod.GET, UrlTerritory, header, null);		
+		
 		if (jsonResponseDistrict.get("errMsgs") == null) {
 			JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict.get("optionItemDesc");
 			for (int i = 0; i < jsonDistrictArray.size(); i++) {
 				JSONObject obj = (JSONObject) jsonDistrictArray.get(i);
 				
 				DistrictBean district = new DistrictBean();
-				//district.setArea();
+				
 				district.setCode(checkJsonObjNull(obj, "itemCode"));
+				// area or territory
+				district.setArea(this.getArea(jsonResponseTerritory, district.getCode()));				
 				district.setDescription(checkJsonObjNull(obj, "itemDesc"));
 
 				districtList.add(district);
@@ -249,7 +255,26 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		return districtList;
 	}
-
+	private String getArea(JSONObject jsonResponseTerritory, String districtCode){		
+		if(jsonResponseTerritory != null){
+			JSONArray jsonTerritoryArray;
+			if (jsonResponseTerritory.get("errMsgs") == null) {
+				jsonTerritoryArray = (JSONArray) jsonResponseTerritory.get("optionItemDesc");
+				for (int j = 0; j < jsonTerritoryArray.size(); j++) {
+					JSONObject objTerritory = (JSONObject) jsonTerritoryArray.get(j);
+					
+					String[] districts = checkJsonObjNull(objTerritory, "itemDesc").split(";");
+					for(int k= 0; k < districts.length; k++){
+						if(districtCode.equalsIgnoreCase(districts[k])){
+							return checkJsonObjNull(objTerritory, "itemCode");
+						}						
+					}
+				}					
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public Map<String, String> getNetFloorArea(String userName, String token,
 			String language) {

@@ -34,7 +34,7 @@ public class HomeCareDetailsBean {
 	private String planCode;
 	private String totalDue;
 	
-	
+	private String netFloorAreaDesc;
 	
 	
 	public String getTotalDue() {
@@ -205,6 +205,11 @@ public class HomeCareDetailsBean {
 	public void setDonotWishDirectMarketing(String donotWishDirectMarketing) {
 		this.donotWishDirectMarketing = donotWishDirectMarketing;
 	}
-	
-
+	public String getNetFloorAreaDesc() {
+		return netFloorAreaDesc;
+	}
+	public void setNetFloorAreaDesc(String netFloorAreaDesc) {
+		this.netFloorAreaDesc = netFloorAreaDesc;
+	}
+		
 }

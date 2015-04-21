@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.LocaleKeyEnum;
 
@@ -182,6 +183,24 @@ public class WebServiceUtils {
 		return desc;
 	}	
 	
+	public static String getNetFloorAreaDesc(Map<String, String> netFloorAreas, String netFloorArea) {
+		String desc = "";
+		
+		if(netFloorArea == null || netFloorArea.isEmpty()){
+			desc= "";
+		}else{
+			if(netFloorAreas != null){
+				for (Map.Entry<String, String> entry : netFloorAreas.entrySet()){
+					if(entry.getKey().equalsIgnoreCase(netFloorArea)){
+						desc = entry.getValue();
+						break;
+					}
+				}
+			}
+		}
+		
+		return desc;
+	}
 	
 	public static String[] getAgeRangeNames(String[] ageRanges, String language) {
 		
@@ -191,7 +210,6 @@ public class WebServiceUtils {
 			name[i] = getAgeRangeName(ageRanges[i], language);
 		return name;
 	}
-
 	private static String getAgeRangeName(String ageRange, String language) {
 		String ageRangeName = "";
 		if (language.equals("EN")) {

@@ -118,7 +118,8 @@
 									<tr>
 										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc7.part2" bundle="${msg}" />
 										</td>
-										<td class=" h4-5 ">${homeCareDetails.getNetFloorArea()}</td>
+										<td class=" h4-5 ">${homeCareDetails.getNetFloorAreaDesc()}</td>
+<%-- 										${homeCareDetails.getNetFloorArea()} --%>
 									</tr>
 									<tr>
 										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
