@@ -505,10 +505,16 @@
 											<label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label> <select
 												name="otherAgeRange" class="form-control soflow"
 												id="selectOtherAgeRange${inx}">
-												<option value="0">Select One</option>
 												<c:forEach var="ageList" items="${mapAgeType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
+													<c:choose> 
+  													  <c:when test="${ageList.key == '2'}">
+  													    <option value="${ageList.key}" selected>
+  													  </c:when>
+  													  <c:otherwise>
+  													  	<option value="${ageList.key}">
+  													  </c:otherwise>
+													</c:choose>
+													<c:out value="${ageList.value}" /></option>
 												</c:forEach>
 											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
