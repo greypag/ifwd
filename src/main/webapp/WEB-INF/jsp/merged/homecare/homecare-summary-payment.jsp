@@ -345,7 +345,7 @@
 
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()"
-									value="Back">
+									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />">
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<!-- <input type="button"
@@ -353,7 +353,7 @@
 									onclick="confirmPayment()" value="Confirm Payment"> -->
 								<input type="submit"
 									class="bdr-curve btn btn-primary btn-next"
-									value="Confirm Payment">
+									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 							</div>
 
 

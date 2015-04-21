@@ -345,114 +345,134 @@
 												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td><strong>Item</strong></td>
-															<td><strong>Benefit</strong></td>
-															<td><strong>Maximum Limits<br>(HK$)
+															<td><strong>fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
+															<td><strong>fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
+															<td><strong>fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /> Limits<br>(HK$)
 															</strong></td>
 														</tr>
 														<tr>
-															<td>1</td>
-															<td><strong>Window, Door Lock &amp; Key
-																	Replacement<br /> Replacement of external door locks
-																	and keys or broken windows due to theft or attempted
-																	theft
-															</strong></td>
-															<td>3,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row1.col2.desc1" bundle="${msg}" /><br /> 
+																	fmt:message key="home.quote.summary.table.row1.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row1.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>2</td>
-															<td><strong>Temporary Removal<br />
-																	Accidental loss of or damage to household contents
-																	whilst being temporarily removed from home for
-																	renovation, cleaning or repair
-															</strong></td>
-															<td>50,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row2.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row2.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row2.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row2.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
 															<td>3</td>
-															<td><strong>Home Removal<br /> Accidental
-																	loss of or damage to household contents:<br /> (a)
-																	whilst in transit between current home and new home by
-																	professional removers within Hong Kong; or<br /> (b)
-																	whilst in temporar`y storage, for up to 7 days in a
-																	furniture depository; or<br /> (c) whilst at the new
-																	home but before occupied as permanent residence up to 2
-																	months<br /> (you have to notify us before your move)
-															</strong></td>
-															<td>50,000 per year</td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> 
+																	fmt:message key="home.quote.summary.table.row3.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row3.col2.desc2" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row3.col2.desc4" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row3.col2.desc5" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row3.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>4</td>
-															<td><strong>Frozen Food<br /> Cost of
-																	replacing spoilt frozen food due to accidental power
-																	failure or breakdown of refrigerator
-															</strong></td>
-															<td>5,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row4.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row4.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row4.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row4.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>5</td>
-															<td><strong>Removal of Debris<br /> Cost
-																	of removal of debris when household contents are
-																	accidentally damaged
-															</strong></td>
-															<td>10,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row5.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row5.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row5.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row5.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>6</td>
-															<td><strong>Personal Money<br />
-																	Accidental loss or theft of money at home
-															</strong></td>
-															<td>2,500 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row6.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row6.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row6.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row6.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2">7</td>
-															<td><strong>Domestic Helper's Property</strong></td>
-															<td>1,000 per item</td>
+															<td rowspan="2">fmt:message key="home.quote.summary.table.row7.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>fmt:message key="home.quote.summary.table.row7.col2.desc1" bundle="${msg}" /></strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row7.col3.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><strong>Accidental loss of or damage to
-																	domestic helper's property at home</strong></td>
-															<td>5,000 per year</td>
+															<td>
+																<strong>fmt:message key="home.quote.summary.table.row7.col2.desc2" bundle="${msg}" /></strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row7.col3.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>8</td>
-															<td><strong>Tenants Improvement<br />
-																	Accidental loss of or damage to tenant's improvements
-																	at home
-															</strong></td>
-															<td>100,000 per item</td>
+															<td>fmt:message key="home.quote.summary.table.row8.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row8.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row8.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row8.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>9</td>
-															<td><strong>Interior Renovation<br />
-																	Accidental loss of or damage to household contents
-																	during interior renovation by contractors (provided
-																	that the period of renovation is within 2 months)
-															</strong></td>
-															<td>100,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row9.col1" bundle="${msg}" /></td>
+															<td>
+																<strong>
+																	fmt:message key="home.quote.summary.table.row9.col2.desc1" bundle="${msg}" /><br />
+																	fmt:message key="home.quote.summary.table.row9.col2.desc2" bundle="${msg}" />
+																	fmt:message key="home.quote.summary.table.row9.col3.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row9.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2">10</td>
-															<td rowspan="2"><strong>Alternative
-																	Accommodation<br /> Cost of alternative accommodation
-																	when the home becomes uninhabitable as a result of
-																	accidental loss or damage
-															</strong></td>
-															<td>1,000 per day</td>
+															<td rowspan="2">fmt:message key="home.quote.summary.table.row10.col1" bundle="${msg}" /></td>
+															<td rowspan="2">
+																<strong>
+																	fmt:message key="home.quote.summary.table.row10.col2.desc1" bundle="${msg}" /><br /> 
+																	fmt:message key="home.quote.summary.table.row10.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row10.col3.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>50,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row10.col3.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2">11</td>
-															<td rowspan="2"><strong>Personal Accident<br />
-																	Accidental death of Insured or Insured's family members
-																	as a result of fire or theft at home
-															</strong></td>
-															<td>50,000 per person</td>
+															<td rowspan="2">fmt:message key="home.quote.summary.table.row11.col1" bundle="${msg}" /></td>
+															<td rowspan="2">
+																<strong>
+																	fmt:message key="home.quote.summary.table.row11.col2.desc1" bundle="${msg}" /><br /> 
+																	fmt:message key="home.quote.summary.table.row11.col2.desc2" bundle="${msg}" />
+																</strong>
+															</td>
+															<td>fmt:message key="home.quote.summary.table.row11.col3.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>200,000 per year</td>
+															<td>fmt:message key="home.quote.summary.table.row11.col3.desc2" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -487,22 +507,22 @@
 												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<th>Section</th>
-															<th>Coverage</th>
-															<th>Limit of Liability (HK$)</th>
-															<th>Annual Premium (HK$)</th>
+															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></th>
+															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></th>
+															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></th>
+															<th>fmt:message key="home.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></th>
 														</tr>
 														<tr>
-															<td>Section 1</td>
-															<td>Household Contents</td>
-															<td>500,000</td>
-															<td>360</td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.section1" bundle="${msg}" /></td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.coverage1" bundle="${msg}" /></td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.liability1" bundle="${msg}" /></td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.annualP1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>Section 2</td>
-															<td>Personal Liability</td>
-															<td>5,000,000</td>
-															<td>Free with Section 1</td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.section2" bundle="${msg}" /></td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.coverage2" bundle="${msg}" /></td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.liability2" bundle="${msg}" /></td>
+															<td>fmt:message key="home.quote.fullDetails.priceTable.annualP2" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -546,26 +566,21 @@
 											<div class="fwdpanel-body" style="display: none;">
 
 												<h4 class="h4-2">
-													<strong>Single Trip Premium Table (HK$)</strong>
+													<strong>fmt:message key="home.quote.excess.heading" bundle="${msg}" /></strong>
 												</h4>
 
 												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td colspan="1" rowspan="2"><strong></strong>Section
-																1 - Household Contents</td>
-															<td colspan="2" rowspan="1">the first HK$1,000 of
-																each claim caused by water</td>
+															<td colspan="1" rowspan="2">fmt:message key="home.quote.excess.section1" bundle="${msg}" /></td>
+															<td colspan="2" rowspan="1">fmt:message key="home.quote.excess.section1.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td colspan="2" rowspan="1">the first HK$500 of each
-																claim resulting from any other cause</td>
+															<td colspan="2" rowspan="1">fmt:message key="home.quote.excess.section1.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><strong> Section 2 - Personal Liability
-															</strong></td>
-															<td colspan="2" rowspan="1">the first HK$500 of each
-																claim for third party property damage</td>
+															<td>fmt:message key="home.quote.excess.section2" bundle="${msg}" /></td>
+															<td colspan="2" rowspan="1">fmt:message key="home.quote.excess.section2.desc" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -584,7 +599,10 @@
 							</div>
 
 							<h4 class="h4-4">
-								<i class="fa fa-download"></i> <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="home.quote.fullDetails.download" bundle="${msg}" /></a>
+								<i class="fa fa-download"></i> 
+								<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank">
+									<fmt:message key="home.quote.fullDetails.download" bundle="${msg}" />
+								</a>
 							</h4>
 						</div>
 						<!--Full coverage end -->
@@ -636,7 +654,7 @@
 										<input type="text" id="referralCode" name="referralCode"
 											class="form-control" placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
 											class="input-group-addon in black-bold"> <span
-											class="apply pointer" onclick="applyPromoCode()">APPLY</span>
+											class="apply pointer" onclick="applyPromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></span>
 											
 										</span>
 									</div>
@@ -772,10 +790,9 @@
 				<div class="login-form" id="sendmailofpromocode">
 					<form>
 					<div class="form-container">
-						<h2>Don't have a promotion code? Enter your email address and
-							we'll send you one.</h2>
+						<h2>fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
 						<div class="alert alert-success hide proSuccess"></div>
-						<h4>Email</h4>
+						<h4>fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
@@ -784,7 +801,7 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
 								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return sendEmail()">Submit</a>
+									onclick="return sendEmail()">fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
 							</div>
 							<div class="col-md-2">
 								<br>
@@ -794,8 +811,7 @@
 							</div>
 							<br> <br>
 							<div class="col-lg-12 col-md-12">
-								<p>By submitting my email address I agree to receive FWD's
-									promotion code and other offers in the future.</p>
+								<p>fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
 							</div>
 						</div>
 					</div>

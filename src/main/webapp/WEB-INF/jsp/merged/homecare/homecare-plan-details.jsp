@@ -886,7 +886,7 @@
 									<a href="getHomePlan" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="Next" />
+									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="home.action.next" bundle="${msg}" />" />
 								</div>
 							
 							<!--
