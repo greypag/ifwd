@@ -4327,7 +4327,6 @@ table.purchase-history tr td {
 	line-height: 30px;
 	color: #f68a1d !important;
 	padding-left: 20px;
-	font-family: 'Foco-bold';
 }
 /*************Travel wizard**************/
 #tr-wizard.shop-tracking-status .form-horizontal {
@@ -4754,7 +4753,7 @@ box-shadow:0 0 6px #f68a1d;
 h2.from-control {
 	font-size: 36px;
 	margin-bottom: 10px;
-	font-family: 'Foco-bold';
+	font-weight: 700;
 	color: #f6871e;
 }
 .margin-left-small {
@@ -4775,7 +4774,7 @@ h2.from-control {
 	line-height: 31.5px;
 	font-size: 24px;
 	margin-top: 10px;
-	font-family: 'Foco-bold';
+	font-weight: 700;
 	color: #061d2a;
 	text-decoration: underline;
 }
@@ -4787,7 +4786,7 @@ h2.from-control {
 .apply {
 	font-size: 24px;
 	line-height: 48px;
-	font-family: 'Foco-bold';
+	font-weight: 700;
 	color: #061d2a;
 	text-decoration: underline;
 }
