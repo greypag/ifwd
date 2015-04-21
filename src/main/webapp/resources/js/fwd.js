@@ -443,7 +443,7 @@ if (!isLogin)
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 				flag = false;
 			}
 		}
@@ -1233,7 +1233,7 @@ function fcPlanValid()
 				var tr=IsHKID(hkid.trim());
 				if(tr==false)
 				{
-					document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
 					flag = false;
 				}
 			}
