@@ -924,15 +924,15 @@ var promoData = '';
 						<div class="col-xs-12 hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left">
-									<h2 class="h2-3-choose"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4 id="seletedplanname"></h4>
+									<h2 class="h2-3-choose pad-none"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+									<h4 id="seletedplanname" class="pad-none"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
 										
 								</div>
 								<div class="pull-right">
-									<div class="text-left pad-right1 h2-2 h2">
+									<div class="text-left h2-2 h2">
 										<div class="hk">
 											<fmt:message key="travel.dollar" bundle="${msg}" />
 											<div class="flightcare-hk" id="plansummary">0</div>
@@ -944,7 +944,7 @@ var promoData = '';
 								<div class="clearfix"></div>
 							</div>
 							<div class="orange-bdr"></div>
-							<div class="form-container">
+							<div class="form-container pad-none">
 								<h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /></h3>
 								<div class="form-group">
 									<div class="input-group wd2">
