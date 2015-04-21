@@ -35,11 +35,11 @@
     <div class="row">
       <div class="col-lg-7 col-md-7 pull-left pad-none">
         <ul class="nav nav-pills">
-          <li><a href="http://www.fwd.com.hk/zh-HK/home/security.html" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a></li>
+          <li><a href="http://www.fwd.com.hk/en-US/home/security.html" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a></li>
           <li> | </li>
-          <li><a href="http://www.fwd.com.hk/zh-HK/home/disclaimer.html" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a></li>
+          <li><a href="http://www.fwd.com.hk/en-US/home/disclaimer.html" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a></li>
           <li> | </li>
-          <li><a href="http://www.fwd.com.hk/zh-HK/home/pdo.html" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a></li>
+          <li><a href="http://www.fwd.com.hk/en-US/home/pdo.html" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a></li>
         </ul>
       </div>
     <!-- issue 50 - vincent (pccw) -->
