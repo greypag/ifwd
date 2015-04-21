@@ -244,16 +244,27 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 											<c:when test="${inx > 1}">
 												<c:choose>
 													<c:when test="${totalAdultCount == 2}">
-<fmt:message key="flight.details.insured.label.family.parent" bundle="${msg}" /> 
-</c:when>
+													<fmt:message key="flight.details.insured.label.family.personal" bundle="${msg}" /> 
+													</c:when>
+													
 													<c:when test="${totalAdultCount != 2}">
-Adult Traveller <c:out value="${inx-1}"></c:out>
+													<fmt:message key="flight.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
+											
+											
 											<c:when test="${inx == 1}">
-<fmt:message key="flight.details.insured.label.family.parent" bundle="${msg}" /> 
-</c:when>
+												<!--  print Parent  -->
+												<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">
+													<fmt:message key="flight.details.insured.label.family.parent" bundle="${msg}" />
+												</c:if>
+												
+												<!--  print Traveller  -->
+												<c:if test="${planDetailsForm.getTravellerCount() !=0 }">
+													<fmt:message key="flight.details.insured.label.personal" bundle="${msg}" />
+												</c:if>
+											</c:when>
 										</c:choose>
 
 									</h4>
