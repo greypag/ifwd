@@ -300,7 +300,19 @@ function submitLoginForm(formID) {
 	<div class="mob-topbar">
 		<span class="callus top-number"> &nbsp&nbsp&nbsp&nbsp <fmt:message key="header.hotline" bundle="${msg}" />  </span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
-			<a class="lang pull-right" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
+			<!-- <a class="lang pull-right" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
+			<%
+				if ("EN".equals(session.getAttribute("language").toString())) {
+				%>
+					<a class="lang pull-right" id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+				<%
+				} else {
+				%>
+					<a class="lang pull-right" id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
+				<%
+				}
+				
+			%>
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">
