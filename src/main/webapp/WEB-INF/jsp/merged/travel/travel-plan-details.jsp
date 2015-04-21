@@ -10,17 +10,17 @@
 
 <%
 	String authenticate = "false";
-	if (request.getSession().getAttribute("authenticate") != null) 
-	{
+	if (request.getSession().getAttribute("authenticate") != null) {
 		authenticate = request.getSession()
 				.getAttribute("authenticate").toString();
 	}
 		
 	QuoteDetails travelQuote = null;
-		if (travelQuote == null) 
-		{
+		if (travelQuote == null) {
+			//System.out.println("travelQuote is null 2");
 			travelQuote = (QuoteDetails) session.getAttribute("tq");
 		}
+
 %>
 
 
@@ -87,8 +87,7 @@
 						class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
 						<br>
 						<%
-							if (authenticate.equals("false") || authenticate.equals("direct")) 
-							{
+							if (authenticate.equals("false") || authenticate.equals("direct")) {
 						%>
 						<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.details.login" bundle="${msg}" /></h3>
 
@@ -189,7 +188,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
 											name="username" class="form-control btm-pad-10"
-											id="Username" placeholder="?¨æˆ¶?ç¨±"><span
+											id="Username" placeholder="?ï¿½æˆ¶?ï¿½ç¨±"><span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -197,7 +196,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											name="password" class="form-control btm-pad-10"
-											id="Password" placeholder="?‹äººå¯†ç¢¼" autocomplete="off"> <span
+											id="Password" placeholder="?ï¿½äººå¯†ç¢¼" autocomplete="off"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>
 									<tr>
@@ -205,7 +204,7 @@
 											class="control-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
 											class="form-control btm-pad-10" id="Confirm-Password"
-											placeholder="ç¢ºè?å¯†ç¢¼" autocomplete="off"> <span id="Confirm-PasswordError"
+											placeholder="ç¢ºï¿½?å¯†ç¢¼" autocomplete="off"> <span id="Confirm-PasswordError"
 											class="text-red"> </span></td>
 									</tr>
 								</tbody>
@@ -306,8 +305,15 @@
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
 												<option value="0"><fmt:message key="travel.details.insured.age.select" bundle="${msg}" /></option>
 												<c:forEach var="ageList" items="${mapSelfType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
+													<c:choose> 
+  													  <c:when test="${ageList.key == '2'}">
+  													    <option value="${ageList.key}" selected>
+  													  </c:when>
+  													  <c:otherwise>
+  													  	<option value="${ageList.key}">
+  													  </c:otherwise>
+													</c:choose>
+													<c:out value="${ageList.value}" /></option>
 												</c:forEach>
 											</select> <span id="errselectAgeRange${inx}" class="text-red">
 											</span>
@@ -316,14 +322,14 @@
 										
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> 
-											<t:dropdown 
-												defaultLabel="Own Estate"
-												defaultValue="SE"
-												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-												selectables="${mapRelationshipCode}"
-												valueElmId="adultsselectBenificiary${inx}"
-												valueElmName="adultBeneficiary"
-											/>
+											 <select name="adultBeneficiary" class="soflow" id="adultsselectBenificiary${inx}">
+												<option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
+												<c:forEach var="relationshipList" items="${mapRelationshipCode}">
+													<option value="${relationshipList.key}"><c:out
+															value="${relationshipList.value}" /></option>
+												</c:forEach>
+											</select>
+											
 											<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 										<!-- Adult hide box -->
@@ -405,10 +411,17 @@
 											<label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label> <select
 												name="childAgeRange" id="selectchildAgeRange${inx}"
 												class="soflow">
-												<option value="0">è«‹é¸??/option>
+												<option value="0"><fmt:message key="travel.details.insured.age.select" bundle="${msg}" /></option>
 												<c:forEach var="ageList" items="${mapChildType}">
-													<option value="${ageList.key}"><c:out
-															value="${ageList.value}" /></option>
+													<c:choose> 
+  													  <c:when test="${ageList.key == '1'}">
+  													    <option value="${ageList.key}" selected>
+  													  </c:when>
+  													  <c:otherwise>
+  													  	<option value="${ageList.key}">
+  													  </c:otherwise>
+													</c:choose>
+													<c:out value="${ageList.value}" /></option>
 												</c:forEach>
 											</select> <span id="errchildRange${inx}" class="text-red"></span>
 										</div>
@@ -417,7 +430,7 @@
 												id="childselectBenificiary${inx}" name="childBeneficiary"
 												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
 												class="soflow">
-												<option value="SE">?‹äºº?ºç”¢</option>
+												<option value="SE">?ï¿½äºº?ï¿½ç”¢</option>
 												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
@@ -506,13 +519,13 @@
 												id="otherSelectBenificiary${inx}" name="otherBeneficiary"
 												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
 												class="form-control soflow">
-												<option value="SE">?‹äºº?ºç”¢</option>
+												<option value="SE">?ï¿½äºº?ï¿½ç”¢</option>
 												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
 												</c:forEach>
 											</select> <span id="benificiary" style="display: none"> <label
-												class="text-red">?—ç?äººæ˜¯ç©ºç™½</label>
+												class="text-red">?ï¿½ï¿½?äººæ˜¯ç©ºç™½</label>
 											</span>
 										</div>
 
@@ -681,7 +694,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ä??–å??ªæ?ä»?¢¼ï¼?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
