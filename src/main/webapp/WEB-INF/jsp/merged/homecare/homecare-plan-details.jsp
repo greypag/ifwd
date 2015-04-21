@@ -514,10 +514,17 @@
 									</tbody>
 								</table>
 							</div>
-
+							<input type="hidden" id="isLogin" value="false">
+							<%
+								}
+								else
+								{
+							%>
+								<input type="hidden" id="isLogin" value="true">
 							<%
 								}
 							%>
+						
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>

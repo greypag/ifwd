@@ -210,6 +210,13 @@
 								</tbody>
 							</table>
 						</div>
+						<input type="hidden" id="isLogin" value="false">
+						<%
+							}
+							else
+							{
+						%>
+							<input type="hidden" id="isLogin" value="true">
 						<%
 							}
 						%>
