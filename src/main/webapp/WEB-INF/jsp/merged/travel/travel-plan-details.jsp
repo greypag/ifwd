@@ -102,6 +102,7 @@
 							</h3>
 						</div>
 						<div class="clearfix"></div>
+						<input type="hidden" id="isLogin" value="false">
 						<%
 							}
 							else
