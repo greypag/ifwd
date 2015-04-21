@@ -1087,8 +1087,10 @@ var promoData = '';
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
-								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return sendEmail()"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+								<%-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
+									onclick="return sendEmail()"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a> --%>
+								<button type="submit" onclick="return sendEmail()"
+															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></button>
 							</div>
 							<div class="col-md-2">
 								<br>
