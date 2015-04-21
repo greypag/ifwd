@@ -278,7 +278,7 @@ Adult Traveller <c:out value="${inx-1}"></c:out>
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500"><fmt:message key="flight.details.insured.age" bundle="${msg}" /></label>
-												<option value="0"><fmt:message key="flight.details.insured.age.select" bundle="${msg}" /></option>
+											<select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapSelfType}">
 													<c:choose> 
   													  <c:when test="${ageList.key == '2'}">
