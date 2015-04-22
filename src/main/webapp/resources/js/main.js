@@ -138,22 +138,33 @@ jQuery('ul.maintabs li').hover(function () {
     jQuery("a", this).removeClass('maintabs-hover');
 });
 
-/* fixed-content js */
-$(window).scroll(function (event) {
-    var scroll = $(window).scrollTop();
-    var winh = $(window).height();
-    var diff = $('.carousel').height() + 40 + 131 + $('#middle').height() - winh;
-   
-    // Do something
-    if (scroll > diff) {
-	    jQuery('#middle').removeClass("fixed-content");
-	  } else {
-	    jQuery('#middle').addClass("fixed-content");
-	  }
-});
+
 
 jQuery(document).ready(function() {
-	if($('#homecare-scroll').length){
+	
+	/* fixed-content js */
+
+	if($(window).height() > $('.carousel').height()  + 40 + 131 + $('#middle').height()){
+		jQuery('#middle').removeClass("fixed-content");
+	}else if($('#middle').length){
+		$(window).scroll(function (event) {
+		    var scroll = $(window).scrollTop();
+		    var winh = $(window).height();
+		    var diff = $('.carousel').height() + 40 + 131 + $('#middle').height() - winh;
+		   
+		    // Do something
+		    if (scroll > diff) {
+			    jQuery('#middle').removeClass("fixed-content");
+			  } else {
+			    jQuery('#middle').addClass("fixed-content");
+			  }
+		});
+	}
+	
+	
+	if($(window).height() > $('.carousel').height()  + 40 + 131 + $('#homecare-scroll').height()){
+		jQuery('#homecare-scroll').removeClass("fixed-content");
+	}else if($('#homecare-scroll').length){
 
 	        $(window).scroll(function (event) {
 	            var scroll = $(window).scrollTop();
