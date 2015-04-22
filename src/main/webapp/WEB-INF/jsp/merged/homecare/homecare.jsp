@@ -686,7 +686,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home8.png" alt=""></a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank">
-									<fmt:message key="home.main.blog.subheading1.part1" bundle="${msg}" /> <br /> <fmt:message key="home.main.blog.subheading1.part2" bundle="${msg}" /><i
+									<fmt:message key="home.main.blog.subheading1.part1" bundle="${msg}" /> <fmt:message key="home.main.blog.subheading1.part2" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
@@ -718,7 +718,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="resources/images/home10.png" alt=""></a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
-									<fmt:message key="home.main.blog.subheading3.part1" bundle="${msg}" /> <br /> <fmt:message key="home.main.blog.subheading3.part2" bundle="${msg}" /> <i
+									<fmt:message key="home.main.blog.subheading3.part1" bundle="${msg}" /> <fmt:message key="home.main.blog.subheading3.part2" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i>
 								</a>
 							</h3>
