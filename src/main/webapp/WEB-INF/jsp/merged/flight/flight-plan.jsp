@@ -46,7 +46,7 @@
 							style="visibility: visible;">
 							<h2><fmt:message key="flight.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="order-status">
 							<div class="order-status-timeline-new">
 								<!--
@@ -74,7 +74,7 @@
 						</div>
 					</div>
 				</div>
-				<br> <br> <br>
+				<br>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="flight.quote.choose" bundle="${msg}" /></h2>
@@ -170,14 +170,14 @@
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
 						<div class="form-container">
-							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /></h3>
+							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline"><a href="flight">Change</a></span></h3>
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
 								</div>
 							</div>
-							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /></h3>
+							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline"><a href="flight">Change</a></span></h3>
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
@@ -185,7 +185,7 @@
 										readonly>
 								</div>
 							</div>
-							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /></h3>
+							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline"><a href="flight">Change</a></span></h3>
 						
 <!--						<div class="form-group">
 								
