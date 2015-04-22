@@ -3489,11 +3489,14 @@ function getBundle(lang, key) {
 	return rtn;
 }
 function loadBundles(lang, key, fn) {
+	//var u = window.location.origin+''+home+'/resources/bundle/';
+	//console.log("url : "+u)
    	$.i18n.properties({
         name: 'Messages',
-        path: 'resources/bundle/',
+        path: ''+home_url+'/resources/bundle/',
         mode: 'both',
         language: lang,
+        cache: true,
         callback: function() {
         	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
         }

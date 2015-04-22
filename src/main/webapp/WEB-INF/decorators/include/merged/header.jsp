@@ -7,6 +7,7 @@
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <script>
+var home_url = "<%=request.getContextPath()%>";
 function submitLoginForm(formID) {
 	
 	$('#ajax-loading').show();

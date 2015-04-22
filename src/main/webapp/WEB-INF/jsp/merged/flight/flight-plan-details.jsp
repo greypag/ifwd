@@ -310,12 +310,25 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									<div class="row ">
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500"><fmt:message
-													key="flight.details.insured.name" bundle="${msg}" /></label> <input
+													key="flight.details.insured.name" bundle="${msg}" /></label> 
+													<c:if test="${inx == 1}">
+														<input
+												type="text" name="adultName" id="txtAdFullName${inx}"
+												value="${userDetails.getFullName()}" class="form-control "
+												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
+												onblur="replaceAlpha(this);"
+												onkeypress="    return alphaOnly(event);" maxlength="100" />
+													</c:if>
+													<c:if test="${inx > 1}">
+														<input
 												type="text" name="adultName" id="txtAdFullName${inx}"
 												value="" class="form-control "
 												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
+													</c:if>
+													
+												
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">

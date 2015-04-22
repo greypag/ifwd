@@ -1149,7 +1149,7 @@ var promoData = '';
 		$('#subtotal').html(parseInt(selected_price).toFixed(2));
 		$('#plansummary').html(parseInt(selected_price).toFixed(2));
 		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
-		$('#inputseletedplanname').val(parseInt(planName).toFixed(2));
+		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(parseInt(totalDue).toFixed(2));
 
 		$('#' + id).addClass("plan-box4");

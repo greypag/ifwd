@@ -272,11 +272,21 @@
 									
 									<div class="row ">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label> <input type="text"
+											<label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label> 
+											<c:if test="${inx == 1}">
+											<input type="text"
+												id="txtAdFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
+												class="form-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+												onblur="replaceAlpha(this);"
+												onkeypress="    return alphaOnly(event);" maxlength="100" />
+											</c:if>
+											<c:if test="${inx > 1}">
+											<input type="text"
 												id="txtAdFullName${inx}" name="adultName" value=""
 												class="form-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
+											</c:if>
 											<span id="errtxtAdFullName${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
@@ -590,7 +600,7 @@
 										for="checkbox2">
 										<fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
 										href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
-										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
+										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
 										
 
 
