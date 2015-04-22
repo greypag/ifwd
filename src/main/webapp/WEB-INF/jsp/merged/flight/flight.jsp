@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
-      <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="flight-insurance/quote">    
+      <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="<%=request.getContextPath()%>/flight-insurance/quote">    
         <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
        
              <table class="table activation-form3">
@@ -125,13 +125,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </tr>
             <tr>
               <td class="col-md-3 pad-none">
-                <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
+                <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
                 </div>
                 
                 </td>
               <td class="col-md-3 pad-none">
-                <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
+                <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" readonly>
                 </div>
               
@@ -267,19 +267,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!--Mobile-form-->
 <div class="slider-form hidden-lg hidden-md">
- <form name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="flight-insurance/quote">
+ <form name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/flight-insurance/quote">
   <div class="form-container">
     <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
-      <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
+      <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
         <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', '');" value="${planDetails.getDepartureDate()}" readonly>
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
     <h4><fmt:message key="flight.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
-      <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="resources/images/calendar.png" alt="calendar"></span></span>
+      <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
         <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
       </div>
     </div>
@@ -409,7 +409,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!--desktop Features-->
     <div class="hidden-xs hidden-sm">
       <div class="col-md-10 col-md-offset-1 pad-none home-features">
-        <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight1.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home-flight1.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
@@ -424,10 +424,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
             <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home-flight-mob-2.png" alt=""  /> </div>
         <div class="clearfix"></div>
         <br>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="resources/images/home-flight3.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home-flight3.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
@@ -458,7 +458,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </li>
           </ul>
           <div class="spacer3"></div>
-          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
+          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         </div>
       </div>
@@ -466,7 +466,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <!--mobile-Features-->
     <div class="hidden-lg hidden-md mob-features">
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home-flight1.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home-flight1.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
@@ -475,7 +475,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="clearfix"></div>
       <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home-flight-mob-2.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home-flight-mob-2.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
@@ -484,7 +484,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="clearfix"></div>
       <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="resources/images/home-flight3.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home-flight3.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
@@ -506,7 +506,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap  text-center">
-          <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
             <h1><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h1>
             <p>
@@ -517,7 +517,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap  text-center">
-          <div class="recent-work-inner less-padding-orange"> <img src="resources/images/secure.png" alt=""  />
+          <div class="recent-work-inner less-padding-orange"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
             <h1><fmt:message key="flight.main.highlight2.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight2.heading.line2" bundle="${msg}" /></h1>
               <p><fmt:message key="flight.main.highlight2.desc" bundle="${msg}" /><br>
@@ -528,7 +528,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap  text-center">
-          <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
              <h1><fmt:message key="flight.main.highlight3.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight3.heading.line2" bundle="${msg}" /></h1>
             <p><fmt:message key="flight.main.highlight3.desc" bundle="${msg}" /></p>
@@ -551,7 +551,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a  href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
@@ -564,7 +564,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap-mid text-center">
-              <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
                 <h2><fmt:message key="flight.main.highlight2.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight2.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="flight.main.highlight2.desc" bundle="${msg}" /></p>
               </div>
@@ -577,7 +577,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
                 <h2><fmt:message key="flight.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight3.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="flight.main.highlight3.desc" bundle="${msg}" /></p>
               </div>
@@ -601,7 +601,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="services-wrap service-bx1">
             <div>
               <a href="http://blog.fwd.com.hk/en_US/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="img-responsive bdr-img"
-                src="resources/images/home4.png" alt=""></a>
+                src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
               <h3>
                 <a href="http://blog.fwd.com.hk/en_US/2015/03/17/7-musts-before-a-long-vacation/" target="_blank">  <fmt:message key="flight.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
                 </a>
@@ -614,7 +614,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="services-wrap service-bx2">
             <div>
               <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="img-responsive bdr-img"
-                src="resources/images/home5.png" alt=""></a>
+                src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
               <h3>
                 <a href="http://blog.fwd.com.hk/en_US/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"> <fmt:message key="flight.main.blog.subheading2" bundle="${msg}" /> <i
                   class="fa fa-caret-right"></i>
@@ -627,7 +627,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="services-wrap service-bx3">
             <div>
               <a href="http://blog.fwd.com.hk/en_US/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="img-responsive bdr-img"
-                src="resources/images/home6.png" alt=""></a>
+                src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
               <h3>
                 <a href="http://blog.fwd.com.hk/en_US/2015/03/19/tips-for-traveling-with-children/" target="_blank"> <fmt:message key="flight.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
                 </a>
@@ -652,7 +652,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-     <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="flight-insurance/quote">
+     <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/flight-insurance/quote">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <h2><fmt:message key="flight.main.quote.bottom.heading" bundle="${msg}" /></h2>
         <table class="table activation-form3">
@@ -680,12 +680,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </tr>
             <tr>
               <td class="col-md-3 pad-none">
-                <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
+                <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}" readonly>
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
-                <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="resources/images/calendar.png" alt=""></span></span>
+                <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>

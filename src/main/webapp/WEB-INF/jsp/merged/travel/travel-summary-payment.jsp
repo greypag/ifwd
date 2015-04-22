@@ -14,7 +14,7 @@
 		var geteWayUrl = $('#gateway').val();
 		$.ajax({
 			type : "POST",
-			url : "/FWDHKPH1A/processTravePayment",
+			url : "<%=request.getContextPath()%>/processTravePayment",
 			data : $("#paymentForm").serialize(),
 			async : false,
 			success : function(data) {
@@ -155,7 +155,7 @@
 						<div
 							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
 							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="/FWDHKPH1A/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+								<a href="<%=request.getContextPath()%>/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 							</h4>
 							
 						</div> 
@@ -459,7 +459,7 @@
 										
 										
 										<div>
-											<img src="resources/images/payment.png" alt="">
+											<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
 										</div>
 									</div>
 								</td>
@@ -638,7 +638,7 @@
 							</div> -->
 							
 							<div class="hidden-sm hidden-xs pad-none">
-							<a href="/FWDHKPH1A/flight-insurance/user-details"
+							<a href="<%=request.getContextPath()%>/flight-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 							<button onclick="confirmPayment();"
 								class="bdr-curve btn btn-primary nxt-btn margin-left">
@@ -649,7 +649,7 @@
 							<div class="clearfix"></div>
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="/FWDHKPH1A/travel-insurance/user-details"
+								<a href="<%=request.getContextPath()%>/travel-insurance/user-details"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" />  </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">

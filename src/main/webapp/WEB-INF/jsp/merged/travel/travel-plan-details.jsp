@@ -29,8 +29,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 		
-			<form:form name="frmYourDetails" id="frmYourDetails"
-				action="/FWDHKPH1A/travel-insurance/travel-summary" method="post"
+			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/travel-insurance/travel-summary" method="post"
 				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -716,7 +715,7 @@
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	 <a href="/FWDHKPH1A/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+	 <a href="<%=request.getContextPath()%>/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
@@ -727,7 +726,7 @@
 </div>
 <div class="clearfix"></div>
 </div>
-<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" /><a class="sub-link" href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a>??
+<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" /><a class="sub-link" href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a>??
 <fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" />
 <fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
 </form:form>
@@ -849,7 +848,7 @@ function userLoginFnc() {
 	{ */
 	$.ajax({
 		type : "POST",
-		url : "userLogin",
+		url : "<%=request.getContextPath()%>/userLogin",
 		data : $("#popUploginform input").serialize(),
 		async : false,
 		success : function(data) {

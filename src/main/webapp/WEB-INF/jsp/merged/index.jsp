@@ -8,7 +8,7 @@
 <!-- <meta charset="utf-8"> -->
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <!-- <meta name="author" content=""> -->
-<link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!--Google Code for SEO-->
 
 <noscript>
@@ -56,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!--   Main Content-->
     <section id="main-slider" class="no-margin clearfix">
         <!--Mobile-logo-->
-        <img src="<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md" />
+        <img src="<%=request.getContextPath()%>/<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md" />
         <!--Mobile-logo-->
         <div class="carousel slide hidden-xs hidden-sm">
             <div class="carousel-inner">
@@ -72,8 +72,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
 
-                    <img src="<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" />
-                </div>
+<img src="<%=request.getContextPath()%>/<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" />                </div>
                 <!--/.item-->
             </div>
             <!--/.carousel-inner-->
@@ -106,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
             <h1><fmt:message key="index.highlight1.heading" bundle="${msg}" /></h1>
             <p><fmt:message key="index.highlight1.paragraph" bundle="${msg}" /></p>
           </div>
@@ -114,7 +113,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap text-center">
-          <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
             <h1><fmt:message key="index.highlight2.heading" bundle="${msg}" /></h1>
             <p><fmt:message key="index.highlight2.paragraph" bundle="${msg}" /><br>
               <br>
@@ -124,7 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
             <h1><fmt:message key="index.highlight3.heading" bundle="${msg}" /></h1>
             <p><fmt:message key="index.highlight3.paragraph" bundle="${msg}" /></p>
              </div>
@@ -145,7 +144,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="index.highlight1.heading" bundle="${msg}" /></h2>
                 <p><fmt:message key="index.highlight1.paragraph" bundle="${msg}" /></p>
               </div>
@@ -158,7 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
-              <div class="recent-work-inner"> <img src="resources/images/secure.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
                 <h2><fmt:message key="index.highlight2.heading" bundle="${msg}" /></h2>
                 <p><fmt:message key="index.highlight2.paragraph" bundle="${msg}" /></p>
               </div>
@@ -171,7 +170,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
                 <h2><fmt:message key="index.highlight3.heading" bundle="${msg}" /></h2>
                 <p><fmt:message key="index.highlight3.paragraph" bundle="${msg}" /></p>
               </div>
@@ -283,7 +282,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="resources/images/home4.png" alt=""></a>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
             <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><fmt:message key="index.blog.desc1" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
@@ -291,7 +290,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="resources/images/home5.png" alt=""></a>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
             <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><fmt:message key="index.blog.desc2" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
@@ -299,7 +298,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="bdr-img" src="resources/images/home6.png" alt=""></a>
+          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
             <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><fmt:message key="index.blog.desc3" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>

@@ -6,7 +6,7 @@
 
 
 
-	<script src="resources/js/validation.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
 	<script>
 		function forgotUserPassword() {
 
@@ -16,7 +16,7 @@
 				$
 						.ajax({
 							type : 'POST',
-							url : 'forgotUserPassword',
+							url : '<%=request.getContextPath()%>/forgotUserPassword',
 							data : $('#forgotPasswordForm input').serialize(),
 							success : function(data) {
 
@@ -63,7 +63,7 @@
 					id="ajax-loading">
 					<img
 						style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%;"
-						src="resources/images/ajax-loader.gif">
+						src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 				</div>
 				<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12 margin-left">
 					<form name="forgotPasswordForm" id="forgotPasswordForm"

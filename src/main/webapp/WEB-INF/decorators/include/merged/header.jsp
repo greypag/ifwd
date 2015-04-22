@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <script>
 function submitLoginForm(formID) {
 	
@@ -14,7 +15,7 @@ function submitLoginForm(formID) {
 	if (validUser(formID)) {
 		$.ajax({
 			type : "POST",
-			url : "userLogin",
+			url : "/FWDHKPH1A/userLogin",
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
@@ -98,17 +99,17 @@ function submitLoginForm(formID) {
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
-							<li><a href="joinus"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="/FWDHKPH1A/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li>
 							<%
 							if ("EN".equals(session.getAttribute("language").toString())) {
 							%>
-								<a id="anchor-lang" href="changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
 							<%
 							} else {
 							%>
-								<a id="anchor-lang" href="changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
 							<%
 							}
 							
@@ -129,7 +130,7 @@ function submitLoginForm(formID) {
 												id="ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-													src="resources/images/ajax-loader.gif">
+													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>
@@ -188,7 +189,7 @@ function submitLoginForm(formID) {
 												id="ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-													src="resources/images/ajax-loader.gif">
+													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>
@@ -246,7 +247,7 @@ function submitLoginForm(formID) {
 										<li><a href="getAccByUsernaneAndPassword" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
-										<li><a href="userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
+										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
 									</ul>
 								</div>
 							</li>
@@ -276,7 +277,7 @@ function submitLoginForm(formID) {
 		<div class="container pad-none">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="<%=request.getContextPath()%>"><img
-					src="resources/images/logo.jpg" alt="logo"></a>
+					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
 			</div>
 			<div class="col-lg-6 col-md-6 pull-right">
 				
@@ -325,7 +326,7 @@ function submitLoginForm(formID) {
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="home"><img
-				src="resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
+				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -346,7 +347,7 @@ function submitLoginForm(formID) {
 												id="ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-													src="resources/images/ajax-loader.gif">
+													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
 											<div class="form-container">
@@ -398,7 +399,7 @@ function submitLoginForm(formID) {
 										<li><a href="getAccByUsernaneAndPassword" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
-										<li><a href="userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
+										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
 									</ul>
 								</div>
 		

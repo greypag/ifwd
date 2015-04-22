@@ -146,7 +146,8 @@ public class FlightController {
 			session.setAttribute("uiLocale", "en-US");
 		}
 					
-		viewName = action.replace("/", "");
+		//viewName = action.replace("/", "");
+		viewName = action;
 		return new ModelAndView("redirect:" + viewName);
 
 	}

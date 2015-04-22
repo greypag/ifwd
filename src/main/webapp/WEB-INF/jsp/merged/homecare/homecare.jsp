@@ -146,9 +146,7 @@
 						<div class="container">
 							<div class="row">
 
-								<form:form name="getHomeQuote" id="getHomeQuote"
-									action="/FWDHKPH1A/home-insurance/quote" method="post"
-									modelAttribute="homeCarelPlan">
+								<form:form name="getHomeQuote" id="getHomeQuote" action="${pageContext.request.contextPath}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
 									<div class="hidden-xs hidden-sm">
 										<h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2>
 										<%
@@ -209,7 +207,7 @@
 						</div>
 					</div>
 		<!--mobile-->
-		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="/FWDHKPH1A/home-insurance/quote"
+		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/home-insurance/quote"
 			method="post" modelAttribute="homeCarelPlan">
 			<div
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">
@@ -290,7 +288,7 @@
 			<div class="hidden-xs hidden-sm">
 				<div class="col-lg-12 col-md-12 home-features pad-none">
 					<div class="col-md-6 col-lg-6 pad-none text-center">
-						<img src="resources/images/homecare1.png" alt="" />
+						<img src="<%=request.getContextPath()%>/resources/images/homecare1.png" alt="" />
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
@@ -314,12 +312,12 @@
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none text-center">
-						<img src="resources/images/homecare2.png" alt="" />
+						<img src="<%=request.getContextPath()%>/resources/images/homecare2.png" alt="" />
 					</div>
 					<div class="clearfix"></div>
 					<br>
 					<div class="col-md-6 col-lg-6 pad-none text-center">
-						<img src="resources/images/homecare3.png" alt="" />
+						<img src="<%=request.getContextPath()%>/resources/images/homecare3.png" alt="" />
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
@@ -349,7 +347,7 @@
 			<!--mob-Features-->
 			<div class="mob-features hidden-lg hidden-md">
 				<div class="col-xs-4 col-sm-4 text-center">
-					<img class="img-responsive" src="resources/images/homecare1.png"
+					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/homecare1.png"
 						alt="" />
 				</div>
 				<div class="col-xs-8 col-sm-8">
@@ -368,7 +366,7 @@
 				<div class="clearfix"></div>
 				<br>
 				<div class="col-xs-4 col-sm-4 text-center">
-					<img class="img-responsive" src="resources/images/homecare2.png"
+					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/homecare2.png"
 						alt="" />
 				</div>
 				<div class="col-xs-8 col-sm-8">
@@ -384,7 +382,7 @@
 				<div class="clearfix"></div>
 				<br>
 				<div class="col-xs-4 col-sm-4 text-center">
-					<img class="img-responsive" src="resources/images/homecare3.png"
+					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/homecare3.png"
 						alt="" />
 				</div>
 				<div class="col-xs-8 col-sm-8">
@@ -410,8 +408,11 @@
 
 
 				<p class="col-xs-12 h4-6">
-				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
-					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
+				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /><br>
+							
+					<a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
+					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
 					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
 
 
@@ -436,7 +437,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-xs-12 col-sm-4 col-md-4 pad-none">
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
-							<img src="resources/images/time.png" alt="" />
+							<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="" />
 							<h1>
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
 							</h1>
@@ -451,7 +452,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
 					<div class="recent-work-wrap-mid wrap text-center">
 						<div class="recent-work-inner">
-							<img src="resources/images/secure.png" alt="" />
+							<img src="<%=request.getContextPath()%>/resources/images/secure.png" alt="" />
 							<h1><fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" /></h1>
 							<p>
 								<fmt:message key="home.main.highlight2.desc" bundle="${msg}" /><br>
@@ -462,7 +463,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
-							<img src="resources/images/rewards.png" alt="" />
+							<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="" />
 							<h1><fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" /></h1>
 							<p>
 								<fmt:message key="home.main.highlight3.desc" bundle="${msg}" /><br>
@@ -487,7 +488,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="row slide-margin">
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
-									<img src="resources/images/time.png" alt="" />
+									<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="" />
 									
 									<h1>
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
@@ -510,7 +511,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="row slide-margin">
 							<div class="recent-work-wrap-mid text-center">
 								<div class="recent-work-inner">
-									<img src="resources/images/secure.png" alt="" />
+									<img src="<%=request.getContextPath()%>/resources/images/secure.png" alt="" />
 										<h1>
 								<fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" />
 							</h1>
@@ -528,7 +529,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="row slide-margin">
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
-									<img src="resources/images/rewards.png" alt="" />
+									<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="" />
 									<h1>
 										<fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" />
 									</h1>
@@ -680,7 +681,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="services-wrap service-bx1">
 						<div>
 							<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank"><img class="img-responsive bdr-img"
-								src="resources/images/home8.png" alt=""></a>
+								src="<%=request.getContextPath()%>/resources/images/home8.png" alt=""></a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank">
 									<fmt:message key="home.main.blog.subheading1.part1" bundle="${msg}" /> <fmt:message key="home.main.blog.subheading1.part2" bundle="${msg}" /> <i
@@ -696,7 +697,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div>
 							<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank">
 							<img class="img-responsive bdr-img"
-								src="resources/images/home9.png" alt="">
+								src="<%=request.getContextPath()%>/resources/images/home9.png" alt="">
 								</a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank"> 
@@ -712,7 +713,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div>
 						<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
 							<img class="img-responsive bdr-img"
-								src="resources/images/home10.png" alt=""></a>
+								src="<%=request.getContextPath()%>/resources/images/home10.png" alt=""></a>
 							<h3>
 								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
 									<fmt:message key="home.main.blog.subheading3.part1" bundle="${msg}" /> <fmt:message key="home.main.blog.subheading3.part2" bundle="${msg}" /> <i
@@ -743,8 +744,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<section id="bottom-form" class="hidden-sm hidden-xs homecare">
 		<div class="container">
 			<div class="row">
-				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom"
-					action="getHomePlan" method="post" modelAttribute="homeCarelPlan">
+				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom" action="${pageContext.request.contextPath}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
 					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare">
 						<h2><fmt:message key="home.main.quote.bottom.heading" bundle="${msg}" /></h2>
 						<%

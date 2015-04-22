@@ -7,7 +7,7 @@
 <body class="homepage">
 
 	<!--/#main-Content-->
-	<script src="resources/js/validation.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
 	<script>
 		function getForgotUserName() {
 			var validationFormVal = forgotUserName();
@@ -17,7 +17,7 @@
 				$
 						.ajax({
 							type : 'POST',
-							url : 'forgotUser',
+							url : '<%=request.getContextPath()%>/forgotUser',
 							data : $('#forgotUserNameForm input').serialize(),
 							success : function(data) {
 
@@ -68,7 +68,7 @@
 					id="ajax-loading">
 					<img
 						style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%;"
-						src="resources/images/ajax-loader.gif">
+						src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 				</div>
 
 				<form name="forgotUserNameForm" id="forgotUserNameForm"

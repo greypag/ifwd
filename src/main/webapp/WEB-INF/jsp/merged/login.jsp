@@ -20,7 +20,7 @@
 												id="ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-													src="resources/images/ajax-loader.gif">
+													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>

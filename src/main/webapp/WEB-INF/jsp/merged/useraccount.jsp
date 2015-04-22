@@ -33,7 +33,7 @@
 	function updateUserAccount() {
 		$.ajax({
 			type : 'POST',
-			url : 'updateUserAccount',
+			url : '<%=request.getContextPath()%>/updateUserAccount',
 			data : $('#userAcccountForm input').serialize(),
 			success : function(data) {
 				/* success-message */
@@ -80,8 +80,7 @@
 					</div>
 				</div>
 				<div class="col-sm-8 pull-right" style="display: none;">
-					<form:form modelAttribute="userDetails" name="userAcccountForm"
-						id="userAcccountForm">
+					<form:form modelAttribute="userDetails" name="userAcccountForm" id="userAcccountForm">
 						<table class="table acc-form">
 							<tbody>
 								<tr>
@@ -119,7 +118,7 @@
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"
 										title="Username must be between 6 and 50 characters. ">
-											<img src="resources/images/ic.png">
+											<img src="<%=request.getContextPath()%>/resources/images/ic.png">
 									</a></td>
 								</tr>
 								<tr>
@@ -131,7 +130,7 @@
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"
 										title="Password must be at least 8 characters and alphanumeric (both upper AND lower cases). ">
-											<img src="resources/images/ic.png">
+											<img src="<%=request.getContextPath()%>/resources/images/ic.png">
 									</a></td>
 								</tr>
 								<tr>
@@ -181,8 +180,7 @@
 				<!-- tab content -->
 				<div class="tab-content col-md-8">
 					<div class="tab-pane text-style active padding3" id="tab1">
-						<form:form name="userAcccountForm" id="userAcccountForm"
-							modelAttribute="userDetails">
+						<form:form name="userAcccountForm" id="userAcccountForm" modelAttribute="userDetails">
 							<table class="table acc-form">
 								<tbody>
 									<tr>
@@ -220,7 +218,7 @@
 											class="form-control" id="userName" placeholder="<fmt:message key="member.account.details.label.Username" bundle="${msg}" />"
 											name="userName"> 
 											<!-- <a href="#" data-toggle="tooltip" data-placement="bottom" 
-   title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="resources/images/ic.png"> </a> -->
+   title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="<%=request.getContextPath()%>/resources/images/ic.png"> </a> -->
    										</td>
 									</tr>
 									<!-- <tr>
@@ -229,7 +227,7 @@
 										<td class="pad-none"><input type="password"
 											name="password" id="password" class="form-control"
 											id="inputEmail3" placeholder="Password"> <a href="#" data-toggle="tooltip" data-placement="bottom" 
-   title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="resources/images/ic.png"> </a></td>
+   title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="<%=request.getContextPath()%>/resources/images/ic.png"> </a></td>
 									</tr>
 									<tr>
 										<td valign="middle" class="pad-none"><label
@@ -340,7 +338,7 @@
 									<td><p>
 											<fmt:message key="member.account.promotionCode.share.message.header" bundle="${msg}" /><span class="h2-1">
 												${userDetails.getReferralCode()}</span><br> <fmt:message key="member.account.promotionCode.share.message.body" bundle="${msg}" />
-										</p> <img src="resources/images/agoda.png" alt=""
+										</p> <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt=""
 										class="text-center col-xs-offset-3" /></td>
 								</tr>
 								<tr>
@@ -359,7 +357,7 @@
 								<tr>
 									<td class="pad-none" colspan="2">
 										<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied">Copy Link</div>
-										<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
+										<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/"<%=request.getContextPath()%> data-title="iFWD"></div>
 									</td>
 								</tr>
 							</tbody>

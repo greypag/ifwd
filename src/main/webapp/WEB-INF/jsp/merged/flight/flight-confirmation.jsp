@@ -13,9 +13,7 @@
 <section>
 <div class="container">
 <div class="row">
-<form:form name="frmTravelPlan" id="frmTravelPlan"
-modelAttribute="travelQuote" method="post"
-action="flight-upgrade-travel-summary">
+<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/flight-upgrade-travel-summary">
 
 <ol class="breadcrumb pad-none">
 <li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -80,7 +78,7 @@ Policy Number: <span><%=request.getSession().getAttribute(
 <div class="gray-bg1-content">
 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
 
-<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
+<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk"<%=request.getContextPath()%> data-title="iFWD"></div>
 </div>
 <div class="col-lg-6 col-md-6">
 <p>

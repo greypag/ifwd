@@ -9,7 +9,7 @@ $('#login-err-msg').hide();
 if (validUser()) {
 $.ajax({
 type : "POST",
-url : "userLogin",
+url : "/FWDHKPH1A/userLogin",
 data : $("#headerLoginForm form").serialize(),
 async : false,
 success : function(data) {
@@ -225,7 +225,7 @@ class="fa fa-caret-right"></i>
 <li><a href="getAccByUsernaneAndPassword" class="color1">
 Manage User Account</a></li>
 <%} %>
-<li><a href="userLogout" class="color1">Log Out</a></li>
+<li><a href="<%=request.getContextPath()%>/userLogout" class="color1">Log Out</a></li>
 </ul>
 </div>
 </li>

@@ -104,7 +104,7 @@
 		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
-			url : '/FWDHKPH1A/applyHomePromoCode',
+			url : '<%=request.getContextPath()%>/applyHomePromoCode',
 			data : $('#frmHomeCarePlan input').serialize(),
 			success : function(data) {
 
@@ -612,7 +612,7 @@
 					<div
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
 						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
-							action="/FWDHKPH1A/home-insurance/user-details" method="post"
+							action="${pageContext.request.contextPath}/home-insurance/user-details" method="post"
 							modelAttribute="planQuoteDetails">
 							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
@@ -700,7 +700,7 @@
 							
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
-								<a href="/FWDHKPH1A/home-insurance"
+								<a href="<%=request.getContextPath()%>/home-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
 							</div>
 							

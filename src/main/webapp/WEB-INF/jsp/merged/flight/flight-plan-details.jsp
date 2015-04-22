@@ -4,8 +4,8 @@
 <%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -39,12 +39,18 @@ return false;
 action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 			<form:form name="freeFlightForm" id="freeFlightForm"
 				modelAttribute="createFlightPolicy" method="post"
-				onsubmit="return createFlightFnc(this);" >
+				onsubmit="return createFlightFnc(this);">
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
+					<li><a href="#"><fmt:message
+								key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i
+						class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message
+								key="flight.breadcrumb1.item2" bundle="${msg}" /></a> <i
+						class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message
+								key="flight.breadcrumb1.item3" bundle="${msg}" /></a></li>
+					<li class="active "><i class="fa fa-caret-right"></i>
+					<fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
 				</ol>
 				<input type="hidden" name="planSelected"
 					value="${planDetailsForm.getPlanSelected()}">
@@ -53,7 +59,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						class="col-md-12 col-lg-12 col-sm-12 col-xs-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
-							<h2><fmt:message key="flight.details.jumbo" bundle="${msg}" /></h2>
+							<h2>
+								<fmt:message key="flight.details.jumbo" bundle="${msg}" />
+							</h2>
 						</div>
 						<br> <br>
 						<div class="order-status">
@@ -61,22 +69,25 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								<!-- class names: c0 c1 c2 c3 and c4 -->
 								<div class="order-status-timeline-completion dots-active"></div>
 								<div class="order-status-timeline-completion dots-inactive"></div>
-								
+
 							</div>
 							<div
 								class="image-order-status image-order-status-new  img-circle">
 								<div class="icon">1</div>
-								<span class="status status-working"><fmt:message key="flight.breadcrumb2.item1" bundle="${msg}" /></span>
+								<span class="status status-working"><fmt:message
+										key="flight.breadcrumb2.item1" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-active active img-circle">
 								<div class="icon">2</div>
-								<span class="status"><fmt:message key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
+								<span class="status"><fmt:message
+										key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
 							</div>
 							<div
 								class="image-order-status image-order-status-intransit disabled  img-circle">
 								<div class="icon">3</div>
-								<span class="status min-left"><fmt:message key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
+								<span class="status min-left"><fmt:message
+										key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
 							</div>
 						</div>
 					</div>
@@ -103,20 +114,26 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										|| authenticate.equals("direct")) {
 						%>
 						<h3
-							class="margin-left-2 h2-3-existing-fwd-head hidden-sm hidden-xs"><fmt:message key="flight.details.login" bundle="${msg}" /></h3>
+							class="margin-left-2 h2-3-existing-fwd-head hidden-sm hidden-xs">
+							<fmt:message key="flight.details.login" bundle="${msg}" />
+						</h3>
 						<h3
-							class="margin-left-2 h2-3-existing-fwd-head hidden-lg hidden-md"><fmt:message key="flight.details.login" bundle="${msg}" /></h3>
+							class="margin-left-2 h2-3-existing-fwd-head hidden-lg hidden-md">
+							<fmt:message key="flight.details.login" bundle="${msg}" />
+						</h3>
 
 						<a href="#"
 							class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-							data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="flight.details.login.action" bundle="${msg}" /></a>
+							data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message
+								key="flight.details.login.action" bundle="${msg}" /></a>
 
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 							<h3 class="text-left or-continue">
-								<span><fmt:message key="flight.details.login.other.part1" bundle="${msg}" />
-								</span>
-									  <fmt:message key="flight.details.login.other.part2" bundle="${msg}" />
+								<span><fmt:message key="flight.details.login.other.part1"
+										bundle="${msg}" /> </span>
+								<fmt:message key="flight.details.login.other.part2"
+									bundle="${msg}" />
 							</h3>
 						</div>
 						<%
@@ -128,14 +145,17 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						<table class="table activation-form margin-left-2 vert-middle">
 							<tbody>
 								<tr>
-									<td colspan="2"><h3
-											class="black-bold pad-none"><fmt:message key="flight.details.applicant.heading" bundle="${msg}" /></h3></td>
+									<td colspan="2"><h3 class="black-bold pad-none">
+											<fmt:message key="flight.details.applicant.heading"
+												bundle="${msg}" />
+										</h3></td>
 								</tr>
 								<tr>
 
 
 									<td valign="middle" class="col-sm-4"><label
-										for="inputFullName" class="control-label bold-500"><fmt:message key="flight.details.applicant.name" bundle="${msg}" /></label></td>
+										for="inputFullName" class="control-label bold-500"><fmt:message
+												key="flight.details.applicant.name" bundle="${msg}" /></label></td>
 									<td class=""><input type="text"
 										value="${userDetails.getFullName()}" class="form-control"
 										id="inputFullName" name="fullName"
@@ -145,30 +165,36 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										id="fullnameinvalid" class="text-red"></span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class=""><label
-										for="inputEmail3" class="control-label bold-500"><fmt:message key="flight.details.applicant.hkid" bundle="${msg}" /></label></td>
+									<td valign="middle" class=""><label for="inputEmail3"
+										class="control-label bold-500"><fmt:message
+												key="flight.details.applicant.hkid" bundle="${msg}" /></label></td>
 									<td class=""><input type="text" name="hkid"
 										class="form-control numberinput textUpper"
-										id="inputTxtAppHkid" placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
-										id="errAppHkid" class="text-red"> </span></td>
+										id="inputTxtAppHkid"
+										placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />">
+										<span id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class=""><label
-										for="inputMobileNo" class="control-label bold-500"><fmt:message key="flight.details.applicant.mobile" bundle="${msg}" /></label></td>
+									<td valign="middle" class=""><label for="inputMobileNo"
+										class="control-label bold-500"><fmt:message
+												key="flight.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class=""><input type="text"
 										value="${userDetails.getMobileNo()}" class="form-control"
-										name="mobileNo" id="inputMobileNo" placeholder="<fmt:message key="flight.details.applicant.mobile.placeholder" bundle="${msg}" />"
+										name="mobileNo" id="inputMobileNo"
+										placeholder="<fmt:message key="flight.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" /> <span
 										id="mobileNo" class="text-red"></span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class=""><label
-										for="inputEmailId" class="control-label bold-500"><fmt:message key="flight.details.applicant.email" bundle="${msg}" /></label></td>
+									<td valign="middle" class=""><label for="inputEmailId"
+										class="control-label bold-500"><fmt:message
+												key="flight.details.applicant.email" bundle="${msg}" /></label></td>
 									<td class=""><input class="form-control"
 										value="${userDetails.getEmailAddress()}" name="emailAddress"
-										id="inputEmailId" placeholder="<fmt:message key="flight.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50">
-										<span id="emailid" class="text-red"></span></td>
+										id="inputEmailId"
+										placeholder="<fmt:message key="flight.details.applicant.email.placeholder" bundle="${msg}" />"
+										maxlength="50"> <span id="emailid" class="text-red"></span></td>
 								</tr>
 							</tbody>
 						</table>
@@ -181,52 +207,60 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								id="input-white">
 								<tbody>
 									<tr>
-										<td colspan="2" class="pad-none"><h3 class="pad-none"><fmt:message key="flight.details.registration.heading" bundle="${msg}" /></h3> <i><fmt:message key="flight.details.registration.desc" bundle="${msg}" /></i> <br></td>
+										<td colspan="2" class="pad-none"><h3 class="pad-none">
+												<fmt:message key="flight.details.registration.heading"
+													bundle="${msg}" />
+											</h3> <i><fmt:message key="flight.details.registration.desc"
+													bundle="${msg}" /></i> <br></td>
 									</tr>
 									<tr>
 										<td colspan="2" class="pad-none">&nbsp;</td>
 									</tr>
 									<tr>
 										<td class="col-sm-4 pad-none"><label for="inputEmail3"
-											class="control-label bold-500"><fmt:message key="flight.details.registration.username" bundle="${msg}" /></label></td>
+											class="control-label bold-500"><fmt:message
+													key="flight.details.registration.username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text" name="userName"
-											class="form-control btm-pad-10" placeholder="<fmt:message key="flight.details.registration.username.placeholder" bundle="${msg}" />" id="Username">
-											<span id="UsernameError" class="text-red"></span>
-											</td>
+											class="form-control btm-pad-10"
+											placeholder="<fmt:message key="flight.details.registration.username.placeholder" bundle="${msg}" />"
+											id="Username"> <span id="UsernameError"
+											class="text-red"></span></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
-											class="control-label bold-500"><fmt:message key="flight.details.registration.password" bundle="${msg}" /></label></td>
+											class="control-label bold-500"><fmt:message
+													key="flight.details.registration.password" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control btm-pad-10" name="password" id="Password" autocomplete="off"
+											class="form-control btm-pad-10" name="password" id="Password"
+											autocomplete="off"
 											placeholder="<fmt:message key="flight.details.registration.password.placeholder" bundle="${msg}" />">
-											<span id="PasswordError" class="text-red"></span>
-											</td>
+											<span id="PasswordError" class="text-red"></span></td>
 									</tr>
 									<tr>
 										<td class="pad-none"><label for="inputEmail3"
-											class="control-label bold-500"><fmt:message key="flight.details.registration.confirmPassword" bundle="${msg}" /></label></td>
+											class="control-label bold-500"><fmt:message
+													key="flight.details.registration.confirmPassword"
+													bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="password"
-											class="form-control btm-pad-10" name="password" id="Confirm-Password" autocomplete="off"
+											class="form-control btm-pad-10" name="password"
+											id="Confirm-Password" autocomplete="off"
 											placeholder="<fmt:message key="flight.details.registration.confirmPassword.placeholder" bundle="${msg}" />">
-											<span id="Confirm-PasswordError" class="text-red"></span>
-											</td>
+											<span id="Confirm-PasswordError" class="text-red"></span></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 						<input type="hidden" id="isLogin" value="false">
 						<%
-							}
-							else
-							{
+							} else {
 						%>
-								<input type="hidden" id="isLogin" value="true">
+						<input type="hidden" id="isLogin" value="true">
 						<%
 							}
 						%>
 						<h3 class="black-bold pad-none margin-left-2">
-							<fmt:message key="flight.details.insured.heading" bundle="${msg}" /><br>
+							<fmt:message key="flight.details.insured.heading" bundle="${msg}" />
+							<br>
 						</h3>
 						<!-- Bellow fields are dynamically generated -->
 						<c:set var="totalAdultCount" value="${0}" />
@@ -244,25 +278,33 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 											<c:when test="${inx > 1}">
 												<c:choose>
 													<c:when test="${totalAdultCount == 2}">
-													<fmt:message key="flight.details.insured.label.family.personal" bundle="${msg}" /> 
+														<fmt:message
+															key="flight.details.insured.label.family.personal"
+															bundle="${msg}" />
 													</c:when>
-													
+
 													<c:when test="${totalAdultCount != 2}">
-													<fmt:message key="flight.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
+														<fmt:message key="flight.details.insured.label.personal"
+															bundle="${msg}" />
+														<c:out value="${inx-1}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
-											
-											
+
+
 											<c:when test="${inx == 1}">
 												<!--  print Parent  -->
-												<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">
-													<fmt:message key="flight.details.insured.label.family.parent" bundle="${msg}" />
+												<c:if
+													test="${planDetailsForm.getTotalAdultTraveller() !=0 }">
+													<fmt:message
+														key="flight.details.insured.label.family.parent"
+														bundle="${msg}" />
 												</c:if>
-												
+
 												<!--  print Traveller  -->
 												<c:if test="${planDetailsForm.getTravellerCount() !=0 }">
-													<fmt:message key="flight.details.insured.label.personal" bundle="${msg}" />
+													<fmt:message key="flight.details.insured.label.personal"
+														bundle="${msg}" />
 												</c:if>
 											</c:when>
 										</c:choose>
@@ -270,17 +312,21 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									</h4>
 									<div class="row ">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"><fmt:message key="flight.details.insured.name" bundle="${msg}" /></label> <input type="text"
-												name="adultName" id="txtAdFullName${inx}" value=""
-												class="form-control " placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
+											<label class="bold-500"><fmt:message
+													key="flight.details.insured.name" bundle="${msg}" /></label> <input
+												type="text" name="adultName" id="txtAdFullName${inx}"
+												value="" class="form-control "
+												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtAdFullName${inx}" class="text-red"> </span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.hkid" bundle="${msg}" /></label> <input
+											<label class="pad-left1 bold-500"><fmt:message
+													key="flight.details.insured.hkid" bundle="${msg}" /></label> <input
 												id="txtInsuHkid${inx}" name="adultHKID"
-												class="form-control textUpper" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
+												class="form-control textUpper"
+												placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
 												value="" /> <span id="errtxtInsuHkid${inx}"
 												class="text-red"> </span> <span
 												id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
@@ -288,39 +334,47 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"><fmt:message key="flight.details.insured.age" bundle="${msg}" /></label>
-											<select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
+											<label class="bold-500"><fmt:message
+													key="flight.details.insured.age" bundle="${msg}" /></label> <select
+												name="adultAgeRange" class="soflow"
+												id="selectAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapSelfType}">
-													<c:choose> 
-  													  <c:when test="${ageList.key == '2'}">
-  													    <option value="${ageList.key}" selected>
-  													  </c:when>
-  													  <c:otherwise>
-  													  	<option value="${ageList.key}">
-  													  </c:otherwise>
+													<c:choose>
+														<c:when test="${ageList.key == '2'}">
+															<option value="${ageList.key}" selected>
+														</c:when>
+														<c:otherwise>
+															<option value="${ageList.key}">
+														</c:otherwise>
 													</c:choose>
-													<c:out value="${ageList.value}" /></option>
+													<c:out value="${ageList.value}" />
+													</option>
 												</c:forEach>
 											</select> <span id="errselectAgeRange${inx}" class="text-red">
 											</span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 
-											 <select name="adultBeneficiary" class="soflow" id="adultsselectBenificiary${inx}" onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')">
-												<option value="SE"><fmt:message key="flight.details.insured.beneficiary.default" bundle="${msg}" /></option>
-												<c:forEach var="relationshipList" items="${mapRelationshipCode}">
+											<label class="pad-left1 bold-500"><fmt:message
+													key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
+											<select name="adultBeneficiary" class="soflow"
+												id="adultsselectBenificiary${inx}"
+												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')">
+												<option value="SE"><fmt:message
+														key="flight.details.insured.beneficiary.default"
+														bundle="${msg}" /></option>
+												<c:forEach var="relationshipList"
+													items="${mapRelationshipCode}">
 													<option value="${relationshipList.key}"><c:out
 															value="${relationshipList.value}" /></option>
 												</c:forEach>
-											</select>
-											
-											
-											<span id="erradultsselectBenificiary${inx}" class="text-red"></span>
+											</select> <span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 
 										<div id="adultsbenificiaryId${inx}" class="hide">
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<label class="bold-500"><fmt:message key="flight.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
+												<label class="bold-500"><fmt:message
+														key="flight.details.insured.beneficiary.name"
+														bundle="${msg}" /></label> <input type="text"
 													name="adultBenificiaryFullName"
 													id="adultBenefitiaryId${inx}" value="" class="form-control"
 													placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
@@ -330,9 +384,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 												</span>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary.hkid" bundle="${msg}" /></label> <input
-													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
-													class="form-control textUpper" placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
+												<label class="pad-left1 bold-500"><fmt:message
+														key="flight.details.insured.beneficiary.hkid"
+														bundle="${msg}" /></label> <input id="adultBenefitiaryHKId${inx}"
+													name="adultBenificiaryHkid" class="form-control textUpper"
+													placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 													value="" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
 											</div>
@@ -353,30 +409,36 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							<c:forEach var="inx" begin="1" end="${totalChildTraveller}">
 								<div id="childtraveller">
 									<h4 class="color1">
-										<fmt:message key="flight.details.insured.label.family.child" bundle="${msg}" />
+										<fmt:message key="flight.details.insured.label.family.child"
+											bundle="${msg}" />
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"><fmt:message key="flight.details.insured.name" bundle="${msg}" /></label> <input type="text"
-												name="childName" id="txtChldFullName${inx}" value=""
-												class="form-control" placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" /></label>"
+											<label class="bold-500"><fmt:message
+													key="flight.details.insured.name" bundle="${msg}" /></label> <input
+												type="text" name="childName" id="txtChldFullName${inx}"
+												value="" class="form-control"
+												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" /></label>"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtChldFullName${inx}" class="text-red">
 											</span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.hkid" bundle="${msg}" /></label> <input
+											<label class="pad-left1 bold-500"><fmt:message
+													key="flight.details.insured.hkid" bundle="${msg}" /></label> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
-												class="form-control textUpper" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
+												class="form-control textUpper"
+												placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
 												value="" /> <span id="errtxtChldInsuHkid${inx}"
 												class="text-red"> </span>
 										</div>
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"><fmt:message key="flight.details.insured.age" bundle="${msg}" /></label> 
+											<label class="bold-500"><fmt:message
+													key="flight.details.insured.age" bundle="${msg}" /></label>
 											<%-- <t:dropdown 
 												defaultLabel="Select One"
 												onChange=""
@@ -384,48 +446,58 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 												valueElmId="selectchildAgeRange${inx}"
 												valueElmName="childAgeRange"
 											/> --%>
-											<select name="childAgeRange" class="soflow" id="selectchildAgeRange${inx}">
+											<select name="childAgeRange" class="soflow"
+												id="selectchildAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapChildType}">
-													<c:choose> 
-  													  <c:when test="${ageList.key == '1'}">
-  													    <option value="${ageList.key}" selected>
-  													  </c:when>
-  													  <c:otherwise>
-  													  	<option value="${ageList.key}">
-  													  </c:otherwise>
+													<c:choose>
+														<c:when test="${ageList.key == '1'}">
+															<option value="${ageList.key}" selected>
+														</c:when>
+														<c:otherwise>
+															<option value="${ageList.key}">
+														</c:otherwise>
 													</c:choose>
-													<c:out value="${ageList.value}" /></option>
+													<c:out value="${ageList.value}" />
+													</option>
 												</c:forEach>
-											</select> 
-											<span id="errchildRange${inx}" class="text-red"></span>
+											</select> <span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label> 									
-											<select id="childselectBenificiary${inx}" name="childBeneficiary"
+											<label class="pad-left1 bold-500"><fmt:message
+													key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
+											<select id="childselectBenificiary${inx}"
+												name="childBeneficiary"
 												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
 												class="soflow">
-												<option value="SE"><fmt:message key="flight.details.insured.beneficiary.default" bundle="${msg}" /></option>
-												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+												<option value="SE"><fmt:message
+														key="flight.details.insured.beneficiary.default"
+														bundle="${msg}" /></option>
+												<c:forEach var="relationshipCodeList"
+													items="${mapRelationshipCode}">
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
 												</c:forEach>
-											</select>										
-											<span id="errselectChildbenificiary${inx}" class="text-red"></span>
+											</select> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 										<div id="childbenificiaryId${inx}" class="hide">
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<label class="bold-500"><fmt:message key="flight.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
+												<label class="bold-500"><fmt:message
+														key="flight.details.insured.beneficiary.name"
+														bundle="${msg}" /></label> <input type="text"
 													name="childBenificiaryFullName"
 													id="childBenefitiaryName${inx}" value=""
-													class="form-control " placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+													class="form-control "
+													placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errchildBenefitiaryName${inx}" class="text-red"></span>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<label class="pad-left1 bold-500 "><fmt:message key="flight.details.insured.beneficiary.hkid" bundle="${msg}" /></label> <input
-													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
-													class="form-control textUpper" placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
+												<label class="pad-left1 bold-500 "><fmt:message
+														key="flight.details.insured.beneficiary.hkid"
+														bundle="${msg}" /></label> <input id="txtchildInsuHkid${inx}"
+													name="childBenificiaryHkid" class="form-control textUpper"
+													placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 													value="" /> <span id="errtxtchildInsuHkid${inx}"
 													class="text-red"> </span>
 											</div>
@@ -441,29 +513,35 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							<c:forEach var="inx" begin="1" end="${totalOtherTraveller}">
 								<div id="childtraveller">
 									<h4 class="color1">
-										<fmt:message key="flight.details.insured.label.family.others" bundle="${msg}" />
+										<fmt:message key="flight.details.insured.label.family.others"
+											bundle="${msg}" />
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"><fmt:message key="flight.details.insured.name" bundle="${msg}" /></label> <input type="text"
-												name="otherName" id="txtOtherFullName${inx}" value=""
-												class="form-control " placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
+											<label class="bold-500"><fmt:message
+													key="flight.details.insured.name" bundle="${msg}" /></label> <input
+												type="text" name="otherName" id="txtOtherFullName${inx}"
+												value="" class="form-control "
+												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtOtherFullName${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.hkid" bundle="${msg}" /></label> <input
+											<label class="pad-left1 bold-500"><fmt:message
+													key="flight.details.insured.hkid" bundle="${msg}" /></label> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
-												class="form-control textUpper" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
+												class="form-control textUpper"
+												placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
 												value="" /> <span id="errtxtOtherInsuHkid${inx}"
 												class="text-red"> </span>
 										</div>
 									</div>
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="bold-500"><fmt:message key="flight.details.insured.age" bundle="${msg}" /></label>
+											<label class="bold-500"><fmt:message
+													key="flight.details.insured.age" bundle="${msg}" /></label>
 											<%-- <t:dropdown 
 												defaultLabel="Select One"
 												onChange=""
@@ -471,50 +549,60 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 												valueElmId="selectOtherAgeRange${inx}"
 												valueElmName="otherAgeRange"
 											/> --%>
-											<select name="otherAgeRange" class="soflow" id="selectOtherAgeRange${inx}">
+											<select name="otherAgeRange" class="soflow"
+												id="selectOtherAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapAgeType}">
-													<c:choose> 
-  													  <c:when test="${ageList.key == '2'}">
-  													    <option value="${ageList.key}" selected>
-  													  </c:when>
-  													  <c:otherwise>
-  													  	<option value="${ageList.key}">
-  													  </c:otherwise>
+													<c:choose>
+														<c:when test="${ageList.key == '2'}">
+															<option value="${ageList.key}" selected>
+														</c:when>
+														<c:otherwise>
+															<option value="${ageList.key}">
+														</c:otherwise>
 													</c:choose>
-													<c:out value="${ageList.value}" /></option>
+													<c:out value="${ageList.value}" />
+													</option>
 												</c:forEach>
-											</select> 
-											<span id="errselectOtherAgeRange${inx}" class="text-red"></span>
+											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
-											<select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
+											<label class="pad-left1 bold-500"><fmt:message
+													key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
+											<select id="otherSelectBenificiary${inx}"
+												name="otherBeneficiary"
 												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
 												class="form-control soflow">
-												<option value="SE"><fmt:message key="flight.details.insured.beneficiary.default" bundle="${msg}" /></option>
-												<c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+												<option value="SE"><fmt:message
+														key="flight.details.insured.beneficiary.default"
+														bundle="${msg}" /></option>
+												<c:forEach var="relationshipCodeList"
+													items="${mapRelationshipCode}">
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
 												</c:forEach>
-											</select>											
-											<span id="benificiary" style="display: none"> <label
+											</select> <span id="benificiary" style="display: none"> <label
 												style="color: red">Beneficiary which is blank</label>
 											</span>
 										</div>
 										<div id="otherbenificiaryId${inx}" class="hide">
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<label class="bold-500"><fmt:message key="flight.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
+												<label class="bold-500"><fmt:message
+														key="flight.details.insured.beneficiary.name"
+														bundle="${msg}" /></label> <input type="text"
 													name="otherBenificiaryFullName"
 													id="otherBenefitiaryName${inx}" value=""
-													class="form-control " placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+													class="form-control "
+													placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 													onblur="replaceAlpha(this);"
 													onkeypress="    return alphaOnly(event);" maxlength="100" />
 												<span id="errotherBenefitiaryName${inx}" class="text-red"></span>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<label class="pad-left1 bold-500"><fmt:message key="flight.details.insured.beneficiary.hkid" bundle="${msg}" /></label> <input
-													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
-													class="form-control textUpper" placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
+												<label class="pad-left1 bold-500"><fmt:message
+														key="flight.details.insured.beneficiary.hkid"
+														bundle="${msg}" /></label> <input id="txtOtherBenInsuHkid${inx}"
+													name="otherBenificiaryHkid" class="form-control textUpper"
+													placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 													value="" /> <span id="errtxtOtherBenInsuHkid${inx}"
 													class="text-red"> </span>
 											</div>
@@ -528,49 +616,67 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 
 						</div>
 
-						
+
 						<div class="declaration-content">
-							<h4 class="h4-2"><fmt:message key="flight.details.declarations.heading" bundle="${msg}" /></h4>
+							<h4 class="h4-2">
+								<fmt:message key="flight.details.declarations.heading"
+									bundle="${msg}" />
+							</h4>
 							<div class="checkbox">
 								<input id="checkbox1" name="checkbox1" type="checkbox">
-								<label for="checkbox1"> <fmt:message key="flight.details.declarations.tnc" bundle="${msg}" />
+								<label for="checkbox1"> <fmt:message
+										key="flight.details.declarations.tnc" bundle="${msg}" />
 									<ol class="ol-disclaimer">
-										<li><fmt:message key="flight.details.declarations.tnc.desc1" bundle="${msg}" /></li>
-										<li><fmt:message key="flight.details.declarations.tnc.desc2" bundle="${msg}" /></li>
-										<li><fmt:message key="flight.details.declarations.tnc.desc3" bundle="${msg}" /></li>
-										<li><fmt:message key="flight.details.declarations.tnc.desc4" bundle="${msg}" /></li>
-										<li><fmt:message key="flight.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+										<li><fmt:message
+												key="flight.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+										<li><fmt:message
+												key="flight.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+										<li><fmt:message
+												key="flight.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+										<li><fmt:message
+												key="flight.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+										<li><fmt:message
+												key="flight.details.declarations.tnc.desc5" bundle="${msg}" /></li>
 									</ol>
-									
+
 								</label>
 							</div>
 							<span id="chk1" class="text-red"> </span>
-							
-								
+
+
 							<div class="checkbox">
-								<input id="checkbox2" type="checkbox"> <label for="checkbox2">
-									<fmt:message key="flight.details.declarations.PICS.part1" bundle="${msg}" /> <a
+								<input id="checkbox2" type="checkbox"> <label
+									for="checkbox2"> <fmt:message
+										key="flight.details.declarations.PICS.part1" bundle="${msg}" />
+									<a
 									href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
-									target="_blank" class="sub-link"> <fmt:message key="flight.details.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="flight.details.declarations.PICS.part3" bundle="${msg}" /> <br>
-									
+									target="_blank" class="sub-link"> <fmt:message
+											key="flight.details.declarations.PICS.part2" bundle="${msg}" /></a>
+								<fmt:message key="flight.details.declarations.PICS.part3"
+										bundle="${msg}" /> <br>
+
 								</label>
 							</div>
 
-							<span id="chk2" class="text-red"> </span> 
+							<span id="chk2" class="text-red"> </span>
 							<hr />
-							
+
 							<div>
-								<fmt:message key="flight.details.declarations.PDPO" bundle="${msg}" />
+								<fmt:message key="flight.details.declarations.PDPO"
+									bundle="${msg}" />
 							</div>
 							<div class="checkbox">
 								<input id="checkbox3" type="checkbox"> <label
-									for="checkbox3"> <fmt:message key="flight.details.declarations.PDPO.option1" bundle="${msg}" /><br>
+									for="checkbox3"> <fmt:message
+										key="flight.details.declarations.PDPO.option1" bundle="${msg}" /><br>
 								</label>
 							</div>
 
 							<div class="checkbox">
 								<input id="checkbox4" type="checkbox"> <label
-									for="checkbox4"> <fmt:message key="flight.details.declarations.PDPO.option2" bundle="${msg}" /><br> <br>
+									for="checkbox4"> <fmt:message
+										key="flight.details.declarations.PDPO.option2" bundle="${msg}" /><br>
+									<br>
 								</label>
 							</div>
 
@@ -582,7 +688,10 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left">
-									<h2 class="h2-3-choose"><fmt:message key="flight.details.summary.product" bundle="${msg}" /></h2>
+									<h2 class="h2-3-choose">
+										<fmt:message key="flight.details.summary.product"
+											bundle="${msg}" />
+									</h2>
 									<h4>
 										<!-- Plan Summary -->
 									</h4>
@@ -635,10 +744,21 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									</span>
 								</h3>
 								<h4>
-									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
-									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetailsForm.getTotalChildTraveller()} <br></c:if>
-									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br></c:if>
-									<c:if test="${planDetailsForm.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetailsForm.getTravellerCount()}</c:if>
+									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">
+										<fmt:message key="flight.sidebar.summary.label.family.parent"
+											bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br>
+									</c:if>
+									<c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }">
+										<fmt:message key="flight.sidebar.summary.label.family.child"
+											bundle="${msg}" />: ${planDetailsForm.getTotalChildTraveller()} <br>
+									</c:if>
+									<c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}">
+										<fmt:message key="flight.sidebar.summary.label.family.others"
+											bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br>
+									</c:if>
+									<c:if test="${planDetailsForm.getTravellerCount() !=0}">
+										<fmt:message key="flight.sidebar.summary.label.personal"
+											bundle="${msg}" />: ${planDetailsForm.getTravellerCount()}</c:if>
 								</h4>
 								<input type="hidden" name="otherInput"
 									value="${planDetailsForm.getTotalOtherTraveller()}"> <input
@@ -647,8 +767,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								<input type="hidden" name="days"
 									value="${planDetailsForm.getDays()}">
 								<h3 class="txt-bold">
-									<fmt:message key="flight.details.summary.option4" bundle="${msg}" /><span>${planDetailsForm.getDays()}</span>
-									<fmt:message key="flight.details.summary.option5" bundle="${msg}" />
+									<fmt:message key="flight.details.summary.option4"
+										bundle="${msg}" />
+									<span>${planDetailsForm.getDays()}</span>
+									<fmt:message key="flight.details.summary.option5"
+										bundle="${msg}" />
 								</h3>
 								<br>
 							</div>
@@ -662,15 +785,19 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							</h3> --%>
 						</div>
 						<!--mob-hidden-->
-						<br><br>
+						<br>
+						<br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="/FWDHKPH1A/flight-insurance/quote" class="bdr-curve btn btn-primary bck-btn"> <fmt:message key="flight.details.action.back" bundle="${msg}" /></a>
+							<a href="<%=request.getContextPath()%>/flight-insurance/quote"
+								class="bdr-curve btn btn-primary bck-btn"> <fmt:message
+									key="flight.details.action.back" bundle="${msg}" /></a>
 						</div>
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+								class="bdr-curve-none btn btn-primary btn-next "
+								value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 							<!-- <button class="bdr-curve-none btn btn-primary nxt-btn "
 onclick="return flightPlanValidation();">Next</button> -->
 						</div>
@@ -679,9 +806,17 @@ onclick="return flightPlanValidation();">Next</button> -->
 					<div class="clearfix"></div>
 				</div>
 				<p class="padding1 hidden-sm hidden-xs">
-					<fmt:message key="flight.details.other.disclaimer.part1" bundle="${msg}" /> <a
-						class="sub-link"
-						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="flight.details.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.details.other.disclaimer.part3" bundle="${msg}" /><br><fmt:message key="flight.details.other.disclaimer.part4" bundle="${msg}" />
+					<fmt:message key="flight.details.other.disclaimer.part1"
+						bundle="${msg}" />
+					<a class="sub-link"
+						href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
+						target="_blank"><fmt:message
+							key="flight.details.other.disclaimer.part2" bundle="${msg}" /></a>
+					<fmt:message key="flight.details.other.disclaimer.part3"
+						bundle="${msg}" />
+					<br>
+					<fmt:message key="flight.details.other.disclaimer.part4"
+						bundle="${msg}" />
 				</p>
 			</form:form>
 		</div>
@@ -693,7 +828,7 @@ onclick="return flightPlanValidation();">Next</button> -->
 <!--------/end- Main Content------------>
 
 <!--Plan-login-popup-->
-	<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
 
 
 
@@ -737,7 +872,7 @@ if(a==true)
 { */
 $.ajax({
 type : "POST",
-url : "userLogin",
+url : "<%=request.getContextPath()%>/userLogin",
 data : $("#popUploginform input").serialize(),
 async : false,
 success : function(data) {
@@ -768,7 +903,7 @@ function createFlightFnc(form)
 		$.ajax(
 		{
 			type : "POST",
-			url : "/FWDHKPH1A/flight-insurance/confirm-policy",
+			url : "<%=request.getContextPath()%>/flight-insurance/confirm-policy",
 			data : $("#freeFlightForm").serialize(),
 			async : false,
 			success : function(data) 
@@ -776,7 +911,7 @@ function createFlightFnc(form)
 				if (data == 'success') {
 					$('#errorMessages').hide();
 					flag= true;
-					form.action = "/FWDHKPH1A//flight-insurance/confirmation"
+					form.action = "<%=request.getContextPath()%>/flight-insurance/confirmation";
 				} else{
 					flag= false;
 					$('#errorMessages').removeClass('hide');

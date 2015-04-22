@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
-<script src="resources/js/fwd.js">
+<script src="<%=request.getContextPath()%>/resources/js/fwd.js">
 	
 </script>
 <script>
@@ -26,7 +26,7 @@
 		if (validateFormVal == true) {
 			$.ajax({
 						type : 'POST',
-						url : 'joinus',
+						url : '<%=request.getContextPath()%>/joinus',
 						data : $('#joinus_form form').serialize(),
 						async : false,
 						success : function(data) {
@@ -95,8 +95,9 @@
 							style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 							id="ajax-loading">
 							<img
+							
 								style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-								src="resources/images/ajax-loader.gif">
+								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
 						<table class="table activation-form vert-middle padding4 registration">
 							<tbody>
@@ -143,7 +144,7 @@
 										class="join-us-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label> <a href="#"
 										class="pull-right tool-tip show-inline-xs"
 										data-toggle="tooltip" data-placement="bottom"
-										title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="resources/images/ic.png"
+										title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="<%=request.getContextPath()%>/resources/images/ic.png"
 											alt=""></a></td>
 									<td>
 										
@@ -158,7 +159,7 @@
 									<td><a href="#"
 												class="tool-tip show-inline-md"
 												data-toggle="tooltip" data-placement="bottom"
-												title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="resources/images/ic.png"
+												title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="<%=request.getContextPath()%>/resources/images/ic.png"
 												alt=""></a></td>
 								</tr>
 
@@ -169,7 +170,7 @@
 										class="pull-right tool-tip show-inline-xs"
 										data-toggle="tooltip" data-placement="bottom"
 										title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"> <img
-											src="resources/images/ic.png" alt=""></a></td>
+											src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a></td>
 									<td>
 											<input type="password" class="form-control" autocomplete="off"
 												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
@@ -181,7 +182,7 @@
 												class="tool-tip show-inline-md"
 												data-toggle="tooltip" data-placement="bottom"
 												title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"><img
-												src="resources/images/ic.png" alt=""></a>
+												src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
 									</td>
 								</tr>
 
@@ -199,7 +200,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
 						<div>
-							<img src="resources/images/user.jpg" alt="" />
+							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
 						<h2 class="h2-1 fwd-acc"><fmt:message key="member.registration.details.label.whyaccount" bundle="${msg}" /></h2>
 						<h4 class="h4-1"><fmt:message key="member.registration.details.label.whyaccount.desc" bundle="${msg}" /></h4>

@@ -71,7 +71,7 @@
             <div class="h4-3-b margin-left"><fmt:message key="travel.confirmation.referalCode.desc1" bundle="${msg}" /><!-- <span class="orange-star">*</span> --></div>
             </div>
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-              <img src="resources/images/agoda.png" alt="" >  
+              <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" >  
               </div>
                <div class="clearfix"></div><br><br>
 
@@ -83,7 +83,7 @@
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
               
                 <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="travel.referral.copy" bundle="${msg}" />複製</div>
-                  <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
+                  <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk"<%=request.getContextPath()%> data-title="iFWD"></div>
                 </div>
                 
                 <div class="clearfix"></div>
@@ -96,7 +96,7 @@
                     <fmt:message key="travel.referral.disclaimer.section1.desc2" bundle="${msg}" /><br>
                   <fmt:message key="travel.referral.disclaimer.section2.header" bundle="${msg}" /><br>
                     <fmt:message key="travel.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
-          <fmt:message key="travel.referral.disclaimer.section3.desc.part1" bundle="${msg}" /><a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" class="sub-link"><fmt:message key="travel.referral.disclaimer.section3.desc.part2" bundle="${msg}" />條款及細則</a>。
+          <fmt:message key="travel.referral.disclaimer.section3.desc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" class="sub-link"><fmt:message key="travel.referral.disclaimer.section3.desc.part2" bundle="${msg}" />條款及細則</a>。
                 </p></div>
               </div>
         
@@ -108,14 +108,14 @@
           <div class="row-fluid">
             <div class="center " style="visibility: visible;">
               <h4 class="center-h2"><fmt:message key="travel.confirmation.heading" bundle="${msg}" /></h4><br><br>
-             <div class="col-md-3 col-lg-3 text-left pad-none"> <img src="resources/images/home7.png" alt=""> </div>
+             <div class="col-md-3 col-lg-3 text-left pad-none"> <img src="<%=request.getContextPath()%>/resources/images/home7.png" alt=""> </div>
              <div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
           <div>
             <div class="h2-32"><strong><fmt:message key="travel.confirmation.subheading" bundle="${msg}" /></strong></div>
             <br>
-
+	
               <p class="h4-5"><fmt:message key="travel.confirmation.subheading.desc" bundle="${msg}" /></p><br>
-        <a href="homecare" class="border-radius btn btn-primary  get-btn" ><fmt:message key="travel.confirmation.getQuote" bundle="${msg}" /></a>
+        <a href="<%=request.getContextPath()%>/home-insurance" class="border-radius btn btn-primary  get-btn" ><fmt:message key="travel.confirmation.getQuote" bundle="${msg}" /></a>
             </div>
         </div>
               

@@ -207,7 +207,7 @@
 								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc1" bundle="${msg}" /></label></td>
 								<td class="col-lg-8" colspan="2"><div class="controls">
 										<div>
-											<img src="resources/images/payment.png" alt="">
+											<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
 										</div>
 									</div></td>
 							</tr>
@@ -239,7 +239,7 @@
 											 /> -->
 											 <input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="Credit card number"
+											title="" placeholder="home.summary.pmtdetail.desc2.placeholder"
 											onkeyup="" onkeypress="return isNumeric(event)" 
 											onBlur="validatecardnumber(this.value)"
 											 />
@@ -271,7 +271,7 @@
 								</select></td>
 								<td><select class="pay-details-select" id="year"
 									name="epYear">
-										<option VALUE="">Year</option>
+										<option VALUE=""><fmt:message key="home.summary.pmtdetail.desc3a" bundle="${msg}" /></option>
 <!-- 										<option VALUE="2015">2015</option> -->
 <!-- 										<option VALUE="2016">2016</option> -->
 <!-- 										<option VALUE="2017">2017</option> -->
@@ -295,7 +295,7 @@
 								<td colspan="2">
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder" class="input-block-level"
-											title="" placeholder="Name on credit card"
+											title="" placeholder="home.summary.pmtdetail.desc4.placeholder"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -306,12 +306,12 @@
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc5" bundle="${msg}" /></label></td>
 								<td><div class="controls">
 										<input id="seccode" name="securityCode" type="password" class="input-block-level"
-											autocomplete="off" maxlength="3" title="" placeholder="CVV"
+											autocomplete="off" maxlength="3" title="" placeholder="home.summary.pmtdetail.desc5.placeholder"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);">
 
 									</div></td>
-								<td><img src="resources/images/cards.png" alt=""></td>
+								<td><img src="<%=request.getContextPath()%>/resources/images/cards.png" alt=""></td>
 							</tr>
 							<tr>
 								<td></td>
@@ -342,7 +342,7 @@
 						<!-- <div class="checkbox">
 							<input id="checkbox2" type="checkbox"> <label
 								for="checkbox2"> I/We have read and understand the<a
-								href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+								href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 								target="_blank" class="sub-link"> policy coverage</a> and <a href="#" class="sub-link">terms and conditions.</a>
 							</label>
 							<div class="clearfix"></div>
@@ -354,7 +354,7 @@
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 <!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
 <%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
-								<a href="/FWDHKPH1A/home-insurance/user-details"
+								<a href="<%=request.getContextPath()%>/home-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
 																	
 									
@@ -405,7 +405,7 @@
 <!--/end Main Content-->
 
 <div id="PaymentingDiv" class="waitingDiv" style="display:none">    
-    <img style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%" src="resources/images/ajax-loader.gif">        
+    <img style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">        
 </div>   
 
 
@@ -419,7 +419,7 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "/FWDHKPH1A/processHomeCarePayment",
+ 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
  						data : $("#paymentForm").serialize(),
  						async : false,
  						success : function(data) {

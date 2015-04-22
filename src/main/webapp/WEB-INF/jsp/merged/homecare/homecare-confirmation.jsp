@@ -164,7 +164,7 @@
 								</div>
 							</div>
 							<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-								<img src="resources/images/agoda.png" alt="">
+								<img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="">
 							</div>
 							<div class="clearfix"></div>
 							<br>
@@ -180,7 +180,7 @@
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">Copy Link</div>
 						        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
-					                <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/FWDHKPH1A/" data-title="iFWD"></div>
+					                <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk<%=request.getContextPath()%>/" data-title="iFWD"></div>
 					           	</div>
 					         </div>
 					         
@@ -194,7 +194,7 @@
 										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
 										<fmt:message key="home.confirmation.referral.desc3" bundle="${msg}" /> <br>
 										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
-										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
+										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
 									</p>
 									<br>
 								</div>
@@ -210,13 +210,13 @@
 								<br>
 								<br>
 								<div class="col-md-3 col-lg-3 text-left pad-none">
-									<img src="resources/images/t-care.png" alt="">
+									<img src="<%=request.getContextPath()%>/resources/images/t-care.png" alt="">
 								</div>
 								<div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
 									<div>
 										<div class="h2-32"><fmt:message key="home.confirmation.other.subheading" bundle="${msg}" /></div>
 										<p class="h4-5"><fmt:message key="home.confirmation.other.desc" bundle="${msg}" /></p>
-										<a href="travel" class="border-radius btn btn-primary get-btn"><fmt:message key="home.confirmation.other.quote" bundle="${msg}" /></a>
+										<a href="<%=request.getContextPath()%>/travel-insurance" class="border-radius btn btn-primary get-btn"><fmt:message key="home.confirmation.other.quote" bundle="${msg}" /></a>
 									</div>
 								</div>
 

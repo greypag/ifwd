@@ -12,7 +12,7 @@
 <section>
 	<div class="container">
 		<div class="row">
-			<form action="/FWDHKPH1A/flight-insurance/user-details" method="post">
+			<form action="<%=request.getContextPath()%>/flight-insurance/user-details" method="post">
 				<input type="hidden" name="totalAdultTraveller"
 					id="totalAdultTraveller"
 					value="${planDetails.getTotalAdultTraveller()}"> <input
@@ -251,7 +251,7 @@
 				</div>
 				<p class="padding1 hidden-sm hidden-xs">
 				<fmt:message key="flight.quote.other.disclaimer.part1" bundle="${msg}" /> <a class="sub-link"
-						href="resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
+						href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
 						target="_blank"><fmt:message key="flight.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.quote.other.disclaimer.part3" bundle="${msg}" /> <br>
                         <fmt:message key="flight.quote.other.disclaimer.part4" bundle="${msg}" />
 					</p>

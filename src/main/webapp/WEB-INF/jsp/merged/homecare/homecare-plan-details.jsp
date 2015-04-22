@@ -238,7 +238,7 @@
 	function applyHomePromoCode() {
 		$.ajax({
 			type : 'POST',
-			url : '//FWDHKPH1A/applyHomePromoCode',
+			url : '<%=request.getContextPath()%>/applyHomePromoCode',
 			data : $('#frmYourDetails input').serialize(),
 			success : function(data) {
 				document.getElementById("errPromoCode").innerHTML = data;
@@ -282,7 +282,7 @@
 		{ */
 		$.ajax({
 			type : "POST",
-			url : "userLogin",
+			url : "<%=request.getContextPath()%>/userLogin",
 			data : $("#popUploginform input").serialize(),
 			async : false,
 			success : function(data) {
@@ -332,7 +332,7 @@
 		<div class="container">
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
-					action="/FWDHKPH1A/home-insurance/home-summary" method="post"
+					action="${pageContext.request.contextPath}/home-insurance/home-summary" method="post"
 					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
 						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -760,7 +760,7 @@
 										<td class=""><div class="form-group">
 												<div class="input-group date" id="homecareDp">
 													<span class="input-group-addon bg-img in"><span><img
-															src="resources/images/calender1.png" alt="" /></span></span> <input
+															src="<%=request.getContextPath()%>/resources/images/calender1.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
 														class="datepicker form-control full-control" id="txtEffDate"
 														readonly />
@@ -893,7 +893,7 @@
 							<!--mob-->
 							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<a href="/FWDHKPH1A/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+									<a href="<%=request.getContextPath()%>/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="home.action.next" bundle="${msg}" />" />
@@ -914,7 +914,7 @@
 					<p class="padding1 hidden-sm hidden-xs">
 						<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a
 							class="sub-link"
-							href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+							href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 							target="_blank"><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> <fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 					</p>
 				</form:form>
