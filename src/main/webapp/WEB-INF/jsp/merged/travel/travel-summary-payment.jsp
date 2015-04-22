@@ -489,7 +489,7 @@
 											
 											<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="Credit card number"
+											title="" placeholder="<fmt:message key="travel.payment.card.no.placeholder" bundle="${msg}" />"
 											onkeyup="" onkeypress="return isNumeric(event)" 
 											onBlur="validatecardnumber(this.value)"
 											 />
