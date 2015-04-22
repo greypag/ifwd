@@ -419,7 +419,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													key="flight.details.insured.name" bundle="${msg}" /></label> <input
 												type="text" name="childName" id="txtChldFullName${inx}"
 												value="" class="form-control"
-												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" /></label>"
+												placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
 												onkeypress="    return alphaOnly(event);" maxlength="100" />
 											<span id="errtxtChldFullName${inx}" class="text-red">
