@@ -131,7 +131,7 @@
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
 												<button type="button" onclick="forgotUserPassword()"
-													class="bdr-curve-none btn btn-primary btn-lg ">s</button>
+													class="bdr-curve-none btn btn-primary btn-lg ">Submit</button>
 
 											</td>
 										</tr>

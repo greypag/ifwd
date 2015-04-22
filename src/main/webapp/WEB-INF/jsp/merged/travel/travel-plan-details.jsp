@@ -133,13 +133,12 @@
 								<tr>
 									<td class="pad-none vtop">
 									<div class="col-md-12 col-lg-12 pad-none">
-									<t:dropdown 
-										selectables="${mapHkId}"
-										defaultWithFirst="true"
-										valueElmId="selectHkidPass"
-										valueElmName="selectedHkidPassApplicant"
-										containerCss="selectHkidPass"
-									/>
+									<select name="selectedHkidPassApplicant" class="soflow" id="selectHkidPass">
+										<c:forEach var="hkidList" items="${mapHkId}">
+											<option value="${hkidList.key}"><c:out
+														value="${hkidList.value}" /></option>
+										</c:forEach>
+									</select>
 									</div>
 
 									</td>
@@ -282,13 +281,12 @@
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<div class="col-md-10 col-lg-10 pad-none">
-											<t:dropdown 
-												selectables="${mapHkId}"
-												defaultWithFirst="true"
-												valueElmId="selectedAdHkidPass${inx}"
-												valueElmName="selectedAdHkidPass"
-												containerCss="selectHkidPass"
-											/>
+											<select name="selectedAdHkidPass" class="soflow" id="selectedAdHkidPass${inx}">
+												<c:forEach var="hkidList" items="${mapHkId}">
+													<option value="${hkidList.key}"><c:out
+																value="${hkidList.value}" /></option>
+												</c:forEach>
+											</select>
 											</div>
 										
 											<input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
@@ -698,7 +696,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
