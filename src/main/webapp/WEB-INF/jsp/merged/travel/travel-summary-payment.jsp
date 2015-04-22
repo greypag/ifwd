@@ -14,21 +14,20 @@
 		var geteWayUrl = $('#gateway').val();
 		$.ajax({
 			type : "POST",
-			url : "processTravePayment",
+			url : "/FWDHKPH1A/processTravePayment",
 			data : $("#paymentForm").serialize(),
 			async : false,
 			success : function(data) {
 				if (data == 'success') {
-					//document.paymentForm.action = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp";
-					//window.location.href = "https://test.paydollar.com/b2cDemo/eng/payment/payForm.jsp";
 					document.paymentForm.action = geteWayUrl;
+				} else {
+					console.log("fail to process payment " + data);
 				}
+				
 			}
 		});
 	}
-	function BackMe() {
-		window.history.back();
-	}
+	
 </script>
 
 <!--/#main-Content-->
@@ -156,7 +155,7 @@
 						<div
 							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
 							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="travel" onclick="BackMe();" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+								<a href="/FWDHKPH1A/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 							</h4>
 							
 						</div> 
@@ -650,7 +649,7 @@
 							<div class="clearfix"></div>
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="/FWDHKPH1A/getYourDetails" onclick="BackMe()"
+								<a href="/FWDHKPH1A/travel-insurance/user-details"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" />  </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">

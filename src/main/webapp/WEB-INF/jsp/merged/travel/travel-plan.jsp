@@ -12,8 +12,7 @@
 var promoData = '';
 	function getuserDetails() {
 
-		//alert($('#frmTravelPlan input').serialize());
-		/*     document.frmTravelPlan.action = "getYourDetails"; */
+		
 	}
 	function chkPromoCode() {
 		var flag = false;
@@ -106,7 +105,7 @@ var promoData = '';
 	<div id="cn" class="container">
 		<div class="row">
 			<form:form name="frmTravelPlan" id="frmTravelPlan"
-				action="getYourDetails" method="post" modelAttribute="travelQuote"
+				action="/FWDHKPH1A/travel-insurance/user-details" method="post" modelAttribute="travelQuote"
 				onsubmit="return chkDueAmount();">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -549,7 +548,7 @@ var promoData = '';
 											</div>
 										</div>
 										<!-- / Age limit -->
-										<!--   Premium table (´ä¹ô)  -->
+										<!--   Premium table (ï¿½ï¿½ï¿½)  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel">
@@ -905,7 +904,7 @@ var promoData = '';
 												</p>
 											</div>
 										</div>
-										<!-- / Premium table (´ä¹ô) -->
+										<!-- / Premium table (ï¿½ï¿½ï¿½) -->
 									</div>
 									<!-- / col-md-12 -->
 								</div>
@@ -1040,7 +1039,7 @@ var promoData = '';
 							
 							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="/FWDHKPH1A/travel"
+							<a href="/FWDHKPH1A/travel-insurance"
 								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">

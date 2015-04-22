@@ -79,7 +79,7 @@
   </div>
   <!--/.carousel--> 
 </section>
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateDeskTravel();">
+<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="/FWDHKPH1A/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
 <section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
     <div class="row">

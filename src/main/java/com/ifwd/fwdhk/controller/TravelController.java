@@ -53,7 +53,7 @@ public class TravelController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = "/travel")
+	@RequestMapping(value = {"/travel", "/travel-insurance"})
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("Travel");
@@ -100,7 +100,7 @@ public class TravelController {
 
 	
 
-	@RequestMapping(value = "/getTravelQuote")
+	@RequestMapping(value = {"/getTravelQuote", "/travel-insurance/quote"})
 	public ModelAndView prepareTravelPlan(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -394,7 +394,7 @@ public class TravelController {
 		
 	}
 
-	@RequestMapping(value = "/getYourDetails")
+	@RequestMapping(value = {"/getYourDetails", "/travel-insurance/user-details"})
 	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -571,7 +571,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "/prepareUserSummary")
+	@RequestMapping(value = {"/prepareUserSummary", "/travel-insurance/travel-summary"})
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -1162,12 +1162,13 @@ public class TravelController {
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
+		System.out.println("path " + path);
+		
 		model.addAttribute("path",
-				path.replace("prepareUserSummary", "travel-confirmation"));
-
-		System.out.println(path.replace("prepareUserSummary",
-				UserRestURIConstants.getSitePath(request)
-						+ "travel-confirmation"));
+				path.replace("travel-summary", "confirmation"));
+		
+		System.out.println("modal path " + path.replace("travel-summary", "confirmation"));
+		//model.addAttribute("path", path + "/FWDHKPH1A/travel-insurance/confirmation");
         model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
@@ -1202,7 +1203,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
-	@RequestMapping(value = "/travel-confirmation")
+	@RequestMapping(value = {"/travel-confirmation", "/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam String Ref) {
 		HttpSession session = request.getSession();

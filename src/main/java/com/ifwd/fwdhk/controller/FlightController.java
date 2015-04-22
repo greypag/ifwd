@@ -450,7 +450,7 @@ public class FlightController {
 		return new ModelAndView(returnUrl);
 	}
 
-	@RequestMapping(value = {"/flight-confirmation", "/flight-insurance/confirmation"})
+	@RequestMapping(value = {"/flight-confirmation", "/flight-insurance/confirm-policy"})
 	@ResponseBody
 	public String flightConfirmation(
 			HttpServletRequest request,
@@ -785,7 +785,7 @@ public class FlightController {
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = {"/flight-confrimation-page", "/flight-insurance/confirmation-page"})
+	@RequestMapping(value = {"/flight-confrimation-page", "/flight-insurance/confirmation"})
 	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,

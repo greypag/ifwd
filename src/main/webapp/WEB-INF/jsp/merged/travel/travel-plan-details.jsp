@@ -30,7 +30,7 @@
 		<div class="row">
 		
 			<form:form name="frmYourDetails" id="frmYourDetails"
-				action="prepareUserSummary" method="post"
+				action="/FWDHKPH1A/travel-insurance/travel-summary" method="post"
 				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -716,7 +716,7 @@
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	 <a href="" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+	 <a href="/FWDHKPH1A/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
@@ -869,6 +869,10 @@ function userLoginFnc() {
 	return false;
 }
 function BackMe() {
+
+
+
+
 	window.history.back();
 }
 </script>
