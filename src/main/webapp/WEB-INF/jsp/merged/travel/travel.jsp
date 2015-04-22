@@ -28,19 +28,15 @@
     function reset_submit()
     {        
       if(document.getElementById("family_plan_desk").checked)
-        {
-        //alert("is family plan");
-        //$('#txtAdultsDesk').val(familyAdult);
-        //$('#txtOtherDesk').val(familyChild);
-        //$('#txtChildDesk').val(familyOther);
+      {
+    	  $('#txtTravellersDesk').val(0);
       }
       else if (document.getElementById("personal_plan_desk").checked)
-        {
-        //alert("is personal plan");
+      {
         $('#txtAdultsDesk').val(0);
         $('#txtOtherDesk').val(0);
         $('#txtChildDesk').val(0);
-        }
+      }
       
       var frm = document.getElementById("frmTravelGetQuote");
       //alert("reset_submit");
