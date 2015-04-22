@@ -410,11 +410,8 @@
 
 
 				<p class="col-xs-12 h4-6">
-				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /><br>
-							
-					<a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
-					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
-					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
+				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
+					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
 					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
 
 
@@ -444,7 +441,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
 							</h1>
 							<p>
-								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
+								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /> <a
 									href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
 									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 							</p>
