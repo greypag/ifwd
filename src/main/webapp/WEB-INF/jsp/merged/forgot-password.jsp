@@ -90,7 +90,7 @@
 										<tr>
 											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
 											<td class=""><input type="text" name="mobileNo"
-												class="form-control" id="mobileNo" placeholder="手機號碼"
+												class="form-control" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
 												onkeypress="return isNumeric(event)"
 												onblur="replaceNumeric(this);"> <span
 												id="errorEmptyMob" class="hide1"> <label
@@ -105,7 +105,7 @@
 
 											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="emailAddress"
-												placeholder="電郵地址"> <span id="errorEmptyEmailId"
+												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId"
 												class="hide1"> <label class="text-red">請輸入電郵地址</label>
 											</span> <span id="errorInvalidEmailId" class="hide1"> <label
 													class="text-red">請輸入正確/有效的 電郵地址</label>
@@ -113,10 +113,10 @@
 
 										</tr>
 										<tr>
-											<td class=""><label class="control-label">用戶名稱
+											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" />
 											</label></td>
 											<td class=""><input type="text" name="userName"
-												class="form-control" id="userName" placeholder="用戶名稱">
+												class="form-control" id="userName" placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />">
 												<span id="errorEmptyUName" class="hide1"> <label
 													class="text-red">請輸入使用者名稱</label>
 											</span> <span id="errorInvalidUName" class="hide1"> <label
@@ -131,7 +131,7 @@
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
 												<button type="button" onclick="forgotUserPassword()"
-													class="bdr-curve-none btn btn-primary btn-lg ">Submit</button>
+													class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>
 
 											</td>
 										</tr>
