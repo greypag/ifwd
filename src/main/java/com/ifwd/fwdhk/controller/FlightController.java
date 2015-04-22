@@ -74,7 +74,7 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;	
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = {"/flight", "/{language}/flight-insurance"})
+	@RequestMapping(value = {"/flight", "/flight-insurance"})
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -175,7 +175,7 @@ public class FlightController {
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = {"/getFlightDate", "/flight-insurance/quote"})
-	public ModelAndView getDate(HttpServletRequest request,
+	public ModelAndView getFlightDate(HttpServletRequest request,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
@@ -460,7 +460,7 @@ public class FlightController {
 
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			model.addAttribute("action", "/flight");
+			model.addAttribute("action", "/flight-insurance");
 			return "fail";		
 		}
 		UserRestURIConstants.setController("Flight");
@@ -779,7 +779,7 @@ public class FlightController {
 			return "success";
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
-			model.addAttribute("action", "/flight");
+			model.addAttribute("action", "/flight-insurance");
 			return "fail";
 		}
 	}
@@ -794,8 +794,8 @@ public class FlightController {
 
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			model.addAttribute("action", "/flight");
-			return new ModelAndView("/flight-plan-details");		
+			model.addAttribute("action", "/flight-insurance");
+			return new ModelAndView("/flight-insurance/user-details");		
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -930,14 +930,14 @@ public class FlightController {
 
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView("/flight-plan-details");		
+				return new ModelAndView("/flight-insurance/user-details");		
 				
 				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView("/flight-plan-details");		
+			return new ModelAndView("/flight-insurance/user-details");		
 		}
 		String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));

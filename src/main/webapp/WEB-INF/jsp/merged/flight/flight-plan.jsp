@@ -12,7 +12,7 @@
 <section>
 	<div class="container">
 		<div class="row">
-			<form action="flight-plan-details" method="post">
+			<form action="/FWDHKPH1A/flight-insurance/user-details" method="post">
 				<input type="hidden" name="totalAdultTraveller"
 					id="totalAdultTraveller"
 					value="${planDetails.getTotalAdultTraveller()}"> <input
@@ -226,7 +226,7 @@
 						</h3> --%>
 						<br> <br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.details.action.back" bundle="${msg}" /> 
+							<a href="/FWDHKPH1A/flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 							</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">

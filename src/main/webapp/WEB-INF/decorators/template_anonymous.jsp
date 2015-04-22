@@ -27,12 +27,12 @@
 <body>
 
 	
-	<%@ include file="include/header.jsp"%>
+	<%@ include file="include/merged/header.jsp"%>
 	<section>
 				
 		<section class="main-content">
 			<dec:body />
-			<%@ include file="include/footer.jsp"%>
+			<%@ include file="include/merged/footer.jsp"%>
 		</section>
 		<section class="loading-modal"></section>
 		<section class="notification-sec">

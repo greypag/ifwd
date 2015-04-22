@@ -5,11 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="">
-<title>找尋適合您的保障 | 富衛香港 </title>
-<meta name="description" content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
+<!-- <meta charset="utf-8"> -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!-- <meta name="author" content=""> -->
 <link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
 <!--Google Code for SEO-->
 
@@ -66,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="col-lg-12 col-md-12 hidden-xs pad-none homecare home-main homecare-hei center">
                         <h2></h2>
                         
-                        <a href="flight" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.flight" bundle="${msg}" /></a>
+                        <a href="flight-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.flight" bundle="${msg}" /></a>
                         <a href="travel" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.travel" bundle="${msg}" /></a>
                          <a href="homecare" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.home" bundle="${msg}" /></a>
                         <div class="clearfix"></div>
@@ -82,8 +80,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
             <h2 class="center"></h2>
-            <div class="col-sm-12 col-xs-12" >  <a href="/FWDHKPH1A/flight" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
-                  <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/travel" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
+            <div class="col-sm-12 col-xs-12" >  <a href="/FWDHKPH1A/flight-insurance" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
+                  <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/travel-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
                         <div class="col-sm-12 col-xs-12" >      <a href="/FWDHKPH1A/homecare" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
            </div>
            

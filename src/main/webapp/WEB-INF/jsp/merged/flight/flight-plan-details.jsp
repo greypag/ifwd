@@ -650,7 +650,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						<!--mob-hidden-->
 						<br><br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="/FWDHKPH1A/getFlightDate" class="bdr-curve btn btn-primary bck-btn"> <fmt:message key="flight.details.action.back" bundle="${msg}" /></a>
+							<a href="/FWDHKPH1A/flight-insurance/quote" class="bdr-curve btn btn-primary bck-btn"> <fmt:message key="flight.details.action.back" bundle="${msg}" /></a>
 						</div>
 
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
@@ -749,12 +749,12 @@ function createFlightFnc(form)
 	
 	if (fPlanValid())
 	{
-		alert("fPlanValid: true");
+
 		console.log("ajax called");
 		$.ajax(
 		{
 			type : "POST",
-			url : "flight-confirmation",
+			url : "/FWDHKPH1A/flight-insurance/confirm-policy",
 			data : $("#freeFlightForm").serialize(),
 			async : false,
 			success : function(data) 
@@ -762,7 +762,7 @@ function createFlightFnc(form)
 				if (data == 'success') {
 					$('#errorMessages').hide();
 					flag= true;
-					form.action = "flight-confrimation-page";
+					form.action = "/FWDHKPH1A//flight-insurance/confirmation"
 				} else{
 					flag= false;
 					$('#errorMessages').removeClass('hide');

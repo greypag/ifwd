@@ -8,9 +8,8 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
 <meta name="author" content="">
-<title>成為會員 | 富衛香港</title>
+
 <script src="resources/js/fwd.js">
 	
 </script>

@@ -22,9 +22,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<title>Home Insurance User Details |  FWD Hong Kong</title>
-<meta name="description"
-	content="Get affordable home insurance with protection for emergencies and accidents ✓24/7 support ✓ 'A' rated secure & stable financial strength ✓ Rewards & benefits" />
 
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
