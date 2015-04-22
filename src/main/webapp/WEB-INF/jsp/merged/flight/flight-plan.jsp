@@ -170,22 +170,27 @@
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
 						<div class="form-container">
-							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline"><a href="flight">Change</a></span></h3>
+							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
+								<a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+							</h3>
 							<div class="form-group">
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
 								</div>
 							</div>
-							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline"><a href="flight">Change</a></span></h3>
-							<div class="form-group">
-								<div class="input-group wd2">
-									<input type="text" class="datepicker form-control bcg-trans"
-										value="<c:out value="${planDetails.getReturnDate()}"/>"
-										readonly>
+							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
+								<a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
+								<div class="form-group">
+									<div class="input-group wd2">
+										<input type="text" class="datepicker form-control bcg-trans"
+											value="<c:out value="${planDetails.getReturnDate()}"/>"
+											readonly>
+									</div>
 								</div>
-							</div>
-							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline"><a href="flight">Change</a></span></h3>
+							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
+								<a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+							</h3>
 						
 <!--						<div class="form-group">
 								
