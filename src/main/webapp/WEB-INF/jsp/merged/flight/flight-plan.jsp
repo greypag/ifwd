@@ -171,7 +171,7 @@
 						<div class="orange-bdr"></div>
 						<div class="form-container">
 							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
-								<a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+								<a href="${pageContext.request.contextPath}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
 							<div class="form-group">
 								<div class="input-group wd2">
@@ -180,7 +180,7 @@
 								</div>
 							</div>
 							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
-								<a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
+								<a href="${pageContext.request.contextPath}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
 								<div class="form-group">
 									<div class="input-group wd2">
 										<input type="text" class="datepicker form-control bcg-trans"
@@ -189,7 +189,7 @@
 									</div>
 								</div>
 							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
-								<a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+								<a href="${pageContext.request.contextPath}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
 						
 <!--						<div class="form-group">
@@ -231,7 +231,8 @@
 						</h3> --%>
 						<br> <br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="/FWDHKPH1A/flight" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="flight.details.action.back" bundle="${msg}" /> 
+							<a href="${pageContext.request.contextPath}/flight-insurance" class="bdr-curve btn btn-primary bck-btn">
+								<fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 							</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
