@@ -84,7 +84,7 @@ target="_blank">ABOUT</a></li>
 <li><a>|</a></li>
 <li><a href="joinus">JOIN US</a></li>
 <li><a>|</a></li>
-<li><a href="#">中文</a></li>
+<li><a href="#"></a></li>
 
 <%
 if (session.getAttribute("authenticate") == null ) {
@@ -279,7 +279,7 @@ class="travel-and-home-tab" href="homecare"> Home Insurance</a></li>
 <div class="mob-topbar">
 <span class="callus">24-HOUR HOTLINE 3123 3123 </span> <a href="#"
 onClick="zopim_chat_start()"><span class="chat pull-right">Chat
-Now</span></a> <a href="flightCN/flight-cn.html" class="lang pull-right">中文</a>
+Now</span></a> <a href="flightCN/flight-cn.html" class="lang pull-right"></a>
 <div class="clearfix"></div>
 </div>
 <div class="logobox">
