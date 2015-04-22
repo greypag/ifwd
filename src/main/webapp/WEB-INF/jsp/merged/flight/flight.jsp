@@ -38,20 +38,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      function reset_submit()
      {        
       if(document.getElementById("family_plan_desk").checked)
-        {
-
+      {
+    	  $('#txtTravellersDesk').val(0);
       }
       else if (document.getElementById("personal_plan_desk").checked)
-         {
-        $('#txtAdultsDesk').val(0);
-        $('#txtOtherDesk').val(0);
-        $('#txtChildDesk').val(0);
-        
-        //$('#txtAdultsMob, #txtChildMob, #txtOtherMob').val(0);
-        //$('#txtAdultsBtm, #txtChildBtn, #txtOtherBtn').val(0);
-        
-        
-        }
+      {
+          $('#txtAdultsDesk').val(0);
+          $('#txtOtherDesk').val(0);
+          $('#txtChildDesk').val(0);
+      }
       
       var frm = document.getElementById("freeFlight");
       //frm.submit();
