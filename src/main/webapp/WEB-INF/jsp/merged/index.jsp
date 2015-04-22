@@ -56,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!--   Main Content-->
     <section id="main-slider" class="no-margin clearfix">
         <!--Mobile-logo-->
-        <img src="resources/images/slider/main_cn.jpg" alt="" class="img-responsive hidden-lg hidden-md" />
+        <img src="<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md" />
         <!--Mobile-logo-->
         <div class="carousel slide hidden-xs hidden-sm">
             <div class="carousel-inner">
@@ -72,7 +72,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
 
-                    <img src="resources/images/slider/main_cn.jpg" alt="" />
+                    <img src="<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" />
                 </div>
                 <!--/.item-->
             </div>
@@ -80,10 +80,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
             <h2 class="center"></h2>
-            <div class="col-sm-12 col-xs-12" >  <a href="/FWDHKPH1A/flight-insurance" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
-                  <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/travel-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
-                        <div class="col-sm-12 col-xs-12" >      <a href="/FWDHKPH1A/homecare" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
-           </div>
+            <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/flight-insurance" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
+            <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/travel-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
+            <div class="col-sm-12 col-xs-12" > <a href="/FWDHKPH1A/homecare" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
+        </div>
            
             <!--<div class=" col-sm-12  col-xs-12">
                 <a href="homecare-plan.html" type="button" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return flightValidateBtmTravel()">Get Quote</a>
