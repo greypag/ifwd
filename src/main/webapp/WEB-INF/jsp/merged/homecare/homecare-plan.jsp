@@ -252,20 +252,21 @@
 									<div class="fwdpanel-heading">
 										<h4 class="benefits">
 											<span>
+												<i class="fa fa-plus"></i> 
 												<a href="#" class="fwdpanel-minimize uline color-wht">
-													<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits" bundle="${msg}" /> 
+													<fmt:message key="home.quote.plan.benefits" bundle="${msg}" /> 
 												</a>
 											</span>
 										</h4>
 									</div>
 	
 									<div class="fwdpanel-body" style="display: none;">
-										<p class="color-wht pad-none">
-											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc1" bundle="${msg}" /><br> 
-											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc2" bundle="${msg}" /> <br> 
-											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc3" bundle="${msg}" /><br> 
-											<i class="fa fa-plus"></i> <fmt:message key="home.quote.plan.benefits.desc4" bundle="${msg}" /> <br>
-										</p>
+										<ul class="color-wht">
+											<li><fmt:message key="home.quote.plan.benefits.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="home.quote.plan.benefits.desc2" bundle="${msg}" /></li>
+											<li><fmt:message key="home.quote.plan.benefits.desc3" bundle="${msg}" /></li>
+											<li><fmt:message key="home.quote.plan.benefits.desc4" bundle="${msg}" /></li>
+										</ul>
 									</div>
 	
 									<div class="clearfix"></div>
