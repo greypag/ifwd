@@ -116,8 +116,8 @@
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.period" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">由
-											${travelBean.getTrLeavingDate()} 至
+										<td class="pad-none h4-5 "><fmt:message key="travel.summary.period.from" bundle="${msg}" />
+											${travelBean.getTrLeavingDate()} <fmt:message key="travel.summary.period.to" bundle="${msg}" />
 											${travelBean.getTrBackDate()}</td>
 									</tr>
 									<tr>
@@ -227,7 +227,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr>
-										<td ><span class="bd">子女 <%=i + 1%></span></td>
+										<td ><span class="bd">travel.summary.insured.label.family.child <%=i + 1%></span></td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
 										<td ><span class="bd gy" >受益人</span></td>
 										<% } %>
