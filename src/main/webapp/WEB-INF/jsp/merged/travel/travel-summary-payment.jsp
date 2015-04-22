@@ -512,7 +512,7 @@
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label></td>
 								<td class="col-lg-4"><select class="pay-details-select"
 									id="month" name="epMonth">
-										<option value="0">月</option>
+										<option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
 										<option value="1">01</option>
 										<option value="2">02</option>
 										<option value="3">03</option>
@@ -528,7 +528,7 @@
 								</select></td>
 								<td><select class="pay-details-select" id="year"
 									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
-										<option value="0">年</option>
+										<option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
 <!-- 										<option value="2015">2015</option> -->
 <!-- 										<option value="2016">2016</option> -->
 <!-- 										<option value="2017">2017</option> -->
