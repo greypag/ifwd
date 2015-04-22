@@ -182,7 +182,7 @@
 
 								<tbody>
 									<tr class="">
-										<td  ><span class="bd">成人 <%=i + 1%></span></td>
+										<td  ><span class="bd"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" /> <%=i + 1%></span></td>
 										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
 										<td ><span class="bd gy">受益人</span></td>
 										<% } %>
@@ -227,7 +227,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr>
-										<td ><span class="bd">travel.summary.insured.label.family.child <%=i + 1%></span></td>
+										<td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" /> <%=i + 1%></span></td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
 										<td ><span class="bd gy" >受益人</span></td>
 										<% } %>
@@ -270,7 +270,7 @@
 								<tbody>
 									<tr><td>&nbsp;</td></tr>
 									<tr class="">
-										<td ><span class="bd">其他旅客<%=i + 1%></span></td>
+										<td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" /><%=i + 1%></span></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td ><span  class="bd gy">受益人</span></td>
 										<% } %>
