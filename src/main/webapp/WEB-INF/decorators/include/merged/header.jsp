@@ -447,9 +447,9 @@ function submitLoginForm(formID) {
 	<ul class="nav navmenu-nav sidepanel-menu">
 		<li><a href="home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
-			href="flight"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="homecare"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
+			href="flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->
