@@ -23,13 +23,13 @@
 <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item5" bundle="${msg}" /></li>
 </ol>
 <div class="container ">
-<div
+<div id="tr-steps"
 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
 <div class="center wow fadeInDown animated"
 style="visibility: visible;">
 <h2><fmt:message key="flight.confirmation.jumbo" bundle="${msg}" /></h2>
 </div>
-<br> <br>
+<br>
 <div class="order-status">
 <div class="order-status-timeline-new">
 								<!--
@@ -56,9 +56,6 @@ class="image-order-status image-order-status-active  img-circle">
 </div>
 </div>
 </div>
-<br>
-<br>
-<br>
 <div class="container pad-none bdr">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gray-bg1">
 <h3>

@@ -55,7 +55,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 				<input type="hidden" name="planSelected"
 					value="${planDetailsForm.getPlanSelected()}">
 				<div class="container ">
-					<div
+					<div id="tr-steps"
 						class="col-md-12 col-lg-12 col-sm-12 col-xs-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
@@ -63,7 +63,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								<fmt:message key="flight.details.jumbo" bundle="${msg}" />
 							</h2>
 						</div>
-						<br> <br>
+						<br>
 						<div class="order-status">
 							<div class="order-status-timeline-new">
 								<!-- class names: c0 c1 c2 c3 and c4 -->
@@ -92,9 +92,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						</div>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
 				<%-- <div class="container pad-none bdr ur-opt-content gray-bg3">
 <c:if test="${ not empty errorMessage}">
 <div class="alert alert-danger" role="alert">
