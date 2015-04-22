@@ -383,7 +383,7 @@ width: 100%;
 	width: 100%;
 	border-radius: 0;
 	margin-bottom: 0;
-	padding: 20px 30px;
+	padding: 20px 40px;
 }
 .recent-work-wrap .recent-work-inner {
 	top: 0;
@@ -391,8 +391,9 @@ width: 100%;
 	width: 100%;
 	border-radius: 0;
 	margin-bottom: 0;
-	padding: 20px;
+	padding: 20px 40px;
 }
+
 .recent-work-wrap-mid .recent-work-inner h2 {
 	color: #fff;
 	font-size: 24px;
@@ -3226,6 +3227,14 @@ del {
 #recent-works-mob .next {
 	right: 0;
 }
+@media (min-width: 480px){
+	#recent-works-mob .prev {
+		left: 10px;
+	}
+	#recent-works-mob .next {
+		right: 10px;
+	}
+}
 #testimonials-mob {
 	position: relative;
 	margin:20px 0 50px;
@@ -3299,7 +3308,6 @@ del {
 .insure-travel .bold-500 {
 	line-height: 60px;
 	font-size: 24px;
-	font-family: 'Foco-Regular';
 	color: #061d2a;
 	font-weight: normal;
 }
