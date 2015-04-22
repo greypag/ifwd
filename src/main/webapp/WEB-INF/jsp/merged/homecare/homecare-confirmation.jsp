@@ -134,7 +134,7 @@
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle act fourth">
-										<span class="status lst-status"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
+										<span class="status lst-status color3"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
 								</div>
