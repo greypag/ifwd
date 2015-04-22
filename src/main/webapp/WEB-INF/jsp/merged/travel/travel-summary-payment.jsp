@@ -184,7 +184,7 @@
 									<tr class="">
 										<td  ><span class="bd"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" /> <%=i + 1%></span></td>
 										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td ><span class="bd gy">受益人</span></td>
+										<td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
 										<% } %>
 									</tr>
 									<tr>
@@ -229,7 +229,7 @@
 									<tr>
 										<td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" /> <%=i + 1%></span></td>
 										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td ><span class="bd gy" >受益人</span></td>
+										<td ><span class="bd gy" ><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
 										<% } %>
 									</tr>
 									<tr>	
@@ -272,7 +272,7 @@
 									<tr class="">
 										<td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" /><%=i + 1%></span></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td ><span  class="bd gy">受益人</span></td>
+										<td ><span  class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
 										<% } %>
 									</tr>
 									<tr>
@@ -343,7 +343,7 @@
 										if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 									%>
 									<tr>
-										<td data-title="Adult1"><span class="h4-6-td">受益人</span></td>
+										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
 										<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
 										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
@@ -373,7 +373,7 @@
 									if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
 								%>
 								<tr>
-									<td data-title="Adult1"><span class="h4-6-td">受益人</span></td>
+									<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
 									<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
 									<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
 									<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
@@ -403,7 +403,7 @@
 										if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
 									%>
 									<tr>
-										<td data-title="Adult1"><span class="h4-6-td">受益人</span></td>
+										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
 										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
 										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
 										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>										
@@ -486,14 +486,6 @@
 								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="travel.payment.card.no" bundle="${msg}" /></label></td>
 								<td colspan="2">
 									<div class="controls">
-										
-										<!-- <input id="cardnumber" name="cardNo" type="text"
-											class="input-block-level" maxlength="16" data-min="16" title=""
-											onkeyup="validatecardnumber(this.value)"
-											placeholder="信用卡號碼"
-											onBlur="chkValidCreditCard(this, 'errcardno');"
-											onkeypress="return isNumeric(event)">  -->
-											
 											
 											<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
@@ -595,10 +587,7 @@
 								for="checkbox3"> <fmt:message key="travel.payment.declarations" bundle="${msg}" /></label>
 						</div>
 						<span id="errchk1" class="error-msg"></span>
-						<!--<div class="checkbox">
-							<input id="checkbox2" type="checkbox"> <label
-								for="checkbox2">本人(等) 已參閱及明白保障範圍。</label>
-						</div>-->
+
 						<span id="errchk2" class="error-msg"></span>
 						<div class="clearfix"></div>
 						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
@@ -656,14 +645,11 @@
 								
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn"
-									value="確認付款" onclick="confirmPayment()" />
+									value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
 
 
 							</div>
 							<div class="clearfix"></div>
-							<!--       <a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn col-xs-6 col-sm-6 text-center">Back </a> 
-            <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn col-xs-6 col-sm-6 text-center" onclick="return payValid();">Pay Now</a>
-            <div class="clearfix"></div>-->
 						</div>
 							
 							
