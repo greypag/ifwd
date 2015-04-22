@@ -246,7 +246,7 @@
 									else 
 									{
 								%>
-											<fmt:message key="travel.details.insured.label.parent" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
+											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
 								<%  } %> 
 												<c:out value="${inx-1}"></c:out>
 													</c:when>
@@ -263,7 +263,7 @@
 									else 
 									{
 								%>
-											<fmt:message key="travel.details.insured.label.parent" bundle="${msg}" /> 
+											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" /> 
 
 								<%  } %> 
 										</c:when>	
@@ -377,7 +377,7 @@
 								end="${travelQuote.getTotalChildTraveller()}">
 								<div id="childtraveller">
 									<h4 class="color1 top-mrg-10">
-										<fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" />
+										<fmt:message key="travel.details.insured.label.family.child" bundle="${msg}" /> 
 										<c:out value="${inx}"></c:out>
 									</h4>
 									<div class="row ">
@@ -480,7 +480,7 @@
 									</h4>
 									<div class="row ">
 										<div class="col-xs-6 col-md-6">
-											<label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label> <input type="text"
+											<label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /> </label> <input type="text"
 												name="otherName" id="txtOtherFullName${inx}" value=""
 												class="form-control " placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
 												onblur="replaceAlpha(this);"
