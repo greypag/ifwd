@@ -474,14 +474,32 @@ if (!isLogin)
 			{
 				document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 			}
-			if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
+			
+			var hkida = document.getElementById("adultBenefitiaryHKId" + i).value;
+			$("#erradultBenefitiaryHKId" + i).html("");
+			
+			if (hkida.trim() == "") {
+		    	$("#erradultBenefitiaryHKId" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+		        flag = false;
+		    }
+			else
+			{
+				if(IsHKID(hkida.trim())==false)
+				{	
+					$("#erradultBenefitiaryHKId" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+		        	flag = false;
+				}
+			}
+			
+			
+			/*if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
 				document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.name.notValid.message"); // getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");;
 				flag = false;
 			}
 			else {
 
 				document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "";
-			}
+			}*/
 		}
 
 
@@ -555,12 +573,28 @@ if (!isLogin)
 				document.getElementById("errchildBenefitiaryName" + i).innerHTML = "";
 			}
 
-			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
+			/*if (document.getElementById("txtchildInsuHkid" + i).value == "") {
 				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");
 				flag = false;
 			}
 			else {
 				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "";
+			}*/
+			
+			var hkidc = document.getElementById("txtchildInsuHkid" + i).value;
+			$("#errtxtchildInsuHkid" + i).html("");
+			
+			if (hkidc.trim() == "") {
+		    	$("#errtxtchildInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+		        flag = false;
+		    }
+			else
+			{
+				if(IsHKID(hkidc.trim())==false)
+				{	
+					$("#errtxtchildInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+		        	flag = false;
+				}
 			}
 		}
 
@@ -638,12 +672,28 @@ if (!isLogin)
 				flag = false;
 			}
 
-			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
+			/*if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
 				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");;
 				flag = false;
 			}
 			else {
 				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = "";
+			}*/
+			
+			var hkidc = document.getElementById("txtOtherBenInsuHkid" + i).value;
+			$("#errtxtOtherBenInsuHkid" + i).html("");
+			
+			if (hkidc.trim() == "") {
+		    	$("#errtxtOtherBenInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+		        flag = false;
+		    }
+			else
+			{
+				if(IsHKID(hkidc.trim())==false)
+				{	
+					$("#errtxtOtherBenInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+		        	flag = false;
+				}
 			}
 		}
 	}

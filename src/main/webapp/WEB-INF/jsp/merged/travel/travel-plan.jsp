@@ -1146,22 +1146,19 @@ var promoData = '';
 		
 		
 		/*   $('#selectedAmountDue').value=selected_price; */
-		$('#subtotal').html(selected_price);
-		$('#plansummary').html(selected_price);
+		$('#subtotal').html(parseInt(selected_price).toFixed(2));
+		$('#plansummary').html(parseInt(selected_price).toFixed(2));
 		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
-		$('#inputseletedplanname').val(planName);
-		$('#selectPlanPremium').val(totalDue);
+		$('#inputseletedplanname').val(parseInt(planName).toFixed(2));
+		$('#selectPlanPremium').val(parseInt(totalDue).toFixed(2));
 
 		$('#' + id).addClass("plan-box4");
 
 		$('#discountAmt').html(parseInt(discountAmt).toFixed(2));
 		
-		document.getElementById("selectedAmountDue").value = totalDue.trim();
-		
-		document.getElementById("selectedDiscountAmt").value = discountAmt
-				.trim();
-		document.getElementById("txtgrossPremiumAmt").value = selected_price
-				.trim();
+		document.getElementById("selectedAmountDue").value = parseInt(totalDue.trim()).toFixed(2);
+		document.getElementById("selectedDiscountAmt").value = parseInt(discountAmt.trim()).toFixed(2);
+		document.getElementById("txtgrossPremiumAmt").value = parseInt(selected_price.trim()).toFixed(2);
 		
 		if(promoData !== '')
 			setValue(promoData);
