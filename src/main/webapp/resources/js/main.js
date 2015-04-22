@@ -92,12 +92,8 @@ var chk = 0;
     if(chk == 0){
     	chk = 1;
     var $target = $(this).parent().parent().parent().next('.fwdpanel-body');
-    if($target.is(':visible')) {
-     $('i',$(this)).removeClass('fa-minus').addClass('fa-plus'); 
-    }
-    else {
-        $('i',$(this)).removeClass('fa-plus').addClass('fa-minus');
-    }
+    $(this).children('i').toggleClass('fa-minus');
+    
     
     $target.slideToggle("slow", function(){
     	chk = 0;
