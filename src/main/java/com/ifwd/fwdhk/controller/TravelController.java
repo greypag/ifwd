@@ -276,7 +276,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/applyPromoCode", method = RequestMethod.POST)
+	@RequestMapping(value = "/applyTravelPromoCode", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyPromotionCode(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,

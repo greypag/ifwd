@@ -282,7 +282,7 @@ public class HomeCareController {
 
 	@ResponseBody
 	@RequestMapping(value = "/applyHomePromoCode")
-	public String applyPromoCode(Model model, HttpServletRequest request) {
+	public String applyHomePromoCode(Model model, HttpServletRequest request) {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
 		String token = session.getAttribute("token").toString();
@@ -392,8 +392,11 @@ public class HomeCareController {
 		model.addAttribute("effectiveDate", homeCareDetails.getEffectiveDate());
 		model.addAttribute("effectiveEndDate", endDate);
 		model.addAttribute("homeCareDetails", homeCareDetails);
-		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
-				"homecare-confirmation"));
+//		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
+//				"homecare-confirmation"));
+		model.addAttribute("path",
+				path.replace("home-summary", "confirmation"));
+		
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 
 		String paymentGatewayFlag = request.getParameter("paymentGatewayFlag");

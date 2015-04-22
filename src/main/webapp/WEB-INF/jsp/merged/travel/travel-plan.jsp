@@ -38,14 +38,14 @@ var promoData = '';
 
 		return flag;
 	}
-	function applyPromoCode() {
+	function applyTravelPromoCode() {
 		
 		$("#errPromoCode").html("");
 		
 		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
-			url : 'applyPromoCode',
+			url : '/FWDHKPH1A/applyTravelPromoCode',
 			data : $('#frmTravelPlan input').serialize(),
 			success : function(data) {
 				
@@ -1011,7 +1011,7 @@ var promoData = '';
 									<input type="text" id="promoCode" name="promoCode"
 										class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
 										class="input-group-addon in black-bold pointer"
-										onclick="applyPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
+										onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
 								</div>
 							</div>
 							<div class="travel-italic">

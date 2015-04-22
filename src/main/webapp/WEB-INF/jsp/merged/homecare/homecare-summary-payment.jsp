@@ -352,8 +352,12 @@
 						<div class="hidden-sm hidden-xs pad-none">
 
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()"
-									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />">
+<!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
+<%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
+								<a href="/FWDHKPH1A/home-insurance/user-details"
+								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
+																	
+									
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<!-- <input type="button"
@@ -415,15 +419,15 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "processHomeCarePayment",
+ 						url : "/FWDHKPH1A/processHomeCarePayment",
  						data : $("#paymentForm").serialize(),
  						async : false,
  						success : function(data) {
  							if (data == 'success') {
- 								/* form.action = "https:test.paydollar.com/b2cDemo/eng/payment/payForm.jsp"; */
- 								/* form.action = "https:test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp"; */
  								form.action = geteWayUrl;
  								$('#PaymentingDiv').hide();
+ 							} else {
+ 	 							console.log("process home payment fail " + data);
  							}
  						}
  					});

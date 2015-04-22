@@ -2351,7 +2351,7 @@ function confirmHomeCarePayment(form) {
 		var geteWayUrl = $('#gateway').val();
 		$.ajax({
 			type : "POST",
-			url : "processHomeCarePayment",
+			url : "/FWDHKPH1A/processHomeCarePayment",
 			data : $("#homeCarepaymentForm").serialize(),
 			async : false,
 			success : function(data) {

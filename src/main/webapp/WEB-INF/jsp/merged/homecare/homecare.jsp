@@ -147,7 +147,7 @@
 							<div class="row">
 
 								<form:form name="getHomeQuote" id="getHomeQuote"
-									action="getHomePlan" method="post"
+									action="/FWDHKPH1A/home-insurance/quote" method="post"
 									modelAttribute="homeCarelPlan">
 									<div class="hidden-xs hidden-sm">
 										<h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2>
@@ -209,7 +209,7 @@
 						</div>
 					</div>
 		<!--mobile-->
-		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="getHomePlan"
+		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="/FWDHKPH1A/home-insurance/quote"
 			method="post" modelAttribute="homeCarelPlan">
 			<div
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">

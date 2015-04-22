@@ -235,10 +235,10 @@
 		}
 	}
 
-	function applyPromoCode() {
+	function applyHomePromoCode() {
 		$.ajax({
 			type : 'POST',
-			url : 'applyHomePromoCode',
+			url : '//FWDHKPH1A/applyHomePromoCode',
 			data : $('#frmYourDetails input').serialize(),
 			success : function(data) {
 				document.getElementById("errPromoCode").innerHTML = data;
@@ -332,7 +332,7 @@
 		<div class="container">
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
-					action="prepareUserSummaryForHome" method="post"
+					action="/FWDHKPH1A/home-insurance/home-summary" method="post"
 					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
 						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -858,7 +858,7 @@
 											<input type="text" id="promoCode" name="promoCode"
 												class="form-control" placeholder="eg.FWD789"> <span
 												class="input-group-addon in black-bold"> <span
-												class="apply pointer" onclick="applyPromoCode()">APPLY</span>
+												class="apply pointer" onclick="applyHomePromoCode()">APPLY</span>
 											</span>
 										</div>
 									</div>
@@ -893,7 +893,7 @@
 							<!--mob-->
 							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<a href="getHomePlan" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+									<a href="/FWDHKPH1A/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="home.action.next" bundle="${msg}" />" />

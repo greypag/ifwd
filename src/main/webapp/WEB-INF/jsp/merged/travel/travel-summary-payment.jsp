@@ -638,7 +638,7 @@
 							</div> -->
 							
 							<div class="hidden-sm hidden-xs pad-none">
-							<a href="/FWDHKPH1A/getYourDetails"
+							<a href="/FWDHKPH1A/flight-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 							<button onclick="confirmPayment();"
 								class="bdr-curve btn btn-primary nxt-btn margin-left">

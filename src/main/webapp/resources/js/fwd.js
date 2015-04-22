@@ -3737,7 +3737,7 @@ function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
 
 		var gatewayUrlId = '#' + gatewayUrlId;
 		var paymentFormId = '#' + paymentFormId;
-		var method = "processHomeCarePayment";
+		var method = "/FWDHKPH1A/processHomeCarePayment";
 		
 		var geteWayUrl = $(gatewayUrlId).val();
 		$.ajax({
