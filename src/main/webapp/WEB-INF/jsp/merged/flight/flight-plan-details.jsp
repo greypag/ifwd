@@ -604,8 +604,12 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 
 
 								<h3 class="txt-bold">
-									<fmt:message key="flight.details.summary.option1" bundle="${msg}" /> <span class="span2 uline"><a
-										href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+									<fmt:message key="flight.details.summary.option1" bundle="${msg}" /> 
+									<span class="span2 uline">
+									<a href="${pageContext.request.contextPath}/flight-insurance">
+										<fmt:message key="flight.details.summary.change" bundle="${msg}" />
+									</a>
+									</span>
 								</h3>
 								<input type="hidden" name="departureDate"
 									value="${planDetailsForm.getDepartureDate()}"> <input
@@ -614,11 +618,21 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 
 								<h4>${planDetailsForm.getDepartureDate()}</h4>
 								<h3 class="txt-bold">
-									<fmt:message key="flight.details.summary.option2" bundle="${msg}" /> <span class="span2 uline"><a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+									<fmt:message key="flight.details.summary.option2" bundle="${msg}" /> 
+									<span class="span2 uline">
+										<a href="${pageContext.request.contextPath}/flight-insurance">
+											<fmt:message key="flight.details.summary.change" bundle="${msg}" />
+										</a>
+									</span>
 								</h3>
 								<h4>${planDetailsForm.getReturnDate()}</h4>
 								<h3 class="txt-bold">
-									<fmt:message key="flight.details.summary.option3" bundle="${msg}" /> <span class="span2 uline"><a href="flight"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+									<fmt:message key="flight.details.summary.option3" bundle="${msg}" /> 
+									<span class="span2 uline">
+										<a href="${pageContext.request.contextPath}/flight-insurance">
+											<fmt:message key="flight.details.summary.change" bundle="${msg}" />
+										</a>
+									</span>
 								</h3>
 								<h4>
 									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br></c:if>
