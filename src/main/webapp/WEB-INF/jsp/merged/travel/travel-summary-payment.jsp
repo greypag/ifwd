@@ -553,7 +553,7 @@
 								<td colspan="2">
 									<div class="controls">
 										<input id="holdername" name="cardHolder" type="text"
-											class="input-block-level" placeholder="持卡人名稱"
+											class="input-block-level" placeholder="<fmt:message key="travel.payment.card.holderName.placeholder" bundle="${msg}" />"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -566,7 +566,7 @@
 									<div class="controls">
 										<input id="seccode" type="password" name="securityCode"
 											class="input-block-level" autocomplete="off" maxlength="3"
-											title="" placeholder="驗證碼"
+											title="" placeholder="<fmt:message key="travel.payment.card.cvv.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);" >
 
