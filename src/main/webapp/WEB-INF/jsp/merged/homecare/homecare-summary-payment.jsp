@@ -255,7 +255,7 @@
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label></td>
 								<td><select class="pay-details-select" id="month"
 									name="epMonth">
-										<option value="0">月</option>
+										<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
 										<option value="1">01</option>
 										<option value="2">02</option>
 										<option value="3">03</option>
