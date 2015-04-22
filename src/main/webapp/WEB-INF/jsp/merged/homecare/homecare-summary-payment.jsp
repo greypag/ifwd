@@ -73,7 +73,7 @@
 							</div>
 							<div class="col-xs-6 col-md-5">
 								<h4 class="h4-trav-full text-right home-summary-change">
-									<a href="#" onclick="BackMe()">Change details</a>
+									<a href="" onclick="BackMe()">Change details</a>
 								</h4>
 							</div>
 						</div>
@@ -373,7 +373,7 @@
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								<a href="#" onclick="BackMe()"
+								<a href="" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">Back
 								</a>
 							</div>
