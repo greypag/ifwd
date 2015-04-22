@@ -699,7 +699,7 @@ vertical-align:middle;
 }
 
 .h4-3-b {
-	font-size: 22px;
+	font-size: 18px;
 	line-height: 31.5px;
 	line-height: 20px;
 	color: #061d2a;
@@ -6003,4 +6003,22 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 }
 .lhnormal{
 	line-height:1.2 !important;
+}
+@media (max-width: 479px){
+	#tr-steps.shop-tracking-status .image-order-status .icon{
+		height: 25px;
+	  width: 25px;
+	  font-size: 15px;
+	  line-height: 25px;
+	  font-weight: bold;
+	}
+	#tr-steps.shop-tracking-status .image-order-status {
+	  margin-top: -28px;
+	}
+	#tr-steps .order-status{
+		margin-left: -15px;
+	}
+	.or-continue{
+		margin-top: 0 !important;
+	}
 }

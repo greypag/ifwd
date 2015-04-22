@@ -40,7 +40,7 @@
 					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
-					<div
+					<div id="tr-steps"
 						class="col-md-12 col-lg-12 col-sm-12 col-xs-12  shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
@@ -74,7 +74,6 @@
 						</div>
 					</div>
 				</div>
-				<br>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="flight.quote.choose" bundle="${msg}" /></h2>
