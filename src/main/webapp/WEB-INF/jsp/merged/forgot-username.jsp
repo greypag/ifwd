@@ -97,7 +97,7 @@
 								<tr>
 									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input type="text" name="mobileNo"
-										class="form-control" id="mobileNo" placeholder="手機號碼">
+										class="form-control" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
 										<span id="errorEmptyMob" class="hide1"> <label
 											class="text-red">請輸入 聯絡電話.</label>
 									</span> <span id="errorInvalidMob" class="hide1"> <label
@@ -109,7 +109,7 @@
 									</label></td>
 									<td class="pad-none"><input type="email"
 										name="emailAddress" class="form-control" id="emailAddress"
-										placeholder="電郵地址"> <span id="errorEmptyEmailId"
+										placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId"
 										class="hide1"> <label class="text-red">請輸入電郵地址</label>
 									</span> <span id="errorInvalidEmailId" class="hide1"> <label
 											class="text-red">請輸入正確/有效的 電郵地址</label>
