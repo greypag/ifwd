@@ -464,10 +464,10 @@ function submitLoginForm(formID) {
 <!--End Mobile header-->
 <!--/header-->
 <script>
-$('body').on('show.bs.offcanvas', function(){
+$('.navmenu').on('show.bs.offcanvas', function(){
 	$('#test').show();
 });
-$('body').on('hidden.bs.offcanvas', function(){
+$('.navmenu').on('hidden.bs.offcanvas', function(){
 	$('#test').hide();
 });
 $('#test').click(function(){
