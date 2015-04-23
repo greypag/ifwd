@@ -700,11 +700,16 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
+										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">
+											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
+											: ${travelQuote.getTotalPersonalTraveller()}
+										</c:if>
+
 								<%  }
 									else
-									{
-								%>
+									{										
+								%>	
+
 									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
 									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${travelQuote.getTotalChildTraveller()}</c:if>
 			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${travelQuote.getTotalOtherTraveller()}</c:if>
@@ -724,7 +729,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
