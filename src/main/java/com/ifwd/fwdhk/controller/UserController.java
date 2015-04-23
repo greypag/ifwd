@@ -46,16 +46,21 @@ public class UserController {
 		//session.invalidate();
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
-		if (session!=null)
-			{
+		if (session!=null) {
 			session.invalidate();
-			}
+		}
 		session = servletRequest.getSession(true);
 		session.setAttribute("language", lang);
 		//return "../.."+ UserRestURIConstants.checkLangSetPage(servletRequest)+ "index";
 		String dir = UserRestURIConstants.getSitePath(servletRequest);
 		//return "home";
-		return "../jsp/" + dir + "/index";
+		String path = "../jsp/" + dir + "/index";
+		System.out.println("path " + path);
+		return "home";
+		
+//		return "../jsp/" + dir + "/index";
+		
+		
 	}
 
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
@@ -373,56 +378,7 @@ public class UserController {
 		
 	}
 
-	@RequestMapping(value = "/indexPage", method = RequestMethod.GET)
-	public String indexPage(HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		session.setAttribute("language", "EN");
-		//String dir = UserRestURIConstants.checkLangSetPage(req);
-		String dir = UserRestURIConstants.getSitePath(req);
-		
-		if (session.getAttribute("authenticate") != null) {
-			if (session.getAttribute("authenticate").toString()
-					.equalsIgnoreCase("direct")) {
-				session.invalidate();
-			}
-		}
-		return "../jsp" + dir + "index";
-	}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String homePage(HttpServletRequest req, Model model) {
-		HttpSession session = req.getSession(true);
-		String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
-
-		String ogTitle = WebServiceUtils.getPageTitle("index.og.title", UserRestURIConstants.getLanaguage(req));
-		String ogType = WebServiceUtils.getPageTitle("index.og.type", UserRestURIConstants.getLanaguage(req));
-		String ogUrl = WebServiceUtils.getPageTitle("index.og.url", UserRestURIConstants.getLanaguage(req));
-		String ogImage = WebServiceUtils.getPageTitle("index.og.image", UserRestURIConstants.getLanaguage(req));
-		String ogDescription = WebServiceUtils.getPageTitle("index.og.description", UserRestURIConstants.getLanaguage(req));
-
-		
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
-		model.addAttribute("ogTitle", ogTitle);
-		model.addAttribute("ogType", ogType);
-		model.addAttribute("ogUrl", ogUrl);
-		model.addAttribute("ogImage", ogImage);
-		model.addAttribute("ogDescription", ogDescription);
-		String lang = "CN";
-//		session.setAttribute("language", lang);
-//		// default locale
-//		session.setAttribute("uiLocale", "zh-HK");
-//		
-
-		
-		String dir = UserRestURIConstants.getSitePath(req);
-		
-//		session.setAttribute("language", "EN");
-		return "../jsp/" + dir + "/index";
-	}
-
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();

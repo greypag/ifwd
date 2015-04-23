@@ -39,7 +39,7 @@
 								$('#success-message').html("User succesfully Register"); 
 // 								setTimeout(function() {document.joinus_form.action= "useraccount";								
 // 								}, 3000);
-								window.location.href = 'getAccByUsernaneAndPassword';
+								window.location.href = '<%=request.getContextPath()%>/getAccByUsernaneAndPassword';
 // 								setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;								
 // 								}, 3000);
 								

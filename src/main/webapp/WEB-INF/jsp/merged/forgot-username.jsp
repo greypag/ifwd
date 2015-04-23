@@ -99,9 +99,9 @@
 									<td class="pad-none"><input type="text" name="mobileNo"
 										class="form-control" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
 										<span id="errorEmptyMob" class="hide1"> <label
-											class="text-red">請輸入 聯絡電話.</label>
+											class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
 									</span> <span id="errorInvalidMob" class="hide1"> <label
-											class="text-red">聯絡電話需為 8 位數字，請重新輸入</label>
+											class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
 									</span></td>
 								</tr>
 								<tr>
@@ -110,9 +110,9 @@
 									<td class="pad-none"><input type="email"
 										name="emailAddress" class="form-control" id="emailAddress"
 										placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId"
-										class="hide1"> <label class="text-red">請輸入電郵地址</label>
+										class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
 									</span> <span id="errorInvalidEmailId" class="hide1"> <label
-											class="text-red">請輸入正確/有效的 電郵地址</label>
+											class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
 									</span></td>
 								</tr>
 

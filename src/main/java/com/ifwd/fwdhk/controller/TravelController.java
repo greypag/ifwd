@@ -1139,7 +1139,12 @@ public class TravelController {
 						"transactionDate"));
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
+			} else {
+				model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)
+						+ "/travel/travel-plan-details");		
 			}
+				
 
 		} 
 		session.setAttribute("finalizeReferenceNo",

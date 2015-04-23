@@ -1,0 +1,92 @@
+package com.ifwd.fwdhk.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
+import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.WebServiceUtils;
+
+@Controller
+@SuppressWarnings("unchecked")
+public class ECommController {
+	@Autowired
+	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
+	@RequestMapping(value = "/changeLang")
+	public ModelAndView changeLang(HttpServletRequest request,
+			@RequestParam String selectLang, @RequestParam String action) {
+		HttpSession session = request.getSession();
+		String viewName = "";
+		session.setAttribute("language", selectLang);
+
+		if (selectLang.compareToIgnoreCase("CN") == 0) {
+			session.setAttribute("uiLocale", "zh-HK");
+		} else if (selectLang.compareToIgnoreCase("EN") == 0) {
+			session.setAttribute("uiLocale", "en-US");
+		} else {
+			session.setAttribute("uiLocale", "en-US");
+		}
+
+		// viewName = action.replace("/", "");
+		viewName = action;
+		return new ModelAndView("redirect:" + viewName);
+
+	}
+	
+	@RequestMapping(value = "/redirect")
+	public ModelAndView redirect(HttpServletRequest request,
+			@RequestParam String action, @RequestParam String errMsgs) {
+		String viewName = action.replace("/", "");
+		if (StringHelper.isStringNullOrEmpty(errMsgs))
+			return new ModelAndView("redirect:" + viewName + "?errMsgs="
+					+ errMsgs);
+		else
+			return new ModelAndView("redirect:" + viewName);
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String homePage(@RequestParam(required = false) final String promo, HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession(true);
+		
+		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+		String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
+
+		String ogTitle = WebServiceUtils.getPageTitle("index.og.title", UserRestURIConstants.getLanaguage(req));
+		String ogType = WebServiceUtils.getPageTitle("index.og.type", UserRestURIConstants.getLanaguage(req));
+		String ogUrl = WebServiceUtils.getPageTitle("index.og.url", UserRestURIConstants.getLanaguage(req));
+		String ogImage = WebServiceUtils.getPageTitle("index.og.image", UserRestURIConstants.getLanaguage(req));
+		String ogDescription = WebServiceUtils.getPageTitle("index.og.description", UserRestURIConstants.getLanaguage(req));
+
+		
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		String lang = "CN";
+//		session.setAttribute("language", lang);
+//		// default locale
+//		session.setAttribute("uiLocale", "zh-HK");
+//		
+
+		
+		String dir = UserRestURIConstants.getSitePath(req);
+		
+//		session.setAttribute("language", "EN");
+		return "../jsp/" + dir + "/index";
+	}
+
+	
+}

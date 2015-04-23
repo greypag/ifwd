@@ -75,7 +75,7 @@ Policy Number: <span><%=request.getSession().getAttribute(
 <div class="gray-bg1-content">
 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
 
-<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk"<%=request.getContextPath()%> data-title="iFWD"></div>
+<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>" data-title="iFWD"></div>
 </div>
 <div class="col-lg-6 col-md-6">
 <p>

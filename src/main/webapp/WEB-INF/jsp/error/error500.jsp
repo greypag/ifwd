@@ -18,7 +18,7 @@ if (data == 'success') {
 $('#ajax-loading').hide();
 var Backlen = history.length;
 history.go(-Backlen);
-window.location.href = "getAccByUsernaneAndPassword";
+window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 } else if (data == 'fail') {
 $('#ajax-loading').hide();
 $('#login-err-msg').show();
@@ -222,7 +222,7 @@ class="fa fa-caret-right"></i>
 <ul>
 <% if(!"direct".equalsIgnoreCase(request.getSession()
 .getAttribute("authenticate").toString())){ %>
-<li><a href="getAccByUsernaneAndPassword" class="color1">
+<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
 Manage User Account</a></li>
 <%} %>
 <li><a href="<%=request.getContextPath()%>/userLogout" class="color1">Log Out</a></li>
@@ -253,7 +253,7 @@ actionName =  request.getAttribute("controller").toString();
 <div class="container pad-none">
 <div class="navbar-header">
 <a class="navbar-brand" href="index.html"><img
-src="resources/images/logo.jpg" alt="logo"></a>
+src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
 </div>
 <div class="col-lg-6 col-md-6 pull-right">
 <ul class="maintabs">
@@ -292,7 +292,7 @@ class="icon-bar"></span> <span class="icon-bar"></span> <span
 class="icon-bar"></span>
 </button>
 <a class="navbar-brand pull-left col-xs-8 col-sm-8" href="index.html"><img
-src="resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
+src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 <div class="clearfix"></div>
 </div>
 </div>

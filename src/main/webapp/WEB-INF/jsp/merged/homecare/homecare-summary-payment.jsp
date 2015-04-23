@@ -1,8 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <jsp:useBean id="now" class="java.util.Date" />
@@ -12,21 +13,27 @@
 	<div class="container">
 		<div class="row">
 			<form name="paymentForm" id="paymentForm"
-				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');" method="post">
+				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');"
+				method="post">
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a> <i
-						class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a><i class="fa fa-caret-right"></i>
-					</li>
-					<li><a href="#"><fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item5" bundle="${msg}" /></li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item1"
+								bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item2"
+								bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item3"
+								bundle="${msg}" /></a><i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="home.breadcrumb1.item4"
+								bundle="${msg}" /></a></li>
+					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message
+							key="home.breadcrumb1.item5" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
 						<div class="center" style="visibility: visible;">
-							<h2><fmt:message key="home.summary.jumbo" bundle="${msg}" /></h2>
+							<h2>
+								<fmt:message key="home.summary.jumbo" bundle="${msg}" />
+							</h2>
 						</div>
 						<br>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -39,23 +46,27 @@
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle first">
-										<span class="status color3"><fmt:message key="home.breadcrumb2.item1" bundle="${msg}" /></span>
+										<span class="status color3"><fmt:message
+												key="home.breadcrumb2.item1" bundle="${msg}" /></span>
 										<div class="icon">1</div>
 									</div>
 
 									<div
 										class="image-order-status image-order-status-intransit  img-circle second">
-										<span class="status color3"><fmt:message key="home.breadcrumb2.item2" bundle="${msg}" /></span>
+										<span class="status color3"><fmt:message
+												key="home.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle act third">
-										<span class="status color2"><fmt:message key="home.breadcrumb2.item3" bundle="${msg}" /></span>
+										<span class="status color2"><fmt:message
+												key="home.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle disabled fourth">
-										<span class="status lst-status"><fmt:message key="home.breadcrumb2.item4" bundle="${msg}" /></span>
+										<span class="status lst-status"><fmt:message
+												key="home.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -66,10 +77,12 @@
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div
 						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
-						
+
 						<div class="row home-summary-heading-row">
 							<div class="col-xs-6 col-md-7">
-								<h3 class="margin-left-2 h2-3-existing-fwd-head home-summary-heading">Plan Summary</h3>
+								<h3
+									class="margin-left-2 h2-3-existing-fwd-head home-summary-heading">Plan
+									Summary</h3>
 							</div>
 							<div class="col-xs-6 col-md-5">
 								<h4 class="h4-trav-full text-right home-summary-change">
@@ -77,28 +90,38 @@
 								</h4>
 							</div>
 						</div>
-						
-						
+
+
 						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
-							
+
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="h2-1 pad-left1 col-lg-5"><fmt:message key="home.summary.plansummary.desc1" bundle="${msg}" /></td>
+										<td class="h2-1 pad-left1 col-lg-5"><fmt:message
+												key="home.summary.plansummary.desc1" bundle="${msg}" /></td>
 										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
 											type="hidden" name="referenceNo"
 											value="${createdPolicy.getReferenceNo()}"></td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
-										<td class="h4-5 "><fmt:message key="home.summary.plansummary.desc3" bundle="${msg}" /><br> <fmt:message key="home.summary.plansummary.desc4" bundle="${msg}" /> <br>
-											<h4 class="h4-4-full"><!-- + Full coverage details --></h4></td>
+										<td class="h2-1 "><fmt:message
+												key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
+										<td class="h4-5 "><fmt:message
+												key="home.summary.plansummary.desc3" bundle="${msg}" /><br>
+											<fmt:message key="home.summary.plansummary.desc4"
+												bundle="${msg}" /> <br>
+											<h4 class="h4-4-full">
+												<!-- + Full coverage details -->
+											</h4></td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc5.part1" bundle="${msg}" /> <br><fmt:message key="home.summary.plansummary.desc5.part2" bundle="${msg}" />
-										</td>
+										<td class="h2-1 "><fmt:message
+												key="home.summary.plansummary.desc5.part1" bundle="${msg}" />
+											<br>
+										<fmt:message key="home.summary.plansummary.desc5.part2"
+												bundle="${msg}" /></td>
 										<td class=" h4-5 ">${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},
-										${homeCareDetails.getApplicantBlock()},<br>
+											${homeCareDetails.getApplicantBlock()},<br>
 											${homeCareDetails.getApplicantBuilding() },
 											${homeCareDetails.getApplicantEstate() },<br>
 											${homeCareDetails.getApplicantStreetName()}
@@ -106,7 +129,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
+										<td class="h2-1 "><fmt:message
+												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
 										<td class=" h4-5 ">${homeCareDetails.getaRoom()}/${homeCareDetails.getaFloor()},
 											${homeCareDetails.getaBlock() },
 											${homeCareDetails.getaBuilding()},
@@ -116,54 +140,70 @@
 											${homeCareDetails.getaArea() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc7.part2" bundle="${msg}" />
-										</td>
+										<td class="h2-1 "><fmt:message
+												key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br>
+										<fmt:message key="home.summary.plansummary.desc7.part2"
+												bundle="${msg}" /></td>
 										<td class=" h4-5 ">${homeCareDetails.getNetFloorAreaDesc()}</td>
-<%-- 										${homeCareDetails.getNetFloorArea()} --%>
+										<%-- 										${homeCareDetails.getNetFloorArea()} --%>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
+										<td class="h2-1 "><fmt:message
+												key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
 										<td class=" h4-5 ">Yearly</td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" />
-										</td>
+										<td class="h2-1 "><fmt:message
+												key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br>
+										<fmt:message key="home.summary.plansummary.desc9.part2"
+												bundle="${msg}" /></td>
 										<td class=" h4-5 ">From ${effectiveDate } to
 											${effectiveEndDate}</td>
 									</tr>
 									<tr>
-										<td class="td-vert-middle"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></td>
-												<%
-												HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");%>
+										<td class="td-vert-middle"><span
+											class="h4-4-orange-b pad-none"><fmt:message
+													key="home.summary.plansummary.desc10" bundle="${msg}" /></span></td>
+										<%
+											HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request
+													.getAttribute("homeCareDetails");
+										%>
 										<td class=" "><span class="h4-4-orange-b pad-none">HK$
-												<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
+												<%=String.format("%.2f",
+					Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 						<div
 							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
-							
+
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
-										<td class="pad-none "><span class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
+										<td class="pad-none "><span
+											class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message
+													key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
 										<td class="pad-none h4-5 "></td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
+										<td class="h2-1 pad-none "><fmt:message
+												key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getFullName()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
+										<td class="h2-1 pad-none "><fmt:message
+												key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getHkid() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
+										<td class="h2-1 pad-none "><fmt:message
+												key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getEmailAddress()}</td>
 									</tr>
 									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
+										<td class="h2-1 pad-none "><fmt:message
+												key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getMobileNo()}</td>
 									</tr>
 								</tbody>
@@ -175,56 +215,70 @@
 					<div class="clearfix"></div>
 				</div>
 				<input type="hidden" name="merchantId"
-							value="${createdPolicy.getMerchantId()}">
-						<input type="hidden" name="amount" value="${totalDue.trim()}">
-						<input type="hidden" name="orderRef"
-							value="${confirm.getTransactionNo() }">
-						<input type="hidden" name="currCode"
-							value="${createdPolicy.getCurrCode() }">
-						<input type="hidden" name="successUrl" value="${path}">
-						<input type="hidden" name="failUrl" value="${failurePath}">
-						<input type="hidden" name="errorUrl" value="${failurePath}">
-						<input type="hidden" name="payType"
-							value="${createdPolicy.getPaymentType() }">
-						<input type="hidden" name="lang"
-							value="${createdPolicy.getLang()}">
-						<input type="hidden" name="secureHash"
-							value="${confirm.getSecureHash() }">
-						<input type="hidden" id="emailAddress" name="emailAddress"
-							value="${userDetails.getEmailAddress()}">
-						<input type="hidden" id="transactionDate" name="transactionDate"
-							value="${effectiveDate}">
-						<input type="hidden" id="gateway" name="gateway"
-							value="${createdPolicy.getPaymentGateway()}">
+					value="${createdPolicy.getMerchantId()}"> <input
+					type="hidden" name="amount" value="${totalDue.trim()}"> <input
+					type="hidden" name="orderRef"
+					value="${confirm.getTransactionNo() }"> <input
+					type="hidden" name="currCode"
+					value="${createdPolicy.getCurrCode() }"> <input
+					type="hidden" name="successUrl" value="${path}"> <input
+					type="hidden" name="failUrl" value="${failurePath}"> <input
+					type="hidden" name="errorUrl" value="${failurePath}"> <input
+					type="hidden" name="payType"
+					value="${createdPolicy.getPaymentType() }">
+					<%
+						String payLang = (String)session.getAttribute("language");
+						payLang = payLang.substring(0, 1);
+						System.out.println("getLanguage" + session.getAttribute("language"));
+						System.out.println("payLang" + payLang);
+					%>
+
+
+				<input type="hidden" name="lang"
+					value="<%=payLang%> />"> <input
+					type="hidden" name="secureHash" value="${confirm.getSecureHash() }">
+				<input type="hidden" id="emailAddress" name="emailAddress"
+					value="${userDetails.getEmailAddress()}"> <input
+					type="hidden" id="transactionDate" name="transactionDate"
+					value="${effectiveDate}"> <input type="hidden" id="gateway"
+					name="gateway" value="${createdPolicy.getPaymentGateway()}">
 				<div class="gray-bg1 pad20">
 					<div class="clearfix"></div>
-					<h2 class="from-control"><fmt:message key="home.summary.pmtdetail.heading" bundle="${msg}" /></h2>
-					<h3><span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span></h3>
+					<h2 class="from-control">
+						<fmt:message key="home.summary.pmtdetail.heading" bundle="${msg}" />
+					</h2>
+					<h3>
+						<span id="paymentGatewayErrorMsg" class="text-red">${errormsg}</span>
+					</h3>
 					<table class="travel-tb">
 						<tbody>
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc1" bundle="${msg}" /></label></td>
+								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message
+											key="home.summary.pmtdetail.desc1" bundle="${msg}" /></label></td>
 								<td class="col-lg-8" colspan="2"><div class="controls">
 										<div>
-											<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
+											<img
+												src="<%=request.getContextPath()%>/resources/images/payment.png"
+												alt="">
 										</div>
 									</div></td>
 							</tr>
 
 							<tr style="display: none;">
-								
-								<td class="col-lg-4 ht1">
-								<label class="control-label h4-5">Payment Method</label></td>
-								<td><input type="radio" name="pMethod" id="chkVisa" value="VISA">VISA
-									<input type="radio" name="pMethod" value="Master" id="chkMaster">MasterCard
-									<!-- <input type="radio" name="pMethod" value="Diners">Diners
+
+								<td class="col-lg-4 ht1"><label class="control-label h4-5">Payment
+										Method</label></td>
+								<td><input type="radio" name="pMethod" id="chkVisa"
+									value="VISA">VISA <input type="radio" name="pMethod"
+									value="Master" id="chkMaster">MasterCard <!-- <input type="radio" name="pMethod" value="Diners">Diners
 									Club <input type="radio" name="pMethod" value="JCB">JCB
 									<input type="radio" name="pMethod" value="AMEX">AMEX --></td>
 							</tr>
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc2" bundle="${msg}" /></label></td>
+								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message
+											key="home.summary.pmtdetail.desc2" bundle="${msg}" /></label></td>
 								<td colspan="2"><div class="controls">
 										<!-- <input id="cardnumber" name="cardnumber" type="text"
 											class="input-block-level" maxlength="16" min="16" title=""
@@ -237,13 +291,12 @@
 											onkeyup="validatecardnumber(this.value)" onkeypress="return isNumeric(event)" 
 											onBlur="chkValidCreditCard(this, 'errcardno');"
 											 /> -->
-											 <input id="cardnumber" name="cardNo" type="text"
+										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="home.summary.pmtdetail.desc2.placeholder"
-											onkeyup="" onkeypress="return isNumeric(event)" 
-											onBlur="validatecardnumber(this.value)"
-											 />
-											 <span
+											title=""
+											placeholder="home.summary.pmtdetail.desc2.placeholder"
+											onkeyup="" onkeypress="return isNumeric(event)"
+											onBlur="validatecardnumber(this.value)" /> <span
 											id="errcardno" class="error-msg"></span>
 
 									</div></td>
@@ -252,7 +305,8 @@
 
 
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message
+											key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label></td>
 								<td><select class="pay-details-select" id="month"
 									name="epMonth">
 										<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
@@ -271,19 +325,20 @@
 								</select></td>
 								<td><select class="pay-details-select" id="year"
 									name="epYear">
-										<option VALUE=""><fmt:message key="home.summary.pmtdetail.desc3a" bundle="${msg}" /></option>
-<!-- 										<option VALUE="2015">2015</option> -->
-<!-- 										<option VALUE="2016">2016</option> -->
-<!-- 										<option VALUE="2017">2017</option> -->
-<!-- 										<option VALUE="2018">2018</option> -->
-<!-- 										<option VALUE="2019">2019</option> -->
-<!-- 										<option VALUE="2020">2020</option> -->
-									<c:forEach begin="0" end="5" varStatus="loop">
-										<c:set var="currentYear" value="${year + loop.index}" />
-										<option value="${currentYear}">${currentYear}</option>
-									</c:forEach>
+										<option VALUE=""><fmt:message
+												key="home.summary.pmtdetail.desc3a" bundle="${msg}" /></option>
+										<!-- 										<option VALUE="2015">2015</option> -->
+										<!-- 										<option VALUE="2016">2016</option> -->
+										<!-- 										<option VALUE="2017">2017</option> -->
+										<!-- 										<option VALUE="2018">2018</option> -->
+										<!-- 										<option VALUE="2019">2019</option> -->
+										<!-- 										<option VALUE="2020">2020</option> -->
+										<c:forEach begin="0" end="5" varStatus="loop">
+											<c:set var="currentYear" value="${year + loop.index}" />
+											<option value="${currentYear}">${currentYear}</option>
+										</c:forEach>
 								</select></td>
-								
+
 							</tr>
 							<tr>
 								<td></td>
@@ -291,11 +346,13 @@
 								<td><span id="erryear" class="error-msg"></span></td>
 							</tr>
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc4" bundle="${msg}" /></label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message
+											key="home.summary.pmtdetail.desc4" bundle="${msg}" /></label></td>
 								<td colspan="2">
 									<div class="controls">
-										<input id="holdername" type="text" name="cardHolder" class="input-block-level"
-											title="" placeholder="home.summary.pmtdetail.desc4.placeholder"
+										<input id="holdername" type="text" name="cardHolder"
+											class="input-block-level" title=""
+											placeholder="home.summary.pmtdetail.desc4.placeholder"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -303,15 +360,20 @@
 								</td>
 							</tr>
 							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc5" bundle="${msg}" /></label></td>
+								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message
+											key="home.summary.pmtdetail.desc5" bundle="${msg}" /></label></td>
 								<td><div class="controls">
-										<input id="seccode" name="securityCode" type="password" class="input-block-level"
-											autocomplete="off" maxlength="3" title="" placeholder="home.summary.pmtdetail.desc5.placeholder"
+										<input id="seccode" name="securityCode" type="password"
+											class="input-block-level" autocomplete="off" maxlength="3"
+											title=""
+											placeholder="home.summary.pmtdetail.desc5.placeholder"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);">
 
 									</div></td>
-								<td><img src="<%=request.getContextPath()%>/resources/images/cards.png" alt=""></td>
+								<td><img
+									src="<%=request.getContextPath()%>/resources/images/cards.png"
+									alt=""></td>
 							</tr>
 							<tr>
 								<td></td>
@@ -322,7 +384,9 @@
 
 							<tr class="control-group">
 								<td></td>
-								<td colspan="2"><!--<a class="sub-link" href="#"><fmt:message key="home.summary.pmtdetail.desc6" bundle="${msg}" /></a>--></td>
+								<td colspan="2">
+									<!--<a class="sub-link" href="#"><fmt:message key="home.summary.pmtdetail.desc6" bundle="${msg}" /></a>-->
+								</td>
 							</tr>
 
 
@@ -335,7 +399,9 @@
 					<div class="declaration-content margin-left-small">
 						<div class="checkbox">
 							<input id="checkbox3" type="checkbox"> <label
-								for="checkbox3"> <fmt:message key="home.summary.declarations" bundle="${msg}" /> </label>
+								for="checkbox3"> <fmt:message
+									key="home.summary.declarations" bundle="${msg}" />
+							</label>
 							<div class="clearfix"></div>
 						</div>
 						<span id="errchk1" class="error-msg"></span>
@@ -352,19 +418,20 @@
 						<div class="hidden-sm hidden-xs pad-none">
 
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-<!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
-<%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
-								<a href="<%=request.getContextPath()%>/home-insurance/user-details"
-								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
-																	
-									
+								<!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
+								<%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
+								<a
+									href="<%=request.getContextPath()%>/home-insurance/user-details"
+									class="bdr-curve btn btn-primary bck-btn2"><fmt:message
+										key="home.summary.action.back" bundle="${msg}" /> </a>
+
+
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<!-- <input type="button"
 									class="bdr-curve btn btn-primary nxt-btn margin-left"
 									onclick="confirmPayment()" value="Confirm Payment"> -->
-								<input type="submit"
-									class="bdr-curve btn btn-primary btn-next"
+								<input type="submit" class="bdr-curve btn btn-primary btn-next"
 									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 							</div>
 
@@ -404,9 +471,11 @@
 </section>
 <!--/end Main Content-->
 
-<div id="PaymentingDiv" class="waitingDiv" style="display:none">    
-    <img style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">        
-</div>   
+<div id="PaymentingDiv" class="waitingDiv" style="display: none">
+	<img
+		style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%"
+		src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+</div>
 
 
 <script>
@@ -419,22 +488,23 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
- 						data : $("#paymentForm").serialize(),
- 						async : false,
- 						success : function(data) {
- 							if (data == 'success') {
- 								form.action = geteWayUrl;
- 								$('#PaymentingDiv').hide();
- 							} else {
- 	 							console.log("process home payment fail " + data);
- 							}
- 						}
- 					});
- 		}
+ 						url : "<%=request.getContextPath()%>
+	/processHomeCarePayment",
+				data : $("#paymentForm").serialize(),
+				async : false,
+				success : function(data) {
+					if (data == 'success') {
+						form.action = geteWayUrl;
+						$('#PaymentingDiv').hide();
+					} else {
+						console.log("process home payment fail " + data);
+					}
+				}
+			});
+		}
 
- 	}
-	
+	}
+
 	function BackMe() {
 		window.history.back();
 	}

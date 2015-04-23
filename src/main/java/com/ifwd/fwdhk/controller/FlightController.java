@@ -30,18 +30,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
-
-
-
-
-
-
-
-
-
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreateFlightPolicy;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -58,8 +46,6 @@ import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
-
-
 @Controller
 @SuppressWarnings("unchecked")
 public class FlightController {
@@ -69,25 +55,24 @@ public class FlightController {
 
 	@Autowired
 	SendEmailDao sendEmail;
-	
+
 	@Autowired
-	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;	
+	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = {"/flight", "/flight-insurance"})
+	@RequestMapping(value = { "/flight", "/flight-insurance" })
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//return UserRestURIConstants.getSitePath(request) + "flight/flight";
-		
+		// return UserRestURIConstants.getSitePath(request) + "flight/flight";
+
 		HttpSession session = request.getSession();
 		PlanDetails planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");
-		
-		if(planDetails == null){
-			planDetails = new PlanDetails();			
+
+		if (planDetails == null) {
+			planDetails = new PlanDetails();
 		}
-		
 
 		planDetails.setTotalPersonalTraveller(1);
 		planDetails.setTotalAdultTraveller(1);
@@ -95,62 +80,40 @@ public class FlightController {
 		planDetails.setTotalOtherTraveller(0);
 		planDetails.setPlanSelected("personal");
 		planDetails.setTravellerCount(1);
-		
+
 		model.addAttribute(planDetails);
-		String pageTitle = WebServiceUtils.getPageTitle("page.flight", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flight", UserRestURIConstants.getLanaguage(request));
-		String ogTitle = WebServiceUtils.getPageTitle("flight.og.title", UserRestURIConstants.getLanaguage(request));
-		String ogType = WebServiceUtils.getPageTitle("flight.og.type", UserRestURIConstants.getLanaguage(request));
-		String ogUrl = WebServiceUtils.getPageTitle("flight.og.url", UserRestURIConstants.getLanaguage(request));
-		String ogImage = WebServiceUtils.getPageTitle("flight.og.image", UserRestURIConstants.getLanaguage(request));
-		String ogDescription = WebServiceUtils.getPageTitle("flight.og.description", UserRestURIConstants.getLanaguage(request));
-		
+		String pageTitle = WebServiceUtils.getPageTitle("page.flight",
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta.flight", UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle("flight.og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle("flight.og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle("flight.og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle("flight.og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle(
+				"flight.og.description",
+				UserRestURIConstants.getLanaguage(request));
+
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
 
 		model.addAttribute("ogTitle", ogTitle);
 		model.addAttribute("ogType", ogType);
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
-		
-		
+
 		model.addAttribute(planDetails);
-		return new ModelAndView(
-				UserRestURIConstants.getSitePath(request) + "flight/flight");			
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+				+ "flight/flight");
 	}
 
-	@RequestMapping(value = "/redirect")
-	public ModelAndView redirect(HttpServletRequest request,
-			@RequestParam String action, @RequestParam String errMsgs) {
-		String viewName = action.replace("/", "");
-		if (StringHelper.isStringNullOrEmpty(errMsgs))
-			return new ModelAndView("redirect:" + viewName + "?errMsgs=" + errMsgs);
-		else
-			return new ModelAndView("redirect:" + viewName);
-	}
+	
 
-	@RequestMapping(value = "/changeLang")
-	public ModelAndView changeLang(HttpServletRequest request,
-			@RequestParam String selectLang, @RequestParam String action) {
-		HttpSession session = request.getSession();
-		String viewName = "";
-		session.setAttribute("language", selectLang);
-		
-		if(selectLang.compareToIgnoreCase("CN") == 0){
-			session.setAttribute("uiLocale", "zh-HK");
-		}else if(selectLang.compareToIgnoreCase("EN") == 0){
-			session.setAttribute("uiLocale", "en-US");
-		}else{
-			session.setAttribute("uiLocale", "en-US");
-		}
-					
-		//viewName = action.replace("/", "");
-		viewName = action;
-		return new ModelAndView("redirect:" + viewName);
-
-	}
 	
 	protected void removeSessionAttribute(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -171,37 +134,36 @@ public class FlightController {
 		session.removeAttribute("setEmailForConfirmation");
 		session.removeAttribute("createFlightPolicy");
 	}
-	
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = {"/getFlightDate", "/flight-insurance/quote"})
+	@RequestMapping(value = { "/getFlightDate", "/flight-insurance/quote" })
 	public ModelAndView getFlightDate(HttpServletRequest request,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
 		HttpSession session = request.getSession();
-		
-		// removeSessionAttribute(request); // vincent, fix flight-plan-details back btn to flight plan
+
+		// removeSessionAttribute(request); // vincent, fix flight-plan-details
+		// back btn to flight plan
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		
-		if (planDetails.getDepartureDate() != null) 
-		{
+
+		if (planDetails.getDepartureDate() != null) {
 			session.setAttribute("flightPlanDetails", planDetails);
-			System.out.println(this.getClass() + " flightPlanDetails set session");
-		} 
-		else 
-		{
-			System.out.println(this.getClass() + " planDetails.getDepartureDate() == null, flightPlanDetails get session");
-			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
-			
-			
-			if(planDetails == null)
-			{
-//				return flight(request, model, "tc");
-				return flight(request, model);	
-			}	
+			System.out.println(this.getClass()
+					+ " flightPlanDetails set session");
+		} else {
+			System.out
+					.println(this.getClass()
+							+ " planDetails.getDepartureDate() == null, flightPlanDetails get session");
+			planDetails = (PlanDetails) session
+					.getAttribute("flightPlanDetails");
+
+			if (planDetails == null) {
+				// return flight(request, model, "tc");
+				return flight(request, model);
+			}
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		System.out.println(planDetails.getDepartureDate() + " (Date1) "
@@ -232,9 +194,8 @@ public class FlightController {
 					planDetails.getTotalOtherTraveller());
 			session.setAttribute("referralCode",
 					StringHelper.emptyIfNull(planDetails.getReferralCode()));
-			
-		}
 
+		}
 
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
@@ -254,7 +215,7 @@ public class FlightController {
 			planDetails.setTravellerCount(0);
 			childCount = planDetails.getTotalChildTraveller();
 			adultCount = planDetails.getTotalAdultTraveller();
-			if (adultCount > 1 ) 
+			if (adultCount > 1)
 				spouseCover = true;
 			else
 				spouseCover = false;
@@ -271,7 +232,8 @@ public class FlightController {
 				+ "&spouseCover=" + spouseCover + "&childInput=" + childCount
 				+ "&otherInput=" + otherCount + "&commencementDate="
 				+ commencementDate + "&expiryDate=" + expiryDate
-				+ "&referralCode=" + (String)session.getAttribute("referralCode");
+				+ "&referralCode="
+				+ (String) session.getAttribute("referralCode");
 
 		System.out.println("Fight Quote user " + base);
 
@@ -285,7 +247,7 @@ public class FlightController {
 			restService.consumeLoginApi(request);
 			token = session.getAttribute("token").toString();
 			username = session.getAttribute("username").toString();
-			
+
 		}
 
 		HashMap<String, String> header = new HashMap<String, String>(
@@ -299,34 +261,42 @@ public class FlightController {
 		System.out.println(jsonObject);
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
-			
+
 			JSONObject jsonPriceInfoA = new JSONObject();
 			jsonPriceInfoA = (JSONObject) jsonObject.get("priceInfoA");
 
-			flightQuoteDetails.setGrossPremium(StringHelper.formatPrice(checkJsonObjNull(jsonPriceInfoA,
-					"grossPremium")));
-			flightQuoteDetails.setDiscountPercentage(StringHelper.formatPrice(checkJsonObjNull(
-					jsonPriceInfoA, "discountPercentage")));
-			flightQuoteDetails.setDiscountAmount(StringHelper.formatPrice(checkJsonObjNull(
-					jsonPriceInfoA, "discountAmount")));
-			flightQuoteDetails.setTotalNetPremium(StringHelper.formatPrice(checkJsonObjNull(
-					jsonPriceInfoA, "totalNetPremium")));
-			flightQuoteDetails.setToalDue(StringHelper.formatPrice(checkJsonObjNull(jsonPriceInfoA,
-					"totalDue")));
+			flightQuoteDetails.setGrossPremium(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"grossPremium")));
+			flightQuoteDetails.setDiscountPercentage(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"discountPercentage")));
+			flightQuoteDetails.setDiscountAmount(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"discountAmount")));
+			flightQuoteDetails.setTotalNetPremium(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"totalNetPremium")));
+			flightQuoteDetails.setToalDue(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA, "totalDue")));
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
-			String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
-			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));
+			String pageTitle = WebServiceUtils.getPageTitle(
+					"page.flightQuotation",
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta.flightQuotation",
+					UserRestURIConstants.getLanaguage(request));
 			model.addAttribute("pageTitle", pageTitle);
-			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("pageMetaDataDescription",
+					pageMetaDataDescription);
 			return new ModelAndView(
-					
-					UserRestURIConstants.getSitePath(request)
-							+ "flight/flight-plan");
+
+			UserRestURIConstants.getSitePath(request) + "flight/flight-plan");
 
 		} else {
-//			return flight(request, model, "tc");
+			// return flight(request, model, "tc");
 			return flight(request, model);
 		}
 	}
@@ -334,27 +304,27 @@ public class FlightController {
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	@SuppressWarnings("rawtypes")
 	// "Flight Plan" )
-	@RequestMapping(value = {"/flight-plan-details", "/flight-insurance/user-details"})
+	@RequestMapping(value = { "/flight-plan-details",
+			"/flight-insurance/user-details" })
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
-		
+
 		if (session.getAttribute("token") == null) {
 			return flight(request, model);
-//			return flight(request, model, "tc");
-			
+			// return flight(request, model, "tc");
+
 		}
 		// redirect to 1ST step when null
-		planDetails = (PlanDetails) session
-				.getAttribute("flightPlanDetails");		
-		if(planDetails == null){
-//			return flight(request, model, "tc");	
-			return flight(request, model);	
+		planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+		if (planDetails == null) {
+			// return flight(request, model, "tc");
+			return flight(request, model);
 		}
-		
+
 		planDetails.setTotalDue(request.getParameter("ToalDue"));
 		String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
 
@@ -385,24 +355,28 @@ public class FlightController {
 				mapAgeType.put(checkJsonObjNull(obj, "itemCode"),
 						checkJsonObjNull(obj, "itemDesc"));
 			}
-			
+
 			Iterator iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
-				
-				
-				if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3"))
-					mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
-				
+				System.out.println("key " + mapEntry.getKey() + " value "
+						+ mapEntry.getValue());
+
+				if (mapEntry.getKey().equals("2")
+						|| mapEntry.getKey().equals("3"))
+					mapSelfType.put((String) mapEntry.getKey(),
+							(String) mapEntry.getValue());
+
 			}
 			iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+				// System.out.println("key " + mapEntry.getKey() + " value " +
+				// mapEntry.getValue());
 				if (mapEntry.getKey().equals("1"))
-					mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
-				
+					mapChildType.put((String) mapEntry.getKey(),
+							(String) mapEntry.getValue());
+
 			}
 			model.addAttribute("mapAgeType", mapAgeType);
 			model.addAttribute("mapSelfType", mapSelfType);
@@ -438,20 +412,25 @@ public class FlightController {
 		if (userDetails != null) {
 			model.addAttribute(userDetails);
 		}
-		String pageTitle = WebServiceUtils.getPageTitle("page.flightUserDetails", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightUserDetails", UserRestURIConstants.getLanaguage(request));
+		String pageTitle = WebServiceUtils.getPageTitle(
+				"page.flightUserDetails",
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta.flightUserDetails",
+				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
+
 		model.addAttribute("planDetailsForm", planDetails);
 		String returnUrl = UserRestURIConstants.getSitePath(request)
 				+ "flight/flight-plan-details";
 		System.out.println("returnUrl " + returnUrl);
-		//return returnUrl;
+		// return returnUrl;
 		return new ModelAndView(returnUrl);
 	}
 
-	@RequestMapping(value = {"/flight-confirmation", "/flight-insurance/confirm-policy"})
+	@RequestMapping(value = { "/flight-confirmation",
+			"/flight-insurance/confirm-policy" })
 	@ResponseBody
 	public String flightConfirmation(
 			HttpServletRequest request,
@@ -462,12 +441,11 @@ public class FlightController {
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			model.addAttribute("action", "/flight-insurance");
-			return "fail";		
+			return "fail";
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
-		
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -494,7 +472,7 @@ public class FlightController {
 		JSONArray insured = new JSONArray();
 
 		String langSelected = UserRestURIConstants.getLanaguage(request);
-		
+
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 
 			JSONObject beneficiary = new JSONObject();
@@ -507,82 +485,122 @@ public class FlightController {
 			if (inx != 0) {// For other travelers skip first one
 
 				if (planDetailsForm.getPlanSelected().equals("personal"))
-					adult.put("relationship", "FE");	// adult - should be friend for personal plan
+					adult.put("relationship", "FE"); // adult - should be friend
+														// for personal plan
 				else
-					adult.put("relationship", "SP");	// adult - should be spouse for family plan
+					adult.put("relationship", "SP"); // adult - should be spouse
+														// for family plan
 
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", planDetailsForm.getAdultBenificiaryFullName()[inx]);
-						beneficiary.put("hkId",planDetailsForm.getAdultBenificiaryHkid()[inx]);						
+					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
+							.isEmpty()
+							&& INSURED_RELATIONSHIP_SELF
+									.compareToIgnoreCase(planDetailsForm
+											.getAdultBeneficiary()[inx]) != 0) {// If
+																				// have
+																				// beneficiary
+						beneficiary
+								.put("name", planDetailsForm
+										.getAdultBenificiaryFullName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getAdultBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getAdultHKID()[inx]);
+						beneficiary.put("name",
+								planDetailsForm.getAdultName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getAdultHKID()[inx]);
 						/* beneficiary.put("passport", "3451" + inx); */
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary then
 
-					beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-					beneficiary.put("hkId", planDetailsForm.getAdultHKID()[inx]);
+					beneficiary
+							.put("name", planDetailsForm.getAdultName()[inx]);
+					beneficiary
+							.put("hkId", planDetailsForm.getAdultHKID()[inx]);
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);	// input
+					beneficiary.put("relationship",
+							planDetailsForm.getAdultBeneficiary()[inx]); // input
 					adult.put("beneficiary", beneficiary);
-					
+
 					// clear bene info if bene relationship is SE
 					planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
-					planDetailsForm.getAdultBenificiaryHkid()[inx] = "";					
+					planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
-				adult.put("relationship", "SE");	// adult, should be self for 1st insured
+				adult.put("relationship", "SE"); // adult, should be self for
+													// 1st insured
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", planDetailsForm.getAdultBenificiaryFullName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getAdultBenificiaryHkid()[inx]);						
+					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
+							.isEmpty()
+							&& INSURED_RELATIONSHIP_SELF
+									.compareToIgnoreCase(planDetailsForm
+											.getAdultBeneficiary()[inx]) != 0) {// If
+																				// have
+																				// beneficiary
+						beneficiary
+								.put("name", planDetailsForm
+										.getAdultBenificiaryFullName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getAdultBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getAdultHKID()[inx]);
+						beneficiary.put("name",
+								planDetailsForm.getAdultName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getAdultHKID()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
-						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";							
+						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary then
-					beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-					beneficiary.put("hkId", planDetailsForm.getAdultHKID()[inx]);					
+					beneficiary
+							.put("name", planDetailsForm.getAdultName()[inx]);
+					beneficiary
+							.put("hkId", planDetailsForm.getAdultHKID()[inx]);
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);	// input
-					adult.put("beneficiary", beneficiary);					
+					beneficiary.put("relationship",
+							planDetailsForm.getAdultBeneficiary()[inx]); // input
+					adult.put("beneficiary", beneficiary);
 				}
 			}
 			insured.add(adult);
-			
+
 			// update relationship desc
 			String[] relationships = planDetailsForm.getAdultRelationDesc();
-			if(relationships == null){
+			if (relationships == null) {
 				// not found in ModelAttribute
-				relationships = new String[planDetailsForm.getTotalAdultTraveller()];
+				relationships = new String[planDetailsForm
+						.getTotalAdultTraveller()];
 			}
-			String[] beneRelationships = planDetailsForm.getAdultBeneRelationDesc();
-			if(beneRelationships == null){
+			String[] beneRelationships = planDetailsForm
+					.getAdultBeneRelationDesc();
+			if (beneRelationships == null) {
 				// not found in ModelAttribute
-				beneRelationships = new String[planDetailsForm.getTotalAdultTraveller()];
+				beneRelationships = new String[planDetailsForm
+						.getTotalAdultTraveller()];
 			}
-			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
-			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
+			planDetailsForm.setAdultRelationDesc(WebServiceUtils
+					.getInsuredRelationshipDesc(relationships, langSelected,
+							adult.get("relationship").toString(), inx));
+			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils
+					.getBeneRelationshipDesc(beneRelationships, langSelected,
+							beneficiary.get("relationship").toString(), inx));
 		}
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
@@ -592,48 +610,72 @@ public class FlightController {
 				child.put("ageRange", planDetailsForm.getChildAgeRange()[inx]);
 				child.put("hkId", planDetailsForm.getChildHKID()[inx]);
 				child.put("passport", "");
-				child.put("relationship", "CH");	// child
+				child.put("relationship", "CH"); // child
 				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getChildBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", planDetailsForm.getChildBenificiaryFullName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getChildBenificiaryHkid()[inx]);
+					if (!planDetailsForm.getChildBenificiaryFullName()[inx]
+							.isEmpty()
+							&& INSURED_RELATIONSHIP_SELF
+									.compareToIgnoreCase(planDetailsForm
+											.getChildBeneficiary()[inx]) != 0) {// If
+																				// have
+																				// beneficiary
+						beneficiary
+								.put("name", planDetailsForm
+										.getChildBenificiaryFullName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getChildBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getChildBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getChildBeneficiary()[inx]); // input
 						child.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name", planDetailsForm.getChildName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getChildHKID()[inx]);
+						beneficiary.put("name",
+								planDetailsForm.getChildName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getChildHKID()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getChildBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getChildBeneficiary()[inx]); // input
 						child.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getChildBenificiaryFullName()[inx] = "";
-						planDetailsForm.getChildBenificiaryHkid()[inx] = "";							
+						planDetailsForm.getChildBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary
-					beneficiary.put("name", planDetailsForm.getChildName()[inx]);
-					beneficiary.put("hkId", planDetailsForm.getChildHKID()[inx]);
+					beneficiary
+							.put("name", planDetailsForm.getChildName()[inx]);
+					beneficiary
+							.put("hkId", planDetailsForm.getChildHKID()[inx]);
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship", planDetailsForm.getChildBeneficiary()[inx]);	// input
+					beneficiary.put("relationship",
+							planDetailsForm.getChildBeneficiary()[inx]); // input
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
-				
+
 				// update relationship desc
 				String[] relationships = planDetailsForm.getChildRelationDesc();
-				if(relationships == null){
+				if (relationships == null) {
 					// not found in ModelAttribute
-					relationships = new String[planDetailsForm.getTotalChildTraveller()];
+					relationships = new String[planDetailsForm
+							.getTotalChildTraveller()];
 				}
-				String[] beneRelationships = planDetailsForm.getChildBeneRelationDesc();
-				if(beneRelationships == null){
+				String[] beneRelationships = planDetailsForm
+						.getChildBeneRelationDesc();
+				if (beneRelationships == null) {
 					// not found in ModelAttribute
-					beneRelationships = new String[planDetailsForm.getTotalChildTraveller()];
+					beneRelationships = new String[planDetailsForm
+							.getTotalChildTraveller()];
 				}
-				planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, child.get("relationship").toString(), inx));
-				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));					
+				planDetailsForm.setChildRelationDesc(WebServiceUtils
+						.getInsuredRelationshipDesc(relationships,
+								langSelected, child.get("relationship")
+										.toString(), inx));
+				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils
+						.getBeneRelationshipDesc(beneRelationships,
+								langSelected, beneficiary.get("relationship")
+										.toString(), inx));
 			}
 		}
 		if (planDetailsForm.getTotalOtherTraveller() > 0) {
@@ -643,51 +685,73 @@ public class FlightController {
 				other.put("ageRange", planDetailsForm.getOtherAgeRange()[inx]);
 				other.put("hkId", planDetailsForm.getOtherHKID()[inx]);
 				other.put("passport", "");
-				other.put("relationship", "FE");	// other, should be friend
+				other.put("relationship", "FE"); // other, should be friend
 
 				JSONObject beneficiary = new JSONObject();
 
 				if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getOtherBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getOtherBeneficiary()[inx]) != 0) {
-						beneficiary.put("name", planDetailsForm.getOtherBenificiaryFullName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getOtherBenificiaryHkid()[inx]);
+					if (!planDetailsForm.getOtherBenificiaryFullName()[inx]
+							.isEmpty()
+							&& INSURED_RELATIONSHIP_SELF
+									.compareToIgnoreCase(planDetailsForm
+											.getOtherBeneficiary()[inx]) != 0) {
+						beneficiary
+								.put("name", planDetailsForm
+										.getOtherBenificiaryFullName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getOtherBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getOtherBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getOtherBeneficiary()[inx]); // input
 						other.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name", planDetailsForm.getOtherName()[inx]);
-						beneficiary.put("hkId", planDetailsForm.getOtherHKID()[inx]);
+						beneficiary.put("name",
+								planDetailsForm.getOtherName()[inx]);
+						beneficiary.put("hkId",
+								planDetailsForm.getOtherHKID()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship", planDetailsForm.getOtherBeneficiary()[inx]);	// input
+						beneficiary.put("relationship",
+								planDetailsForm.getOtherBeneficiary()[inx]); // input
 						other.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getOtherBenificiaryFullName()[inx] = "";
-						planDetailsForm.getOtherBenificiaryHkid()[inx] = "";						
+						planDetailsForm.getOtherBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary
-					beneficiary.put("name", planDetailsForm.getOtherName()[inx]);
-					beneficiary.put("hkId", planDetailsForm.getOtherHKID()[inx]);
+					beneficiary
+							.put("name", planDetailsForm.getOtherName()[inx]);
+					beneficiary
+							.put("hkId", planDetailsForm.getOtherHKID()[inx]);
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship", planDetailsForm.getOtherBeneficiary()[inx]);	// input
+					beneficiary.put("relationship",
+							planDetailsForm.getOtherBeneficiary()[inx]); // input
 					other.put("beneficiary", beneficiary);
 				}
 				insured.add(other);
-				
+
 				// update relationship desc
 				String[] relationships = planDetailsForm.getOtherRelationDesc();
-				if(relationships == null){
+				if (relationships == null) {
 					// not found in ModelAttribute
-					relationships = new String[planDetailsForm.getTotalOtherTraveller()];
+					relationships = new String[planDetailsForm
+							.getTotalOtherTraveller()];
 				}
-				String[] beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
-				if(beneRelationships == null){
+				String[] beneRelationships = planDetailsForm
+						.getOtherBeneRelationDesc();
+				if (beneRelationships == null) {
 					// not found in ModelAttribute
-					beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
+					beneRelationships = new String[planDetailsForm
+							.getTotalOtherTraveller()];
 				}
-				planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, other.get("relationship").toString(), inx));
-				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));					
+				planDetailsForm.setOtherRelationDesc(WebServiceUtils
+						.getInsuredRelationshipDesc(relationships,
+								langSelected, other.get("relationship")
+										.toString(), inx));
+				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils
+						.getBeneRelationshipDesc(beneRelationships,
+								langSelected, beneficiary.get("relationship")
+										.toString(), inx));
 			}
 		}
 
@@ -773,20 +837,27 @@ public class FlightController {
 					request.getParameter("emailAddress"));
 			model.addAttribute(createFlightPolicy);
 			model.addAttribute("planDetailsForm", planDetailsForm);
-			String pageTitle = WebServiceUtils.getPageTitle("page.flightPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			String pageTitle = WebServiceUtils.getPageTitle(
+					"page.flightPlanConfirmation",
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta.flightPlanConfirmation",
+					UserRestURIConstants.getLanaguage(request));
 			model.addAttribute("pageTitle", pageTitle);
-			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("pageMetaDataDescription",
+					pageMetaDataDescription);
 			return "success";
 		} else {
-			model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
+			model.addAttribute("errMsgs", responsObject.get("errMsgs")
+					.toString());
 			model.addAttribute("action", "/flight-insurance");
-			return "fail";
+			return responsObject.get("errMsgs")
+					.toString();
 		}
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = {"/flight-confrimation-page", "/flight-insurance/confirmation"})
+	@RequestMapping(value = { "/flight-confrimation-page", "/flight-insurance/confirmation" })
 	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
@@ -796,12 +867,11 @@ public class FlightController {
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			model.addAttribute("action", "/flight-insurance");
-			return new ModelAndView("/flight-insurance/user-details");		
+			return new ModelAndView("/flight-insurance/user-details");
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
-		
 
 		/* Get Travel Policies */
 		try {
@@ -825,13 +895,13 @@ public class FlightController {
 			} else {
 				createFlightPolicy = (CreateFlightPolicy) session
 						.getAttribute("createFlightPolicy");
-				
-				// redirect to 1ST step when null 
-				if(createFlightPolicy == null){
-					//return flight(request, model, "tc");
+
+				// redirect to 1ST step when null
+				if (createFlightPolicy == null) {
+					// return flight(request, model, "tc");
 					return flight(request, model);
-					
-				}				
+
+				}
 			}
 
 			/* Calculate total Days */
@@ -843,20 +913,17 @@ public class FlightController {
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
 			createFlightPolicy.setDays(days + 1);
 
-			
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
 
-			//RETRIEVE FROM SESSION OF PREVIOUSLY QUOTATION
-			TravelQuoteBean travelQuoteCount = (TravelQuoteBean) session.getAttribute("travelQuoteCount");
+			// RETRIEVE FROM SESSION OF PREVIOUSLY QUOTATION
+			TravelQuoteBean travelQuoteCount = (TravelQuoteBean) session
+					.getAttribute("travelQuoteCount");
 			selfCover = travelQuoteCount.isSelfCover();
-			spouseCover= travelQuoteCount.isSpouseCover();
+			spouseCover = travelQuoteCount.isSpouseCover();
 			childCount = travelQuoteCount.getTotalChildTraveller();
 			otherCount = travelQuoteCount.getTotalOtherTraveller();
-			
-			
-			
-			
+
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
@@ -931,22 +998,25 @@ public class FlightController {
 
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView("/flight-insurance/user-details");		
-				
-				
+				return new ModelAndView("/flight-insurance/user-details");
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView("/flight-insurance/user-details");		
+			return new ModelAndView("/flight-insurance/user-details");
 		}
-		String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.flightQuotation", UserRestURIConstants.getLanaguage(request));
+		String pageTitle = WebServiceUtils.getPageTitle("page.flightQuotation",
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta.flightQuotation",
+				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		session.setAttribute("referralCode", StringHelper.emptyIfNull(upgradeReferralCode));
+		session.setAttribute("referralCode",
+				StringHelper.emptyIfNull(upgradeReferralCode));
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "flight/flight-confirmation");		
+				+ "flight/flight-confirmation");
 	}
 
 	@RequestMapping(value = "/flight-upgrade-travel-summary")
@@ -956,7 +1026,7 @@ public class FlightController {
 
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		String selectPlanName = request.getParameter("planName");
 		HttpSession session = request.getSession();
 		JSONObject parameters = new JSONObject();
 		if (session.getAttribute("FlightResponseFrTrvl") != null) {
@@ -969,15 +1039,19 @@ public class FlightController {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
 			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
-				plandetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(plandetailsForm.getAdultAgeRange(), UserRestURIConstants.getLanaguage(request)));
+				plandetailsForm.setAdultAgeRangeName(WebServiceUtils
+						.getAgeRangeNames(plandetailsForm.getAdultAgeRange(),
+								UserRestURIConstants.getLanaguage(request)));
 			}
 			for (int inx = 0; inx < plandetailsForm.getTotalChildTraveller(); inx++) {
-				plandetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(plandetailsForm.getChildAgeRange(), UserRestURIConstants.getLanaguage(request)));
+				plandetailsForm.setChildAgeRangeName(WebServiceUtils
+						.getAgeRangeNames(plandetailsForm.getChildAgeRange(),
+								UserRestURIConstants.getLanaguage(request)));
 			}
 			for (int inx = 0; inx < plandetailsForm.getTotalOtherTraveller(); inx++) {
-				
+
 			}
-			
+
 		}
 
 		HashMap<String, String> header = new HashMap<String, String>(
@@ -986,9 +1060,9 @@ public class FlightController {
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		String referralCode = (String)session.getAttribute("referralCode");
+		String referralCode = (String) session.getAttribute("referralCode");
 		parameters.put("referralCode", referralCode);
-		
+		model.addAttribute("selectPlanName", createFlightPolicy.getPlanCode());
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
@@ -1045,15 +1119,13 @@ public class FlightController {
 					createPolicy.getTransactionDate());
 			session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
 			session.setAttribute("transNo", createPolicy.getTransactionNo());
+			model.addAttribute("selectPlanName", selectPlanName);
 			/* System.out.println("Session Id" + request.getSession().getId()); */
 		} else {
-			return UserRestURIConstants.getSitePath(request)
-					+ "travel/travel";
+			return UserRestURIConstants.getSitePath(request) + "travel/travel";
 		}
-			
 
 		String dueAmount = request.getParameter("selectedAmountDue");
-		
 
 		String applicantFullName = request.getParameter("fullName");
 		String applicantHKID = request.getParameter("hkid");
@@ -1092,8 +1164,12 @@ public class FlightController {
 				"flight-upgrade-travel-summary", "travel-confirmation"));
 		model.addAttribute("failurePath",
 				path.replace("flight-upgrade-travel-summary", "failure"));
-		String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		String pageTitle = WebServiceUtils.getPageTitle(
+				"page.travelPlanSummary",
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta.travelPlanSummary",
+				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return UserRestURIConstants.getSitePath(request)
@@ -1108,9 +1184,6 @@ public class FlightController {
 		}
 	}
 
-	
-	
-	
 	public String checkStringNull(String checkByStr) {
 		if (checkByStr != null) {
 			return checkByStr.toString();

@@ -268,7 +268,7 @@
 <div class="hidden-lg hidden-md text-center">
 	<div class="btn-box">
 		<h3 class="text-center marg-t">
-			<a href="flight-plan-details"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
+			<a href="<%=request.getContextPath()%>/flight-insurance/user-details"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
 		</h3>
 	</div>
 

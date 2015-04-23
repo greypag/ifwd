@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -276,7 +277,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	}
 	
 	@Override
-	public Map<String, String> getNetFloorArea(String userName, String token,
+	public LinkedHashMap<String, String> getNetFloorArea(String userName, String token,
 			String language) {
 		// TODO Auto-generated method stub
 
@@ -284,7 +285,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 				+ "?itemTable=NetFloorArea";
 
 		RestServiceDao restService = new RestServiceImpl();
-		Map<String, String> mapNetFloorArea = new HashMap<String, String>();
+		LinkedHashMap<String, String> mapNetFloorArea = new LinkedHashMap<String, String>();
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
 		header.put("userName", userName);

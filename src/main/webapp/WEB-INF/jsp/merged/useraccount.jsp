@@ -351,13 +351,17 @@
 										class="padding6 h4-5-b " href="">${userDetails.getReferralLink()}</a>
 										<input type="hidden" value="${userDetails.getReferralLink()}"
 										name="box-content" id="box-content"> --%>
+										
+										<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home?promo=<%=session.getAttribute("myReferralCode")%>
+										
+										
 									</td>
 
 								</tr>
 								<tr>
 									<td class="pad-none" colspan="2">
 										<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied">Copy Link</div>
-										<div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/"<%=request.getContextPath()%> data-title="iFWD"></div>
+										<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>" data-title="iFWD"></div>
 									</td>
 								</tr>
 							</tbody>

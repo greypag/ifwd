@@ -94,9 +94,9 @@
 												onkeypress="return isNumeric(event)"
 												onblur="replaceNumeric(this);"> <span
 												id="errorEmptyMob" class="hide1"> <label
-													class="text-red">請以數字輸入 聯絡電話 </label>
+													class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /> </label>
 											</span> <span class="hide" id="errorInvalidMob"> <label
-													class="text-red">聯絡電話需為８位數字，請重新輸入</label>
+													class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
 											</span></td>
 										</tr>
 										<tr>
@@ -106,32 +106,32 @@
 											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="emailAddress"
 												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId"
-												class="hide1"> <label class="text-red">請輸入電郵地址</label>
+												class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /> </label>
 											</span> <span id="errorInvalidEmailId" class="hide1"> <label
-													class="text-red">請輸入正確/有效的 電郵地址</label>
+													class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
 											</span></td>
 
 										</tr>
 										<tr>
-											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" />
+											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.userName" bundle="${msg}" />
 											</label></td>
 											<td class=""><input type="text" name="userName"
-												class="form-control" id="userName" placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />">
+												class="form-control" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />">
 												<span id="errorEmptyUName" class="hide1"> <label
-													class="text-red">請輸入使用者名稱</label>
+													class="text-red"><fmt:message key="member.registration.details.label.userName.errorEmptyUName" bundle="${msg}" /></label>
 											</span> <span id="errorInvalidUName" class="hide1"> <label
-													class="text-red">请输入有效的用户名</label>
+													class="text-red"><fmt:message key="member.registration.details.label.userName.errorInvalidUName" bundle="${msg}" /></label>
 											</span></td>
 
 										</tr>
 										<tr></tr>
 										<tr>
-											<td colspan="2">
+											<td colspan="2">	
 												<!-- <button type="button" onclick="forgotPassword()"
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
 												<button type="button" onclick="forgotUserPassword()"
-													class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>
+													class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>
 
 											</td>
 										</tr>

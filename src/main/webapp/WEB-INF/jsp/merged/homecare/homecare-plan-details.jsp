@@ -820,7 +820,7 @@
 								<div class="wd2">
 									
 										<div class="col-md-7 col-lg-8">
-											<h2 class="h2-3-choose pad-none">${homeQuoteDetails.getPlanCode()}
+											<h2 class="h2-3-choose pad-none">
 												<fmt:message key="home.details.summary.product" bundle="${msg}" /></h2>
 											<h4 class="pad-none"><fmt:message key="home.details.summary.desc1" bundle="${msg}" /></h4>
 										</div>

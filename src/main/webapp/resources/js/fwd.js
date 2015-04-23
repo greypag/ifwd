@@ -2702,7 +2702,7 @@ $(window).load(function(){
 function chkTravelHKPassLen(value) {
    var len = value.length;
    
-   if (len > 15)
+   if (len > 15 || len < 5)
    {
 	   return false;
    }
@@ -2785,28 +2785,7 @@ function hc_planValid() {
     $('#errADist').html('');
     
     /**** VAlidation for HKID and Passport ***/
-	/*var selectHkidPass = document.getElementById("selectHkidPass").value;
-    if (appHkid.trim() == "") {
-        document.getElementById("errAppHkid").innerHTML = "Please fill in your HKID or Passport No.";
-        flag = false;
-    }
-    else {
-        if (selectHkidPass == "hkId") {
-            var tr = IsHKID(appHkid.trim());
-            if (tr == false) {
-                document.getElementById("errAppHkid").innerHTML = "Your HKID No. is invalid.";
-                flag = false;
-            }
-        }
-        else {
-            var tr = chkTravelHKPass(appHkid.trim());
-            if (tr == false) {
-                document.getElementById("errAppHkid").innerHTML = "Your Passport No. is invalid.";
-                flag = false;
-            }
-        }
-    }*/
-//   
+	 
     var selectHkidPass = document.getElementById("selectHkidPass").value;
 	if (appHkid.trim() == "") {
 		if (selectHkidPass.toLowerCase() == "hkid") {
@@ -2853,18 +2832,7 @@ function hc_planValid() {
         document.getElementById("appfullname").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
         flag = false;
     }
-    /*if (appHkid.trim() == "") {
-        document.getElementById("errAppHkid").innerHTML = "Please enter your HKID No.";
-        flag = false;
-    }
-    else {
-        var tr = IsHKID(appHkid.trim());
-        
-        if (tr == false) {
-            document.getElementById("errAppHkid").innerHTML = "Your HKID No. is invalid.";
-            flag = false;
-        }
-    }*/
+    
     if (mobileNo.trim() == "") {
         document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         flag = false;
@@ -2905,26 +2873,20 @@ function hc_planValid() {
             flag = false;
         }
     }*/
-    if (CABuilding.trim() == "") {
+    if (CABuilding.trim() == "" && CAEstate.trim() == "") {
         //document.getElementById("errCABuilding").innerHTML = "Name of Building is invalid.";
         $('#errCABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
-        flag = false;
-    }
-    if (CAEstate.trim() == "") {
-        //document.getElementById("errCAEstate").innerHTML = "Name of Estate in invalid.";
         $('#errCAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
         flag = false;
     }
-    if (ABuilding.trim() == "") {
+    
+    if (ABuilding.trim() == "" && AEstate.trim() == "") {
         //document.getElementById("errABuilding").innerHTML = "Please enter your Corresponding Address.";
         $('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
-        flag = false;
-    }
-    if (AEstate.trim() == "") {
-        //document.getElementById("errAEstate").innerHTML = "Name of Estate in invalid.";
         $('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
         flag = false;
-    } 
+    }
+     
     if (NFA.trim() == "") {
         //document.getElementById("errNFA").innerHTML = "Please select Net Floor Area.";
         $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
@@ -3414,45 +3376,52 @@ function chkNotNullCreditCareName(element, errElementId){
 }
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
-	
-	if(isNull(element)){
-		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
-		document.getElementById(errElementId).innerHTML = msg;
-		return false;
-	}else{
-		resetErrElement(errElementId);
-		return true;
-	}	
+	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	return true;
+//	if(isNull(element)){
+//		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
+//		document.getElementById(errElementId).innerHTML = msg;
+//		return false;
+//	}else{
+//		resetErrElement(errElementId);
+//		return true;
+//	}	
 }
 function chkNotNullCAEstate(element, errElementId){
-	if(isNull(element)){
-		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.estate.notNull.message");
-		document.getElementById(errElementId).innerHTML = msg;
-		return false;
-	}else{
-		resetErrElement(errElementId);
-		return true;
-	}	
+	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	return true;
+//	if(isNull(element)){
+//		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.estate.notNull.message");
+//		document.getElementById(errElementId).innerHTML = msg;
+//		return false;
+//	}else{
+//		resetErrElement(errElementId);
+//		return true;
+//	}	
 }
 function chkNotNullIABuilding(element, errElementId){
-	if(isNull(element)){
-		var msg = getBundle(getBundleLanguage, "insured.address.building.notNull.message");
-		document.getElementById(errElementId).innerHTML = msg;
-		return false;
-	}else{
-		resetErrElement(errElementId);
-		return true
-	}	
+	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	return true;
+//	if(isNull(element)){
+//		var msg = getBundle(getBundleLanguage, "insured.address.building.notNull.message");
+//		document.getElementById(errElementId).innerHTML = msg;
+//		return false;
+//	}else{
+//		resetErrElement(errElementId);
+//		return true
+//	}	
 }
 function chkNotNullIAEstate(element, errElementId){
-	if(isNull(element)){
-		var msg = getBundle(getBundleLanguage, "insured.address.estate.notNull.message");
-		document.getElementById(errElementId).innerHTML = msg;
-		return false;
-	}else{
-		resetErrElement(errElementId);
-		return true;
-	}	
+	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	return true;
+//	if(isNull(element)){
+//		var msg = getBundle(getBundleLanguage, "insured.address.estate.notNull.message");
+//		document.getElementById(errElementId).innerHTML = msg;
+//		return false;
+//	}else{
+//		resetErrElement(errElementId);
+//		return true;
+//	}	
 }
 function chkNotNullIANetFloorArea(element, errElementId){
 	if(isNull(element)){

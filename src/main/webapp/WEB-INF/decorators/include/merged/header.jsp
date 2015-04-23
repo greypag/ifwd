@@ -25,7 +25,7 @@ function submitLoginForm(formID) {
 					$('#ajax-loading').hide();
 					var Backlen = history.length;
 					history.go(-Backlen);
-					window.location.href = "getAccByUsernaneAndPassword";
+					window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 				} else if (data == 'fail') {
 					$('#ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
@@ -245,7 +245,7 @@ function submitLoginForm(formID) {
 									<ul>
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
-										<li><a href="getAccByUsernaneAndPassword" class="color1">
+										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
 										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
@@ -397,7 +397,7 @@ function submitLoginForm(formID) {
 									<ul>
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
-										<li><a href="getAccByUsernaneAndPassword" class="color1">
+										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
 										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>

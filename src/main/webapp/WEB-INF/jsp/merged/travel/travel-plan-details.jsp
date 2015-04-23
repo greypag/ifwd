@@ -143,7 +143,7 @@
 
 									</td>
 									<td class="pad-none">
-									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
+									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" maxlength="15" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
