@@ -56,9 +56,9 @@ public class UserController {
 		//return "home";
 		String path = "../jsp/" + dir + "/index";
 		System.out.println("path " + path);
-		return "home";
+		//return "home";
 		
-//		return "../jsp/" + dir + "/index";
+		return "../jsp/" + dir + "/index";
 		
 		
 	}

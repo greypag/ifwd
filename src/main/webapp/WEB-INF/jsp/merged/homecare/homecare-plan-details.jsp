@@ -488,7 +488,7 @@
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 												class="control-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
 											<td class=""><input type="text"
-												class="form-control marginbt full-control" id="Username"
+												class="form-control marginbt full-control" id="Username" name="userName"
 												placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />"> <span id="UsernameError"
 												class="text-red"> </span></td>
 										</tr>
@@ -496,7 +496,7 @@
 											<td class=""><label
 												class="control-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
-												class="form-control marginbt full-control" id="Password" autocomplete="off"
+												class="form-control marginbt full-control" id="Password" autocomplete="off" name="password"
 												placeholder="<fmt:message key="home.details.registration.password.placeholder" bundle="${msg}" />"> <span id="PasswordError"
 												class="text-red"> </span></td>
 										</tr>

@@ -3751,32 +3751,7 @@ function activateUserAccount(){
 
 // 1. save credit card info by calling processHomeCarePayment
 // 2. post to payment gatway when step 1 success 
-var clicked = false;
-function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-	if (payValid() && clicked === false) {
-		clicked = true;
-		$("#PaymentingDiv").show();
 
-		var gatewayUrlId = '#' + gatewayUrlId;
-		var paymentFormId = '#' + paymentFormId;
-		var method = "<%=request.getContextPath()%>/processHomeCarePayment";
-		
-		var geteWayUrl = $(gatewayUrlId).val();
-		$.ajax({
-					type : "POST",
-					url : method,
-					data : $(paymentFormId).serialize(),
-					async : false,
-					success : function(data) {
-						if (data == 'success') {
-							form.action = geteWayUrl;
-						}
-					}
-				});
-		return true;
-	}else return false;
-
-}
 
 
 

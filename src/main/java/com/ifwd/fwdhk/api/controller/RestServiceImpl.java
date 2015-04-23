@@ -204,13 +204,18 @@ public class RestServiceImpl implements RestServiceDao {
 //									.getEntity().getContent());
 							
 //							encoding = encoding == null ? "UTF-8" : encoding;
-							String encoding = "UTF-8";
-							String responseStr = IOUtils.toString(response.getEntity().getContent(), encoding);
 							
-							JSONParser parser = new JSONParser();
+							
+							
 							try {
+								String encoding = "UTF-8";
+								String responseStr = IOUtils.toString(response.getEntity().getContent(), encoding);
+								JSONParser parser = new JSONParser();
 								return (JSONObject) parser.parse(responseStr);
 							} catch (ParseException e) {
+								e.printStackTrace();
+							}
+							catch (Exception e) {
 								e.printStackTrace();
 							}
 							return null;

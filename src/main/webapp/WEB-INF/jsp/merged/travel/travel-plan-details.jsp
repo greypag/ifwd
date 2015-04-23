@@ -185,7 +185,7 @@
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
 											class="control-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
-											name="username" class="form-control btm-pad-10"
+											name="userName" class="form-control btm-pad-10"
 											id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
