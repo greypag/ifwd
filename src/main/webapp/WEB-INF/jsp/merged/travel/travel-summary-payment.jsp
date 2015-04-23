@@ -35,7 +35,7 @@
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return payValid();">
+			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -583,7 +583,7 @@
 
 									</div>
 								</td>
-								<td><img src="resources/images/cards.png" alt=""></td>
+								<td><img src="<%=request.getContextPath()%>/resources/images/cards.png" alt=""></td>
 							</tr>
 							<tr>
 								<td></td>
@@ -688,5 +688,10 @@
 	<br>
 </section>
 <!--/end Main Content-->
+<div id="PaymentingDiv" class="waitingDiv" style="display: none">
+	<img
+		style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%"
+		src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+</div>
 </body>
 </html>

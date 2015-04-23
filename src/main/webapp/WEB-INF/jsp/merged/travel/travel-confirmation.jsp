@@ -71,7 +71,7 @@
             <div class="h4-3-b margin-left"><fmt:message key="travel.confirmation.referalCode.desc1" bundle="${msg}" /><!-- <span class="orange-star">*</span> --></div>
             </div>
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-              <img src="resources/images/agoda.png" alt="" >  
+              <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" >  
               </div>
                <div class="clearfix"></div><br><br>
 

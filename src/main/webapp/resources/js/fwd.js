@@ -1,9 +1,10 @@
 var reg = /^[a-zA-Z]+$/;
 var emailreg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
-var mobile_pattern = /^\d{8}$/;
+var mobile_pattern = /^1[0-9]{10}$|^[5689][0-9]{7}$/;   /* /^\d{8}$/; */
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+//var passport_pattern_new = /\b[a-zA-Z0-9]{2}[0-9]{5,10}\b;
 
 var getBundleLanguage = "";
 var lang = UILANGUAGE;
@@ -1501,6 +1502,7 @@ function fcPlanValid()
 
 
 //Travel plan details page validation
+var travelp_click = false;
 function tPlanValid()
 {
 
@@ -1948,8 +1950,13 @@ function tPlanValid()
 		}
 	}
 
-
-	return flag;
+    if(travelp_click)
+    	return false
+    else{
+    	travelp_click = true;
+    	return flag;
+    }	
+	
 
 }
 
@@ -2553,7 +2560,7 @@ zopim_chat_start('en');
 
 
 function isCreditCard(CC) {
-	console.log("cc : ",CC)
+	
     if (CC.length > 19) return (false);
   
     sum = 0;
@@ -2737,6 +2744,7 @@ function chkTravelHKPass(value) {
 }
 
 //HOME CARE VALIDATION
+var home_click = false;
 function hc_planValid() {
     var flag = true;
     
@@ -2928,8 +2936,15 @@ function hc_planValid() {
     //Remove the disabled select
     if(flag){
     	$('#selectADist').removeAttr('disabled');
+    	
     }
-    return flag;
+    if(home_click)
+    	return false
+    else{
+    	home_click = true;
+    	return flag;
+    }	
+    
 }
 
 
@@ -3751,7 +3766,32 @@ function activateUserAccount(){
 
 // 1. save credit card info by calling processHomeCarePayment
 // 2. post to payment gatway when step 1 success 
+var clicked = false;
+function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
+	if (payValid() && clicked === false) {
+		clicked = true;
+		$("#PaymentingDiv").show();
 
+		var gatewayUrlId = '#' + gatewayUrlId;
+		var paymentFormId = '#' + paymentFormId;
+		var method = "/FWDHKPH1A/processHomeCarePayment";
+		
+		var geteWayUrl = $(gatewayUrlId).val();
+		$.ajax({
+					type : "POST",
+					url : method,
+					data : $(paymentFormId).serialize(),
+					async : false,
+					success : function(data) {
+						if (data == 'success') {
+							form.action = geteWayUrl;
+						}
+					}
+				});
+		return true;
+	}else return false;
+
+}
 
 
 
