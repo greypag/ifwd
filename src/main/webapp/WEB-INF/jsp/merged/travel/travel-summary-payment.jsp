@@ -327,20 +327,33 @@
 										<td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.beneficiary.relation" bundle="${msg}" /></td>
 									</tr>
 									<%
-										
-										for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
+										for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) 
+										{
 									%>
 
 									<tr class="hidden-sm hidden-xs">
-										<td class="pad-none" data-title="Adult <%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
-												<%=i + 1%></span></td>
+										<td class="pad-none" data-title="Adult <%=i + 1%>">
+										<span class="h2-1-td">
+										<c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
+											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
+												<%=i + 1%>
+										</c:if>
+										
+										<c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
+											<fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
+												<%=i + 1%>
+										</c:if>
+										
+										</span>
+										</td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
 										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
 										<td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
 										<td data-title="Relationship"><span class="h4-5"></span></td>	<!-- hide relationship if insured -->
 									</tr>
 									<%
-										if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
+											if (planDetailsForm.getAdultBenificiaryFullName().length > 0) 
+											{
 									%>
 									<tr>
 										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
@@ -352,11 +365,11 @@
 <!-- 										<td data-title="Relationship" class="travel-tb-h3"></td> -->
 									</tr>
 									<%
-										}
+											}
 									%>
 								</tbody>
 								<%
-									}
+									     }
 								%>
 								<%
 									for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
@@ -495,7 +508,7 @@
 											
 											<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="Credit card number"
+											title="" placeholder="<fmt:message key="travel.payment.card.no.placeholder" bundle="${msg}" />"
 											onkeyup="" onkeypress="return isNumeric(event)" 
 											onBlur="validatecardnumber(this.value)"
 											 />
