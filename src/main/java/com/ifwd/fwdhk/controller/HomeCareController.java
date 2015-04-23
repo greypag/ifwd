@@ -365,8 +365,9 @@ public class HomeCareController {
 			model.addAttribute("confirm", confirm);
 		} else {
 			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
-			return UserRestURIConstants.getSitePath(request)
-					+ "homecare/homecare-plan-details";
+			return "/home-insurance/user-details";
+//			return UserRestURIConstants.getSitePath(request)
+//					+ "home-insurance/user-details";
 		}
 
 		System.out.println("PayType===>" + createdPolicy.getPaymentType());
