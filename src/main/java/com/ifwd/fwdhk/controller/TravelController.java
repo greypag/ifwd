@@ -153,7 +153,7 @@ public class TravelController {
 				otherCount = travelQuote.getTotalPersonalTraveller();
 				travelQuote.setTotalChildTraveller(0);
 				travelQuote.setTotalAdultTraveller(0);
-				travelQuote.setTotalOtherTraveller(otherCount - 1);
+				// travelQuote.setTotalOtherTraveller(otherCount - 1);		// vincent - bug fix from travel 3rd page (Back btn) to 2nd page
 				otherCount = travelQuote.getTotalOtherTraveller();
 
 			} else {
