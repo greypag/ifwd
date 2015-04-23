@@ -40,10 +40,11 @@ public class UserController {
 	RestServiceDao restService;
 
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
-	public String logout(HttpServletRequest servletRequest) {
+	public ModelAndView logout(HttpServletRequest servletRequest) {
 		System.out.println("in logout");
 		//HttpSession session = servletRequest.getSession();
 		//session.invalidate();
+		
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
 		if (session!=null) {
@@ -59,8 +60,8 @@ public class UserController {
 		//return "home";
 		
 		return "../jsp/" + dir + "/index";
-		
-		
+		String projectUrl = "http://localhost:8088/FWDHKPH1A/home";
+		return new ModelAndView("redirect:" + projectUrl);
 	}
 
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
