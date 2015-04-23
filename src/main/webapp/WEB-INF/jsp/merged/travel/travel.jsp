@@ -356,16 +356,16 @@
     </div>
     <span id="travelCountMobIn" style="display:none">
     <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
-    </span> <br>
+    </span>
 <!--     <span id="travelCountMobIn" style="display:none"> -->
 <!--     <label style="color:red">Traveller count which is blank</label> -->
 <!--     </span> -->
-    <div id="divPersonsMob" style="visibility:hidden;"> <br>
+    <div class="text-center" id="divPersonsMob" style="visibility:hidden;">
       <small>
       <label id="lblPeopleMob">0</label>
         <fmt:message key="travel.main.quote.total.people" bundle="${msg}" />
       <label id="lblDaysMob">0</label>
-        <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></small> <br>
+        <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></small>
     </div>
   </div>
   
@@ -391,10 +391,9 @@
 <!--end desktop--> 
 
 <!--Mobile-->
-<h2 class="hidden-lg hidden-md feature-ttl">
-<br>
-<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" /><br/>
-<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" /><br/>
+<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
+<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
+<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" />
 <fmt:message key="travel.main.mobile.desc3" bundle="${msg}" />
 </h2>
 <!--end Mobile-->
@@ -560,7 +559,7 @@
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap-mid text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/$.png" alt=""  /> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
               <h2><fmt:message key="travel.main.highlight2.heading.line1" bundle="${msg}" /><fmt:message key="travel.main.highlight2.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight2.desc" bundle="${msg}" /></p>
               </div>
