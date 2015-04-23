@@ -133,17 +133,17 @@
 								<tr>
 									<td class="pad-none vtop">
 									<div class="col-md-12 col-lg-12 pad-none">
-									<select name="selectedHkidPassApplicant" class="soflow" id="selectHkidPass">
+									<select id="selectHkidPass" name="selectedHkidPassApplicant" onchange="selected(this)" class="soflow">
 										<c:forEach var="hkidList" items="${mapHkId}">
 											<option value="${hkidList.key}"><c:out
-														value="${hkidList.value}" /></option>
+															value="${hkidList.value}" /></option>
 										</c:forEach>
 									</select>
 									</div>
 
 									</td>
 									<td class="pad-none">
-									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" maxlength="15" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
+									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
@@ -240,23 +240,23 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx}"></c:out>
+											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> 
 								<% 	}
 									else 
 									{
 								%>
-											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
+											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" />
 								<%  } %> 
+												<c:out value="${inx-1}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
-											
 											<c:when test="${inx == 1}">
 								<%								
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx}"></c:out>
+											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> 
 
 								<% 	}
 									else 
@@ -291,10 +291,10 @@
 										</div>
 										<div class="col-xs-6 col-md-6">
 											<div class="col-md-10 col-lg-10 pad-none">
-											<select name="selectedAdHkidPass" class="soflow" id="selectedAdHkidPass${inx}">
+											<select id="selectedAdHkidPass${inx}" name="selectedAdHkidPass" class="soflow">
 												<c:forEach var="hkidList" items="${mapHkId}">
 													<option value="${hkidList.key}"><c:out
-																value="${hkidList.value}" /></option>
+															value="${hkidList.value}" /></option>
 												</c:forEach>
 											</select>
 											</div>
@@ -310,6 +310,9 @@
 										<div class="col-xs-6 col-md-6">
 											<label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label> 
 											 <select name="adultAgeRange" class="soflow" id="selectAgeRange${inx}">
+											 
+											 <c:choose>
+											 <c:when test="${inx == 1}">
 												<c:forEach var="ageList" items="${mapSelfType}">
 													<c:choose> 
   													  <c:when test="${ageList.key == '2'}">
@@ -321,6 +324,21 @@
 													</c:choose>
 													<c:out value="${ageList.value}" /></option>
 												</c:forEach>
+											</c:when>	
+											<c:when test="${inx >1}">
+												<c:forEach var="ageList" items="${mapAgeType}">
+													<c:choose> 
+  													  <c:when test="${ageList.key == '2'}">
+  													    <option value="${ageList.key}" selected>
+  													  </c:when>
+  													  <c:otherwise>
+  													  	<option value="${ageList.key}">
+  													  </c:otherwise>
+													</c:choose>
+													<c:out value="${ageList.value}" /></option>
+												</c:forEach>											
+											</c:when>
+										    </c:choose>	
 											</select> <span id="errselectAgeRange${inx}" class="text-red">
 											</span>
 										</div>
@@ -599,8 +617,8 @@
 									<input id="checkbox2" type="checkbox"> <label
 										for="checkbox2">
 										<fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
-										href="<fmt:message key="PICS.link" bundle="${msg}" /> "
-										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
+										href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
+										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
 										
 
 
@@ -706,7 +724,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
@@ -818,6 +836,10 @@
 		} else {
 			$('#' + id).removeClass('hide');
 		}
+	}
+
+	function selected(id){
+		$('#selectedAdHkidPass1').val(id.value);
 	}
 </script>
 <script>
