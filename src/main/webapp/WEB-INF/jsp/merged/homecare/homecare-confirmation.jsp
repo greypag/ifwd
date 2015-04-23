@@ -149,7 +149,7 @@
 						<div class="col-sm-12 gray-bg1">
 							<h3>
 								<fmt:message key="home.confirmation.msg.part1" bundle="${msg}" /> <strong><fmt:message key="home.confirmation.msg.part2" bundle="${msg}" /></strong>
-								<fmt:message key="home.confirmation.msg.part3" bundle="${msg}" /><strong><fmt:message key="home.confirmation.msg.part4" bundle="${msg}" /></strong>.<br>
+								<fmt:message key="home.confirmation.msg.part3" bundle="${msg}" /><strong><fmt:message key="home.confirmation.msg.part4" bundle="${msg}" /></strong><br>
 								<fmt:message key="home.confirmation.msg.part5" bundle="${msg}" /> <strong>${emailID}</strong> <fmt:message key="home.confirmation.msg.part6" bundle="${msg}" />
 							</h3>
 							<h4>

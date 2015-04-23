@@ -77,7 +77,7 @@ class="collapse navbar-collapse navbar-right top-menu pad-none"
 id="headerLoginForm">
 
 <ul class="nav navbar-nav">
-<li class="active"><a href="home">HOME</a></li>
+<li class="active"><a href="<%=request.getContextPath()%>/home">HOME</a></li>
 <li><a>|</a></li>
 <li><a href="#"
 target="_blank">ABOUT</a></li>
@@ -356,7 +356,7 @@ For the purpose of purchasing a specified insurance plan through this website ("
 <ul class="nav navmenu-nav sidepanel-menu">
 <li><a href="home">Home</a></li>
 <li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
-href="flight">Flight Insurance</a></li>
+href="<%=request.getContextPath()%>/flight-insurance">Flight Insurance</a></li>
 <li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel">Travel Insurance</a></li>
 <li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="homecare">Home Insurance</a></li>
 </ul>

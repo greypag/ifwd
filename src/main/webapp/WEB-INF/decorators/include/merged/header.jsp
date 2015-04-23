@@ -333,7 +333,7 @@ function submitLoginForm(formID) {
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="home"><img
+			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/home"><img
 				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
@@ -454,7 +454,7 @@ function submitLoginForm(formID) {
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
-		<li><a href="home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+		<li><a href="<%=request.getContextPath()%>/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
 			href="flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
