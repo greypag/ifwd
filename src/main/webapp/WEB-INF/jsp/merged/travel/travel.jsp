@@ -685,24 +685,24 @@
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="travel.main.blog.subheading1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
+            <h3> <a href="<fmt:message key="travel.main.blog.subheading1.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
-            <h3><a href="http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="travel.main.blog.subheading2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
+            <h3><a href="<fmt:message key="travel.main.blog.subheading2.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
-            <h3> <a href="http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="travel.main.blog.subheading3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
+            <h3> <a href="<fmt:message key="travel.main.blog.subheading3.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>
