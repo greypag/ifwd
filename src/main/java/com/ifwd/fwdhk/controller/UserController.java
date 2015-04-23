@@ -40,28 +40,27 @@ public class UserController {
 	RestServiceDao restService;
 
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
-	public ModelAndView logout(HttpServletRequest servletRequest) {
-		System.out.println("in logout");
-		//HttpSession session = servletRequest.getSession();
-		//session.invalidate();
-		
+	public ModelAndView logout(HttpServletRequest servletRequest) 
+	{	
+		// String homeURL = "http://localhost:8088/FWDHKPH1A/changeLang?selectLang=EN&action=/home";
+		String homeURL = "/changeLang?selectLang=EN&action=/home";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
-		if (session!=null) {
+		
+		if (session!=null) 
+		{
 			session.invalidate();
 		}
 		session = servletRequest.getSession(true);
 		session.setAttribute("language", lang);
-		//return "../.."+ UserRestURIConstants.checkLangSetPage(servletRequest)+ "index";
-		String dir = UserRestURIConstants.getSitePath(servletRequest);
-		//return "home";
-		String path = "../jsp/" + dir + "/index";
-		System.out.println("path " + path);
-		//return "home";
 		
-		return "../jsp/" + dir + "/index";
-		String projectUrl = "http://localhost:8088/FWDHKPH1A/home";
-		return new ModelAndView("redirect:" + projectUrl);
+		if (lang != null)
+		{
+			if (lang.equals("CN"))
+				homeURL = "/changeLang?selectLang=CN&action=/home";
+		}
+		System.out.println("redirect to home lang: " + lang);
+		return new ModelAndView("redirect:" + homeURL);
 	}
 
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
