@@ -1173,7 +1173,7 @@ public class TravelController {
 				path.replace("travel-summary", "confirmation"));
 		
 		System.out.println("modal path " + path.replace("travel-summary", "confirmation"));
-		//model.addAttribute("path", path + "/FWDHKPH1A/travel-insurance/confirmation");
+
         model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");

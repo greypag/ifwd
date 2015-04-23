@@ -599,7 +599,7 @@
 									<input id="checkbox2" type="checkbox"> <label
 										for="checkbox2">
 										<fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
-										href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
+										href="<fmt:message key="PICS.link" bundle="${msg}" /> "
 										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
 										
 

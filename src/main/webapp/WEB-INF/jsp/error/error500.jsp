@@ -9,7 +9,7 @@ $('#login-err-msg').hide();
 if (validUser()) {
 $.ajax({
 type : "POST",
-url : "/FWDHKPH1A/userLogin",
+url : "<%=request.getContextPath()%>/userLogin",
 data : $("#headerLoginForm form").serialize(),
 async : false,
 success : function(data) {

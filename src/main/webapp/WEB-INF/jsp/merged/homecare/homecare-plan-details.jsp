@@ -787,7 +787,7 @@
 								<div class="checkbox">
 									<input id="checkbox2" name="declarration2" type="checkbox">
 									<label for="checkbox2"><fmt:message key="home.details.declarations.PICS.part1" bundle="${msg}" />  <a
-										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+										href="<fmt:message key="PICS.link" bundle="${msg}" />"
 										 class="sub-link" target="_blank"> <fmt:message key="home.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="home.details.declarations.PICS.part3" bundle="${msg}" /> <br> 
 									</label>
 								</div>

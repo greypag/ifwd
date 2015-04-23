@@ -16,7 +16,7 @@ function submitLoginForm(formID) {
 	if (validUser(formID)) {
 		$.ajax({
 			type : "POST",
-			url : "/FWDHKPH1A/userLogin",
+			url : "<%=request.getContextPath()%>/userLogin",
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
@@ -100,7 +100,7 @@ function submitLoginForm(formID) {
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
-							<li><a href="/FWDHKPH1A/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="<%=request.getContextPath()%>/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li>
 							<%
@@ -248,7 +248,13 @@ function submitLoginForm(formID) {
 										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
-										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
+										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1">
+										
+										
+										<fmt:message key="header.menu.logout" bundle="${msg}" />
+										
+										
+										</a></li>
 									</ul>
 								</div>
 							</li>
@@ -283,9 +289,9 @@ function submitLoginForm(formID) {
 			<div class="col-lg-6 col-md-6 pull-right">
 				
 				<ul class="maintabs">
-       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="/FWDHKPH1A/flight-insurance" class="travel-special"><span class="offer"> SPECIAL OFFER</span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="/FWDHKPH1A/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="/FWDHKPH1A/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
+       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/flight-insurance" class="travel-special"><span class="offer"> SPECIAL OFFER</span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
 				
 			</div>
