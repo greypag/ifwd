@@ -132,10 +132,10 @@
 										<td class="h2-1 "><fmt:message
 												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
 										<td class=" h4-5 ">${homeCareDetails.getaRoom()}/${homeCareDetails.getaFloor()},
-											${homeCareDetails.getaBlock() },
+											${homeCareDetails.getaBlock() },<br>
 											${homeCareDetails.getaBuilding()},
 											${homeCareDetails.getaEstate() },${homeCareDetails.getaStreetNo() }
-											${homeCareDetails.getaStreetName() }
+											${homeCareDetails.getaStreetName() }<br>
 											${homeCareDetails.getaDistrict()},
 											${homeCareDetails.getaArea() }</td>
 									</tr>
@@ -428,7 +428,9 @@
 
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								
+								<!-- <input type="button"
+									class="bdr-curve btn btn-primary nxt-btn margin-left"
+									onclick="confirmPayment()" value="Confirm Payment"> -->
 								<input type="submit" class="bdr-curve btn btn-primary btn-next"
 									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 							</div>
@@ -486,7 +488,8 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
+ 						url : "<%=request.getContextPath()%>
+	/processHomeCarePayment",
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
@@ -502,33 +505,6 @@
 
 	}
 
- 	var clicked = false;
- 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
- 		if (payValid() && clicked === false) {
- 			clicked = true;
- 			$("#PaymentingDiv").show();
-
- 			var gatewayUrlId = '#' + gatewayUrlId;
- 			var paymentFormId = '#' + paymentFormId;
- 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
- 			
- 			var geteWayUrl = $(gatewayUrlId).val();
- 			$.ajax({
- 						type : "POST",
- 						url : method,
- 						data : $(paymentFormId).serialize(),
- 						async : false,
- 						success : function(data) {
- 							if (data == 'success') {
- 								form.action = geteWayUrl;
- 							}
- 						}
- 					});
- 			return true;
- 		}else return false;
-
- 	}
- 	
 	function BackMe() {
 		window.history.back();
 	}
