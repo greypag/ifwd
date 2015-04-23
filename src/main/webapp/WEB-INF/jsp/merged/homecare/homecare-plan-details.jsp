@@ -616,14 +616,14 @@
 									<tr>
 										<td colspan="3"><label class="radio-inline homecare-lb">
 												<input type="radio" name="applicantArea" id="inlineCARadio3"
-												value="HK" checked="" class="home-input1" onclick="javascript: return false;"> <span>HK
+												value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
 											</span>
 										</label> <label class="radio-inline homecare-lb"> <input
 												type="radio" name="applicantArea" id="inlineCARadio4"
-												value="KL" class="home-input1" onclick="javascript: return false;"> <span> KLN</span>
+												value="KL" class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
 										</label> <label class="radio-inline"> <input type="radio"
 												name="applicantArea" id="inlineCARadio5" value="NT"
-												class="home-input1" onclick="javascript: return false;"> <span> NT</span>
+												class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
 										</label></td>
 									</tr>
 								</tbody>
@@ -731,14 +731,14 @@
 									<tr>
 										<td colspan="4"><label class="radio-inline homecare-lb">
 												<input type="radio" name="aArea" id="inlineDeskRadio31"
-												value="HK" checked="" class="home-input1" onclick="javascript: return false;"> <span>HK
+												value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
 											</span>
 										</label> <label class="radio-inline homecare-lb"> <input
 												type="radio" name="aArea" id="inlineDeskRadio41" value="KL"
-												class="home-input1" onclick="javascript: return false;"> <span> KLN</span>
+												class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
 										</label> <label class="radio-inline"> <input type="radio"
 												name="aArea" id="inlineDeskRadio51" value="NT"
-												class="home-input1" onclick="javascript: return false;"> <span> NT</span>
+												class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
 										</label></td>
 									</tr>
 								</tbody>
