@@ -137,12 +137,23 @@
 		else
 			document.getElementById("inlineDeskRadio51").checked = true;
 	}
+	
+	$(function () {
+		autofillFields(); //for the back button!
+		
+		$('.autofillForm input, .autofillForm select').on('change keyup',function(e){
+				autofillFields();
+		});
+		
+	});
+	
 
 	function autofillFields() {
 
 		var chk = $('#checkbox3').val();
 
-		if (chk == "on") {
+		//if (chk == "on") {
+		if(document.getElementById("checkbox3").checked){
 			var applicantRoom = $('#inputCARoom').val();
 			var applicantFloor = $('#inputCAFloor').val();
 			var applicantBlock = $('#inputCABlock').val();
@@ -191,22 +202,14 @@
 				document.getElementById("inlineDeskRadio51").checked = true;
 			}
 
-			if (document.getElementById('inputARoom').readOnly == true)
+			/*if (document.getElementById('inputARoom').readOnly == true)
 			{
-				document.getElementById('inputARoom').readOnly = false;
-				document.getElementById('inputAFloor').readOnly = false;
-				document.getElementById('inputABlock').readOnly = false;
-				document.getElementById('inputABuilding').readOnly = false;
-				document.getElementById('inputAEstate').readOnly = false;
-				document.getElementById('inputAStreetNo').readOnly = false;
-				document.getElementById('inputAStreetName').readOnly = false;
-				document.getElementById('selectADist').disabled = false;
-				document.getElementById('inlineDeskRadio31').disabled = false;
-				document.getElementById('inlineDeskRadio41').disabled = false;
-				document.getElementById('inlineDeskRadio51').disabled = false;
+	
 			}
 			else
 			{	
+				*/
+			
 			    document.getElementById('inputARoom').readOnly = true;
 			    document.getElementById('inputAFloor').readOnly = true;
 			    document.getElementById('inputABlock').readOnly = true;
@@ -218,12 +221,24 @@
 			    document.getElementById('inlineDeskRadio31').disabled = true;
 			    document.getElementById('inlineDeskRadio41').disabled = true;
 			    document.getElementById('inlineDeskRadio51').disabled = true;
-			}
+			//}
 			
 			
 			
 		} else {
-						
+					
+			document.getElementById('inputARoom').readOnly = false;
+			document.getElementById('inputAFloor').readOnly = false;
+			document.getElementById('inputABlock').readOnly = false;
+			document.getElementById('inputABuilding').readOnly = false;
+			document.getElementById('inputAEstate').readOnly = false;
+			document.getElementById('inputAStreetNo').readOnly = false;
+			document.getElementById('inputAStreetName').readOnly = false;
+			document.getElementById('selectADist').disabled = false;
+			document.getElementById('inlineDeskRadio31').disabled = false;
+			document.getElementById('inlineDeskRadio41').disabled = false;
+			document.getElementById('inlineDeskRadio51').disabled = false;
+			
 			$('#inputARoom').val();
 			$('#inputAFloor').val();
 			$('#inputABlock').val();
@@ -488,8 +503,8 @@
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 												class="control-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
 											<td class=""><input type="text"
-												class="form-control marginbt full-control" id="Username" name="userName"
-												placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />"> <span id="UsernameError"
+												class="form-control marginbt full-control" id="Username"
+												placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />" name="userName"> <span id="UsernameError"
 												class="text-red"> </span></td>
 										</tr>
 										<tr>
@@ -522,7 +537,7 @@
 								}
 							%>
 						
-							<table class="table activation-form margin-left-2">
+							<table class="table activation-form margin-left-2 autofillForm">
 								<tbody>
 									<tr>
 										<td rowspan="5"
@@ -554,11 +569,11 @@
 											<span id="errCAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control full-control"
+										<td colspan="1"><input type="text" class="form-control full-control"
 											id="inputCAStreetNo" name="applicantStreetNo"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
-										<td><input type="text" class="form-control full-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputCAStreetName" name="applicantStreetName"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
@@ -601,14 +616,14 @@
 									<tr>
 										<td colspan="3"><label class="radio-inline homecare-lb">
 												<input type="radio" name="applicantArea" id="inlineCARadio3"
-												value="HK" checked="" class="home-input1"> <span>HK
+												value="HK" checked="" class="home-input1" onclick="javascript: return false;"> <span>HK
 											</span>
 										</label> <label class="radio-inline homecare-lb"> <input
 												type="radio" name="applicantArea" id="inlineCARadio4"
-												value="KL" class="home-input1"> <span> KLN</span>
+												value="KL" class="home-input1" onclick="javascript: return false;"> <span> KLN</span>
 										</label> <label class="radio-inline"> <input type="radio"
 												name="applicantArea" id="inlineCARadio5" value="NT"
-												class="home-input1"> <span> NT</span>
+												class="home-input1" onclick="javascript: return false;"> <span> NT</span>
 										</label></td>
 									</tr>
 								</tbody>
@@ -664,12 +679,12 @@
 											<span id="errAEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="3"><input type="text" class="form-control full-control"
+										<td colspan="1"><input type="text" class="form-control full-control"
 											id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
 											maxlength="100" /></td>
-										<td colspan=""><input type="text" class="form-control full-control"
+										<td colspan="3"><input type="text" class="form-control full-control"
 											id="inputAStreetName" name="aStreetName"
 											placeholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);"
@@ -716,14 +731,14 @@
 									<tr>
 										<td colspan="4"><label class="radio-inline homecare-lb">
 												<input type="radio" name="aArea" id="inlineDeskRadio31"
-												value="HK" checked="" class="home-input1"> <span>HK
+												value="HK" checked="" class="home-input1" onclick="javascript: return false;"> <span>HK
 											</span>
 										</label> <label class="radio-inline homecare-lb"> <input
 												type="radio" name="aArea" id="inlineDeskRadio41" value="KL"
-												class="home-input1"> <span> KLN</span>
+												class="home-input1" onclick="javascript: return false;"> <span> KLN</span>
 										</label> <label class="radio-inline"> <input type="radio"
 												name="aArea" id="inlineDeskRadio51" value="NT"
-												class="home-input1"> <span> NT</span>
+												class="home-input1" onclick="javascript: return false;"> <span> NT</span>
 										</label></td>
 									</tr>
 								</tbody>
@@ -760,7 +775,7 @@
 										<td class=""><div class="form-group">
 												<div class="input-group date" id="homecareDp">
 													<span class="input-group-addon bg-img in"><span><img
-															src="<%=request.getContextPath()%>/resources/images/calender1.png" alt="" /></span></span> <input
+															src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="" /></span></span> <input
 														name="effectiveDate" type="text"
 														class="datepicker form-control full-control" id="txtEffDate"
 														readonly />
@@ -787,7 +802,7 @@
 								<div class="checkbox">
 									<input id="checkbox2" name="declarration2" type="checkbox">
 									<label for="checkbox2"><fmt:message key="home.details.declarations.PICS.part1" bundle="${msg}" />  <a
-										href="<fmt:message key="PICS.link" bundle="${msg}" />"
+										href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
 										 class="sub-link" target="_blank"> <fmt:message key="home.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="home.details.declarations.PICS.part3" bundle="${msg}" /> <br> 
 									</label>
 								</div>
@@ -830,7 +845,7 @@
 												<div class="hk1 text-right-imp">HK$</div>
 												<div class="hk1 top-mrg-10">
 													<div class="flightcare-hk text-right-imp">
-														<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></div>
+														<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%></div>
 												</div>
 											</div>
 										</div>
@@ -869,7 +884,7 @@
 								</div>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
+								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%>
 									</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.discount" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">

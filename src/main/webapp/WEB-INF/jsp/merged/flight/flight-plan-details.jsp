@@ -902,14 +902,17 @@ $('#login-err-msg').html('Please Check Login Credential');
 return false;
 }
 /* Function for create flight policy */
+
+var flight_click = false;
+
 function createFlightFnc(form) 
 {	
 	var flag = false;
 	
-	if (fPlanValid())
+	if (fPlanValid() && !flight_click )
 	{
-
-		console.log("ajax called");
+		flight_click = true;
+		//console.log("ajax called");
 		$.ajax(
 		{
 			type : "POST",
