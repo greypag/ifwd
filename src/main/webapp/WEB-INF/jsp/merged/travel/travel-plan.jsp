@@ -70,14 +70,19 @@ var promoData = '';
 				
 				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
 				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				
 				
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 				$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+				$('#txtDiscountAmount').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
 				$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
@@ -270,7 +275,7 @@ var promoData = '';
 							value="<%=travelQuote.getToalDue()[i]%>"> <input
 							type="hidden" name="txtGrossPremium"
 							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
-							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount[i]"
+							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount"
 							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
 							type="hidden" name="referralCode"
 							value="<%=travelQuote.getReferralCode()%>"> <input
@@ -1117,6 +1122,7 @@ var promoData = '';
 		$('#subtotal').html('0');
 		$('#plansummary').html('0');
 		$('#discountAmt').html('0');
+		
 
 		$(".travelproductbox").animate({
 			"background-color" : "#000"
@@ -1140,25 +1146,26 @@ var promoData = '';
 		}
 
 		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
-		selected_price = parseInt(selected_price).toFixed(2);
+		selected_price = parseFloat(selected_price).toFixed(2);
 		
-		$('#amountdue').html(parseInt(totalDue).toFixed(2));
+		$('#amountdue').html(parseFloat(totalDue).toFixed(2));
 		
 		
 		/*   $('#selectedAmountDue').value=selected_price; */
-		$('#subtotal').html(parseInt(selected_price).toFixed(2));
-		$('#plansummary').html(parseInt(selected_price).toFixed(2));
+		$('#subtotal').html(parseFloat(selected_price).toFixed(2));
+		$('#plansummary').html(parseFloat(selected_price).toFixed(2));
 		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
 		$('#inputseletedplanname').val(planName);
-		$('#selectPlanPremium').val(parseInt(totalDue).toFixed(2));
+		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 
 		$('#' + id).addClass("plan-box4");
 
-		$('#discountAmt').html(parseInt(discountAmt).toFixed(2));
+		$('#discountAmt').html(parseFloat(discountAmt).toFixed(2));
 		
-		document.getElementById("selectedAmountDue").value = parseInt(totalDue.trim()).toFixed(2);
-		document.getElementById("selectedDiscountAmt").value = parseInt(discountAmt.trim()).toFixed(2);
-		document.getElementById("txtgrossPremiumAmt").value = parseInt(selected_price.trim()).toFixed(2);
+		document.getElementById("selectedAmountDue").value = parseFloat(totalDue.trim()).toFixed(2);
+		document.getElementById("selectedDiscountAmt").value = parseFloat(discountAmt.trim()).toFixed(2);
+		$('#txtDiscountAmount').val(parseFloat(discountAmt.trim()).toFixed(2));
+		document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
 		
 		if(promoData !== '')
 			setValue(promoData);
@@ -1170,7 +1177,7 @@ var promoData = '';
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
-				url : "sendEmail",
+				url : "<%=request.getContextPath()%>/sendEmail",
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {

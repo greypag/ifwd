@@ -1953,7 +1953,8 @@ function tPlanValid()
     if(travelp_click)
     	return false
     else{
-    	travelp_click = true;
+    	if(flag)
+    		travelp_click = true;
     	return flag;
     }	
 	
@@ -2941,7 +2942,8 @@ function hc_planValid() {
     if(home_click)
     	return false
     else{
-    	home_click = true;
+    	if(flag)
+    		home_click = true;
     	return flag;
     }	
     
