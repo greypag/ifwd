@@ -185,7 +185,7 @@
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
 											class="control-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
 										<td class="pad-none"><input type="text"
-											name="userName" class="form-control btm-pad-10"
+											name="username" class="form-control btm-pad-10"
 											id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
@@ -346,7 +346,9 @@
 										
 										<div class="col-xs-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label> 
-											 <select name="adultBeneficiary" class="soflow" id="adultsselectBenificiary${inx}">
+											 <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
+											 		onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
+											 	class="soflow" >
 												<option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
 												<c:forEach var="relationshipList" items="${mapRelationshipCode}">
 													<option value="${relationshipList.key}"><c:out
@@ -371,13 +373,12 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 	                                            <div class="col-md-10 col-lg-10 pad-none">
-	                                            <t:dropdown 
-	                                                selectables="${mapHkId}"
-	                                                defaultWithFirst="true"
-	                                                valueElmId="selectAdBenefitiaryHkidPass${inx}"
-	                                                valueElmName="selectedAdBenefitiaryHkidPass"
-	                                                containerCss="selectHkidPass"
-	                                            />
+	                                            <select id="selectAdBenefitiaryHkidPass${inx}" name="selectedAdBenefitiaryHkidPass" class="soflow">
+												<c:forEach var="hkidList" items="${mapHkId}">
+													<option value="${hkidList.key}"><c:out
+															value="${hkidList.value}" /></option>
+												</c:forEach>
+											</select>
 	                                            </div>
 												
 												<input
