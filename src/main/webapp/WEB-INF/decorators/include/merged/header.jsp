@@ -303,6 +303,7 @@ function submitLoginForm(formID) {
 </header>
 <!--End-Desktop-header-->
 
+<div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index:998; display:none" id="test" ></div>
 <!--Mobile-header-->
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
@@ -339,13 +340,14 @@ function submitLoginForm(formID) {
 	</div>
 </div>
 
+
 <!--Mobile side-menu-->
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
 		
 		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"  data-toggle="dropdown"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
+		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
 		<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform2">
 										<div class="login-form">
@@ -461,3 +463,19 @@ function submitLoginForm(formID) {
 </div>
 <!--End Mobile header-->
 <!--/header-->
+<script>
+$('body').on('show.bs.offcanvas', function(){
+	$('#test').show();
+});
+$('body').on('hidden.bs.offcanvas', function(){
+	$('#test').hide();
+});
+$('#test').click(function(){
+	$('.navmenu').offcanvas('hide');
+});
+$('#myDropdownMob').click(function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	$(this).toggleClass('open');
+});
+</script>

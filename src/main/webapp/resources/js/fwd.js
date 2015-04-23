@@ -288,13 +288,13 @@ function dateDiffInDays(a, b) {
 /* login popup and overlay scirpt */
 
 
-$("#fwd-login,#fwd-login-mob").on('click', function (e) {
+$("#fwd-login").on('click', function (e) {
 	if (!$('#overlay').length) {
 		$('body').append('<div id="overlay"> </div>')
 	}
 })
 $('body').click(function (e) {
-	if (!$(e.target).is('#fwd-login,#fwd-login-mob')) {
+	if (!$(e.target).is('#fwd-login')) {
 		$('#overlay').remove();
 	}
 })
