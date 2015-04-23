@@ -240,23 +240,23 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
+											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx}"></c:out>
 								<% 	}
 									else 
 									{
 								%>
 											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" /> <c:out value="${inx-1}"></c:out>
 								<%  } %> 
-												<c:out value="${inx-1}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
+											
 											<c:when test="${inx == 1}">
 								<%								
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> 
+											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> <c:out value="${inx}"></c:out>
 
 								<% 	}
 									else 
@@ -706,7 +706,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
