@@ -132,18 +132,18 @@ public class HomeCareController {
 			String ogDescription = "";
 			
 			
-			if ("/home-insurance/sharing".equals(request.getContextPath().toString())) { 
-				ogTitle = WebServiceUtils.getPageTitle("homecare.sharing.og.title", UserRestURIConstants.getLanaguage(request));
-				ogType = WebServiceUtils.getPageTitle("homecare.sharing.og.type", UserRestURIConstants.getLanaguage(request));
-				ogUrl = WebServiceUtils.getPageTitle("homecare.sharing.og.url", UserRestURIConstants.getLanaguage(request));
-				ogImage = WebServiceUtils.getPageTitle("homecare.sharing.og.image", UserRestURIConstants.getLanaguage(request));
-				ogDescription = WebServiceUtils.getPageTitle("homecare.sharing.og.description", UserRestURIConstants.getLanaguage(request));
+			if (request.getRequestURI().toString().equals(request.getContextPath() + "/home-insurance/sharing")) {
+				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", UserRestURIConstants.getLanaguage(request));
+				ogType = WebServiceUtils.getPageTitle("homeCare.sharing.og.type", UserRestURIConstants.getLanaguage(request));
+				ogUrl = WebServiceUtils.getPageTitle("homeCare.sharing.og.url", UserRestURIConstants.getLanaguage(request));
+				ogImage = WebServiceUtils.getPageTitle("homeCare.sharing.og.image", UserRestURIConstants.getLanaguage(request));
+				ogDescription = WebServiceUtils.getPageTitle("homeCare.sharing.og.description", UserRestURIConstants.getLanaguage(request));
 			} else {
-				ogTitle = WebServiceUtils.getPageTitle("homecare.og.title", UserRestURIConstants.getLanaguage(request));
-				ogType = WebServiceUtils.getPageTitle("homecare.og.type", UserRestURIConstants.getLanaguage(request));
-				ogUrl = WebServiceUtils.getPageTitle("homecare.og.url", UserRestURIConstants.getLanaguage(request));
-				ogImage = WebServiceUtils.getPageTitle("homecare.og.image", UserRestURIConstants.getLanaguage(request));
-				ogDescription = WebServiceUtils.getPageTitle("homecare.og.description", UserRestURIConstants.getLanaguage(request));
+				ogTitle = WebServiceUtils.getPageTitle("homeCare.og.title", UserRestURIConstants.getLanaguage(request));
+				ogType = WebServiceUtils.getPageTitle("homeCare.og.type", UserRestURIConstants.getLanaguage(request));
+				ogUrl = WebServiceUtils.getPageTitle("homeCare.og.url", UserRestURIConstants.getLanaguage(request));
+				ogImage = WebServiceUtils.getPageTitle("homeCare.og.image", UserRestURIConstants.getLanaguage(request));
+				ogDescription = WebServiceUtils.getPageTitle("homeCare.og.description", UserRestURIConstants.getLanaguage(request));
 			}
 			
 			

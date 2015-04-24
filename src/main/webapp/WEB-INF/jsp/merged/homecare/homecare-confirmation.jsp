@@ -182,7 +182,7 @@
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">Copy Link</div>
 						        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
-					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/" data-title="iFWD"></div>
+					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home-insurance/sharing" data-title="iFWD"></div>
 					           	</div>
 					         </div>
 					         

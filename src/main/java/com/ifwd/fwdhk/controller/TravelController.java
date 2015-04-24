@@ -88,7 +88,7 @@ public class TravelController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
-		if ("/travel-insurance/sharing".equals(request.getContextPath().toString())) { 
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/travel-insurance/sharing")) { 
 			ogTitle = WebServiceUtils.getPageTitle("travel.sharing..og.title", UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("travel.sharing..og.type", UserRestURIConstants.getLanaguage(request));
 			ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));

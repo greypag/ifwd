@@ -95,7 +95,7 @@ public class FlightController {
 		String ogImage = "";
 		String ogDescription = "";
 		
-		if ("/flight-insurance/sharing".equals(request.getContextPath().toString())) { 
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/flight-insurance/sharing")) { 
 			ogTitle = WebServiceUtils.getPageTitle("flight.sharing.og.title",
 					UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("flight.sharing.og.type",

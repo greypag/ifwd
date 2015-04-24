@@ -67,7 +67,11 @@ public class ECommController {
 		String ogImage = "";
 		String ogDescription = "";
 		
-		if ("/home/sharing".equals(req.getContextPath().toString())) {
+		System.out.println("URI " + req.getRequestURI().toString());
+		System.out.println("URL " + req.getRequestURL().toString());
+		
+		
+		if (req.getRequestURI().toString().equals(req.getContextPath() + "/home/sharing")) {
 			ogTitle = WebServiceUtils.getPageTitle("index.sharing.og.title", UserRestURIConstants.getLanaguage(req));
 			ogType = WebServiceUtils.getPageTitle("index.sharing.og.type", UserRestURIConstants.getLanaguage(req));
 			ogUrl = WebServiceUtils.getPageTitle("index.sharing.og.url", UserRestURIConstants.getLanaguage(req));

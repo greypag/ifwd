@@ -361,7 +361,7 @@
 								<tr>
 									<td class="pad-none" colspan="2">
 										<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied">Copy Link</div>
-										<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>" data-title="iFWD"></div>
+										<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home/sharing" data-title="iFWD"></div>
 									</td>
 								</tr>
 							</tbody>
