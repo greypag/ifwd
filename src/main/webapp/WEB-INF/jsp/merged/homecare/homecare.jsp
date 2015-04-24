@@ -408,7 +408,7 @@
 
 
 				<p class="col-xs-12 h4-6">
-				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /><br>
+				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 							
 					<a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
 					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 

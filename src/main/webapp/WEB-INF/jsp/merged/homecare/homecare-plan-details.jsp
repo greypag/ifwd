@@ -321,7 +321,7 @@
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
-				url : "sendEmail",
+				url : "<%=request.getContextPath()%>/sendEmail",
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {

@@ -848,29 +848,6 @@
 		$('#selectedAdHkidPass1').val(id.value);
 	}
 </script>
-<script>
-	function activeDiv(id, selected) {
-		var selectedValue = $('#' + selected).val();
-
-		if (id.indexOf('adult') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('child') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('other') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-
-	}
-	function activeDeactive(selectedValue, id) {
-		if (selectedValue == "Own estate") {
-			$('#' + id).addClass('hide');
-		} else {
-			$('#' + id).removeClass('hide');
-		}
-	}
-</script>
 
 <script>
 
