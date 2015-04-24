@@ -443,12 +443,24 @@
 									</tr>
 									<tr>
 
-										<td class=""><select name="apphkidandpassport"
-											id="selectHkidPass" class="form-control soflow full-control">
-												<option value="appHkid" selected="selected">
-												<fmt:message key="home.details.applicant.hkid" bundle="${msg}" /></option>
-												<option value="appPassport"><fmt:message key="home.details.applicant.passport" bundle="${msg}" /></option>
-										</select></td>
+										<td class="">
+											<div class="styled-select">
+												<select
+													name="apphkidandpassport" id="selectHkidPass"
+													class="form-control soflow full-control">
+													<option
+														value="appHkid" selected="selected">
+														<fmt:message
+															key="home.details.applicant.hkid" bundle="${msg}" />
+													</option>
+													<option
+														value="appPassport">
+														<fmt:message
+															key="home.details.applicant.passport" bundle="${msg}" />
+													</option>
+												</select>
+											</div>
+										</td>
 										<td class=""><input type="text" name="hkId"
 											class="form-control numberinput textUppe full-control" id="txtAppHkid"
 											placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
@@ -691,21 +703,37 @@
 											maxlength="100" /></td>
 									</tr>
 									<tr>
-										<td colspan="4"><select name="aDistrict"
-											class="form-control soflow full-control" id="selectADist"
-											onchange="setDropArea2(this.value)">
-												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
+										<td colspan="4">
+										<div class="styled-select">
+											<select name="aDistrict"
+												class="form-control soflow full-control" id="selectADist"
+												onchange="setDropArea2(this.value)">
+												<option value="">
+													<fmt:message
+														key="home.details.registration.district" bundle="${msg}" />
+												</option>
 												<%
-													List list = (List) request.getAttribute("districtList");
-														Iterator itrr = list.iterator();
-														while (itrr.hasNext()) {
-															DistrictBean districtList = (DistrictBean) itrr.next();
+													List list = (List)
+													request.getAttribute("districtList");
+													Iterator itrr =
+													list.iterator();
+													while
+													(itrr.hasNext()) {
+													DistrictBean
+													districtList =
+													(DistrictBean)
+													itrr.next();
 												%>
-												<option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
-												<%
-													}
-												%>
-										</select> <!-- <select name="" class="form-control soflow" id="selectAgeRange">
+												<option
+													value="<%=districtList.getCode()%>">
+													<%=
+														districtList.getDescription()
+													%>
+												</option>
+												<%}%>
+											</select>
+										</div>
+										<!-- <select name="" class="form-control soflow" id="selectAgeRange">
                       <option value="">District</option>
                       <option value="18-70">18-70</option>
                       <option value="71-85">71-85</option>
@@ -757,15 +785,28 @@
                       <option value="500-700">500-700</option>
                       <option value="701-850">701-850</option>
                       <option value="851-1000">851-1000</option>
-                    </select> --%> <select name="netFloorArea"
-											class="form-control soflow full-control" id="selectNFA" onChange="chkNotNullIANetFloorArea(this, 'errNFA');">
-												<option value=""><fmt:message key="home.details.registration.select" bundle="${msg}" /></option>
-												<c:forEach var="floorAreaList" items="${mapNetFloorArea}">
-													<option value="${floorAreaList.key}"><c:out
-															value="${floorAreaList.value}" /></option>
-												</c:forEach>
+                    </select> --%>
+											<div class="styled-select">
+												<select
+													name="netFloorArea"
+													class="form-control soflow full-control" id="selectNFA"
+													onChange="chkNotNullIANetFloorArea(this, 'errNFA');">
+													<option value="">
+														<fmt:message
+															key="home.details.registration.select" bundle="${msg}" />
+													</option>
+													<c:forEach
+														var="floorAreaList" items="${mapNetFloorArea}">
+														<option
+															value="${floorAreaList.key}">
+															<c:out
+																value="${floorAreaList.value}" />
+														</option>
+													</c:forEach>
 
-										</select> <span id="errNFA" class="text-red"> </span>
+												</select>
+											</div>
+											<span id="errNFA" class="text-red"> </span>
 										</td>
 									</tr>
 									<tr>

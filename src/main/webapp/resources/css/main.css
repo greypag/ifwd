@@ -5973,7 +5973,9 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 }
 .at-share-tbx-element .at-share-btn{ margin:0 !important;}
 
-.styled-select select {
+.styled-select select,
+.styled-select select#selectHkidPass, 
+.styled-select .selectHkidPass {
    background: transparent !important; 
    /* width: 268px;
    padding: 5px;
