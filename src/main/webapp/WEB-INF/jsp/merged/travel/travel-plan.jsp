@@ -65,20 +65,9 @@ var promoData = '';
 		}else{
 			$("#errPromoCode").html("");
 			
-			if (selValue == "A") {
+			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
 				
-				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				
-				
-			} else {
-				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 				$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
 				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
@@ -87,6 +76,17 @@ var promoData = '';
 				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 				
+				
+			} else {
+				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
+				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+
 			}
 			$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
 			$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
