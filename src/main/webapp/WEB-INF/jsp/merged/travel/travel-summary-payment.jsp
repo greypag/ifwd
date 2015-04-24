@@ -646,7 +646,7 @@
 							</div> -->
 							
 							<div class="hidden-sm hidden-xs pad-none">
-							<a href="<%=request.getContextPath()%>/flight-insurance/user-details"
+							<a href="<%=request.getContextPath()%>/travel-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 							<button onclick="confirmPayment();"
 								class="bdr-curve btn btn-primary nxt-btn margin-left">
