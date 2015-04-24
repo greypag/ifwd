@@ -1,10 +1,13 @@
 var reg = /^[a-zA-Z]+$/;
 var emailreg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
-var mobile_pattern = /^\d{8}$/;
+var mobile_pattern = /^1[0-9]{10}$|^[5689][0-9]{7}$/;   /* /^\d{8}$/; */
+
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-
+var passport_pattern = /^[a-zA-Z0-9]{5,15}$/;
+ 
+	
 var getBundleLanguage = "";
 var lang = UILANGUAGE;
 
@@ -832,12 +835,12 @@ $(function () {
 				if($('#selectedAdHkidPass'+errNo).length > 0 && $('#selectedAdHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
-						$("#errtxtInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.notEnglish.message"));
+						$("#errtxtInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.lengthViolation.message"));
 						return false;
 					}else{
 						var tr = chkTravelHKPass(appHkid.trim());
 						if (tr == false) {
-							$("#errtxtInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.lengthViolation.message"));
+							$("#errtxtInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.notEnglish.message"));
 							
 							return false;
 						}	
@@ -893,12 +896,12 @@ $(function () {
 				if($('#selectChldHkidPass'+errNo).length > 0 && $('#selectChldHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
-						$("#errtxtChldInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.notEnglish.message"));
+						$("#errtxtChldInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.lengthViolation.message"));
 						return false;
 					}else{
 						var tr = chkTravelHKPass(appHkid.trim());
 						if (tr == false) {
-							$("#errtxtChldInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.lengthViolation.message"));
+							$("#errtxtChldInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.notEnglish.message"));
 							
 							return false;
 						}	
@@ -941,12 +944,12 @@ $(function () {
 				if($('#selectOtHkidPass'+errNo).length > 0 && $('#selectOtHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
-						$("#errtxtOtherInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.notEnglish.message"));
+						$("#errtxtOtherInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.lengthViolation.message"));
 						return false;
 					}else{
 						var tr = chkTravelHKPass(appHkid.trim());
 						if (tr == false) {
-							$("#errtxtOtherInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.lengthViolation.message"));
+							$("#errtxtOtherInsuHkid"+errNo).html(getBundle(getBundleLanguage, "insured.passport.notEnglish.message"));
 							
 							return false;
 						}	
@@ -2721,11 +2724,15 @@ function chkTravelHKPassLen(value) {
 
 function chkTravelHKPass(value) {
     var flag = true;
-    var filter = /^[!??%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
-
+    var filter = passport_pattern;///^[!??%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
+    
+    value = value.replace(/[-/(/)]/g, '');
+    if(!chkTravelHKPassLen(value.trim())){
+    	flag = false;
+    }
     var data = value.trim();
     if (data != "") {
-        if (/^[A-Za-z ]+$/.test(data)) {
+        /*if (/^[A-Za-z ]+$/.test(data)) {
             //there are only characters
             flag = false;
         }
@@ -2733,7 +2740,8 @@ function chkTravelHKPass(value) {
             //it contains numbers
             flag = false;
         }
-        else if (filter.test(data)) {
+        else */
+        if (!filter.test(data)) {
             flag = false;
         }
     }
@@ -3392,6 +3400,7 @@ function chkNotNullCreditCareName(element, errElementId){
 }
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
+	document.getElementById(errElementId).innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	return true;
 //	if(isNull(element)){
@@ -3404,6 +3413,7 @@ function chkNotNullCABuilding(element, errElementId){
 //	}	
 }
 function chkNotNullCAEstate(element, errElementId){
+	document.getElementById(errElementId).innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	return true;
 //	if(isNull(element)){
@@ -3416,6 +3426,7 @@ function chkNotNullCAEstate(element, errElementId){
 //	}	
 }
 function chkNotNullIABuilding(element, errElementId){
+	document.getElementById(errElementId).innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	return true;
 //	if(isNull(element)){
@@ -3428,6 +3439,7 @@ function chkNotNullIABuilding(element, errElementId){
 //	}	
 }
 function chkNotNullIAEstate(element, errElementId){
+	document.getElementById(errElementId).innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	return true;
 //	if(isNull(element)){
