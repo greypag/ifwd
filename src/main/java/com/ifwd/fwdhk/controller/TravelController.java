@@ -82,42 +82,18 @@ public class TravelController {
 		model.addAttribute("travelQuote", travelQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
-		
-		String ogTitle = "";
-		String ogType = "";
-		String ogUrl = "";
-		String ogImage = "";
-		String ogDescription = "";
-		if (request.getRequestURI().toString().equals(request.getContextPath() + "/travel-insurance/sharing")) { 
-			ogTitle = WebServiceUtils.getPageTitle("travel.sharing..og.title", UserRestURIConstants.getLanaguage(request));
-			ogType = WebServiceUtils.getPageTitle("travel.sharing..og.type", UserRestURIConstants.getLanaguage(request));
-			ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));
-			ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
-			ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));
-		} else {
-			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
-			ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
-			ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
-			ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
-			ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));			
-			
-		}
-			
-			
-			model.addAttribute("pageTitle", pageTitle);
+		String ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
-		
-		
 		model.addAttribute("ogTitle", ogTitle);
 		model.addAttribute("ogType", ogType);
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
-		
-		
-		
-		
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");			
 	}
@@ -442,7 +418,7 @@ public class TravelController {
 		String selectPlanPremium = WebServiceUtils.getParameterValue(
 				"selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
-				"planName", session, request);
+				"selectPlanName", session, request);
 		System.out.println("Seeeeeee" + selectPlanName);
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
@@ -529,7 +505,7 @@ public class TravelController {
 				iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 					if (mapEntry.getKey().equals("1")) {
 						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
 					}
@@ -1179,12 +1155,7 @@ public class TravelController {
 						"transactionDate"));
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
-			} else {
-				model.addAttribute("errMsgs", responsObject.get("errMsgs").toString());
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "/travel/travel-plan-details");		
 			}
-				
 
 		} 
 		session.setAttribute("finalizeReferenceNo",
@@ -1213,7 +1184,7 @@ public class TravelController {
 				path.replace("travel-summary", "confirmation"));
 		
 		System.out.println("modal path " + path.replace("travel-summary", "confirmation"));
-
+		//model.addAttribute("path", path + "/FWDHKPH1A/travel-insurance/confirmation");
         model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
