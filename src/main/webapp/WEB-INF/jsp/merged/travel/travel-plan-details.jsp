@@ -703,7 +703,7 @@
 								%>
 										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-											: ${travelQuote.getTotalPersonalTraveller()}
+											: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}
 										</c:if>
 
 								<%  }
