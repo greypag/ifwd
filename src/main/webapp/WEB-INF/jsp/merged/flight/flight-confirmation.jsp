@@ -241,7 +241,7 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 </div>
 
 </div>
-<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary btn-next" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getToalDue()[i]%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary btn-next" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
 </div>
 </div>
 
