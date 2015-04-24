@@ -1253,7 +1253,7 @@ function fcPlanValid()
 		
 			var fullname = document.getElementById("txtAdFullName" + i).value;
 			if (fullname.trim() == "") {
-				document.getElementById("errtxtAdFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); // "請輸?��???;
+				document.getElementById("errtxtAdFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); // "請輸?��???;
 				flag = false;
 			}else{
 				document.getElementById("errtxtAdFullName" + i).innerHTML = "";
@@ -1296,7 +1296,7 @@ function fcPlanValid()
 					if (hkid.toUpperCase() == hkid1.toUpperCase())
 					{
 						document.getElementById("errtxtInsuHkid" + i).innerHTML = "";						
-						document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "?�復香港身份證�?碼�?;
+						document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "?�復香港身份證�?碼�?;
 						flag = false;
 					}
 				}
@@ -1307,7 +1307,7 @@ function fcPlanValid()
 			if(selectedValue != "SE"){
 				if (document.getElementById("adultBenefitiaryId" + i).value == "")
 				{
-					document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "insured.hkId.notValid.message"); //"請輸?�全?��?i）�?請輸?�英??;
+					document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "insured.hkId.notValid.message"); //"請輸?�全?��?i）�?請輸?�英??;
 					flag = false;             
 				}
 				else
@@ -1315,7 +1315,7 @@ function fcPlanValid()
 					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 				}
 				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
+					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
 					flag = false;
 				}
 				else {
@@ -1336,7 +1336,7 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtChldFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); // "請輸?��???;
+			document.getElementById("errtxtChldFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); // "請輸?��???;
 			flag = false;
 		}else{
 			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
@@ -1359,7 +1359,7 @@ function fcPlanValid()
 		//document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); //"请用?��?输入身份证号  ";
+			document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); //"请用?��?输入身份证号  ";
 			flag = false;
 		}
 		else
@@ -1367,7 +1367,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
 				flag = false;
 			}
 		}
@@ -1380,7 +1380,7 @@ function fcPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "?�復香港身份證�?碼�?;
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "?�復香港身份證�?碼�?;
 					flag = false;
 				}
 			}
@@ -1392,7 +1392,7 @@ function fcPlanValid()
 		{
 			if (document.getElementById("childBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errchildBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "benefitiary.name.notValid.message"); //"請輸?�全?��?i）�?請輸?�英??;
+				document.getElementById("errchildBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "benefitiary.name.notValid.message"); //"請輸?�全?��?i）�?請輸?�英??;
 				flag = false;             
 			}
 			else
@@ -1402,7 +1402,7 @@ function fcPlanValid()
 			}
 			
 			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
 				flag = false;
 			}
 			else {
@@ -1421,7 +1421,7 @@ function fcPlanValid()
 		/*var benefitiary = document.getElementById("childselectBenificiary" + i).value;*/
 		
 		if (fullname.trim() == "") {
-			document.getElementById("errtxtOtherFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�全?��?i）�?請輸?�英??;
+			document.getElementById("errtxtOtherFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�全?��?i）�?請輸?�英??;
 			flag = false;
 		}else{
 			document.getElementById("errtxtOtherFullName" + i).innerHTML = "";
@@ -1444,7 +1444,7 @@ function fcPlanValid()
 		
 
 		if (hkid.trim() == "") {
-			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "请用?��?输入身份证号 ";
+			document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "请用?��?输入身份证号 ";
 			flag = false;
 		}
 		else
@@ -1452,7 +1452,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
 				flag = false;
 			}
 		}
@@ -1465,7 +1465,7 @@ function fcPlanValid()
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
 					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = "";
-					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "?�復香港身份證�?碼�?;
+					document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.duplicate.message"); // "?�復香港身份證�?碼�?;
 					flag = false;
 				}
 			}
@@ -1475,7 +1475,7 @@ function fcPlanValid()
 		if(selectedValue != "SE"){
 			if (document.getElementById("otherBenefitiaryName" + i).value == "")
 			{
-				document.getElementById("errotherBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�全?��?i）�?請輸?�英??;
+				document.getElementById("errotherBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�全?��?i）�?請輸?�英??;
 				flag = false;             
 			}
 			else
@@ -1485,7 +1485,7 @@ function fcPlanValid()
 			}
 
 			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�正�??��???香港身份證�?�?";
 				flag = false;
 			}
 			else {
@@ -3509,14 +3509,17 @@ function isValidUsername(el){
 	}
 }
 function isValidPassword(el){
-	var passwordPattern = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$";
+	var passwordPattern = "[a-zA-Z0-9]{8,}";
+	var passwordPattern2 = "[A-Z]";
 	var specialChar = "\\W";
 	var rg = new RegExp(passwordPattern);
+	var rg2 = new RegExp(passwordPattern2);
 	var spChar = new RegExp(specialChar);
+	
 	if (el.trim() == ""){
 		message  = getBundle(getBundleLanguage, "user.password.notNull.message");
 		return message;
-	} else if(!rg.test(el)) { 
+	} else if(!(rg2.test(el) && rg.test(el))) { 
 		message = getBundle(getBundleLanguage, "user.password.validate.message");
 		return message;
 	} else if(spChar.test(el)){
