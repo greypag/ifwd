@@ -176,7 +176,12 @@ public class TravelController {
 				spouseCover = false;
 				otherCount = travelQuote.getTotalPersonalTraveller();
 				travelQuote.setTotalChildTraveller(0);
-				travelQuote.setTotalAdultTraveller(0);
+				
+				// vincent - fix for back btn, traveller cnt was reset
+				// travelQuote.setTotalAdultTraveller(0);
+				if (travelQuote.getTotalAdultTraveller() > 0)
+					travelQuote.setTotalPersonalTraveller(travelQuote.getTotalAdultTraveller());
+				
 				// travelQuote.setTotalOtherTraveller(otherCount - 1);		// vincent - bug fix from travel 3rd page (Back btn) to 2nd page
 				otherCount = travelQuote.getTotalOtherTraveller();
 
@@ -513,7 +518,7 @@ public class TravelController {
 				iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+					//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 					if (mapEntry.getKey().equals("1")) {
 						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
 					}
