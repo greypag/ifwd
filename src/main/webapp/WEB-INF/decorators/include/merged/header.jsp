@@ -456,9 +456,9 @@ function submitLoginForm(formID) {
 	<ul class="nav navmenu-nav sidepanel-menu">
 		<li><a href="<%=request.getContextPath()%>/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"> SPECIAL OFFER</span> <a
-			href="flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
+			href="<%=request.getContextPath()%>/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->
