@@ -747,9 +747,9 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-										<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}">
+										<c:if test="${ travelQuote.getTotalPersonalTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-											: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}
+											: ${travelQuote.getTotalPersonalTraveller()}
 										</c:if>
 
 								<%  }
