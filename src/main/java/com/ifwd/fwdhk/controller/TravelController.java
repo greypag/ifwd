@@ -179,8 +179,8 @@ public class TravelController {
 				
 				// vincent - fix for back btn, traveller cnt was reset
 				// travelQuote.setTotalAdultTraveller(0);
-				if (travelQuote.getTotalAdultTraveller() > 0)
-					travelQuote.setTotalPersonalTraveller(travelQuote.getTotalAdultTraveller());
+				//if (travelQuote.getTotalAdultTraveller() > 0)
+				//	travelQuote.setTotalPersonalTraveller(travelQuote.getTotalAdultTraveller());
 				
 				// travelQuote.setTotalOtherTraveller(otherCount - 1);		// vincent - bug fix from travel 3rd page (Back btn) to 2nd page
 				otherCount = travelQuote.getTotalOtherTraveller();
@@ -472,9 +472,20 @@ public class TravelController {
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
 				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
 			}
+			
+			if (travelQuote.getPlanSelected().equals("personal"))
+			{
+				if (travelQuote.getTotalAdultTraveller()>0)
+				{
+					travelQuote.setTotalPersonalTraveller(travelQuote.getTotalAdultTraveller());
+					travelQuote.setTotalAdultTraveller(0);
+				}
+			}
+			/*
 			travelQuote.setTotalAdultTraveller(travelQuote
 					.getTotalAdultTraveller()
 					+ travelQuote.getTotalPersonalTraveller());
+					*/
 			request.getSession().setAttribute("departureDate",
 					travelQuote.getTrLeavingDate());
 			request.getSession().setAttribute("returnDate",
