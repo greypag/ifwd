@@ -6033,3 +6033,4 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 .plan_spinner_desk h4{
 	font-size: 14px;
 }
+#txtAppHkid, inputTxtAppHkid, input[name="adultHKID"], input[name="childHKID"], input[name="otherHKID"]{ text-transform:uppercase; }

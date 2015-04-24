@@ -189,7 +189,10 @@
 			$('#inputAStreetName').val(applicantStreetName);
 
 			$('#selectADist').val(selectCADist);
-
+			$('#errADist').html('');
+			if($('#selectADist').val() == ''){
+		    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+		    }
 			
 			var element = document.getElementById('selectADist');
 			element.value = selectCADist;
