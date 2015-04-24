@@ -354,6 +354,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		insuredAddress.put("estate",
 				homeCareDetails.getApplicantEstate());
 		insuredAddress.put("streetNo",
+				homeCareDetails.getApplicantStreetNo());
+		insuredAddress.put("streetName",
 				homeCareDetails.getApplicantStreetName());
 		insuredAddress.put("district",
 				homeCareDetails.getApplicantDistrict());

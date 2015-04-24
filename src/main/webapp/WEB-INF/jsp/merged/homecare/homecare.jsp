@@ -127,14 +127,14 @@
 	<!--   Main Content-->
 	<section id="main-slider" class="no-margin">
 		<!--Mobile--->
-		<img src="<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt=""
+		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt=""
 			class="img-responsive hidden-lg hidden-md" />
 		<!--desktop-->
 		<div class="carousel slide hidden-xs hidden-sm">
 			<div class="carousel-inner">
 				<div class="item active item-border">
 					
-					<img src="<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="" />
+					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="" />
 				</div>
 				<!--/.item-->
 			</div>
