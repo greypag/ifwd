@@ -998,7 +998,7 @@ var promoData = '';
 									value="${travelQuoteBean.getTotalOtherTraveller()}">
 								<%-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${travelQuoteBean.getTotalPersonalTraveller()}"> --%>
 								<h3>
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> : <span> ${travelQuoteBean.getTotalTravellingDays()} <input
+									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span> ${travelQuoteBean.getTotalTravellingDays()} <input
 										type="hidden" name="totalTravellingDays"
 										id="totalTravellingDays"
 										value="${travelQuoteBean.getTotalTravellingDays()}">
