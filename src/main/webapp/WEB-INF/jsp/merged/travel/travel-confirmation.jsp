@@ -71,16 +71,16 @@
             <div class="h4-3-b margin-left"><fmt:message key="travel.confirmation.referalCode.desc1" bundle="${msg}" /><!-- <span class="orange-star">*</span> --></div>
             </div>
               <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-              <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" >  
+              <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" class="img-responsive">  
               </div>
                <div class="clearfix"></div><br><br>
 
          <div class="h4-2 margin-left"><fmt:message key="travel.confirmation.referalCode.desc2.member" bundle="${msg}" /></div>
          
-         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
+         <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
          <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance?promo=<%=session.getAttribute("myReferralCode")%></div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none"> 
+              <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
               
                 <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="travel.referral.copy" bundle="${msg}" />複製</div>
 <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/	<%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
