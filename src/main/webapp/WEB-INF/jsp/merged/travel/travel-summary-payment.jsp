@@ -521,7 +521,7 @@
 							</tr>
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label></td>
-								<td class="col-lg-4"><select class="pay-details-select"
+								<td class="col-lg-4"><div class="styled-select payment-select"><select class="pay-details-select"
 									id="month" name="epMonth">
 										<option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
 										<option value="1">01</option>
@@ -536,8 +536,8 @@
 										<option value="10">10</option>
 										<option value="11">11</option>
 										<option value="12">12</option>
-								</select></td>
-								<td><select class="pay-details-select" id="year"
+								</select></div></td>
+								<td><div class="styled-select payment-select"><select class="pay-details-select" id="year"
 									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
 										<option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
 <!-- 										<option value="2015">2015</option> -->
@@ -550,7 +550,7 @@
 										<c:set var="currentYear" value="${year + loop.index}" />
 										<option value="${currentYear}">${currentYear}</option>
 									</c:forEach>
-								</select></td>
+								</select></div></td>
 							</tr>
 							<tr>
 								<td></td>

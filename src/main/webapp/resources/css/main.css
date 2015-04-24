@@ -5998,6 +5998,10 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
     background-color: rgb(245, 245, 245);
    /* border: 1px solid #ccc; */
    }
+.styled-select.payment-select {
+    background-color: #fff;
+    border: 1px solid #F6D5B4;
+}
 .date,
 .date input[disabled],
 .date input[readonly]{
