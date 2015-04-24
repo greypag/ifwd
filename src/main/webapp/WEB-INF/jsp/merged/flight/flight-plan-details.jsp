@@ -347,7 +347,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									<div class="row top-mrg-10">
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="bold-500"><fmt:message
-													key="flight.details.insured.age" bundle="${msg}" /></label> <select
+													key="flight.details.insured.age" bundle="${msg}" /></label><div class="styled-select"><select
 												name="adultAgeRange" class="soflow"
 												id="selectAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapSelfType}">
@@ -362,13 +362,13 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													<c:out value="${ageList.value}" />
 													</option>
 												</c:forEach>
-											</select> <span id="errselectAgeRange${inx}" class="text-red">
+											</select></div><span id="errselectAgeRange${inx}" class="text-red">
 											</span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message
 													key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
-											<select name="adultBeneficiary" class="soflow"
+											<div class="styled-select"><select name="adultBeneficiary" class="soflow"
 												id="adultsselectBenificiary${inx}"
 												onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')">
 												<option value="SE"><fmt:message
@@ -379,7 +379,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													<option value="${relationshipList.key}"><c:out
 															value="${relationshipList.value}" /></option>
 												</c:forEach>
-											</select> <span id="erradultsselectBenificiary${inx}" class="text-red"></span>
+											</select></div> <span id="erradultsselectBenificiary${inx}" class="text-red"></span>
 										</div>
 
 										<div id="adultsbenificiaryId${inx}" class="hide">
@@ -458,6 +458,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 												valueElmId="selectchildAgeRange${inx}"
 												valueElmName="childAgeRange"
 											/> --%>
+											<div class="styled-select">
 											<select name="childAgeRange" class="soflow"
 												id="selectchildAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapChildType}">
@@ -472,11 +473,12 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													<c:out value="${ageList.value}" />
 													</option>
 												</c:forEach>
-											</select> <span id="errchildRange${inx}" class="text-red"></span>
+											</select></div> <span id="errchildRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message
 													key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
+											<div class="styled-select">
 											<select id="childselectBenificiary${inx}"
 												name="childBeneficiary"
 												onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
@@ -489,7 +491,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
 												</c:forEach>
-											</select> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
+											</select></div> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
 										</div>
 										<div id="childbenificiaryId${inx}" class="hide">
 											<div class="col-xs-12 col-sm-6 col-md-6">
@@ -561,6 +563,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 												valueElmId="selectOtherAgeRange${inx}"
 												valueElmName="otherAgeRange"
 											/> --%>
+											<div class="styled-select">
 											<select name="otherAgeRange" class="soflow"
 												id="selectOtherAgeRange${inx}">
 												<c:forEach var="ageList" items="${mapAgeType}">
@@ -575,11 +578,12 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													<c:out value="${ageList.value}" />
 													</option>
 												</c:forEach>
-											</select> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
+											</select></div> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6">
 											<label class="pad-left1 bold-500"><fmt:message
 													key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
+											<div class="styled-select">
 											<select id="otherSelectBenificiary${inx}"
 												name="otherBeneficiary"
 												onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
@@ -592,7 +596,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 													<option value="${relationshipCodeList.key}"><c:out
 															value="${relationshipCodeList.value}" /></option>
 												</c:forEach>
-											</select> <span id="benificiary" style="display: none"> <label
+											</select></div> <span id="benificiary" style="display: none"> <label
 												style="color: red">Beneficiary which is blank</label>
 											</span>
 										</div>
