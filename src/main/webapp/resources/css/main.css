@@ -5225,7 +5225,6 @@ border-left: 7px solid transparent;}
 /*CN*/
 
 #cn .nxt-btn {
-	font-family: 'Foco-bold';
 	font-size: 28px;
 	line-height: 31.5px;
 	font-weight: normal;
@@ -6036,7 +6035,9 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 .plan_spinner_desk h4{
 	font-size: 14px;
 }
-#txtAppHkid, inputTxtAppHkid, input[name="adultHKID"], input[name="childHKID"], input[name="otherHKID"]{ text-transform:uppercase; }.fa.small-fa-bullet{
+#txtAppHkid, inputTxtAppHkid, input[name="adultHKID"], input[name="childHKID"], input[name="otherHKID"]{ text-transform:uppercase; }
+
+.fa.small-fa-bullet{
 	vertical-align: middle;
 	font-size: 8px;
 }
