@@ -261,10 +261,10 @@
           <input type="hidden" name="" id="family_mob_count" value="${travelQuote.getTotalFamilyTravellers()}">
           <div class="plan_spinner_mob" id="personal_plan_mob_spinner" <%=personalSpinnerStyle%>>
 
-          <div class="col-xs-8 col-sm-8">
+          <div class="col-xs-6 col-sm-8">
             <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
           </div>
-           <div class="col-xs-4 col-sm-4">
+           <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" disabled="disabled" data-parent="personal">
@@ -286,10 +286,10 @@
            <!-- Start of family plan mobile spinner-->
          <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
 
-           <div class="col-xs-8 col-sm-8">
+           <div class="col-xs-6 col-sm-8">
             <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
           </div>
-           <div class="col-xs-4 col-sm-4">
+           <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtAdultsMob" disabled="disabled" data-parent="family">
@@ -307,10 +307,10 @@
           </div>
          <div class="clearfix"></div>
 
-          <div class="col-xs-8 col-sm-8">
+          <div class="col-xs-6 col-sm-8">
             <h4><fmt:message key="travel.main.quote.plan2.type2" bundle="${msg}" /></h4>
           </div>
-           <div class="col-xs-4 col-sm-4">
+           <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" disabled="disabled" data-parent="family">
@@ -328,10 +328,10 @@
           </div>
          <div class="clearfix"></div>
 
-          <div class="col-xs-8 col-sm-8">
+          <div class="col-xs-6 col-sm-8">
             <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
           </div>
-           <div class="col-xs-4 col-sm-4">
+           <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" disabled="disabled" data-parent="family">
@@ -468,6 +468,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
+<div class="clearfix"></div>
 <div class="other-benefits col-lg-12">
   <h3 class="h4-2"><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h3>
   <ul class="bullets">
@@ -505,7 +506,7 @@
             <h1><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" />
             </h1>
-              <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /><a href="http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a><fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
+              <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
 
           </div>
         </div>
@@ -548,7 +549,7 @@
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
                   <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" /></h2>
-                <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /><a href="http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a><fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
+                <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -560,7 +561,7 @@
           <div class="row slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
-              <h2><fmt:message key="travel.main.highlight2.heading.line1" bundle="${msg}" /><fmt:message key="travel.main.highlight2.heading.line2" bundle="${msg}" /></h2>
+              <h2><fmt:message key="travel.main.highlight2.heading.line1" bundle="${msg}" /> <fmt:message key="travel.main.highlight2.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight2.desc" bundle="${msg}" /></p>
               </div>
             </div>
@@ -573,7 +574,7 @@
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
-              <h2><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /><fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h2>
+              <h2><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
               </div>
             </div>
