@@ -298,7 +298,7 @@
 											<span id="errtxtAdFullName${inx}" class="text-red"></span>
 										</div>
 										<div class="col-xs-6 col-md-6">
-											<div class="col-md-10 col-lg-10 pad-none">
+											
 											<div class="styled-select">
 												<select
 													id="selectedAdHkidPass${inx}" name="selectedAdHkidPass"
@@ -313,7 +313,7 @@
 													</c:forEach>
 												</select>
 											</div>
-											</div>
+											
 										
 											<input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
 											<span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
@@ -408,7 +408,7 @@
 											</div>
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
-	                                            <div class="styled-select col-md-10 col-lg-10 pad-none">
+	                                            <div class="styled-select ">
 	                                            <select id="selectAdBenefitiaryHkidPass${inx}" name="selectedAdBenefitiaryHkidPass" class="soflow">
 												<c:forEach var="hkidList" items="${mapHkId}">
 													<option value="${hkidList.key}"><c:out
@@ -642,8 +642,9 @@
 
                        <div class="clearfix"></div>
 						<div class="spacer3"></div>
-							<h4 class="h4-2 padding3"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
+							
 							<div class="declaration-content">
+								<h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
 								<div class="checkbox">
 									<input id="checkbox1" type="checkbox"> 
 									<label for="checkbox1">
@@ -664,7 +665,7 @@
 										for="checkbox2">
 										<fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
 										href="https://home.fwd.com.hk/giphw/FWD_Resources/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf"
-										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
+										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
 										
 
 
@@ -803,7 +804,7 @@
 </div>
 <div class="clearfix"></div>
 </div>
-<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" /><a class="sub-link" href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a>??
+<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" /><a class="sub-link" href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
 <fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" />
 <fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
 </form:form>

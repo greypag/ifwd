@@ -2985,8 +2985,8 @@ h2.page-title {
 	position: relative;
 	padding-left: 7px;
 	
-	font-size: 18px;
-	line-height: 24px;
+	font-size: 16px;
+	
 	font-weight: normal;
 	
 }
@@ -6027,10 +6027,16 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 	.or-continue{
 		margin-top: 0 !important;
 	}
+	#tr-wizard.shop-tracking-status .order-status{
+		margin-left: -15px;
+	}
 }
 
 .plan_spinner_mob h4,
 .plan_spinner_desk h4{
 	font-size: 14px;
 }
-#txtAppHkid, inputTxtAppHkid, input[name="adultHKID"], input[name="childHKID"], input[name="otherHKID"]{ text-transform:uppercase; }
+#txtAppHkid, inputTxtAppHkid, input[name="adultHKID"], input[name="childHKID"], input[name="otherHKID"]{ text-transform:uppercase; }.fa.small-fa-bullet{
+	vertical-align: middle;
+	font-size: 8px;
+}

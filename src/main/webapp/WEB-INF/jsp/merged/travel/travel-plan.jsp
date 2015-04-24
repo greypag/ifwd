@@ -186,7 +186,7 @@ var promoData = '';
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">								
+							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
 								<h2>
 									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
@@ -197,7 +197,7 @@ var promoData = '';
 									
 								</h2>	
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
 								
 								<h3><fmt:message key="travel.dollar" bundle="${msg}" /></h3>
 								<%
@@ -239,29 +239,29 @@ var promoData = '';
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
-										<table class="col-xs-11 col-xs-offset-1">
-										<tr>
-											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-													<i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits.desc" bundle="${msg}" /></td>
-											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$10,000</td>
-										</tr>
-										<tr>
-											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-											<i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
-											</td><td class="col-lg-4 col-md-4 col-sm-6 col-xs-6"> </td>
-										</tr> 
+										<div class="col-xs-11 col-xs-offset-1">
+										<div class="row">
+											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+													<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc" bundle="${msg}" /></div>
+											<div class="col-lg-4 col-md-4 col-xs-5">$10,000</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
+											</div><div class="col-lg-4 col-md-4 col-xs-5"> </div>
+										</div> 
 										
-										<tr>
-											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-											<i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </td>
-											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$5,000 </td>
-										</tr>
-										<tr>
-											<td class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-											<i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></td>
-											<td class="col-lg-4 col-md-4 col-sm-6 col-xs-6">$3,000 </td>
-											</tr>
-										</table>
+										<div class="row">
+											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
+											<div class="col-lg-4 col-md-4 col-xs-5">$5,000 </div>
+										</div>
+										<div class="row">
+											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
+											<div class="col-lg-4 col-md-4 col-xs-5">$3,000 </div>
+											</div>
+										</div>
 								</div>
 								
 								
@@ -302,7 +302,7 @@ var promoData = '';
 										<!--  Product Highlights  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-travel ">
+												<h4 class="fwdpanel-title h4-4-full ">
 													<span><i
 															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="travel.quote.fullDetails.keyFeature1" bundle="${msg}" /></a> </span>
 												</h4>
@@ -326,7 +326,7 @@ var promoData = '';
 										<!--  Summary of Coverage  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-travel">
+												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
 															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="travel.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
 												</h4>
@@ -516,7 +516,7 @@ var promoData = '';
 										<!--   Major Exclusions  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-travel">
+												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
 															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="travel.quote.fullDetails.majorExclusion" bundle="${msg}" /></a> </span>
 												</h4>
@@ -540,7 +540,7 @@ var promoData = '';
 										<!--   Age limit  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-travel">
+												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
 															class="fa fa-plus"></i>  <a href="#" class="fwdpanel-minimize"><fmt:message key="travel.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
 												</h4>
@@ -555,7 +555,7 @@ var promoData = '';
 										<!--   Premium table (���)  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-travel">
+												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
 															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="travel.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
 												</h4>
