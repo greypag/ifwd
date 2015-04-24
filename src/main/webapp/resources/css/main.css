@@ -685,7 +685,7 @@ vertical-align:middle;
 	padding-left: 20px;
 }
 .h4-2 {
-	font-size: 22px;
+	font-size: 16px;
 	font-weight: bold;
 	line-height: 31.5px;
 	color: #061d2a;
@@ -5973,7 +5973,9 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 }
 .at-share-tbx-element .at-share-btn{ margin:0 !important;}
 
-.styled-select select {
+.styled-select select,
+.styled-select select#selectHkidPass, 
+.styled-select .selectHkidPass {
    background: transparent !important; 
    /* width: 268px;
    padding: 5px;
@@ -5996,6 +5998,10 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
     background-color: rgb(245, 245, 245);
    /* border: 1px solid #ccc; */
    }
+.styled-select.payment-select {
+    background-color: #fff;
+    border: 1px solid #F6D5B4;
+}
 .date,
 .date input[disabled],
 .date input[readonly]{
@@ -6021,4 +6027,9 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 	.or-continue{
 		margin-top: 0 !important;
 	}
+}
+
+.plan_spinner_mob h4,
+.plan_spinner_desk h4{
+	font-size: 14px;
 }
