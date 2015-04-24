@@ -60,7 +60,7 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = { "/flight", "/flight-insurance" })
+	@RequestMapping(value = { "/flight", "/flight-insurance", "/flight-insurance/sharing" })
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -82,22 +82,46 @@ public class FlightController {
 		planDetails.setTravellerCount(1);
 
 		model.addAttribute(planDetails);
+		
+		
 		String pageTitle = WebServiceUtils.getPageTitle("page.flight",
 				UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.flight", UserRestURIConstants.getLanaguage(request));
-		String ogTitle = WebServiceUtils.getPageTitle("flight.og.title",
-				UserRestURIConstants.getLanaguage(request));
-		String ogType = WebServiceUtils.getPageTitle("flight.og.type",
-				UserRestURIConstants.getLanaguage(request));
-		String ogUrl = WebServiceUtils.getPageTitle("flight.og.url",
-				UserRestURIConstants.getLanaguage(request));
-		String ogImage = WebServiceUtils.getPageTitle("flight.og.image",
-				UserRestURIConstants.getLanaguage(request));
-		String ogDescription = WebServiceUtils.getPageTitle(
-				"flight.og.description",
-				UserRestURIConstants.getLanaguage(request));
-
+		
+		String ogTitle = "";
+		String ogType = "";
+		String ogUrl = "";
+		String ogImage = "";
+		String ogDescription = "";
+		
+		if ("/flight-insurance/sharing".equals(request.getContextPath().toString())) { 
+			ogTitle = WebServiceUtils.getPageTitle("flight.sharing.og.title",
+					UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("flight.sharing.og.type",
+					UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("flight.sharing.og.url",
+					UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("flight.sharing.og.image",
+					UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle(
+					"flight.sharing.og.description",
+					UserRestURIConstants.getLanaguage(request));
+		} else {
+			ogTitle = WebServiceUtils.getPageTitle("flight.og.title",
+					UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("flight.og.type",
+					UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("flight.og.url",
+					UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("flight.og.image",
+					UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle(
+					"flight.og.description",
+					UserRestURIConstants.getLanaguage(request));
+		}
+		System.out.println("request URL " + request.getRequestURL().toString());
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 

@@ -82,18 +82,42 @@ public class TravelController {
 		model.addAttribute("travelQuote", travelQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
-		String ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
-		String ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
-		String ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
-		String ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
-		String ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
+		
+		String ogTitle = "";
+		String ogType = "";
+		String ogUrl = "";
+		String ogImage = "";
+		String ogDescription = "";
+		if ("/travel-insurance/sharing".equals(request.getContextPath().toString())) { 
+			ogTitle = WebServiceUtils.getPageTitle("travel.sharing..og.title", UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("travel.sharing..og.type", UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));
+		} else {
+			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));			
+			
+		}
+			
+			
+			model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		
+		
 		model.addAttribute("ogTitle", ogTitle);
 		model.addAttribute("ogType", ogType);
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		
+		
+		
+		
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");			
 	}
@@ -413,7 +437,7 @@ public class TravelController {
 		String selectPlanPremium = WebServiceUtils.getParameterValue(
 				"selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectPlanName", session, request);
+				"planName", session, request);
 		System.out.println("Seeeeeee" + selectPlanName);
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);

@@ -60,14 +60,14 @@
 %>
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
-  <img src="<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+  <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobilebanner-->
 <div class="carousel slide hidden-xs hidden-sm">
 <div class="carousel-inner">
 <div class="item active">
 
 <!--/#middle-->
-        <img src="<fmt:message key="travel.hero.image" bundle="${msg}" />" alt=""  />
+        <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image" bundle="${msg}" />" alt=""  />
          </div>
       <!--/.item--> 
     </div>

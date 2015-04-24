@@ -121,11 +121,12 @@
 										<fmt:message key="home.summary.plansummary.desc5.part2"
 												bundle="${msg}" /></td>
 										<td class=" h4-5 ">${homeCareDetails.getApplicantRoom()}/${homeCareDetails.getApplicantFloor()},
-											${homeCareDetails.getApplicantBlock()},<br>
+											${homeCareDetails.getApplicantBlock()}, <br>
 											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() },<br>
-											${homeCareDetails.getApplicantStreetName()}
-											${homeCareDetails.getApplicantDistrict()}
+											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}<br>
+											${homeCareDetails.getApplicantStreetName()}<br>
+											${homeCareDetails.getApplicantDistrict()}, 
+											${homeCareDetails.getaArea() }
 										</td>
 									</tr>
 									<tr>
@@ -134,9 +135,9 @@
 										<td class=" h4-5 ">${homeCareDetails.getaRoom()}/${homeCareDetails.getaFloor()},
 											${homeCareDetails.getaBlock() },<br>
 											${homeCareDetails.getaBuilding()},
-											${homeCareDetails.getaEstate() },${homeCareDetails.getaStreetNo() }
+											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }<br>
 											${homeCareDetails.getaStreetName() }<br>
-											${homeCareDetails.getaDistrict()},
+											${homeCareDetails.getaDistrict()}, 
 											${homeCareDetails.getaArea() }</td>
 									</tr>
 									<tr>
