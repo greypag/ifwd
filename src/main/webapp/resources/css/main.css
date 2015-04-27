@@ -3044,6 +3044,7 @@ h2.page-title {
 }
 .bdr {
 	border: #ccc 1px solid;
+	border-top-width: 2px\9;
 	margin-top:20px;
 }
 .bdr2 {
@@ -5984,7 +5985,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 110% !important;
+   width: 115% !important;
 }
 .styled-select {
 /*    width: 240px;
