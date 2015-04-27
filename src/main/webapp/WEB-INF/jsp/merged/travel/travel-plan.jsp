@@ -916,7 +916,7 @@ var promoData = '';
 							</div>
 							<h4 class="h4-4">
 								<i class="fa fa-download"></i> <a
-									href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf"
+									href="<fmt:message key="travel.brochure.link" bundle="${msg}" />"
 									target="_blank"><fmt:message key="travel.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
 						</div>

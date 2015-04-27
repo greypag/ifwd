@@ -414,9 +414,9 @@
     <br>
     <div class="col-md-6 col-lg-6">
       <div class="content">
-        <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
+        <h2><fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <br/>
+          <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" /></h2>
+        <p class="details-text"><fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" /></p>
         <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
     </div>
     <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/home2.png" alt=""  /> </div>
@@ -489,7 +489,7 @@
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank"><fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></a></p>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
@@ -506,7 +506,7 @@
             <h1><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" />
             </h1>
-              <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
+              <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
 
           </div>
         </div>
@@ -549,7 +549,7 @@
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
                   <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" /></h2>
-                <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
+                <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -685,24 +685,24 @@
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <a href="<fmt:message key="travel.main.blog.subheading1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
-            <h3> <a href="<fmt:message key="travel.main.blog.subheading1.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="travel.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
+            <h3> <a href="<fmt:message key="travel.blog.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <a href="<fmt:message key="travel.main.blog.subheading2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
-            <h3><a href="<fmt:message key="travel.main.blog.subheading2.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="travel.blog.post2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
+            <h3><a href="<fmt:message key="travel.blog.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <a href="<fmt:message key="travel.main.blog.subheading3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
-            <h3> <a href="<fmt:message key="travel.main.blog.subheading3.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="travel.blog.post3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
+            <h3> <a href="<fmt:message key="travel.blog.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>
