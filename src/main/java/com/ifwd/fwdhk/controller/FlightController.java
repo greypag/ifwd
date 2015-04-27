@@ -60,7 +60,7 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = { "/flight", "/flight-insurance", "/flight-insurance/sharing" })
+	@RequestMapping(value = { "/flight", "/flight-insurance", "/flight-insurance/sharing/" })
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -95,7 +95,7 @@ public class FlightController {
 		String ogImage = "";
 		String ogDescription = "";
 		
-		if (request.getRequestURI().toString().equals(request.getContextPath() + "/flight-insurance/sharing")) { 
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/flight-insurance/sharing/")) { 
 			ogTitle = WebServiceUtils.getPageTitle("flight.sharing.og.title",
 					UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("flight.sharing.og.type",

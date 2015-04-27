@@ -53,7 +53,7 @@ public class HomeCareController {
 	@Autowired
 	SendEmailDao sendEmail;
 
-	@RequestMapping(value = {"/homecare", "/home-insurance"})
+	@RequestMapping(value = {"/homecare", "/home-insurance", "/home-insurance/sharing/"})
 	public String getHomeCarePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
