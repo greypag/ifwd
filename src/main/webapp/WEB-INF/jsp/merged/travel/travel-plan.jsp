@@ -233,33 +233,53 @@ var promoData = '';
 							<div class="fwdpanel">
 								<div class="fwdpanel-heading">
 									<h4 class=" benefits">
+									<%
+										String planBenefitKey = "travel.quote.plan" + (i+1)+ ".benefits";
+										String planBenefitDesc1Key = "travel.quote.plan" + (i+1)+ ".benefits.desc1";
+										String planBenefitDesc2Key = "travel.quote.plan" + (i+1)+ ".benefits.desc2";
+										String planBenefitDesc2Key = "travel.quote.plan" + (i+1)+ ".benefits.desc3";
+										String planBenefitDesc4Key = "travel.quote.plan" + (i+1)+ ".benefits.desc4";
+										String planBenefitDesc1PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc1.price";
+										String planBenefitDesc2PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc2.price";
+										String planBenefitDesc3PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc3.price";
+										String planBenefitDesc4PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc4.price";
+									%>
 										<span><i
 												class="fa fa-plus"></i> <a href="#"
-											class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a> </span>
+											class="fwdpanel-minimize uline text-black"><fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
 										<div class="col-xs-11 col-xs-offset-1">
 										<div class="row">
 											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-													<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc" bundle="${msg}" /></div>
-											<div class="col-lg-4 col-md-4 col-xs-5">$10,000</div>
+													<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></div>
+											<div class="col-lg-4 col-md-4 col-xs-5">
+												<fmt:message key="<%=planBenefitDesc1PriceKey%>" bundle="${msg}" />
+											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
-											</div><div class="col-lg-4 col-md-4 col-xs-5"> </div>
+											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" />
+											</div>
+											<div class="col-lg-4 col-md-4 col-xs-5">
+												<fmt:message key="<%=planBenefitDesc2PriceKey%>" bundle="${msg}" />
+											</div>
 										</div> 
 										
 										<div class="row">
 											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
-											<div class="col-lg-4 col-md-4 col-xs-5">$5,000 </div>
+											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /> </div>
+											<div class="col-lg-4 col-md-4 col-xs-5">
+												<fmt:message key="<%=planBenefitDesc3PriceKey%>" bundle="${msg}" />
+											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
-											<div class="col-lg-4 col-md-4 col-xs-5">$3,000 </div>
+											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></div>
+											<div class="col-lg-4 col-md-4 col-xs-5">
+												<fmt:message key="<%=planBenefitDesc4PriceKey%>" bundle="${msg}" />
+											</div>
 											</div>
 										</div>
 								</div>
@@ -876,8 +896,7 @@ var promoData = '';
 															<td>1193</td>
 														</tr>
 														<tr>
-															<td>Each additional day<br> up to 180 days
-															</td>
+															<td><fmt:message key="travel.quote.fullDetails.priceTable.dayLimit" bundle="${msg}" />
 															<td>20</td>
 															<td>12</td>
 															<td>35</td>
