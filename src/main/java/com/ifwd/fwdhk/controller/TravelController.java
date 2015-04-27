@@ -415,6 +415,7 @@ public class TravelController {
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectPlanName", session, request);
 		System.out.println("Seeeeeee" + selectPlanName);
+		selectPlanName = planName;
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
