@@ -1318,7 +1318,7 @@ function fcPlanValid()
 					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 				}
 				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
+					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
 					flag = false;
 				}
 				else {
@@ -1370,7 +1370,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
 				flag = false;
 			}
 		}
@@ -1405,7 +1405,7 @@ function fcPlanValid()
 			}
 			
 			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
 				flag = false;
 			}
 			else {
@@ -1455,7 +1455,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
 				flag = false;
 			}
 		}
@@ -1488,7 +1488,7 @@ function fcPlanValid()
 			}
 
 			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�正�??��???香港身份證�?�?";
 				flag = false;
 			}
 			else {
@@ -2950,13 +2950,15 @@ function hc_planValid() {
     	flag = false;
     }
     
-    //Remove the disabled select
+    //Remove the disabled / area select
     if(flag){
     	$('#selectADist').removeAttr('disabled');
-    	
+    	$('#inlineDeskRadio31').removeAttr('disabled');
+    	$('#inlineDeskRadio41').removeAttr('disabled');
+    	$('#inlineDeskRadio51').removeAttr('disabled');
     }
     if(home_click)
-    	return false
+    	return false;
     else{
     	if(flag)
     		home_click = true;
