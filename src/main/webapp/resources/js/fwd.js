@@ -1318,7 +1318,7 @@ function fcPlanValid()
 					document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
 				}
 				if (document.getElementById("adultBenefitiaryHKId" + i).value == "") {
-					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
+					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
 					flag = false;
 				}
 				else {
@@ -1370,7 +1370,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
 				flag = false;
 			}
 		}
@@ -1405,7 +1405,7 @@ function fcPlanValid()
 			}
 			
 			if (document.getElementById("txtchildInsuHkid" + i).value == "") {
-				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "  請輸?�正�??��???香港身份證�?�?";
 				flag = false;
 			}
 			else {
@@ -1455,7 +1455,7 @@ function fcPlanValid()
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
+				document.getElementById("errtxtOtherInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "?�輸?��?香港身份證�?碼�?�?��??;
 				flag = false;
 			}
 		}
@@ -1488,7 +1488,7 @@ function fcPlanValid()
 			}
 
 			if (document.getElementById("txtOtherBenInsuHkid" + i).value == "") {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�正�??��???香港身份證�?�?";
+				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML =  getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // "請輸?�正�??��???香港身份證�?�?";
 				flag = false;
 			}
 			else {
@@ -3793,33 +3793,6 @@ function activateUserAccount(){
 
 // 1. save credit card info by calling processHomeCarePayment
 // 2. post to payment gatway when step 1 success 
-var clicked = false;
-function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-	if (payValid() && clicked === false) {
-		clicked = true;
-		$("#PaymentingDiv").show();
-
-		var gatewayUrlId = '#' + gatewayUrlId;
-		var paymentFormId = '#' + paymentFormId;
-		var method = "/FWDHKPH1A/processHomeCarePayment";
-		
-		var geteWayUrl = $(gatewayUrlId).val();
-		$.ajax({
-					type : "POST",
-					url : method,
-					data : $(paymentFormId).serialize(),
-					async : false,
-					success : function(data) {
-						if (data == 'success') {
-							form.action = geteWayUrl;
-						}
-					}
-				});
-		return true;
-	}else return false;
-
-}
-
 
 
 $(function () {

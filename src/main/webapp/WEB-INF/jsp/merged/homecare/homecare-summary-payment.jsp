@@ -492,8 +492,7 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "<%=request.getContextPath()%>
-	/processHomeCarePayment",
+ 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
@@ -508,6 +507,36 @@
 		}
 
 	}
+
+ 	var clicked = false;
+ 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
+ 		if (payValid() && clicked === false) {
+ 			clicked = true;
+ 			$("#PaymentingDiv").show();
+
+ 			var gatewayUrlId = '#' + gatewayUrlId;
+ 			var paymentFormId = '#' + paymentFormId;
+ 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
+ 			
+ 			var geteWayUrl = $(gatewayUrlId).val();
+ 			$.ajax({
+ 						type : "POST",
+ 						url : method,
+ 						data : $(paymentFormId).serialize(),
+ 						async : false,
+ 						success : function(data) {
+ 							if (data == 'success') {
+ 								form.action = geteWayUrl;
+ 							}
+ 						}
+ 					});
+ 			return true;
+ 		}else return false;
+
+ 	}
+
+
+	
 
 	function BackMe() {
 		window.history.back();

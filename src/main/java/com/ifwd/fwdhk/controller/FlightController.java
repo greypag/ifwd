@@ -907,7 +907,9 @@ public class FlightController {
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		String upgradeReferralCode = "FLTUGD";
+		//String upgradeReferralCode = "FLTUGD";
+		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
+		
 
 		/* Get Travel Policies */
 		try {
