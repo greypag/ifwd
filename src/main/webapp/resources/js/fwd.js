@@ -1684,7 +1684,8 @@ function tPlanValid()
 			var hkid = document.getElementById("adultBenefitiaryHKId" + i).value;
 			document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = "";
 			document.getElementById("errInvalidadultBenefitiaryHKId" + i).innerHTML = "";
-
+			var hkidins = document.getElementById("txtInsuHkid" + i).value;
+			
 			if (hkid.trim() == "") {
 				if (selectOtHkidPass == "HKID") {
 					$('#erradultBenefitiaryHKId'+i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
@@ -1701,7 +1702,15 @@ function tPlanValid()
 					if (tr == false) {
 						$('#erradultBenefitiaryHKId'+i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
 						flag = false;
+						
 					}
+					
+					
+					if (hkid.toUpperCase()==hkidins.toUpperCase()){
+						$('#erradultBenefitiaryHKId'+i).html(getBundle(getBundleLanguage, "beneficiary.hkId.invalid.message"));
+						flag = false;
+					}
+					
 				}
 				else {
 					var tr = chkTravelHKPass(hkid.trim());
@@ -2941,15 +2950,13 @@ function hc_planValid() {
     	flag = false;
     }
     
-    //Remove the disabled / area select
+    //Remove the disabled select
     if(flag){
     	$('#selectADist').removeAttr('disabled');
-    	$('#inlineDeskRadio31').removeAttr('disabled');
-    	$('#inlineDeskRadio41').removeAttr('disabled');
-    	$('#inlineDeskRadio51').removeAttr('disabled');
+    	
     }
     if(home_click)
-    	return false;
+    	return false
     else{
     	if(flag)
     		home_click = true;
