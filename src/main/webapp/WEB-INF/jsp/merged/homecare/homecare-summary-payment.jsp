@@ -295,7 +295,8 @@
 										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
 											title=""
-											placeholder="home.summary.pmtdetail.desc2.placeholder"
+											placeholder="<fmt:message
+											key="home.summary.pmtdetail.desc2.placeholder" bundle="${msg}" />"
 											onkeyup="" onkeypress="return isNumeric(event)"
 											onBlur="validatecardnumber(this.value)" /> <span
 											id="errcardno" class="error-msg"></span>
@@ -353,7 +354,8 @@
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder"
 											class="input-block-level" title=""
-											placeholder="home.summary.pmtdetail.desc4.placeholder"
+											placeholder="<fmt:message
+											key="home.summary.pmtdetail.desc4.placeholder" bundle="${msg}" />"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -367,7 +369,8 @@
 										<input id="seccode" name="securityCode" type="password"
 											class="input-block-level" autocomplete="off" maxlength="3"
 											title=""
-											placeholder="home.summary.pmtdetail.desc5.placeholder"
+											placeholder="<fmt:message
+											key="home.summary.pmtdetail.desc5.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);">
 
