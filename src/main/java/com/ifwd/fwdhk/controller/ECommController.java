@@ -52,7 +52,7 @@ public class ECommController {
 			return new ModelAndView("redirect:" + viewName);
 	}
 	
-	@RequestMapping(value = {"/home", "/home/sharing/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/{lang}/home", "/{lang}/home/sharing/"}, method = RequestMethod.GET)
 	public String homePage(@RequestParam(required = false) final String promo, HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession(true);
 		
