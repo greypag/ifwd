@@ -239,9 +239,9 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 				String planBenefitDesc4Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc4";
 			%>
 			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li> 
-			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li> 
-			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li>
-			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li>
+			<li><fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" /></li> 
+			<li><fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /></li>
+			<li><fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></li>
 		</ul>
 	</div>
 </div>
