@@ -3,5 +3,6 @@
 <% 
 	session.setAttribute("language", "tc");
 	session.setAttribute("uiLocale", "zh-HK");
-	response.sendRedirect(request.getContextPath() + "/tc/" + "home");
+	// response.sendRedirect(request.getContextPath() + "/tc/" + "home");
+	response.sendRedirect(request.getContextPath() + "/home");
 %>
