@@ -97,6 +97,10 @@ public class UserController {
 							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myHomeReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myTravelReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
 
 					UserDetails userDetails = new UserDetails();
 					userDetails.setToken(checkJsonObjNull(response, "token"));
@@ -278,6 +282,10 @@ public class UserController {
 					session.setAttribute("referralCode",
 							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myHomeReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myTravelReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 
 					UserDetails loginUserDetails = new UserDetails();

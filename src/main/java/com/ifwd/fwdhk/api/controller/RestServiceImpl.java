@@ -275,7 +275,12 @@ public class RestServiceImpl implements RestServiceDao {
 				session.setAttribute("authenticate", "direct");
 				session.setAttribute("token", responseJsonObj.get("token")
 						.toString());
-				session.setAttribute("myReferralCode", "GENERIC_PROMO_CODE");
+				session.setAttribute("myReferralCode", "");
+				session.setAttribute("myHomeReferralCode", "ECHOME");
+				session.setAttribute("myTravelReferralCode", "TRA123");
+				
+				
+				
 				session.setAttribute("username", "*DIRECTGI");
 				UserDetails userDetails = new UserDetails();
 				userDetails

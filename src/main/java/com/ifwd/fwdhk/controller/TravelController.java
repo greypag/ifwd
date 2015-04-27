@@ -152,13 +152,8 @@ public class TravelController {
 				spouseCover = false;
 				otherCount = travelQuote.getTotalPersonalTraveller();
 				travelQuote.setTotalChildTraveller(0);
-				
-				// vincent - fix for back btn, traveller cnt was reset
-				// travelQuote.setTotalAdultTraveller(0);
-				//if (travelQuote.getTotalAdultTraveller() > 0)
-				//	travelQuote.setTotalPersonalTraveller(travelQuote.getTotalAdultTraveller());
-				
-				// travelQuote.setTotalOtherTraveller(otherCount - 1);		// vincent - bug fix from travel 3rd page (Back btn) to 2nd page
+				travelQuote.setTotalAdultTraveller(0);
+				travelQuote.setTotalOtherTraveller(otherCount - 1);
 				otherCount = travelQuote.getTotalOtherTraveller();
 
 			} else {
@@ -448,20 +443,9 @@ public class TravelController {
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
 				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
 			}
-			
-			if (travelQuote.getPlanSelected().equals("personal"))
-			{
-				if (travelQuote.getTotalAdultTraveller()>0)
-				{
-					travelQuote.setTotalPersonalTraveller(travelQuote.getTotalAdultTraveller());
-					travelQuote.setTotalAdultTraveller(0);
-				}
-			}
-			/*
 			travelQuote.setTotalAdultTraveller(travelQuote
 					.getTotalAdultTraveller()
 					+ travelQuote.getTotalPersonalTraveller());
-					*/
 			request.getSession().setAttribute("departureDate",
 					travelQuote.getTrLeavingDate());
 			request.getSession().setAttribute("returnDate",
@@ -1261,6 +1245,8 @@ public class TravelController {
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
+			
+			System.out.println("TRAVEL_FINALIZE_POLICY errMsgs " + responsObject.get("errMsgs").toString());
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
@@ -1274,17 +1260,21 @@ public class TravelController {
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				return "travel/" + UserRestURIConstants.getSitePath(request) + "/travel-confirmation";
-			} else {
-				System.out.println(responsObject.get("errMsgs").toString());
-				model.addAttribute("errormsg", responsObject.get("errMsgs")
-						.toString());
 				return UserRestURIConstants.getSitePath(request)
 						+ "travel/travel-confirmation";
+			} else {
+				System.out.println(responsObject.get("errMsgs").toString());
+				model.addAttribute("errMsgs", responsObject.get("errMsgs")
+						.toString());
+				return UserRestURIConstants.getSitePath(request)
+						+ "travel/travel-summary-payment";
 			}
-		} finally {
+		} catch (Exception e) {
+			System.out.println(responsObject.get("errMsgs").toString());
+			model.addAttribute("errMsgs", responsObject.get("errMsgs")
+					.toString());
 			return UserRestURIConstants.getSitePath(request)
-					+ "travel/travel-confirmation";
+					+ "travel/travel-summary-payment";
 		}
 	}
 	

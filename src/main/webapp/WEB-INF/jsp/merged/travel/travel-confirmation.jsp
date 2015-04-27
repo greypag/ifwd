@@ -66,7 +66,7 @@
             
             <h4><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /><span> ${policyNo}</span></h4>
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-            <h5><fmt:message key="travel.confirmation.referalCode.member" bundle="${msg}" /><span><%=session.getAttribute("myReferralCode")%></span></h5>
+            <h5><fmt:message key="travel.confirmation.referalCode.member" bundle="${msg}" /><span><%=session.getAttribute("myTravelReferralCode")%></span></h5>
 
             <div class="h4-3-b margin-left"><fmt:message key="travel.confirmation.referalCode.desc1" bundle="${msg}" /><!-- <span class="orange-star">*</span> --></div>
             </div>
@@ -84,7 +84,7 @@
               
                 <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="travel.referral.copy" bundle="${msg}" />複製</div>
 <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/	<%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
-                  <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance/sharing" data-title="iFWD"></div>
+                  <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance/sharing/" data-title="iFWD"></div>
                 
                 
                 </div>

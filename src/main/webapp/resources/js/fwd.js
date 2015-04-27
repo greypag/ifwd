@@ -2947,7 +2947,7 @@ function hc_planValid() {
     	
     }
     if(home_click)
-    	return false
+    	return false;
     else{
     	if(flag)
     		home_click = true;

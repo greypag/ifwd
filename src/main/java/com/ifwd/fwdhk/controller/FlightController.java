@@ -407,7 +407,12 @@ public class FlightController {
 			model.addAttribute("mapChildType", mapChildType);
 
 		} else {
-			System.out.println("API failed");
+			System.out.println("API failed - Could not retrieve Age Type List");
+			String returnUrl = UserRestURIConstants.getSitePath(request)
+					+ "flight/flight-plan";
+			System.out.println("returnUrl " + returnUrl);
+			model.addAttribute("errMsgs", "API failed - Could not retrieve Age Type List");
+			return new ModelAndView(returnUrl);
 		}
 		String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
 				+ "?itemTable=BeneRelationshipCode";
@@ -429,6 +434,13 @@ public class FlightController {
 			}
 			model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
+		} else {
+			System.out.println("API failed - Could not retrieve Relationship code List");
+			String returnUrl = UserRestURIConstants.getSitePath(request)
+					+ "flight/flight-plan";
+			System.out.println("returnUrl " + returnUrl);
+			model.addAttribute("errMsgs", "API failed - Could not retrieve Relationship code List");
+			return new ModelAndView(returnUrl);
 		}
 
 		UserDetails userDetails = (UserDetails) request.getSession()
@@ -895,7 +907,7 @@ public class FlightController {
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
+		String upgradeReferralCode = "FLTUGD";
 
 		/* Get Travel Policies */
 		try {

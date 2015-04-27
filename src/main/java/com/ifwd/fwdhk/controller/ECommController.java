@@ -52,7 +52,7 @@ public class ECommController {
 			return new ModelAndView("redirect:" + viewName);
 	}
 	
-	@RequestMapping(value = {"/home", "/home/sharing"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/home", "/home/sharing/"}, method = RequestMethod.GET)
 	public String homePage(@RequestParam(required = false) final String promo, HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession(true);
 		
@@ -71,7 +71,7 @@ public class ECommController {
 		System.out.println("URL " + req.getRequestURL().toString());
 		
 		
-		if (req.getRequestURI().toString().equals(req.getContextPath() + "/home/sharing")) {
+		if (req.getRequestURI().toString().equals(req.getContextPath() + "/home/sharing/")) {
 			ogTitle = WebServiceUtils.getPageTitle("index.sharing.og.title", UserRestURIConstants.getLanaguage(req));
 			ogType = WebServiceUtils.getPageTitle("index.sharing.og.type", UserRestURIConstants.getLanaguage(req));
 			ogUrl = WebServiceUtils.getPageTitle("index.sharing.og.url", UserRestURIConstants.getLanaguage(req));

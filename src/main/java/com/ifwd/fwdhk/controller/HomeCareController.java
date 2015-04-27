@@ -132,7 +132,7 @@ public class HomeCareController {
 			String ogDescription = "";
 			
 			
-			if (request.getRequestURI().toString().equals(request.getContextPath() + "/home-insurance/sharing")) {
+			if (request.getRequestURI().toString().equals(request.getContextPath() + "/home-insurance/sharing/")) {
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", UserRestURIConstants.getLanaguage(request));
 				ogType = WebServiceUtils.getPageTitle("homeCare.sharing.og.type", UserRestURIConstants.getLanaguage(request));
 				ogUrl = WebServiceUtils.getPageTitle("homeCare.sharing.og.url", UserRestURIConstants.getLanaguage(request));
@@ -172,6 +172,7 @@ public class HomeCareController {
 
 	@RequestMapping(value = {"/getHomePlan", "/home-insurance/quote"})
 	public String getHomeCarePlanage(Model model, HttpServletRequest request) {
+		System.out.println("/home-insurance/quote");
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
@@ -179,6 +180,7 @@ public class HomeCareController {
 
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
+			System.out.println("session null");
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
 
@@ -222,8 +224,9 @@ public class HomeCareController {
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare-plan";
 		} else {
-			model.addAttribute("errMsgs", planQuote.getErrormsg());
 			System.out.println("errMsgs " + planQuote.getErrormsg());
+			model.addAttribute("errMsgs", planQuote.getErrormsg());
+			
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
 	}
@@ -490,7 +493,7 @@ public class HomeCareController {
 		} else {
 			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
 			return UserRestURIConstants.getSitePath(request)
-					+ "homecare/homecare-confirmation";
+					+ "homecare/homecare-summary-payment";
 		}
 			
 		model.addAttribute("emailID", emailId);
