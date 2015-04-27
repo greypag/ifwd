@@ -360,7 +360,7 @@
 								</tr>
 								<tr>
 									<td class="pad-none" colspan="2">
-										<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied">Copy Link</div>
+										<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied"><fmt:message key="member.account.referral.copy" bundle="${msg}" /></div>
 										<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home/sharing/	" data-title="iFWD"></div>
 									</td>
 								</tr>
@@ -368,10 +368,24 @@
 						</table>
 						<br>
 						<div class="declaration-content1">
-							<b><span class="orange-star">*</span><fmt:message key="member.account.promotionCode.share.termsAndConditions.message.header" bundle="${msg}" /></b>
+							<!--<b><span class="orange-star">*</span><fmt:message key="member.account.promotionCode.share.termsAndConditions.message.header" bundle="${msg}" /></b>
 							<p>
 								<fmt:message key="member.account.promotionCode.share.termsAndConditions.message.details" bundle="${msg}" />
 							</p>
+							-->
+							<b><fmt:message key="member.account.referral.disclaimer" bundle="${msg}" /></b>
+							<p>
+                    			<fmt:message key="member.account.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
+                    			<fmt:message key="member.account.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>
+                    			<fmt:message key="member.account.referral.disclaimer.section1.desc2" bundle="${msg}" /><br>
+                  				<fmt:message key="member.account.referral.disclaimer.section2.header" bundle="${msg}" /><br>
+                   				<fmt:message key="member.account.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
+          						<fmt:message key="member.account.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
+          						<a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
+          							<fmt:message key="member.account.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
+          						</a>
+          						<fmt:message key="member.account.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
+                </p>
 						</div>
 					</div>
 				</div>

@@ -311,13 +311,29 @@ var promoData = '';
 												<p><fmt:message key="travel.quote.fullDetails.keyFeature1.subheading" bundle="${msg}" /></p>
 												<br>
 												<p>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc1" bundle="${msg}" /><br/>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc2" bundle="${msg}" /><br/>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc3" bundle="${msg}" /><br/>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc4" bundle="${msg}" /><br/>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc5" bundle="${msg}" /><br/>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc6" bundle="${msg}" /><br/>
-													<fmt:message key="travel.quote.fullDetails.keyFeature1.desc7" bundle="${msg}" />
+													<ul class="text-justify">
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc1" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc2" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc3" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc4" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc5" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc6" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="travel.quote.fullDetails.keyFeature1.desc7" bundle="${msg}" />
+														</li>
+													</ul>
 												</p>
 
 											</div>
@@ -412,8 +428,8 @@ var promoData = '';
 															<td rowspan="3"><fmt:message key="travel.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
 															<td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
 																<fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" /></td>
-															<td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc1" bundle="${msg}" />$1,200,000</td>
-															<td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" />$600,000</td>
+															<td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
 															<td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
