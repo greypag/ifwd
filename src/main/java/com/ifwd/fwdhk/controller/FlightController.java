@@ -161,7 +161,7 @@ public class FlightController {
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/{lang}/getFlightDate", "/{lang}/flight-insurance/quote" })
+	@RequestMapping(value = { "/getFlightDate", "/flight-insurance/quote" })
 	public ModelAndView getFlightDate(HttpServletRequest request,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
@@ -328,8 +328,8 @@ public class FlightController {
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	@SuppressWarnings("rawtypes")
 	// "Flight Plan" )
-	@RequestMapping(value = { "/{lang}/flight-plan-details",
-			"/{lang}/flight-insurance/user-details" })
+	@RequestMapping(value = { "/flight-plan-details",
+			"/flight-insurance/user-details" })
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
@@ -465,8 +465,8 @@ public class FlightController {
 		return new ModelAndView(returnUrl);
 	}
 
-	@RequestMapping(value = { "/{lang}/flight-confirmation",
-			"/{lang}/flight-insurance/confirm-policy" })
+	@RequestMapping(value = { "/flight-confirmation",
+			"/flight-insurance/confirm-policy" })
 	@ResponseBody
 	public String flightConfirmation(
 			HttpServletRequest request,
@@ -893,7 +893,7 @@ public class FlightController {
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/{lang}/flight-confrimation-page", "/{lang}/flight-insurance/confirmation" })
+	@RequestMapping(value = { "/flight-confrimation-page", "/flight-insurance/confirmation" })
 	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
@@ -1055,7 +1055,7 @@ public class FlightController {
 				+ "flight/flight-confirmation");
 	}
 
-	@RequestMapping(value = "/{lang}/flight-upgrade-travel-summary")
+	@RequestMapping(value = "/flight-upgrade-travel-summary")
 	public String flightToTravelUpgrade(Model model,
 			HttpServletRequest request,
 			@ModelAttribute("travelQuote") CreateFlightPolicy createFlightPolicy) {
