@@ -404,6 +404,15 @@ public class HomeCareController {
 		// get netFloorArea desc
 		Map<String, String> netFloorAreas = homecareService.getNetFloorArea(userName, token, UserRestURIConstants.getLanaguage(request));
 		homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(netFloorAreas, homeCareDetails.getNetFloorArea()));
+		// get district / area desc
+		List<DistrictBean> districts = homecareService.getDistrict(userName, token, UserRestURIConstants.getLanaguage(request));
+		Map<String, String> areas = homecareService.getArea(userName, token, UserRestURIConstants.getLanaguage(request));
+		homeCareDetails.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, homeCareDetails.getApplicantDistrict()));
+		homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, homeCareDetails.getApplicantArea()));
+		
+		homeCareDetails.setaDistrictDesc(WebServiceUtils.getDistrictDesc(districts, homeCareDetails.getaDistrict()));
+		homeCareDetails.setaAreaDesc(WebServiceUtils.getAreaDesc(areas, homeCareDetails.getaArea()));
+		
 		
 		String path = request.getRequestURL().toString();
 		model.addAttribute("effectiveDate", homeCareDetails.getEffectiveDate());

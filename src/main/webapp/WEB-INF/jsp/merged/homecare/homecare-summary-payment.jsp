@@ -125,8 +125,8 @@
 											${homeCareDetails.getApplicantBuilding() },
 											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}<br>
 											${homeCareDetails.getApplicantStreetName()}<br>
-											${homeCareDetails.getApplicantDistrict()}, 
-											${homeCareDetails.getaArea() }
+											${homeCareDetails.getApplicantDistrictDesc()}, 
+											${homeCareDetails.getApplicantAreaDesc() }
 										</td>
 									</tr>
 									<tr>
@@ -137,8 +137,8 @@
 											${homeCareDetails.getaBuilding()},
 											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }<br>
 											${homeCareDetails.getaStreetName() }<br>
-											${homeCareDetails.getaDistrict()}, 
-											${homeCareDetails.getaArea() }</td>
+											${homeCareDetails.getaDistrictDesc()}, 
+											${homeCareDetails.getaAreaDesc() }</td>
 									</tr>
 									<tr>
 										<td class="h2-1 "><fmt:message

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.LocaleKeyEnum;
 
@@ -201,6 +202,42 @@ public class WebServiceUtils {
 		
 		return desc;
 	}
+	public static String getDistrictDesc(List<DistrictBean> districts, String district){
+		String desc = "";
+		
+		if(district == null || district.isEmpty()){
+			desc= "";
+		}else{
+			if(districts != null){
+				for (DistrictBean entry : districts){
+					if(entry.getCode().equalsIgnoreCase(district)){
+						desc = entry.getDescription();
+						break;
+					}
+				}
+			}
+		}
+		
+		return desc;
+	}
+	public static String getAreaDesc(Map<String, String>areas, String area){
+		String desc = "";
+		
+		if(area == null || area.isEmpty()){
+			desc= "";
+		}else{
+			if(areas != null){
+				for (Map.Entry<String, String> entry : areas.entrySet()){
+					if(entry.getKey().equalsIgnoreCase(area)){
+						desc = entry.getValue();
+						break;
+					}
+				}
+			}
+		}
+		
+		return desc;
+	}	
 	
 	public static String[] getAgeRangeNames(String[] ageRanges, String language) {
 		

@@ -219,11 +219,10 @@ public class HomeCareServiceImpl implements HomeCareService {
 		return jsonGetPlanResponse.toJSONString();
 	}
 
-	public List<DistrictBean> getDistrict(String userName, String token,
-			String language) {
+	public List<DistrictBean> getDistrict(String userName, String token, String language) {
 		// TODO Auto-generated method stub
 		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
-		String UrlTerritory = UserRestURIConstants.HOMECARE_GET_TERRITORY;
+		String UrlTerritory = UserRestURIConstants.HOMECARE_GET_TERRITORY_DISTRICT;
 		
 		RestServiceDao restService = new RestServiceImpl();
 		List<DistrictBean> districtList = new ArrayList<DistrictBean>();
@@ -274,6 +273,35 @@ public class HomeCareServiceImpl implements HomeCareService {
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public LinkedHashMap<String, String> getArea(String userName, String token, String language) {
+		String url = UserRestURIConstants.HOMECARE_GET_TERRITORY;
+
+		RestServiceDao restService = new RestServiceImpl();
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		header.put("userName", userName);
+		header.put("token", token);
+		header.put("language", UserRestURIConstants.getWSLang(language));
+
+		JSONObject jsonResponseArea = restService.consumeApi(
+				HttpMethod.GET, url, header, null);
+
+		if (jsonResponseArea.get("errMsgs") == null) {
+			JSONArray jsonAreaArray = (JSONArray) jsonResponseArea
+					.get("optionItemDesc");
+
+			for (int i = 0; i < jsonAreaArray.size(); i++) {
+				JSONObject obj = (JSONObject) jsonAreaArray.get(i);
+				map.put(checkJsonObjNull(obj, "itemCode"),
+						checkJsonObjNull(obj, "itemDesc"));
+			}			
+		}
+
+		return map;
 	}
 	
 	@Override

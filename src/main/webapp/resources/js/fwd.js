@@ -2941,10 +2941,12 @@ function hc_planValid() {
     	flag = false;
     }
     
-    //Remove the disabled select
+    //Remove the disabled / area select
     if(flag){
     	$('#selectADist').removeAttr('disabled');
-    	
+    	$('#inlineDeskRadio31').removeAttr('disabled');
+    	$('#inlineDeskRadio41').removeAttr('disabled');
+    	$('#inlineDeskRadio51').removeAttr('disabled');
     }
     if(home_click)
     	return false;

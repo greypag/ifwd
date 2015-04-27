@@ -35,7 +35,10 @@ public class HomeCareDetailsBean {
 	private String totalDue;
 	
 	private String netFloorAreaDesc;
-	
+	private String applicantDistrictDesc; 
+	private String applicantAreaDesc; 
+	private String aDistrictDesc; 
+	private String aAreaDesc; 
 	
 	public String getTotalDue() {
 		return totalDue;
@@ -210,6 +213,30 @@ public class HomeCareDetailsBean {
 	}
 	public void setNetFloorAreaDesc(String netFloorAreaDesc) {
 		this.netFloorAreaDesc = netFloorAreaDesc;
+	}
+	public String getApplicantDistrictDesc() {
+		return applicantDistrictDesc;
+	}
+	public void setApplicantDistrictDesc(String applicantDistrictDesc) {
+		this.applicantDistrictDesc = applicantDistrictDesc;
+	}
+	public String getApplicantAreaDesc() {
+		return applicantAreaDesc;
+	}
+	public void setApplicantAreaDesc(String applicantAreaDesc) {
+		this.applicantAreaDesc = applicantAreaDesc;
+	}
+	public String getaDistrictDesc() {
+		return aDistrictDesc;
+	}
+	public void setaDistrictDesc(String aDistrictDesc) {
+		this.aDistrictDesc = aDistrictDesc;
+	}
+	public String getaAreaDesc() {
+		return aAreaDesc;
+	}
+	public void setaAreaDesc(String aAreaDesc) {
+		this.aAreaDesc = aAreaDesc;
 	}
 		
 }

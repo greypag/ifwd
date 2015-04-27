@@ -6,6 +6,7 @@
 
 package com.ifwd.fwdhk.services;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,7 @@ public interface  HomeCareService {
 	public HomeQuoteBean getHomePlan(String token, String userName, String userReferralCode , String answer1, String answer2, String language);
 	public String getHomePlanToString(String token, String userName, String userReferralCode , String answer1, String answer2, String language);
 	public List<DistrictBean>getDistrict(String userName, String token, String language); 
+	public LinkedHashMap<String, String> getArea(String userName, String token, String language);
 	
 	public Map<String, String> getNetFloorArea(String userName, String token, String language); 
 	
