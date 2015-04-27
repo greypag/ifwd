@@ -459,7 +459,8 @@
 						System.out.println("getLanguage" + session.getAttribute("language"));
 						System.out.println("payLang" + payLang);
 					%>
-					<input type="hidden" name="lang" value="<%=payLang%>"> <input
+<%-- 					<input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
+					<input type="hidden" name="lang" value="C"> <input
 						type="hidden" name="secureHash"
 						value="${createPolicy.getSecureHash() }"> <input
 						type="hidden" id="emailAddress" name="emailAddress"

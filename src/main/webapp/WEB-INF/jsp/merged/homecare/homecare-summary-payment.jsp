@@ -235,8 +235,8 @@
 					%>
 
 
-				<input type="hidden" name="lang"
-					value="<%=payLang%>"> <input
+<%-- 				<input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
+				<input type="hidden" name="lang" value="C"> <input
 					type="hidden" name="secureHash" value="${confirm.getSecureHash() }">
 				<input type="hidden" id="emailAddress" name="emailAddress"
 					value="${userDetails.getEmailAddress()}"> <input
