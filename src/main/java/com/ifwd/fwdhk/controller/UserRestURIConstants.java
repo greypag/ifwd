@@ -107,13 +107,18 @@ public class UserRestURIConstants {
 		}
 		return result;
 	}
-	
-	public static String getLanaguage(HttpServletRequest request) {
+		
+	public static String getLanaguage(HttpServletRequest request) 
+	{
 		HttpSession session = request.getSession();	
-		String lang = "CN";
-		if(session.getAttribute("language")!=null){
+		String lang = "tc";
+		
+		if(session.getAttribute("language")!=null)
+		{
 			lang = session.getAttribute("language").toString();
-		}else{
+		}
+		else
+		{
 			// defalut language
 			session.setAttribute("language", lang);
 			// default locale
@@ -127,16 +132,27 @@ public class UserRestURIConstants {
 		
 //		return "/merged/";
 		HttpSession session = request.getSession();	
-		String lang = "CN";
+		String lang = "tc";
+		
 		if(session.getAttribute("language")!=null){
 			lang = session.getAttribute("language").toString();
 		}
-		if("EN".equals(lang)){
+		
+		if("EN".equals(lang))
+		{
 			return "/en/";
-		}else if("CN".equals(lang)){
-			return "/cn/";
-		} else{
-			return "/en/";
+		}
+		else if("CN".equals(lang))
+		{
+			return "/tc/";
+		} 
+		else if (lang.equalsIgnoreCase("tc"))
+		{
+			return "/tc/";
+		}
+		else 
+		{
+			return "/en";
 		}
 	}
 	
