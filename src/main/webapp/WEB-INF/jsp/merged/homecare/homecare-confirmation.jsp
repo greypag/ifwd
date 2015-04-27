@@ -177,7 +177,7 @@
 
 							<div >
 					         	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
-					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance?promo=<%=session.getAttribute("myReferralCode")%></a></div>
+					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
 					            </div>
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>

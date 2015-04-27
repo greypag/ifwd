@@ -1246,7 +1246,7 @@ public class TravelController {
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
 			
-			System.out.println("TRAVEL_FINALIZE_POLICY errMsgs " + responsObject.get("errMsgs").toString());
+			System.out.println("TRAVEL_FINALIZE_POLICY errMsgs " + responsObject.get("errMsgs"));
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");

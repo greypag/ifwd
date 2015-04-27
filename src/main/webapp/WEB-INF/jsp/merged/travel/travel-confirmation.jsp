@@ -78,7 +78,7 @@
          <div class="h4-2 margin-left"><fmt:message key="travel.confirmation.referalCode.desc2.member" bundle="${msg}" /></div>
          
          <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance?promo=<%=session.getAttribute("myReferralCode")%></div>
+         <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
               </div>
               <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
               
