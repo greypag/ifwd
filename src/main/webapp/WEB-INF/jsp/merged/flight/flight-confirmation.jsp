@@ -232,10 +232,16 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 <div class="fwdpanel-body clearfix" style="display: none;">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<ul>
-			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc1" bundle="${msg}" /></li> 
-			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc2" bundle="${msg}" /></li> 
-			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc3" bundle="${msg}" /></li>
-			<li><fmt:message key="flight.confirmation.upgrade.plan1.benefits.desc4" bundle="${msg}" /></li>
+			<%
+				String planBenefitDesc1Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc1";
+				String planBenefitDesc2Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc2";
+				String planBenefitDesc3Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc3";
+				String planBenefitDesc4Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc4";
+			%>
+			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li> 
+			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li> 
+			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li>
+			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li>
 		</ul>
 	</div>
 </div>
