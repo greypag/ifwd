@@ -86,7 +86,7 @@
 							</div>
 							<div class="col-xs-6 col-md-5">
 								<h4 class="h4-trav-full text-right home-summary-change">
-									<a href="" onclick="BackMe()">Change details</a>
+									<a href="" onclick="BackMe()"><fmt:message key="home.summary.changedetail.heading" bundle="${msg}" /></a>
 								</h4>
 							</div>
 						</div>
@@ -327,7 +327,7 @@
 								<td><div class="styled-select payment-select"><select class="pay-details-select" id="year"
 									name="epYear">
 										<option VALUE=""><fmt:message
-												key="home.summary.pmtdetail.desc3a" bundle="${msg}" /></option>
+												key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 										<!-- 										<option VALUE="2015">2015</option> -->
 										<!-- 										<option VALUE="2016">2016</option> -->
 										<!-- 										<option VALUE="2017">2017</option> -->

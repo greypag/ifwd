@@ -159,7 +159,7 @@
 							</h4>
 							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 								<h5>
-									<fmt:message key="home.confirmation.promocode" bundle="${msg}" /><span> <%=session.getAttribute("myHomeReferralCode")%></span>
+									<fmt:message key="home.confirmation.promocode" bundle="${msg}" /><span> <%=session.getAttribute("myReferralCode")%></span>
 								</h5>
 								<div class="h4-3-b margin-left">
 								<fmt:message key="home.confirmation.share" bundle="${msg}" />
@@ -180,9 +180,9 @@
 					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance?promo=<%=session.getAttribute("myReferralCode")%></a></div>
 					            </div>
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
-						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">Copy Link</div>
+						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
 						        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
-					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home-insurance/sharing/" data-title="iFWD"></div>
+					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home-insurance/sharing" data-title="iFWD"></div>
 					           	</div>
 					         </div>
 					         
@@ -192,11 +192,11 @@
 								<div class="declaration-content1">
 									<b><span class="orange-star">*</span><fmt:message key="home.confirmation.referral.heading" bundle="${msg}" /></b>
 									<p class="margin-none">
-										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" />  <br>
-										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
+										<fmt:message key="home.confirmation.referral.desc1" bundle="${msg}" />  <br>
+										<fmt:message key="home.confirmation.referral.desc2" bundle="${msg}" /> <br>
 										<fmt:message key="home.confirmation.referral.desc3" bundle="${msg}" /> <br>
 										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
-										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
+										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="<%=request.getContextPath()%><fmt:message key="referral.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
 									</p>
 									<br>
 								</div>

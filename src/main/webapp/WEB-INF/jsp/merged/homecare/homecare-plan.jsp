@@ -248,7 +248,7 @@
 							
 							<div class="col-xs-12 hidden-sm hidden-xs">
 							<!-- Plan benefits -->
-								<div class="fwdpanel">
+								<!--<div class="fwdpanel">
 									<div class="fwdpanel-heading">
 										<h4 class="benefits">
 											<span>
@@ -272,6 +272,7 @@
 									<div class="clearfix"></div>
 	
 								</div>
+								-->
 							<!-- / Plan benefits -->
 							</div>
 							<div class="clearfix"></div>
@@ -369,10 +370,9 @@
 															<td><fmt:message key="home.quote.summary.table.row2.col3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td>3</td>
+															<td><fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> </td>
 															<td>
 																<strong>
-																	<fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> 
 																	<fmt:message key="home.quote.summary.table.row3.col2.desc1" bundle="${msg}" /><br />
 																	<fmt:message key="home.quote.summary.table.row3.col2.desc2" bundle="${msg}" /><br />
 																	<fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
@@ -441,7 +441,7 @@
 																<strong>
 																	<fmt:message key="home.quote.summary.table.row9.col2.desc1" bundle="${msg}" /><br />
 																	<fmt:message key="home.quote.summary.table.row9.col2.desc2" bundle="${msg}" />
-																	<fmt:message key="home.quote.summary.table.row9.col3.desc2" bundle="${msg}" />
+																	<fmt:message key="home.quote.summary.table.row9.col2.desc3" bundle="${msg}" />
 																</strong>
 															</td>
 															<td><fmt:message key="home.quote.summary.table.row9.col3" bundle="${msg}" /></td>
@@ -558,14 +558,14 @@
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-travel margin-left">
 													<span><a href="#" class="fwdpanel-minimize"><i
-															class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
+															class="fa fa-plus"></i> <fmt:message key="home.quote.excess.heading" bundle="${msg}" /> </a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 
-												<h4 class="h4-2">
+												<!--<h4 class="h4-2">
 													<strong><fmt:message key="home.quote.excess.heading" bundle="${msg}" /></strong>
-												</h4>
+												</h4>-->
 
 												<table id="Premium" class="table table-bordred">
 													<tbody>
@@ -633,9 +633,9 @@
 							</div>
 							<div class="orange-bdr"></div>
 							<div class="form-container">
-								<h3 class="hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.plantype" bundle="${msg}" /></h3>
+								<h3 class="hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.planType" bundle="${msg}" /></h3>
 								<div class="form-group hidden-sm hidden-xs">
-									<p class="h4-5 pad-none"><fmt:message key="home.sidebar.summary.plantype.desc" bundle="${msg}" /></p>
+									<p class="h4-5 pad-none"><fmt:message key="home.sidebar.summary.planType.desc" bundle="${msg}" /></p>
 								</div>
 
 								<h3 class="col-sm-6 col-xs-6 col-md-12"><fmt:message key="home.sidebar.summary.promocode" bundle="${msg}" /></h3>

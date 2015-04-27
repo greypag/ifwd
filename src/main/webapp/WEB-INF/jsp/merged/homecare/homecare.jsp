@@ -410,7 +410,7 @@
 				<p class="col-xs-12 h4-6">
 				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 							
-					<a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link"> 
+					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class="sub-link"> 
 					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
 					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
 					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
@@ -443,7 +443,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</h1>
 							<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /> <a
-									href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
+									href="<fmt:message key="app.download.link" bundle="${msg}" />"
 									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 							</p>
 						</div>
@@ -496,7 +496,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 									
 								<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
-									href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html"
+									href="<fmt:message key="app.download.link" bundle="${msg}" />"
 									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 								</p>
 									
@@ -680,10 +680,10 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-lg-4 col-md-4 pad-none">
 					<div class="services-wrap service-bx1">
 						<div>
-							<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank"><img class="img-responsive bdr-img"
+							<a href="<fmt:message key="home.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
 								src="<%=request.getContextPath()%>/resources/images/home8.png" alt=""></a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/protecting-your-family-heirlooms/" target="_blank">
+								<a href="<fmt:message key="home.blog.post1.link" bundle="${msg}" />" target="_blank">
 									<fmt:message key="home.main.blog.subheading1.part1" bundle="${msg}" /> <fmt:message key="home.main.blog.subheading1.part2" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i>
 								</a>
@@ -695,12 +695,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-lg-4 col-md-4 pad-none">
 					<div class="services-wrap service-bx2">
 						<div>
-							<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank">
+							<a href="<fmt:message key="home.blog.post2.link" bundle="${msg}" />" target="_blank">
 							<img class="img-responsive bdr-img"
 								src="<%=request.getContextPath()%>/resources/images/home9.png" alt="">
 								</a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/en_US/2015/03/20/top-tips-to-make-a-small-flat-stylish/" target="_blank"> 
+								<a href="<fmt:message key="home.blog.post2.link" bundle="${msg}" />" target="_blank"> 
 								<fmt:message key="home.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
 								</a>
 							</h3>
@@ -711,11 +711,11 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-lg-4 col-md-4 pad-none">
 					<div class="services-wrap service-bx3">
 						<div>
-						<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
+						<a href="<fmt:message key="home.blog.post3.link" bundle="${msg}" />" target="_blank">
 							<img class="img-responsive bdr-img"
 								src="<%=request.getContextPath()%>/resources/images/home10.png" alt=""></a>
 							<h3>
-								<a href="http://blog.fwd.com.hk/en_US/2015/03/19/preventing-household-accidents/" target="_blank">
+								<a href="<fmt:message key="home.blog.post3.link" bundle="${msg}" />" target="_blank">
 									<fmt:message key="home.main.blog.subheading3.part1" bundle="${msg}" /> <fmt:message key="home.main.blog.subheading3.part2" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i>
 								</a>
