@@ -718,7 +718,7 @@
 				<p class="padding1 hidden-sm hidden-xs">
 					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" /> <a
 						class="sub-link"
-						href="<fmt:message key="home.provision.link" bundle="${msg}" />"
+						href="../<fmt:message key="home.provision.link" bundle="${msg}" />"
 						target="_blank">
 						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
 						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />

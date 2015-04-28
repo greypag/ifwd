@@ -973,7 +973,7 @@
 					<p class="padding1 hidden-sm hidden-xs">
 						<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a
 							class="sub-link"
-							href="<%=request.getContextPath()%><fmt:message key="home.provision.link" bundle="${msg}" />"
+							href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
 							target="_blank"><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> <fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 					</p>
 				</form:form>
