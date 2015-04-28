@@ -15,7 +15,7 @@
 <section>
 <div class="container">
 <div class="row">
-<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/flight-upgrade-travel-summary">
+<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/${language}/flight-upgrade-travel-summary">
 
 <ol class="breadcrumb pad-none">
 <li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>

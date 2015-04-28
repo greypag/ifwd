@@ -455,9 +455,12 @@
 						value="${createPolicy.getPaymentType()}">
 					<%
 						String payLang = (String) session.getAttribute("language");
-						payLang = payLang.substring(0, 1);
+						//payLang = payLang.substring(0, 1);
 						System.out.println("getLanguage" + session.getAttribute("language"));
+						payLang = "C";
 						System.out.println("payLang" + payLang);
+						//if (payLang.equals("t"))
+						
 					%>
 <%-- 					<input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
 					<input type="hidden" name="lang" value="C"> <input
