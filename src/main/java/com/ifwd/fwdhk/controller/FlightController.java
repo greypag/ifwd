@@ -169,6 +169,10 @@ public class FlightController {
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);
+		
 		HttpSession session = request.getSession();
 
 		// removeSessionAttribute(request); // vincent, fix flight-plan-details
@@ -336,6 +340,10 @@ public class FlightController {
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);
+		
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
@@ -475,6 +483,10 @@ public class FlightController {
 			HttpServletRequest request,
 			@ModelAttribute("confirmationData") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model) {
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);
+		
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("token") == null) {
@@ -901,6 +913,10 @@ public class FlightController {
 			Model model,
 			HttpServletRequest request,
 			@ModelAttribute("createFlightPolicy") CreateFlightPolicy createFlightPolicy) {
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);
+		
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("token") == null) {

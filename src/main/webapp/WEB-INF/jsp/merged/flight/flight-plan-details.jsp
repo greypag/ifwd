@@ -6,6 +6,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -731,7 +733,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option1" bundle="${msg}" /> 
 									<span class="span2 uline">
-									<a href="${pageContext.request.contextPath}/flight-insurance">
+									<a href="${pageContext.request.contextPath}/${language}/flight-insurance">
 										<fmt:message key="flight.details.summary.change" bundle="${msg}" />
 									</a>
 									</span>
@@ -745,7 +747,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option2" bundle="${msg}" /> 
 									<span class="span2 uline">
-										<a href="${pageContext.request.contextPath}/flight-insurance">
+										<a href="${pageContext.request.contextPath}/${language}/flight-insurance">
 											<fmt:message key="flight.details.summary.change" bundle="${msg}" />
 										</a>
 									</span>
@@ -754,7 +756,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option3" bundle="${msg}" /> 
 									<span class="span2 uline">
-										<a href="${pageContext.request.contextPath}/flight-insurance">
+										<a href="${pageContext.request.contextPath}/${language}/flight-insurance">
 											<fmt:message key="flight.details.summary.change" bundle="${msg}" />
 										</a>
 									</span>
@@ -804,7 +806,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						<br>
 						<br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/flight-insurance/quote"
+							<a href="<%=request.getContextPath()%>/${language}/flight-insurance/quote"
 								class="bdr-curve btn btn-primary bck-btn"> <fmt:message
 									key="flight.details.action.back" bundle="${msg}" /></a>
 						</div>
@@ -922,7 +924,7 @@ function createFlightFnc(form)
 		$.ajax(
 		{
 			type : "POST",
-			url : "<%=request.getContextPath()%>/flight-insurance/confirm-policy",
+			url : "<%=request.getContextPath()%>/${language}/flight-insurance/confirm-policy",
 			data : $("#freeFlightForm").serialize(),
 			async : false,
 			success : function(data) 
@@ -930,7 +932,7 @@ function createFlightFnc(form)
 				if (data == 'success') {
 					$('#errorMessages').hide();
 					flag= true;
-					form.action = "<%=request.getContextPath()%>/flight-insurance/confirmation";
+					form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
 				} else{
 					flag= false;
 					$('#errorMessages').removeClass('hide');

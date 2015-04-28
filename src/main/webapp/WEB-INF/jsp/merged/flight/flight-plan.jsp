@@ -3,16 +3,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-
-
 
 <!--/#main-Content-->
 <section>
 	<div class="container">
 		<div class="row">
-			<form action="<%=request.getContextPath()%>/flight-insurance/user-details" method="post">
+			<form action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post">
 				<input type="hidden" name="totalAdultTraveller"
 					id="totalAdultTraveller"
 					value="${planDetails.getTotalAdultTraveller()}"> <input
@@ -170,7 +170,7 @@
 						<div class="orange-bdr"></div>
 						<div class="form-container">
 							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
-								<a href="${pageContext.request.contextPath}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
 							<div class="form-group">
 								<div class="input-group wd2">
@@ -179,7 +179,7 @@
 								</div>
 							</div>
 							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
-								<a href="${pageContext.request.contextPath}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
+								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
 								<div class="form-group">
 									<div class="input-group wd2">
 										<input type="text" class="datepicker form-control bcg-trans"
@@ -188,7 +188,7 @@
 									</div>
 								</div>
 							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
-								<a href="${pageContext.request.contextPath}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
 						
 <!--						<div class="form-group">
@@ -230,7 +230,7 @@
 						</h3> --%>
 						<br> <br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="${pageContext.request.contextPath}/flight-insurance" class="bdr-curve btn btn-primary bck-btn">
+							<a href="${pageContext.request.contextPath}/${language}/flight-insurance" class="bdr-curve btn btn-primary bck-btn">
 								<fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 							</a>
 						</div>
@@ -268,7 +268,7 @@
 <div class="hidden-lg hidden-md text-center">
 	<div class="btn-box">
 		<h3 class="text-center marg-t">
-			<a href="<%=request.getContextPath()%>/flight-insurance/user-details"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
+			<a href="<%=request.getContextPath()%>/${language}/flight-insurance/user-details"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
 		</h3>
 	</div>
 
