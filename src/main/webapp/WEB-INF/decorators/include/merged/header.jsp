@@ -3,8 +3,11 @@
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <script>
 var home_url = "<%=request.getContextPath()%>";
@@ -289,7 +292,7 @@ function submitLoginForm(formID) {
 			<div class="col-lg-6 col-md-6 pull-right">
 				
 				<ul class="maintabs">
-       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
@@ -333,7 +336,7 @@ function submitLoginForm(formID) {
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/home"><img
+			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/${language}/home"><img
 				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
@@ -454,9 +457,9 @@ function submitLoginForm(formID) {
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
-		<li><a href="<%=request.getContextPath()%>/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+		<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span> <a
-			href="<%=request.getContextPath()%>/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
+			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
