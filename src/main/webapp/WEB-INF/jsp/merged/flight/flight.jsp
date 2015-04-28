@@ -264,7 +264,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!--Mobile-form-->
 <div class="slider-form hidden-lg hidden-md">
- <form name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/flight-insurance/quote">
+ <form name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
   <div class="form-container">
     <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h4>
@@ -649,7 +649,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-     <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/flight-insurance/quote">
+     <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <h2><fmt:message key="flight.main.quote.bottom.heading" bundle="${msg}" /></h2>
         <table class="table activation-form3">
