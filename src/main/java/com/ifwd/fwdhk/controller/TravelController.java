@@ -1204,7 +1204,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
-	@RequestMapping(value = {"/travel-confirmation", "/travel-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/travel-confirmation", "/travel-confirmation", "/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam String Ref) {
 		HttpSession session = request.getSession();
