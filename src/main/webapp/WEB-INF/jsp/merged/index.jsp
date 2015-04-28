@@ -109,7 +109,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
             <h1><fmt:message key="index.highlight1.heading" bundle="${msg}" /></h1>
-            <p><fmt:message key="index.highlight1.paragraph" bundle="${msg}" /></p>
+            <p>
+                <fmt:message key="index.highlight1.desc.part1" bundle="${msg}" /> <a
+                  href="<fmt:message key="app.download.link" bundle="${msg}" />"
+                  target="_blank"><fmt:message key="index.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="index.highlight1.desc.part3" bundle="${msg}" />
+            </p>
           </div>
         </div>
       </div>

@@ -212,8 +212,8 @@
 					<div class="declaration-content">
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label
-								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /><a
-								href="<fmt:message key="member.PICS.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a><fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /> <a
+								href="<fmt:message key="member.PICS.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 								<hr />
 								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
 							</label>
