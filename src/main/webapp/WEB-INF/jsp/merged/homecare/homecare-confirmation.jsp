@@ -177,12 +177,12 @@
 
 							<div >
 					         	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
-					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
+					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
 					            </div>
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
 						        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
-					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home-insurance/sharing/" data-title="iFWD"></div>
+					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance/sharing/" data-title="iFWD"></div>
 					           	</div>
 					         </div>
 					         
@@ -218,7 +218,9 @@
 									<div>
 										<div class="h2-32"><fmt:message key="home.confirmation.other.subheading" bundle="${msg}" /></div>
 										<p class="h4-5"><fmt:message key="home.confirmation.other.desc" bundle="${msg}" /></p>
-										<a href="<%=request.getContextPath()%>/travel-insurance" class="border-radius btn btn-primary get-btn"><fmt:message key="home.confirmation.other.quote" bundle="${msg}" /></a>
+										<a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="border-radius btn btn-primary get-btn">
+											<fmt:message key="home.confirmation.other.quote" bundle="${msg}" />
+										</a>
 									</div>
 								</div>
 
