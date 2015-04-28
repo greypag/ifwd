@@ -53,8 +53,12 @@ public class HomeCareController {
 	@Autowired
 	SendEmailDao sendEmail;
 
-	@RequestMapping(value = {"/homecare", "/home-insurance", "/home-insurance/sharing/"})
+	@RequestMapping(value = {"/{lang}/homecare", "/{lang}/home-insurance", "/{lang}/home-insurance/sharing/"})
 	public String getHomeCarePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);
+		
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
@@ -170,7 +174,7 @@ public class HomeCareController {
 
 	}
 
-	@RequestMapping(value = {"/getHomePlan", "/home-insurance/quote"})
+	@RequestMapping(value = {"/{lang}/getHomePlan", "/{lang}/home-insurance/quote"})
 	public String getHomeCarePlanage(Model model, HttpServletRequest request) {
 		System.out.println("/home-insurance/quote");
 		UserRestURIConstants.setController("Homecare");
@@ -231,7 +235,7 @@ public class HomeCareController {
 		}
 	}
 
-	@RequestMapping(value = {"/getYourHomeCareDetails", "/home-insurance/user-details"})
+	@RequestMapping(value = {"/{lang}/getYourHomeCareDetails", "/{lang}/home-insurance/user-details"})
 	public String prepareYoursDetails(
 			@ModelAttribute("planQuoteDetails") HomeQuoteBean homeQuoteDetails,
 			Model model, HttpServletRequest request) {
@@ -297,7 +301,7 @@ public class HomeCareController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/applyHomePromoCode")
+	@RequestMapping(value = "/{lang}/applyHomePromoCode")
 	public String applyHomePromoCode(Model model, HttpServletRequest request) {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
@@ -319,7 +323,7 @@ public class HomeCareController {
 		return planQuote;
 	}
 
-	@RequestMapping(value = {"/prepareUserSummaryForHome", "/home-insurance/home-summary"})
+	@RequestMapping(value = {"/{lang}/prepareUserSummaryForHome", "/{lang}/home-insurance/home-summary"})
 	public String prepareSummary(
 			@ModelAttribute("frmYourDetails") HomeCareDetailsBean homeCareDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -446,7 +450,7 @@ public class HomeCareController {
 				+ "homecare/homecare-summary-payment";
 	}
 
-	@RequestMapping(value = "/processHomeCarePayment", method = RequestMethod.POST)
+	@RequestMapping(value = "/{lang}/processHomeCarePayment", method = RequestMethod.POST)
 	@ResponseBody
 	public String processHomeCarePayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -465,7 +469,7 @@ public class HomeCareController {
 		return "success";
 	}
 
-	@RequestMapping(value = {"/homecare-confirmation", "/home-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/homecare-confirmation", "/{lang}/home-insurance/confirmation"})
 	public String processHomePayment(Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -521,7 +525,7 @@ public class HomeCareController {
 				+ "homecare/homecare-confirmation";
 	}
 
-	@RequestMapping(value = "/failure")
+	@RequestMapping(value = "/{lang}/failure")
 	public String processPaymentFailure(Model model, HttpServletRequest request) {
 
 		String errormsg = request.getParameter("errorMsg");

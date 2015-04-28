@@ -3,8 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -612,7 +615,7 @@
 					<div
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
 						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
-							action="${pageContext.request.contextPath}/home-insurance/user-details" method="post"
+							action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post"
 							modelAttribute="planQuoteDetails">
 							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
@@ -700,12 +703,14 @@
 							
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
-								<a href="<%=request.getContextPath()%>/home-insurance"
+								<a href="<%=request.getContextPath()%>/${language}/home-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right full-width-button">
-								<button type="submit" class="bdr-curve btn btn-primary btn-next"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+								<button type="submit" class="bdr-curve btn btn-primary btn-next">
+									<fmt:message key="home.action.next" bundle="${msg}" />
+								</button>
 							</div>
 
 							<div class="clearfix"></div>
@@ -720,7 +725,8 @@
 						class="sub-link"
 						href="../<fmt:message key="home.provision.link" bundle="${msg}" />"
 						target="_blank">
-						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
+						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
+						<fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
 						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
 				</p>
 
@@ -801,7 +807,9 @@
 								<%-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
 									onclick="return sendEmail()"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a> --%>
 								<button type="submit" onclick="return sendEmail()"
-															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></button>
+															class="bdr-curve btn btn-primary btn-lg wd5">
+															<fmt:message key="promotion.get.code.action" bundle="${msg}" />
+								</button>
 							</div>
 							<div class="col-md-2">
 								<br>
