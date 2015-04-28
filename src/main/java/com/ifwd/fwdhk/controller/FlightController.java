@@ -60,11 +60,14 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = { "/flight", "/flight-insurance", "/flight-insurance/sharing/" })
+	@RequestMapping(value = { "/{lang}/flight", "/{lang}/flight-insurance", "/{lang}/flight-insurance/sharing/" })
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		// return UserRestURIConstants.getSitePath(request) + "flight/flight";
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);	
 
 		HttpSession session = request.getSession();
 		PlanDetails planDetails = (PlanDetails) session
@@ -161,7 +164,7 @@ public class FlightController {
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/getFlightDate", "/flight-insurance/quote" })
+	@RequestMapping(value = { "/{lang}/getFlightDate", "/{lang}/flight-insurance/quote" })
 	public ModelAndView getFlightDate(HttpServletRequest request,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
@@ -328,8 +331,8 @@ public class FlightController {
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	@SuppressWarnings("rawtypes")
 	// "Flight Plan" )
-	@RequestMapping(value = { "/flight-plan-details",
-			"/flight-insurance/user-details" })
+	@RequestMapping(value = { "/{lang}/flight-plan-details",
+			"/{lang}/flight-insurance/user-details" })
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
@@ -465,8 +468,8 @@ public class FlightController {
 		return new ModelAndView(returnUrl);
 	}
 
-	@RequestMapping(value = { "/flight-confirmation",
-			"/flight-insurance/confirm-policy" })
+	@RequestMapping(value = { "/{lang}/flight-confirmation",
+			"/{lang}/flight-insurance/confirm-policy" })
 	@ResponseBody
 	public String flightConfirmation(
 			HttpServletRequest request,
@@ -893,7 +896,7 @@ public class FlightController {
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/flight-confrimation-page", "/flight-insurance/confirmation" })
+	@RequestMapping(value = { "/{lang}/flight-confrimation-page", "/{lang}/flight-insurance/confirmation" })
 	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
@@ -907,9 +910,7 @@ public class FlightController {
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//String upgradeReferralCode = "FLTUGD";
-		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
-		
+		String upgradeReferralCode = "FLTUGD";
 
 		/* Get Travel Policies */
 		try {
@@ -1057,7 +1058,7 @@ public class FlightController {
 				+ "flight/flight-confirmation");
 	}
 
-	@RequestMapping(value = "/flight-upgrade-travel-summary")
+	@RequestMapping(value = "/{lang}/flight-upgrade-travel-summary")
 	public String flightToTravelUpgrade(Model model,
 			HttpServletRequest request,
 			@ModelAttribute("travelQuote") CreateFlightPolicy createFlightPolicy) {

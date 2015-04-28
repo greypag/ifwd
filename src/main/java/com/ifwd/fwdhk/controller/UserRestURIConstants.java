@@ -61,6 +61,15 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_TERRITORY = SERVICE_URL + "/option/itemDesc?itemTable=HKTerritory";
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
+	/* lang constants */
+	public static final String LANG_TC_SLASH = "/tc/";
+	public static final String LANG_EN_SLASH = "/en/";
+	
+	public static final String LANG_TC = "tc";
+	public static final String LANG_EN = "en";
+	
+	public static final String UILOCALE_TC = "zh-HK";
+	public static final String UILOCALE_EN = "en-US";
 
 	/* Mail Api */
 	public static final String SEND_MAIL = SERVICE_URL + "/messages/email";
@@ -190,5 +199,28 @@ public class UserRestURIConstants {
         } else{
             return "EN";
         }
+    }
+    
+    public void updateLanguage(HttpServletRequest request)
+    {
+		String servletPath = request.getServletPath();
+		HttpSession session = request.getSession();
+		
+		System.out.println("sid: " + session.getId());
+		if (servletPath.indexOf(UserRestURIConstants.LANG_TC) >= 0)
+		{
+			session.setAttribute("language", UserRestURIConstants.LANG_TC);
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
+		}
+		else if (servletPath.indexOf(UserRestURIConstants.LANG_EN) > 0)
+		{
+			session.setAttribute("language", UserRestURIConstants.LANG_EN);
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_EN);
+		}
+		else
+		{
+			session.setAttribute("language", UserRestURIConstants.LANG_TC);
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);			
+		}
     }
 }

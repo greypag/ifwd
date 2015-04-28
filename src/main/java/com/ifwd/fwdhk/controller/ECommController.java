@@ -27,15 +27,28 @@ public class ECommController {
 		String viewName = "";
 		session.setAttribute("language", selectLang);
 
-		if (selectLang.compareToIgnoreCase("CN") == 0) {
-			session.setAttribute("uiLocale", "zh-HK");
-		} else if (selectLang.compareToIgnoreCase("EN") == 0) {
-			session.setAttribute("uiLocale", "en-US");
-		} else {
-			session.setAttribute("uiLocale", "en-US");
+		if (selectLang.compareToIgnoreCase("CN") == 0) 
+		{
+			viewName = new String().replace(selectLang, "en");
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
+		}
+		else if (selectLang.compareToIgnoreCase("TC") == 0) 
+		{
+			viewName = new String().replace(selectLang, "en");
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
+		} 
+		else if (selectLang.compareToIgnoreCase("EN") == 0) 
+		{
+			viewName = new String().replace(selectLang, "tc");
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_EN);
+		} 
+		else 
+		{
+			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 		}
 
 		// viewName = action.replace("/", "");
+		
 		viewName = action;
 		return new ModelAndView("redirect:" + viewName);
 

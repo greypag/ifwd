@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
@@ -64,9 +66,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="col-lg-12 col-md-12 hidden-xs pad-none homecare home-main homecare-hei center">
                         <h2></h2>
                         
-                        <a href="<%=request.getContextPath()%>/flight-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.flight" bundle="${msg}" /></a>
-                        <a href="<%=request.getContextPath()%>/travel-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.travel" bundle="${msg}" /></a>
-                         <a href="<%=request.getContextPath()%>/home-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.home" bundle="${msg}" /></a>
+                        <a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.flight" bundle="${msg}" /></a>
+                        <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.travel" bundle="${msg}" /></a>
+                         <a href="<%=request.getContextPath()%>/${language}/home-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.home" bundle="${msg}" /></a>
                         <div class="clearfix"></div>
                      
                     </div>
@@ -79,9 +81,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare home-main-mobi">
             <h2 class="center"></h2>
-            <div class="col-sm-12 col-xs-12" > <a href="<%=request.getContextPath()%>/flight-insurance" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
-            <div class="col-sm-12 col-xs-12" > <a href="<%=request.getContextPath()%>/travel-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
-            <div class="col-sm-12 col-xs-12" > <a href="<%=request.getContextPath()%>/home-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
+            <div class="col-sm-12 col-xs-12" > <a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="border-radius btn btn-primary  home-btn home-btn-main" ><fmt:message key="index.product.flight" bundle="${msg}" /></a></div>
+            <div class="col-sm-12 col-xs-12" > <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.travel" bundle="${msg}" /></a></div>
+            <div class="col-sm-12 col-xs-12" > <a href="<%=request.getContextPath()%>/${language}/home-insurance" class="border-radius btn btn-primary  home-btn home-btn-main"><fmt:message key="index.product.home" bundle="${msg}" /></a>
         </div>
            
             <!--<div class=" col-sm-12  col-xs-12">
