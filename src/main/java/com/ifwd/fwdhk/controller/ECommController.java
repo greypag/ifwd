@@ -25,21 +25,20 @@ public class ECommController {
 			@RequestParam String selectLang, @RequestParam String action) {
 		HttpSession session = request.getSession();
 		String viewName = "";
+		
+		selectLang = selectLang.toLowerCase();
 		session.setAttribute("language", selectLang);
 
-		if (selectLang.compareToIgnoreCase("CN") == 0) 
+		if (selectLang.equals("cn")) 
 		{
-			//viewName = new String().replace(selectLang, "en");
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 		}
-		else if (selectLang.compareToIgnoreCase("TC") == 0) 
+		else if (selectLang.equals("tc")) 
 		{
-			//viewName = new String().replace(selectLang, "en");
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 		} 
-		else if (selectLang.compareToIgnoreCase("EN") == 0) 
+		else if (selectLang.compareToIgnoreCase("en") == 0) 
 		{
-			//viewName = new String().replace(selectLang, "tc");
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_EN);
 		} 
 		else 
@@ -55,8 +54,8 @@ public class ECommController {
 			viewName = viewName.replace("en", "tc");
 		else
 			viewName = viewName.replace("tc", "en");
+		
 		return new ModelAndView("redirect:" + viewName);
-
 	}
 	
 	@RequestMapping(value = "/redirect")
