@@ -29,17 +29,17 @@ public class ECommController {
 
 		if (selectLang.compareToIgnoreCase("CN") == 0) 
 		{
-			viewName = new String().replace(selectLang, "en");
+			//viewName = new String().replace(selectLang, "en");
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 		}
 		else if (selectLang.compareToIgnoreCase("TC") == 0) 
 		{
-			viewName = new String().replace(selectLang, "en");
+			//viewName = new String().replace(selectLang, "en");
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 		} 
 		else if (selectLang.compareToIgnoreCase("EN") == 0) 
 		{
-			viewName = new String().replace(selectLang, "tc");
+			//viewName = new String().replace(selectLang, "tc");
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_EN);
 		} 
 		else 
@@ -50,6 +50,11 @@ public class ECommController {
 		// viewName = action.replace("/", "");
 		
 		viewName = action;
+		
+		if (viewName.indexOf("en") > 0)
+			viewName = viewName.replace("en", "tc");
+		else
+			viewName = viewName.replace("tc", "en");
 		return new ModelAndView("redirect:" + viewName);
 
 	}
