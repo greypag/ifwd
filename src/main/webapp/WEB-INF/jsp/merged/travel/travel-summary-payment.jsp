@@ -283,7 +283,8 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
+										<!-- vincent getOtherAgeRangeName - null ptr -->
+										<td ><% // planDetailsForm.getOtherAgeRangeName()[i]%></td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td >&nbsp;</td>
 										<% } %>
@@ -409,7 +410,8 @@
 										<td data-title="Other<%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />
 												<%=i + 1%></span></td>
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
-										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
+										<!-- vincent getOtherAgeRangeName - null ptr -->
+										<td class=" h4-5" data-title="Age range"><% //planDetailsForm.getOtherAgeRangeName()[i]%></td> 
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<td class=" h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
 									</tr>
