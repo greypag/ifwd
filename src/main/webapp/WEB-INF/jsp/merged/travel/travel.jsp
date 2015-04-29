@@ -1,8 +1,8 @@
 <%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -75,7 +75,7 @@
   </div>
   <!--/.carousel--> 
 </section>
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
+<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
 <section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
     <div class="row">

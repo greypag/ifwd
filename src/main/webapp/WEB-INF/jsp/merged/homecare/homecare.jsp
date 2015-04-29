@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeCareQuetionaries"%>
 <%@page import="java.util.*"%>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -146,7 +149,7 @@
 						<div class="container">
 							<div class="row">
 
-								<form:form name="getHomeQuote" id="getHomeQuote" action="${pageContext.request.contextPath}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
+								<form:form name="getHomeQuote" id="getHomeQuote" action="${pageContext.request.contextPath}/${language}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
 									<div class="hidden-xs hidden-sm">
 										<h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2>
 										<%
@@ -254,9 +257,6 @@
 						i++;
 				%>
 
-				<!--<div class=" col-sm-12  col-xs-12">
-                <a href="homecare-plan.html" type="button" class="border-radius btn btn-primary  get-btn get-btn-home" onclick="return flightValidateBtmTravel()">Get Quote</a>
-            </div>-->
 				<div class="btn-box">
 						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
 							onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
@@ -296,7 +296,7 @@
 								<fmt:message key="home.main.feature1.heading.part1" bundle="${msg}" /> <br> <fmt:message key="home.main.feature1.heading.part2" bundle="${msg}" />
 							</h2>
 							<p class="h4-3"><fmt:message key="home.main.feature1.paragraph" bundle="${msg}" /></p>
-							<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
+						    <a href="${pageContext.request.contextPath}/${language}/homecare/quote" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -744,7 +744,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	<section id="bottom-form" class="hidden-sm hidden-xs homecare">
 		<div class="container">
 			<div class="row">
-				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom" action="${pageContext.request.contextPath}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
+				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom" action="${pageContext.request.contextPath}/${language}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
 					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare">
 						<h2><fmt:message key="home.main.quote.bottom.heading" bundle="${msg}" /></h2>
 						<%

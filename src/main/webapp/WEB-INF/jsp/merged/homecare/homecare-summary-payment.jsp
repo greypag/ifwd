@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <jsp:useBean id="now" class="java.util.Date" />
@@ -229,7 +231,12 @@
 					value="${createdPolicy.getPaymentType() }">
 					<%
 						String payLang = (String)session.getAttribute("language");
-						payLang = payLang.substring(0, 1);
+						//payLang = payLang.substring(0, 1);
+						if (session.getAttribute("language").equals("tc"))
+							payLang = "c";
+						else 
+							payLang = "e";
+						
 						System.out.println("getLanguage" + session.getAttribute("language"));
 						System.out.println("payLang" + payLang);
 					%>
@@ -425,7 +432,7 @@
 								<!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
 								<%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
 								<a
-									href="<%=request.getContextPath()%>/home-insurance/user-details"
+									href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
 									class="bdr-curve btn btn-primary bck-btn2"><fmt:message
 										key="home.summary.action.back" bundle="${msg}" /> </a>
 
@@ -492,7 +499,7 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
+ 						url : "<%=request.getContextPath()%>/${language}/processHomeCarePayment",
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
@@ -516,7 +523,7 @@
 
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
- 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
+ 			var method = "<%=request.getContextPath()%>/${language}/processHomeCarePayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
  			$.ajax({

@@ -74,7 +74,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 				quetionaries.setQid(String.valueOf(i));
 				quetionariesList.add(quetionaries);
 				i++;
-				System.out.println("Value After ++" + i);
+				//System.out.println("Value After ++" + i);
 			}
 
 		}

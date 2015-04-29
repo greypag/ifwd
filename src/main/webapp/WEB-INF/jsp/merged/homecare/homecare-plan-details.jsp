@@ -4,8 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+
 <%@page import="java.util.*"%>
 <%
 	String authenticate = "false";
@@ -350,7 +353,7 @@
 		<div class="container">
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
-					action="${pageContext.request.contextPath}/home-insurance/home-summary" method="post"
+					action="${pageContext.request.contextPath}/${language}/home-insurance/home-summary" method="post"
 					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
 						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -736,11 +739,7 @@
 												<%}%>
 											</select>
 										</div>
-										<!-- <select name="" class="form-control soflow" id="selectAgeRange">
-                      <option value="">District</option>
-                      <option value="18-70">18-70</option>
-                      <option value="71-85">71-85</option>
-                    </select> -->
+
 
 											<div class="hidden">
 												<select name="applicantDistrictHid"
@@ -774,7 +773,9 @@
 									</tr>
 								</tbody>
 							</table>
+							
 							<div class="clearfix"></div>
+							
 							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
@@ -782,13 +783,7 @@
 											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
 										</label></td>
 										<td class="">
-											<%--  <select name="" class="form-control soflow" id="selectNFA">
-                      <option value="">Please Select</option>
-                      <option value="< 500"> Less Than 500</option>
-                      <option value="500-700">500-700</option>
-                      <option value="701-850">701-850</option>
-                      <option value="851-1000">851-1000</option>
-                    </select> --%>
+
 											<div class="styled-select">
 												<select
 													name="netFloorArea"
@@ -894,14 +889,6 @@
 											</div>
 										</div>
 									
-									<%-- <div class="pull-right">
-										<div class="text-left pad-right1 h2-2 h2">
-											<div class="hk1">
-												HK$
-												<div class="flightcare-hk">${homeQuoteDetails.getTotalDue()}</div>
-											</div>
-										</div>
-									</div> --%>
 								</div>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
@@ -910,21 +897,7 @@
 									<div class="form-group">
 										<p class="h4-5 pad-none"><fmt:message key="home.details.summary.desc3" bundle="${msg}" /></p>
 									</div>
-									<!-- <h3>Promotion code</h3>
-									<span class="text-red" id="errPromoCode"></span>
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" id="promoCode" name="promoCode"
-												class="form-control" placeholder="eg.FWD789"> <span
-												class="input-group-addon in black-bold"> <span
-												class="apply pointer" onclick="applyHomePromoCode()">APPLY</span>
-											</span>
-										</div>
-									</div>
-									<div class="travel-italic">
-										<a href="#" class="sub-link" data-toggle="modal"
-											data-target=".bs-promo-modal-lg"><i><fmt:message key="home.details.summary.promocode.help" bundle="${msg}" /></i> </a>
-									</div> -->
+
 								</div>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
@@ -952,17 +925,11 @@
 							<!--mob-->
 							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<a href="<%=request.getContextPath()%>/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+									<a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="home.action.next" bundle="${msg}" />" />
 								</div>
-							
-							<!--
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
-              <a href="homecare-summary-payment.html" class="bdr-curve btn btn-primary nxt-btn" onclick="return hc_planValid();">
-             Next</a> </div> 
-             -->
 
 
 							<div class="clearfix"></div>
@@ -974,7 +941,9 @@
 						<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a
 							class="sub-link"
 							href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
-							target="_blank"><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> <fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
+							target="_blank"><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+							<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> 
+							<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 					</p>
 				</form:form>
 			</div>

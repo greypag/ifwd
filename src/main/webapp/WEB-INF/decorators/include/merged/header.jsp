@@ -98,22 +98,22 @@ function submitLoginForm(formID) {
 						id="headerLoginForm">
 
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="<%=request.getContextPath()%>"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
-							<li><a href="<%=request.getContextPath()%>/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li>
 							<%
-							if ("EN".equals(session.getAttribute("language").toString())) {
+							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
 							<%
 							} else {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>
 							<%
 							}
 							
@@ -200,7 +200,7 @@ function submitLoginForm(formID) {
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4>
-													<fmt:message key="header.login.username" bundle="${msg}" /><a href="forgotUserName"
+													<fmt:message key="header.login.username" bundle="${msg}" /><a href="${pageContext.request.contextPath}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -210,7 +210,7 @@ function submitLoginForm(formID) {
 												</div>
 												<span id="errUserName" style="color: red"></span>
 												<h4>
-													<fmt:message key="header.login.password" bundle="${msg}" /> <a href="forgotPassword"
+													<fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
@@ -225,7 +225,7 @@ function submitLoginForm(formID) {
 													</div>
 													<h3
 														class="text-left col-lg-6 col-md-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus">
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
 															 <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>
@@ -293,8 +293,8 @@ function submitLoginForm(formID) {
 				
 				<ul class="maintabs">
        <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
 				
 			</div>
@@ -460,8 +460,8 @@ function submitLoginForm(formID) {
 		<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span> <a
 			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->

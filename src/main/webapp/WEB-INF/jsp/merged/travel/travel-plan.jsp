@@ -3,8 +3,9 @@
 <%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -45,7 +46,7 @@ var promoData = '';
 		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyTravelPromoCode',
+			url : '<%=request.getContextPath()%>/${language}/applyTravelPromoCode',
 			data : $('#frmTravelPlan input').serialize(),
 			success : function(data) {
 				
@@ -110,7 +111,7 @@ var promoData = '';
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
+			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/${language}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -1078,7 +1079,7 @@ var promoData = '';
 							
 							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/travel-insurance"
+							<a href="<%=request.getContextPath()%>/${language}/travel-insurance"
 								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">

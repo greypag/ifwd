@@ -53,7 +53,7 @@ public class TravelController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = {"/travel", "/travel-insurance"})
+	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance"})
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("Travel");
@@ -100,7 +100,7 @@ public class TravelController {
 
 	
 
-	@RequestMapping(value = {"/getTravelQuote", "/travel-insurance/quote"})
+	@RequestMapping(value = {"/{lang}/getTravelQuote", "/{lang}/travel-insurance/quote"})
 	public ModelAndView prepareTravelPlan(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -200,9 +200,12 @@ public class TravelController {
 				header.put("userName", username);
 				header.put("token", token);
 			}
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+			
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -317,6 +320,10 @@ public class TravelController {
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + request.getParameter("promoCode");
 
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			if (request.getSession().getAttribute("username") != null) {
@@ -326,9 +333,7 @@ public class TravelController {
 				header.put("token", request.getSession().getAttribute("token")
 						.toString());
 			}
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
@@ -394,7 +399,7 @@ public class TravelController {
 		
 	}
 
-	@RequestMapping(value = {"/getYourDetails", "/travel-insurance/user-details"})
+	@RequestMapping(value = {"/{lang}/getYourDetails", "/{lang}/travel-insurance/user-details"})
 	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -414,8 +419,9 @@ public class TravelController {
 				"selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectPlanName", session, request);
-		System.out.println("Seeeeeee" + selectPlanName);
 		selectPlanName = planName;
+		System.out.println("Seeeeeee" + selectPlanName);
+		
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
@@ -553,7 +559,7 @@ public class TravelController {
 		// TODO please change to apply message bundle nicely
 		String hkIdLbl = "HKID";
 		String passportLbl = "Passport";
-		if("CN".equals(lang)){
+		if("tc".equals(lang)){
 			hkIdLbl = "香港身份證";
 			passportLbl = "護照";
 		} else {
@@ -572,7 +578,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/prepareUserSummary", "/travel-insurance/travel-summary"})
+	@RequestMapping(value = {"/{lang}/prepareUserSummary", "/{lang}/travel-insurance/travel-summary"})
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -1187,7 +1193,7 @@ public class TravelController {
 	
 
 
-	@RequestMapping(value = "/processTravePayment")
+	@RequestMapping(value = "/{lang}/processTravePayment")
 	@ResponseBody
 	public String processPayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -1204,7 +1210,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
-	@RequestMapping(value = {"/travel-confirmation", "/travel-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/travel-confirmation", "/{lang}/travel-confirmation", "/{lang}/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam String Ref) {
 		HttpSession session = request.getSession();

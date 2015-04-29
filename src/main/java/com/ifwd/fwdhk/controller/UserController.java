@@ -56,8 +56,8 @@ public class UserController {
 		
 		if (lang != null)
 		{
-			if (lang.equals("CN"))
-				homeURL = "/changeLang?selectLang=CN&action=/home";
+			if (lang.equals("tc"))
+				homeURL = "/changeLang?selectLang=tc&action=/home";
 		}
 		System.out.println("redirect to home lang: " + lang);
 		return new ModelAndView("redirect:" + homeURL);
