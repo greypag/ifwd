@@ -60,7 +60,8 @@ public class FlightController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
-	@RequestMapping(value = { "/{lang}/flight", "/{lang}/flight-insurance", "/{lang}/flight-insurance/sharing/" })
+	@RequestMapping(value = { "/{lang}/flight", "/{lang}/flight-insurance",
+			"/{lang}/flight-insurance/sharing/" })
 	public ModelAndView flight(HttpServletRequest request, Model model) {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
