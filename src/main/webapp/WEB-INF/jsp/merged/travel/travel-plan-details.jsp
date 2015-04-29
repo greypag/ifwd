@@ -3,9 +3,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -30,7 +29,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 		
-			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"
+			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/travel-insurance/travel-summary" method="post"
 				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -301,17 +300,9 @@
 										<div class="col-xs-6 col-md-6">
 											
 											<div class="styled-select">
-												<select
-													id="selectedAdHkidPass${inx}" name="selectedAdHkidPass"
-													class="soflow">
-													<c:forEach
-														var="hkidList" items="${mapHkId}">
-														<option
-															value="${hkidList.key}">
-															<c:out
-																value="${hkidList.value}" />
-														</option>
-													</c:forEach>
+												<select id="selectedAdHkidPass${inx}" class="form-control soflow" name="selectedAdHkidPass">
+													<option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+													<option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 												</select>
 											</div>
 											
@@ -410,12 +401,10 @@
 											<div class="col-xs-6 col-md-6">
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 	                                            <div class="styled-select ">
-	                                            <select id="selectAdBenefitiaryHkidPass${inx}" name="selectedAdBenefitiaryHkidPass" class="soflow">
-												<c:forEach var="hkidList" items="${mapHkId}">
-													<option value="${hkidList.key}"><c:out
-															value="${hkidList.value}" /></option>
-												</c:forEach>
-											</select>
+												<select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedAdBenefitiaryHkidPass">
+													<option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+													<option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+												</select>
 	                                            </div>
 												
 												<input
@@ -456,9 +445,8 @@
 										<div class="col-xs-6 col-md-6 styled-select">
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<select id="selectChldHkidPass${inx}" class="form-control soflow" name="selectedChldHkidPass">
-									<option value="hkId" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-
-									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+									<option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+									<option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select> <input
 												id="txtChldInsuHkid${inx}" name="childHKID"
 												class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -521,8 +509,8 @@
 											<div class="styled-select">
 												<!-- <label class="pad-left1 bold-500">HKID</label>  -->
 												<select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedChldBenefitiaryHkidPass">
-									<option  selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+									<option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+									<option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select></div><input
 													id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
 													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -562,8 +550,8 @@
 											<!-- <label class="pad-left1 bold-500">HKID</label> -->
 											<div class="styled-select">
 											<select id="selectOtHkidPass${inx}" class="form-control soflow" name="selectedOtHkidPass">
-									<option selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
-									<option><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+									<option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+									<option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
 									</select></div> <input
 												id="txtOtherInsuHkid${inx}" name="otherHKID"
 												class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
@@ -620,8 +608,8 @@
 												<!-- <label class="pad-left1 bold-500">HKID</label> -->
 												<div class="styled-select">
 												<select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedOtherBenefitiaryHkidPass">
-									<option selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+									<option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+									<option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select></div> <input
 													id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -777,7 +765,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
