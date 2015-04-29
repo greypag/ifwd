@@ -517,12 +517,13 @@ public class HomeCareController {
 			header.put("userName", userName);
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
-		} else {
-			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
-			return UserRestURIConstants.getSitePath(request)
-					+ "homecare/homecare-summary-payment";
-		}
-			
+		} 
+//		else {
+//			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
+//			return UserRestURIConstants.getSitePath(request)
+//					+ "homecare/homecare-summary-payment";
+//		}
+//			
 		model.addAttribute("emailID", emailId);
 
 		// model.addAttribute("finalize", finalize);
