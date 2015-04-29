@@ -11,6 +11,16 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
+<% 
+       if (request.getAttribute("createPolicy.getReferenceNo()") == null) {
+             System.out.println("redirect language " + session.getAttribute("language"));
+
+             String lang = (String) session.getAttribute("language");
+             response.sendRedirect(request.getContextPath() + "/" + lang + "/home-insurance/user-details");
+      }
+%>
+
+
 <section>
 	<div class="container">
 		<div class="row">
