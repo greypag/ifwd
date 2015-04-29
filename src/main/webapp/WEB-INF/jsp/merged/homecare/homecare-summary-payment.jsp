@@ -509,7 +509,7 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "<%=request.getContextPath()%>/${language}/processHomeCarePayment",
+ 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
@@ -533,7 +533,7 @@
 
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
- 			var method = "<%=request.getContextPath()%>/${language}/processHomeCarePayment";
+ 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
  			$.ajax({

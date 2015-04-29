@@ -460,7 +460,7 @@ public class HomeCareController {
 				+ "homecare/homecare-summary-payment";
 	}
 
-	@RequestMapping(value = "/{lang}/processHomeCarePayment", method = RequestMethod.POST)
+	@RequestMapping(value = "/processHomeCarePayment", method = RequestMethod.POST)
 	@ResponseBody
 	public String processHomeCarePayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {

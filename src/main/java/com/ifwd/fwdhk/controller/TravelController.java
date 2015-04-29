@@ -598,9 +598,6 @@ public class TravelController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		 
 		
-		// redirect to 1ST step when null 
-		
-		
 		UserDetails userDetails = new UserDetails();
 		DateApi dateApi = new DateApi();
 
@@ -1193,7 +1190,7 @@ public class TravelController {
 	
 
 
-	@RequestMapping(value = "/{lang}/processTravePayment")
+	@RequestMapping(value = "/processTravePayment")
 	@ResponseBody
 	public String processPayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {

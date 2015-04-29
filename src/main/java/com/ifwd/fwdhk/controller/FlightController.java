@@ -1230,6 +1230,12 @@ public class FlightController {
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+//		kdjfdkjfa
+//		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+//		String planSelected = (String) session.getAttribute("planSelected");
+//		
+		
 		return UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-summary-payment";
 	}
