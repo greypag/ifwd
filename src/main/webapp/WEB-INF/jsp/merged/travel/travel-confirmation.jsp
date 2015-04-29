@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -78,7 +78,7 @@
          <div class="h4-2 margin-left"><fmt:message key="travel.confirmation.referalCode.desc2.member" bundle="${msg}" /></div>
          
          <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-         <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
+         <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
               </div>
               <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
               
@@ -97,9 +97,13 @@
                     <fmt:message key="travel.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
                     <fmt:message key="travel.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>
                     <fmt:message key="travel.referral.disclaimer.section1.desc2" bundle="${msg}" /><br>
-                  <fmt:message key="travel.referral.disclaimer.section2.header" bundle="${msg}" /><br>
+                  	<fmt:message key="travel.referral.disclaimer.section2.header" bundle="${msg}" /><br>
                     <fmt:message key="travel.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
-          <fmt:message key="travel.referral.disclaimer.section3.desc.part1" bundle="${msg}" /><a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="travel.referral.disclaimer.section3.desc.part2" bundle="${msg}" /></a><fmt:message key="travel.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
+          			<fmt:message key="travel.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
+          			<a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
+          				<fmt:message key="travel.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
+          			</a>
+          			<fmt:message key="travel.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
                 </p></div>
               </div>
         
@@ -117,8 +121,9 @@
             <div class="h2-32"><strong><fmt:message key="travel.confirmation.subheading" bundle="${msg}" /></strong></div>
             <br>
 
-              <p class="h4-5"><fmt:message key="travel.confirmation.subheading.desc" bundle="${msg}" /></p><br>
-        <a href="<%=request.getContextPath()%>/home-insurance" class="border-radius btn btn-primary  get-btn" ><fmt:message key="travel.confirmation.getQuote" bundle="${msg}" /></a>
+            <p class="h4-5"><fmt:message key="travel.confirmation.subheading.desc" bundle="${msg}" /></p><br>
+        	<a href="<%=request.getContextPath()%>/${language}/home-insurance" class="border-radius btn btn-primary  get-btn" >
+        	<fmt:message key="travel.confirmation.getQuote" bundle="${msg}" /></a>
             </div>
         </div>
               

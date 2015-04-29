@@ -53,7 +53,7 @@ public class TravelController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = {"/travel", "/travel-insurance"})
+	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance"})
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("Travel");
@@ -100,7 +100,7 @@ public class TravelController {
 
 	
 
-	@RequestMapping(value = {"/getTravelQuote", "/travel-insurance/quote"})
+	@RequestMapping(value = {"/{lang}/getTravelQuote", "/{lang}/travel-insurance/quote"})
 	public ModelAndView prepareTravelPlan(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -276,7 +276,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/applyTravelPromoCode", method = RequestMethod.POST)
+	@RequestMapping(value = "/{lang}/applyTravelPromoCode", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyPromotionCode(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
@@ -394,7 +394,7 @@ public class TravelController {
 		
 	}
 
-	@RequestMapping(value = {"/getYourDetails", "/travel-insurance/user-details"})
+	@RequestMapping(value = {"/{lang}/getYourDetails", "/{lang}/travel-insurance/user-details"})
 	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -572,7 +572,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/prepareUserSummary", "/travel-insurance/travel-summary"})
+	@RequestMapping(value = {"/{lang}/prepareUserSummary", "/{lang}/travel-insurance/travel-summary"})
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -1187,7 +1187,7 @@ public class TravelController {
 	
 
 
-	@RequestMapping(value = "/processTravePayment")
+	@RequestMapping(value = "/{lang}/processTravePayment")
 	@ResponseBody
 	public String processPayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -1204,7 +1204,7 @@ public class TravelController {
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
-	@RequestMapping(value = {"/{lang}/travel-confirmation", "/travel-confirmation", "/travel-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/travel-confirmation", "/{lang}/travel-confirmation", "/{lang}/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam String Ref) {
 		HttpSession session = request.getSession();

@@ -3,8 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -29,7 +30,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 		
-			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/travel-insurance/travel-summary" method="post"
+			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"
 				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -723,7 +724,7 @@
 							<div class="orange-bdr"></div>
 							<div class="form-container">
 								<h3 class="txt-bold">
-									<fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/travel"> <span
+									<fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"> <span
 										class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
 								</h3>
 								<h4>${travelQuote.getTrLeavingDate()}</h4>
@@ -731,7 +732,7 @@
 									value="01-01-2015">
 
 								<h3 class="txt-bold">
-									<fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/travel"><span
+									<fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"><span
 										class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
 								</h3>
 								<h4>${travelQuote.getTrBackDate()}</h4>
@@ -739,7 +740,7 @@
 									value="${travelQuote.getTrBackDate()}">
 
 								<h3 class="txt-bold">
-									<fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/travel"> <span
+									<fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"> <span
 										class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
 								</h3>
 								<h4>
@@ -804,7 +805,9 @@
 </div>
 <div class="clearfix"></div>
 </div>
-<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" /><a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
+<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
+<a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
+<fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
 <fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" />
 <fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
 </form:form>
