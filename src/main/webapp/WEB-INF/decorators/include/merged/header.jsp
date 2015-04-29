@@ -107,13 +107,13 @@ function submitLoginForm(formID) {
 							<li> | </li>
 							<li>
 							<%
-							if ("EN".equals(session.getAttribute("language").toString())) {
+							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
 							<%
 							} else {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>
 							<%
 							}
 							
