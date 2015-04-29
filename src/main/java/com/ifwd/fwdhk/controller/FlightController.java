@@ -183,14 +183,10 @@ public class FlightController {
 
 		if (planDetails.getDepartureDate() != null) {
 			session.setAttribute("flightPlanDetails", planDetails);
-			System.out.println(this.getClass()
-					+ " flightPlanDetails set session");
+			//System.out.println(this.getClass()	+ " flightPlanDetails set session");
 		} else {
-			System.out
-					.println(this.getClass()
-							+ " planDetails.getDepartureDate() == null, flightPlanDetails get session");
-			planDetails = (PlanDetails) session
-					.getAttribute("flightPlanDetails");
+			//System.out.println(this.getClass()	+ " planDetails.getDepartureDate() == null, flightPlanDetails get session");
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
 
 			if (planDetails == null) {
 				// return flight(request, model, "tc");
@@ -198,8 +194,7 @@ public class FlightController {
 			}
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
-		System.out.println(planDetails.getDepartureDate() + " (Date1) "
-				+ planDetails.getReturnDate());
+		//System.out.println(planDetails.getDepartureDate() + " (Date1) "	+ planDetails.getReturnDate());
 		int days = 0;
 
 		Date dateD1 = new Date(planDetails.getDepartureDate());
@@ -209,10 +204,10 @@ public class FlightController {
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		planDetails.setDays(days + 1);
 		if (session != null) {
-			System.out.println(planDetails.getDepartureDate() + " "
-					+ planDetails.getReturnDate() + " "
-					+ planDetails.getPlanSelected() + " "
-					+ planDetails.getTravellerCount());
+//			System.out.println(planDetails.getDepartureDate() + " "
+//					+ planDetails.getReturnDate() + " "
+//					+ planDetails.getPlanSelected() + " "
+//					+ planDetails.getTravellerCount());
 			session.setAttribute("leavingDate", planDetails.getDepartureDate());
 			session.setAttribute("backDate", planDetails.getReturnDate());
 			session.setAttribute("planType", planDetails.getPlanSelected());
