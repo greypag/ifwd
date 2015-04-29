@@ -395,8 +395,7 @@ public class FlightController {
 			Iterator iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				System.out.println("key " + mapEntry.getKey() + " value "
-						+ mapEntry.getValue());
+				//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 
 				if (mapEntry.getKey().equals("2")
 						|| mapEntry.getKey().equals("3"))
@@ -448,13 +447,10 @@ public class FlightController {
 			model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
 		} else {
-			System.out
-					.println("API failed - Could not retrieve Relationship code List");
-			String returnUrl = UserRestURIConstants.getSitePath(request)
-					+ "flight/flight-plan";
+			System.out.println("API failed - Could not retrieve Relationship code List");
+			String returnUrl = UserRestURIConstants.getSitePath(request) + "flight/flight-plan";
 			System.out.println("returnUrl " + returnUrl);
-			model.addAttribute("errMsgs",
-					"API failed - Could not retrieve Relationship code List");
+			model.addAttribute("errMsgs", "API failed - Could not retrieve Relationship code List");
 			return new ModelAndView(returnUrl);
 		}
 
