@@ -65,9 +65,9 @@ public class FlightController {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		// return UserRestURIConstants.getSitePath(request) + "flight/flight";
-		
-		UserRestURIConstants urc = new UserRestURIConstants(); 
-		urc.updateLanguage(request);	
+
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 
 		HttpSession session = request.getSession();
 		PlanDetails planDetails = (PlanDetails) session
@@ -85,20 +85,22 @@ public class FlightController {
 		planDetails.setTravellerCount(1);
 
 		model.addAttribute(planDetails);
-		
-		
+
 		String pageTitle = WebServiceUtils.getPageTitle("page.flight",
 				UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.flight", UserRestURIConstants.getLanaguage(request));
-		
+
 		String ogTitle = "";
 		String ogType = "";
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
-		
-		if (request.getRequestURI().toString().equals(request.getContextPath() + "/flight-insurance/sharing/")) { 
+
+		if (request
+				.getRequestURI()
+				.toString()
+				.equals(request.getContextPath() + "/flight-insurance/sharing/")) {
 			ogTitle = WebServiceUtils.getPageTitle("flight.sharing.og.title",
 					UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("flight.sharing.og.type",
@@ -124,7 +126,7 @@ public class FlightController {
 					UserRestURIConstants.getLanaguage(request));
 		}
 		System.out.println("request URL " + request.getRequestURL().toString());
-		
+
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 
@@ -139,9 +141,6 @@ public class FlightController {
 				+ "flight/flight");
 	}
 
-	
-
-	
 	protected void removeSessionAttribute(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("flightPlanDetails");
@@ -164,15 +163,16 @@ public class FlightController {
 
 	// @Link(label="Flight Plan", family="FlightController", parent = "Flight" )
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/{lang}/getFlightDate", "/{lang}/flight-insurance/quote" })
+	@RequestMapping(value = { "/{lang}/getFlightDate",
+			"/{lang}/flight-insurance/quote" })
 	public ModelAndView getFlightDate(HttpServletRequest request,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
-		
-		UserRestURIConstants urc = new UserRestURIConstants(); 
+
+		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		
+
 		HttpSession session = request.getSession();
 
 		// removeSessionAttribute(request); // vincent, fix flight-plan-details
@@ -340,10 +340,10 @@ public class FlightController {
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
-		
-		UserRestURIConstants urc = new UserRestURIConstants(); 
+
+		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		
+
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
@@ -423,11 +423,12 @@ public class FlightController {
 			model.addAttribute("mapChildType", mapChildType);
 
 		} else {
-			System.out.println("API failed - Could not retrieve Age Type List");
+			System.out.println("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs").toString());
 			String returnUrl = UserRestURIConstants.getSitePath(request)
 					+ "flight/flight-plan";
 			System.out.println("returnUrl " + returnUrl);
-			model.addAttribute("errMsgs", "API failed - Could not retrieve Age Type List");
+			model.addAttribute("errMsgs",
+					"API failed - Could not retrieve Age Type List");
 			return new ModelAndView(returnUrl);
 		}
 		String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
@@ -451,11 +452,13 @@ public class FlightController {
 			model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
 		} else {
-			System.out.println("API failed - Could not retrieve Relationship code List");
+			System.out
+					.println("API failed - Could not retrieve Relationship code List");
 			String returnUrl = UserRestURIConstants.getSitePath(request)
 					+ "flight/flight-plan";
 			System.out.println("returnUrl " + returnUrl);
-			model.addAttribute("errMsgs", "API failed - Could not retrieve Relationship code List");
+			model.addAttribute("errMsgs",
+					"API failed - Could not retrieve Relationship code List");
 			return new ModelAndView(returnUrl);
 		}
 
@@ -488,10 +491,10 @@ public class FlightController {
 			HttpServletRequest request,
 			@ModelAttribute("confirmationData") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model) {
-		
-		UserRestURIConstants urc = new UserRestURIConstants(); 
+
+		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		
+
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("token") == null) {
@@ -907,21 +910,21 @@ public class FlightController {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs")
 					.toString());
 			model.addAttribute("action", "/flight-insurance");
-			return responsObject.get("errMsgs")
-					.toString();
+			return responsObject.get("errMsgs").toString();
 		}
 	}
 
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/{lang}/flight-confrimation-page", "/{lang}/flight-insurance/confirmation" })
+	@RequestMapping(value = { "/{lang}/flight-confrimation-page",
+			"/{lang}/flight-insurance/confirmation" })
 	public ModelAndView flightConfrimationPage(
 			Model model,
 			HttpServletRequest request,
 			@ModelAttribute("createFlightPolicy") CreateFlightPolicy createFlightPolicy) {
-		
-		UserRestURIConstants urc = new UserRestURIConstants(); 
+
+		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		
+
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("token") == null) {
@@ -931,8 +934,8 @@ public class FlightController {
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//String upgradeReferralCode = "FLTUGD";
-		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
+		 String upgradeReferralCode = "FLTUGD";
+//		String upgradeReferralCode = "nathaniel.kw.cheung@fwd.com";
 
 		/* Get Travel Policies */
 		try {
