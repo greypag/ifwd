@@ -303,7 +303,7 @@ public class HomeCareController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/{lang}/applyHomePromoCode")
+	@RequestMapping(value = "/applyHomePromoCode")
 	public String applyHomePromoCode(Model model, HttpServletRequest request) {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();

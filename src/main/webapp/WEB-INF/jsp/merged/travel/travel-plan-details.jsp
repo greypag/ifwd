@@ -29,7 +29,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 		
-			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/travel-insurance/travel-summary" method="post"
+			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"
 				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -765,7 +765,7 @@
 
               </div>
               <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿?ï¿½ï¿½ï¿?/i> </a>
+                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> å¦‚ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?/i> </a>
               </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>

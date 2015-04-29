@@ -98,7 +98,7 @@ function submitLoginForm(formID) {
 						id="headerLoginForm">
 
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="<%=request.getContextPath()%>"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>/"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
