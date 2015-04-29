@@ -371,8 +371,13 @@ public class FlightController {
 			header.put("token", request.getSession().getAttribute("token")
 					.toString());
 		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
 		header.put("language", WebServiceUtils
-				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+				.transformLanaguage(lang));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 				Url, header, null);
 

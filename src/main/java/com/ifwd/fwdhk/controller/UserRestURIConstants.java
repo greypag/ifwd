@@ -182,11 +182,17 @@ public class UserRestURIConstants {
 	}
 
     public static String checkLangSetPage(String lang){
-        if("EN".equals(lang)){
+        if("EN".equalsIgnoreCase(lang)){
             return "/en/";
-        }else if("CN".equals(lang)){
-            return "/cn/";
-        } else{
+        }
+        else if("CN".equalsIgnoreCase(lang)){
+            return "/tc/";
+        } 
+        else if ("TC".equalsIgnoreCase(lang)) 
+        {
+        	return "/tc/";
+        }
+        else{
             return "/en/";
         }
     }
@@ -194,9 +200,14 @@ public class UserRestURIConstants {
     public static String getWSLang(String lang){
         if("EN".equals(lang)){
             return "EN";
-        }else if("CN".equals(lang)){
+        }
+        else if("CN".equals(lang)){
             return "ZH";
-        } else{
+        } 
+        else if("TC".equals(lang)){
+            return "ZH";
+        } 
+        else{
             return "EN";
         }
     }

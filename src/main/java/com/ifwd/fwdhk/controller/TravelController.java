@@ -200,9 +200,12 @@ public class TravelController {
 				header.put("userName", username);
 				header.put("token", token);
 			}
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+			
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -317,6 +320,10 @@ public class TravelController {
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + request.getParameter("promoCode");
 
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			if (request.getSession().getAttribute("username") != null) {
@@ -326,9 +333,7 @@ public class TravelController {
 				header.put("token", request.getSession().getAttribute("token")
 						.toString());
 			}
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
@@ -553,7 +558,7 @@ public class TravelController {
 		// TODO please change to apply message bundle nicely
 		String hkIdLbl = "HKID";
 		String passportLbl = "Passport";
-		if("CN".equals(lang)){
+		if("tc".equals(lang)){
 			hkIdLbl = "香港身份證";
 			passportLbl = "護照";
 		} else {
