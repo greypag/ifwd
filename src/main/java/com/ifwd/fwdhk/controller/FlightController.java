@@ -1088,7 +1088,7 @@ public class FlightController {
 		if (session.getAttribute("FlightResponseFrTrvl") != null) {
 			parameters = (JSONObject) session
 					.getAttribute("FlightResponseFrTrvl");
-			parameters.put("planCode", "A");
+			parameters.put("planCode", selectPlanName);
 		}
 		PlanDetailsForm plandetailsForm = new PlanDetailsForm();
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
@@ -1105,7 +1105,9 @@ public class FlightController {
 								UserRestURIConstants.getLanaguage(request)));
 			}
 			for (int inx = 0; inx < plandetailsForm.getTotalOtherTraveller(); inx++) {
-
+				plandetailsForm.setOtherAgeRangeName(WebServiceUtils
+						.getAgeRangeNames(plandetailsForm.getOtherAgeRange(),
+								UserRestURIConstants.getLanaguage(request)));
 			}
 
 		}
