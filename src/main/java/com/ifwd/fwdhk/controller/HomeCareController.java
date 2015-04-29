@@ -76,19 +76,22 @@ public class HomeCareController {
 				&& (session.getAttribute("username") != null)) {
 			token = session.getAttribute("token").toString();
 			username = session.getAttribute("username").toString();
-		} else {
+		} 
+		else {
 			restService.consumeLoginApi(request);
 			if ((session.getAttribute("token") != null)) {
 				token = session.getAttribute("token").toString();
 				username = session.getAttribute("username").toString();
 			}
 		}
-		List<HomeCareQuetionaries> homeCareQuetionariesList = homecareService
-				.getHomeQuetionaries(token, username,
-						UserRestURIConstants.getLanaguage(request));
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
+		List<HomeCareQuetionaries> homeCareQuetionariesList = homecareService.getHomeQuetionaries(token, username, lang);
 		if (homeCareQuetionariesList.size() > 0) {
-			request.setAttribute("homeCareQuetionariesList",
-					homeCareQuetionariesList);
+			request.setAttribute("homeCareQuetionariesList", homeCareQuetionariesList);
 			model.addAttribute(homeCareQuetionariesList);
 
 			String answer1, answer2;
@@ -124,11 +127,8 @@ public class HomeCareController {
 
 				ctn = ctn + 1;
 			}
-			String pageTitle = WebServiceUtils.getPageTitle("page.homeCare",
-					UserRestURIConstants.getLanaguage(request));
-			String pageMetaDataDescription = WebServiceUtils
-					.getPageTitle("meta.homeCare",
-							UserRestURIConstants.getLanaguage(request));
+			String pageTitle = WebServiceUtils.getPageTitle("page.homeCare", lang);
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCare", lang);
 			String ogTitle = "";
 			String ogType = "";
 			String ogUrl = "";
@@ -136,18 +136,20 @@ public class HomeCareController {
 			String ogDescription = "";
 			
 			
-			if (request.getRequestURI().toString().equals(request.getContextPath() + "/home-insurance/sharing/")) {
-				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", UserRestURIConstants.getLanaguage(request));
-				ogType = WebServiceUtils.getPageTitle("homeCare.sharing.og.type", UserRestURIConstants.getLanaguage(request));
-				ogUrl = WebServiceUtils.getPageTitle("homeCare.sharing.og.url", UserRestURIConstants.getLanaguage(request));
-				ogImage = WebServiceUtils.getPageTitle("homeCare.sharing.og.image", UserRestURIConstants.getLanaguage(request));
-				ogDescription = WebServiceUtils.getPageTitle("homeCare.sharing.og.description", UserRestURIConstants.getLanaguage(request));
-			} else {
-				ogTitle = WebServiceUtils.getPageTitle("homeCare.og.title", UserRestURIConstants.getLanaguage(request));
-				ogType = WebServiceUtils.getPageTitle("homeCare.og.type", UserRestURIConstants.getLanaguage(request));
-				ogUrl = WebServiceUtils.getPageTitle("homeCare.og.url", UserRestURIConstants.getLanaguage(request));
-				ogImage = WebServiceUtils.getPageTitle("homeCare.og.image", UserRestURIConstants.getLanaguage(request));
-				ogDescription = WebServiceUtils.getPageTitle("homeCare.og.description", UserRestURIConstants.getLanaguage(request));
+			if (request.getRequestURI().toString().equals(request.getContextPath() + "/home-insurance/sharing/")) 
+			{
+				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", lang);
+				ogType = WebServiceUtils.getPageTitle("homeCare.sharing.og.type", lang);
+				ogUrl = WebServiceUtils.getPageTitle("homeCare.sharing.og.url", lang);
+				ogImage = WebServiceUtils.getPageTitle("homeCare.sharing.og.image", lang);
+				ogDescription = WebServiceUtils.getPageTitle("homeCare.sharing.og.description", lang);
+			} 
+			else {
+				ogTitle = WebServiceUtils.getPageTitle("homeCare.og.title", lang);
+				ogType = WebServiceUtils.getPageTitle("homeCare.og.type", lang);
+				ogUrl = WebServiceUtils.getPageTitle("homeCare.og.url", lang);
+				ogImage = WebServiceUtils.getPageTitle("homeCare.og.image", lang);
+				ogDescription = WebServiceUtils.getPageTitle("homeCare.og.description", lang);
 			}
 			
 			
@@ -207,21 +209,20 @@ public class HomeCareController {
 		
 		String userReferralCode = "";
 
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
-				userReferralCode, answer1, answer2,
-				UserRestURIConstants.getLanaguage(request));
+				userReferralCode, answer1, answer2,	lang);
 		if (planQuote.getErrormsg().equals("null")) {
 		
 			model.addAttribute("planQuote", planQuote);
 			request.setAttribute("planQuote", planQuote);
 			model.addAttribute("answer1", answer1);
 			model.addAttribute("answer2", answer2);
-			String pageTitle = WebServiceUtils.getPageTitle(
-					"page.homeCareQuotation",
-					UserRestURIConstants.getLanaguage(request));
-			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-					"meta.homeCareQuotation",
-					UserRestURIConstants.getLanaguage(request));
+			String pageTitle = WebServiceUtils.getPageTitle("page.homeCareQuotation", lang);
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCareQuotation",	lang);
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 	
@@ -251,22 +252,22 @@ public class HomeCareController {
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 
-
-
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		try {
-			List<DistrictBean> districtList = homecareService
-					.getDistrict(userName, token,
-							UserRestURIConstants.getLanaguage(request));
-			Map<String, String> mapNetFloorArea = homecareService
-					.getNetFloorArea(userName, token,
-							UserRestURIConstants.getLanaguage(request));
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
+			Map<String, String> mapNetFloorArea = homecareService.getNetFloorArea(userName, token, lang);
 			request.setAttribute("districtList", districtList);
-			if (homeQuoteDetails.getTotalDue() != null) {
+			
+			if (homeQuoteDetails.getTotalDue() != null) 
+			{
 				session.setAttribute("homeQuoteDetails", homeQuoteDetails);
-			} else {
-				homeQuoteDetails = (HomeQuoteBean) session
-						.getAttribute("homeQuoteDetails");
+			} 
+			else {
+				homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
 
 				// redirect to 1ST step when null
 				if (homeQuoteDetails == null) {
@@ -287,12 +288,13 @@ public class HomeCareController {
 			e.printStackTrace();
 
 		}
-		String pageTitle = WebServiceUtils.getPageTitle(
-				"page.homeCareUserDetails",
-				UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-				"meta.homeCareUserDetails",
-				UserRestURIConstants.getLanaguage(request));
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.homeCareUserDetails",	lang);
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCareUserDetails", lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 
@@ -301,7 +303,7 @@ public class HomeCareController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/{lang}/applyHomePromoCode")
+	@RequestMapping(value = "/applyHomePromoCode")
 	public String applyHomePromoCode(Model model, HttpServletRequest request) {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
@@ -310,11 +312,14 @@ public class HomeCareController {
 		if (session.getAttribute("token") == null) {
 			return "fail";
 		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
 
 		String referralCode = request.getParameter("referralCode");
 		String planQuote = homecareService.getHomePlanToString(token, username,
-				referralCode, "NO", "NO",
-				UserRestURIConstants.getLanaguage(request));
+				referralCode, "NO", "NO", lang);
 		if (!planQuote.contains("Promotion Code is not valid")) {
 			session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
 		} else {
@@ -362,13 +367,18 @@ public class HomeCareController {
 		userDetails.setMobileNo(mobileNo);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy createdPolicy = (CreatePolicy) session
 				.getAttribute("createdPolicy");
 		if (createdPolicy == null) {
 			createdPolicy = homecareService.createHomeCarePolicy(userName,
 					token, homeCareDetails, userDetails,
-					UserRestURIConstants.getLanaguage(request), (String)session.getAttribute("referralCode"));
+					lang, (String)session.getAttribute("referralCode"));
 		}
 		
 		model.addAttribute("createdPolicy", createdPolicy);
@@ -376,7 +386,7 @@ public class HomeCareController {
 		if (createdPolicy.getErrMsgs() == null) {
 			CreatePolicy confirm = homecareService.confirmHomeCarePolicy(
 					userName, token, createdPolicy.getReferenceNo(),
-					UserRestURIConstants.getLanaguage(request));
+					lang);
 
 			session.setAttribute("HomeCareReferenceNo",
 					createdPolicy.getReferenceNo());
@@ -404,13 +414,13 @@ public class HomeCareController {
 		Format f = new SimpleDateFormat("dd MMMM yyyy");
 		date.add(Calendar.YEAR, 1);
 		String endDate = f.format(date.getTime());
-
+		
 		// get netFloorArea desc
-		Map<String, String> netFloorAreas = homecareService.getNetFloorArea(userName, token, UserRestURIConstants.getLanaguage(request));
+		Map<String, String> netFloorAreas = homecareService.getNetFloorArea(userName, token, lang);
 		homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(netFloorAreas, homeCareDetails.getNetFloorArea()));
 		// get district / area desc
-		List<DistrictBean> districts = homecareService.getDistrict(userName, token, UserRestURIConstants.getLanaguage(request));
-		Map<String, String> areas = homecareService.getArea(userName, token, UserRestURIConstants.getLanaguage(request));
+		List<DistrictBean> districts = homecareService.getDistrict(userName, token, lang);
+		Map<String, String> areas = homecareService.getArea(userName, token, lang);
 		homeCareDetails.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, homeCareDetails.getApplicantDistrict()));
 		homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, homeCareDetails.getApplicantArea()));
 		
@@ -439,10 +449,10 @@ public class HomeCareController {
 		model.addAttribute("errormsg", errorMsg);
 		String pageTitle = WebServiceUtils.getPageTitle(
 				"page.homeCarePlanSummary",
-				UserRestURIConstants.getLanaguage(request));
+				lang);
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.homeCarePlanSummary",
-				UserRestURIConstants.getLanaguage(request));
+				lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 
@@ -492,33 +502,38 @@ public class HomeCareController {
 		System.out.println("userName==>>" + userName);
 		System.out.println("token==>>" + token);
 
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
 				userName, token, referenceNo, transactionNumber,
 				transactionDate, creditCardNo, expiryDate, emailId,
-				UserRestURIConstants.getLanaguage(request));
+				lang);
 		if (finalizePolicy.getErrMsgs() == null) {
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			header.put("userName", userName);
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
-		} else {
-			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
-			return UserRestURIConstants.getSitePath(request)
-					+ "homecare/homecare-summary-payment";
-		}
-			
+		} 
+//		else {
+//			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
+//			return UserRestURIConstants.getSitePath(request)
+//					+ "homecare/homecare-summary-payment";
+//		}
+//			
 		model.addAttribute("emailID", emailId);
 
 		// model.addAttribute("finalize", finalize);
 		model.addAttribute("referenceNo", referenceNo);
 		String pageTitle = WebServiceUtils.getPageTitle(
 				"page.homeCarePlanConfirmation",
-				UserRestURIConstants.getLanaguage(request));
+				lang);
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.homeCarePlanConfirmation",
-				UserRestURIConstants.getLanaguage(request));
+				lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return UserRestURIConstants.getSitePath(request)
