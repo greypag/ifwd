@@ -292,7 +292,8 @@ function submitLoginForm(formID) {
 			<div class="col-lg-6 col-md-6 pull-right">
 				
 				<ul class="maintabs">
-       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+	  <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Working")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
+      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
