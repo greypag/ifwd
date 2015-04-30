@@ -9,106 +9,106 @@
 
 
 <div class="modal fade bs-example-modal-lg " id="loginpopup"
-		tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-		aria-hidden="true" style="display: none;">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content plan-modal">
-			
-			
-	                   <!-- 登入 -->		
-			
-				            <form name="loginform" id="loginform-pop">
-				                        
-										<div class="login-form" >
-											<div
-												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-												id="ajax-loading">
-												<img
-													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-											</div>
-											<div id="login-err-msg" class="alert alert-danger empHide"
-												role="alert" style="display: none;"></div>
-										
-										
-										
-										
-										
-										
-											<div class="form-container" >
-												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
-												<h4 class="margin-shift">
-												<!--使用者名 -->
-													<fmt:message key="header.login.username" bundle="${msg}" /> 
-													
-													<!-- 忘記使用者名 -->
-													<a id="forgotUserName" style="cursor:pointer"
-														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
-												</h4>
+        tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content plan-modal">
+            
+            
+                       <!-- 登入 -->      
+            
+                            <form name="loginform" id="loginform-pop">
+                                        
+                                        <div class="login-form" >
+                                            <div
+                                                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+                                                id="ajax-loading">
+                                                <img
+                                                    style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+                                                    src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+                                            </div>
+                                            <div id="login-err-msg" class="alert alert-danger empHide"
+                                                role="alert" style="display: none;"></div>
+                                        
+                                        
+                                        <a class="close" aria-label="Close" data-dismiss="modal">
+                                        <span aria-hidden="true" style="font-size:30px;">×</span>
+                                        </a>
+                                        
+                                            <div class="form-container" >
+                                                <h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
+                                                <h4 class="margin-shift">
+                                                <!--使用者名 -->
+                                                    <fmt:message key="header.login.username" bundle="${msg}" /> 
+                                                    
+                                                    <!-- 忘記使用者名 -->
+                                                    <a id="forgotUserName" style="cursor:pointer"
+                                                        class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
+                                                </h4>
 
-												<div class="form-group">
-													<input type="text" name="userName" class="form-control check-emp"
-														placeholder="" id="headerUserName">
-												</div>
-												<span id="errUserName" class="empHide" style="color: red"></span>
-												
-												
-												
-												<h4 class="margin-shift">
-													<fmt:message key="header.login.password" bundle="${msg}" /> 
-													
-													<!--忘記密碼 -->													
-													<a id="link-forgotPassword" style="cursor:pointer" 
-														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
-														
-												</h4>
-												<div class="form-group">
-													<input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off"
-														id="headerPassword">
-												</div>
-												<span id="errPass" class="empHide" style="color: red"></span> <br>
-												<div class="row">
-													<div class="col-lg-6 col-md-6">
-														<button type="submit" onclick="return submitLoginForm('loginform-pop');"
-															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
-													</div>
-													<h3
-														class="text-left col-lg-6 col-md-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus">
-															<fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
-													</h3>
-													<div class="clearfix"></div>
-												</div>
-												<p><fmt:message key="header.login.disclaimer" bundle="${msg}" /></p>
-											</div>
-										</div>
-					</form>
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									<!-- ======================================== 忘記使用者   ============================================================ -->
-									<!-- ======================================== 忘記使用者   ============================================================ -->
-									
-									
-									
-						<form name="forgotUserNameForm" id="forgotUserNameForm"
+                                                <div class="form-group">
+                                                    <input type="text" name="userName" class="form-control check-emp"
+                                                        placeholder="" id="headerUserName">
+                                                </div>
+                                                <span id="errUserName" class="empHide" style="color: red"></span>
+                                                
+                                                
+                                                
+                                                <h4 class="margin-shift">
+                                                    <fmt:message key="header.login.password" bundle="${msg}" /> 
+                                                    
+                                                    <!--忘記密碼 -->                                                    
+                                                    <a id="link-forgotPassword" style="cursor:pointer" 
+                                                        class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
+                                                        
+                                                </h4>
+                                                <div class="form-group">
+                                                    <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off"
+                                                        id="headerPassword">
+                                                </div>
+                                                <span id="errPass" class="empHide" style="color: red"></span> <br>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <button type="submit" onclick="return submitLoginForm('loginform-pop');"
+                                                            class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
+                                                    </div>
+                                                    <h3
+                                                        class="text-left col-lg-6 col-md-6 pad-none margin-none">
+                                                        <span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus">
+                                                            <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
+                                                    </h3>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <p><fmt:message key="header.login.disclaimer" bundle="${msg}" /></p>
+                                            </div>
+                                        </div>
+                    </form>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <!-- ======================================== 忘記使用者   ============================================================ -->
+                                    <!-- ======================================== 忘記使用者   ============================================================ -->
+                                    
+                                    
+                                    
+                        <form name="forgotUserNameForm" id="forgotUserNameForm"
                     action="forgotUserNameFields" method="post"
                     commandName="forgotUserName" style="display:none">
-						
-						
+                        
+                        
                  
-						
-							<div class="login-form"  >
-				<div id="forgotusername-err-msg" class="alert alert-danger"
+                        
+                            <div class="login-form"  >
+                <div id="forgotusername-err-msg" class="alert alert-danger"
                         role="alert" style="display: none;">
                         <P id="error-mobile-no">
                         <P id="error-email-id">
@@ -118,9 +118,9 @@
                         style="display: none;">
                         <P id="error1">
                     </div>
-							
-							
-							
+                            
+                            
+                            
                                             <div
                                                 style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
                                                 id="ajax-loading">
@@ -131,7 +131,9 @@
                                             <div id="login-err-msg" class="alert alert-danger"
                                                 role="alert" style="display: none;"></div>
                                         
-                                                                                                                                                                    
+                                                                           <a class="close" aria-label="Close" data-dismiss="modal">
+                                        <span aria-hidden="true" style="font-size:30px;">×</span>
+                                        </a>                                                                                                         
                                             <div class="form-container" >
                                                 <h2>
                                                   <!--Message 忘記用戶名稱 -->
@@ -208,10 +210,10 @@
                              </div> 
                                    
                                 </form>    
-									
-									<!-- 忘記使用者END -->
-									
-									<script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+                                    
+                                    <!-- 忘記使用者END -->
+                                    
+                                    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
     <script>
         function getForgotUserName() {
             var validationFormVal = forgotUserName();
@@ -253,7 +255,7 @@
             }
         }
     </script>
-									               
+                                                   
                                     
                                 <!-- ===================================================================================================== -->
                                 <!-- ========================================忘記密碼===================================================== -->
@@ -291,7 +293,11 @@
                                             <div id="login-err-msg" class="alert alert-danger"
                                                 role="alert" style="display: none;"></div>
                                         
-                                                                                                                                                                    
+                                                    <a class="close" aria-label="Close" data-dismiss="modal">
+                                        <span aria-hidden="true" style="font-size:30px;">×</span>
+                                        </a>                                         
+                                        
+                                                                                                                                                           
                                             <div class="form-container" >
                                                 <h2>
                                                   <!--Message 忘記密碼 -->
@@ -412,39 +418,39 @@
             
                                     
                                     
-								
-								
-								
-								
-						
+                                
+                                
+                                
+                                
+                        
     <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
     <script>
         function forgotUserPassword() {
-        	
-        	var valid = true;
-        	 
-        	var mobileNo = $('#mobileNo-forgotpassowrd').val();
-        	var emailId = $('#emailAddress-forgotpassowrd').val();
-        	var userName = $('#userName').val();
-        	
-        	
-        	  // Mobile Number Validation
+            
+            var valid = true;
+             
+            var mobileNo = $('#mobileNo-forgotpassowrd').val();
+            var emailId = $('#emailAddress-forgotpassowrd').val();
+            var userName = $('#userName').val();
+            
+            
+              // Mobile Number Validation
             if (mobileNo.trim() == "") {
                  $('#errorEmptyMob-forgotPassword').show();
                  valid = false;
             }   else{
                 
-            	if (mobile_pattern.test(mobileNo) == false) {
+                if (mobile_pattern.test(mobileNo) == false) {
                     $("#errorInvalidMob-forgotPassword").show();                   
                     valid = false;
-            	}            	
+                }               
             }          
-        	
+            
            
-        	
-        	
-        	
-        	
+            
+            
+            
+            
             // Email Address Validation
             if (emailId.trim() == "") {
                $('#errorEmptyEmailId-forgotpassword').show();
@@ -452,17 +458,31 @@
                 
             } else {
                 if (emailreg.test(emailId) == false) {
-                	  $('#errorInvalidEmailId-forgotpassword').show();
-                	  valid = false;
-                	//document.getElementById("errorInvalidEmailId").style.display = "block";
+                      $('#errorInvalidEmailId-forgotpassword').show();
+                      valid = false;
+                    //document.getElementById("errorInvalidEmailId").style.display = "block";
                     //valid = false;
                 }
             }
-        	
-        	
-        	
-        	
-        	if( valid == true){
+            
+            
+            
+            // UserName Validation
+            if (userName.trim() == "") {
+                $("#errorEmptyUName").show();
+
+                valid = false;
+
+            } else {
+                if (reg.test(userName) == false) {
+                    $("#errorInvalidUName").show();
+                    valid = false;
+                } 
+            
+            }
+            
+            
+            if( valid == true){
 
    
                 $('#ajax-loading').show();
@@ -471,9 +491,9 @@
                             type : 'POST',
                             url : '<%=request.getContextPath()%>/forgotUserPassword',
                             data : {'emailAddress':$('#emailAddress-forgotpassowrd').val(),
-                            	    'mobileNo':$('#mobileNo-forgotpassowrd').val(),
-                            	    'userName':$('#userName').val()
-                            	                               	
+                                    'mobileNo':$('#mobileNo-forgotpassowrd').val(),
+                                    'userName':$('#userName').val()
+                                                                
                                 },
                             success : function(data) {
 
@@ -502,79 +522,79 @@
                         });
             }
         }
-    </script>		
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-							
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-					
-									
-									
-			</div>
-		</div>
-		
-		
-	
-		
-		
-		
-		
-		
-		
-	
-	
-		
-	</div>
-	
-	
-	
+    </script>       
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                    
+                                    
+                                    
+            </div>
+        </div>
+        
+        
+    
+        
+        
+        
+        
+        
+        
+    
+    
+        
+    </div>
+    
+    
+    
 
-	
-	<script>
-	   $(document).ready(function(){
+    
+    <script>
+       $(document).ready(function(){
 
-		   
-		   
-		   $('html').keyup(function(e){
-					
-			     var emp= "";
-		    $(".check-emp").each(function(){
+           
+           
+           $('html').keyup(function(e){
+                    
+                 var emp= "";
+            $(".check-emp").each(function(){
                emp = emp + $(this).val(); 
             });
          
-		    
-		    
-		    
-		    if(emp==""){
-        	 
+            
+            
+            
+            if(emp==""){
+             
               $('.empHide').hide();                                    
             }
-			
-		    
+            
+            
             var checkEmpForgotuserName = "";                       
             $(".check-emp-forgotusername").each(function(){
-            	checkEmpForgotuserName = checkEmpForgotuserName + $(this).val(); 
+                checkEmpForgotuserName = checkEmpForgotuserName + $(this).val(); 
              });            
             
             
@@ -583,54 +603,55 @@
               }
             
             var checkEmpForgotuserPassword = "";
-            $('.check-emp-forgotuserpassoword').each(function(){            	
-            	checkEmpForgotuserPassword = checkEmpForgotuserPassword + $(this).val(); 
+            $('.check-emp-forgotuserpassoword').each(function(){                
+                checkEmpForgotuserPassword = checkEmpForgotuserPassword + $(this).val(); 
                 if(checkEmpForgotuserPassword==""){                    
                     $('.empHide').hide();                                    
-                  }            	            	            
+                  }                                         
             })
             
             
-			   
-		   })
-		   
-		   
-		   
+               
+           })
+           
+           
+           
 
-		   
-		   
-		   //--
-		   $('.login-btn').click(function(){			  
-			   $('#loginform-pop').show();
+           
+           
+           //--
+           $('.login-btn').click(function(){              
+               $('#loginform-pop').show();
                $('#forgotUserNameForm').hide();
                $('#forgotPasswordForm').hide();
-			   
-		   })
-		   
-		   
-		   $('#forgotUserName').click(function(){			    
-			   $('#loginform-pop').hide();
-			   $('#forgotUserNameForm').fadeIn();
-			   $('#forgotPasswordForm').hide();
-			   $('.empHide').hide();    
-			   
-		   })
-		   
-		   
-		   $('#link-forgotPassword').click(function(){			   
-	              $('#loginform-pop').hide();
-	              $('#forgotUserNameForm').hide(); 
-	              $('#forgotPasswordForm').fadeIn();
-	              $('.empHide').hide();    
-		   })
-				   		  		 		 
-	   })
-	</script>
+               
+           })
+           
+           
+           $('#forgotUserName').click(function(){       
+               
+               $('#loginform-pop').hide();
+               $('#forgotUserNameForm').fadeIn();
+               $('#forgotPasswordForm').hide();
+               $('.empHide').hide();    
+               
+           })
+           
+           
+           $('#link-forgotPassword').click(function(){             
+                  $('#loginform-pop').hide();
+                  $('#forgotUserNameForm').hide(); 
+                  $('#forgotPasswordForm').fadeIn();
+                  $('.empHide').hide();    
+           })
+                                         
+       })
+    </script>
 
 
 
 
-	<!--/ Get promotion code popup-->
+    <!--/ Get promotion code popup-->
 
 <script>
     function activeDiv(id, selected) {
@@ -695,4 +716,4 @@ function BackMe() {
     window.history.back();
 }
 </script>
-	
+    

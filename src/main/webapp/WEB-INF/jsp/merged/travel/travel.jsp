@@ -43,6 +43,13 @@
       //frm.submit();
     }   
 </script>
+<!-- Start fixed header -->
+<script type='text/javascript'>
+$(document).ready(function() {
+    $(".navbar-inverse").addClass("product-header");
+});
+</script>
+<!-- End fixed header -->
 <%
     String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";
@@ -80,7 +87,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none slide-form">
-        <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
+        <!-- <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2> -->
                 <table class="table activation-form3">
               <tbody>
                 <tr>
@@ -96,17 +103,17 @@
                   </div></td>
                 </tr>
                   <tr>
-                  <td class="col-md-3  ">
+                  <td class="col-md-3 pad-none">
                     <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                       <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" readonly>
                     </div>
                     </td>
-                  <td class="col-md-3 ">
+                  <td class="col-md-3 pad-none">
                     <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                       <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" readonly>
                     </div>
                     </td>
-                  <td class="col-md-3">
+                  <td class="col-md-3 pad-none">
                     <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                       <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
                       <div class="dropdown-menu bdr1">
@@ -195,7 +202,7 @@
                    <div class="clearfix"></div>
                  </div>
                  </td>
-               <td class="col-md-2 ">
+               <td class="col-md-2 pad-none">
                 <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="travel.main.quote.top.action" bundle="${msg}" /></button>
                  <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
               </td>
