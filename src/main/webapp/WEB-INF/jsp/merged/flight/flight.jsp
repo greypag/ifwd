@@ -95,6 +95,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
+      
+      <!-- -=============================================================  form ============================================================= -->
+      
       <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">    
         <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
        
@@ -122,6 +125,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </tr>
             <tr>
               <td class="col-md-3 pad-none">
+              
+              
+              
+              <!--====================================================== 出發日期 -->
+              
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
                 </div>
@@ -339,6 +347,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <div class="col-xs-6 col-sm-6">
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
+               
+               
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
                 <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
