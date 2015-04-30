@@ -2699,8 +2699,9 @@ function validatecardnumber(cardnumber) {
 		}
 	} else {
 		document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+		return false;
 	}
-
+	return true;
 }
 
 function payValid()
