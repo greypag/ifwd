@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -41,6 +42,7 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -332,7 +334,10 @@ public class HomeCareController {
 	public String prepareSummary(
 			@ModelAttribute("frmYourDetails") HomeCareDetailsBean homeCareDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
+		System.out.println("home-insurance/home-summary called ");
 		HttpSession session = request.getSession();
+		
+		
 		if (session.getAttribute("token") == null) {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 		}
@@ -414,7 +419,7 @@ public class HomeCareController {
 		Format f = new SimpleDateFormat("dd MMMM yyyy");
 		date.add(Calendar.YEAR, 1);
 		String endDate = f.format(date.getTime());
-		
+			
 		// get netFloorArea desc
 		Map<String, String> netFloorAreas = homecareService.getNetFloorArea(userName, token, lang);
 		homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(netFloorAreas, homeCareDetails.getNetFloorArea()));
@@ -466,7 +471,15 @@ public class HomeCareController {
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("HomeCareTransactionNo", request.getParameter("orderRef"));
-		session.setAttribute("HomeCareCreditCardNo", request.getParameter("cardNo"));
+		
+		
+		
+		try {
+			session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr((String)request.getParameter("cardNo")));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 
@@ -478,6 +491,8 @@ public class HomeCareController {
 		System.out.println("********************************* Inside Process Payment **********************************************");
 		return "success";
 	}
+	
+	
 
 	@RequestMapping(value = {"/{lang}/homecare-confirmation", "/{lang}/home-insurance/confirmation"})
 	public String processHomePayment(Model model, HttpServletRequest request) {
@@ -485,10 +500,20 @@ public class HomeCareController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 
+		
+		
+		
 		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
 		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
-		String creditCardNo = (String) session.getAttribute("HomeCareCreditCardNo");
+		String creditCardNo;
+		try {
+			creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			creditCardNo = "";
+			e.printStackTrace();
+		}
 		String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
 		String userName = (String) session.getAttribute("username");
 		String token = (String) session.getAttribute("token");
@@ -518,11 +543,27 @@ public class HomeCareController {
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
 		} 
-//		else {
-//			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
-//			return UserRestURIConstants.getSitePath(request)
-//					+ "homecare/homecare-summary-payment";
-//		}
+		else {
+			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
+			
+			if (finalizePolicy.getErrMsgs().toString().contains("invalid payment amount")) {
+				model.addAttribute("errorHeader1", "Invalid Payment Amount");
+				model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
+				model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+				model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+			} else {
+				model.addAttribute("errorHeader1", "Policy is not generated");
+				model.addAttribute("errorDescription1", "There is a problem in the system " + finalizePolicy.getErrMsgs().toString());
+				model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+				model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+			}
+			
+			System.out.println("homeCare confirmation" + UserRestURIConstants.getSitePath(request)
+					+ "error");
+			return UserRestURIConstants.getSitePath(request)
+					+ "error";
+			
+		}
 //			
 		model.addAttribute("emailID", emailId);
 
@@ -536,8 +577,11 @@ public class HomeCareController {
 				lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
 		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-confirmation";
+				
+		
 	}
 
 	@RequestMapping(value = "/{lang}/failure")
@@ -548,5 +592,7 @@ public class HomeCareController {
 		model.addAttribute("errormsg", errormsg);
 
 		return UserRestURIConstants.getSitePath(request) + "failure";
+		
+		
 	}
 }

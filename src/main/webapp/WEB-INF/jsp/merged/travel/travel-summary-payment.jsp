@@ -31,13 +31,6 @@
 	
 </script>
 
-<% 
- 	if (request.getAttribute("createPolicy.getReferenceNo()") == null) {
- 		System.out.println("redirect language " + session.getAttribute("language"));
- 		String lang = (String) session.getAttribute("language");
- 		response.sendRedirect(request.getContextPath() + "/" + lang + "/travel-insurance/user-details");
- 	}
-%>
 
 <!--/#main-Content-->
 <!--/#main-Content-->

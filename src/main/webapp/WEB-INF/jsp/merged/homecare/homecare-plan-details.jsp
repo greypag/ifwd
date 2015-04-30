@@ -174,19 +174,19 @@
 			$('#inputABlock').val(applicantBlock);
 			$('#inputABuilding').val(applicantBuilding);
 			
-			if(applicantBuilding.trim() != ''){
-				$('#errABuilding').html('');
-			}else{
-				$('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
-			}
+// 			if(applicantBuilding.trim() != ''){
+// 				$('#errABuilding').html('');
+// 			}else{
+// 				$('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
+// 			}
 			
 			$('#inputAEstate').val(applicantEstate);
 			
-			if(applicantEstate.trim() != ''){
-				$('#errAEstate').html('');
-			}else{
-				$('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
-			}
+// 			if(applicantEstate.trim() != ''){
+// 				$('#errAEstate').html('');
+// 			}else{
+// 				$('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
+// 			}
 			
 			$('#inputAStreetNo').val(applicantStreetNo);
 			$('#inputAStreetName').val(applicantStreetName);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -72,6 +73,9 @@ public class ECommController {
 	@RequestMapping(value = {"home", "/{lang}/home", "/{lang}/home/sharing/"}, method = RequestMethod.GET)
 	public String homePage(@RequestParam(required = false) final String promo, HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession(true);
+		
+		
+		
 		
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));

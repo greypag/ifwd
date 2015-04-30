@@ -1,0 +1,194 @@
+package com.ifwd.fwdhk.util;
+
+import java.util.regex.Pattern;
+import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.security.MessageDigest;
+import java.util.Arrays;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+
+public class Methods {
+
+	private final static Logger logger = LoggerFactory.getLogger(Methods.class);
+	
+//	public static boolean isSimulator() {
+//		return true;
+//	}
+//	
+//	
+//	
+	private boolean simulator;
+//	
+//	
+//	/* properties */
+	public boolean isSimulator() {
+		return simulator;
+	}
+
+	public void setSimulator(boolean simulator) {
+		this.simulator = simulator;
+	}
+	
+
+	public static boolean  isHkid(String hkid){
+		
+		String strValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		
+		// basic check length
+		if(hkid == null || hkid == "" || hkid.length() < 8 ){
+			return false;
+		}
+		
+		// handling bracket
+		if (hkid.charAt(hkid.length()-3) == '(' && hkid.charAt(hkid.length()-1) == ')')
+			hkid = hkid.substring(0, hkid.length() - 3) + hkid.charAt(hkid.length() -2);
+		
+		// convert to upper case
+		hkid = hkid.toUpperCase();
+
+		String hkidCharPart;
+		String hkidNumPart;
+		String hkidCheckDigit;
+		String charPart = "";
+		String numPart = "";
+		String checkDigit = "";
+		
+		if(hkid.length() == 8){
+			hkidCharPart = hkid.substring(0, 1);
+			hkidNumPart = hkid.substring(1, 7);
+			hkidCheckDigit = hkid.substring(7);
+		
+			// the character part, numeric part and check digit part
+			charPart = Pattern.matches("[A-Z]", hkidCharPart) ? hkidCharPart : "" ;
+			numPart = Pattern.matches("[0-9]{6}", hkidNumPart) ? hkidNumPart : "" ;
+			checkDigit = Pattern.matches("[A0-9]", hkidCheckDigit) ? hkidCheckDigit : "" ;
+		}
+		else if(hkid.length() == 9){
+			hkidCharPart = hkid.substring(0, 2);
+			hkidNumPart = hkid.substring(2, 8);
+			hkidCheckDigit = hkid.substring(8);
+		
+			// the character part, numeric part and check digit part
+			charPart = Pattern.matches("[A-Z]{2}", hkidCharPart) ? hkidCharPart : "" ;
+			numPart = Pattern.matches("[0-9]{6}", hkidNumPart) ? hkidNumPart : "" ;
+			checkDigit = Pattern.matches("[A0-9]", hkidCheckDigit) ? hkidCheckDigit : "" ;			
+		}		
+//		logger.error("charPart = " + charPart);
+//		logger.error("numPart = " + numPart);
+//		logger.error("checkDigit = " + checkDigit);
+		
+		if(charPart == "" || numPart == "" || checkDigit == "")
+			return false;
+				
+      	// calculate the checksum for character part
+		int checkSum = 0;
+      	if (charPart.length() == 2) {
+      		checkSum += 9 * (10 + strValidChars.indexOf(charPart.charAt(0)));
+      		checkSum += 8 * (10 + strValidChars.indexOf(charPart.charAt(1)));
+      	} else {
+      		checkSum += 9 * 36;
+      		checkSum += 8 * (10 + strValidChars.indexOf(charPart));
+      	}      	
+      	
+      	// calculate the checksum for numeric part
+      	for (int i = 0, j = 7; i < numPart.length(); i++, j--)
+      		checkSum += j * Integer.parseInt(String.valueOf(numPart.charAt(i)));
+		
+      	// verify the check digit
+      	int remaining = checkSum % 11;
+      	Integer verify = remaining == 0 ? 0 : 11 - remaining;
+      	
+      	//logger.error("verify = " + verify + ", checkDigit = " + checkDigit);
+      	
+      	return ((verify.toString().compareTo(checkDigit) == 0) || (verify == 10 && checkDigit.compareTo("A") == 0 ));
+      				
+	}	
+	
+	
+	
+	
+	/* encryption and decryption */
+	public static String encryptStr(String message) throws Exception {
+		byte[] encryptedByte =  Methods.encrypt(message);
+		return new sun.misc.BASE64Encoder().encode(encryptedByte);
+	}
+    public static byte[] encrypt(String message) throws Exception {
+        final MessageDigest md = MessageDigest.getInstance("md5");
+        final byte[] digestOfPassword = md.digest("HG58YZ3CR9"
+                                        .getBytes("utf-8"));
+        final byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+        for (int j = 0, k = 16; j < 8;) {
+                        keyBytes[k++] = keyBytes[j++];
+        }
+
+        final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+        final IvParameterSpec iv = new IvParameterSpec(new byte[8]);
+        final Cipher cipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, key, iv);
+
+        final byte[] plainTextBytes = message.getBytes("utf-8");
+        final byte[] cipherText = cipher.doFinal(plainTextBytes);
+        // final String encodedCipherText = new sun.misc.BASE64Encoder()
+        // .encode(cipherText);
+
+        return cipherText;
+    }
+
+    public static String decryptStr(String message) throws Exception{
+    	final byte[] decBtye = new sun.misc.BASE64Decoder().decodeBuffer(message);
+    	return decrypt(decBtye);
+    }
+    public static String decrypt(byte[] message) throws Exception {
+        final MessageDigest md = MessageDigest.getInstance("md5");
+        final byte[] digestOfPassword = md.digest("HG58YZ3CR9"
+                                        .getBytes("utf-8"));
+        final byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+        for (int j = 0, k = 16; j < 8;) {
+                        keyBytes[k++] = keyBytes[j++];
+        }
+
+        final SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+        final IvParameterSpec iv = new IvParameterSpec(new byte[8]);
+        final Cipher decipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
+        decipher.init(Cipher.DECRYPT_MODE, key, iv);
+
+        // final byte[] encData = new
+        // sun.misc.BASE64Decoder().decodeBuffer(message);
+        final byte[] plainText = decipher.doFinal(message);
+
+        return new String(plainText, "UTF-8");
+    }
+
+	
+    public static String toGiBooleanOptIn(Boolean bln){
+    	if(bln == null)
+    		return null;
+    	else{
+    		if(bln)
+    			return "N";	//opposite value against UI for optIn
+    		else
+    			return "Y";	//opposite value against UI for optIn
+    	}
+    		
+    }
+    
+    
+    public static <T> boolean isNullOrEmpty(List<T> lst){
+    	if(lst != null && !lst.isEmpty())
+    		return false;
+    	else
+    		return true;
+    }
+}

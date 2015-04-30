@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -46,18 +47,21 @@ pageEncoding="ISO-8859-1"%>
           <div class="division">
           </div>
           <p>
-            ERROR No. 408
+            ERROR No. 401
           </p>
           <div class="division">
           </div>
           <p>
             The following error was encountered:
             <br>
-            408 Request Timeout 
+            &bull;401 Unauthorized
             <br>
-            &bull;The 408 Request Timeout HTTP status code indicates that 
+            &bull;The 401 Unauthorized HTTP status code means that 
             <br>
-            &bull;the request you sent to the website server (like a request to load a web page) timed out. 
+            
+            &bull;the page you were trying to access can not be loaded until 
+            <br>
+            &bull;you first log on with a valid username and password. 
           </p>
           <br>
         </div>
@@ -71,23 +75,25 @@ pageEncoding="ISO-8859-1"%>
             </div>
         </div>
       </div>
-    </div> --> 
-    
+    </div> -->
     <div class="container annexure-form error-page " >
     	<div class="col-xs-12">
     		<h2 class="annexure-form-header">ERROR</h2>
 		    <div class="company form-regisration error">
-				<h3>ERROR No. 408</h3>
+				<h3>ERROR No. 401</h3>
 				<p>The following error was encountered:</p>
 				<p>
-					<strong>408 - Request Timeout </strong>
+					<strong>401 Unauthorized</strong>
 				</p>
-				<p>The 408 Request Timeout HTTP status code indicates that </p>
-				<p>the request you sent to the website server (like a request to load a web page) timed out. </p>
+				<p>The 401 Unauthorized HTTP status code means that</p>
+				<ul>
+					<li>the page you were trying to access can not be loaded until </li>
+					<li>you first log on with a valid username and password. </li>
+				</ul>
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">
-					<a href="#" onclick="goBack();" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+					<a onclick="goBack();" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a></div></div></div>
 	            </div>
             </div>
 		</div>

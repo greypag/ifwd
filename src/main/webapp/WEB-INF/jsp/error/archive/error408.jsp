@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -46,21 +46,18 @@ pageEncoding="ISO-8859-1"%>
           <div class="division">
           </div>
           <p>
-            ERROR No. 404
+            ERROR No. 408
           </p>
           <div class="division">
           </div>
           <p>
             The following error was encountered:
             <br>
-            404 Not Found 
+            408 Request Timeout 
             <br>
-            &bull;The 404 Not Found HTTP status code means that 
+            &bull;The 408 Request Timeout HTTP status code indicates that 
             <br>
-            &bull;the page you were trying to reach could not be found on the web site's server. 
-            <br>
-            
-            &bull;This is the most popular HTTP status code that you will probably see.
+            &bull;the request you sent to the website server (like a request to load a web page) timed out. 
           </p>
           <br>
         </div>
@@ -75,17 +72,18 @@ pageEncoding="ISO-8859-1"%>
         </div>
       </div>
     </div> --> 
+    
     <div class="container annexure-form error-page " >
     	<div class="col-xs-12">
     		<h2 class="annexure-form-header">ERROR</h2>
 		    <div class="company form-regisration error">
-				<h3>ERROR No. 404</h3>
+				<h3>ERROR No. 408</h3>
 				<p>The following error was encountered:</p>
 				<p>
-					<strong>404 - Not Found</strong>
+					<strong>408 - Request Timeout </strong>
 				</p>
-				<p>The 404 Not Found HTTP status code means that </p>
-				<p>This is the most popular HTTP status code that you will probably see.</p>
+				<p>The 408 Request Timeout HTTP status code indicates that </p>
+				<p>the request you sent to the website server (like a request to load a web page) timed out. </p>
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">

@@ -37,6 +37,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -82,11 +83,29 @@ public class TravelController {
 		model.addAttribute("travelQuote", travelQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
-		String ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
-		String ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
-		String ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
-		String ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
-		String ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
+		
+		String ogTitle = "";
+		String ogType = "";
+		String ogUrl = "";
+		String ogImage = "";
+		String ogDescription = "";
+		
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/travel-insurance/sharing/")) 
+		{
+			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
+		} else {
+			ogTitle = WebServiceUtils.getPageTitle("travel.sharing.og.title", UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));
+			
+		}
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		model.addAttribute("ogTitle", ogTitle);
@@ -1200,7 +1219,19 @@ public class TravelController {
 		System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
 		System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
 		session.setAttribute("transactionNo", request.getParameter("transNo"));
-		session.setAttribute("creditCardNo", request.getParameter("cardNo"));
+		String encryptedCreditCard = request.getParameter("cardNo");
+		System.out.println("cardNo "+ encryptedCreditCard);
+		
+		try {
+			encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
+			System.out.println("encryptedCreditCard "+ encryptedCreditCard);
+			
+			session.setAttribute("creditCardNo", encryptedCreditCard);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			session.setAttribute("creditCardNo", "");
+			e.printStackTrace();
+		}
 		session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 		session.setAttribute("emailAddress", request.getParameter("emailAddress"));
 		return "success";
@@ -1233,7 +1264,7 @@ public class TravelController {
 			parameters.put("transactionDate",
 					session.getAttribute("transactionDate"));
 			parameters
-					.put("creditCardNo", session.getAttribute("creditCardNo"));
+					.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
 			HashMap<String, String> header = new HashMap<String, String>(
@@ -1250,7 +1281,7 @@ public class TravelController {
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
 			
-			System.out.println("TRAVEL_FINALIZE_POLICY errMsgs " + responsObject.get("errMsgs"));
+			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
@@ -1268,12 +1299,26 @@ public class TravelController {
 						+ "travel/travel-confirmation";
 			} else {
 				System.out.println(responsObject.get("errMsgs").toString());
-				model.addAttribute("errMsgs", responsObject.get("errMsgs")
-						.toString());
+				
+				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
+					model.addAttribute("errorHeader1", "Invalid Payment Amount");
+					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
+					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+				} else {
+					model.addAttribute("errorHeader1", "Policy is not generated");
+					model.addAttribute("errorDescription1", "There is a problem in the system " + responsObject.get("errMsgs").toString());
+					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+				}
+				
+				System.out.println("travel confirmation" + UserRestURIConstants.getSitePath(request)
+						+ "error");
 				return UserRestURIConstants.getSitePath(request)
-						+ "travel/travel-summary-payment";
+						+ "error";
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(responsObject.get("errMsgs").toString());
 			model.addAttribute("errMsgs", responsObject.get("errMsgs")
 					.toString());

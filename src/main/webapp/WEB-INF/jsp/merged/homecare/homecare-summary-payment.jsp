@@ -11,14 +11,6 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
-<% 
-       if (request.getAttribute("createPolicy.getReferenceNo()") == null) {
-             System.out.println("redirect language " + session.getAttribute("language"));
-
-             String lang = (String) session.getAttribute("language");
-             response.sendRedirect(request.getContextPath() + "/" + lang + "/home-insurance/user-details");
-      }
-%>
 
 
 <section>
@@ -207,7 +199,18 @@
 									<tr>
 										<td class="h2-1 pad-none "><fmt:message
 												key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getHkid() }</td>
+										<td class="pad-none h4-5 ">
+										
+										<c:choose>
+										<c:when test=" ${empty userDetails.getHkid()}">
+											<c:out value="${userDetails.getPassport()}" /> 
+											 </c:when>
+											<c:otherwise>
+											<c:out value="${userDetails.getHkid()}"/>
+											
+											</c:otherwise>
+										</c:choose>
+										</td>
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none "><fmt:message
@@ -452,6 +455,10 @@
 								<!-- <input type="button"
 									class="bdr-curve btn btn-primary nxt-btn margin-left"
 									onclick="confirmPayment()" value="Confirm Payment"> -->
+
+
+
+									
 								<input type="submit" class="bdr-curve btn btn-primary btn-next"
 									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 							</div>
@@ -473,8 +480,6 @@
 									value="Pay Now">
 							</div>
 
-							<!--  <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center" onclick="return payValid();">Pay Now</a> </div>
-             -->
 
 							<div class="clearfix"></div>
 

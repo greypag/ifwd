@@ -55,20 +55,20 @@
 	<%
 	}
 	%>
-	<%@ include file="/WEB-INF/decorators/include/merged/header.jsp"%>
+<%-- 	<%@ include file="/WEB-INF/decorators/include/merged/header.jsp"%> --%>
 	
     <div class="container annexure-form error-page " >
     	<div class="col-xs-12">
     		<h2 class="annexure-form-header">ERROR</h2>
 		    <div class="company form-regisration error">
-				<h3>ERROR No. 400</h3>
-				<p>The following error was encountered:</p>
+				<h3>${errorHeader1}</h3>
+				<p>${errorDescription1}</p>
 				<p>
-					<strong>400 - Bad request.</strong>
+					<strong>${errorHeader2}</strong>
 				</p>
 				<ul>
-					<li>The request could not be understood by the server due to malformed syntax. </li>
-					<li>The client should not repeat the request without modifications </li>
+					<li>${errorDescription2} </li>
+					
 				</ul>
 			</div>
 			<div class="row">
@@ -78,6 +78,6 @@
             </div>
 		</div>
 	</div>
-		<jsp:include page="/WEB-INF/decorators/include/merged/footer.jsp" />
+<%-- 		<jsp:include page="/WEB-INF/decorators/include/merged/footer.jsp" /> --%>
 </body>
  
