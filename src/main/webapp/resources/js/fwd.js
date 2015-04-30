@@ -1042,7 +1042,7 @@ $(function () {
 				if($('#selectAdBenefitiaryHkidPass'+errNo).length > 0 && $('#selectAdBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
-						$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notEnglish.message"));
+						$("#erradultBenefitiaryHKId"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
 						return false;
 					}else{
 						var tr = chkTravelHKPass(appHkid.trim());
@@ -1089,7 +1089,7 @@ $(function () {
 				if($('#selectChldBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChldBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
-						$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notEnglish.message"));
+						$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
 						return false;
 					}else{
 						var tr = chkTravelHKPass(appHkid.trim());
@@ -1134,7 +1134,7 @@ $(function () {
 				if($('#selectOtherBenefitiaryHkidPass'+errNo).length > 0 && $('#selectOtherBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
-						$("#errtxtOtherBenInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notEnglish.message"));
+						$("#errtxtOtherBenInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
 						return false;
 					}else{
 						var tr = chkTravelHKPass(appHkid.trim());
