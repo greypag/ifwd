@@ -101,7 +101,14 @@
 </script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
-
+<!-- Start fixed header -->
+<script type='text/javascript'>
+$(document).ready(function() {
+    $("header .top-bar").addClass("fixed-header");
+    $(".navbar-inverse").addClass("product-header");
+});
+</script>
+<!-- End fixed header -->
 </head>
 <body class="chin">
 <!-- Google Tag Manager -->
@@ -150,8 +157,8 @@
 							<div class="row">
 
 								<form:form name="getHomeQuote" id="getHomeQuote" action="${pageContext.request.contextPath}/${language}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
-									<div class="hidden-xs hidden-sm">
-										<h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2>
+									<div class="hidden-xs hidden-sm slide-form">
+										<!-- <h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2> -->
 										<%
 											List lst = (List) request
 														.getAttribute("homeCareQuetionariesList");
@@ -199,8 +206,9 @@
 										</div>
 										<div class="clearfix"></div>
 										<p class="col-xs-12 mute">
-											<fmt:message key="home.main.quote.subheading" bundle="${msg}" /><br>
-											<br> <fmt:message key="home.main.quote.terms" bundle="${msg}" />
+											<!--<fmt:message key="home.main.quote.subheading" bundle="${msg}" /><br>
+											<br>--> 
+											<fmt:message key="home.main.quote.terms" bundle="${msg}" />
 										</p>
 										
 									</div>

@@ -54,7 +54,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       //frm.submit();
      }  
 </script>
-
+<!-- Start fixed header -->
+<script type='text/javascript'>
+$(document).ready(function() {
+    $(".navbar-inverse").addClass("product-header");
+});
+</script>
+<!-- End fixed header -->
 <%
   String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";
