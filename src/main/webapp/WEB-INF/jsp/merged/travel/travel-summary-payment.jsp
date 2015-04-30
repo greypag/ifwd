@@ -12,6 +12,9 @@
 
 <script>
 	function confirmPayment() {
+		
+		$("#PaymentingDiv").show();
+
 		var geteWayUrl = $('#gateway').val();
 		$.ajax({
 			type : "POST",
