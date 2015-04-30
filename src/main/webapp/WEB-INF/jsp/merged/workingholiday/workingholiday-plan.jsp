@@ -46,7 +46,7 @@ var promoData = '';
 		$.ajax({
 			type : 'POST',
 			url : '<%=request.getContextPath()%>/applyTravelPromoCode',
-			data : $('#frmTravelPlan input').serialize(),
+			data : $('#frmWorkingPlan input').serialize(),
 			success : function(data) {
 				
 				var json = JSON.parse(data);
@@ -110,7 +110,7 @@ var promoData = '';
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
+			<form:form name="frmWorkingPlan" id="frmWorkingPlan" action='${pageContext.request.contextPath}/${language}/workingholiday-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
