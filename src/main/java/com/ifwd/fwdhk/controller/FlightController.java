@@ -828,10 +828,7 @@ public class FlightController {
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
-		// addressJsonObj.put("room", "");
-		// addressJsonObj.put("floor", "");
 
-		// parameters.put("address", addressJsonObj);
 
 		String usernameInSession = null;
 		String tokenInSession = null;

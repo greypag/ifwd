@@ -481,15 +481,21 @@ public class TravelController {
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
+			
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			header.put("language", WebServiceUtils
+					.transformLanaguage(lang));
+			
 			if (request.getSession().getAttribute("username") != null) {
 				header.put("userName", session.getAttribute("username")
 						.toString());
 				header.put("token", session.getAttribute("token").toString());
 			}
 
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+			
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
@@ -1280,8 +1286,6 @@ public class TravelController {
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
-			
-			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
