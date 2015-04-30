@@ -14,7 +14,7 @@ var lang = UILANGUAGE;
 if(lang === "EN"){
 	getBundleLanguage = "";
 }else 
-if(lang === "CN"){
+if(lang === "tc"){
 	getBundleLanguage = "zh-HK";
 } 
 else{
@@ -3093,22 +3093,6 @@ String.format = function() {
 function IsNumeric(input){
    return (input - 0) == input && input.length > 0;
 }
-
-// get language
-/*function getBundleLanguage(){
-	var lang = UILANGUAGE;
-	
-	if(lang === "EN"){
-		return "";
-	}else 
-	if(lang === "CN"){
-		return "zh-HK";
-	} 
-	else{
-		return "";
-	}
-}*/
-
 
 
 

@@ -288,7 +288,7 @@ function submitLoginForm(formID) {
 	<nav class="navbar navbar-inverse">
 		<div class="container pad-none">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<%=request.getContextPath()%>"><img
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}/home"><img
 					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
 			</div>
 			<div class="col-lg-6 col-md-6 pull-right">

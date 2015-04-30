@@ -138,7 +138,7 @@ public class HomeCareController {
 			String ogDescription = "";
 			
 			
-			if (request.getRequestURI().toString().equals(request.getContextPath() + "/home-insurance/sharing/")) 
+			if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/home-insurance/sharing/") ||request.getRequestURI().toString().equals(request.getContextPath() + "/en/home-insurance/sharing/")) 
 			{
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", lang);
 				ogType = WebServiceUtils.getPageTitle("homeCare.sharing.og.type", lang);
@@ -185,7 +185,8 @@ public class HomeCareController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
-
+		session.removeAttribute("homeCareDetails");
+		session.removeAttribute("policyNo");
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
 			System.out.println("session null");
@@ -506,9 +507,29 @@ public class HomeCareController {
 		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
 		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
 		String creditCardNo;
 		try {
-			creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+			creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+			
+			if (creditCardNo !=null) {
+				creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+			} else {
+				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
+				String pageTitle = WebServiceUtils.getPageTitle(
+						"page.homeCarePlanConfirmation",
+						lang);
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+						"meta.homeCarePlanConfirmation",
+						lang);
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return UserRestURIConstants.getSitePath(request)
+						+ "homecare/homecare-confirmation";
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			creditCardNo = "";
@@ -527,9 +548,7 @@ public class HomeCareController {
 		System.out.println("userName==>>" + userName);
 		System.out.println("token==>>" + token);
 
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
+		
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
@@ -539,9 +558,12 @@ public class HomeCareController {
 		if (finalizePolicy.getErrMsgs() == null) {
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
+			session.removeAttribute("HomeCareCreditCardNo");
+			session.removeAttribute("HomeCareCardexpiryDate");
 			header.put("userName", userName);
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
+			session.setAttribute("policyNo", finalizePolicy.getPolicyNo());
 		} 
 		else {
 			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
@@ -558,20 +580,18 @@ public class HomeCareController {
 				model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 			}
 			
-			System.out.println("homeCare confirmation" + UserRestURIConstants.getSitePath(request)
-					+ "error");
 			return UserRestURIConstants.getSitePath(request)
 					+ "error";
 			
 		}
-//			
+
 		model.addAttribute("emailID", emailId);
 
 		// model.addAttribute("finalize", finalize);
 		model.addAttribute("referenceNo", referenceNo);
-		String pageTitle = WebServiceUtils.getPageTitle(
-				"page.homeCarePlanConfirmation",
-				lang);
+		session.setAttribute("referenceNo", referenceNo);
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.homeCarePlanConfirmation", lang);
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.homeCarePlanConfirmation",
 				lang);

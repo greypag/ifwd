@@ -73,14 +73,9 @@ public class ECommController {
 	@RequestMapping(value = {"home", "/{lang}/home", "/{lang}/home/sharing/"}, method = RequestMethod.GET)
 	public String homePage(@RequestParam(required = false) final String promo, HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession(true);
-		
-		
-		
-		
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
-
 		
 		String ogTitle = "";
 		String ogType = "";
@@ -88,11 +83,7 @@ public class ECommController {
 		String ogImage = "";
 		String ogDescription = "";
 		
-		System.out.println("URI " + req.getRequestURI().toString());
-		System.out.println("URL " + req.getRequestURL().toString());
-		
-		
-		if (req.getRequestURI().toString().equals(req.getContextPath() + "/home/sharing/")) {
+		if (req.getRequestURI().toString().equals(req.getContextPath() + "/tc/home/sharing/") || req.getRequestURI().toString().equals(req.getContextPath() + "/en/home/sharing/")) {
 			ogTitle = WebServiceUtils.getPageTitle("index.sharing.og.title", UserRestURIConstants.getLanaguage(req));
 			ogType = WebServiceUtils.getPageTitle("index.sharing.og.type", UserRestURIConstants.getLanaguage(req));
 			ogUrl = WebServiceUtils.getPageTitle("index.sharing.og.url", UserRestURIConstants.getLanaguage(req));

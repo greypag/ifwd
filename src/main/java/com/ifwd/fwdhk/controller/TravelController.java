@@ -90,7 +90,7 @@ public class TravelController {
 		String ogImage = "";
 		String ogDescription = "";
 		
-		if (request.getRequestURI().toString().equals(request.getContextPath() + "/travel-insurance/sharing/")) 
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/travel-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/travel-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
@@ -132,6 +132,8 @@ public class TravelController {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
+		session.removeAttribute("createPolicy");
+		session.removeAttribute("policyNo");
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
@@ -1246,7 +1248,7 @@ public class TravelController {
 	@SuppressWarnings({ "unchecked", "finally" })
 	@RequestMapping(value = {"/{lang}/travel-confirmation", "/{lang}/travel-confirmation", "/{lang}/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
-			@RequestParam String Ref) {
+			@RequestParam(required = false) String Ref ) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
@@ -1269,8 +1271,28 @@ public class TravelController {
 					.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",
 					session.getAttribute("transactionDate"));
-			parameters
-					.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
+			
+			
+			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			
+			if (creditCardNo !=null) { 
+				parameters
+						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+			} else {
+				
+				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				model.addAttribute("emailAddress",
+						session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",
+						session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return UserRestURIConstants.getSitePath(request)
+						+ "travel/travel-confirmation";
+			}
+				
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
 			HashMap<String, String> header = new HashMap<String, String>(
@@ -1302,6 +1324,7 @@ public class TravelController {
 				return UserRestURIConstants.getSitePath(request)
 						+ "travel/travel-confirmation";
 			} else {
+				
 				System.out.println(responsObject.get("errMsgs").toString());
 				
 				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
@@ -1323,9 +1346,8 @@ public class TravelController {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println(responsObject.get("errMsgs").toString());
-			model.addAttribute("errMsgs", responsObject.get("errMsgs")
-					.toString());
+			
+			model.addAttribute("errMsgs", e.toString());
 			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-summary-payment";
 		}

@@ -84,7 +84,7 @@
               
                 <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="travel.referral.copy" bundle="${msg}" /></div>
 <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/	<%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
-                  <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/travel-insurance/sharing/" data-title="iFWD"></div>
+                  <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/" data-title="iFWD"></div>
                 
                 
                 </div>

@@ -101,7 +101,10 @@ public class FlightController {
 		if (request
 				.getRequestURI()
 				.toString()
-				.equals(request.getContextPath() + "/flight-insurance/sharing/")) {
+				.equals(request.getContextPath() + "/tc/flight-insurance/sharing/") || request
+				.getRequestURI()
+				.toString()
+				.equals(request.getContextPath() + "/en/flight-insurance/sharing/")) {
 			ogTitle = WebServiceUtils.getPageTitle("flight.sharing.og.title",
 					UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("flight.sharing.og.type",
