@@ -144,7 +144,7 @@ jQuery(document).ready(function() {
 	
 	/* fixed-content js */
 
-	if($(window).height() > $('.carousel').height()  + 40 + 131 + $('#middle').height()){
+	/*if($(window).height() > $('.carousel').height()  + 40 + 131 + $('#middle').height()){
 		jQuery('#middle').removeClass("fixed-content");
 	}else if($('#middle').length){
 		$(window).scroll(function (event) {
@@ -180,7 +180,7 @@ jQuery(document).ready(function() {
 	            });
 	    //}
 	}
-	
+	*/
 	if(jQuery("#d_clip_button").length){
 		var clip = new ZeroClipboard(jQuery("#d_clip_button"));
 		var message = getBundle(getBundleLanguage, "confirmation.share.copy");

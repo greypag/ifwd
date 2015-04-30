@@ -130,8 +130,9 @@ $(function () {
 		
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
-			
-			checkout.datepicker("update", newDate);
+			if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+				checkout.datepicker("update", newDate);
+			}
 			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
 		//}
@@ -184,7 +185,9 @@ $(function () {
 		//if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
-			checkout2.datepicker("update", newDate);
+			if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
+				checkout2.datepicker("update", newDate);
+			}
 		//}
 		$('#dp4')[0].focus();
 

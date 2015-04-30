@@ -91,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 
 <!-- flight top form -->
-  <section id="middle" class="hidden-sm hidden-xs fixed-content">
+  <section id="middle" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">

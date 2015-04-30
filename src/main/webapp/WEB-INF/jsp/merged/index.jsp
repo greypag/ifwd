@@ -39,7 +39,14 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
-
+<!-- Start fixed header -->
+<script type='text/javascript'>
+$(document).ready(function() {
+    $("header").addClass("fixed-header");
+    $("#main-slider").addClass("home-slider");
+});
+</script>
+<!-- End fixed header -->
 </head>
 <body>
 <!-- Google Tag Manager -->
@@ -64,12 +71,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="carousel-inner">
                 <div class="item active item-border">
                     <div class="col-lg-12 col-md-12 hidden-xs pad-none homecare home-main homecare-hei center">
-                        <h2></h2>
+                       <!--  <h2></h2>
                         
                         <a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.flight" bundle="${msg}" /></a>
                         <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.travel" bundle="${msg}" /></a>
                          <a href="<%=request.getContextPath()%>/${language}/home-insurance" class="border-radius btn btn-primary  home-btn"><fmt:message key="index.product.home" bundle="${msg}" /></a>
-                        <div class="clearfix"></div>
+                        <div class="clearfix"></div> -->
                      
                     </div>
 

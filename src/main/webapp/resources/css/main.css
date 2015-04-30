@@ -143,7 +143,8 @@ hr {
 .navbar-brand img {
 	padding: 21px 0px;
 }
-#header {
+.form-control {
+    height: 50px;
 }
 .top-menu .nav>li>a {
 	padding: 8px !important;
@@ -238,9 +239,9 @@ bottom: 0px;
 }
 #middle h3 {
 	color: #fff;
-	line-height: 31px;
+	line-height: 18px;
 	
-	font-size: 24px;
+	font-size: 18px;
 }
 
 
@@ -1031,14 +1032,29 @@ input.search-form:hover {
 /*************************
 *******Home Page******
 **************************/
-
-
-#main-slider {
-	position: relative;
+.fixed-header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
 }
+
 .no-margin {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
+}
+.home-slider {
+    padding-top: 171px;
+}
+#main-slider {
+    position: relative;
+}
+/*
+#main-slider > .carousel {
+    padding-bottom: 38px;
+}*/
+#main-slider #reg-now {
+    color: #ffffff;
+    cursor: pointer;
 }
 #main-slider .carousel .carousel-content {
 	margin-top: 150px;
@@ -4011,8 +4027,9 @@ article h2 {
 }
 .drop-down {
 	border-radius: 0px ;
-	/* padding: 18px; */
-	height:60px;
+    /* padding: 18px; */
+    /*height:60px;*/
+    height: 50px;
 	border: 1px solid #bdc4c4 !important;
 }
 .drop-down i{
@@ -5306,7 +5323,7 @@ font-family: 'Foco-bold';
     border-radius:4px;
     direction:ltr;
     font-size: 23px;
-    padding-top:12px;
+    padding-top:8px;
     line-height: 1.428571429;
     color: #061d2a;
   }
@@ -5474,7 +5491,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	padding: 20px 0 0;
 }
 .chin .get-btn {
-  padding: 8px 40px !important;
+  padding: 3px 40px !important;
   font-size: 30px;
 }
 .chin .table.activation-form3{
@@ -5491,6 +5508,8 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 .chin .insure-travel #adulttraveller{
     padding: 0;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 30px;
 }
 
 .major-exc li {
@@ -5511,6 +5530,8 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 #freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
 	margin-bottom: 30px;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 30px;
 }
 @media screen and (max-width:991px) {
 	.navbar-header {
@@ -5538,7 +5559,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 .marg-t2.pad-increase{
 	margin-top: 0;
-	padding: 13px 30px !important;
+	padding: 8px 30px !important;
 	  min-width: 300px;
 }
 @media screen and (min-width:992px) and (max-width:1199px){

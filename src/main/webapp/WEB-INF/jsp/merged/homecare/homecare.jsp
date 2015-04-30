@@ -145,7 +145,7 @@
 		</div>
 	</section>
 	
-		<div class="homecare fixed-content hidden-xs hidden-sm" id="homecare-scroll">
+		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">
 						<div class="container">
 							<div class="row">
 
