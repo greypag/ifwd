@@ -736,7 +736,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							<div class="orange-bdr"></div>
 							<div class="form-container">
 
-
+                                <!-- text 出發日期 header   -->
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option1" bundle="${msg}" /> 
 									<span class="span2 uline">
@@ -745,8 +745,20 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									</a>
 									</span>
 								</h3>
+								
+								
+								
+								
+								
+										 
+							 
+							 
+							 
+							 <!-- 舊出發日期 -->
 								<input type="hidden" name="departureDate"
-									value="${planDetailsForm.getDepartureDate()}"> <input
+									value="${planDetailsForm.getDepartureDate()}">
+							 <!-- 舊返回日期 -->
+							      <input
 									type="hidden" name="returnDate"
 									value="${planDetailsForm.getReturnDate()}">
 
@@ -854,7 +866,6 @@ onclick="return flightPlanValidation();">Next</button> -->
 
 <!--Plan-login-popup-->
 
-<!-- <jsp:include page="/WEB-INF/jsp/merged/login.jsp" />  -->
 
 
 
