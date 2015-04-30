@@ -76,7 +76,7 @@
   <!--/.carousel--> 
 </section>
 <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
-<section id="middle" class="hidden-sm hidden-xs fixed-content">
+<section id="middle" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none slide-form">
