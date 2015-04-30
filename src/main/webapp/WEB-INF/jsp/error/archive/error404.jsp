@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -35,7 +34,7 @@ pageEncoding="ISO-8859-1"%>
   </head>
   
   <body>
-    <!-- <div class="annexure-form " >
+   <!-- <div class="annexure-form " >
       <div class="annexure-form-header">
         ERROR 
         <img src="resources/images/ErrorInfoIcon.png" class="pull-right icon" alt="">
@@ -46,25 +45,21 @@ pageEncoding="ISO-8859-1"%>
           <div class="division">
           </div>
           <p>
-            ERROR No. 504
+            ERROR No. 404
           </p>
           <div class="division">
           </div>
           <p>
             The following error was encountered:
             <br>
-            504 Gateway Timeout
+            404 Not Found 
             <br>
-            &bull;The 504 Gateway Timeout HTTP status code means that one server
+            &bull;The 404 Not Found HTTP status code means that 
             <br>
-            
-            &bull;did not receive a timely response from another server
-            <br>
-            
-            &bull;that it was accessing while attempting to load the web page
+            &bull;the page you were trying to reach could not be found on the web site's server. 
             <br>
             
-            &bull;or fill another request by the browser.
+            &bull;This is the most popular HTTP status code that you will probably see.
           </p>
           <br>
         </div>
@@ -72,27 +67,24 @@ pageEncoding="ISO-8859-1"%>
         </div>
         <div class="form-group">
             <div class="col-sm-9">
-             <button type="button" onclick="goBack();" class="btn btn-default btn-sm">
+              <button type="button" onclick="goBack();" class="btn btn-default btn-sm">
                 &laquo; BACK
               </button>
             </div>
         </div>
       </div>
-    </div> -->
-    
+    </div> --> 
     <div class="container annexure-form error-page " >
     	<div class="col-xs-12">
     		<h2 class="annexure-form-header">ERROR</h2>
 		    <div class="company form-regisration error">
-				<h3>ERROR No. 504</h3>
+				<h3>ERROR No. 404</h3>
 				<p>The following error was encountered:</p>
 				<p>
-					<strong>504 - Gateway Timeout</strong>
+					<strong>404 - Not Found</strong>
 				</p>
-				<p>The 504 Gateway Timeout HTTP status code means that one server</p>
-				<p>did not receive a timely response from another server</p>
-				<p>that it was accessing while attempting to load the web page</p>
-				<p>or fill another request by the browser.</p>
+				<p>The 404 Not Found HTTP status code means that </p>
+				<p>This is the most popular HTTP status code that you will probably see.</p>
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">

@@ -15,7 +15,7 @@
 		var geteWayUrl = $('#gateway').val();
 		$.ajax({
 			type : "POST",
-			url : "<%=request.getContextPath()%>/${language}/processTravePayment",
+			url : "<%=request.getContextPath()%>/processTravePayment",
 			data : $("#paymentForm").serialize(),
 			async : false,
 			success : function(data) {
@@ -30,6 +30,7 @@
 	}
 	
 </script>
+
 
 <!--/#main-Content-->
 <!--/#main-Content-->
@@ -103,13 +104,7 @@
 									<tr>
 									<td></td>
 										<td class="h2-1 pad-none">${selectPlanName}  <fmt:message key="travel.summary.plan" bundle="${msg}" /></td>
-										<!-- <td class="pad-none h4-5 ">計劃B 基本保障<br> HK$500,000
-
-											醫療保障--><!--<br>
-                        <h4 class="h4-4-full">+ [承保範圍]</h4>
-										</td>
-
-									</tr>-->
+										
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
 										</td>

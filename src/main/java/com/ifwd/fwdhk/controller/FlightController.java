@@ -828,10 +828,7 @@ public class FlightController {
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
-		// addressJsonObj.put("room", "");
-		// addressJsonObj.put("floor", "");
 
-		// parameters.put("address", addressJsonObj);
 
 		String usernameInSession = null;
 		String tokenInSession = null;
@@ -1088,7 +1085,7 @@ public class FlightController {
 		if (session.getAttribute("FlightResponseFrTrvl") != null) {
 			parameters = (JSONObject) session
 					.getAttribute("FlightResponseFrTrvl");
-			parameters.put("planCode", "A");
+			parameters.put("planCode", selectPlanName);
 		}
 		PlanDetailsForm plandetailsForm = new PlanDetailsForm();
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
@@ -1105,7 +1102,9 @@ public class FlightController {
 								UserRestURIConstants.getLanaguage(request)));
 			}
 			for (int inx = 0; inx < plandetailsForm.getTotalOtherTraveller(); inx++) {
-
+				plandetailsForm.setOtherAgeRangeName(WebServiceUtils
+						.getAgeRangeNames(plandetailsForm.getOtherAgeRange(),
+								UserRestURIConstants.getLanaguage(request)));
 			}
 
 		}
@@ -1228,6 +1227,12 @@ public class FlightController {
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+//		kdjfdkjfa
+//		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+//		String planSelected = (String) session.getAttribute("planSelected");
+//		
+		
 		return UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-summary-payment";
 	}

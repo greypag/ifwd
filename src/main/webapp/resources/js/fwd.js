@@ -2887,7 +2887,7 @@ function hc_planValid() {
 	 
     var selectHkidPass = document.getElementById("selectHkidPass").value;
 	if (appHkid.trim() == "") {
-		if (selectHkidPass.toLowerCase() == "hkid") {
+		if (selectHkidPass == "appHkid") {
 			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
 			flag = false;
 		}
@@ -2897,7 +2897,7 @@ function hc_planValid() {
 		}
 	}
 	else {
-		if (selectHkidPass.toLowerCase() == "hkid") {
+		if (selectHkidPass == "appHkid") {
 			var tr = IsHKID(appHkid.trim());
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
@@ -2906,17 +2906,12 @@ function hc_planValid() {
 		}
 		else {
 			var tr = chkTravelHKPass(appHkid.trim());
-			var tr1  = chkTravelHKPassLen(appHkid.trim());
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 				
 				flag = false;
 			}
-			if (tr1 == false) {
-				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message"));
-				
-				flag = false;
-			}			
+						
 			
 		}
 	}
@@ -3867,32 +3862,6 @@ function activateUserAccount(){
 
 // 1. save credit card info by calling processHomeCarePayment
 // 2. post to payment gatway when step 1 success 
-var clicked = false;
-function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-	if (payValid() && clicked === false) {
-		clicked = true;
-		$("#PaymentingDiv").show();
-
-		var gatewayUrlId = '#' + gatewayUrlId;
-		var paymentFormId = '#' + paymentFormId;
-		var method = "/FWDHKPH1A/processHomeCarePayment";
-		
-		var geteWayUrl = $(gatewayUrlId).val();
-		$.ajax({
-					type : "POST",
-					url : method,
-					data : $(paymentFormId).serialize(),
-					async : false,
-					success : function(data) {
-						if (data == 'success') {
-							form.action = geteWayUrl;
-						}
-					}
-				});
-		return true;
-	}else return false;
-
-}
 
 
 

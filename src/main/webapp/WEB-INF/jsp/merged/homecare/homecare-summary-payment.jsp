@@ -11,6 +11,8 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
+
+
 <section>
 	<div class="container">
 		<div class="row">
@@ -197,7 +199,18 @@
 									<tr>
 										<td class="h2-1 pad-none "><fmt:message
 												key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getHkid() }</td>
+										<td class="pad-none h4-5 ">
+										
+										<c:choose>
+										<c:when test=" ${empty userDetails.getHkid()}">
+											<c:out value="${userDetails.getPassport()}" /> 
+											 </c:when>
+											<c:otherwise>
+											<c:out value="${userDetails.getHkid()}"/>
+											
+											</c:otherwise>
+										</c:choose>
+										</td>
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none "><fmt:message
@@ -442,6 +455,10 @@
 								<!-- <input type="button"
 									class="bdr-curve btn btn-primary nxt-btn margin-left"
 									onclick="confirmPayment()" value="Confirm Payment"> -->
+
+
+
+									
 								<input type="submit" class="bdr-curve btn btn-primary btn-next"
 									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 							</div>
@@ -463,8 +480,6 @@
 									value="Pay Now">
 							</div>
 
-							<!--  <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left col-xs-6 col-sm-6 text-center" onclick="return payValid();">Pay Now</a> </div>
-             -->
 
 							<div class="clearfix"></div>
 
@@ -499,7 +514,7 @@
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
- 						url : "<%=request.getContextPath()%>/${language}/processHomeCarePayment",
+ 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
@@ -523,7 +538,7 @@
 
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
- 			var method = "<%=request.getContextPath()%>/${language}/processHomeCarePayment";
+ 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
  			$.ajax({
