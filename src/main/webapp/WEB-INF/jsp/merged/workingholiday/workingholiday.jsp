@@ -38,7 +38,7 @@
         $('#txtChildDesk').val(0);
       }
       
-      var frm = document.getElementById("frmTravelGetQuote");
+      var frm = document.getElementById("frmWorkingGetQuote");
       //alert("reset_submit");
       //frm.submit();
     }   
@@ -75,7 +75,7 @@
   </div>
   <!--/.carousel--> 
 </section>
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
+<form name="frmWorkingGetQuote" id="frmWorkingGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
 <section id="middle" class="hidden-sm hidden-xs fixed-content">
   <div class="container">
     <div class="row">
@@ -222,7 +222,7 @@
 
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateMobTravel();">
+<form name="frmWorkingGetQuote" id="frmWorkingGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateMobTravel();">
   <div class="form-container">
     <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="travel.main.quote.q1" bundle="${msg}" /> </h4>
@@ -721,7 +721,7 @@
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-    <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateBtmTravel();">
+    <form name="frmWorkingGetQuote" id="frmWorkingGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateBtmTravel();">
       <div class="col-lg-12 col-md-12 pad-none">
         <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2>
         <table class="table activation-form3">
