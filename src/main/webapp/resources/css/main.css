@@ -765,13 +765,21 @@ vertical-align:middle;
 	border: none;
 	    border: 1px solid #f6871e;
 }
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover {
 	outline: none;
 	box-shadow: none;
 	background: #fff;
 	color: #f6871e;
 	    border: 1px solid #f6871e;
 
+}
+
+.btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    padding: 8px 20px;
+    background: #f6871e;
+    color: #fff;
+    border: none;
+        border: 1px solid #f6871e;
 }
 .btn-transparent {
 	border: 3px solid #fff;

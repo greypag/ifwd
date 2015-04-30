@@ -825,7 +825,7 @@
  -->
 
 <!--Plan-login-popup-->
-	<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+	<!--<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />-->
 
 
 

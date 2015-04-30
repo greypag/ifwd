@@ -78,6 +78,8 @@
 							style="display: none;">
 							<P id="error1">
 						</div>
+						
+						
 						<!-- <div class="status alert alert-success" style="display: none"></div>-->
 						<div id="user-details-main">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
