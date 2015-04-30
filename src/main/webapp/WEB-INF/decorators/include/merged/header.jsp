@@ -122,10 +122,13 @@ function submitLoginForm(formID) {
 							<%
 								if (session.getAttribute("authenticate") == null ) {
 							%>
+						
 							<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" class="dropdown-toggle" id="fwd-login"
-								data-toggle="dropdown"><fmt:message key="header.menu.login" bundle="${msg}" />  <i class="fa fa-caret-right"></i>
-							</a>
+								<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+                            </a>
+							<!--  </a> -->
+							
+							
 								<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform">
 										<div class="login-form">
@@ -182,8 +185,7 @@ function submitLoginForm(formID) {
 									.getAttribute("authenticate").toString())){
 								%>
 								<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" class="dropdown-toggle" id="fwd-login"
-								data-toggle="dropdown"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+								<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
 							</a>
 								<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform">
@@ -400,9 +402,14 @@ function submitLoginForm(formID) {
 		
 		<% }else{ %>
 		
+		
+		
 			<a href="#" class="dropdown-toggle" id="fwd-login"
 								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" /> <%=session.getAttribute("username")%> <i
-									class="fa fa-caret-right"></i>
+									class="fa fa-caret-right">
+									
+									
+									</i>
 							</a>
 								<div class="dropdown-menu drop-width">
 									<ul>
@@ -482,3 +489,5 @@ $('#myDropdownMob').click(function(e){
 	$(this).toggleClass('open');
 });
 </script>
+<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+

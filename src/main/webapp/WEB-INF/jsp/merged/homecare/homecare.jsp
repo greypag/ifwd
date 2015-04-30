@@ -804,7 +804,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	</section>
 
 	<!--/mob-#bottom-->
-	<div class="modal fade bs-example-modal-lg " id="oldHome"
+	<div class="modal1 fade bs-example-modal1-lg " id="oldHome"
 	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 	aria-hidden="true" style="display: none;">
 	<div class="modal-dialog modal-lg">

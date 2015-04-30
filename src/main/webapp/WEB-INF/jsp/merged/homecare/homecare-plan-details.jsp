@@ -956,7 +956,7 @@
 	<!--/end- Main Content-->
 
 	<!--Plan-login-popup-->
-	<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+	<!-- <jsp:include page="/WEB-INF/jsp/merged/login.jsp" /> -->
 
 
 	<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"
