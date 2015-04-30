@@ -49,14 +49,18 @@
   String personalSpinnerStyle = "";
   String familySpinnerStyle = "style='display:none'";
   TravelQuoteBean travelQuote = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+  System.out.println(travelQuote.getPlanSelected());
     if(travelQuote.getPlanSelected().equalsIgnoreCase("personal")){
       PersonalPlanChecked = "checked";
     }
-    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){      
+    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){
+      
       FamilyPlanChecked = "checked";
       personalSpinnerStyle = "style='display:none'";
       familySpinnerStyle = "";
     } 
+    System.out.println(familySpinnerStyle);
+    System.out.println(personalSpinnerStyle);
 %>
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
