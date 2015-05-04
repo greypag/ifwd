@@ -13,24 +13,15 @@
 	<div class="container">
 		<div class="row">
 			<form action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post">
-				<input type="hidden" name="totalAdultTraveller"
-					id="totalAdultTraveller"
-					value="${planDetails.getTotalAdultTraveller()}"> <input
-					type="hidden" name="totalChildTraveller" id="totalChildTraveller"
-					value="${planDetails.getTotalChildTraveller()}"> <input
-					type="hidden" name="totalOtherTraveller" id="totalOtherTraveller"
-					value="${planDetails.getTotalOtherTraveller()}"> <input
-					type="hidden" name="returnDate" id="returnDate"
-					value="${planDetails.getReturnDate()}"> <input
-					type="hidden" name="departureDate" id="departureDate"
-					value="${planDetails.getDepartureDate()}"> <input
-					type="hidden" name="days" value="${days}"> <input
-					type="hidden" name="travellerCount"
-					value="${planDetails.getTravellerCount()}"> <input
-					type="hidden" name="ToalDue"
-					value="${flightQuoteDetails.getToalDue()}"> <input
-					type="hidden" name="planSelected"
-					value="${planDetails.getPlanSelected()}">
+				<input type="hidden" name="totalAdultTraveller" id="totalAdultTraveller" value="${planDetails.getTotalAdultTraveller()}"> 
+				<inpu type="hidden" name="totalChildTraveller" id="totalChildTraveller"value="${planDetails.getTotalChildTraveller()}"> 
+				<input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${planDetails.getTotalOtherTraveller()}"> 
+				<input type="hidden" name="returnDate" id="returnDate" value="${planDetails.getReturnDate()}"> 
+				<input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}">
+			    <input type="hidden" name="days" value="${days}">
+			     <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> 
+			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.getToalDue()}"> 
+			     <input type="hidden" name="planSelected" value="${planDetails.getPlanSelected()}">
 			
 
 
@@ -172,7 +163,7 @@
 							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
-							<div class="form-group">
+							<div class="form-group">1
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
