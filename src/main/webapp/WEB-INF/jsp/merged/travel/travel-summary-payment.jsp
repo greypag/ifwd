@@ -292,7 +292,11 @@
 									</tr>
 									<tr>
 										<!-- vincent getOtherAgeRangeName - null ptr -->
-										<td ><% // planDetailsForm.getOtherAgeRangeName()[i]%></td>
+										<td ><% 
+													if (planDetailsForm.getOtherAgeRangeName()[i] != null) 
+														out.println(planDetailsForm.getOtherAgeRangeName()[i]);
+											 %>
+										</td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td >&nbsp;</td>
 										<% } %>
@@ -419,7 +423,11 @@
 												<%=i + 1%></span></td>
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
 										<!-- vincent getOtherAgeRangeName - null ptr -->
-										<td class=" h4-5" data-title="Age range"><% //planDetailsForm.getOtherAgeRangeName()[i]%></td> 
+										<td class=" h4-5" data-title="Age range">
+										<% 
+											if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
+												out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
+										%></td> 
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<td class=" h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
 									</tr>
