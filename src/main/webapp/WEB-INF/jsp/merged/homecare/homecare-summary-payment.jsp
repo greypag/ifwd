@@ -460,7 +460,8 @@
 						<div class="pad-none hidden-md hidden-lg">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<a href="" onclick="BackMe()"
-									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">Back
+									class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center"><fmt:message
+										key="home.summary.action.back" bundle="${msg}" />
 								</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -468,7 +469,7 @@
 
 								<input type="submit"
 									class="bdr-curve btn btn-primary btn-next text-center"
-									value="Pay Now">
+									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 							</div>
 
 
