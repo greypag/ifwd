@@ -69,6 +69,7 @@ public class TravelController {
 		
 		if(travelQuote == null){
 			travelQuote = new TravelQuoteBean();
+			
 			travelQuote.setTotalPersonalTraveller(1);
 			travelQuote.setTotalAdultTraveller(1);
 			travelQuote.setTotalChildTraveller(1);

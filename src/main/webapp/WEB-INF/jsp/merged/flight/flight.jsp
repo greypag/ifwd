@@ -31,11 +31,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   var familyOther = "${planDetails.getTotalOtherTraveller()}";  
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
 
+  
+  
+  /* default
   if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
     traveller = familyTraveller;
   }else{
     traveller = personalTraveller;
-  }
+  }*/
 
      function reset_submit()
      {        
@@ -58,6 +61,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
+    
+ // update quote area to show headcounts
+    if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+    	if (familyTraveller > 0){
+            $('#family_plan_desk_spinner').show();
+            $('#family_plan_btm_spinner').show();
+            $('#family_plan_mob_spinner').show();
+        } 
+    	traveller = familyTraveller;
+	}else{
+	  traveller = personalTraveller;
+	}
+    
 });
 </script>
 <!-- End fixed header -->

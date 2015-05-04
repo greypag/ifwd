@@ -18,12 +18,22 @@
   var familyChild = "${travelQuote.getTotalChildTraveller()}";
   var familyOther = "${travelQuote.getTotalOtherTraveller()}";  
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+  
+  var t1 = "${travelQuote.getTotalAdultTraveller()}";
+  var t2 = "${travelQuote.getTotalChildTraveller()}";
+  var t3 = "${travelQuote.getTotalOtherTraveller()}";  
+  
+  console.log(t1);
+  console.log(t2);
+  console.log(t3);
 
+
+  /* default
   if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
     traveller = familyTraveller;
   }else{
     traveller = personalTraveller;
-  }
+  }*/
 
     function reset_submit()
     {        
@@ -42,11 +52,24 @@
       //alert("reset_submit");
       //frm.submit();
     }   
+    
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
+    
+    // update quote area to show headcounts
+    if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
+    	if (familyTraveller > 0){
+            $('#family_plan_desk_spinner').show();
+            $('#family_plan_btm_spinner').show();
+            $('#family_plan_mob_spinner').show();
+        }
+        traveller = familyTraveller;
+     }else{
+       traveller = personalTraveller;
+     }
 });
 </script>
 <!-- End fixed header -->
