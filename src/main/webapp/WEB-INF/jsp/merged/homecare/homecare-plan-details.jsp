@@ -470,7 +470,7 @@
 										<td class=""><input type="text" name="hkId"
 											class="form-control numberinput textUppe full-control" id="txtAppHkid"
 											placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
-											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');"> <span id="errAppHkid"
+											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onKeyUp="value=value.replace(/[\W]/g,'')"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
 									</tr>
