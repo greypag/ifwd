@@ -218,7 +218,7 @@ $(document).ready(function() {
 						</div>
 					</div>
 		<!--mobile-->
-		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/${language}/home-insurance/quote"
+		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/home-insurance/quote"
 			method="post" modelAttribute="homeCarelPlan">
 			<div
 				class="col-lg-12 col-md-12 hidden-lg  hidden-md pad-none homecare ">

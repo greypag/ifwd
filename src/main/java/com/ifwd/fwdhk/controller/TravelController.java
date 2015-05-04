@@ -644,13 +644,8 @@ public class TravelController {
 
 		String applicantFullName = WebServiceUtils.getParameterValue(
 				"fullName", session, request);
-		String selectedHkidPassApplicant = WebServiceUtils.getParameterValue("selectedHkidPassApplicant",
-				session, request); 
-		
-		System.out.println("selectedHkidPassApplicant " + selectedHkidPassApplicant);
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid",
 				session, request);
-		
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo",
 				session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",
@@ -1095,13 +1090,9 @@ public class TravelController {
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 
 		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", applicantFullName);
+		applicantJsonObj.put("name", session.getAttribute("username"));
 		applicantJsonObj.put("gender", "M");
-		if (selectedHkidPassApplicant.equals("passport")) {
-			applicantJsonObj.put("passport", applicantHKID);
-		} else {
-			applicantJsonObj.put("hkId", applicantHKID);
-		}
+		applicantJsonObj.put(hkId, applicantHKID);
 		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", applicantMobNo);
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox1());
@@ -1115,12 +1106,19 @@ public class TravelController {
 		addressJsonObj.put("floor", "");
 
 		parameters.put("address", addressJsonObj);
+
+		/* System.out.println(parameters); */
+
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		/*
+		 * System.out.println("headers=====>>>>>" + header);
+		 */
+		// Comment for to avoid over load Data
 
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 		CreatePolicy createPolicy = (CreatePolicy) session
@@ -1310,6 +1308,7 @@ public class TravelController {
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
+			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
@@ -1321,6 +1320,9 @@ public class TravelController {
 						session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				
+				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
+				
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 				return UserRestURIConstants.getSitePath(request)
