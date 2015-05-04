@@ -11,35 +11,27 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
+	function confirmPayment() {
+		
+		$("#PaymentingDiv").show();
 
- 	var clicked = false;
- 	function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
- 		if (payValid() && clicked === false) {
- 			clicked = true;
- 			$("#PaymentingDiv").show();
- 			var gatewayUrlId = '#' + gatewayUrlId;
- 			var paymentFormId = '#' + paymentFormId;
- 			var method = "<%=request.getContextPath()%>/processTravePayment";
- 			
- 			var geteWayUrl = $(gatewayUrlId).val();
- 			$.ajax({
- 						type : "POST",
- 						url : method,
- 						data : $(paymentFormId).serialize(),
- 						async : false,
- 						success : function(data) {
- 							if (data == 'success') {
- 								form.action = geteWayUrl;
- 							} else {
- 								console.log("fail to process payment " + data);
- 							}
- 						}
- 					});
- 			return true;
- 		}else return false;
-
- 	}
-
+		var geteWayUrl = $('#gateway').val();
+		$.ajax({
+			type : "POST",
+			url : "<%=request.getContextPath()%>/processTravePayment",
+			data : $("#paymentForm").serialize(),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					document.paymentForm.action = geteWayUrl;
+				} else {
+					console.log("fail to process payment " + data);
+				}
+				
+			}
+		});
+	}
+	
 </script>
 
 
@@ -47,11 +39,10 @@
 	PlanDetailsForm planDetailsForm = (PlanDetailsForm) request.getAttribute("planDetailsForm");
 %>
 <!--/#main-Content-->
-<!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmTravelPayment(this, 'gateway', 'paymentForm');">
+			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -122,17 +113,15 @@
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
 										</td>
-										<!-- <td class="pad-none h4-5 ">${travelBean.getTotalTraveller()}</td> -->
 										<td class="pad-none h4-5 ">
 										<%
-											if ( planDetailsForm != null )
+											if (planDetailsForm != null)
 											{
-												out.println(planDetailsForm.getTotalAdultTraveller() + planDetailsForm.getTotalChildTraveller() + planDetailsForm.getTotalOtherTraveller());
-												//System.out.println("planDetailsForm.getTotalAdultTraveller(): " + planDetailsForm.getTotalAdultTraveller());
-												//System.out.println("planDetailsForm.getTotalChildTraveller(): " + planDetailsForm.getTotalChildTraveller());
-												//System.out.println("planDetailsForm.getTotalOtherTraveller(): " + planDetailsForm.getTotalOtherTraveller());
+												out.println( planDetailsForm.getTotalAdultTraveller() +
+															 planDetailsForm.getTotalChildTraveller() +
+															 planDetailsForm.getTotalOtherTraveller()   );
 											}
-								 		%>
+										%>
 										</td>
 									</tr>
 									<tr>
@@ -194,6 +183,7 @@
 							<table class="col-xs-10 table-condensed cf mob-table">
 								
 								<%
+
 									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
 								%>
 								<tr><td class="col-xs-12"><table class="col-xs-12">
@@ -301,11 +291,11 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><% if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
-												{ 
-													out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
-												} 
-											  %>
+										<!-- vincent getOtherAgeRangeName - null ptr -->
+										<td ><% 
+													if (planDetailsForm.getOtherAgeRangeName()[i] != null) 
+														out.println(planDetailsForm.getOtherAgeRangeName()[i]);
+											 %>
 										</td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td >&nbsp;</td>
@@ -432,16 +422,12 @@
 										<td data-title="Other<%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />
 												<%=i + 1%></span></td>
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
+										<!-- vincent getOtherAgeRangeName - null ptr -->
 										<td class=" h4-5" data-title="Age range">
 										<% 
-												if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
-												{ 
-													out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
-												}
-										%>
-										</td> 
-										
-										
+											if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
+												out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
+										%></td> 
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<td class=" h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
 									</tr>
@@ -685,10 +671,9 @@
 							<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-							<input type="submit"
-								class="bdr-curve btn btn-primary nxt-btn margin-left" 
-								value="<fmt:message key="travel.action.payment" bundle="${msg}" />">
-								
+							<button onclick="confirmPayment();"
+								class="bdr-curve btn btn-primary nxt-btn margin-left">
+								<fmt:message key="travel.action.payment" bundle="${msg}" /></button>
 						</div>
 						<br> <br>
 						<div class="row hidden-md hidden-lg">
@@ -702,7 +687,7 @@
 								
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn"
-									value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" />
+									value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
 
 
 							</div>
