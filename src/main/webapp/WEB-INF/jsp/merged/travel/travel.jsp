@@ -229,7 +229,7 @@ $(document).ready(function() {
 
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateMobTravel();">
+<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateMobTravel();">
   <div class="form-container">
     <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="travel.main.quote.q1" bundle="${msg}" /> </h4>
