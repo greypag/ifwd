@@ -159,7 +159,7 @@
 							</h4>
 							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 								<h5>
-									<fmt:message key="home.confirmation.promocode" bundle="${msg}" /><span> <%=session.getAttribute("myReferralCode")%></span>
+									<fmt:message key="home.confirmation.promocode" bundle="${msg}" /><span> <%=session.getAttribute("myHomeReferralCode")%></span>
 								</h5>
 								<div class="h4-3-b margin-left">
 								<fmt:message key="home.confirmation.share" bundle="${msg}" />
