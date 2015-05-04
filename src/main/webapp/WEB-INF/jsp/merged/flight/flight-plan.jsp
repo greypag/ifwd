@@ -12,12 +12,12 @@
 <section>
 	<div class="container">
 		<div class="row">
-			<form action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post">
+			<form action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post" onsubmit="return flightValidateDesk()">
 				<input type="hidden" name="totalAdultTraveller" id="totalAdultTraveller" value="${planDetails.getTotalAdultTraveller()}"> 
 				<inpu type="hidden" name="totalChildTraveller" id="totalChildTraveller"value="${planDetails.getTotalChildTraveller()}"> 
 				<input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${planDetails.getTotalOtherTraveller()}"> 
 				<input type="hidden" name="returnDate" id="returnDate" value="${planDetails.getReturnDate()}"> 
-				<input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}">
+				<!-- <input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}"> -->
 			    <input type="hidden" name="days" value="${days}">
 			     <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> 
 			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.getToalDue()}"> 
@@ -160,24 +160,40 @@
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
 						<div class="form-container">
-							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
+						  <!-- departure date start -->
+							<!--<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
-							<div class="form-group">
+							
+							 <div class="form-group">
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
+										 
 								</div>
-							</div>
+							</div> -->
+							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
+                                <a id="inline-change-1"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+                            </h3>
+							<div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+			                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
+			                </div>
+			               <!-- departure date end  -->
+			               <!-- return date start  -->
 							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<div class="input-group wd2">
 										<input type="text" class="datepicker form-control bcg-trans"
 											value="<c:out value="${planDetails.getReturnDate()}"/>"
 											readonly>
 									</div>
 								</div>
+								 -->
+                              <div class="input-group date" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
+						        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
+						      </div>
+							<!-- return date start  -->
 							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
@@ -237,8 +253,12 @@
 						<div class="clearfix"></div>
 						<br> <br>
 					</div>
+					<!-- dummy -->
+					<span id="divPersonsDesk"></span>
+					<span id="lblDaysDesk"></span>
 					<div class="clearfix"></div>
 				</div>
+				
 				<p class="padding1 hidden-sm hidden-xs">
 				<fmt:message key="flight.quote.other.disclaimer.part1" bundle="${msg}" /> <a class="sub-link"
 						href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
@@ -311,6 +331,12 @@
 
 <script type="text/javascript">
 
+	$(document).ready(function() {
+		$("#inline-change-1").click(function() {
+		    $('#dp1').datepicker('show');
+		});
+		
+	});
 	function sendEmail() {
 		if (get_promo_val()) {
 			$.ajax({
