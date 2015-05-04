@@ -8,6 +8,61 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
+<script type="text/javascript">
+
+  // personal or family
+  var traveller;  
+  
+  // personal
+  var personalTraveller = parseInt("${planDetails.getTravellerCount()}");
+  // family
+  var familyAdult = "${planDetails.getTotalAdultTraveller()}";
+  var familyChild = "${planDetails.getTotalChildTraveller()}";
+  var familyOther = "${planDetails.getTotalOtherTraveller()}";  
+  var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+ 
+  $(document).ready(function() {
+		 // update quote area to show headcounts
+	    if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+	        if (familyTraveller > 0){
+	            $('#family_plan_desk_spinner').show();
+	            $('#family_plan_btm_spinner').show();
+	            $('#family_plan_mob_spinner').show();
+	        } 
+	        traveller = familyTraveller;
+	    }else{
+	      traveller = personalTraveller;
+	    }
+		 
+		 // inline changes for 3 departure date and traveller numbers
+	    $("#inline-change-1").click(function() {
+	          $('#dp1').datepicker('show');
+	    });
+	    $("#inline-change-2").click(function() {
+	         $('#dp2').datepicker('show');
+	    });
+	    $("#inline-change-3").click(function() {
+	    	$('#myFWDropdown .dropdown-toggle').toggleClass('disabled');
+	    });
+    });
+</script>
+<%
+  String PersonalPlanChecked = "";
+  String FamilyPlanChecked = "";
+  String personalSpinnerStyle = "style='display:none'";
+  String familySpinnerStyle = "style='display:none'";
+  PlanDetails planDetails = (PlanDetails)request.getAttribute("planDetails");
+    if(planDetails.getPlanSelected().equalsIgnoreCase("personal")){
+      PersonalPlanChecked = "checked";
+      personalSpinnerStyle = "style='display:block'";
+    }
+    else if(planDetails.getPlanSelected().equalsIgnoreCase("family")){
+    FamilyPlanChecked = "checked";
+      //personalSpinnerStyle = "style='display:none'";
+      familySpinnerStyle = "style='display:block'";
+    } 
+%>
+
 <!--/#main-Content-->
 <section>
 	<div class="container">
@@ -98,10 +153,37 @@
 									<%
 										}
 									%>
-									<span><a href="#" class="fwdpanel-minimize"><i
-											class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> </span>
+									<!-- <span><a href="#" class="fwdpanel-minimize"><i
+											class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> 
+									</span> -->
+									<span><a href="#" data-target="#details-popup" data-toggle="modal"><i
+                                            class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> 
+                                    </span>
 								</h4>
 							</div>
+							<div class="modal fade details-popup" id="details-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content plan-modal">
+                                        <a class="close" aria-label="Close" data-dismiss="modal">
+                                        <span aria-hidden="true" style="font-size:30px;">×</span>
+                                        </a>
+                                        <h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
+				                        <ol class="major-exc">
+				                            <li><fmt:message key="flight.quote.other.tnc.desc1" bundle="${msg}" /></li>
+				                            <li><fmt:message key="flight.quote.other.tnc.desc2" bundle="${msg}" /></li>
+				                            <li><fmt:message key="flight.quote.other.tnc.desc3" bundle="${msg}" /></li>
+				                            <li><fmt:message key="flight.quote.other.tnc.desc4" bundle="${msg}" /></li>
+				                            <li><fmt:message key="flight.quote.other.tnc.desc5" bundle="${msg}" /></li>
+				                            <li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" /></li>
+				                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+							
+							
+							
+							
+							
 							<div class="fwdpanel-body" style="display: none;">
 								<div class="row">
 									<div class="col-md-12">
@@ -127,17 +209,6 @@
 						</div>
 						
 						<!--Full coverage end -->
-						<h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
-						<ol class="major-exc">
-							<li><fmt:message key="flight.quote.other.tnc.desc1" bundle="${msg}" /></li>
-							<li><fmt:message key="flight.quote.other.tnc.desc2" bundle="${msg}" /></li>
-							<li><fmt:message key="flight.quote.other.tnc.desc3" bundle="${msg}" /></li>
-							<li><fmt:message key="flight.quote.other.tnc.desc4" bundle="${msg}" /></li>
-							<li><fmt:message key="flight.quote.other.tnc.desc5" bundle="${msg}" /></li>
-							<li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" /></li>
-						</ol>
-						<br>
-
 					</div>
 					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs">
 						<div class="wd2">
@@ -172,17 +243,18 @@
 										 
 								</div>
 							</div> -->
-							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
-                                <a id="inline-change-1"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline"
+							>
+                                <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
                             </h3>
 							<div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 			                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
 			                </div>
 			               <!-- departure date end  -->
 			               <!-- return date start  -->
-							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
+							<!-- <h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<div class="input-group wd2">
 										<input type="text" class="datepicker form-control bcg-trans"
 											value="<c:out value="${planDetails.getReturnDate()}"/>"
@@ -190,15 +262,22 @@
 									</div>
 								</div>
 								 -->
+						  <h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
+                                <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
+						  
                               <div class="input-group date" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
 						        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
 						      </div>
-							<!-- return date start  -->
-							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
-								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
-							</h3>
+							<!-- return date end  -->
+							
+							
+							
 						
-<!--						<div class="form-group">
+<!--						
+                            <h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
+                                <a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+                            </h3>
+                            <div class="form-group">
 								
 									<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent :${planDetails.getTotalAdultTraveller()},</c:if>
 									<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child :${planDetails.getTotalChildTraveller()}, </c:if>
@@ -207,21 +286,112 @@
 								
 							</div>
 							-->
-							
-							<div class="form-group likeDatePicker bcg-trans">
-              	<div class="input-group wd2 datepicker form-control" > 
-              	
-              
-              		<%-- <input type="text" class="datepicker form-control" value=" --%>
-								<c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
-								<c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
-																
-              	</div>
-              </div>
-							
-							
+							<!-- traveller start -->
+							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
+                                <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+                            </h3>
+                            <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
+                 
+                              <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label>&nbsp;<label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
+                              <div class="dropdown-menu bdr1">
+                                <div class="drop-content">
+                                  <div class="col-lg-6">
+                                    <label class="radio radio-warning radio-inline">
+                                      <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
+                                      <label for="personal_plan_desk"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
+                                     </label> 
+                                  </div>
+                                  <div class="col-lg-6">
+                                   <label class="radio radio-warning radio-inline">
+                                      <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
+                                      <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /> </label>
+                                      </label>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                  <hr>
+                                  <!-- start of personal plan desk spinner-->
+                                  <input type="hidden" name="" id="family_desk_count" value="${planDetails.getTotalFamilyTravellers()}">
+                                  <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
+                                    <div class="col-lg-6">
+                                      <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /> </h4>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        </span>
+                                        <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
+                                        <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTravellerCount()}"/>
+                                        <span class="input-group-btn data-up ">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        </span> </div>
+                                    </div>
+                                  </div>
+                                  <!-- end of personal plan desk spinner-->
+                                  <div class="clearfix"></div>
+                                  
+                                  <!-- start of family plan desk spinner-->
+                                  <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
+                                    <div class="col-lg-6">
+                                      <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /> </h4>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        </span>
+                                        <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalAdultTraveller()}</div>
+                          <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
+                                        <span class="input-group-btn data-up ">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        </span> </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-6">
+                                      <h4><fmt:message key="flight.main.quote.plan2.type2" bundle="${msg}" /></h4>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        </span>
+                                        <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
+                          <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
+                                        <span class="input-group-btn data-up ">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        </span> </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-6">
+                                      <h4><fmt:message key="flight.main.quote.plan2.type3" bundle="${msg}" /></h4>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        </span>
+                                        <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalOtherTraveller()}</div>
+                                        <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
+                                        <span class="input-group-btn data-up ">
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        </span> </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <!-- start of family plan bottom spinner-->
+                                  
+                                  <div class="clearfix"></div>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+                            <!-- <div class="form-group likeDatePicker bcg-trans">
+                                <div class="input-group wd2 datepicker form-control" > 
+                                <%-- <input type="text" class="datepicker form-control" value=" --%>
+                                <c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
+                                <c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
+                                <c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
+                                <c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+                                    
+                            <!--   </div>
+                            </div> -->
+                            <!-- traveller end -->
 							
 							
 							<h3>
@@ -255,7 +425,7 @@
 					</div>
 					<!-- dummy -->
 					<span id="divPersonsDesk"></span>
-					<span id="lblDaysDesk"></span>
+					<span id="lblDaysDesk" style="display: none"></span>
 					<div class="clearfix"></div>
 				</div>
 				
@@ -324,19 +494,13 @@
 		</div>
 	</div>
 </div>
+
 <!--/ Get promotion code popup-->
 
 
 
 
 <script type="text/javascript">
-
-	$(document).ready(function() {
-		$("#inline-change-1").click(function() {
-		    $('#dp1').datepicker('show');
-		});
-		
-	});
 	function sendEmail() {
 		if (get_promo_val()) {
 			$.ajax({

@@ -538,12 +538,8 @@ $(function () {
 				
 				});
 				
-			}
-			
-			else{
-				
-				 end = path.indexOf('travel-insurance')
-				
+			}else{
+				end = path.indexOf('travel-insurance')
 				fullPath = path.substring(0, end) + "travel-insurance/quote";	
 				
 				
@@ -563,8 +559,6 @@ $(function () {
 					  }
 				
 				});
-				
-				
 			}
 			
 			

@@ -739,11 +739,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                 <!-- text 出發日期 header   -->
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option1" bundle="${msg}" /> 
-									<span class="span2 uline">
+									<!-- <span class="span2 uline">
 									<a href="${pageContext.request.contextPath}/${language}/flight-insurance">
 										<fmt:message key="flight.details.summary.change" bundle="${msg}" />
 									</a>
-									</span>
+									</span> -->
 								</h3>
 														
 		
@@ -751,10 +751,12 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								
 							 <!-- input 出發日期 -->
 					 
-                <div class="input-group date" id="dp1-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-               <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${planDetailsForm.getDepartureDate()}" readonly>
+                <!-- <div class="input-group date" id="dp1-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+               <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetailsForm.getDepartureDate()}" readonly>
+                </div>-->
+				<div class="input-group date"s> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+               <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetailsForm.getDepartureDate()}" readonly>
                 </div>
-				
 	
 				
 
@@ -767,11 +769,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							<!-- text 返回日期  -->
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option2" bundle="${msg}" /> 
-									<span class="span2 uline">
+									<!-- <span class="span2 uline">
 										<a href="${pageContext.request.contextPath}/${language}/flight-insurance">
 											<fmt:message key="flight.details.summary.change" bundle="${msg}" />
 										</a>
-									</span>
+									</span> -->
 								</h3>
 						
 						    <%---------------------------------------ajax post to self page and  update session -------------%> 
@@ -796,11 +798,12 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	
 						
 							  <!-- input 出發日期 -->								
-			<div class="input-group date" id="dp2-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+			     <!-- <div class="input-group date" id="dp2-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.getReturnDate()}" readonly>
-                
-               
-                </div>  
+                 </div>-->
+                 <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.getReturnDate()}" readonly>
+                 </div>  
 						
 							
 							
@@ -808,11 +811,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 								
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option3" bundle="${msg}" /> 
-									<span class="span2 uline">
+									<!-- <span class="span2 uline">
 										<a href="${pageContext.request.contextPath}/${language}/flight-insurance">
 											<fmt:message key="flight.details.summary.change" bundle="${msg}" />
 										</a>
-									</span>
+									</span> -->
 								</h3>
 								<h4>
 									<c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">

@@ -3297,6 +3297,7 @@ del {
 }
 .drop-down a {
 	color: #f68a1d;
+	height: 100%;
 }
 .drop-content {
 	padding: 20px;
@@ -4052,7 +4053,9 @@ article h2 {
 .drop-down i{
 	padding-top:20px;
 }
-
+.dropdown-toggle.disabled {
+	background: #eee;
+}
 .social-share {
 	display: inline-block;
 	list-style: none;
@@ -4973,6 +4976,7 @@ input[type='radio']:checked:before {
 	top: 200px;
 }
 
+
 /******Summary Table*****/
 
 
@@ -5547,7 +5551,6 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 .plan-box-flight h2 { margin-left:20px;}
 .fwdpanel-body { padding: 0 15px;}
-
 #freeFlightForm .insure-travel .color1{
 	margin:0;
 	line-height: 100%;
@@ -5721,6 +5724,13 @@ table.registration td .control-label{
   color: #061d2a;
   text-align: justify;
 }
+.details-popup .modal-content{
+	padding: 20px;
+}
+.details-popup .modal-content .h4-3-b {
+    padding-top: 15px;
+}
+
 .h4-6 + .h4-6{
 	margin-top: 10px;
 }
@@ -6055,7 +6065,8 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 }
 .date,
 .date input[disabled],
-.date input[readonly]{
+.date input[readonly],
+.inline-change{
 	cursor: pointer;
 }
 .lhnormal{
