@@ -292,7 +292,14 @@
 
 								<tr>
 									<!-- TODO, get product type from API -->
-									<td class="pad-none"><h2 class="black-bold ">TravelCare Insurance</h2></td> <!-- <span class="h2-claim"></span> -->
+									<td class="pad-none"><h2 class="black-bold ">
+									
+									
+									<% out.print(purchaseHistory.getPlanCode());
+									%>
+									
+									
+									</h2></td> <!-- <span class="h2-claim"></span> -->
 									<td class="pad-none sub-link">
 										<!-- <a href="#">View Policy</a> -->
 									</td>
