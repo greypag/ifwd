@@ -255,7 +255,7 @@
 								%>
 											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" />
 								<%  } %> 
-												<c:out value="${inx-1}"></c:out>
+												<c:out value="${inx}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
@@ -264,7 +264,8 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> 
+											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" />
+											<c:out value="${inx}"></c:out> 
 
 								<% 	}
 									else 
