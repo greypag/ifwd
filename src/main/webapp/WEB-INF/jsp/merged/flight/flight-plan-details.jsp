@@ -170,7 +170,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									<td class=""><input type="text" name="hkid"
 										class="form-control numberinput textUpper"
 										id="inputTxtAppHkid"
-										placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />">
+										placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onKeyUp="value=value.replace(/[\W]/g,'')">
 										<span id="errAppHkid" class="text-red"> </span></td>
 								</tr>
 								<tr>
