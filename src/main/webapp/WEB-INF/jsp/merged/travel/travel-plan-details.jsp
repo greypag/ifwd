@@ -255,7 +255,7 @@
 								%>
 											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" />
 								<%  } %> 
-												<c:out value="${inx-1}"></c:out>
+												<c:out value="${inx}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
@@ -265,6 +265,7 @@
 									{ 
 								%>
 											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> 
+											<c:out value="${inx}"></c:out>
 
 								<% 	}
 									else 
@@ -782,7 +783,7 @@
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	 <a href="<%=request.getContextPath()%>/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+	 <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
