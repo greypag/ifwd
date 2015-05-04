@@ -172,7 +172,7 @@
 							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
-							<div class="form-group">
+							<div class="form-group">1
 								<div class="input-group wd2">
 									<input type="text" class="datepicker form-control bcg-trans"
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
