@@ -1068,7 +1068,7 @@ public class WorkingHolidayController {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "/workingholiday/workingholiday-summary-payment");				
+				+ "/workingholiday/workingholiday-payment");				
 	}
 	
 	
