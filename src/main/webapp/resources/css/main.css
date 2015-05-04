@@ -281,9 +281,8 @@ width: 100%;
 }
 #bottom-form h3 {
 	color: #fff;
-	line-height: 31px;
-
-	font-size: 24px;
+	line-height: 18px;
+	font-size: 18px;
 }
 
 .get-btn {
@@ -296,8 +295,10 @@ width: 100%;
 	color: #fff;
 	font-style: italic;
 	margin-top: -8px;
-	line-height: 26.25px;
-	font-size: 24px;
+	/*line-height: 26.25px;
+	font-size: 24px;*/
+	line-height: 18px;
+    font-size: 18px;
 
 	font-weight: normal !important;
 }
@@ -6083,7 +6084,8 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 }
 
 .plan_spinner_mob h4,
-.plan_spinner_desk h4{
+.plan_spinner_desk h4,
+.plan_spinner_btm h4{
 	font-size: 14px;
 }
 #txtAppHkid, inputTxtAppHkid, input[name="adultHKID"], input[name="childHKID"], input[name="otherHKID"]{ text-transform:uppercase; }

@@ -756,8 +756,8 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
     <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateBtmTravel();">
-      <div class="col-lg-12 col-md-12 pad-none">
-        <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2>
+      <div class="col-lg-12 col-md-12 pad-none slide-form">
+        <!-- <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
         <table class="table activation-form3">
           <tbody>
           <tr>
@@ -774,17 +774,17 @@ $(document).ready(function() {
              </td>
           </tr>
             <tr>
-              <td class="col-md-3  ">
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${travelQuote.getTrLeavingDate()}" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 ">
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${travelQuote.getTrBackDate()}" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 ">
+              <td class="col-md-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountBtm"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -882,7 +882,7 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-              <td class="col-md-2 ">
+              <td class="col-md-2 pad-none">
                   <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
