@@ -114,6 +114,369 @@ $(function () {
 	});
 	
 	
+	
+	
+	//================================================================================================================================
+	//================================================================================================================================trval detail page datepicker
+	//================================================================================================================================
+	
+	
+	var checkinTravelDetail = $('#trval-dp1').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		//startDate:nowTemp,
+		//endDate:  tillDate_from,
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd MM yyyy",
+
+
+	}).on('changeDate', function (ev) {
+		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+		
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+								
+			
+			var startDate = $("#trval-dp1").datepicker("getDate");
+			var endDate = $("#trval-dp2").datepicker("getDate");
+			
+			
+						
+			
+			if(startDate>endDate){					
+				$('#trval-dp2').datepicker('update', newDate);								
+			}
+			
+			
+			
+					                 
+			//-------------------------------------------------------------------------------ajax
+			
+			var path = window.location.href;		
+			
+	
+					
+		
+				end = path.indexOf('travel-insurance');
+				fullPath = path.substring(0, end) + "travel-insurance/quote";			
+			
+			
+			
+			//要搵返D 變數post 返
+					
+			$.ajax({
+				  type: "POST",
+				  url: fullPath,
+				  data: { 'trLeavingDate': dateFormate(startDate),
+					  	  'trBackDate': dateFormate(endDate),
+					  	  'totalAdultTraveller':'',
+					  	  'totalChildTraveller':'',					  	  
+					  	  'days':'',
+					  	  'travellerCount':'',
+					  	  'ToalDue':'1',
+					  	  'planSelected':''					  	 
+				  },					  				  							  
+				  success: function(){					 					 
+				  }
+			
+			});
+							
+			//-------------------------------------------------------------------------------ajax		
+						
+			
+	    
+	});
+	
+	
+	
+	
+	
+
+
+
+	
+	
+	checkoutTravelDetail = $('#trval-dp2').datepicker({
+		beforeShowDay: function (date) {
+			if (!checkinTravelDetail.datepicker("getDate").valueOf()) {
+
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
+			} else {
+				
+				return date.valueOf() >= checkinTravelDetail.datepicker("getDate").valueOf() && date.valueOf() < checkinTravelDetail.datepicker("getDate").valueOf()+duration;
+			}
+		},
+		autoclose: true,
+		
+		format: "dd MM yyyy"
+
+	}).on('changeDate', function (ev) {
+		
+		var startDate = new Date($('#trval-dp1').datepicker("getDate").valueOf());
+		var endDate = new Date($('#trval-dp2').datepicker("getDate").valueOf());
+		
+		
+		
+		
+		//-------------------------------------------------------------------------------ajax
+		
+		var path = window.location.href;		
+		
+
+				
+	
+			end = path.indexOf('travel-insurance');
+			fullPath = path.substring(0, end) + "travel-insurance/quote";			
+		
+		
+		
+		//要搵返D 變數post 返
+				
+		$.ajax({
+			  type: "POST",
+			  url: fullPath,
+			  data: { 'trLeavingDate': dateFormate(startDate),
+				  	  'trBackDate': dateFormate(endDate),
+				  	  'totalAdultTraveller':'',
+				  	  'totalChildTraveller':'',					  	  
+				  	  'days':'',
+				  	  'travellerCount':'',
+				  	  'ToalDue':'1',
+				  	  'planSelected':''					  	 
+			  },					  				  							  
+			  success: function(){					 					 
+			  }
+		
+		});
+								
+		
+		
+		
+	//	document.getElementById("divPersonsDesk").style.visibility = "visible";
+	//	document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+
+	});
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//================================================================================================================================
+	//================================================================================================================================flight detail page datepicker
+	//================================================================================================================================
+	
+	
+	var checkinFightDetail = $('#dp1-detail-page').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		//startDate:nowTemp,
+		//endDate:  tillDate_from,
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd MM yyyy",
+
+
+	}).on('changeDate', function (ev) {
+		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+		
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+								
+			
+			var startDate = $("#dp1-detail-page").datepicker("getDate");
+			var endDate = $("#dp2-detail-page").datepicker("getDate");
+			
+			
+						
+			
+			if(startDate>endDate){					
+				$('#dp2-detail-page').datepicker('update', newDate);								
+			}
+			
+			
+			
+					                 
+			//-------------------------------------------------------------------------------ajax
+			
+			var path = window.location.href;		
+			
+			var end = path.indexOf('flight-insurance');
+			var fullPath = "";				
+			
+			if(end>0){
+				fullPath = path.substring(0, end) + "flight-insurance/quote";					
+			}
+			else{
+				path.indexOf('travel-insurance');
+				fullPath = path.substring(0, end) + "travel-insurance/quote";			
+			}
+			
+			
+			
+					
+			$.ajax({
+				  type: "POST",
+				  url: fullPath,
+				  data: { 'departureDate': dateFormate(startDate),
+					  	  'returnDate': dateFormate(endDate),
+					  	  'totalAdultTraveller':'',
+					  	  'totalChildTraveller':'',					  	  
+					  	  'days':'',
+					  	  'travellerCount':'',
+					  	  'ToalDue':'1',
+					  	  'planSelected':''					  	 
+				  },					  				  							  
+				  success: function(){					 					 
+				  }
+			
+			});
+							
+			//-------------------------------------------------------------------------------ajax		
+						
+			
+	    
+	});
+	
+	
+	
+	
+	function dateFormate(thisDate){
+		
+		 var monthNames = [
+		                      "January", "February", "March",
+		                      "April", "May", "June", "July",
+		                      "August", "September", "October",
+		                      "November", "December"
+		                  ];
+
+		                  var date = new Date(thisDate);
+		                  var day = date.getDate();
+		                 if(day<10){		                	 
+		                	 day = '0' + day;
+		                 }
+		                 
+		                  var monthIndex = date.getMonth();		                  
+		                  var year = date.getFullYear();
+		                  var formateDate = day + " " + monthNames[monthIndex] +" " + year;
+		                  return formateDate;
+		
+	}
+	
+	
+	
+	
+	
+	checkoutFightDetail = $('#dp2-detail-page').datepicker({
+		beforeShowDay: function (date) {
+			if (!checkinFightDetail.datepicker("getDate").valueOf()) {
+
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from;
+			} else {
+				
+				return date.valueOf() >= checkinFightDetail.datepicker("getDate").valueOf() && date.valueOf() < checkinFightDetail.datepicker("getDate").valueOf()+duration;
+			}
+		},
+		autoclose: true,
+		
+		format: "dd MM yyyy"
+
+	}).on('changeDate', function (ev) {
+		
+		var startDate = new Date($('#dp1-detail-page').datepicker("getDate").valueOf());
+		var endDate = new Date($('#dp2-detail-page').datepicker("getDate").valueOf());
+		
+		
+		
+		
+		//-------------------------------------------------------------------------------ajax
+							
+		var path = window.location.href;		
+		var end = path.indexOf('flight-insurance');
+		var fullPath = path.substring(0, end) + "flight-insurance/quote";
+				
+		$.ajax({
+			  type: "POST",
+			  url: fullPath,
+			  data: { 'departureDate': dateFormate(startDate),
+				  	  'returnDate': dateFormate(endDate),
+				  	  'totalAdultTraveller':'',
+				  	  'totalChildTraveller':'',					  	  
+				  	  'days':'',
+				  	  'travellerCount':'',
+				  	  'ToalDue':'1',
+				  	  'planSelected':''					  	 
+			  },					  				  							  
+			  success: function(){					 					 
+			  }
+		
+		});
+						
+		//-------------------------------------------------------------------------------ajax			
+		
+		
+		
+	//	document.getElementById("divPersonsDesk").style.visibility = "visible";
+	//	document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+
+	});
+
+	
+	
+	
+	
+	//================================================================================================================================	
+	//================================================================================================================================ end fight page detail datepicker
+	//================================================================================================================================
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	var checkin = $('#dp1').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
@@ -145,6 +508,76 @@ $(function () {
 			document.getElementById("divPersonsDesk").style.visibility = "visible";
 			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 	    
+		
+		
+		
+		
+				
+			//-------------------------------------------------------------------------------ajax
+			var path = window.location.href;		
+			
+			var end = path.indexOf('flight-insurance');
+			var fullPath = "";				
+			
+			if(end>0){
+				fullPath = path.substring(0, end) + "flight-insurance/quote";	
+				$.ajax({
+					  type: "POST",
+					  url: fullPath,
+					  data: { 'departureDate': dateFormate(startDate),
+						  	  'returnDate': dateFormate(endDate),
+						  	  'totalAdultTraveller':'',
+						  	  'totalChildTraveller':'',					  	  
+						  	  'days':'',
+						  	  'travellerCount':'',
+						  	  'ToalDue':'1',
+						  	  'planSelected':''					  	 
+					  },					  				  							  
+					  success: function(){					 					 
+					  }
+				
+				});
+				
+			}
+			
+			else{
+				
+				 end = path.indexOf('travel-insurance')
+				
+				fullPath = path.substring(0, end) + "travel-insurance/quote";	
+				
+				
+				$.ajax({
+					  type: "POST",
+					  url: fullPath,
+					  data: { 'trLeavingDate': dateFormate(startDate),
+						  	  'trBackDate': dateFormate(endDate),
+						  	  'totalAdultTraveller':'',
+						  	  'totalChildTraveller':'',					  	  
+						  	  'days':'',
+						  	  'travellerCount':'',
+						  	  'ToalDue':'1',
+						  	  'planSelected':''					  	 
+					  },					  				  							  
+					  success: function(){					 					 
+					  }
+				
+				});
+				
+				
+			}
+			
+			
+					
+			
+							
+			//-------------------------------------------------------------------------------ajax			
+			
+			
+			
+			
+	
+	
 	});
 	
 	checkout = $('#dp2').datepicker({
@@ -167,6 +600,78 @@ $(function () {
 		document.getElementById("divPersonsDesk").style.visibility = "visible";
 		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
+		
+		
+		
+		
+		//-------------------------------------------------------------------------------ajax		
+		//-------------------------------------------------------------------------------ajax
+		var path = window.location.href;		
+		
+		var end = path.indexOf('flight-insurance');
+		var fullPath = "";				
+		
+		if(end>0){
+			fullPath = path.substring(0, end) + "flight-insurance/quote";	
+			$.ajax({
+				  type: "POST",
+				  url: fullPath,
+				  data: { 'departureDate': dateFormate(startDate),
+					  	  'returnDate': dateFormate(endDate),
+					  	  'totalAdultTraveller':'',
+					  	  'totalChildTraveller':'',					  	  
+					  	  'days':'',
+					  	  'travellerCount':'',
+					  	  'ToalDue':'1',
+					  	  'planSelected':''					  	 
+				  },					  				  							  
+				  success: function(){					 					 
+				  }
+			
+			});
+			
+		}
+		
+		else{
+			
+			 end = path.indexOf('travel-insurance')
+			
+			fullPath = path.substring(0, end) + "travel-insurance/quote";	
+			
+			
+			$.ajax({
+				  type: "POST",
+				  url: fullPath,
+				  data: { 'trLeavingDate': dateFormate(startDate),
+					  	  'trBackDate': dateFormate(endDate),
+					  	  'totalAdultTraveller':'',
+					  	  'totalChildTraveller':'',					  	  
+					  	  'days':'',
+					  	  'travellerCount':'',
+					  	  'ToalDue':'1',
+					  	  'planSelected':''					  	 
+				  },					  				  							  
+				  success: function(){					 					 
+				  }
+			
+			});
+			
+			
+		}
+		
+		
+				
+		
+						
+		//-------------------------------------------------------------------------------ajax		
+		
+				
+		
+						
+		//-------------------------------------------------------------------------------ajax			
+		//-------------------------------------------------------------------------------ajax			
+		
+		
 	});
 
 

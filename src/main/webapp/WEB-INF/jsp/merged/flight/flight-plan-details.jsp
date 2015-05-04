@@ -745,24 +745,26 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									</a>
 									</span>
 								</h3>
+														
+		
 								
 								
-								
-								
-								
-										 
-							 
-							 
-							 
-							 <!-- 舊出發日期 -->
-								<input type="hidden" name="departureDate"
-									value="${planDetailsForm.getDepartureDate()}">
-							 <!-- 舊返回日期 -->
-							      <input
-									type="hidden" name="returnDate"
-									value="${planDetailsForm.getReturnDate()}">
+							 <!-- input 出發日期 -->
+					 
+                <div class="input-group date" id="dp1-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+               <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${planDetailsForm.getDepartureDate()}" readonly>
+                </div>
+				
+	
+				
 
-								<h4>${planDetailsForm.getDepartureDate()}</h4>
+				
+				<!--  onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');"    -->
+				
+	 											
+							 				
+
+							<!-- text 返回日期  -->
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option2" bundle="${msg}" /> 
 									<span class="span2 uline">
@@ -771,7 +773,39 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										</a>
 									</span>
 								</h3>
-								<h4>${planDetailsForm.getReturnDate()}</h4>
+						
+						    <%---------------------------------------ajax post to self page and  update session -------------%> 
+                            <%---------------------------------------ajax post to  self page and  update session -------------%>   
+                            
+                        <%  
+                            
+                            if(request.getParameter("flight-startDate")!=null){
+                                session.setAttribute("flight-start",request.getParameter("flight-startDate"));                              
+                            }
+                            if(request.getParameter("flight-endDate")!=null){
+                                    session.setAttribute("flight-end",request.getParameter("flight-endDate"));                              
+                             }
+                            
+                        %>  
+                            <%---------------------------------------ajax post to  self page and  update session -------------%>   
+                            <%---------------------------------------ajax post to  self page and  update session -------------%>        
+					
+					             
+						
+						
+	
+						
+							  <!-- input 出發日期 -->								
+			<div class="input-group date" id="dp2-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.getReturnDate()}" readonly>
+                
+               
+                </div>  
+						
+							
+							
+							
+								
 								<h3 class="txt-bold">
 									<fmt:message key="flight.details.summary.option3" bundle="${msg}" /> 
 									<span class="span2 uline">
