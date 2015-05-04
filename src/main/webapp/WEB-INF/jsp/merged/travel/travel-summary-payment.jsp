@@ -35,7 +35,9 @@
 </script>
 
 
-<!--/#main-Content-->
+<%
+	PlanDetailsForm planDetailsForm = (PlanDetailsForm) request.getAttribute("planDetailsForm");
+%>
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
@@ -111,7 +113,16 @@
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
 										</td>
-										<td class="pad-none h4-5 ">${travelBean.getTotalTraveller()}</td>
+										<td class="pad-none h4-5 ">
+										<%
+											if (planDetailsForm != null)
+											{
+												out.println( planDetailsForm.getTotalAdultTraveller() +
+															 planDetailsForm.getTotalChildTraveller() +
+															 planDetailsForm.getTotalOtherTraveller()   );
+											}
+										%>
+										</td>
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.period" bundle="${msg}" /></td>
@@ -172,8 +183,7 @@
 							<table class="col-xs-10 table-condensed cf mob-table">
 								
 								<%
-									PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
-											.getAttribute("planDetailsForm");
+
 									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
 								%>
 								<tr><td class="col-xs-12"><table class="col-xs-12">
