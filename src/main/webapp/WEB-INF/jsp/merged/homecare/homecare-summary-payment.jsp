@@ -346,7 +346,17 @@
 										<!-- 										<option VALUE="2018">2018</option> -->
 										<!-- 										<option VALUE="2019">2019</option> -->
 										<!-- 										<option VALUE="2020">2020</option> -->
-										<c:forEach begin="0" end="5" varStatus="loop">
+										
+										<!-- 										<option VALUE="2021">2021</option> -->
+										<!-- 										<option VALUE="2022">2022</option> -->
+										<!-- 										<option VALUE="2023">2023</option> -->
+										<!-- 										<option VALUE="2024">2024</option> -->
+										<!-- 										<option VALUE="2025">2025</option> -->
+										
+										
+										
+										
+										<c:forEach begin="0" end="10" varStatus="loop">
 											<c:set var="currentYear" value="${year + loop.index}" />
 											<option value="${currentYear}">${currentYear}</option>
 										</c:forEach>
@@ -431,30 +441,11 @@
 						<span id="errchk2" class="error-msg"></span>-->
 						<div class="clearfix"></div>
 						<div class="hidden-sm hidden-xs pad-none">
-
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-								<!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
-								<%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
-								<a
-									href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
-									class="bdr-curve btn btn-primary bck-btn2"><fmt:message
-										key="home.summary.action.back" bundle="${msg}" /> </a>
-
-
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								<!-- <input type="button"
-									class="bdr-curve btn btn-primary nxt-btn margin-left"
-									onclick="confirmPayment()" value="Confirm Payment"> -->
-
-
-
-									
-								<input type="submit" class="bdr-curve btn btn-primary btn-next"
-									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
-							</div>
-
-
+							<a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
+								class="bdr-curve btn btn-primary bck-btn2"><fmt:message
+								key="home.summary.action.back" bundle="${msg}" /> </a>
+							<input type="submit" class="bdr-curve btn btn-primary nxt-btn margin-left"
+								value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 						</div>
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
