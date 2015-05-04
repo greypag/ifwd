@@ -200,16 +200,7 @@
 										<td class="h2-1 pad-none "><fmt:message
 												key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">
-										
-										<c:choose>
-										<c:when test=" ${empty userDetails.getHkid()}">
-											<c:out value="${userDetails.getPassport()}" /> 
-											 </c:when>
-											<c:otherwise>
-											<c:out value="${userDetails.getHkid()}"/>
-											
-											</c:otherwise>
-										</c:choose>
+										<c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" />
 										</td>
 									</tr>
 									<tr>
@@ -440,17 +431,30 @@
 						<span id="errchk2" class="error-msg"></span>-->
 						<div class="clearfix"></div>
 						<div class="hidden-sm hidden-xs pad-none">
+
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 								<!-- 								<input type="button" class="bdr-curve btn btn-primary bck-btn" onclick="BackMe()" -->
 								<%-- 									value="<fmt:message key="home.summary.action.back" bundle="${msg}" />"> --%>
 								<a
 									href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
 									class="bdr-curve btn btn-primary bck-btn2"><fmt:message
 										key="home.summary.action.back" bundle="${msg}" /> </a>
+
+
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 								<!-- <input type="button"
 									class="bdr-curve btn btn-primary nxt-btn margin-left"
 									onclick="confirmPayment()" value="Confirm Payment"> -->
-								<input type="submit" class="bdr-curve btn btn-primary nxt-btn margin-left"
+
+
+
+									
+								<input type="submit" class="bdr-curve btn btn-primary btn-next"
 									value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
+							</div>
+
+
 						</div>
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
@@ -522,7 +526,6 @@
  		if (payValid() && clicked === false) {
  			clicked = true;
  			$("#PaymentingDiv").show();
-
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
  			var method = "<%=request.getContextPath()%>/processHomeCarePayment";

@@ -29,7 +29,7 @@
 	<div id="cn" class="container">
 		<div class="row">
 		
-			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/travel-insurance/travel-summary" method="post"
+			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/workingholiday-insurance/workingholiday-summary" method="post"
 				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>

@@ -46,7 +46,7 @@ var promoData = '';
 		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
-			url : '<%=request.getContextPath()%>/${language}/applyTravelPromoCode',
+			url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 			data : $('#frmTravelPlan input').serialize(),
 			success : function(data) {
 				
@@ -224,7 +224,7 @@ var promoData = '';
 								
 								
 								
-								
+							
 								
 								
 								
