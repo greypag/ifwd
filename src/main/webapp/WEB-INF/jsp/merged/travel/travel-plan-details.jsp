@@ -161,8 +161,8 @@
 										class="form-control" value="${userDetails.getMobileNo().trim()}"
 										id="inputMobileNo" placeholder="<fmt:message key="travel.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8" /> <span
-										id="mobileNo" class="text-red">
+										onblur="replaceNumeric(this);" maxlength="8" /> 
+									<span id="errMobileNo" class="text-red">
 									</span></td>
 								</tr>
 								<tr>
@@ -411,7 +411,7 @@
 												<input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-													value="" /> <span id="erradultBenefitiaryHKId${inx}"
+													value="" onKeyUp="value=value.replace(/[\W]/g,'')" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
 											</div>

@@ -167,20 +167,22 @@ var promoData = '';
 							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
 						
 							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
-					    	if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
-					    	{
-					    		travelQuoteBean.setTotalOtherTraveller(0);
-	
-							 		//System.out.println("travelQuote is not null");
-							 		//session.setAttribute("travelQuoteBean", travelQuoteBean);
 							
-					    	}
-					    	
 					    	if (travelQuote != null)
 						 	{
+					    		if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
+					    		{
+					    			//travelQuoteBean.setTotalOtherTraveller(0);
+					    		}
 					    	 	session.setAttribute("tq", travelQuote);
 						 	}
+					    	else 
+					    	{
+					    		System.out.println("travel-plan.jsp travelQuote is null!!!");
+					    	}
 						
+					    	if (travelQuote != null)
+						 	{
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
@@ -307,6 +309,11 @@ var promoData = '';
 						%>
 						<%
 							}
+						 	}
+					    	else 
+					    	{
+					    		System.out.println("travel-plan.jsp travelQuote is null!!!");
+					    	}
 						%>
 						<div class="clearfix"></div>
 						<!--Full Coverage-->
