@@ -70,7 +70,7 @@ class="image-order-status image-order-status-active  img-circle">
 </h3>
 <%-- <h4>Reference Number :<span>${createFlightPolicy.getReferenceNo()}</span></h4> --%>
 <h4>
-Policy Number: <span><%=request.getSession().getAttribute(
+<fmt:message key="flight.confirmation.policyNo" bundle="${msg}" /> <span><%=request.getSession().getAttribute(
 "policyNo")%></span>
 </h4>
 
@@ -205,16 +205,17 @@ id="box<%=i%>">
 									Plan <%=travelQuote.getPlanName()[i]%>
 									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
-									{%> <fmt:message key="flight.confirmation.upgrade.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="flight.confirmation.upgrade.plan1.medical" bundle="${msg}" /> 
+									{%> <fmt:message key="flight.confirmation.upgrade.plan1.type" bundle="${msg}" /><br><fmt:message key="flight.confirmation.upgrade.plan1.medical" bundle="${msg}" /> 
 								<%}	else{ %>
-								<fmt:message key="flight.confirmation.upgrade.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="flight.confirmation.upgrade.plan2.medical" bundle="${msg}" />
+								<fmt:message key="flight.confirmation.upgrade.plan2.type" bundle="${msg}" /><br>
+									<fmt:message key="flight.confirmation.upgrade.plan2.medical" bundle="${msg}" />
 									<%} %>
 									
 								</h2>
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 
-<h3>HK$</h3>
+<h3><fmt:message key="dollar.hkd" bundle="${msg}" /></h3>
 <span id="totalDue"></span>
 <h6><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></h6>
     

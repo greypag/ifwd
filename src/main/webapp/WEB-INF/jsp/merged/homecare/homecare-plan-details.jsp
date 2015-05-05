@@ -357,7 +357,7 @@
 					onsubmit="return hc_planValid();" modelAttribute="frmYourDetails">
 					<ol class="breadcrumb pad-none">
 						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i
+						<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a> <i
 							class="fa fa-caret-right"></i></li>
 						<li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a></li>
 						<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></li>
