@@ -704,6 +704,28 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									<br>
 								</label>
 							</div>
+							
+							<div class="flightCheckboxBubble">
+							     您將會無法收到富衛最新的推廣優惠！
+							</div>
+							
+							<script type="text/javascript">
+							function showBubble(){
+							    if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+							        $(".flightCheckboxBubble").fadeIn();
+							    }else{
+							        $(".flightCheckboxBubble").fadeOut();
+							    }
+							}
+							
+							$("#checkbox3").change(function() {
+							    showBubble();
+							});
+							
+							$("#checkbox4").change(function() {
+							    showBubble();
+							});
+							</script>
 
 						</div>
 					</div>
@@ -905,7 +927,11 @@ onclick="return flightPlanValidation();">Next</button> -->
 
 
 
-
+<div class="scrollToTop">
+    <a title="Scroll to top" href="#">
+        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
+    </a>
+</div>
 
 <script>
 

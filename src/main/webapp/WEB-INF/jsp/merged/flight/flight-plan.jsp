@@ -497,8 +497,11 @@
 </div>
 
 <!--/ Get promotion code popup-->
-
-
+<div class="scrollToTop">
+    <a title="Scroll to top" href="#">
+        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
+    </a>
+</div>
 
 
 <script type="text/javascript">

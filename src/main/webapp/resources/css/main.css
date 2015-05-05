@@ -6126,3 +6126,37 @@ tr.product-landing-error-wrap {
 	vertical-align: middle;
 	font-size: 8px;
 }
+
+.scrollToTop{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:48px;
+    height:49px;
+    display:none;
+    cursor:pointer;
+}
+
+.flightCheckboxBubble{
+    background-image:  url("../images/bubble.png") ;
+    width:278px;
+    height:79px;
+    color: #fff;
+    margin-top: -35px;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    padding-left: 20px;
+    display:none;
+}
+
+.checkboxBubble{
+	background-image:  url("../images/bubble.png") ;
+	width:278px;
+	height:79px;
+	color: #fff;
+	margin-top: -15px;
+	margin-bottom: 50px;
+	padding-top: 30px;
+	padding-left: 20px;
+	display:none;
+}
