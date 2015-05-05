@@ -607,11 +607,11 @@
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-travel margin-left">
-                                                    <span><a href="#" data-target="#details-popup-4" data-toggle="modal"><i
+                                                    <span><a href="#" data-target="#details-popup-5" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.excess.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
                                             </div>
-                                            <div class="modal fade details-popup" id="details-popup-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal fade details-popup" id="details-popup-5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
 											    <div class="modal-dialog modal-lg">
 											        <div class="modal-content plan-modal">
 											            <a class="close" aria-label="Close" data-dismiss="modal">
