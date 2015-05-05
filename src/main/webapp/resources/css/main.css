@@ -6148,7 +6148,7 @@ tr.product-landing-error-wrap {
     font-size: 14px;
     margin-top: -35px;
     margin-bottom: 50px;
-    padding-top: 6px;
+    padding-top: 16px;
     padding-left: 20px;
     display:none;
 }
@@ -6161,7 +6161,7 @@ tr.product-landing-error-wrap {
     font-size: 14px;
 	margin-top: -15px;
 	margin-bottom: 50px;
-	padding-top: 6px;
+	padding-top: 16px;
 	padding-left: 20px;
 	display:none;
 }
