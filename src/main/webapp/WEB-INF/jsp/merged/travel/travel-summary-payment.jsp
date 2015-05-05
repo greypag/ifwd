@@ -35,7 +35,9 @@
 </script>
 
 
-<!--/#main-Content-->
+<%
+	PlanDetailsForm planDetailsForm = (PlanDetailsForm) request.getAttribute("planDetailsForm");
+%>
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
@@ -111,7 +113,16 @@
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
 										</td>
-										<td class="pad-none h4-5 ">${travelBean.getTotalTraveller()}</td>
+										<td class="pad-none h4-5 ">
+										<%
+											if (planDetailsForm != null)
+											{
+												out.println( planDetailsForm.getTotalAdultTraveller() +
+															 planDetailsForm.getTotalChildTraveller() +
+															 planDetailsForm.getTotalOtherTraveller()   );
+											}
+										%>
+										</td>
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.period" bundle="${msg}" /></td>
@@ -172,8 +183,7 @@
 							<table class="col-xs-10 table-condensed cf mob-table">
 								
 								<%
-									PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
-											.getAttribute("planDetailsForm");
+
 									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
 								%>
 								<tr><td class="col-xs-12"><table class="col-xs-12">
@@ -281,11 +291,11 @@
 										<% } %>
 									</tr>
 									<tr>
-										<td ><% if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
-												{ 
-													out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
-												} 
-											  %>
+										<!-- vincent getOtherAgeRangeName - null ptr -->
+										<td ><% 
+													if (planDetailsForm.getOtherAgeRangeName()[i] != null) 
+														out.println(planDetailsForm.getOtherAgeRangeName()[i]);
+											 %>
 										</td>
 										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
 										<td >&nbsp;</td>
@@ -412,14 +422,12 @@
 										<td data-title="Other<%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />
 												<%=i + 1%></span></td>
 										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
+										<!-- vincent getOtherAgeRangeName - null ptr -->
 										<td class=" h4-5" data-title="Age range">
 										<% 
-												if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
-												{ 
-													out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
-												}
-										%>
-										</td> 
+											if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
+												out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
+										%></td> 
 										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
 										<td class=" h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
 									</tr>
@@ -561,7 +569,15 @@
 <!-- 										<option value="2018">2018</option> -->
 <!-- 										<option value="2019">2019</option> -->
 <!-- 										<option value="2020">2020</option> -->
-									<c:forEach begin="0" end="5" varStatus="loop">
+
+<!-- 										<option value="2021">2021</option> -->
+<!-- 										<option value="2022">2022</option> -->
+<!-- 										<option value="2023">2023</option> -->
+<!-- 										<option value="2024">2024</option> -->
+<!-- 										<option value="2025">2025</option> -->
+
+
+									<c:forEach begin="0" end="10" varStatus="loop">
 										<c:set var="currentYear" value="${year + loop.index}" />
 										<option value="${currentYear}">${currentYear}</option>
 									</c:forEach>

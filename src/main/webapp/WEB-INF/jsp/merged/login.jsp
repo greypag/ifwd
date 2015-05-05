@@ -110,13 +110,13 @@
                             <div class="login-form"  >
                 <div id="forgotusername-err-msg" class="alert alert-danger"
                         role="alert" style="display: none;">
-                        <P id="error-mobile-no">
-                        <P id="error-email-id">
+                        <P id="error-mobile-no"></P>
+                        <P id="error-email-id"></P>
                     </div>
 
                     <div id="success-message" class="alert alert-success empHide" role="alert"
                         style="display: none;">
-                        <P id="error1">
+                        <P id="error1"></P>
                     </div>
                             
                             
@@ -264,7 +264,7 @@
                               
              <form name="forgotPasswordForm" id="forgotPasswordForm"
                         action="forgotPassword" method="post"
-                        commandName="forgotUserPassword"  " style="display:none">
+                        commandName="forgotUserPassword" style="display:none">
                         
                         
            
@@ -276,11 +276,11 @@
                                                                            <div id="hide-field"></div>
                         <div id="forgotpassword-err-msg" class="alert alert-danger empHide"
                             role="alert" style="display: none;">
-                            <P id="error1">
+                            <P id="error1"></P>
                         </div>
                         <div id="success-message" class="alert alert-success" role="alert"
                             style="display: none;">
-                            <P id="error1">
+                            <P id="error1"></P>
                         </div>
                             
                                             <div
@@ -348,7 +348,7 @@
                                                 <div class="form-group">
                                                     <input type="email"
                                                 name="emailAddress" class="form-control check-emp-forgotuserpassoword" id="emailAddress-forgotpassowrd"
-                                                placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId" class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" />
+                                                placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId" class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>
                                                 </div>
                                                 
                                                 

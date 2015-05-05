@@ -151,7 +151,7 @@
 
 									</td>
 									<td class="pad-none">
-									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"> <span
+									<input type="text" name="hkid" class="form-control numberinput btm-pad-10" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />" onKeyUp="value=value.replace(/[\W]/g,'')"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
@@ -161,8 +161,8 @@
 										class="form-control" value="${userDetails.getMobileNo().trim()}"
 										id="inputMobileNo" placeholder="<fmt:message key="travel.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8" /> <span
-										id="mobileNo" class="text-red">
+										onblur="replaceNumeric(this);" maxlength="8" /> 
+									<span id="errMobileNo" class="text-red">
 									</span></td>
 								</tr>
 								<tr>
@@ -255,7 +255,7 @@
 								%>
 											<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" />
 								<%  } %> 
-												<c:out value="${inx-1}"></c:out>
+												<c:out value="${inx}"></c:out>
 													</c:when>
 												</c:choose>
 											</c:when>
@@ -264,7 +264,8 @@
 									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
 									{ 
 								%>
-											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" /> 
+											<fmt:message key="travel.details.insured.label.personal" bundle="${msg}" />
+											<c:out value="${inx}"></c:out> 
 
 								<% 	}
 									else 
@@ -410,7 +411,7 @@
 												<input
 													id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
 													class="form-control textUpper" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-													value="" /> <span id="erradultBenefitiaryHKId${inx}"
+													value="" onKeyUp="value=value.replace(/[\W]/g,'')" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
 											</div>
@@ -739,6 +740,11 @@
 										<c:if test="${ travelQuote.getTotalPersonalTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
 											: ${travelQuote.getTotalPersonalTraveller()}
+										</c:if>
+										<!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
+										<c:if test="${travelQuote.getTotalAdultTraveller()!=0}">
+											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
+											: ${travelQuote.getTotalAdultTraveller()}
 										</c:if>
 
 								<%  }

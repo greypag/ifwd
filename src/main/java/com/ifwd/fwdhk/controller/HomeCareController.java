@@ -497,19 +497,19 @@ public class HomeCareController {
 
 	@RequestMapping(value = {"/{lang}/homecare-confirmation", "/{lang}/home-insurance/confirmation"})
 	public String processHomePayment(Model model, HttpServletRequest request) {
+		
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		HttpSession session = request.getSession();
-
-		
-		
+		HttpSession session = request.getSession();	
 		
 		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
 		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
+		
 		String creditCardNo;
 		try {
 			creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
@@ -555,7 +555,8 @@ public class HomeCareController {
 				userName, token, referenceNo, transactionNumber,
 				transactionDate, creditCardNo, expiryDate, emailId,
 				lang);
-		if (finalizePolicy.getErrMsgs() == null) {
+		if (finalizePolicy.getErrMsgs() == null) 
+		{
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			session.removeAttribute("HomeCareCreditCardNo");
@@ -564,8 +565,11 @@ public class HomeCareController {
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
 			session.setAttribute("policyNo", finalizePolicy.getPolicyNo());
+			
+			session.removeAttribute("referralCode"); // vincent - remove session attribute "referral code" if success
 		} 
-		else {
+		else 
+		{
 			model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
 			
 			if (finalizePolicy.getErrMsgs().toString().contains("invalid payment amount")) {

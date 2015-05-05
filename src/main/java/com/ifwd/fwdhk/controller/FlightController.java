@@ -531,9 +531,9 @@ public class FlightController {
 
 			JSONObject beneficiary = new JSONObject();
 			JSONObject adult = new JSONObject();
-			adult.put("name", planDetailsForm.getAdultName()[inx]);
-			adult.put("ageRange", planDetailsForm.getAdultAgeRange()[inx]);
-			adult.put("hkId", planDetailsForm.getAdultHKID()[inx]);
+			adult.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
+			adult.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getAdultAgeRange()[inx] ).toUpperCase());
+			adult.put("hkId", StringHelper.emptyIfNull( planDetailsForm.getAdultHKID()[inx] ).toUpperCase());
 			/* adult.put("passport", "1234" + inx); */
 			adult.put("passport", "");
 			if (inx != 0) {// For other travelers skip first one
@@ -553,30 +553,24 @@ public class FlightController {
 											.getAdultBeneficiary()[inx]) != 0) {// If
 																				// have
 																				// beneficiary
-						beneficiary
-								.put("name", planDetailsForm
-										.getAdultBenificiaryFullName()[inx]);
-						beneficiary.put("hkId",
-								planDetailsForm.getAdultBenificiaryHkid()[inx]);
+						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultBenificiaryFullName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",	planDetailsForm.getAdultBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
 						beneficiary.put("relationship",
 								planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name",
-								planDetailsForm.getAdultName()[inx]);
-						beneficiary.put("hkId",
-								planDetailsForm.getAdultHKID()[inx]);
+						beneficiary.put("name",	StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",	planDetailsForm.getAdultHKID()[inx]);
 						/* beneficiary.put("passport", "3451" + inx); */
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship",
-								planDetailsForm.getAdultBeneficiary()[inx]); // input
+						beneficiary.put("relationship",	planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
 					}
 				} else {// If don't have beneficiary then
 
 					beneficiary
-							.put("name", planDetailsForm.getAdultName()[inx]);
+							.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
 					beneficiary
 							.put("hkId", planDetailsForm.getAdultHKID()[inx]);
 					beneficiary.put("passport", "");
@@ -600,17 +594,17 @@ public class FlightController {
 																				// have
 																				// beneficiary
 						beneficiary
-								.put("name", planDetailsForm
-										.getAdultBenificiaryFullName()[inx]);
+								.put("name", StringHelper.emptyIfNull( planDetailsForm
+										.getAdultBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",
 								planDetailsForm.getAdultBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship",
-								planDetailsForm.getAdultBeneficiary()[inx]); // input
+						beneficiary.put("relationship", StringHelper.emptyIfNull( 
+								planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase()); // input
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name",
-								planDetailsForm.getAdultName()[inx]);
+						beneficiary.put("name", StringHelper.emptyIfNull( 
+								planDetailsForm.getAdultName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",
 								planDetailsForm.getAdultHKID()[inx]);
 						beneficiary.put("passport", "");
@@ -624,12 +618,12 @@ public class FlightController {
 					}
 				} else {// If don't have beneficiary then
 					beneficiary
-							.put("name", planDetailsForm.getAdultName()[inx]);
+							.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
 					beneficiary
 							.put("hkId", planDetailsForm.getAdultHKID()[inx]);
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship",
-							planDetailsForm.getAdultBeneficiary()[inx]); // input
+					beneficiary.put("relationship", StringHelper.emptyIfNull( 
+							planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase()); // input
 					adult.put("beneficiary", beneficiary);
 				}
 			}
@@ -660,8 +654,8 @@ public class FlightController {
 			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
 				JSONObject child = new JSONObject();
 				JSONObject beneficiary = new JSONObject();
-				child.put("name", planDetailsForm.getChildName()[inx]);
-				child.put("ageRange", planDetailsForm.getChildAgeRange()[inx]);
+				child.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildName()[inx] ).toUpperCase());
+				child.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getChildAgeRange()[inx] ).toUpperCase());
 				child.put("hkId", planDetailsForm.getChildHKID()[inx]);
 				child.put("passport", "");
 				child.put("relationship", "CH"); // child
@@ -673,18 +667,14 @@ public class FlightController {
 											.getChildBeneficiary()[inx]) != 0) {// If
 																				// have
 																				// beneficiary
-						beneficiary
-								.put("name", planDetailsForm
-										.getChildBenificiaryFullName()[inx]);
-						beneficiary.put("hkId",
-								planDetailsForm.getChildBenificiaryHkid()[inx]);
+						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildBenificiaryFullName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",	planDetailsForm.getChildBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship",
-								planDetailsForm.getChildBeneficiary()[inx]); // input
+						beneficiary.put("relationship",	planDetailsForm.getChildBeneficiary()[inx]); // input
 						child.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name",
-								planDetailsForm.getChildName()[inx]);
+						beneficiary.put("name", StringHelper.emptyIfNull( 
+								planDetailsForm.getChildName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",
 								planDetailsForm.getChildHKID()[inx]);
 						beneficiary.put("passport", "");
@@ -698,7 +688,7 @@ public class FlightController {
 					}
 				} else {// If don't have beneficiary
 					beneficiary
-							.put("name", planDetailsForm.getChildName()[inx]);
+							.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildName()[inx] ).toUpperCase());
 					beneficiary
 							.put("hkId", planDetailsForm.getChildHKID()[inx]);
 					beneficiary.put("passport", "");
@@ -735,7 +725,7 @@ public class FlightController {
 		if (planDetailsForm.getTotalOtherTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
 				JSONObject other = new JSONObject();
-				other.put("name", planDetailsForm.getOtherName()[inx]);
+				other.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
 				other.put("ageRange", planDetailsForm.getOtherAgeRange()[inx]);
 				other.put("hkId", planDetailsForm.getOtherHKID()[inx]);
 				other.put("passport", "");
@@ -750,8 +740,8 @@ public class FlightController {
 									.compareToIgnoreCase(planDetailsForm
 											.getOtherBeneficiary()[inx]) != 0) {
 						beneficiary
-								.put("name", planDetailsForm
-										.getOtherBenificiaryFullName()[inx]);
+								.put("name", StringHelper.emptyIfNull( planDetailsForm
+										.getOtherBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",
 								planDetailsForm.getOtherBenificiaryHkid()[inx]);
 						beneficiary.put("passport", "");
@@ -759,13 +749,10 @@ public class FlightController {
 								planDetailsForm.getOtherBeneficiary()[inx]); // input
 						other.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name",
-								planDetailsForm.getOtherName()[inx]);
-						beneficiary.put("hkId",
-								planDetailsForm.getOtherHKID()[inx]);
+						beneficiary.put("name",	StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",	planDetailsForm.getOtherHKID()[inx]);
 						beneficiary.put("passport", "");
-						beneficiary.put("relationship",
-								planDetailsForm.getOtherBeneficiary()[inx]); // input
+						beneficiary.put("relationship",	planDetailsForm.getOtherBeneficiary()[inx]); // input
 						other.put("beneficiary", beneficiary);
 
 						// clear bene info if bene relationship is SE
@@ -774,7 +761,7 @@ public class FlightController {
 					}
 				} else {// If don't have beneficiary
 					beneficiary
-							.put("name", planDetailsForm.getOtherName()[inx]);
+							.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
 					beneficiary
 							.put("hkId", planDetailsForm.getOtherHKID()[inx]);
 					beneficiary.put("passport", "");
@@ -788,15 +775,12 @@ public class FlightController {
 				String[] relationships = planDetailsForm.getOtherRelationDesc();
 				if (relationships == null) {
 					// not found in ModelAttribute
-					relationships = new String[planDetailsForm
-							.getTotalOtherTraveller()];
+					relationships = new String[planDetailsForm.getTotalOtherTraveller()];
 				}
-				String[] beneRelationships = planDetailsForm
-						.getOtherBeneRelationDesc();
+				String[] beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
 				if (beneRelationships == null) {
 					// not found in ModelAttribute
-					beneRelationships = new String[planDetailsForm
-							.getTotalOtherTraveller()];
+					beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
 				}
 				planDetailsForm.setOtherRelationDesc(WebServiceUtils
 						.getInsuredRelationshipDesc(relationships,
@@ -811,27 +795,30 @@ public class FlightController {
 
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
+		
+		String name 		= StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
+		String hkid 		= StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
+		String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
+		String mobileNo     = request.getParameter("mobileNo");
 
 		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", request.getParameter("fullName"));
+		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
-		applicantJsonObj.put("hkId", request.getParameter("hkid"));
+		applicantJsonObj.put("hkId", hkid);
 		applicantJsonObj.put("dob", "");
-		applicantJsonObj.put("mobileNo", request.getParameter("mobileNo"));
+		applicantJsonObj.put("mobileNo", mobileNo);
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox1());
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox2());
-		applicantJsonObj.put("email", request.getParameter("emailAddress"));
+		applicantJsonObj.put("email", emailAddress);
 
-		request.setAttribute("fullName", request.getParameter("fullName"));
-		request.setAttribute("hkid", request.getParameter("hkid"));
-		request.setAttribute("mobileNo", request.getParameter("mobileNo"));
-		request.setAttribute("emailAddress",
-				request.getParameter("emailAddress"));
+		request.setAttribute("fullName",     name);
+		request.setAttribute("hkid",         hkid);
+		request.setAttribute("mobileNo",     mobileNo);
+		request.setAttribute("emailAddress", emailAddress);
 
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
-
 
 		String usernameInSession = null;
 		String tokenInSession = null;
