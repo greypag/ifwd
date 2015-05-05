@@ -410,7 +410,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 												<input id="adultBenefitiaryHKId${inx}"
 													name="adultBenificiaryHkid" class="form-control textUpper"
 													placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-													value="" /> <span id="erradultBenefitiaryHKId${inx}"
+													value="" onKeyUp="value=value.replace(/[\W]/g,'')" /> <span id="erradultBenefitiaryHKId${inx}"
 													class="text-red"> </span>
 											</div>
 											<input id="adultBenefitiaryRelation${inx}" type="hidden"
