@@ -6106,7 +6106,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 	font-size: 8px;
 }
 
-.scrollToTop{
+.scroll-to-top{
     position:fixed;
     bottom:20px;
     right:20px;
@@ -6118,8 +6118,8 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 
 .flightCheckboxBubble{
     background-image:  url("../images/bubble.png") ;
-    width:278px;
-    height:79px;
+    width:283px;
+    height:48px;
     color: #fff;
     margin-top: -35px;
     margin-bottom: 50px;
@@ -6130,8 +6130,8 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 
 .checkboxBubble{
 	background-image:  url("../images/bubble.png") ;
-	width:278px;
-	height:79px;
+	width:283px;
+	height:48px;
 	color: #fff;
 	margin-top: -15px;
 	margin-bottom: 50px;
