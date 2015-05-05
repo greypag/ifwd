@@ -68,16 +68,25 @@ public class TravelController {
 		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		
 		if(travelQuote == null){
-			travelQuote = new TravelQuoteBean();			
+			travelQuote = new TravelQuoteBean();
+			
+			travelQuote.setTotalPersonalTraveller(1);
+			travelQuote.setTotalAdultTraveller(1);
+			travelQuote.setTotalChildTraveller(1);
+			travelQuote.setTotalOtherTraveller(0);
+			travelQuote.setPlanSelected("personal");
 		}
-		
+		else{
+			System.out.println("Plan selected : "+travelQuote.getPlanSelected());
+		}
 		//default 
+		/*
 		travelQuote.setTotalPersonalTraveller(1);
 		travelQuote.setTotalAdultTraveller(1);
 		travelQuote.setTotalChildTraveller(1);
 		travelQuote.setTotalOtherTraveller(0);
 		travelQuote.setPlanSelected("personal");
-		
+		*/
 		
 		
 		model.addAttribute("travelQuote", travelQuote);

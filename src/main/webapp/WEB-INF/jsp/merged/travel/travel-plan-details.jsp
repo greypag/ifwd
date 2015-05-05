@@ -683,6 +683,28 @@
 										
 									</label>
 								</div>
+								
+								<div class="checkboxBubble">
+                                                                            您將會無法收到富衛最新的推廣優惠！
+                                </div>
+
+                                <script type="text/javascript">
+								function showBubble(){
+								    if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+								        $(".checkboxBubble").fadeIn();
+								    }else{
+								        $(".checkboxBubble").fadeOut();
+								    }
+								}
+								
+								$("#checkbox3").change(function() {
+								    showBubble();
+								});
+								
+								$("#checkbox4").change(function() {
+								    showBubble();
+								});
+								</script>
 
 							</div>
 						</div>
@@ -716,7 +738,11 @@
 									<fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"> <span
 										class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
 								</h3>
-								<h4>${travelQuote.getTrLeavingDate()}</h4>
+								<h4> 
+								<div class="input-group date" id="trval-dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" readonly>
+                                </div>
+							 </h4>
 								<input type="hidden" name="departureDate" id="departureDate"
 									value="01-01-2015">
 
@@ -724,7 +750,12 @@
 									<fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"><span
 										class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
 								</h3>
-								<h4>${travelQuote.getTrBackDate()}</h4>
+								<h4>
+								                    <div class="input-group date" id="trval-dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" readonly>
+                    </div>
+								
+								</h4>
 								<input type="hidden" name="backDate" id="backDate"
 									value="${travelQuote.getTrBackDate()}">
 
@@ -864,6 +895,12 @@
     </div>
     
 <!--/ Get promotion code popup-->
+
+<div class="scroll-to-top">
+    <a title="Scroll to top" href="#">
+        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
+    </a>
+</div>
 
 <script>
 	function activeDiv(id, selected) {

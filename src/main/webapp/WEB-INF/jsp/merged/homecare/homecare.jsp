@@ -150,73 +150,74 @@ $(document).ready(function() {
 			</div>
 			<!--/.carousel-inner-->
 		</div>
+		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">
+                        <div class="container">
+                            <div class="row">
+
+                                <form:form name="getHomeQuote" id="getHomeQuote" action="${pageContext.request.contextPath}/${language}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
+                                    <div class="hidden-xs hidden-sm slide-form">
+                                        <!-- <h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2> -->
+                                        <%
+                                            List lst = (List) request
+                                                        .getAttribute("homeCareQuetionariesList");
+
+                                                Iterator itr = lst.iterator();
+                                                int i = 1;
+                                                while (itr.hasNext()) {
+
+                                                    HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr
+                                                            .next();
+                                        %>
+
+                                        <div class="col-md-4">
+                                            <h4>
+                                                <%=quetionList.getQuetion()%>
+                                            </h4>
+                                            <input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
+                                            <label class="radio radio-warning radio-inline radio-homecare"> <input
+                                                name="home_situated<%=quetionList.getQid()%>"
+                                                id="inlineDeskRadio1a<%=quetionList.getQid()%>"
+                                                data-id="home" class="plan"
+                                                value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
+                                                type="radio"> <label
+                                                for="inlineDeskRadio1a<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
+                                            </label>
+                                            </label> <label class="radio radio-warning radio-inline radio-homecare"> <input
+                                                name="home_situated<%=quetionList.getQid()%>"
+                                                id="inlineDeskRadio1b<%=quetionList.getQid()%>"
+                                                data-id="home" class="plan"
+                                                value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
+                                                type="radio"> <label
+                                                for="inlineDeskRadio1b<%=quetionList.getQid()%>"> <span>
+                                                        <%=quetionList.getAnswer2()%></span>
+                                            </label>
+                                            </label>
+                                        </div>
+                                        <%
+                                            }
+                                                i++;
+                                        %>
+                                        <div class="col-md-4">
+                                            <button type="submit"
+                                                class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
+                                                onclick="return msgAlertDesk('getHomeQuote')"><fmt:message key="home.main.quote.top.action" bundle="${msg}" /></button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p class="col-xs-12 mute">
+                                            <!--<fmt:message key="home.main.quote.subheading" bundle="${msg}" /><br>
+                                            <br>--> 
+                                            <fmt:message key="home.main.quote.terms" bundle="${msg}" />
+                                        </p>
+                                        
+                                    </div>
+                                </form:form>
+
+                            </div>
+                        </div>
+                    </div>
 	</section>
 	
-		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">
-						<div class="container">
-							<div class="row">
-
-								<form:form name="getHomeQuote" id="getHomeQuote" action="${pageContext.request.contextPath}/${language}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
-									<div class="hidden-xs hidden-sm slide-form">
-										<!-- <h2 class="col-xs-12"><fmt:message key="home.main.quote.top.heading" bundle="${msg}" /></h2> -->
-										<%
-											List lst = (List) request
-														.getAttribute("homeCareQuetionariesList");
-
-												Iterator itr = lst.iterator();
-												int i = 1;
-												while (itr.hasNext()) {
-
-													HomeCareQuetionaries quetionList = (HomeCareQuetionaries) itr
-															.next();
-										%>
-
-										<div class="col-md-4">
-											<h4>
-												<%=quetionList.getQuetion()%>
-											</h4>
-											<input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
-											<label class="radio radio-warning radio-inline radio-homecare"> <input
-												name="home_situated<%=quetionList.getQid()%>"
-												id="inlineDeskRadio1a<%=quetionList.getQid()%>"
-												data-id="home" class="plan"
-												value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
-												type="radio"> <label
-												for="inlineDeskRadio1a<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
-											</label>
-											</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
-												name="home_situated<%=quetionList.getQid()%>"
-												id="inlineDeskRadio1b<%=quetionList.getQid()%>"
-												data-id="home" class="plan"
-												value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
-												type="radio"> <label
-												for="inlineDeskRadio1b<%=quetionList.getQid()%>"> <span>
-														<%=quetionList.getAnswer2()%></span>
-											</label>
-											</label>
-										</div>
-										<%
-											}
-												i++;
-										%>
-										<div class="col-md-4">
-											<button type="submit"
-												class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
-												onclick="return msgAlertDesk('getHomeQuote')"><fmt:message key="home.main.quote.top.action" bundle="${msg}" /></button>
-										</div>
-										<div class="clearfix"></div>
-										<p class="col-xs-12 mute">
-											<!--<fmt:message key="home.main.quote.subheading" bundle="${msg}" /><br>
-											<br>--> 
-											<fmt:message key="home.main.quote.terms" bundle="${msg}" />
-										</p>
-										
-									</div>
-								</form:form>
-
-							</div>
-						</div>
-					</div>
+		
 		<!--mobile-->
 		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/${language}/home-insurance/quote"
 			method="post" modelAttribute="homeCarelPlan">
@@ -753,8 +754,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 		<div class="container">
 			<div class="row">
 				<form:form name="getHomeQuoteBottom" id="getHomeQuoteBottom" action="${pageContext.request.contextPath}/${language}/home-insurance/quote" method="post" modelAttribute="homeCarelPlan">
-					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare">
-						<h2><fmt:message key="home.main.quote.bottom.heading" bundle="${msg}" /></h2>
+					<div class="col-lg-12 col-md-12 hidden-xs pad-none homecare slide-form">
+						<!-- <h2><fmt:message key="home.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
 						<%
 							List blst = (List) request
 										.getAttribute("homeCareQuetionariesList");

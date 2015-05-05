@@ -18,12 +18,22 @@
   var familyChild = "${travelQuote.getTotalChildTraveller()}";
   var familyOther = "${travelQuote.getTotalOtherTraveller()}";  
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+  
+  var t1 = "${travelQuote.getTotalAdultTraveller()}";
+  var t2 = "${travelQuote.getTotalChildTraveller()}";
+  var t3 = "${travelQuote.getTotalOtherTraveller()}";  
+  
+  console.log(t1);
+  console.log(t2);
+  console.log(t3);
 
+
+  /* default
   if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
     traveller = familyTraveller;
   }else{
     traveller = personalTraveller;
-  }
+  }*/
 
     function reset_submit()
     {        
@@ -42,11 +52,24 @@
       //alert("reset_submit");
       //frm.submit();
     }   
+    
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
+    
+    // update quote area to show headcounts
+    if("${travelQuote.getPlanSelected()}".toLowerCase() == "family"){
+    	if (familyTraveller > 0){
+            $('#family_plan_desk_spinner').show();
+            $('#family_plan_btm_spinner').show();
+            $('#family_plan_mob_spinner').show();
+        }
+        traveller = familyTraveller;
+     }else{
+       traveller = personalTraveller;
+     }
 });
 </script>
 <!-- End fixed header -->
@@ -56,14 +79,18 @@ $(document).ready(function() {
   String personalSpinnerStyle = "";
   String familySpinnerStyle = "style='display:none'";
   TravelQuoteBean travelQuote = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+  System.out.println(travelQuote.getPlanSelected());
     if(travelQuote.getPlanSelected().equalsIgnoreCase("personal")){
       PersonalPlanChecked = "checked";
     }
-    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){      
+    else if(travelQuote.getPlanSelected().equalsIgnoreCase("family")){
+      
       FamilyPlanChecked = "checked";
       personalSpinnerStyle = "style='display:none'";
       familySpinnerStyle = "";
     } 
+    System.out.println(familySpinnerStyle);
+    System.out.println(personalSpinnerStyle);
 %>
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
@@ -81,151 +108,153 @@ $(document).ready(function() {
     <!--/.carousel inner--> 
   </div>
   <!--/.carousel--> 
+  <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
+	<section id="middle" class="hidden-sm hidden-xs">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-lg-12 col-md-12 pad-none slide-form">
+	        <!-- <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2> -->
+	                <table class="table activation-form3">
+	              <tbody>
+	                <tr class="hide-html">
+	                  <td><h3><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h3></td>
+	                  <td><h3><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h3></td>
+	                  <td><h3><fmt:message key="travel.main.quote.q3" bundle="${msg}" /></h3></td>
+	                  <td><div id="divPersonsDesk" style="visibility:hidden;">
+	                   <h3 class="h3-i">
+	                      <label id="lblPeopleDesk">0</label>
+	                    <fmt:message key="travel.main.quote.total.people" bundle="${msg}" />
+	                      <label id="lblDaysDesk">0</label>
+	                    <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></h3>
+	                  </div></td>
+	                </tr>
+	                  <tr>
+	                  <td class="col-md-3 pad-none">
+	                    <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+	                    </div>
+	                    </td>
+	                  <td class="col-md-3 pad-none">
+	                    <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+	                    </div>
+	                    </td>
+	                  <td class="col-md-3 pad-none">
+	                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
+	                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
+	                      <div class="dropdown-menu bdr1">
+	                        <div class="drop-content">
+	                          <div class="col-lg-6 col-md-6">
+	                            <label class="radio radio-warning radio-inline">
+	                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
+	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
+	                          </div>
+	                          <div class="col-lg-6 col-md-6">
+	                            <label class="radio radio-warning radio-inline">
+	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
+	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+	                          </div>
+	                          <div class="clearfix"></div>
+	                          <hr>
+	                          <!-- start of personal plan bottom spinner-->
+	                       <input type="hidden" name="familyPlan" id="family_desk_count" value="${travelQuote.getTotalFamilyTravellers()}">
+	                       <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
+	                         <div class="col-lg-6">
+	                           <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
+	                         </div>
+	                         <div class="col-lg-6">
+	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             </span>
+	                  <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalPersonalTraveller()}</div>
+	                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${travelQuote.getTotalPersonalTraveller()}"/>
+	                             <span class="input-group-btn data-up ">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
+	                             </span> </div>
+	                         </div>
+	                       </div>
+	                       <!-- end of personal plan bottom spinner-->
+	                       <div class="clearfix"></div>
+	
+	                       <!-- start of family plan bottom spinner-->
+	                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
+	                         <div class="col-lg-6">
+	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
+	                         </div>
+	                         <div class="col-lg-6">
+	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             </span>
+	                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
+	                             <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
+	                             <span class="input-group-btn data-up ">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+	                             </span> </div>
+	                         </div>
+	                         <div class="clearfix"></div>
+	                         <div class="col-lg-6">
+	                           <h4><fmt:message key="travel.main.quote.plan2.type2" bundle="${msg}" /></h4>
+	                         </div>
+	                         <div class="col-lg-6">
+	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             </span>
+	                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
+	                             <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
+	                             <span class="input-group-btn data-up ">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+	                             </span> </div>
+	                         </div>
+	                         <div class="clearfix"></div>
+	                         <div class="col-lg-6">
+	                           <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
+	                         </div>
+	                         <div class="col-lg-6">
+	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             </span>
+	                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
+	                             <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
+	                             <span class="input-group-btn data-up ">
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+	                             </span> </div>
+	                         </div>
+	                         <div class="col-lg-12 text-red child-notes">Notes for child</div>
+	                       </div>
+	                       
+	                       <!-- start of family plan bottom spinner-->
+	                       <div class="clearfix"></div>
+	                     </div>
+	                   </div>
+	                   <div class="clearfix"></div>
+	                 </div>
+	                 </td>
+	               <td class="col-md-2 pad-none">
+	                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="travel.main.quote.top.action" bundle="${msg}" /></button>
+	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
+	              </td>
+	             </tr>
+	             <tr class="product-landing-error-wrap">
+	              <td><span id="startDateDeskIn" class="text-red"> </span></td>
+	              <td><span id="endDateDeskIn" class="text-red"> </span></td>
+	              <td><span id="travelCountDeskIn"  style="display:none">
+	                 <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
+	                 </span></td>
+	              <td></td>
+	             </tr>
+	           </tbody>
+	         </table>
+	      </div>
+	      <!--/.col-sm-6--> 
+	      
+	    </div>
+	    <!--/.row--> 
+	  </div>
+	  <!--/.container--> 
+	</section>
+	</form>
 </section>
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
-<section id="middle" class="hidden-sm hidden-xs">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 pad-none slide-form">
-        <!-- <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2> -->
-                <table class="table activation-form3">
-              <tbody>
-                <tr>
-                  <td><h3><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h3></td>
-                  <td><h3><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h3></td>
-                  <td><h3><fmt:message key="travel.main.quote.q3" bundle="${msg}" /></h3></td>
-                  <td><div id="divPersonsDesk" style="visibility:hidden;">
-                   <h3 class="h3-i">
-                      <label id="lblPeopleDesk">0</label>
-                    <fmt:message key="travel.main.quote.total.people" bundle="${msg}" />
-                      <label id="lblDaysDesk">0</label>
-                    <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></h3>
-                  </div></td>
-                </tr>
-                  <tr>
-                  <td class="col-md-3 pad-none">
-                    <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" readonly>
-                    </div>
-                    </td>
-                  <td class="col-md-3 pad-none">
-                    <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" readonly>
-                    </div>
-                    </td>
-                  <td class="col-md-3 pad-none">
-                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
-                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
-                      <div class="dropdown-menu bdr1">
-                        <div class="drop-content">
-                          <div class="col-lg-6 col-md-6">
-                            <label class="radio radio-warning radio-inline">
-                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
-                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
-                          </div>
-                          <div class="col-lg-6 col-md-6">
-                            <label class="radio radio-warning radio-inline">
-                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
-                          </div>
-                          <div class="clearfix"></div>
-                          <hr>
-                          <!-- start of personal plan bottom spinner-->
-                       <input type="hidden" name="familyPlan" id="family_desk_count" value="${travelQuote.getTotalFamilyTravellers()}">
-                       <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
-                         <div class="col-lg-6">
-                           <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
-                         </div>
-                         <div class="col-lg-6">
-                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
-                             </span>
-                  <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalPersonalTraveller()}</div>
-                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${travelQuote.getTotalPersonalTraveller()}"/>
-                             <span class="input-group-btn data-up ">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
-                             </span> </div>
-                         </div>
-                       </div>
-                       <!-- end of personal plan bottom spinner-->
-                       <div class="clearfix"></div>
 
-                       <!-- start of family plan bottom spinner-->
-                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
-                         <div class="col-lg-6">
-                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
-                         </div>
-                         <div class="col-lg-6">
-                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
-                             </span>
-                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
-                             <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
-                             <span class="input-group-btn data-up ">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
-                             </span> </div>
-                         </div>
-                         <div class="clearfix"></div>
-                         <div class="col-lg-6">
-                           <h4><fmt:message key="travel.main.quote.plan2.type2" bundle="${msg}" /></h4>
-                         </div>
-                         <div class="col-lg-6">
-                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
-                             </span>
-                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
-                             <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
-                             <span class="input-group-btn data-up ">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
-                             </span> </div>
-                         </div>
-                         <div class="clearfix"></div>
-                         <div class="col-lg-6">
-                           <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
-                         </div>
-                         <div class="col-lg-6">
-                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
-                             </span>
-                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
-                             <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
-                             <span class="input-group-btn data-up ">
-                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
-                             </span> </div>
-                         </div>
-                       </div>
-                       
-                       <!-- start of family plan bottom spinner-->
-                       <div class="clearfix"></div>
-                     </div>
-                   </div>
-                   <div class="clearfix"></div>
-                 </div>
-                 </td>
-               <td class="col-md-2 pad-none">
-                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="travel.main.quote.top.action" bundle="${msg}" /></button>
-                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
-              </td>
-             </tr>
-             <tr>
-              <td><span id="startDateDeskIn" class="text-red"> </span></td>
-              <td><span id="endDateDeskIn" class="text-red"> </span></td>
-              <td><span id="travelCountDeskIn"  style="display:none">
-                 <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
-                 </span></td>
-              <td></td>
-             </tr>
-           </tbody>
-         </table>
-      </div>
-      <!--/.col-sm-6--> 
-      
-    </div>
-    <!--/.row--> 
-  </div>
-  <!--/.container--> 
-</section>
-</form>
 
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
@@ -729,11 +758,11 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
     <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateBtmTravel();">
-      <div class="col-lg-12 col-md-12 pad-none">
-        <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2>
+      <div class="col-lg-12 col-md-12 pad-none slide-form">
+        <!-- <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
         <table class="table activation-form3">
           <tbody>
-          <tr>
+          <tr class="hide-html">
             <td><h3><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="travel.main.quote.q3" bundle="${msg}" /></h3></td>
@@ -747,20 +776,20 @@ $(document).ready(function() {
              </td>
           </tr>
             <tr>
-              <td class="col-md-3  ">
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${travelQuote.getTrLeavingDate()}" readonly>
+                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${travelQuote.getTrLeavingDate()}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 ">
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${travelQuote.getTrBackDate()}" readonly>
+                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${travelQuote.getTrBackDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 ">
+              <td class="col-md-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
-                  <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label id="lblCountBtm"></label> <i class="fa fa-caret-down pull-right"></i> </a>
+                  <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
                   <div class="dropdown-menu bdr1">
                     <div class="drop-content">
                       <div class="col-lg-6">
@@ -844,6 +873,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
+                        <div class="col-lg-12 text-red child-notes">Notes for child</div>
                       </div>
                       
                       <!-- start of family plan bottom spinner-->
@@ -855,14 +885,14 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-              <td class="col-md-2 ">
+              <td class="col-md-2 pad-none">
                   <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
-            <tr>
+            <tr class="product-landing-error-wrap">
               <td><span id="startDateBtmIn" style="color:red"> </span></td>
               <td><span id="endDateBtmIn" style="color:red"> </span></td>
-              <td><span id="travelCountBtmIn" style="display: none;">
+              <td><span id="travelCountBtmIn" class="hide-html">
                 <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
                 </span></td>
               <td></td>

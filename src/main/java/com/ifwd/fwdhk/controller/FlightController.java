@@ -74,17 +74,32 @@ public class FlightController {
 		PlanDetails planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");
 
-		if (planDetails == null) {
+		/*if (planDetails == null) {
 			planDetails = new PlanDetails();
+		}*/
+		if(planDetails == null){
+			planDetails = new PlanDetails();
+			planDetails.setTotalPersonalTraveller(1);
+			planDetails.setTotalAdultTraveller(1);
+			planDetails.setTotalChildTraveller(1);
+			planDetails.setTotalOtherTraveller(0);
+			planDetails.setPlanSelected("personal");
+			planDetails.setTravellerCount(1);
+		}
+		else{
+			System.out.println("Plan selected : "+planDetails.getPlanSelected());
 		}
 
+		// default
+		/*
 		planDetails.setTotalPersonalTraveller(1);
 		planDetails.setTotalAdultTraveller(1);
 		planDetails.setTotalChildTraveller(1);
 		planDetails.setTotalOtherTraveller(0);
 		planDetails.setPlanSelected("personal");
 		planDetails.setTravellerCount(1);
-
+		*/
+		
 		model.addAttribute(planDetails);
 
 		String pageTitle = WebServiceUtils.getPageTitle("page.flight",
@@ -264,7 +279,8 @@ public class FlightController {
 				+ commencementDate + "&expiryDate=" + expiryDate
 				+ "&referralCode="
 				+ (String) session.getAttribute("referralCode");
-
+		
+		/* flight landing page save date */
 		System.out.println("Fight Quote user " + base);
 
 		String token = null, username = null;
