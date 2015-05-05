@@ -385,7 +385,7 @@ var promoData = '';
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
-															class="fa fa-plus"></i><a href="#" data-target="#details-popup-2" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
+															class="fa fa-plus"></i> <a href="#" data-target="#details-popup-2" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="modal fade details-popup" id="details-popup-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
