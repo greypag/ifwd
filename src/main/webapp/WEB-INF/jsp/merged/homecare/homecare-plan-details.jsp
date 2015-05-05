@@ -864,6 +864,27 @@
 									</label>
 								</div>
 
+                                <div class="checkboxBubble">
+                                                                            您將會無法收到富衛最新的推廣優惠！
+                                </div>
+                                
+                                <script type="text/javascript">
+								function showBubble(){
+								    if($("#checkbox33").prop('checked') || $("#checkbox34").prop("checked")) {
+								        $(".checkboxBubble").fadeIn();
+								    }else{
+								        $(".checkboxBubble").fadeOut();
+								    }
+								}
+								
+								$("#checkbox33").change(function() {
+								    showBubble();
+								});
+								
+								$("#checkbox34").change(function() {
+								    showBubble();
+								});
+								</script>
 							</div>
 						</div>
 						<%

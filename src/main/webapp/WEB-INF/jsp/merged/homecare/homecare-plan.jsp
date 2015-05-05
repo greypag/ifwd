@@ -839,6 +839,12 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="scrollToTop">
+	    <a title="Scroll to top" href="#">
+	        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
+	    </a>
+	</div>
 
 </body>
 </html>
