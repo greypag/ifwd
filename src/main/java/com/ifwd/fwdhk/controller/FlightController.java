@@ -983,7 +983,7 @@ public class FlightController {
 			childCount = travelQuoteCount.getTotalChildTraveller();
 			otherCount = travelQuoteCount.getTotalOtherTraveller();
 
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?111planCode=A"
+			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
