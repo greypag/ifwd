@@ -1624,16 +1624,19 @@ function tPlanValid()
 		}
 	}
 
-	 if (mobileNo.trim() == "") {
-	        document.getElementById("mobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
+	 if (mobileNo.trim() == "") 
+	 {
+		 	$('#errMobileNo').html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
 	        flag = false;
-	    }
-	    else {        
-	        if (mobile_pattern.test(mobileNo) == false) {
-	            document.getElementById("mobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
+	 }
+	 else 
+	 {        
+	        if (mobile_pattern.test(mobileNo) == false) 
+	        {
+	            $('#errMobileNo').html(getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message"));
 	            flag = false;
 	        }
-	    }
+	 }
 
 
 	

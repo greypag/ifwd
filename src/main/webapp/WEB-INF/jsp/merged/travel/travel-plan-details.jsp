@@ -161,8 +161,8 @@
 										class="form-control" value="${userDetails.getMobileNo().trim()}"
 										id="inputMobileNo" placeholder="<fmt:message key="travel.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8" /> <span
-										id="mobileNo" class="text-red">
+										onblur="replaceNumeric(this);" maxlength="8" /> 
+									<span id="errMobileNo" class="text-red">
 									</span></td>
 								</tr>
 								<tr>
