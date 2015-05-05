@@ -297,21 +297,14 @@
 
 
 						<!--Full coverage -->
-						<div class="fwdpanel">
-							<div class="fwdpanel-heading">
-								<h4 class="fwdpanel-title h4-4-full">
-									<span>
-									<a href="#" data-target="#details-popup" data-toggle="modal"><i
-											class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.heading" bundle="${msg}" /> </a> </span>
-								</h4>
-							</div>
-							<div class="modal fade" id="details-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content plan-modal">
-                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                        </a>
-                                        <div class="fwdpanel-body">
+                        <div class="fwdpanel">
+                            <div class="fwdpanel-heading">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <span><a href="#" class="fwdpanel-minimize"><i
+                                            class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.heading" bundle="${msg}" /> </a> </span>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body" style="display: none;">
                                 <div class="row">
                                     <div class="col-md-12">
 
@@ -320,17 +313,30 @@
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-travel margin-left">
-                                                    <span><a href="#"><i
-                                                            class="fa fa-plus"></i><fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
+                                                    <span><a href="#" data-target="#details-popup-1" data-toggle="modal"><i
+                                                            class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
                                             </div>
-                                            <div class="fwdpanel-body">
-                                                <p><fmt:message key="home.quote.highlight.desc1" bundle="${msg}" /></p>
-                                                <p><fmt:message key="home.quote.highlight.desc2" bundle="${msg}" /></p>
-                                                <p><fmt:message key="home.quote.highlight.desc3" bundle="${msg}" /></p>
-                                                <br>
-                                                <p><fmt:message key="home.quote.highlight.desc4" bundle="${msg}" /></p>
-                                            </div>
+                                            <div class="modal fade details-popup" id="details-popup-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+											    <div class="modal-dialog modal-lg">
+											        <div class="modal-content plan-modal">
+											            <a class="close" aria-label="Close" data-dismiss="modal">
+											            <span aria-hidden="true" style="font-size:30px;">×</span>
+											            </a>
+											            <div class="fwdpanel-heading">
+											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.highlight.heading" bundle="${msg}" /></h4>
+											            </div>
+											            <div class="fwdpanel-body">
+											               <p><fmt:message key="home.quote.highlight.desc1" bundle="${msg}" /></p>
+											               <p><fmt:message key="home.quote.highlight.desc2" bundle="${msg}" /></p>
+											               <p><fmt:message key="home.quote.highlight.desc3" bundle="${msg}" /></p>
+											               <br>
+											               <p><fmt:message key="home.quote.highlight.desc4" bundle="${msg}" /></p>
+											           </div>
+											        </div>
+											    </div>
+											</div>
+                                            
                                         </div>
                                         <!-- /  Product Highlights -->
 
@@ -338,166 +344,177 @@
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-travel margin-left">
-                                                    <span><a href="#"><i
-                                                            class="fa fa-plus"></i><fmt:message key="home.quote.summary.heading" bundle="${msg}" /> </a> </span>
+                                                    <span><a href="#" data-target="#details-popup-2" data-toggle="modal"><i
+                                                            class="fa fa-plus"></i> <fmt:message key="home.quote.summary.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
                                             </div>
-                                            <div class="fwdpanel-body">
-
-                                                <h4 class="h4-2">
-                                                    <strong> <fmt:message key="home.quote.summary.subheading1" bundle="${msg}" /> </strong>
-                                                </h4>
-                                                <p><fmt:message key="home.quote.summary.subheading1.desc1" bundle="${msg}" /></p>
-                                                <br>
-                                                <p><fmt:message key="home.quote.summary.subheading1.desc2" bundle="${msg}" /></p>
-                                                <br>
-                                                <table id="homecarePremium" class="table table-bordred">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><strong><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
-                                                            <td><strong><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
-                                                            <td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /> Limits<br>(HK$)
-                                                            </strong></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row1.col2.desc1" bundle="${msg}" /><br /> 
-                                                                    <fmt:message key="home.quote.summary.table.row1.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row1.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row2.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row2.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row2.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row2.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> </td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row3.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row3.col2.desc2" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row3.col2.desc4" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row3.col2.desc5" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row3.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row4.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row4.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row4.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row4.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row5.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row5.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row5.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row5.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row6.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row6.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row6.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row6.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td rowspan="2"><fmt:message key="home.quote.summary.table.row7.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong><fmt:message key="home.quote.summary.table.row7.col2.desc1" bundle="${msg}" /></strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row7.col3.desc1" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <strong><fmt:message key="home.quote.summary.table.row7.col2.desc2" bundle="${msg}" /></strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row7.col3.desc2" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row8.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row8.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row8.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row8.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row9.col1" bundle="${msg}" /></td>
-                                                            <td>
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row9.col2.desc1" bundle="${msg}" /><br />
-                                                                    <fmt:message key="home.quote.summary.table.row9.col2.desc2" bundle="${msg}" />
-                                                                    <fmt:message key="home.quote.summary.table.row9.col2.desc3" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row9.col3" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td rowspan="2"><fmt:message key="home.quote.summary.table.row10.col1" bundle="${msg}" /></td>
-                                                            <td rowspan="2">
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row10.col2.desc1" bundle="${msg}" /><br /> 
-                                                                    <fmt:message key="home.quote.summary.table.row10.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row10.col3.desc1" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row10.col3.desc2" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td rowspan="2"><fmt:message key="home.quote.summary.table.row11.col1" bundle="${msg}" /></td>
-                                                            <td rowspan="2">
-                                                                <strong>
-                                                                    <fmt:message key="home.quote.summary.table.row11.col2.desc1" bundle="${msg}" /><br /> 
-                                                                    <fmt:message key="home.quote.summary.table.row11.col2.desc2" bundle="${msg}" />
-                                                                </strong>
-                                                            </td>
-                                                            <td><fmt:message key="home.quote.summary.table.row11.col3.desc1" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.summary.table.row11.col3.desc2" bundle="${msg}" /></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <h4 class="h4-2">
-                                                    <strong><fmt:message key="home.quote.summary.subheading2" bundle="${msg}" /></strong>
-                                                </h4>
-                                                <p><fmt:message key="home.quote.summary.subheading2.desc1" bundle="${msg}" /></p>
-                                                <p><fmt:message key="home.quote.summary.subheading2.desc2" bundle="${msg}" /></p>
-                                                <p><fmt:message key="home.quote.summary.subheading2.desc3" bundle="${msg}" /></p>
-                                                <p><fmt:message key="home.quote.summary.subheading2.desc4" bundle="${msg}" /></p>
-
-                                                <p><fmt:message key="home.quote.summary.subheading2.desc5" bundle="${msg}" /></p>
-
-
-
-
-                                            </div>
+                                            <div class="modal fade details-popup" id="details-popup-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+											    <div class="modal-dialog modal-lg">
+											        <div class="modal-content plan-modal">
+											            <a class="close" aria-label="Close" data-dismiss="modal">
+											            <span aria-hidden="true" style="font-size:30px;">×</span>
+											            </a>
+											            <div class="fwdpanel-heading">
+											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
+											            </div>
+											            <div class="fwdpanel-body">
+                                                            <h4 class="h4-2">
+                                                                <strong> <fmt:message key="home.quote.summary.subheading1" bundle="${msg}" /> </strong>
+                                                            </h4>
+                                                            <p><fmt:message key="home.quote.summary.subheading1.desc1" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <p><fmt:message key="home.quote.summary.subheading1.desc2" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <table id="homecarePremium" class="table table-bordred">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><strong><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
+                                                                        <td><strong><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
+                                                                        <td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /> Limits<br>(HK$)
+                                                                        </strong></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row1.col2.desc1" bundle="${msg}" /><br /> 
+                                                                                <fmt:message key="home.quote.summary.table.row1.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row1.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row2.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row2.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row2.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row2.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row3.col1" bundle="${msg}" /><br /> </td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row3.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row3.col2.desc2" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row3.col2.desc4" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row3.col2.desc5" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row3.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row4.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row4.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row4.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row4.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row5.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row5.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row5.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row5.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row6.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row6.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row6.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row6.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2"><fmt:message key="home.quote.summary.table.row7.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong><fmt:message key="home.quote.summary.table.row7.col2.desc1" bundle="${msg}" /></strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row7.col3.desc1" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <strong><fmt:message key="home.quote.summary.table.row7.col2.desc2" bundle="${msg}" /></strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row7.col3.desc2" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row8.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row8.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row8.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row8.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row9.col1" bundle="${msg}" /></td>
+                                                                        <td>
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row9.col2.desc1" bundle="${msg}" /><br />
+                                                                                <fmt:message key="home.quote.summary.table.row9.col2.desc2" bundle="${msg}" />
+                                                                                <fmt:message key="home.quote.summary.table.row9.col2.desc3" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row9.col3" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2"><fmt:message key="home.quote.summary.table.row10.col1" bundle="${msg}" /></td>
+                                                                        <td rowspan="2">
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row10.col2.desc1" bundle="${msg}" /><br /> 
+                                                                                <fmt:message key="home.quote.summary.table.row10.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row10.col3.desc1" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row10.col3.desc2" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2"><fmt:message key="home.quote.summary.table.row11.col1" bundle="${msg}" /></td>
+                                                                        <td rowspan="2">
+                                                                            <strong>
+                                                                                <fmt:message key="home.quote.summary.table.row11.col2.desc1" bundle="${msg}" /><br /> 
+                                                                                <fmt:message key="home.quote.summary.table.row11.col2.desc2" bundle="${msg}" />
+                                                                            </strong>
+                                                                        </td>
+                                                                        <td><fmt:message key="home.quote.summary.table.row11.col3.desc1" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><fmt:message key="home.quote.summary.table.row11.col3.desc2" bundle="${msg}" /></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <h4 class="h4-2">
+                                                                <strong><fmt:message key="home.quote.summary.subheading2" bundle="${msg}" /></strong>
+                                                            </h4>
+                                                            <p><fmt:message key="home.quote.summary.subheading2.desc1" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="home.quote.summary.subheading2.desc2" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="home.quote.summary.subheading2.desc3" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="home.quote.summary.subheading2.desc4" bundle="${msg}" /></p>
+            
+                                                            <p><fmt:message key="home.quote.summary.subheading2.desc5" bundle="${msg}" /></p>
+            
+            
+            
+            
+                                                        </div>
+											        </div>
+											    </div>
+											</div>
                                         </div>
                                         <!-- / Summary of Coverage -->
 
@@ -506,35 +523,46 @@
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-travel margin-left">
-                                                    <span><a href="#"><i
-                                                            class="fa fa-plus"></i><fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
+                                                    <span><a href="#" data-target="#details-popup-3" data-toggle="modal"><i
+                                                            class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
                                                 </h4>
                                             </div>
-                                            <div class="fwdpanel-body">
-
-                                                <table id="homecarePremium" class="table table-bordred">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></th>
-                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></th>
-                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></th>
-                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.section1" bundle="${msg}" /></td>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.coverage1" bundle="${msg}" /></td>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.liability1" bundle="${msg}" /></td>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.annualP1" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.section2" bundle="${msg}" /></td>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.coverage2" bundle="${msg}" /></td>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.liability2" bundle="${msg}" /></td>
-                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.annualP2" bundle="${msg}" /></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                            <div class="modal fade details-popup" id="details-popup-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+											    <div class="modal-dialog modal-lg">
+											        <div class="modal-content plan-modal">
+											            <a class="close" aria-label="Close" data-dismiss="modal">
+											            <span aria-hidden="true" style="font-size:30px;">×</span>
+											            </a>
+											            <div class="fwdpanel-heading">
+											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></h4>
+											            </div>
+											            <div class="fwdpanel-body">
+			                                                <table id="homecarePremium" class="table table-bordred">
+			                                                    <tbody>
+			                                                        <tr>
+			                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></th>
+			                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></th>
+			                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></th>
+			                                                            <th><fmt:message key="home.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></th>
+			                                                        </tr>
+			                                                        <tr>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.section1" bundle="${msg}" /></td>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.coverage1" bundle="${msg}" /></td>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.liability1" bundle="${msg}" /></td>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.annualP1" bundle="${msg}" /></td>
+			                                                        </tr>
+			                                                        <tr>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.section2" bundle="${msg}" /></td>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.coverage2" bundle="${msg}" /></td>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.liability2" bundle="${msg}" /></td>
+			                                                            <td><fmt:message key="home.quote.fullDetails.priceTable.annualP2" bundle="${msg}" /></td>
+			                                                        </tr>
+			                                                    </tbody>
+			                                                </table>
+			                                            </div>
+											        </div>
+											    </div>
+											</div>
                                         </div>
                                         <!-- /  Major Exclusions -->
 
@@ -542,60 +570,83 @@
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-travel margin-left">
-                                                    <span><a href="#"><i
+                                                    <span><a href="#" data-target="#details-popup-4" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
                                             </div>
-                                            <div class="fwdpanel-body">
-                                                <p>
-                                                    <fmt:message key="home.quote.exclusion.desc1" bundle="${msg}" /><br>
-                                                <ul>
-                                                    <li><fmt:message key="home.quote.exclusion.desc2" bundle="${msg}" /></li>
-                                                    <li><fmt:message key="home.quote.exclusion.desc3" bundle="${msg}" /></li>
-                                                    <li><fmt:message key="home.quote.exclusion.desc4" bundle="${msg}" /></li>
-                                                    <li><fmt:message key="home.quote.exclusion.desc5" bundle="${msg}" /></li>
-                                                    <li><fmt:message key="home.quote.exclusion.desc6" bundle="${msg}" /></li>
-
-                                                </ul>
-
-
-                                                </p>
-                                            </div>
+                                            <div class="modal fade details-popup" id="details-popup-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+											    <div class="modal-dialog modal-lg">
+											        <div class="modal-content plan-modal">
+											            <a class="close" aria-label="Close" data-dismiss="modal">
+											            <span aria-hidden="true" style="font-size:30px;">×</span>
+											            </a>
+											            <div class="fwdpanel-heading">
+											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /></h4>
+											            </div>
+											            <div class="fwdpanel-body">
+			                                                <p>
+			                                                    <fmt:message key="home.quote.exclusion.desc1" bundle="${msg}" /><br>
+			                                                <ul>
+			                                                    <li><fmt:message key="home.quote.exclusion.desc2" bundle="${msg}" /></li>
+			                                                    <li><fmt:message key="home.quote.exclusion.desc3" bundle="${msg}" /></li>
+			                                                    <li><fmt:message key="home.quote.exclusion.desc4" bundle="${msg}" /></li>
+			                                                    <li><fmt:message key="home.quote.exclusion.desc5" bundle="${msg}" /></li>
+			                                                    <li><fmt:message key="home.quote.exclusion.desc6" bundle="${msg}" /></li>
+			
+			                                                </ul>
+			
+			
+			                                                </p>
+			                                            </div>
+											        </div>
+											    </div>
+											</div>
                                         </div>
                                         <!-- / Age limit -->
                                         <!--   Premium table (HK$)  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-travel margin-left">
-                                                    <span><a href="#"><i
+                                                    <span><a href="#" data-target="#details-popup-4" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.excess.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
                                             </div>
-                                            <div class="fwdpanel-body">
-
-                                                <!--<h4 class="h4-2">
-                                                    <strong><fmt:message key="home.quote.excess.heading" bundle="${msg}" /></strong>
-                                                </h4>-->
-
-                                                <table id="Premium" class="table table-bordred">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td colspan="1" rowspan="2"><fmt:message key="home.quote.excess.section1" bundle="${msg}" /></td>
-                                                            <td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section1.desc1" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section1.desc2" bundle="${msg}" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><fmt:message key="home.quote.excess.section2" bundle="${msg}" /></td>
-                                                            <td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section2.desc" bundle="${msg}" /></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-
-
-                                            </div>
+                                            <div class="modal fade details-popup" id="details-popup-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+											    <div class="modal-dialog modal-lg">
+											        <div class="modal-content plan-modal">
+											            <a class="close" aria-label="Close" data-dismiss="modal">
+											            <span aria-hidden="true" style="font-size:30px;">×</span>
+											            </a>
+											            <div class="fwdpanel-heading">
+											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.excess.heading" bundle="${msg}" /></h4>
+											            </div>
+											            <div class="fwdpanel-body">
+			                                                <!--<h4 class="h4-2">
+			                                                    <strong><fmt:message key="home.quote.excess.heading" bundle="${msg}" /></strong>
+			                                                </h4>-->
+			
+			                                                <table id="Premium" class="table table-bordred">
+			                                                    <tbody>
+			                                                        <tr>
+			                                                            <td colspan="1" rowspan="2"><fmt:message key="home.quote.excess.section1" bundle="${msg}" /></td>
+			                                                            <td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section1.desc1" bundle="${msg}" /></td>
+			                                                        </tr>
+			                                                        <tr>
+			                                                            <td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section1.desc2" bundle="${msg}" /></td>
+			                                                        </tr>
+			                                                        <tr>
+			                                                            <td><fmt:message key="home.quote.excess.section2" bundle="${msg}" /></td>
+			                                                            <td colspan="2" rowspan="1"><fmt:message key="home.quote.excess.section2.desc" bundle="${msg}" /></td>
+			                                                        </tr>
+			                                                    </tbody>
+			                                                </table>
+			
+			
+			
+			                                            </div>
+											        </div>
+											    </div>
+											</div>
                                         </div>
                                         <!-- / Premium table (HK$) -->
 
@@ -605,9 +656,6 @@
                                 </div>
                                 <!-- /row -->
                             </div>
-                                    </div>
-                                 </div>
-                             </div>
 							
 
 							<h4 class="h4-4">

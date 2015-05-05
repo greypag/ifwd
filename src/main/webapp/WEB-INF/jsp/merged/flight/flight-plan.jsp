@@ -147,68 +147,51 @@
 						</div>
 
 						<!--Full coverage -->
-						<div class="fwdpanel">
-							<div class="fwdpanel-heading">
-								<h4 class="fwdpanel-title h4-4-full">
-									<%
-										}
-									%>
-									<!-- <span><a href="#" class="fwdpanel-minimize"><i
-											class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> 
-									</span> -->
-									<span><a href="#" data-target="#details-popup" data-toggle="modal"><i
-                                            class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> 
-                                    </span>
-								</h4>
-							</div>
-							<div class="modal fade details-popup" id="details-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content plan-modal">
-                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                        </a>
-                                        <h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
-				                        <ol class="major-exc">
-				                            <li><fmt:message key="flight.quote.other.tnc.desc1" bundle="${msg}" /></li>
-				                            <li><fmt:message key="flight.quote.other.tnc.desc2" bundle="${msg}" /></li>
-				                            <li><fmt:message key="flight.quote.other.tnc.desc3" bundle="${msg}" /></li>
-				                            <li><fmt:message key="flight.quote.other.tnc.desc4" bundle="${msg}" /></li>
-				                            <li><fmt:message key="flight.quote.other.tnc.desc5" bundle="${msg}" /></li>
-				                            <li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" /></li>
-				                        </ol>
-                                    </div>
-                                </div>
+                        <div class="fwdpanel">
+                            <div class="fwdpanel-heading">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <%
+                                        }
+                                    %>
+                                    <span><a href="#" class="fwdpanel-minimize"><i
+                                            class="fa fa-plus"></i> <fmt:message key="flight.quote.fullDetails.heading" bundle="${msg}" /> </a> </span>
+                                </h4>
                             </div>
-							
-							
-							
-							
-							
-							<div class="fwdpanel-body" style="display: none;">
-								<div class="row">
-									<div class="col-md-12">
-										<h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.keyFeature" bundle="${msg}" /></h4>
-										<ol class="major-exc">
-											<li><fmt:message key="flight.quote.fullDetails.keyFeature.desc1" bundle="${msg}" /></li>
-											<li><fmt:message key="flight.quote.fullDetails.keyFeature.desc2" bundle="${msg}" /></li>
-											<li><fmt:message key="flight.quote.fullDetails.keyFeature.desc3" bundle="${msg}" /></li>
-											
-										</ol>
-										<br>
-										<h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.eligibility" bundle="${msg}" /></h4>
-										 <ul class="major-exc">
-											<li><fmt:message key="flight.quote.fullDetails.eligibility.desc1" bundle="${msg}" /></li>
-											<li><fmt:message key="flight.quote.fullDetails.eligibility.desc2" bundle="${msg}" /></li>
-										</ul>
-									</div>
-									<!-- / col-md-12 -->
-								</div>
-								<!-- /row -->
-							</div>
+                            <div class="fwdpanel-body" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.keyFeature" bundle="${msg}" /></h4>
+                                        <ol class="major-exc">
+                                            <li><fmt:message key="flight.quote.fullDetails.keyFeature.desc1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="flight.quote.fullDetails.keyFeature.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="flight.quote.fullDetails.keyFeature.desc3" bundle="${msg}" /></li>
+                                            
+                                        </ol>
+                                        <br>
+                                        <h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.eligibility" bundle="${msg}" /></h4>
+                                         <ul class="major-exc">
+                                            <li><fmt:message key="flight.quote.fullDetails.eligibility.desc1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="flight.quote.fullDetails.eligibility.desc2" bundle="${msg}" /></li>
+                                        </ul>
+                                    </div>
+                                    <!-- / col-md-12 -->
+                                </div>
+                                <!-- /row -->
+                            </div>
 
-						</div>
-						
-						<!--Full coverage end -->
+                        </div>
+                        
+                        <!--Full coverage end -->
+                        <h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
+                        <ol class="major-exc">
+                            <li><fmt:message key="flight.quote.other.tnc.desc1" bundle="${msg}" /></li>
+                            <li><fmt:message key="flight.quote.other.tnc.desc2" bundle="${msg}" /></li>
+                            <li><fmt:message key="flight.quote.other.tnc.desc3" bundle="${msg}" /></li>
+                            <li><fmt:message key="flight.quote.other.tnc.desc4" bundle="${msg}" /></li>
+                            <li><fmt:message key="flight.quote.other.tnc.desc5" bundle="${msg}" /></li>
+                            <li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" /></li>
+                        </ol>
+                        <br>
 					</div>
 					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs">
 						<div class="wd2">
@@ -232,7 +215,7 @@
 						<div class="orange-bdr"></div>
 						<div class="form-container">
 						  <!-- departure date start -->
-							<!--<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
+							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 							</h3>
 							
@@ -242,7 +225,8 @@
 										value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
 										 
 								</div>
-							</div> -->
+							</div>
+							<!-- 
 							<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline"
 							>
                                 <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
@@ -250,9 +234,10 @@
 							<div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 			                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
 			                </div>
+			                 -->
 			               <!-- departure date end  -->
 			               <!-- return date start  -->
-							<!-- <h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
+							<h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
 								<div class="form-group">
 									<div class="input-group wd2">
@@ -261,22 +246,24 @@
 											readonly>
 									</div>
 								</div>
-								 -->
-						  <h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
+								 
+						  <!-- <h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" /> <span class="span2 uline">
                                 <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
 						  
                               <div class="input-group date" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
 						        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
 						      </div>
+						      -->
 							<!-- return date end  -->
 							
 							
 							
 						
-<!--						
+						
                             <h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
                                 <a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
                             </h3>
+                            <!--
                             <div class="form-group">
 								
 									<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent :${planDetails.getTotalAdultTraveller()},</c:if>
@@ -287,7 +274,7 @@
 							</div>
 							-->
 							<!-- traveller start -->
-							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
+							<%-- <h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
                             </h3>
                             <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
@@ -381,17 +368,18 @@
                                 </div>
                               </div>
                               <div class="clearfix"></div>
-                            </div>
-                            <!-- <div class="form-group likeDatePicker bcg-trans">
+                            </div> --%>
+                            
+                            <div class="form-group likeDatePicker bcg-trans">
                                 <div class="input-group wd2 datepicker form-control" > 
                                 <%-- <input type="text" class="datepicker form-control" value=" --%>
                                 <c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
                                 <c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
                                 <c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
-                                <c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if> <!-- readonly> -->
+                                <c:if test="${planDetails.getTravellerCount() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.getTravellerCount()}</c:if><!-- readonly> --> 
                                     
-                            <!--   </div>
-                            </div> -->
+                            </div>
+                            </div>
                             <!-- traveller end -->
 							
 							
