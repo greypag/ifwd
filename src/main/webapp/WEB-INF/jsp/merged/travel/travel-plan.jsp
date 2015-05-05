@@ -1216,7 +1216,7 @@ var promoData = '';
 </div>
 <!--/ Get promotion code popup--> 
 
-<div class="scrollToTop">
+<div class="scroll-to-top">
     <a title="Scroll to top" href="#">
         <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
     </a>
