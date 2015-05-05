@@ -505,8 +505,8 @@ $(function () {
 			$('#dp2')[0].focus();
 			var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
 			var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-			document.getElementById("divPersonsDesk").style.visibility = "visible";
-			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+			/*document.getElementById("divPersonsDesk").style.visibility = "visible";
+			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);*/
 	    
 		
 		
@@ -591,8 +591,8 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
 		var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-		document.getElementById("divPersonsDesk").style.visibility = "visible";
-		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+		/*document.getElementById("divPersonsDesk").style.visibility = "visible";
+		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);*/
 
 		
 		

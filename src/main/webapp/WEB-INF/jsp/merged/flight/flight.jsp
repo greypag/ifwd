@@ -110,9 +110,7 @@ $(document).ready(function() {
     <!--/.carousel-inner--> 
   </div>
   <!--/.carousel--> 
-</section>
-
-<!-- flight top form -->
+  <!-- flight top form -->
   <section id="middle" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
@@ -125,7 +123,7 @@ $(document).ready(function() {
        
              <table class="table activation-form3">
           <tbody>
-          <tr>
+          <tr class="hide-html">
               <td class="pad-left-none">
                 <h3><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h3>
               </td>
@@ -153,13 +151,13 @@ $(document).ready(function() {
               <!--====================================================== 出發日期 -->
               
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
               
              </td>
@@ -246,6 +244,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
+                        <div class="col-lg-12 text-red child-notes">Notes for child</div>
                       </div>
                       
                       <!-- start of family plan bottom spinner-->
@@ -266,7 +265,7 @@ $(document).ready(function() {
         
             </tr>
             
-            <tr>
+            <tr class="product-landing-error-wrap">
               <td><span id="startDateDeskIn" class="text-red" > </span></td>
               <td><span id="endDateDeskIn" class="text-red"> </span></td>
               <td>
@@ -291,6 +290,9 @@ $(document).ready(function() {
   <!--/.container--> 
 </section>
 <!-- flight form top end -->
+</section>
+
+
 
 <!--Mobile-form-->
 <div class="slider-form hidden-lg hidden-md">
@@ -686,7 +688,7 @@ $(document).ready(function() {
         <h2><fmt:message key="flight.main.quote.bottom.heading" bundle="${msg}" /></h2>
         <table class="table activation-form3">
           <tbody>
-          <tr>
+          <tr class="hide-html">
             <td>
                 <h3><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h3>
               </td>
@@ -710,12 +712,12 @@ $(document).ready(function() {
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}" readonly>
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
@@ -801,6 +803,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
+                        <div class="col-lg-12 text-red child-notes">Notes for child</div>
                       </div>
                       
                       <!-- start of family plan bottom spinner-->
@@ -810,7 +813,7 @@ $(document).ready(function() {
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                <span id="travelCountBtmIn" style="display:none;" class="text-red">
+                <span id="travelCountBtmIn" class="text-red hide-html">
                 <label class="text-red"><fmt:message key="flight.main.quote.q3.error" bundle="${msg}" /></label>
                 </span>
                 </td>
@@ -819,6 +822,14 @@ $(document).ready(function() {
                  <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
               <fmt:message key="flight.main.quote.bottom.action" bundle="${msg}" />
              </button> 
+            </tr>
+            <tr class="product-landing-error-wrap">
+              <td><span id="startDateBtmIn" style="color:red"> </span></td>
+              <td><span id="endDateBtmIn" style="color:red"> </span></td>
+              <td><span id="travelCountBtmIn" class="hide-html">
+                <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
+                </span></td>
+              <td></td>
             </tr>
           </tbody>
         </table>

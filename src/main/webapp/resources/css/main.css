@@ -127,6 +127,9 @@ a {
 	-o-transition: color 300ms, background-color 300ms;
 	transition: color 300ms, background-color 300ms;
 }
+.datepicker {
+	line-height: 24px !important;
+}
 .center h2 {
 	  font-size: 40px;
   margin-bottom: 30px;
@@ -226,10 +229,12 @@ ul.maintabs li a span.offer:hover{
 .travel-and-home-tab{top:38px; position:relative;}
 /**/
 #middle {
-background: #505759;
-z-index: 11;
-width: 100%;
-bottom: 0px;
+	/*background: #505759;*/
+	background: rgba(0,0,0,0.6);
+	z-index: 11;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
 }
 #middle h2 {
 	color: #fff;
@@ -246,7 +251,9 @@ bottom: 0px;
 
 
 
-.slide-form{ margin: 20px 0px ;}
+.slide-form{ 
+	margin: 25px 0px 0 0;
+	}
 
 #middle .h3-i {
 	color: #fff;
@@ -270,7 +277,8 @@ bottom: 0px;
 /*Bottom Form*/
 /**/
 #bottom-form {
-background: #616163;
+/*background: #616163;*/
+background: rgba(0,0,0,0.6);
 width: 100%;
 
 }
@@ -5035,11 +5043,12 @@ td[data-title]:before,  td[data-title]:before {
 }
 .homecare {
 	width: 100%;
-	background-color: #fff;
-	min-height: 140px;
+	/*background-color: #fff;*/
+	/*min-height: 140px;*/
 	/*min-height: 270px;*/
 	/*padding: 10px 0;*/
-	background: #616163;
+	/*background: #616163;*/
+	/*background: rgba(0,0,0,0.6);*/
 }
 .fixed-content.homecare{
 	padding-top: 10px;
@@ -5891,6 +5900,12 @@ transform: translateX(-50%);
 p.mute{
 	opacity: 0.7;
 }
+#homecare-scroll {
+    position: absolute;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.6);
+}
 #homecare-scroll.fixed-content{
   bottom: 0;http://localhost:8080/FWDHKPH1A/tc/home-insurance
   z-index: 1000;
@@ -6003,7 +6018,10 @@ p.mute{
 	padding-left: 0 !important;
 }
 table.activation-form3 > tbody > tr > td:not(.pad-none){
-	padding-left: 0;
+	padding: 0;
+}
+tr.product-landing-error-wrap {
+	height: 26px;
 }
 .pad150{
 	padding: 0 15px;
@@ -6014,6 +6032,9 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 
 .shop-tracking-status .center{
 	margin-left: -30px;
+}
+.child-notes {
+    padding: 10px 15px;
 }
 @media (max-width: 992px){
 	.shop-tracking-status .center{

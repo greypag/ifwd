@@ -279,7 +279,8 @@ public class FlightController {
 				+ commencementDate + "&expiryDate=" + expiryDate
 				+ "&referralCode="
 				+ (String) session.getAttribute("referralCode");
-
+		
+		/* flight landing page save date */
 		System.out.println("Fight Quote user " + base);
 
 		String token = null, username = null;
@@ -982,7 +983,7 @@ public class FlightController {
 			childCount = travelQuoteCount.getTotalChildTraveller();
 			otherCount = travelQuoteCount.getTotalOtherTraveller();
 
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
+			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?111planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
