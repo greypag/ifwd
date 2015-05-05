@@ -6124,6 +6124,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
     width:283px;
     height:48px;
     color: #fff;
+    font-size: 14px;
     margin-top: -35px;
     margin-bottom: 50px;
     padding-top: 6px;
@@ -6136,6 +6137,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 	width:283px;
 	height:48px;
 	color: #fff;
+    font-size: 14px;
 	margin-top: -15px;
 	margin-bottom: 50px;
 	padding-top: 6px;
