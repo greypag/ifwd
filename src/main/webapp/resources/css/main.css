@@ -3625,6 +3625,9 @@ margin-bottom: 10px;}
 .margin-left-2 {
 	margin-left: 20px !important;
 }
+.margin-left-28 {
+    margin-left: 28px !important;
+}
 
 .margin-left-3 {
 	margin-left: 25%;
@@ -6123,7 +6126,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
     color: #fff;
     margin-top: -35px;
     margin-bottom: 50px;
-    padding-top: 30px;
+    padding-top: 6px;
     padding-left: 20px;
     display:none;
 }
@@ -6135,7 +6138,7 @@ table.activation-form3 > tbody > tr > td:not(.pad-none){
 	color: #fff;
 	margin-top: -15px;
 	margin-bottom: 50px;
-	padding-top: 30px;
+	padding-top: 6px;
 	padding-left: 20px;
 	display:none;
 }
