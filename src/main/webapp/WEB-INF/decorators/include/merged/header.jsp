@@ -103,8 +103,12 @@ function submitLoginForm(formID) {
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
+							<% String username = (String) session.getAttribute("username");
+							   if (username != null && username.equals("DIRECTGI")) {
+							%>
 							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
+							<% } %>
 							<li>
 							<%
 							if ("en".equals(session.getAttribute("language").toString())) {
