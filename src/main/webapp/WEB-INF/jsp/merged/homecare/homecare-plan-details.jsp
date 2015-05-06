@@ -401,7 +401,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="container pad-none bdr ur-opt-content gray-bg3">
+					<div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
 
 						<div
 							class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
@@ -890,7 +890,7 @@
 						<%
 							HomeQuoteBean homeQuoteDetails = (HomeQuoteBean) request.getAttribute("homeQuoteDetails");%>
 						<div
-							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3 pad-none">
+							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3 pad-none floatingbox">
 							<div class="hidden-sm hidden-xs">
 								<div class="wd2">
 									

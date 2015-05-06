@@ -101,7 +101,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 </div>
 </c:if>
 <div --%>
-                <div class="container pad-none bdr ur-opt-content gray-bg3">
+                <div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
                     <div class="alert alert-danger hide" role="alert"
                         id="errorMessages"></div>
                     <div
@@ -730,7 +730,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         </div>
                     </div>
                     <div
-                        class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none wht-bg3">
+                        class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none wht-bg3 floatingbox">
                         <!--mob-hidden-->
                         <div class="hidden-sm hidden-xs">
                             <div class="wd2">
@@ -898,6 +898,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 onclick="return flightPlanValidation();">Next</button> -->
                         </div>
                         <div class="clearfix"></div>
+                        <br/>
                     </div>
                     <div class="clearfix"></div>
                 </div>

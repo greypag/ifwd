@@ -226,7 +226,7 @@
 				
 				<%
 							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
-				<div class="container pad-none bdr ur-opt-content">
+				<div id="quote-wrap" class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
 							<!-- Choose a plan -->
@@ -672,7 +672,7 @@
 
 					</div>
 					<div
-						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
+						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
 						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 							action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post"
 							modelAttribute="planQuoteDetails">

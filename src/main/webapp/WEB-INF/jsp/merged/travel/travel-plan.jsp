@@ -160,7 +160,7 @@ var promoData = '';
 						</div>
 					</div>
 				</div>
-				<div class="container pad-none bdr">
+				<div id="quote-wrap" class="container pad-none bdr">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="travel.quote.choose" bundle="${msg}" /></h2>
 						<%
@@ -1031,7 +1031,7 @@ var promoData = '';
 					</div>
 
 					<div
-						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
+						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
 						<div class="col-xs-12 hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left">

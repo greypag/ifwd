@@ -44,6 +44,7 @@
 	    $("#inline-change-3").click(function() {
 	    	$('#myFWDropdown .dropdown-toggle').toggleClass('disabled');
 	    });
+
     });
 </script>
 <%
@@ -193,7 +194,7 @@
                         </ol>
                         <br>
 					</div>
-					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs">
+					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs floatingbox">
 						<div class="wd2">
 							<div class="pull-left">
 								<h2 class="h2-3-choose"><fmt:message key="flight.quote.summary.product" bundle="${msg}" /></h2>
@@ -415,7 +416,7 @@
 					<!-- dummy -->
 					<span id="divPersonsDesk"></span>
 					<span id="lblDaysDesk" style="display: none"></span>
-					<div class="clearfix"></div>
+					<div id="quote-wrap" class="clearfix"></div>
 				</div>
 				
 				<p class="padding1 hidden-sm hidden-xs">
