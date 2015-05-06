@@ -22,10 +22,6 @@
   var t1 = "${travelQuote.getTotalAdultTraveller()}";
   var t2 = "${travelQuote.getTotalChildTraveller()}";
   var t3 = "${travelQuote.getTotalOtherTraveller()}";  
-  
-  console.log(t1);
-  console.log(t2);
-  console.log(t3);
 
 
   /* default
