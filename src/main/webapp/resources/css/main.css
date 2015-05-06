@@ -122,10 +122,10 @@ h6 {
 
 a {
 	color: #f6871e;
-	-webkit-transition: color 300ms, background-color 300ms;
+	/*-webkit-transition: color 300ms, background-color 300ms;
 	-moz-transition: color 300ms, background-color 300ms;
 	-o-transition: color 300ms, background-color 300ms;
-	transition: color 300ms, background-color 300ms;
+	transition: color 300ms, background-color 300ms;*/
 }
 .datepicker {
 	line-height: 24px !important;
@@ -784,21 +784,21 @@ vertical-align:middle;
 	box-shadow: none;
 	background: #fff;
 	color: #f6871e;
-	    border: 1px solid #f6871e;
+	border: 1px solid #f6871e;
 
 }
 
 .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
     padding: 8px 20px;
     background: #f6871e;
-    color: #fff;
+    /*color: #fff;*/
     border: none;
         border: 1px solid #f6871e;
 }
 .btn-transparent {
 	border: 3px solid #fff;
 	background: transparent;
-	color: #fff;
+	/*color: #fff;*/
 }
 .btn-transparent:hover {
 	border-color: rgba(255, 255, 255, 0.5);
@@ -3124,7 +3124,8 @@ h2.page-title {
 }
 .plan-box h2 {
 	margin-left: 35px;
-	font-size: 32px;
+	/*font-size: 32px;*/
+	font-size: 29px;
 	line-height: 42px;
 }
 .plan-box h3 {
@@ -3409,18 +3410,17 @@ del {
 }
 .bck-btn {
 	display: block;
-	  width: 100%;
+	 width: 100%;
 
 	font-size: 28px;
-	line-height: 31.5px;
+	/*line-height: 31.5px;*/
 	font-weight: normal;
-	padding: 20px 0 ;
+	/*padding: 20px 0 ;*/
 	background-color: #fff ;
 	border: 1px solid #f68a1d;
 	color: #f68a1d;
-	
+	/*height: 73px;*/
 }
-
 .bck-btn:hover {
 	color: #fff;
 	background-color: #f68a1d;
@@ -5614,16 +5614,18 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	  font-size: 40px;
 	}
 }
+
 .travelproductbox{
 	-webkit-transition: all 500ms linear;
 	-moz-transition: all 500ms linear;
 	-o-transition: all 500ms linear;
 	-ms-transition: all 500ms linear;
 	transition: all 500ms linear;
+	cursor: pointer;
 }
 .travelproductbox:hover{
 	background-color: #616163;
-	padding: 10px;
+	/*padding: 10px;*/
 	border: 1px solid #616163;
 	color: #fff;
 }
@@ -5649,9 +5651,9 @@ table.hor-padding >tbody>tr>td{
 	display: block;
 	width: 100%;
 	font-size: 28px;
-	line-height: 31.5px;
+	/*line-height: 31.5px;*/
 	font-weight: normal;
-	padding: 20px 0;
+	/*padding: 20px 0;*/
 	border: 1px solid #f68a1d;
 	text-align: center;
 }
