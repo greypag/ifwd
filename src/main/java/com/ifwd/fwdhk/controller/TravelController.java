@@ -143,11 +143,17 @@ public class TravelController {
 		HttpSession session = request.getSession();
 		session.removeAttribute("createPolicy");
 		session.removeAttribute("policyNo");
-		if (travelQuote.getTrLeavingDate() != null) {
+		
+		if (travelQuote.getTrLeavingDate() != null) 
+		{
 			session.setAttribute("travelQuote", travelQuote);
-		} else {
+		} 
+		else 
+		{
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			if(travelQuote == null){
+			
+			if(travelQuote == null)
+			{
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
 		}
@@ -434,7 +440,9 @@ public class TravelController {
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("token") == null) {
+		
+		if (session.getAttribute("token") == null) 
+		{
 			model.addAttribute("errMsgs", "Session Expired");
 			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
 		}
@@ -581,7 +589,7 @@ public class TravelController {
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("planPremium", selectPlanPremium);
 			
-
+			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
 			model.addAttribute("travelQuote", travelQuote);
 		} catch (Exception e) {
 			e.printStackTrace();

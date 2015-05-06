@@ -74,6 +74,9 @@ $(document).ready(function() {
 </script>
 <!-- End fixed header -->
 <%
+
+	System.out.println("travel.jsp");
+
     String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";
   String personalSpinnerStyle = "";
