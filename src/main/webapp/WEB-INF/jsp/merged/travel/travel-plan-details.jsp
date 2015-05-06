@@ -41,7 +41,7 @@
 					<div class="col-md-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
-							<h2><fmt:message key="travel.quote.jumbo" bundle="${msg}" /></h2>
+							<h2><fmt:message key="travel.details.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
 						<div class="col-lg-12">

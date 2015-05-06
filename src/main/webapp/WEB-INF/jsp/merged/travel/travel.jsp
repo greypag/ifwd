@@ -438,7 +438,7 @@ $(document).ready(function() {
 <!--desktop Features-->
 <div class="hidden-xs hidden-sm">
     <div class="col-md-10 col-md-offset-1 home-features"  >
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home1.png" alt="" /> </div>
+    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home3.png" alt="" /> </div>
     <div class="col-md-6 col-lg-6">
       <div class="content">
         <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
@@ -458,7 +458,7 @@ $(document).ready(function() {
     <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/home2.png" alt=""  /> </div>
     <div class="clearfix"></div>
     <br>
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home3.png" alt=""  /> </div>
+    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home1.png" alt=""  /> </div>
     <div class="col-md-6 col-lg-6">
       <div class="content">
         <h2><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
@@ -525,7 +525,7 @@ $(document).ready(function() {
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
