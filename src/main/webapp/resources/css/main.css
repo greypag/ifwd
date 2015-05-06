@@ -122,10 +122,10 @@ h6 {
 
 a {
 	color: #f6871e;
-	-webkit-transition: color 300ms, background-color 300ms;
+	/*-webkit-transition: color 300ms, background-color 300ms;
 	-moz-transition: color 300ms, background-color 300ms;
 	-o-transition: color 300ms, background-color 300ms;
-	transition: color 300ms, background-color 300ms;
+	transition: color 300ms, background-color 300ms;*/
 }
 .datepicker {
 	line-height: 24px !important;
@@ -136,7 +136,9 @@ a {
 	
 	color: #f68a1d;
 }
-
+.floatingbox {
+	position: relative;
+}
 hr {
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #fff;
@@ -782,21 +784,21 @@ vertical-align:middle;
 	box-shadow: none;
 	background: #fff;
 	color: #f6871e;
-	    border: 1px solid #f6871e;
+	border: 1px solid #f6871e;
 
 }
 
 .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
     padding: 8px 20px;
     background: #f6871e;
-    color: #fff;
+    /*color: #fff;*/
     border: none;
         border: 1px solid #f6871e;
 }
 .btn-transparent {
 	border: 3px solid #fff;
 	background: transparent;
-	color: #fff;
+	/*color: #fff;*/
 }
 .btn-transparent:hover {
 	border-color: rgba(255, 255, 255, 0.5);
@@ -2754,6 +2756,7 @@ table.activation-form2 .form-control {
 }
 table.activation-form3 {
 	width: 100%;
+	margin-bottom: 0;
 }
 table.activation-form3 tr td {
 	border: none !important;
@@ -3122,7 +3125,8 @@ h2.page-title {
 }
 .plan-box h2 {
 	margin-left: 35px;
-	font-size: 32px;
+	/*font-size: 32px;*/
+	font-size: 29px;
 	line-height: 42px;
 }
 .plan-box h3 {
@@ -3347,9 +3351,10 @@ del {
 .bold-500 {
 	font-weight: 500 !important;
 	color: #000;
+	font-size: 24px;
 }
 .insure-travel .bold-500 {
-	line-height: 60px;
+	/*line-height: 60px;*/
 	font-size: 24px;
 	color: #061d2a;
 	font-weight: normal;
@@ -3407,18 +3412,17 @@ del {
 }
 .bck-btn {
 	display: block;
-	  width: 100%;
+	 width: 100%;
 
 	font-size: 28px;
-	line-height: 31.5px;
+	/*line-height: 31.5px;*/
 	font-weight: normal;
-	padding: 20px 0 ;
+	/*padding: 20px 0 ;*/
 	background-color: #fff ;
 	border: 1px solid #f68a1d;
 	color: #f68a1d;
-	
+	/*height: 73px;*/
 }
-
 .bck-btn:hover {
 	color: #fff;
 	background-color: #f68a1d;
@@ -3648,6 +3652,7 @@ margin-bottom: 10px;}
 }
 .wd2 {
 	width: 100%;
+	line-height: 32px;
 }
 .wd3 {
 	width: 50%;
@@ -5552,6 +5557,15 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
     padding-bottom: 30px;
 }
 
+.chin #personaltraveller{
+    padding: 0 20px;
+}
+.chin .insure-travel #personaltraveller{
+    padding: 0;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 30px;
+}
+
 .major-exc li {
 	font-size: 18px;
 	line-height: 1.4;
@@ -5567,7 +5581,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	margin:0;
 	line-height: 100%;
 }
-#freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
+#freeFlightForm #personaltraveller, #freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
 	margin-bottom: 30px;
     border-bottom: 2px solid #f5f5f5;
     padding-bottom: 30px;
@@ -5612,16 +5626,18 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	  font-size: 40px;
 	}
 }
+
 .travelproductbox{
 	-webkit-transition: all 500ms linear;
 	-moz-transition: all 500ms linear;
 	-o-transition: all 500ms linear;
 	-ms-transition: all 500ms linear;
 	transition: all 500ms linear;
+	cursor: pointer;
 }
 .travelproductbox:hover{
 	background-color: #616163;
-	padding: 10px;
+	/*padding: 10px;*/
 	border: 1px solid #616163;
 	color: #fff;
 }
@@ -5647,9 +5663,9 @@ table.hor-padding >tbody>tr>td{
 	display: block;
 	width: 100%;
 	font-size: 28px;
-	line-height: 31.5px;
+	/*line-height: 31.5px;*/
 	font-weight: normal;
-	padding: 20px 0;
+	/*padding: 20px 0;*/
 	border: 1px solid #f68a1d;
 	text-align: center;
 }
@@ -6070,7 +6086,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 115% !important;
+   width: 100% !important;
 }
 .styled-select {
 /*    width: 240px;
@@ -6159,9 +6175,15 @@ tr.product-landing-error-wrap {
 	height:48px;
 	color: #fff;
     font-size: 14px;
+    line-height: 14px;
 	margin-top: -15px;
 	margin-bottom: 50px;
 	padding-top: 16px;
 	padding-left: 20px;
+	overflow:hidden;
 	display:none;
+}
+
+.custom-select-label{
+	margin-left:-14px;
 }

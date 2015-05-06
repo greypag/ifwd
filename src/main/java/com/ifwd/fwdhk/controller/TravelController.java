@@ -133,6 +133,7 @@ public class TravelController {
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 		
+		System.out.println("/{lang}/travel-insurance/quote");
 		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
 		System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
 		System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
@@ -143,14 +144,25 @@ public class TravelController {
 		HttpSession session = request.getSession();
 		session.removeAttribute("createPolicy");
 		session.removeAttribute("policyNo");
-		if (travelQuote.getTrLeavingDate() != null) {
+		
+		//model.addAttribute("travelQuoteBean", travelQuote);
+		
+		if (travelQuote.getTrLeavingDate() != null) 
+		{
 			session.setAttribute("travelQuote", travelQuote);
-		} else {
-			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			if(travelQuote == null){
+		} 
+		else 
+		{
+			travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+			
+			if(travelQuote == null)
+			{
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
 		}
+		
+		session.setAttribute("corrTravelQuote", travelQuote);
+		
 		try {
 			String token = null, username = null;
 			if ((session.getAttribute("token") != null)
@@ -434,7 +446,9 @@ public class TravelController {
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("token") == null) {
+		
+		if (session.getAttribute("token") == null) 
+		{
 			model.addAttribute("errMsgs", "Session Expired");
 			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
 		}
@@ -480,9 +494,7 @@ public class TravelController {
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
 				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
 			}
-			travelQuote.setTotalAdultTraveller(travelQuote
-					.getTotalAdultTraveller()
-					+ travelQuote.getTotalPersonalTraveller());
+			//travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller()	+ travelQuote.getTotalPersonalTraveller());
 			request.getSession().setAttribute("departureDate",
 					travelQuote.getTrLeavingDate());
 			request.getSession().setAttribute("returnDate",
@@ -581,7 +593,7 @@ public class TravelController {
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("planPremium", selectPlanPremium);
 			
-
+			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
 			model.addAttribute("travelQuote", travelQuote);
 		} catch (Exception e) {
 			e.printStackTrace();

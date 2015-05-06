@@ -11,27 +11,35 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
-	function confirmPayment() {
-		
-		$("#PaymentingDiv").show();
 
-		var geteWayUrl = $('#gateway').val();
-		$.ajax({
-			type : "POST",
-			url : "<%=request.getContextPath()%>/processTravePayment",
-			data : $("#paymentForm").serialize(),
-			async : false,
-			success : function(data) {
-				if (data == 'success') {
-					document.paymentForm.action = geteWayUrl;
-				} else {
-					console.log("fail to process payment " + data);
-				}
-				
-			}
-		});
-	}
-	
+ 	var clicked = false;
+ 	function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
+ 		if (payValid() && clicked === false) {
+ 			clicked = true;
+ 			$("#PaymentingDiv").show();
+ 			var gatewayUrlId = '#' + gatewayUrlId;
+ 			var paymentFormId = '#' + paymentFormId;
+ 			var method = "<%=request.getContextPath()%>/processTravePayment";
+ 			
+ 			var geteWayUrl = $(gatewayUrlId).val();
+ 			$.ajax({
+ 						type : "POST",
+ 						url : method,
+ 						data : $(paymentFormId).serialize(),
+ 						async : false,
+ 						success : function(data) {
+ 							if (data == 'success') {
+ 								form.action = geteWayUrl;
+ 							} else {
+ 								console.log("fail to process payment " + data);
+ 							}
+ 						}
+ 					});
+ 			return true;
+ 		}else return false;
+
+ 	}
+
 </script>
 
 
@@ -42,7 +50,7 @@
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');">
+			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmTravelPayment(this, 'gateway', 'paymentForm');">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -614,7 +622,7 @@
 
 									</div>
 								</td>
-								<td><img src="<%=request.getContextPath()%>/resources/images/cards.png" alt=""></td>
+								<td><img src="<%=request.getContextPath()%>/resources/images/icon-card.png" alt=""></td>
 							</tr>
 							<tr>
 								<td></td>
@@ -640,19 +648,19 @@
 
 						<span id="errchk2" class="error-msg"></span>
 						<div class="clearfix"></div>
-						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
+						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
 						<!-- <div class="hidden-sm hidden-xs pad-none">
 							
-								class="bdr-curve btn btn-primary bck-btn2">返回 </a> <input
+								class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn margin-left"
-								value="確認付款" onclick="confirmPayment()" />
+								value="確�付款" onclick="confirmPayment()" />
 						</div>
 						<br> <br>
 						
 						<div class="pad-none hidden-md hidden-lg">
 							<a href="travel-plan-details.html"
-								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
+								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
 							</a>
 						</div> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->
@@ -660,18 +668,18 @@
 							<input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn"
-								value="確認付款" onclick="confirmPayment()" /> -->
+								value="確�付款" onclick="confirmPayment()" /> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->	
 						
 						
 						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 								<a href="#" onclick="BackMe()"
-									class="bdr-curve btn btn-primary bck-btn">返回 </a>
+									class="bdr-curve btn btn-primary bck-btn">返� </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn "
-									value="確認付款" onclick="confirmPayment()" />
+									value="確�付款" onclick="confirmPayment()" />
 								
 
 							</div> -->
@@ -679,9 +687,10 @@
 							<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-							<button onclick="confirmPayment();"
-								class="bdr-curve btn btn-primary nxt-btn margin-left">
-								<fmt:message key="travel.action.payment" bundle="${msg}" /></button>
+							<input type="submit"
+								class="bdr-curve btn btn-primary nxt-btn margin-left" 
+								value="<fmt:message key="travel.action.payment" bundle="${msg}" />">
+								
 						</div>
 						<br> <br>
 						<div class="row hidden-md hidden-lg">
@@ -695,7 +704,7 @@
 								
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn"
-									value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
+									value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" />
 
 
 							</div>
@@ -708,6 +717,7 @@
 							<div class="clearfix"></div>
 						</div>
 						<br>
+						<img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
 						<br>
 					</div>
 				</div>
