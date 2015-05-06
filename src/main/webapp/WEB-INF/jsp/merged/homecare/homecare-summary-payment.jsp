@@ -397,7 +397,7 @@
 
 									</div></td>
 								<td><img
-									src="<%=request.getContextPath()%>/resources/images/cards.png"
+									src="<%=request.getContextPath()%>/resources/images/icon-card.png"
 									alt=""></td>
 							</tr>
 							<tr>
@@ -466,7 +466,9 @@
 							<div class="clearfix"></div>
 
 						</div>
-						<br> <br>
+						<br>
+                            <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+                        <br>
 
 					</div>
 
