@@ -70,6 +70,9 @@ $(document).ready(function() {
 </script>
 <!-- End fixed header -->
 <%
+
+	System.out.println("travel.jsp");
+
     String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";
   String personalSpinnerStyle = "";
@@ -753,7 +756,7 @@ $(document).ready(function() {
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-    <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="getTravelQuote" method="post" onsubmit="return flightValidateBtmTravel();">
+    <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="${pageContext.request.contextPath}/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateBtmTravel();">
       <div class="col-lg-12 col-md-12 pad-none slide-form">
         <!-- <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
         <table class="table activation-form3">
