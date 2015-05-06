@@ -3351,9 +3351,10 @@ del {
 .bold-500 {
 	font-weight: 500 !important;
 	color: #000;
+	font-size: 24px;
 }
 .insure-travel .bold-500 {
-	line-height: 60px;
+	/*line-height: 60px;*/
 	font-size: 24px;
 	color: #061d2a;
 	font-weight: normal;
@@ -5556,6 +5557,15 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
     padding-bottom: 30px;
 }
 
+.chin #personaltraveller{
+    padding: 0 20px;
+}
+.chin .insure-travel #personaltraveller{
+    padding: 0;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 30px;
+}
+
 .major-exc li {
 	font-size: 18px;
 	line-height: 1.4;
@@ -5571,7 +5581,7 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	margin:0;
 	line-height: 100%;
 }
-#freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
+#freeFlightForm #personaltraveller, #freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
 	margin-bottom: 30px;
     border-bottom: 2px solid #f5f5f5;
     padding-bottom: 30px;
@@ -6076,7 +6086,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 115% !important;
+   width: 100% !important;
 }
 .styled-select {
 /*    width: 240px;
@@ -6170,4 +6180,8 @@ tr.product-landing-error-wrap {
 	padding-top: 16px;
 	padding-left: 20px;
 	display:none;
+}
+
+.custom-select-label{
+	margin-left:-14px;
 }
