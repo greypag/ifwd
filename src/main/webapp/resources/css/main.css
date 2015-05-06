@@ -2756,6 +2756,7 @@ table.activation-form2 .form-control {
 }
 table.activation-form3 {
 	width: 100%;
+	margin-bottom: 0;
 }
 table.activation-form3 tr td {
 	border: none !important;
@@ -3650,6 +3651,7 @@ margin-bottom: 10px;}
 }
 .wd2 {
 	width: 100%;
+	line-height: 32px;
 }
 .wd3 {
 	width: 50%;
