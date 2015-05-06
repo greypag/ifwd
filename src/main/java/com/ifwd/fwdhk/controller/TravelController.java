@@ -133,6 +133,7 @@ public class TravelController {
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 		
+		System.out.println("/{lang}/travel-insurance/quote");
 		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
 		System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
 		System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
@@ -144,19 +145,24 @@ public class TravelController {
 		session.removeAttribute("createPolicy");
 		session.removeAttribute("policyNo");
 		
+		//model.addAttribute("travelQuoteBean", travelQuote);
+		
 		if (travelQuote.getTrLeavingDate() != null) 
 		{
 			session.setAttribute("travelQuote", travelQuote);
 		} 
 		else 
 		{
-			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+			travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 			
 			if(travelQuote == null)
 			{
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
 		}
+		
+		session.setAttribute("corrTravelQuote", travelQuote);
+		
 		try {
 			String token = null, username = null;
 			if ((session.getAttribute("token") != null)
@@ -488,9 +494,7 @@ public class TravelController {
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
 				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
 			}
-			travelQuote.setTotalAdultTraveller(travelQuote
-					.getTotalAdultTraveller()
-					+ travelQuote.getTotalPersonalTraveller());
+			//travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller()	+ travelQuote.getTotalPersonalTraveller());
 			request.getSession().setAttribute("departureDate",
 					travelQuote.getTrLeavingDate());
 			request.getSession().setAttribute("returnDate",

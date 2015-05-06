@@ -24,14 +24,24 @@
 			travelQuote = (QuoteDetails) session.getAttribute("tq");
 		}
 		
+		TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+		System.out.println("------------------------------------------------------------");		
+		System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+		System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+		System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+		System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+		System.out.println("------------------------------------------------------------");
+		
 		// debug only
+		System.out.println("------------------------------------------------------------");
 		TravelQuoteBean travelQuoteBean = (TravelQuoteBean) request.getAttribute("travelQuote");
-		System.out.println( "travel plan details jsp" );
 		System.out.println( "Personal: " + travelQuoteBean.getTotalPersonalTraveller() );
 		System.out.println( "Adult   : " + travelQuoteBean.getTotalAdultTraveller() );
 		System.out.println( "Child   : " + travelQuoteBean.getTotalChildTraveller() );
 		System.out.println( "Others  : " + travelQuoteBean.getTotalOtherTraveller() );
-
+		System.out.println("------------------------------------------------------------");
+		System.out.println( "travel plan details jsp" );
+		
 %>
 
 

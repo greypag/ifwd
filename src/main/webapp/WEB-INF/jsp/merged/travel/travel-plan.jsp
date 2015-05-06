@@ -175,7 +175,7 @@ var promoData = '';
 						 	{
 					    		if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
 					    		{
-					    			//travelQuoteBean.setTotalOtherTraveller(0);
+					    			travelQuoteBean.setTotalOtherTraveller(0);
 					    		}
 					    	 	session.setAttribute("tq", travelQuote);
 						 	}
