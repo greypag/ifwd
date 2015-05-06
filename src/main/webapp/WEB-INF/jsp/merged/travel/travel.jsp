@@ -164,7 +164,7 @@ $(document).ready(function() {
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
 	                  <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalPersonalTraveller()}</div>
 	                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${travelQuote.getTotalPersonalTraveller()}"/>
@@ -183,7 +183,7 @@ $(document).ready(function() {
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
 	                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
 	                             <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
@@ -197,7 +197,7 @@ $(document).ready(function() {
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
 	                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
 	                             <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
@@ -211,7 +211,7 @@ $(document).ready(function() {
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
 	                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
 	                             <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
@@ -815,7 +815,7 @@ $(document).ready(function() {
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalPersonalTraveller()}</div>
                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersBtm" data-min="1" data-max="15" value="${travelQuote.getTotalPersonalTraveller()}"/>
@@ -835,7 +835,7 @@ $(document).ready(function() {
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalAdultTraveller()}</div>
                             <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="${travelQuote.getTotalAdultTraveller()}"/>
@@ -850,7 +850,7 @@ $(document).ready(function() {
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalChildTraveller()}</div>
                             <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="15" value="${travelQuote.getTotalChildTraveller()}"/>
@@ -865,7 +865,7 @@ $(document).ready(function() {
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                            <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${travelQuote.getTotalOtherTraveller()}</div>
                             <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="15" value="${travelQuote.getTotalOtherTraveller()}"/>
