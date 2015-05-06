@@ -286,7 +286,7 @@
                                                 <td class="">
                                                      <div class="styled-select">
                                                         <select
-                                                            name="personalAgeRange" class="soflow"
+                                                            name="personalAgeRange" class="soflow select-label"
                                                             id="selectAgeRange${inx}">
         
                                                             <c:choose>
@@ -345,7 +345,7 @@
                                                      <div class="styled-select">
                                                      <select name="personalBeneficiary" id="personalselectBenificiary${inx}" 
                                                             onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}')"
-                                                        class="soflow" >
+                                                        class="soflow select-label" >
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipList.key}"><c:out
@@ -452,7 +452,7 @@
                                                 <td class="">
                                                      <div class="styled-select">
 		                                                <select
-		                                                    name="adultAgeRange" class="soflow"
+		                                                    name="adultAgeRange" class="soflow select-label"
 		                                                    id="selectAgeRange${inx}">
 		
 		                                                    <c:choose>
@@ -511,7 +511,7 @@
                                                      <div class="styled-select">
 		                                             <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
 		                                                    onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-		                                                class="soflow" >
+		                                                class="soflow select-label" >
 		                                                <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
 		                                                <c:forEach var="relationshipList" items="${mapRelationshipCode}">
 		                                                    <option value="${relationshipList.key}"><c:out
@@ -616,7 +616,7 @@
                                                     <div class="styled-select">
 		                                                <select
 		                                                    name="childAgeRange" id="selectchildAgeRange${inx}"
-		                                                    class="soflow">
+		                                                    class="soflow select-label">
 		                                                    <c:forEach var="ageList" items="${mapChildType}">
 		                                                        <c:choose> 
 		                                                          <c:when test="${ageList.key == '1'}">
@@ -641,7 +641,7 @@
 		                                            <select
 		                                                id="childselectBenificiary${inx}" name="childBeneficiary"
 		                                                onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-		                                                class="soflow">
+		                                                class="soflow select-label">
 		                                                <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
 		                                                <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
 		                                                    <option value="${relationshipCodeList.key}"><c:out
@@ -742,7 +742,7 @@
                                                 </td>
                                                 <td class="">
                                                     <div class="styled-select"><select
-		                                                name="otherAgeRange" class="form-control soflow"
+		                                                name="otherAgeRange" class="form-control soflow select-label"
 		                                                id="selectOtherAgeRange${inx}">
 		                                                <c:forEach var="ageList" items="${mapAgeType}">
 		                                                    <c:choose> 
@@ -765,7 +765,7 @@
                                                 <td class="">
                                                     <div class="styled-select"><select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
 		                                                onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
-		                                                class="form-control soflow">
+		                                                class="form-control soflow select-label">
 		                                                <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
 		                                                <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
 		                                                    <option value="${relationshipCodeList.key}"><c:out

@@ -263,6 +263,23 @@
     .insure-travel .select-label {
         font-size: 18px;
     }
+    
+    .full-control::-webkit-input-placeholder {
+	   font-size: 18px;
+	}
+	
+	.full-control:-moz-placeholder { /* Firefox 18- */
+	   font-size: 18px;
+	}
+	
+	.full-control::-moz-placeholder {  /* Firefox 19+ */
+	   font-size: 18px;
+	}
+	
+	.full-control:-ms-input-placeholder {  
+	   font-size: 18px;
+	}
+    
     .gry-bg {
         background-color: #fff;
         min-height: 0;
@@ -484,6 +501,23 @@
     .insure-travel .select-label {
         font-size: 18px;
     }
+    
+    .full-control::-webkit-input-placeholder {
+       font-size: 18px;
+    }
+    
+    .full-control:-moz-placeholder { /* Firefox 18- */
+       font-size: 18px;
+    }
+    
+    .full-control::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 18px;
+    }
+    
+    .full-control:-ms-input-placeholder {  
+       font-size: 18px;
+    }
+    
     table.plandetail-form td .control-label {
         font-size: 18px;
         line-height: 24px;
@@ -916,6 +950,23 @@
     .insure-travel .select-label {
         font-size: 18px;
     }
+    
+    .full-control::-webkit-input-placeholder {
+       font-size: 18px;
+    }
+    
+    .full-control:-moz-placeholder { /* Firefox 18- */
+       font-size: 18px;
+    }
+    
+    .full-control::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 18px;
+    }
+    
+    .full-control:-ms-input-placeholder {  
+       font-size: 18px;
+    }
+    
     table.plandetail-form td .control-label {
         font-size: 18px;
         line-height: 24px;
