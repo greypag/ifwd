@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
@@ -22,6 +23,14 @@
 			//System.out.println("travelQuote is null 2");
 			travelQuote = (QuoteDetails) session.getAttribute("tq");
 		}
+		
+		// debug only
+		TravelQuoteBean travelQuoteBean = (TravelQuoteBean) request.getAttribute("travelQuote");
+		System.out.println( "travel plan details jsp" );
+		System.out.println( "Personal: " + travelQuoteBean.getTotalPersonalTraveller() );
+		System.out.println( "Adult   : " + travelQuoteBean.getTotalAdultTraveller() );
+		System.out.println( "Child   : " + travelQuoteBean.getTotalChildTraveller() );
+		System.out.println( "Others  : " + travelQuoteBean.getTotalOtherTraveller() );
 
 %>
 
