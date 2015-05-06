@@ -516,9 +516,16 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                 <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                                <label class="pad-left1 bold-500 "><fmt:message
+                                                <%-- <label class="pad-left1 bold-500 "><fmt:message
                                                         key="flight.details.insured.beneficiary.hkid"
-                                                        bundle="${msg}" /></label> <input id="txtchildInsuHkid${inx}"
+                                                        bundle="${msg}" /></label> --%>
+                                                <div class="styled-select ">
+                                                <select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectChldBenefitiaryHkidPass">
+                                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+                                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                </select>
+                                                </div>
+                                                <input id="txtchildInsuHkid${inx}"
                                                     name="childBenificiaryHkid" class="form-control textUpper"
                                                     placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
                                                     value="" /> <span id="errtxtchildInsuHkid${inx}"
@@ -623,9 +630,16 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                 <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                                <label class="pad-left1 bold-500"><fmt:message
+                                                <%-- <label class="pad-left1 bold-500"><fmt:message
                                                         key="flight.details.insured.beneficiary.hkid"
-                                                        bundle="${msg}" /></label> <input id="txtOtherBenInsuHkid${inx}"
+                                                        bundle="${msg}" /></label> --%>
+                                                <div class="styled-select ">
+                                                <select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectOtherBenefitiaryHkidPass">
+                                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+                                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                </select>
+                                                </div>
+                                                <input id="txtOtherBenInsuHkid${inx}"
                                                     name="otherBenificiaryHkid" class="form-control textUpper"
                                                     placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
                                                     value="" /> <span id="errtxtOtherBenInsuHkid${inx}"
