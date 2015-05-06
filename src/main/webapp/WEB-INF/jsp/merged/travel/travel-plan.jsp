@@ -107,7 +107,10 @@ var promoData = '';
 }
 </style>
 <!--/#main-Content-->
-<% String cp = request.getContextPath(); %>
+<%  
+	String cp = request.getContextPath(); 
+	System.out.println("travel-plan.jsp");
+%>
 <section>
 	<div id="cn" class="container">
 		<div class="row">

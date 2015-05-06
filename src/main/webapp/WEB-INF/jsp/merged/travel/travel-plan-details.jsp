@@ -9,6 +9,8 @@
 <fmt:setBundle basename="messages" var="msg" />
 
 <%
+	System.out.println("travel-plan-details.jsp");
+
 	String authenticate = "false";
 	if (request.getSession().getAttribute("authenticate") != null) {
 		authenticate = request.getSession()
@@ -819,7 +821,7 @@
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	 <a href="<%=request.getContextPath()%>/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+	 <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
