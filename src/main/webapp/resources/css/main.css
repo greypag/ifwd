@@ -6169,10 +6169,12 @@ tr.product-landing-error-wrap {
 	height:48px;
 	color: #fff;
     font-size: 14px;
+    line-height: 14px;
 	margin-top: -15px;
 	margin-bottom: 50px;
 	padding-top: 16px;
 	padding-left: 20px;
+	overflow:hidden;
 	display:none;
 }
 
