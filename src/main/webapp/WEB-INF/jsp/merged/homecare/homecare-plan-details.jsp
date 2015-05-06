@@ -865,7 +865,7 @@
 								</div>
 
                                 <div class="checkboxBubble">
-                                                                            您將會無法收到富衛最新的推廣優惠！
+                                    <fmt:message key="home.details.declarations.PDPO.warning" bundle="${msg}" />
                                 </div>
                                 
                                 <script type="text/javascript">
