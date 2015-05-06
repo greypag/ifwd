@@ -978,7 +978,7 @@ var promoData = '';
 			                                                        </tr>
 			                                                    </tbody>
 			                                                </table>
-			                                                <h4 class="h4-2">
+			                                                <!--<h4 class="h4-2">
 			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.annual.heading" bundle="${msg}" /></strong>
 			                                                </h4>
 			                                                <table id="annual" class="table table-bordred">
@@ -1004,7 +1004,7 @@ var promoData = '';
 			                                                        </tr>
 			                                                    </tbody>
 			                                                </table>
-			                                                <br>
+			                                                <br>-->
 			                                                <h4 class="h4-2">
 			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.remark" bundle="${msg}" /></strong>
 			                                                </h4>
