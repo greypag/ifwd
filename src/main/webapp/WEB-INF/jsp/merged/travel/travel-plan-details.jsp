@@ -1,11 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
 <%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -145,7 +147,7 @@
 										for="inputFullName" class="control-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input type="text" name="fullName"
 										class="form-control" id="inputFullName"
-										value="${userDetails.getFullName()}"
+										value="${fn:trim( userDetails.getFullName() )}"
 										placeholder="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" />
 									<span id="fullnameinvalid" class="text-red">
