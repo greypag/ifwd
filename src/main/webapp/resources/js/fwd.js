@@ -1615,7 +1615,7 @@ $(function () {
 				var appHkid = $(this).val();
 				
 				
-				if($('#selectChldBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChldBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
+				if($('#selectChildBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChildBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
 						$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
@@ -2404,7 +2404,7 @@ function tPlanValid()
 			}
 
 			
-			var selectOtHkidPass = document.getElementById("selectChldBenefitiaryHkidPass"+i).value;
+			var selectOtHkidPass = document.getElementById("selectChildBenefitiaryHkidPass"+i).value;
 			var hkidBen = document.getElementById("txtchildInsuHkid" + i).value;
 			document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "";
 			document.getElementById("errtxtInvalidchildInsuHkid" + i).innerHTML = "";
