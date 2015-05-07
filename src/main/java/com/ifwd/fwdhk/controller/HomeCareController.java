@@ -547,8 +547,6 @@ public class HomeCareController {
 		System.out.println("expiryDate==>>" + expiryDate);
 		System.out.println("userName==>>" + userName);
 		System.out.println("token==>>" + token);
-
-		
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(

@@ -380,7 +380,7 @@
 								<fmt:message key="member.account.promotionCode.share.termsAndConditions.message.details" bundle="${msg}" />
 							</p>
 							-->
-							<b><fmt:message key="member.account.referral.disclaimer" bundle="${msg}" /></b>
+							<!--<b><fmt:message key="member.account.referral.disclaimer" bundle="${msg}" /></b>
 							<p>
                     			<fmt:message key="member.account.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
                     			<fmt:message key="member.account.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>
@@ -392,7 +392,49 @@
           							<fmt:message key="member.account.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
           						</a>
           						<fmt:message key="member.account.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
-                </p>
+                			</p>-->
+                			<div class="">
+	                			<table id="userBenefits" class="table table-bordred">
+	                                <tbody>
+	                                    <tr>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.header1" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.header2" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.header3" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.header4" bundle="${msg}" /></strong></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td rowspan="2">
+	                                        	<strong><fmt:message key="member.account.referral.benefits.table.row1.col1" bundle="${msg}" /></strong>
+	                                        </td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row1.col2" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row1.col3" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row1.col4" bundle="${msg}" /></strong></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col2" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col3" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col4" bundle="${msg}" /></strong></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td rowspan="2">
+	                                        	<strong><fmt:message key="member.account.referral.benefits.table.row3.col1" bundle="${msg}" /></strong>
+	                                        </td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row3.col2" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row3.col3" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row3.col4" bundle="${msg}" /></strong></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col2" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col3" bundle="${msg}" /></strong></td>
+	                                        <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col4" bundle="${msg}" /></strong></td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+	                            <p><fmt:message key="member.account.referral.benefits.disclaimer1" bundle="${msg}" /></p>
+	                    		<p>
+	          						<fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" />
+	                			</p>
+                        	</div>
 						</div>
 					</div>
 				</div>
