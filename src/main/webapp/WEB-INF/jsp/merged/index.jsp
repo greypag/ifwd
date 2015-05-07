@@ -295,24 +295,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="col-lg-12 pad-none">
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx1">
-          <div> <a href="<fmt:message key="index.blog.link1" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
-            <h3> <a href="<fmt:message key="index.blog.link1" bundle="${msg}" />" target="_blank"><fmt:message key="index.blog.desc1" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="index.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
+            <h3> <a href="<fmt:message key="index.blog.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="index.blog.desc1" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx2">
-          <div> <a href="<fmt:message key="index.blog.link2" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
-            <h3><a href="<fmt:message key="index.blog.link2" bundle="${msg}" />" target="_blank"><fmt:message key="index.blog.desc2" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="index.blog.post2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
+            <h3><a href="<fmt:message key="index.blog.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="index.blog.desc2" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
          
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 pad-none">
         <div class="services-wrap service-bx3">
-          <div> <a href="<fmt:message key="index.blog.link3" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
-            <h3> <a href="<fmt:message key="index.blog.link3" bundle="${msg}" />" target="_blank"><fmt:message key="index.blog.desc3" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
+          <div> <a href="<fmt:message key="index.blog.post3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
+            <h3> <a href="<fmt:message key="index.blog.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="index.blog.desc3" bundle="${msg}" />  <i class="fa fa-caret-right"></i> </a></h3>
            
           </div>
         </div>
