@@ -32,6 +32,8 @@
 	System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
 	System.out.println("------------------------------------------------------------");
 		
+	request.setAttribute("travelQuote", sessTravelQuoteBean);
+	
 	// debug only
 	System.out.println("------------------------------------------------------------");
 	TravelQuoteBean travelQuoteBean = (TravelQuoteBean) request.getAttribute("travelQuote");
