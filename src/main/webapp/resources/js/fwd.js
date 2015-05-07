@@ -1615,7 +1615,7 @@ $(function () {
 				var appHkid = $(this).val();
 				
 				
-				if($('#selectChildBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChildBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
+				if($('#selectChldBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChldBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
 						$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
@@ -2404,7 +2404,7 @@ function tPlanValid()
 			}
 
 			
-			var selectOtHkidPass = document.getElementById("selectChildBenefitiaryHkidPass"+i).value;
+			var selectOtHkidPass = document.getElementById("selectChldBenefitiaryHkidPass"+i).value;
 			var hkidBen = document.getElementById("txtchildInsuHkid" + i).value;
 			document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "";
 			document.getElementById("errtxtInvalidchildInsuHkid" + i).innerHTML = "";
@@ -4376,6 +4376,24 @@ function activateUserAccount(){
 	return check;
 }
 
+
+//forbade to input special character
+function hkidValid(ths){
+	childObj = $(ths);
+	inputId =$(ths).attr('id');
+	parentObj = $(ths).parent();
+	preObj = parentObj.prev();
+	childrenObj = preObj.children();
+	grandson = childrenObj.children();
+	selectId = grandson.attr('id');
+	
+	var inputVal = $('#'+inputId).val();
+	var selectHkPass = document.getElementById(selectId).value;
+	if(selectHkPass == 'HKID'){
+		inputVal = inputVal.replace(/[\W]/g,'');
+		$('#'+inputId).val(inputVal);
+	}
+}
 
 
 // ***** homecare *****

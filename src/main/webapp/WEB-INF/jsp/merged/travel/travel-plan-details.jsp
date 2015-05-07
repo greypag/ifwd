@@ -26,6 +26,13 @@
 
 	request.setAttribute("travelQuote", sessTravelQuoteBean);
 %>
+<!-- for debug
+	$TravelQuote											<br>
+	Peronsal : ${travelQuote.getTotalPersonalTraveller()} 	<br>
+	Adult    : ${travelQuote.getTotalAdultTraveller()}		<br>
+	Child	 : ${travelQuote.getTotalChildTraveller()}		<br>
+	Ohters   : ${travelQuote.getTotalOtherTraveller()}		<br>
+ -->
 
 
 <!--/#main-Content-->
@@ -277,13 +284,8 @@
                                                         </select>
                                                     </div>
                                                 </td>
-<<<<<<< HEAD
-                                                <td>
-                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
-=======
                                                 <td class="">
-                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> 
->>>>>>> d6c254d6aa06605b8c083e84b24f17a002f502b0
+                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onkeyup="hkidValid(this)"/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
                                                     <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -393,7 +395,7 @@
                                                      <input
                                                     id="personalBenefitiaryHKId${inx}" name="personalBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')" /> <span id="errpersonalBenefitiaryHKId${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errpersonalBenefitiaryHKId${inx}"
                                                     class="text-red"> </span><span id="errInvalidpersonalBenefitiaryHKId${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -448,7 +450,7 @@
 		                                            </div>
 			                                    </td>
 			                                    <td class="">
-			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> 
+			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onkeyup="hkidValid(this)"/> 
 		                                            <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
 		                                            <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
 			                                    </td>
@@ -558,7 +560,7 @@
                                                      <input
                                                     id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')" /> <span id="erradultBenefitiaryHKId${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="erradultBenefitiaryHKId${inx}"
                                                     class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -609,7 +611,7 @@
                                                     <input
 	                                                id="txtChldInsuHkid${inx}" name="childHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtChldInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtChldInsuHkid${inx}"
 	                                                class="text-red"> </span><span
 	                                                id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -685,7 +687,7 @@
                                                     <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtchildInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtchildInsuHkid${inx}"
                                                     class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -735,7 +737,7 @@
                                                     <input
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span><span
 	                                                id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -807,7 +809,7 @@
                                                     <input
 	                                                    id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 	                                                    class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-	                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherBenInsuHkid${inx}"
+	                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherBenInsuHkid${inx}"
 	                                                    class="text-red"> </span>
 	                                                    <span id="errtxtOtherInvalidBenInsuHkid${inx}"
 	                                                    class="text-red"> </span>
