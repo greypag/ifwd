@@ -165,19 +165,19 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                 </tr>
                                 <tr>
                                     <td valign="middle" class="">
-                                    <!-- 
+                                    
                                         <label for="inputEmail3"
                                         class="control-label bold-500"><fmt:message
                                                 key="flight.details.applicant.hkid" bundle="${msg}" /></label>
-                                     -->
-                                        <div class="styled-select custom-select-label">
+                                    
+                                        <%-- <div class="styled-select custom-select-label">
 	                                        <select id="selectHkidPass"
 	                                            name="selectedHkidPassApplicant" onchange="selected(this)"
 	                                            class="soflow select-label">
 	                                            <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                 <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 	                                        </select>
-	                                    </div>
+	                                    </div> --%>
                                     </td>
                                     <td class=""><input type="text" name="hkid"
                                         class="form-control numberinput textUpper full-control"
