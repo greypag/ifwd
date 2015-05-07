@@ -519,7 +519,7 @@
 											<div class="col-xs-6 col-md-6">
 											<div class="styled-select">
 												<!-- <label class="pad-left1 bold-500">HKID</label>  -->
-												<select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedChldBenefitiaryHkidPass">
+												<select id="selectChildBenefitiaryHkidPass${inx}" class="form-control soflow" name="selectedChldBenefitiaryHkidPass">
 									<option  selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
 									<option><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 									</select></div><input
