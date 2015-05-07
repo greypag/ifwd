@@ -823,6 +823,9 @@ public class FlightController {
 		applicantJsonObj.put("hkId", hkid);
 		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
+		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox1());
+		System.out.println("Flight optIn2 " + planDetailsForm.getCheckbox2());
+		
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox1());
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox2());
 		applicantJsonObj.put("email", emailAddress);

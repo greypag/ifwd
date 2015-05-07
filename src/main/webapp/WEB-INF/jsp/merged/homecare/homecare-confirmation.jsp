@@ -196,7 +196,7 @@
 										<fmt:message key="home.confirmation.referral.desc2" bundle="${msg}" /> <br>
 										<fmt:message key="home.confirmation.referral.desc3" bundle="${msg}" /> <br>
 										<fmt:message key="home.confirmation.referral.desc4" bundle="${msg}" /> <br>
-										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="<%=request.getContextPath()%><fmt:message key="referral.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
+										<fmt:message key="home.confirmation.referral.desc5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.confirmation.referral.desc6" bundle="${msg}" /></a> <fmt:message key="home.confirmation.referral.desc7" bundle="${msg}" />
 									</p>
 									<br>
 								</div>

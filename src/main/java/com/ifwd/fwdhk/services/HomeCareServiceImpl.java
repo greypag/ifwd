@@ -359,7 +359,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		CreatePolicy createPolicy = new CreatePolicy();
 
 		String edate = date.toString();
-		System.out.println("edATE============================>>>" + edate);
+		System.out.println("E DATE============================>>>" + edate);
 		String strDeclaration = homeCareDetails.getDeclarration();
 		String strReadAndUnderstood = homeCareDetails.getReadAndUnderstood();
 		boolean dec;
@@ -369,6 +369,21 @@ public class HomeCareServiceImpl implements HomeCareService {
 		} else {
 			dec = false;
 		}
+		System.out.println("HomeCare checkBox1 " + homeCareDetails.getCheckbox1());
+		System.out.println("HomeCare checkBox2 " + homeCareDetails.getCheckbox2());
+		boolean cb1;
+		boolean cb2;
+		if (homeCareDetails.getCheckbox1()) {
+			cb1 = true;
+		} else {
+			cb1 = false;
+		}
+		if (homeCareDetails.getCheckbox2()) {
+			cb2 = true;
+		} else {
+			cb2 = false;
+		}
+		
 
 		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
@@ -401,8 +416,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("email", userDetails.getEmailAddress());
 		applicant.put("mobileNo", userDetails.getMobileNo());
 		applicant.put("occupation", "");
-		applicant.put("optIn1", dec);
-		// applicant.put("optIn2",readAndUnderStood);
+		applicant.put("optIn1", cb1);
+		applicant.put("optIn2",cb2);
 
 		parameters.put("applicant", applicant);
 
