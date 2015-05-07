@@ -4,8 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -15,7 +15,7 @@
 		authenticate = request.getSession()
 				.getAttribute("authenticate").toString();
 	}
-
+	
 	TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 	System.out.println("------------------------------------------------------------");		
 	System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
@@ -23,16 +23,8 @@
 	System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
 	System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
 	System.out.println("------------------------------------------------------------");
-	
-	// debug only
-	System.out.println("------------------------------------------------------------");
-	TravelQuoteBean travelQuoteBean = (TravelQuoteBean) request.getAttribute("travelQuote");
-	System.out.println( "Personal: " + travelQuoteBean.getTotalPersonalTraveller() );
-	System.out.println( "Adult   : " + travelQuoteBean.getTotalAdultTraveller() );
-	System.out.println( "Child   : " + travelQuoteBean.getTotalChildTraveller() );
-	System.out.println( "Others  : " + travelQuoteBean.getTotalOtherTraveller() );
-	System.out.println("------------------------------------------------------------");
-	System.out.println( "travel plan details jsp" );
+
+	request.setAttribute("travelQuote", sessTravelQuoteBean);
 %>
 
 
@@ -285,8 +277,13 @@
                                                         </select>
                                                     </div>
                                                 </td>
+<<<<<<< HEAD
                                                 <td>
                                                      <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+=======
+                                                <td class="">
+                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> 
+>>>>>>> d6c254d6aa06605b8c083e84b24f17a002f502b0
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
                                                     <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -450,8 +447,8 @@
 		                                                </select>
 		                                            </div>
 			                                    </td>
-			                                    <td>
-			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+			                                    <td class="">
+			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> 
 		                                            <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
 		                                            <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
 			                                    </td>
@@ -612,7 +609,7 @@
                                                     <input
 	                                                id="txtChldInsuHkid${inx}" name="childHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" /> <span id="errtxtChldInsuHkid${inx}"
+	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtChldInsuHkid${inx}"
 	                                                class="text-red"> </span><span
 	                                                id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -678,7 +675,7 @@
                                             <tr id="childbenificiaryId${inx}b" class="hide">
                                                 <td>
                                                     <div class="styled-select custom-select-label">
-		                                                <select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
+		                                                <select id="selectChildBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
 						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
 						                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 					                                    </select>
@@ -688,7 +685,7 @@
                                                     <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" /> <span id="errtxtchildInsuHkid${inx}"
+                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtchildInsuHkid${inx}"
                                                     class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -738,7 +735,7 @@
                                                     <input
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" /> <span id="errtxtOtherInsuHkid${inx}"
+	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span><span
 	                                                id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -810,7 +807,7 @@
                                                     <input
 	                                                    id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 	                                                    class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-	                                                    value="" /> <span id="errtxtOtherBenInsuHkid${inx}"
+	                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherBenInsuHkid${inx}"
 	                                                    class="text-red"> </span>
 	                                                    <span id="errtxtOtherInvalidBenInsuHkid${inx}"
 	                                                    class="text-red"> </span>
@@ -880,7 +877,7 @@
 								</div>
 								
 								<div class="checkboxBubble">
-                                                                            您將會無法收到富衛最新的推廣優惠！
+								    <fmt:message key="travel.details.declarations.PDPO.warning" bundle="${msg}" />
                                 </div>
 
                                 <script type="text/javascript">
@@ -1005,7 +1002,7 @@
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	 <a href="<%=request.getContextPath()%>/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+	 <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
