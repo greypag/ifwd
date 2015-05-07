@@ -1093,19 +1093,26 @@ var promoData = '';
 									   else 
 									   {
 									%>
-											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}  <br></c:if>
+											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.getTotalAdultTraveller()}  <br></c:if>
 											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.getTotalChildTraveller()} <br></c:if>
 											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.getTotalOtherTraveller()} <br></c:if>
 									<% }
 									%>
 									</div>
 								</div>
+								<input type="hidden" name="totalPersonalTraveller"
+									id="totalPersonalTraveller"
+									value="${travelQuoteBean.getTotalPersonalTraveller()}">
+									
 								<input type="hidden" name="totalAdultTraveller"
 									id="totalAdultTraveller"
-									value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
+									value="${travelQuoteBean.getTotalAdultTraveller()}">
+									
 								<input type="hidden" name="totalChildTraveller"
 									id="totalChildTraveller"
-									value="${travelQuoteBean.getTotalChildTraveller()}"> <input
+									value="${travelQuoteBean.getTotalChildTraveller()}">
+									 
+								<input
 									type="hidden" name="totalOtherTraveller"
 									id="totalOtherTraveller"
 									value="${travelQuoteBean.getTotalOtherTraveller()}">

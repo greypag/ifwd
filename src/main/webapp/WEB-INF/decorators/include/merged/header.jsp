@@ -104,10 +104,15 @@ function submitLoginForm(formID) {
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<% String username = (String) session.getAttribute("username");					
-							   if (username == null) {
+							System.out.println("username " + username);   
+							if (username == null) {
 							%>
 							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
+							<% } else if (username.equals("*DIRECTGI")) { %>
+							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li> | </li>
+							
 							<% } %>
 							<li>
 							<%
@@ -173,7 +178,7 @@ function submitLoginForm(formID) {
 													</div>
 													<h3
 														class="text-left col-lg-6 col-md-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus">
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
 															 <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>
@@ -393,7 +398,7 @@ function submitLoginForm(formID) {
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3 class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="joinus">
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
 															<fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>

@@ -145,8 +145,6 @@ public class TravelController {
 		session.removeAttribute("createPolicy");
 		session.removeAttribute("policyNo");
 		
-		//model.addAttribute("travelQuoteBean", travelQuote);
-		
 		if (travelQuote.getTrLeavingDate() != null) 
 		{
 			session.setAttribute("travelQuote", travelQuote);
@@ -186,37 +184,32 @@ public class TravelController {
 			LocalDate expiryDate = new LocalDate(dateD2);
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
 			travelQuote.setTotalTravellingDays(days + 1);
-
+			
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
-			if (travelQuote.getPlanSelected().equals("personal")) {
+			if (travelQuote.getPlanSelected().equals("personal")) 
+			{
 				selfCover = true;
 				spouseCover = false;
 				otherCount = travelQuote.getTotalPersonalTraveller();
-				travelQuote.setTotalChildTraveller(0);
-				travelQuote.setTotalAdultTraveller(0);
-				travelQuote.setTotalOtherTraveller(otherCount - 1);
-				otherCount = travelQuote.getTotalOtherTraveller();
-
-			} else {
-				travelQuote.setTotalPersonalTraveller(0);
+				otherCount -= 1;
+			} 
+			else 
+			{
 				adultCount = travelQuote.getTotalAdultTraveller();
 				childCount = travelQuote.getTotalChildTraveller();
 				otherCount = travelQuote.getTotalOtherTraveller();
+				
 				selfCover = true;
-				if (adultCount > 1) {
+				if (adultCount > 1) 
+				{
 					spouseCover = true;
-				} else {
+				} 
+				else 
+				{
 					spouseCover = false;
 				}
 			}
-			
-			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
-			travelQuoteCount.setSelfCover(selfCover);
-			travelQuoteCount.setSpouseCover(spouseCover);
-			travelQuoteCount.setTotalChildTraveller(childCount);
-			travelQuoteCount.setTotalOtherTraveller(otherCount);
-			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			
 			System.out.println("------------------------------------------------------------");
 			System.out.println("CALLING API");
@@ -294,6 +287,7 @@ public class TravelController {
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
 				session.setAttribute("quoteDetails", quoteDetails);
+				
 				model.addAttribute("travelQuoteBean", travelQuote);
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
@@ -609,7 +603,7 @@ public class TravelController {
 		String passportLbl = "Passport";
 		if("tc".equals(lang)){
 			hkIdLbl = "香港身份證";
-			passportLbl = "護照";
+			passportLbl = "護照號碼";
 		} else {
 			hkIdLbl = "HKID";
 			passportLbl = "Passport";
@@ -1097,6 +1091,11 @@ public class TravelController {
 		applicantJsonObj.put(hkId, applicantHKID);
 		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", applicantMobNo);
+		
+		System.out.println("Travel optIn1 " + planDetailsForm.getCheckbox1());
+		System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox2());
+		
+		
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox1());
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox2());
 		applicantJsonObj.put("email", emailAddress);
@@ -1171,6 +1170,10 @@ public class TravelController {
 						"transactionDate"));
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
+			} else {
+				System.out.println("redirect back");
+				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
+				return new ModelAndView("redirect:" + "/" + (String) session.getAttribute("language") + "/travel-insurance/user-details");
 			}
 
 		} 

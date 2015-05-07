@@ -74,7 +74,7 @@ public class WebServiceUtils {
 		// TODO, check against DB
 	
 		String desc = "";
-		if (language.equals("EN")) {
+		if (language.toUpperCase().equals("EN")) {
 			if (relationship.equals("BR"))
 				desc = "Brother";
 			else if (relationship.equals("CH"))
@@ -137,7 +137,7 @@ public class WebServiceUtils {
 		// TODO, check against DB
 
 		String desc = "";
-		if (language.equals("EN")) {
+		if (language.toUpperCase().equals("EN")) {
 			if (relationship.equals("BR"))
 				desc = "Brother";
 			else if (relationship.equals("CH"))
@@ -249,7 +249,7 @@ public class WebServiceUtils {
 	}
 	private static String getAgeRangeName(String ageRange, String language) {
 		String ageRangeName = "";
-		if (language.equals("EN")) {
+		if (language.toUpperCase().equals("EN")) {
 			if (ageRange.equals("1"))
 				ageRangeName = "6 weeks to 17 years old";
 			else if (ageRange.equals("2"))
@@ -258,11 +258,11 @@ public class WebServiceUtils {
 				ageRangeName = "71 - 85 years old";
 		} else {
 			if (ageRange.equals("1"))
-				ageRangeName = "6 weeks to 17 years old";
+				ageRangeName = "6週至17歲";
 			else if (ageRange.equals("2"))
-				ageRangeName = "18 - 70 years old";
+				ageRangeName = "18至70歲";
 			else
-				ageRangeName = "71 - 85 years old";
+				ageRangeName = "71至85歲";
 		}
 			
 		return ageRangeName;

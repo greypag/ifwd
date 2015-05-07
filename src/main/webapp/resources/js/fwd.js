@@ -1615,7 +1615,7 @@ $(function () {
 				var appHkid = $(this).val();
 				
 				
-				if($('#selectChildBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChildBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
+				if($('#selectChldBenefitiaryHkidPass'+errNo).length > 0 && $('#selectChldBenefitiaryHkidPass'+errNo).val().toLowerCase() == 'passport'){
 
 					if (appHkid.trim() == "") {
 						$("#errtxtchildInsuHkid"+errNo).html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
@@ -2404,7 +2404,7 @@ function tPlanValid()
 			}
 
 			
-			var selectOtHkidPass = document.getElementById("selectChildBenefitiaryHkidPass"+i).value;
+			var selectOtHkidPass = document.getElementById("selectChldBenefitiaryHkidPass"+i).value;
 			var hkidBen = document.getElementById("txtchildInsuHkid" + i).value;
 			document.getElementById("errtxtchildInsuHkid" + i).innerHTML = "";
 			document.getElementById("errtxtInvalidchildInsuHkid" + i).innerHTML = "";
@@ -3988,15 +3988,24 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 			
 	}		
 }
-function chkNotNullCreditCareName(element, errElementId){
+function chkNotNullCreditCareName(element, errElementId)
+{
+	// alert ( element.value.trim().indexOf(" ") );
+	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
-	}else{
+	}
+	else if (element.value.length < 7 && element.value.trim().indexOf(" ") > 0) {
+		var msg = "Credit Card is less than 7 and contains space";
+		document.getElementById(errElementId).innerHTML = msg;
+		alert( "element.value [" + element.value + "]" );
+	}
+	else{
 		resetErrElement(errElementId);
 		return true;
-	}	
+	}
 }
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
@@ -4376,6 +4385,24 @@ function activateUserAccount(){
 	return check;
 }
 
+
+//forbade to input special character
+function hkidValid(ths){
+	childObj = $(ths);
+	inputId =$(ths).attr('id');
+	parentObj = $(ths).parent();
+	preObj = parentObj.prev();
+	childrenObj = preObj.children();
+	grandson = childrenObj.children();
+	selectId = grandson.attr('id');
+	
+	var inputVal = $('#'+inputId).val();
+	var selectHkPass = document.getElementById(selectId).value;
+	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
+		inputVal = inputVal.replace(/[\W]/g,'');
+		$('#'+inputId).val(inputVal);
+	}
+}
 
 
 // ***** homecare *****
