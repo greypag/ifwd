@@ -3988,15 +3988,24 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 			
 	}		
 }
-function chkNotNullCreditCareName(element, errElementId){
+function chkNotNullCreditCareName(element, errElementId)
+{
+	// alert ( element.value.trim().indexOf(" ") );
+	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
-	}else{
+	}
+	else if (element.value.length < 7 && element.value.trim().indexOf(" ") > 0) {
+		var msg = "Credit Card is less than 7 and contains space";
+		document.getElementById(errElementId).innerHTML = msg;
+		alert( "element.value [" + element.value + "]" );
+	}
+	else{
 		resetErrElement(errElementId);
 		return true;
-	}	
+	}
 }
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
