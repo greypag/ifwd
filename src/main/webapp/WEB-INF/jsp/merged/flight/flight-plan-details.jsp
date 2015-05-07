@@ -469,12 +469,15 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                                    <div class="styled-select custom-select-label">
+                                                    <label class="bold-500"><fmt:message
+                                                            key="flight.details.applicant.hkid"
+                                                            bundle="${msg}" /></label>
+                                                    <%-- <div class="styled-select custom-select-label">
                                                         <select id="selectedAdultHkidPass${inx}" class="form-control soflow select-label" name="selectedAdultHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
-                                                    </div>
+                                                    </div> --%>
 		                                        </td>
 		                                        <td class="">
                                                          <input
@@ -607,12 +610,15 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                                    <div class="styled-select custom-select-label">
+                                                    <label class="bold-500"><fmt:message
+                                                            key="flight.details.applicant.hkid"
+                                                            bundle="${msg}" /></label>
+                                                    <%-- <div class="styled-select custom-select-label">
                                                         <select id="selectedChildHkidPass${inx}" class="form-control soflow select-label" name="selectedChildHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
-                                                    </div>
+                                                    </div> --%>
                                                 </td>
                                                 <td class="">
                                                          <input
@@ -746,12 +752,15 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                                    <div class="styled-select custom-select-label">
+                                                    <label class="bold-500"><fmt:message
+                                                            key="flight.details.applicant.hkid"
+                                                            bundle="${msg}" /></label>
+                                                    <%-- <div class="styled-select custom-select-label">
                                                         <select id="selectedOtherHkidPass${inx}" class="form-control soflow select-label" name="selectedOtherHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
-                                                    </div>
+                                                    </div> --%>
                                                 </td>
                                                 <td class="">
                                                      <input
