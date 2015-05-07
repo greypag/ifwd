@@ -3651,6 +3651,16 @@ margin-bottom: 10px;}
 	margin-left: 25%;
 }
 
+.margin-bottom-10 {
+	margin-bottom: 10px !important;
+}
+
+.margin-bottom-20 {
+	margin-bottom: 20px !important;
+}
+.margin-bottom-40 {
+	margin-bottom: 40px !important;
+}
 
 
 .wd {
@@ -5529,7 +5539,7 @@ font-family: 'Foco-bold';
 
 #summary tbody tr:first-child td, #summary tbody tr:nth-child(2) td,
 #Premium tbody tr:first-child td, #Premium tbody tr:nth-child(2) td,
-#userBenefits tbody tr:first-child td,
+#userBenefits tbody tr:first-child td, .table-type-1 tbody tr:first-child td,
 #homecarePremium tbody tr:first-child th { color:#fff; background-color: #f68a1d;}
 .fixed-content{ position: fixed;}
 
@@ -6203,4 +6213,18 @@ tr.product-landing-error-wrap {
 
 .custom-select-label{
 	margin-left:-14px;
+}
+
+.disclaimer{
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.disclaimer p{
+	padding: 0;
+	margin-bottom: 0;
+	color: #333;
+  	font-size: 14px;
+  	line-height: 18px;
+  	text-decoration: none;
 }

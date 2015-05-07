@@ -299,8 +299,8 @@
                                                 <td class="">
                                                      <div class="styled-select custom-select-label">
                                                         <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass">
-                                                            <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-                                                            <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                            <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                            <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -465,8 +465,8 @@
 			                                    <td class="">
 			                                         <div class="styled-select custom-select-label">
 		                                                <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass">
-		                                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-		                                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+		                                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+		                                                    <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
 		                                                </select>
 		                                            </div>
 			                                    </td>
@@ -609,12 +609,12 @@
                                         <tbody>
                                             <tr>
                                                 <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                                    <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
+                                                    <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
                                                     <input type="text"
 		                                                name="childName" id="txtChldFullName${inx}" value=""
-		                                                class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+		                                                class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
 		                                                onblur="replaceAlpha(this);"
 		                                                onkeypress="    return alphaOnly(event);" maxlength="100" />
 		                                            <span id="errtxtChldFullName${inx}" class="text-red"></span>
@@ -625,8 +625,8 @@
                                                     <div class="styled-select custom-select-label">
                                                        <!-- <label class="pad-left1 bold-500">HKID</label>  -->
 			                                            <select id="selectChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass">
-						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-						                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+						                                    <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
 					                                    </select>
 				                                    </div>
                                                 </td>
