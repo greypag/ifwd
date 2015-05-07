@@ -425,7 +425,7 @@ public class HomeCareController {
 		Map<String, String> netFloorAreas = homecareService.getNetFloorArea(userName, token, lang);
 		homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(netFloorAreas, homeCareDetails.getNetFloorArea()));
 		// get district / area desc
-		List<DistrictBean> districts = homecareService.getDistrict(userName, token, lang);
+		List<DistrictBean> districts = homecareService.getDistrict(userName, token, "EN");
 		Map<String, String> areas = homecareService.getArea(userName, token, lang);
 		homeCareDetails.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, homeCareDetails.getApplicantDistrict()));
 		homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, homeCareDetails.getApplicantArea()));

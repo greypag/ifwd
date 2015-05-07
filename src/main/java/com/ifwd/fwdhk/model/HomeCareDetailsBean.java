@@ -40,6 +40,23 @@ public class HomeCareDetailsBean {
 	private String aDistrictDesc; 
 	private String aAreaDesc; 
 	
+	private boolean checkbox1;
+	private boolean checkbox2;
+	
+	
+	
+	public boolean getCheckbox1() {
+		return checkbox1;
+	}
+	public void setCheckbox1(boolean checkbox1) {
+		this.checkbox1 = checkbox1;
+	}
+	public boolean getCheckbox2() {
+		return checkbox2;
+	}
+	public void setCheckbox2(boolean checkbox2) {
+		this.checkbox2 = checkbox2;
+	}
 	public String getTotalDue() {
 		return totalDue;
 	}
