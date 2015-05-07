@@ -851,6 +851,10 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
 				<div class="login-form" id="sendmailofpromocode">
+					<div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+	                     <span aria-hidden="true" style="font-size:30px;">×</span>
+	                   </a>
+	                </div>
 					<form>
 					<div class="form-container">
 						<h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>

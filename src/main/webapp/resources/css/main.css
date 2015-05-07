@@ -505,12 +505,12 @@ width: 100%;
 	color: #f68a1d;
 }
 .testimonials-wrap .testimonials-inner p{
-color: #061d2a;
-
-line-height: 1.2;
-font-size: 20px;
-
-margin-top:40px;
+	color: #061d2a;
+	line-height: 1.2;
+	font-size: 18px;
+	margin-top:40px;
+	font-style: italic;
+	padding: 0 35px;
 }
 
 .testimonials-wrap .testimonials-inner .h1-1 {
@@ -1069,8 +1069,11 @@ input.search-form:hover {
     margin: 0;
     padding: 0;
 }
-.home-slider {
-    padding-top: 171px;
+
+@media (min-width: 992px){
+	.home-slider {
+	    padding-top: 171px;
+	}	
 }
 #main-slider {
     position: relative;
@@ -2677,7 +2680,9 @@ table.activation-form {
 table.activation-form .form-control {
 	width: 100%;
 }
-
+.error-field {
+	border: 1px solid red;
+}
 
 table.forgot-form {
 	width: 94%;
@@ -3249,6 +3254,7 @@ del {
 }
 #recent-works-mob {
 	position: relative;
+	margin-top: 20px;
 }
 #recent-works-mob .prev, #recent-works-mob .next {
 	position: absolute;
@@ -3799,6 +3805,9 @@ h2.feature-ttl {
 .mob-bottom  a{
 color:#fff !important;
 }*/
+#mob-footer {
+	padding: 20px;
+}
 #mob-footer div{
 	margin-bottom: 10px;
 }
@@ -5112,6 +5121,7 @@ td[data-title]:before,  td[data-title]:before {
 .homecare p {
 	color: #fff;
 	font-size: 18px;
+	margin-bottom: 24px;
 }
 .homecare-lb {
 	padding-right: 45px;
@@ -5916,10 +5926,10 @@ transform: translateX(-50%);
     max-width: 300px;
     font-weight: 700;
 }
-
+/*
 .btn-next2.btn-homecare{
 	margin-top: 25px;
-}
+}*/
 .radio-homecare+.radio-homecare {
   margin-left: 35px;
 }
@@ -5933,7 +5943,7 @@ p.mute{
   background: rgba(0,0,0,0.6);
 }
 #homecare-scroll.fixed-content{
-  bottom: 0;http://localhost:8080/FWDHKPH1A/tc/home-insurance
+  bottom: 0;
   z-index: 1000;
 }
 .marg20{
@@ -6093,7 +6103,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 100% !important;
+   width: 117% !important;
 }
 .styled-select {
 /*    width: 240px;

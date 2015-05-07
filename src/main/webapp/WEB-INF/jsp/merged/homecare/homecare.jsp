@@ -338,7 +338,7 @@ $(document).ready(function() {
 							<p class="h4-3">
 							
 							
-								<fmt:message key="home.main.feature3.paragraph.part1" bundle="${msg}" /><br>
+								<fmt:message key="home.main.feature3.paragraph.part1" bundle="${msg}" />
 								<br> <small><fmt:message key="home.main.feature3.paragraph.part2" bundle="${msg}" />
 								</small>
 							</p>
@@ -813,15 +813,19 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	</section>
 
 	<!--/mob-#bottom-->
-	<div class="modal1 fade bs-example-modal1-lg " id="oldHome"
-	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+	<div class="modal fade" id="oldHome"
+	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" 
 	aria-hidden="true" style="display: none;">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content plan-modal">
-			<div class="login-form">
-			   <div class="modal-body">
-			   		<p class="errorMsg"></p>
-	      		</div>
+		   <div class="modal-body">
+		   <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                 <span aria-hidden="true" style="font-size:30px;">×</span>
+               </a>
+            </div>
+		     
+		   		<p class="errorMsg"></p>
+		   		<br/>
       		</div>
 		</div>
 	</div>

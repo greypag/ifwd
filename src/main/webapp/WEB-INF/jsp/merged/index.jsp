@@ -154,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="carousel slide">
     <div class="carousel-inner">
       <div class="item active">
-        <div class="container">
+        <div>
           <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
@@ -167,7 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <!--/.item-->
       <div class="item" >
-        <div class="container">
+        <div>
           <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
@@ -180,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <!--/.item-->
       <div class="item">
-        <div class="container">
+        <div>
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
@@ -268,9 +268,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item" >
         <div class="container">
           <div class="row slide-margin">
-            <div class="col-xs-12 text-center">
+            <div class="testimonials-wrap text-center">
               <div class="testimonials-inner text-center">
-                <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
+                <blockquote class="testimonial"></blockquote>
                 <p><fmt:message key="index.customer2.paragraph" bundle="${msg}" /></p>
                 <div class="hr1"></div>
                 <h2><fmt:message key="index.customer2.name.part1" bundle="${msg}" /></h2>

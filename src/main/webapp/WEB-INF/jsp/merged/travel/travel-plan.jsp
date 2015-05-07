@@ -323,8 +323,10 @@ var promoData = '';
 						<div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
-									<span><i
-											class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="travel.quote.fullDetails.heading" bundle="${msg}" /></a> </span>
+									<span>
+									<a href="#" class="fwdpanel-minimize">
+									   <i class="fa fa-plus"></i> <fmt:message key="travel.quote.fullDetails.heading" bundle="${msg}" /></span>
+									</a>		
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
@@ -1162,7 +1164,8 @@ var promoData = '';
 								<fmt:message key="travel.action.next" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>
-						<br> <span class="text-red" id="errDue"></span> <br>
+						<div class="col-xs-12"><span class="text-red" id="errDue"></span></div>
+						<br>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -1190,6 +1193,10 @@ var promoData = '';
   <div class="modal-dialog modal-lg">
 			<div class="modal-content plan-modal">
 				<div class="login-form" id="sendmailofpromocode">
+				<div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+	                 <span aria-hidden="true" style="font-size:30px;">×</span>
+	               </a>
+	            </div>
 					<form>
 					<div class="form-container">
 						<h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
@@ -1203,7 +1210,7 @@ var promoData = '';
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
 								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return sendEmail()"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+									onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
 							</div>
 							<div class="col-md-2">
 								<br>
@@ -1245,6 +1252,14 @@ var promoData = '';
 			"background-color" : "#000"
 		}, 3000);
 	});
+	
+	function enterKeyPress(e){
+		console.log("test");
+	    if (e.keyCode == 13) {
+	    	sendEmail();
+	        return false;
+        }
+    }
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		var selected_div;
 		var idArray = [];

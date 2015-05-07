@@ -894,13 +894,13 @@
 							<div class="hidden-sm hidden-xs">
 								<div class="wd2">
 									
-										<div class="col-md-7 col-lg-8">
+										<div class="col-md-7 col-lg-7">
 											<h2 class="h2-3-choose pad-none">
 												<fmt:message key="home.details.summary.product" bundle="${msg}" /></h2>
 											<h4 class="pad-none"><fmt:message key="home.details.summary.desc1" bundle="${msg}" /></h4>
 										</div>
 	
-										<div class="col-md-5 col-lg-4 pull-right">
+										<div class="col-md-5 col-lg-5 pull-right">
 											<div class="text-left  h2-2 h2">
 												<div class="hk1 text-right-imp">HK$</div>
 												<div class="hk1 top-mrg-10">
