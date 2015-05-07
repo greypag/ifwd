@@ -3791,14 +3791,20 @@ h2.feature-ttl {
 	margin-top: 20px;
 	background-color: #000;
 	color: #f5f5f5;
-	padding: 20px 0px;
+	/*padding: 20px auto;*/
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-
+/*
 .mob-bottom  a{
 color:#fff !important;
+}*/
+#mob-footer div{
+	margin-bottom: 10px;
 }
-
-
+#mob-footer-terms {
+	font-size: 13px;
+}
 /********* Wizard css************/
 /********* Wizard css************/
 .shop-tracking-status{

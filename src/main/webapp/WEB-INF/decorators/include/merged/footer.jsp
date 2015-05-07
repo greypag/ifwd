@@ -52,11 +52,25 @@
 </div>
 <!--/#bottom--> 
 <!--mob bottom-->
-<div class="hidden-lg hidden-md text-center">
-  <div class="btn-box">
+<div id="mob-footer" class="hidden-lg hidden-md mob-bottom container">
+    <div>
+        <a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a> |
+        <a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a> |
+        <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>
+    </div>
+    <div>
+        <fmt:message key="footer.hotline.part1" bundle="${msg}" /> <fmt:message key="footer.hotline.part2" bundle="${msg}" />
+    </div>
+  <div>
 <!--      <h3 class="text-center marg-t"><a href="http://blog.fwd.com.hk" target="_blank">Blog</a></h3> -->
+    <a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a> |
+    <a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a> |
+    <a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a>
   </div>
-   <p class="text-center mob-bottom"><fmt:message key="footer.copyright" bundle="${msg}" /></p>
+  <div id="mob-footer-terms"><fmt:message key="footer.copyright" bundle="${msg}" /></div>
+  
+  
+   <!-- <p class="text-center mob-bottom"><fmt:message key="footer.copyright" bundle="${msg}" /></p> -->
 </div>
 <!--/mob bottom--> 
 
