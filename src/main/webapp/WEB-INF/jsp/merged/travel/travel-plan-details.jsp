@@ -1,10 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -16,11 +18,30 @@
 	}
 		
 	QuoteDetails travelQuote = null;
-		if (travelQuote == null) {
-			//System.out.println("travelQuote is null 2");
-			travelQuote = (QuoteDetails) session.getAttribute("tq");
-		}
-
+		
+	if (travelQuote == null) 
+	{
+		travelQuote = (QuoteDetails) session.getAttribute("tq");
+	}
+		
+	TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+	System.out.println("------------------------------------------------------------");		
+	System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+	System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+	System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+	System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+	System.out.println("------------------------------------------------------------");
+		
+	// debug only
+	System.out.println("------------------------------------------------------------");
+	TravelQuoteBean travelQuoteBean = (TravelQuoteBean) request.getAttribute("travelQuote");
+	System.out.println( "Personal: " + travelQuoteBean.getTotalPersonalTraveller() );
+	System.out.println( "Adult   : " + travelQuoteBean.getTotalAdultTraveller() );
+	System.out.println( "Child   : " + travelQuoteBean.getTotalChildTraveller() );
+	System.out.println( "Others  : " + travelQuoteBean.getTotalOtherTraveller() );
+	System.out.println("------------------------------------------------------------");
+	System.out.println( "travel plan details jsp" );
+		
 %>
 
 
@@ -1008,7 +1029,7 @@
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	 <a href="<%=request.getContextPath()%>/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+	 <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
