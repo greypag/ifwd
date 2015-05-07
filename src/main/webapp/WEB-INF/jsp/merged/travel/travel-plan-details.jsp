@@ -32,7 +32,7 @@
 	System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
 	System.out.println("------------------------------------------------------------");
 		
-	request.setAttribute("travelQuote", sessTravelQuoteBean);
+	//request.setAttribute("travelQuote", sessTravelQuoteBean);
 	
 	// debug only
 	System.out.println("------------------------------------------------------------");
@@ -44,7 +44,15 @@
 	System.out.println("------------------------------------------------------------");
 	System.out.println( "travel plan details jsp" );
 		
+
 %>
+<!-- for debug
+	$TravelQuote											<br>
+	Peronsal : ${travelQuote.getTotalPersonalTraveller()} 	<br>
+	Adult    : ${travelQuote.getTotalAdultTraveller()}		<br>
+	Child	 : ${travelQuote.getTotalChildTraveller()}		<br>
+	Ohters   : ${travelQuote.getTotalOtherTraveller()}		<br>
+ -->
 
 
 <!--/#main-Content-->
