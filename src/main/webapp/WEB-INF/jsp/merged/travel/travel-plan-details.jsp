@@ -295,7 +295,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="">
-                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
                                                     <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -461,7 +461,7 @@
 		                                            </div>
 			                                    </td>
 			                                    <td class="">
-			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> 
 		                                            <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
 		                                            <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
 			                                    </td>
@@ -624,7 +624,7 @@
                                                     <input
 	                                                id="txtChldInsuHkid${inx}" name="childHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" /> <span id="errtxtChldInsuHkid${inx}"
+	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtChldInsuHkid${inx}"
 	                                                class="text-red"> </span><span
 	                                                id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -701,7 +701,7 @@
                                                     <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" /> <span id="errtxtchildInsuHkid${inx}"
+                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtchildInsuHkid${inx}"
                                                     class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -752,7 +752,7 @@
                                                     <input
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" /> <span id="errtxtOtherInsuHkid${inx}"
+	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span><span
 	                                                id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -825,7 +825,7 @@
                                                     <input
 	                                                    id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 	                                                    class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-	                                                    value="" /> <span id="errtxtOtherBenInsuHkid${inx}"
+	                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherBenInsuHkid${inx}"
 	                                                    class="text-red"> </span>
 	                                                    <span id="errtxtOtherInvalidBenInsuHkid${inx}"
 	                                                    class="text-red"> </span>
