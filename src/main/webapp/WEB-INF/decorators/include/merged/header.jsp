@@ -104,10 +104,15 @@ function submitLoginForm(formID) {
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<% String username = (String) session.getAttribute("username");					
-							   if (username == null) {
+							System.out.println("username " + username);   
+							if (username == null) {
 							%>
 							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
+							<% } else if (username.equals("*DIRECTGI")) { %>
+							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li> | </li>
+							
 							<% } %>
 							<li>
 							<%
