@@ -4389,7 +4389,7 @@ function hkidValid(ths){
 	
 	var inputVal = $('#'+inputId).val();
 	var selectHkPass = document.getElementById(selectId).value;
-	if(selectHkPass == 'HKID'){
+	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
 		inputVal = inputVal.replace(/[\W]/g,'');
 		$('#'+inputId).val(inputVal);
 	}

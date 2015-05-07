@@ -180,7 +180,7 @@
 
 									</td>
 									<td class="">
-									<input type="text" name="hkid" class="form-control numberinput textUpper full-control" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />" onKeyUp="value=value.replace(/[\W]/g,'')"> <span
+									<input type="text" name="hkid" class="form-control numberinput textUpper full-control" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
