@@ -182,7 +182,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     <td class=""><input type="text" name="hkid"
                                         class="form-control numberinput textUpper full-control"
                                         id="inputTxtAppHkid"
-                                        placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onKeyUp="value=value.replace(/[\W]/g,'')">
+                                        placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
                                         <span id="errAppHkid" class="text-red"> </span></td>
                                 </tr>
                                 <tr>
@@ -333,7 +333,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     id="txtInsuHkid${inx}" name="personalHKID"
                                                     class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span> <span
                                                     id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -415,7 +415,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                       <input id="personalBenefitiaryHKId${inx}"
                                                     name="personalBenificiaryHkid" class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errpersonalBenefitiaryHKId${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errpersonalBenefitiaryHKId${inx}"
                                                     class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -484,7 +484,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     id="txtInsuHkid${inx}" name="adultHKID"
                                                     class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span> <span
                                                     id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -566,7 +566,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                       <input id="adultBenefitiaryHKId${inx}"
                                                     name="adultBenificiaryHkid" class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="erradultBenefitiaryHKId${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="erradultBenefitiaryHKId${inx}"
                                                     class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -625,7 +625,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         id="txtChldInsuHkid${inx}" name="childHKID"
                                                         class="form-control textUpper full-control"
                                                         placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                        value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtChldInsuHkid${inx}"
+                                                        value="" onkeyup="hkidValid(this)"/> <span id="errtxtChldInsuHkid${inx}"
                                                         class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -712,7 +712,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                       <input id="txtchildInsuHkid${inx}"
                                             name="childBenificiaryHkid" class="form-control textUpper full-control"
                                             placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                            value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtchildInsuHkid${inx}"
+                                            value="" onkeyup="hkidValid(this)"/> <span id="errtxtchildInsuHkid${inx}"
                                             class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -767,7 +767,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control"
 	                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -856,7 +856,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                       <input id="txtOtherBenInsuHkid${inx}"
                                                     name="otherBenificiaryHkid" class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onKeyUp="value=value.replace(/[\W]/g,'')"/> <span id="errtxtOtherBenInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherBenInsuHkid${inx}"
                                                     class="text-red"> </span>
                                                 </td>
                                             </tr>
