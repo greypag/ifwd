@@ -5567,6 +5567,15 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
     padding-bottom: 30px;
 }
 
+.chin #childtraveller{
+	padding: 0 20px;
+}
+.chin .insure-travel #childtraveller{
+    padding: 0;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 30px;
+}
+
 .major-exc li {
 	font-size: 18px;
 	line-height: 1.4;

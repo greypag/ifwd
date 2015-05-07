@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
+<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
@@ -14,13 +15,24 @@
 		authenticate = request.getSession()
 				.getAttribute("authenticate").toString();
 	}
-		
-	QuoteDetails travelQuote = null;
-		if (travelQuote == null) {
-			//System.out.println("travelQuote is null 2");
-			travelQuote = (QuoteDetails) session.getAttribute("tq");
-		}
 
+	TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+	System.out.println("------------------------------------------------------------");		
+	System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+	System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+	System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+	System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+	System.out.println("------------------------------------------------------------");
+	
+	// debug only
+	System.out.println("------------------------------------------------------------");
+	TravelQuoteBean travelQuoteBean = (TravelQuoteBean) request.getAttribute("travelQuote");
+	System.out.println( "Personal: " + travelQuoteBean.getTotalPersonalTraveller() );
+	System.out.println( "Adult   : " + travelQuoteBean.getTotalAdultTraveller() );
+	System.out.println( "Child   : " + travelQuoteBean.getTotalChildTraveller() );
+	System.out.println( "Others  : " + travelQuoteBean.getTotalOtherTraveller() );
+	System.out.println("------------------------------------------------------------");
+	System.out.println( "travel plan details jsp" );
 %>
 
 
@@ -116,13 +128,13 @@
 						<table class="table activation-form margin-left-2 vert-middle">
 							<tbody>
 								<tr>
-									<td colspan="2" class=""><h3
+									<td colspan="2"><h3
 											class="black-bold"><fmt:message key="travel.details.applicant.heading" bundle="${msg}" /></h3></td>
 								</tr>
 								<tr>
 									<td valign="middle" class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
 										for="inputFullName" class="bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label></td>
-									<td class=""><input type="text" name="fullName"
+									<td><input type="text" name="fullName"
 										class="form-control full-control" id="inputFullName"
 										value="${userDetails.getFullName()}"
 										placeholder="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this);"
@@ -148,14 +160,14 @@
 									</div>
 
 									</td>
-									<td class="">
+									<td>
 									<input type="text" name="hkid" class="form-control numberinput textUpper full-control" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />" onKeyUp="value=value.replace(/[\W]/g,'')"> <span
 										id="errAppHkid" class="text-red" ></span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class=""><label for="inputMobileNo"
+									<td valign="middle"><label for="inputMobileNo"
 										class="bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label></td>
-									<td class=""><input name="mobileNo" type="text"
+									<td><input name="mobileNo" type="text"
 										class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
 										id="inputMobileNo" placeholder="<fmt:message key="travel.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
@@ -164,9 +176,9 @@
 									</span></td>
 								</tr>
 								<tr>
-									<td valign="middle" class=""><label for="inputEmailId"
+									<td valign="middle"><label for="inputEmailId"
 										class="bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label></td>
-									<td class=""><input class="form-control full-control" name="emailAddress"
+									<td><input class="form-control full-control" name="emailAddress"
 										value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
 										placeholder="<fmt:message key="travel.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50"> <span id="emailid" class="text-red"></span></td>
 								</tr>
@@ -181,32 +193,32 @@
 								id="input-white">
 								<tbody>
 									<tr>
-										<td colspan="2" class=""><h3 class=""><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
+										<td colspan="2"><h3><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
 											<i><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i> <br></td>
 									</tr>
 									<tr>
-										<td colspan="2" class="">&nbsp;</td>
+										<td colspan="2">&nbsp;</td>
 									</tr>
 									<tr>
 										<td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
 											class="bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
-										<td class=""><input type="text"
+										<td><input type="text"
 											name="username" class="form-control full-control"
 											id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
 											id="UsernameError" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td class=""><label
+										<td><label
 											class="bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label></td>
-										<td class=""><input type="password"
+										<td><input type="password"
 											name="password" class="form-control full-control"
 											id="Password" placeholder="<fmt:message key="travel.details.registration.password.placeholder" bundle="${msg}" />" autocomplete="off"> <span
 											id="PasswordError" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td class=""><label
+										<td><label
 											class="bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label></td>
-										<td class=""><input type="password"
+										<td><input type="password"
 											class="form-control full-control" id="Confirm-Password"
 											placeholder="<fmt:message key="travel.details.registration.confirmPassword.placeholder" bundle="${msg}" />" autocomplete="off"> <span id="Confirm-PasswordError"
 											class="text-red"> </span></td>
@@ -231,9 +243,9 @@
 						<div class="col-xs-12 col-sm-12 col-md-12 pad-none insure-travel">
 							<input type="hidden" name="totalPersonalTraveller"
 								id="totalPersonalTraveller"
-								value="${travelQuote.getTotalPersonalTraveller()}">
+								value="${corrTravelQuote.getTotalPersonalTraveller()}">
 							<c:forEach var="inx" begin="1"
-                                end="${travelQuote.getTotalPersonalTraveller()}">
+                                end="${corrTravelQuote.getTotalPersonalTraveller()}">
                                 <div id="personaltraveller">
                                     <h4 class="color1 top-mrg-10 margin-left-28">
                                         <fmt:message key="travel.details.insured.label.personal" bundle="${msg}" />
@@ -246,7 +258,7 @@
                                                 <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <c:if test="${inx == 1}">
                                                     <input type="text"
                                                         id="txtPersonalFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
@@ -265,7 +277,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                      <div class="styled-select custom-select-label">
                                                         <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
@@ -273,17 +285,17 @@
                                                         </select>
                                                     </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
                                                     <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <div class="styled-select">
                                                         <select
                                                             name="personalAgeRange" class="soflow select-label"
@@ -338,10 +350,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <div class="styled-select">
                                                      <select name="personalBeneficiary" id="personalselectBenificiary${inx}" 
                                                             onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}')"
@@ -357,10 +369,10 @@
                                                 </td>
                                             </tr>
                                             <tr id="personalbenificiaryId${inx}" class="hide">
-                                                <td class="">
+                                                <td>
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <input type="text"
                                                         name="personalBenificiaryFullName"
                                                         id="personalBenefitiaryId${inx}" value=""
@@ -372,8 +384,7 @@
                                                 </td>
                                             </tr>
                                             <tr id="personalbenificiaryId${inx}b" class="hide">
-                                                <td class="">
-                                                     <!-- <label class="pad-left1 bold-500">HKID</label> -->
+                                                <td>
                                                     <div class="styled-select custom-select-label">
                                                     <select id="selectPersonalBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalBenefitiaryHkidPass">
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
@@ -381,7 +392,7 @@
                                                     </select>
                                                     </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <input
                                                     id="personalBenefitiaryHKId${inx}" name="personalBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -397,9 +408,9 @@
 								
 							<input type="hidden" name="totalAdultTraveller"
                                 id="totalAdultTraveler"
-                                value="${travelQuote.getTotalAdultTraveller()}">
+                                value="${corrTravelQuote.getTotalAdultTraveller()}">
 							<c:forEach var="inx" begin="1"
-								end="${travelQuote.getTotalAdultTraveller()}">
+								end="${corrTravelQuote.getTotalAdultTraveller()}">
 								<div id="adulttraveller">
 									<h4 class="color1 top-mrg-10 margin-left-28">
 										<fmt:message key="travel.details.insured.label.family.parent" bundle="${msg}" />
@@ -412,7 +423,7 @@
 			                                    <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 		                                             <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
 			                                    </td>
-			                                    <td class="">
+			                                    <td>
 			                                         <c:if test="${inx == 1}">
 		                                            <input type="text"
 		                                                id="txtAdFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
@@ -431,7 +442,7 @@
 			                                    </td>
 			                                </tr>
 			                                <tr>
-			                                    <td class="">
+			                                    <td>
 			                                         <div class="styled-select custom-select-label">
 		                                                <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass">
 		                                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
@@ -439,17 +450,17 @@
 		                                                </select>
 		                                            </div>
 			                                    </td>
-			                                    <td class="">
+			                                    <td>
 			                                         <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
 		                                            <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
 		                                            <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
 			                                    </td>
 			                                </tr>
 			                                <tr>
-                                                <td class="">
+                                                <td>
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <div class="styled-select">
 		                                                <select
 		                                                    name="adultAgeRange" class="soflow select-label"
@@ -504,10 +515,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <div class="styled-select">
 		                                             <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
 		                                                    onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
@@ -523,10 +534,10 @@
                                                 </td>
                                             </tr>
                                             <tr id="adultsbenificiaryId${inx}" class="hide">
-                                                <td class="">
+                                                <td>
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <input type="text"
 	                                                    name="adultBenificiaryFullName"
 	                                                    id="adultBenefitiaryId${inx}" value=""
@@ -538,8 +549,7 @@
                                                 </td>
                                             </tr>
                                             <tr id="adultsbenificiaryId${inx}b" class="hide">
-                                                <td class="">
-                                                     <!-- <label class="pad-left1 bold-500">HKID</label> -->
+                                                <td>
 	                                                <div class="styled-select custom-select-label">
 	                                                <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedAdBenefitiaryHkidPass">
 	                                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
@@ -547,7 +557,7 @@
 	                                                </select>
 	                                                </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                      <input
                                                     id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -564,9 +574,9 @@
 							<!-- child  -->
 							<input type="hidden" name="totalChildTraveller"
 								id="totalCountOfChild"
-								value="${travelQuote.getTotalChildTraveller()}">
+								value="${corrTravelQuote.getTotalChildTraveller()}">
 							<c:forEach var="inx" begin="1"
-								end="${travelQuote.getTotalChildTraveller()}">
+								end="${corrTravelQuote.getTotalChildTraveller()}">
 								<div id="childtraveller">
 									<h4 class="color1 top-mrg-10 margin-left-28">
 										<fmt:message key="travel.details.insured.label.family.child" bundle="${msg}" /> 
@@ -578,9 +588,9 @@
                                         <tbody>
                                             <tr>
                                                 <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                                    <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
+                                                    <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input type="text"
 		                                                name="childName" id="txtChldFullName${inx}" value=""
 		                                                class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
@@ -590,16 +600,15 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <div class="styled-select custom-select-label">
-                                                       <!-- <label class="pad-left1 bold-500">HKID</label>  -->
 			                                            <select id="selectChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass">
 						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
 						                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 					                                    </select>
 				                                    </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input
 	                                                id="txtChldInsuHkid${inx}" name="childHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -609,10 +618,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <div class="styled-select">
 		                                                <select
 		                                                    name="childAgeRange" id="selectchildAgeRange${inx}"
@@ -633,10 +642,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <div class="styled-select">
 		                                            <select
 		                                                id="childselectBenificiary${inx}" name="childBeneficiary"
@@ -653,10 +662,10 @@
                                                 </td>
                                             </tr>
                                             <tr id="childbenificiaryId${inx}" class="hide">
-                                                <td class="">
+                                                <td>
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input type="text"
 	                                                    name="childBenificiaryFullName"
 	                                                    id="childBenefitiaryName${inx}" value=""
@@ -667,16 +676,15 @@
                                                 </td>
                                             </tr>
                                             <tr id="childbenificiaryId${inx}b" class="hide">
-                                                <td class="">
+                                                <td>
                                                     <div class="styled-select custom-select-label">
-	                                                   <!-- <label class="pad-left1 bold-500">HKID</label>  -->
 		                                                <select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
 						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
 						                                    <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 					                                    </select>
 				                                    </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -693,9 +701,9 @@
 							<!--other traveller-->
 							<input type="hidden" name="totalOtherTraveller"
 								id="totalCountOther"
-								value="${travelQuote.getTotalOtherTraveller()}">
+								value="${corrTravelQuote.getTotalOtherTraveller()}">
 							<c:forEach var="inx" begin="1"
-								end="${travelQuote.getTotalOtherTraveller()}">
+								end="${corrTravelQuote.getTotalOtherTraveller()}">
 								<div id="childtraveller">
 									<h4 class="color1 top-mrg-10 margin-left-28">
 										<fmt:message key="travel.details.insured.label.family.others" bundle="${msg}" />
@@ -708,7 +716,7 @@
                                                 <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /> </label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input type="text"
 		                                                name="otherName" id="txtOtherFullName${inx}" value=""
 		                                                class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
@@ -718,8 +726,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
-                                                    <!-- <label class="pad-left1 bold-500">HKID</label> -->
+                                                <td>
 		                                            <div class="styled-select custom-select-label">
 			                                            <select id="selectOtHkidPass${inx}" class="form-control soflow select-label" name="selectedOtHkidPass">
 						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
@@ -727,7 +734,7 @@
 					                                    </select>
 				                                    </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
@@ -737,10 +744,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <div class="styled-select"><select
 		                                                name="otherAgeRange" class="form-control soflow select-label"
 		                                                id="selectOtherAgeRange${inx}">
@@ -759,10 +766,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <div class="styled-select"><select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
 		                                                onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
 		                                                class="form-control soflow select-label">
@@ -777,10 +784,10 @@
                                                 </td>
                                             </tr>
                                             <tr id="otherbenificiaryId${inx}" class="hide">
-                                                <td class="">
+                                                <td>
                                                     <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input type="text"
 	                                                    name="otherBenificiaryFullName"
 	                                                    id="otherBenefitiaryName${inx}" value=""
@@ -791,8 +798,7 @@
                                                 </td>
                                             </tr>
                                             <tr id="otherbenificiaryId${inx}b" class="hide">
-                                                <td class="">
-                                                    <!-- <label class="pad-left1 bold-500">HKID</label> -->
+                                                <td>
 	                                                <div class="styled-select custom-select-label">
 		                                                <select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedOtherBenefitiaryHkidPass">
 						                                    <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
@@ -800,7 +806,7 @@
 					                                    </select>
 				                                    </div>
                                                 </td>
-                                                <td class="">
+                                                <td>
                                                     <input
 	                                                    id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
 	                                                    class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
@@ -929,7 +935,7 @@
 								</h3>
 								<h4> 
 								<div class="input-group date" id="trval-dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${travelQuote.getTrLeavingDate()}" readonly>
+                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                 </div>
 							 </h4>
 								<input type="hidden" name="departureDate" id="departureDate"
@@ -941,12 +947,12 @@
 								</h3>
 								<h4>
 								                    <div class="input-group date" id="trval-dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${travelQuote.getTrBackDate()}" readonly>
+                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.getTrBackDate()}" readonly>
                     </div>
 								
 								</h4>
 								<input type="hidden" name="backDate" id="backDate"
-									value="${travelQuote.getTrBackDate()}">
+									value="${corrTravelQuote.getTrBackDate()}">
 
 								<h3 class="txt-bold">
 									<fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"> <span
@@ -954,17 +960,17 @@
 								</h3>
 								<h4>
 								<%								
-									if (travelQuote.getPlanSelected() != null && travelQuote.getPlanSelected().equals("personal"))
+									if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
 									{ 
 								%>
-										<c:if test="${ travelQuote.getTotalPersonalTraveller()!=0}">
+										<c:if test="${ corrTravelQuote.getTotalPersonalTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-											: ${travelQuote.getTotalPersonalTraveller()}
+											: ${corrTravelQuote.getTotalPersonalTraveller()}
 										</c:if>
 										<!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-										<c:if test="${travelQuote.getTotalAdultTraveller()!=0}">
+										<c:if test="${corrTravelQuote.getTotalAdultTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-											: ${travelQuote.getTotalAdultTraveller()}
+											: ${corrTravelQuote.getTotalAdultTraveller()}
 										</c:if>
 
 								<%  }
@@ -972,27 +978,18 @@
 									{										
 								%>	
 
-									<c:if test="${ travelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${travelQuote.getTotalAdultTraveller()+travelQuote.getTotalPersonalTraveller()}</c:if>
-									<c:if test="${ travelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${travelQuote.getTotalChildTraveller()}</c:if>
-			                     	<c:if test="${ travelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${travelQuote.getTotalOtherTraveller()}</c:if>
+									<c:if test="${ corrTravelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.getTotalAdultTraveller()+corrTravelQuote.getTotalPersonalTraveller()}</c:if>
+									<c:if test="${ corrTravelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.getTotalChildTraveller()}</c:if>
+			                     	<c:if test="${ corrTravelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.getTotalOtherTraveller()}</c:if>
 		                            <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
 		                        <%  } %>
 								</h4>
 								
-								<input type="hidden" name="planSelected" value="${travelQuote.getPlanSelected()}">
+								<input type="hidden" name="planSelected" value="${corrTravelQuote.getPlanSelected()}">
 								<h3 class="txt-bold">
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${travelQuote.getTotalTravellingDays()}</span>
+									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
 								</h3>
 								<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-								<!-- <div class="form-group">
-									<span class="input-group-addon in black-bold"><span>使用</span></span>
-              		<input type="text" class="form-control placeholder-fl" value="eg.FWD789" readonly placeholder="eg.FWD789">
-					
-
-              </div>
-              <div class="travel-italic">
-                <a href="#" class="sub-link"  data-toggle="modal" data-target=".bs-promo-modal-lg"><i> 如�??��??��?�?���?/i> </a>
-              </div> -->
             </div>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
 		            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planPremium}</h3>
@@ -1012,7 +1009,6 @@
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 	<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
-<!-- 	<a href="travel-summary-payment-cn.html" class="bdr-curve btn btn-primary nxt-btn" onclick="return travel_planValid();"> <fmt:message key="travel.action.next" bundle="${msg}" /></a>  -->
 </div>
 <div class="clearfix"></div>
 <br>
@@ -1031,15 +1027,6 @@
 <!--/.container-->
 
 </section>
-<!-- 
-
-	
-		
-		
-			<form name="popUploginform" id="popUploginform" class="">
-				<div class="login-form">
-
- -->
 
 <!--Plan-login-popup-->
 
@@ -1094,6 +1081,9 @@
 <script>
 	function activeDiv(id, selected) {
 		var selectedValue = $('#' + selected).val();
+		if (id.indexOf('personal') > -1) {
+			activeDeactive(selectedValue, id);
+		}
 		if (id.indexOf('adult') > -1) {
 			activeDeactive(selectedValue, id);
 		}
@@ -1126,10 +1116,6 @@
 function userLoginFnc() {
 
 	$('#ajax-loading').show();
-	/* var a=validUser(); */
-	/* 
-	if(a==true)
-	{ */
 	$.ajax({
 		type : "POST",
 		url : "<%=request.getContextPath()%>/userLogin",
@@ -1139,7 +1125,6 @@ function userLoginFnc() {
 			$('#ajax-loading').hide();
 			if (data == 'success') {
 				window.location.reload();
-				/* window.location.href = "getAccByUsernaneAndPassword"; */
 			} else if (data == 'fail') {
 				$('#ajax-loading').hide();
 				$('#login-err-msg').show();

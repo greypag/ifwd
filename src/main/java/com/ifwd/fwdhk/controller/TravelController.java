@@ -65,7 +65,8 @@ public class TravelController {
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		TravelQuoteBean travelQuote;
 		
-		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		//travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 		
 		if(travelQuote == null){
 			travelQuote = new TravelQuoteBean();
@@ -79,6 +80,9 @@ public class TravelController {
 		else{
 			System.out.println("Plan selected : "+travelQuote.getPlanSelected());
 		}
+		
+		session.setAttribute("corrTravelQuote", travelQuote);
+		
 		//default 
 		/*
 		travelQuote.setTotalPersonalTraveller(1);
