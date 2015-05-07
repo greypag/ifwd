@@ -1170,6 +1170,10 @@ public class TravelController {
 						"transactionDate"));
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
+			} else {
+				System.out.println("redirect back");
+				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
+				return new ModelAndView("redirect:" + "/" + (String) session.getAttribute("language") + "/travel-insurance/user-details");
 			}
 
 		} 
