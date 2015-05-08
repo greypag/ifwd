@@ -189,6 +189,12 @@ public class FlightController {
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
 
+		System.out.println("/flight-insurance/quote");
+		System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
+		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
+		System.out.println("Child    : " + planDetails.getTotalChildTraveller());
+		System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
+		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
@@ -356,6 +362,12 @@ public class FlightController {
 			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			BindingResult result, Model model) {
 
+		System.out.println("/flight-insurance/user-details");
+		System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
+		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
+		System.out.println("Child    : " + planDetails.getTotalChildTraveller());
+		System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
+		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
@@ -369,7 +381,7 @@ public class FlightController {
 
 		}
 		// redirect to 1ST step when null
-		planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+		//planDetails = (PlanDetails) session.getAttribute("flightPlanDetails"); // vincent this line overwritten the correct values
 		if (planDetails == null) {
 			// return flight(request, model, "tc");
 			return flight(request, model);
@@ -823,6 +835,7 @@ public class FlightController {
 		applicantJsonObj.put("hkId", hkid);
 		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
+		
 		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox1());
 		System.out.println("Flight optIn2 " + planDetailsForm.getCheckbox2());
 		

@@ -3165,7 +3165,7 @@ $(window).resize(function() {
 
 
 //Chat API Calling
-function zopim_chat_start(lang)
+/*function zopim_chat_start(lang)
 {
 	window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
 	d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
@@ -3177,7 +3177,7 @@ function zopim_chat_start(lang)
         $zopim.livechat.setLanguage(lang);
     });
 }
-zopim_chat_start('en');
+zopim_chat_start('en');*/
 
 
 function isCreditCard(CC) {
