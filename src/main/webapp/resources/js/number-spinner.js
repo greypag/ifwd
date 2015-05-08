@@ -5,7 +5,7 @@ $('#family_plan_mob_spinner').hide();
 // ONCHANGE EVENT FOR PLAN RADIO BUTTON 
 
 $(window).load(function(){
-  //if($('#divPersonsDesk').length){
+  if($('#divPersonsDesk').length){
     //document.getElementById("divPersonsDesk").style.visibility = "visible";
       $('#lblCountDesk').show();
       /*$('#lblCountDesk').html(traveller + ' Traveller(s)');*/
@@ -21,7 +21,7 @@ $(window).load(function(){
       $('#lblDaysBtm').html(trCount);
       $('#lblDaysMob').html(trCount);
       
- // }
+  }
   
   if($('#divPersonsBtm').length){
       document.getElementById("divPersonsBtm").style.visibility = "visible";

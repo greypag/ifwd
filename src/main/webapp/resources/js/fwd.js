@@ -3602,11 +3602,12 @@ function msgAlertDesk(formID) {
 	}
     return flag;    
 }
+/*
 $('#oldHome').on('show.bs.modal', function (event) {
 	  var modal = $(this);
 	  modal.find('.errorMsg').text(getBundle(getBundleLanguage, "homecare.uw.question1.notEntitled.message"));
-	})
-
+})*/
+ 
 // common function
 String.format = function() {
     // The string containing the format items (e.g. "{0}")

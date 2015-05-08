@@ -177,7 +177,7 @@ $(document).ready(function() {
                                             <label class="radio radio-warning radio-inline radio-homecare"> <input
                                                 name="home_situated<%=quetionList.getQid()%>"
                                                 id="inlineDeskRadio1a<%=quetionList.getQid()%>"
-                                                data-id="home" class="plan"
+                                                data-id="home"
                                                 value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
                                                 type="radio"> <label
                                                 for="inlineDeskRadio1a<%=quetionList.getQid()%>"> <span><%=quetionList.getAnswer1()%></span>
@@ -185,7 +185,7 @@ $(document).ready(function() {
                                             </label> <label class="radio radio-warning radio-inline radio-homecare"> <input
                                                 name="home_situated<%=quetionList.getQid()%>"
                                                 id="inlineDeskRadio1b<%=quetionList.getQid()%>"
-                                                data-id="home" class="plan"
+                                                data-id="home"
                                                 value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
                                                 type="radio"> <label
                                                 for="inlineDeskRadio1b<%=quetionList.getQid()%>"> <span>
@@ -245,7 +245,7 @@ $(document).ready(function() {
 						class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio2a<%=quetionList.getQid()%>" data-id="home"
-						class="plan" value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
+						value="<%=quetionList.getAnswer1()%>" <%=quetionList.getAnswer1Checked()%>
 						type="radio"> <label
 						for="inlineDeskRadio2a<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer1()%>
@@ -254,7 +254,7 @@ $(document).ready(function() {
 					</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio2b<%=quetionList.getQid()%>" data-id="home"
-						class="plan" value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
+						value="<%=quetionList.getAnswer2()%>" <%=quetionList.getAnswer2Checked()%>
 						type="radio"> <label
 						for="inlineDeskRadio2b<%=quetionList.getQid()%>"> <span>
 								<%=quetionList.getAnswer2()%></span>
@@ -776,7 +776,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio3a<%=bQuetionList.getQid()%>" data-id="home"
-								class="plan" value="<%=bQuetionList.getAnswer1()%>" <%=bQuetionList.getAnswer1Checked()%> type="radio">
+								value="<%=bQuetionList.getAnswer1()%>" <%=bQuetionList.getAnswer1Checked()%> type="radio">
 								<label for="inlineDeskRadio3a<%=bQuetionList.getQid()%>">
 									<span> <%=bQuetionList.getAnswer1()%>
 								</span>
@@ -784,7 +784,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</label> <label class="radio radio-warning radio-inline radio-homecare"> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio3b<%=bQuetionList.getQid()%>" data-id="home"
-								class="plan" value="<%=bQuetionList.getAnswer2()%>" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
+								value="<%=bQuetionList.getAnswer2()%>" <%=bQuetionList.getAnswer2Checked()%> type="radio"> <label
 								for="inlineDeskRadio3b<%=bQuetionList.getQid()%>"> <span>
 										<%=bQuetionList.getAnswer2()%>
 								</span>
@@ -824,7 +824,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                </a>
             </div>
 		     
-		   		<p class="errorMsg"></p>
+		   		<p class="errorMsg"><fmt:message key="homecare.uw.question1.notEntitled.message" bundle="${msg}" /></p>
 		   		<br/>
       		</div>
 		</div>

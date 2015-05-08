@@ -252,7 +252,7 @@ function submitLoginForm(formID) {
 								}else{%>
 									<li class="dropdown logout-btn margin-left1" id="myDropdown">
 								<a href="#" class="dropdown-toggle" id="fwd-login"
-								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" /> <%=session.getAttribute("username")%> <i
+								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%> <i
 									class="fa fa-caret-right"></i>
 							</a>
 								<div class="dropdown-menu drop-width">
@@ -413,7 +413,7 @@ function submitLoginForm(formID) {
 		
 		
 			<a href="#" class="dropdown-toggle" id="fwd-login"
-								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" /> <%=session.getAttribute("username")%> <i
+								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%> <i
 									class="fa fa-caret-right">
 									
 									
