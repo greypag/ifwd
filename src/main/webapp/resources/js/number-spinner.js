@@ -74,7 +74,7 @@ $('.plan').change(function () {
             $('#lblPeopleDesk').html('' + personalTraveller);
             
             var parent = $('.plan_spinner_' + parent_id);
-          changeSpinnerValue(parent.find(' #txtAdultsDesk'), 1);
+          changeSpinnerValue(parent.find(' #txtAdultsDesk'), 0);
           changeSpinnerValue(parent.find(' #txtChildDesk'), 0);
           changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
           
@@ -82,22 +82,25 @@ $('.plan').change(function () {
       
             personalTraveller=$('#txtTravellersDesk').val();
             //$('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
-            $('#lblCountDesk').html(personalTraveller);
-            $('#lblPeopleDesk').html('' + personalTraveller);
+            $('#lblCountDesk').html(1);
+            $('#lblPeopleDesk').html('' + 1);
         }
         else if(id  == 'family_plan_desk') 
         {   
           var parent = $('.plan_spinner_' + parent_id);
-          changeSpinnerValue(parent.find(' #txtAdultsDesk'), familyAdult);
-          changeSpinnerValue(parent.find(' #txtChildDesk'), familyChild);
-          changeSpinnerValue(parent.find(' #txtOtherDesk'), familyOther);
+          changeSpinnerValue(parent.find(' #txtAdultsDesk'), 1);
+          changeSpinnerValue(parent.find(' #txtChildDesk'), 1);
+          changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
+          
+      changeSpinnerValue($('#txtTravellersDesk'), 0);
+      
             
             //document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
             //$('#lblCountDesk').html(familyTraveller + ' Traveller(s)');
-            $('#lblCountDesk').html(familyTraveller);
-            $('#lblPeopleDesk').html('' + familyTraveller);
-            $('#family_desk_count').val(familyTraveller);
+            $('#lblCountDesk').html(2);
+            $('#lblPeopleDesk').html('' + 2);
+            $('#family_desk_count').val(2);
         }else
         {
             //document.getElementById("divPersonsDesk").style.visibility = "hidden";
@@ -113,9 +116,9 @@ $('.plan').change(function () {
       if(id  == 'family_plan_mob') 
       {
         var parent = $('.plan_spinner_' + parent_id);
-        changeSpinnerValue(parent.find(' #txtAdultsMob'), familyAdult);
-        changeSpinnerValue(parent.find(' #txtChildMob'), familyChild);
-        changeSpinnerValue(parent.find(' #txtOtherMob'), familyOther);
+        changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
+        changeSpinnerValue(parent.find(' #txtChildMob'), 1);
+        changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
         
           document.getElementById("divPersonsMob").style.visibility = "visible";
           $('#lblCountMob').show();
@@ -127,7 +130,7 @@ $('.plan').change(function () {
       }else
       {
         var parent = $('.plan_spinner_' + parent_id);
-        changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
+        changeSpinnerValue(parent.find(' #txtAdultsMob'), 0);
         changeSpinnerValue(parent.find(' #txtChildMob'), 0);
         changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
           
@@ -191,6 +194,7 @@ $('.plan').change(function () {
       }
       
     }
+    updateTravelQuote();
     
 });
 // PLUS AND MINUS BUTTON EVENT TO CONTROLL TRAVERLLER PEOPLE
@@ -269,19 +273,19 @@ $('.btn-number').click(function(e){
                             $('#family_desk_count').val(total_people);
                             //document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
                             document.getElementById("lblCountDesk").innerHTML = total_people;
-                            document.getElementById("lblPeopleDesk").innerHTML = total_people;
+//                            document.getElementById("lblPeopleDesk").innerHTML = total_people;
                             label.html(input.val());
                         }else
                         {
                             //document.getElementById("lblCountDesk").innerHTML = input.val() + " Traveller(s)";
                             document.getElementById("lblCountDesk").innerHTML = input.val();
-                            document.getElementById("lblPeopleDesk").innerHTML = input.val();
+//                            document.getElementById("lblPeopleDesk").innerHTML = input.val();
                             label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
                         var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-                        document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+//                        document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
                         //document.getElementById("divPersonsDesk").style.visibility = "visible";
                     }
                 
@@ -381,20 +385,20 @@ $('.btn-number').click(function(e){
                            $('#family_desk_count').val(total_people);
                            //document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
                            document.getElementById("lblCountDesk").innerHTML = total_people;
-                           document.getElementById("lblPeopleDesk").innerHTML = total_people;
+//                           document.getElementById("lblPeopleDesk").innerHTML = total_people;
                            label.html(input.val());
 
                         }else
                         {
                               //document.getElementById("lblCountDesk").innerHTML = input.val() + " Traveller(s)";
                               document.getElementById("lblCountDesk").innerHTML = input.val();
-                              document.getElementById("lblPeopleDesk").innerHTML = input.val();
+//                              document.getElementById("lblPeopleDesk").innerHTML = input.val();
                               label.html(input.val());
                         }
 
                         var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
                         var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
-                        document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+//                        document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
                         //document.getElementById("divPersonsDesk").style.visibility = "visible";
                     }
                
@@ -411,6 +415,8 @@ $('.btn-number').click(function(e){
     } else {
         input.val(0);
     }
+    
+    updateTravelQuote();
 });
 $('.number-spinner input[data-min][data-max]').focusin(function(){
   $(this).data('oldValue', $(this).val());

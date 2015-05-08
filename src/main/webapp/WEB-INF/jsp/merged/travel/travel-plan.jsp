@@ -114,6 +114,8 @@ var promoData = '';
 				var json = JSON.parse(data);
 				promoData = json;
 				setValue(json);
+				$("#totalTravellingDays").val(json.totalDays);
+				$("#totalTravellingDaysSpan").html(json.totalDays);
 			}
 		});
 	}
@@ -151,10 +153,15 @@ var promoData = '';
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 
 			}
+			if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
+				$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			}
 			$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-			$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			
+			if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
+                $('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+            }
 			$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-			$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 		}
 	}
 	$(document).ready(function() {
@@ -1170,7 +1177,7 @@ var promoData = '';
 	                                <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 	                            </h3>
 	                            <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                              <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+	                              <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" onchange="updateTravelQuote();" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
 	                            </div>
 	                             <!-- departure date end -->
 	                             
@@ -1189,7 +1196,7 @@ var promoData = '';
                                 <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
                           
                               <div class="input-group date" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" id="txtEndDateMob" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                                <input type="text" name="trBackDate" class="datepicker form-control" id="txtEndDateMob" onchange="updateTravelQuote();" value="${corrTravelQuote.getTrBackDate()}" readonly>
                               </div>
                               
 								<!-- return date end  -->
@@ -1331,7 +1338,7 @@ var promoData = '';
 									value="${travelQuoteBean.getTotalOtherTraveller()}">
 								<%-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${travelQuoteBean.getTotalPersonalTraveller()}"> --%>
 								<h3>
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span> ${travelQuoteBean.getTotalTravellingDays()} <input
+									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
 										type="hidden" name="totalTravellingDays"
 										id="totalTravellingDays"
 										value="${travelQuoteBean.getTotalTravellingDays()}">
