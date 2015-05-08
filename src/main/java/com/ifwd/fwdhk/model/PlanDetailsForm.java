@@ -5,6 +5,7 @@ public class PlanDetailsForm {
 	private String planCode;
 	private String returnDate;
 	private int travellerCount;
+	private int totalPersonalTraveller;
 	private int totalAdultTraveller;
 	private int totalChildTraveller;
 	private int totalOtherTraveller;
@@ -336,6 +337,14 @@ public class PlanDetailsForm {
 
 	public void setDays(int days) {
 		this.days = days;
+	}
+	
+	public int getTotalPersonalTraveller() {
+		return totalPersonalTraveller;
+	}
+
+	public void setTotalPersonalTraveller(int totalPersonalTraveller) {
+		this.totalPersonalTraveller = totalPersonalTraveller;
 	}
 
 	public int getTotalAdultTraveller() {
