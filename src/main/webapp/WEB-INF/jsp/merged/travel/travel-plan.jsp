@@ -1214,12 +1214,12 @@ var promoData = '';
                             <div class="drop-content">
                               <div class="col-lg-6 col-md-6">
                                 <label class="radio radio-warning radio-inline">
-                                  <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
+                                  <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan travel-inline-plan" value="personal"  <%=PersonalPlanChecked%> >
                                   <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
                               </div>
                               <div class="col-lg-6 col-md-6">
                                 <label class="radio radio-warning radio-inline">
-                                  <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
+                                  <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan travel-inline-plan" value="family" <%=FamilyPlanChecked %>>
                                 <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
                               </div>
                               <div class="clearfix"></div>
@@ -1232,12 +1232,12 @@ var promoData = '';
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                       <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalPersonalTraveller()}</div>
                                  <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${corrTravelQuote.getTotalPersonalTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                            </div>
@@ -1251,12 +1251,12 @@ var promoData = '';
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalAdultTraveller()}</div>
                                  <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${corrTravelQuote.getTotalAdultTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                              <div class="clearfix"></div>
@@ -1265,12 +1265,12 @@ var promoData = '';
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalChildTraveller()}</div>
                                  <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${corrTravelQuote.getTotalChildTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                              <div class="clearfix"></div>
@@ -1279,12 +1279,12 @@ var promoData = '';
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalOtherTraveller()}</div>
                                  <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                              <div class="col-lg-12 text-red child-notes">
