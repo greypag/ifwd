@@ -5,8 +5,8 @@ $('#family_plan_mob_spinner').hide();
 // ONCHANGE EVENT FOR PLAN RADIO BUTTON 
 
 $(window).load(function(){
-  if($('#divPersonsDesk').length){
-    document.getElementById("divPersonsDesk").style.visibility = "visible";
+  //if($('#divPersonsDesk').length){
+    //document.getElementById("divPersonsDesk").style.visibility = "visible";
       $('#lblCountDesk').show();
       /*$('#lblCountDesk').html(traveller + ' Traveller(s)');*/
       $('#lblCountDesk').html(traveller);
@@ -21,7 +21,7 @@ $(window).load(function(){
       $('#lblDaysBtm').html(trCount);
       $('#lblDaysMob').html(trCount);
       
-  }
+ // }
   
   if($('#divPersonsBtm').length){
       document.getElementById("divPersonsBtm").style.visibility = "visible";
@@ -67,7 +67,7 @@ $('.plan').change(function () {
       $('#lblCountDesk').html('');
         if(id == 'personal_plan_desk')
     {
-          document.getElementById("divPersonsDesk").style.visibility = "visible";
+          //document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
             //$('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblCountDesk').html(personalTraveller);
@@ -92,7 +92,7 @@ $('.plan').change(function () {
           changeSpinnerValue(parent.find(' #txtChildDesk'), familyChild);
           changeSpinnerValue(parent.find(' #txtOtherDesk'), familyOther);
             
-            document.getElementById("divPersonsDesk").style.visibility = "visible";
+            //document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
             //$('#lblCountDesk').html(familyTraveller + ' Traveller(s)');
             $('#lblCountDesk').html(familyTraveller);
@@ -100,7 +100,7 @@ $('.plan').change(function () {
             $('#family_desk_count').val(familyTraveller);
         }else
         {
-            document.getElementById("divPersonsDesk").style.visibility = "hidden";
+            //document.getElementById("divPersonsDesk").style.visibility = "hidden";
             $('#lblCountDesk').show();
             $('#lblCountDesk').html('');
             $('#lblPeopleDesk').html('');
@@ -181,7 +181,7 @@ $('.plan').change(function () {
           $('#lblPeopleBtm').html('');
           $('#family_btm_count').val('');
           
-          document.getElementById("divPersonsDesk").style.visibility = "visible";          
+          //document.getElementById("divPersonsDesk").style.visibility = "visible";          
           changeSpinnerValue($('#txtTravellersBtm'), 1);          
           personalTraveller=$('#txtTravellersBtm').val();
           $('#lblCountBtm').html(personalTraveller);
@@ -282,7 +282,7 @@ $('.btn-number').click(function(e){
                         var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
                         var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
                         document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-                        document.getElementById("divPersonsDesk").style.visibility = "visible";
+                        //document.getElementById("divPersonsDesk").style.visibility = "visible";
                     }
                 
 
@@ -395,7 +395,7 @@ $('.btn-number').click(function(e){
                         var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
                         var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
                         document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-                        document.getElementById("divPersonsDesk").style.visibility = "visible";
+                        //document.getElementById("divPersonsDesk").style.visibility = "visible";
                     }
                
                 
