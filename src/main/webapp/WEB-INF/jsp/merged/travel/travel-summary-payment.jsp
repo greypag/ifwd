@@ -570,7 +570,9 @@
 						type="hidden" name="failUrl" value="${failurePath }"> <input
 						type="hidden" name="errorUrl" value="${failurePath }"> <input
 						type="hidden" name="payType"
-						value="${createPolicy.getPaymentType()}">
+						value="${createPolicy.getPaymentType()}"> <input
+						type="hidden" name="referenceNo"
+						value="${createPolicy.getReferenceNo()}">
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);

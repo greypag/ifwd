@@ -277,172 +277,143 @@ public class WorkingHolidayController {
 	
 	
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = {"/{lang}/getYourDetails", "/{lang}/workingholiday-insurance/user-details"})
-	public ModelAndView prepareYourDetails(
-			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
-			BindingResult result, Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/workingholiday-insurance/user-details" })
+	public ModelAndView prepareYourDetails(@ModelAttribute("travelQuote") TravelQuoteBean travelQuote, BindingResult result, Model model,
+			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
+			return getTravelHomePage((String) session.getAttribute("referralCode"), request, model);
 		}
-		
-		UserRestURIConstants.setController("Travel");
+
+		UserRestURIConstants.setController("Holiday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		
+
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
-		String planSummary = WebServiceUtils.getParameterValue(
-				"selectedAmountDue", session, request);
-		String selectPlanPremium = WebServiceUtils.getParameterValue(
-				"selectPlanPremium", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectPlanName", session, request);
+		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
 		selectPlanName = planName;
 		System.out.println("Seeeeeee" + selectPlanName);
-		
+
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			if(travelQuote == null){
-				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
-				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);
-			}				
+			if (travelQuote == null) {
+				return getTravelHomePage((String) session.getAttribute("referralCode"), request, model);
+			}
 		}
 		try {
 
 			request.setAttribute("travelQuote", travelQuote);
 			model.addAttribute("planName", planName);
-			
+
 			model.addAttribute("selectPlanName", selectPlanName);
-			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+			QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[0]);
 				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[0]);
-				
+
 			} else {
 				session.setAttribute("planSelected", "B");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
 				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
 			}
-			travelQuote.setTotalAdultTraveller(travelQuote
-					.getTotalAdultTraveller()
-					+ travelQuote.getTotalPersonalTraveller());
-			request.getSession().setAttribute("departureDate",
-					travelQuote.getTrLeavingDate());
-			request.getSession().setAttribute("returnDate",
-					travelQuote.getTrBackDate());
-			String Url = UserRestURIConstants.GET_AGE_TYPE
-					+ "?itemTable=AgeType";
+			travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller() + travelQuote.getTotalPersonalTraveller());
+			request.getSession().setAttribute("departureDate", travelQuote.getTrLeavingDate());
+			request.getSession().setAttribute("returnDate", travelQuote.getTrBackDate());
+			String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
 
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc"))
 				lang = "CN";
-			
-			header.put("language", WebServiceUtils
-					.transformLanaguage(lang));
-			
+
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+
 			if (request.getSession().getAttribute("username") != null) {
-				header.put("userName", session.getAttribute("username")
-						.toString());
+				header.put("userName", session.getAttribute("username").toString());
 				header.put("token", session.getAttribute("token").toString());
 			}
 
-			
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-					Url, header, null);
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
 
 			if (responseJsonObj.get("errMsgs") == null) {
-				JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
-						.get("optionItemDesc");
+				JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj.get("optionItemDesc");
 				Map<String, String> mapAgeType = new HashMap<String, String>();
 				Map<String, String> mapSelfType = new HashMap<String, String>();
 				Map<String, String> mapChildType = new HashMap<String, String>();
 				for (int i = 0; i < jsonAgeTypeArray.size(); i++) {
 					JSONObject obj = (JSONObject) jsonAgeTypeArray.get(i);
-					mapAgeType.put(checkJsonObjNull(obj, "itemCode"),
-							checkJsonObjNull(obj, "itemDesc"));
+					mapAgeType.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
 				}
 				Iterator iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
 					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3")) {
-						mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+						mapSelfType.put((String) mapEntry.getKey(), (String) mapEntry.getValue());
 					}
-					
+
 				}
 				iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
 					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 					if (mapEntry.getKey().equals("1")) {
-						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
+						mapChildType.put((String) mapEntry.getKey(), (String) mapEntry.getValue());
 					}
-					
+
 				}
 				model.addAttribute("mapAgeType", mapAgeType);
 				model.addAttribute("mapSelfType", mapSelfType);
 				model.addAttribute("mapChildType", mapChildType);
 
-
 				/*
 				 * API Call for get Benifitiary Relationship
 				 */
 
-				String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
-						+ "?itemTable=BeneRelationshipCode";
+				String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE + "?itemTable=BeneRelationshipCode";
 
-				JSONObject jsonRelationShipCode = restService.consumeApi(
-						HttpMethod.GET, relationshipCode, header, null);
+				JSONObject jsonRelationShipCode = restService.consumeApi(HttpMethod.GET, relationshipCode, header, null);
 
 				if (responseJsonObj.get("errMsgs") == null) {
-					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
-							.get("optionItemDesc");
-					System.out.println(" jsonRelationShipArray ====>>>>>>"
-							+ jsonRelationshipCode);
+					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
+					System.out.println(" jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
 
 					Map<String, String> mapRelationshipCode = new HashMap<String, String>();
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
-						JSONObject obj = (JSONObject) jsonRelationshipCode
-								.get(i);
-						mapRelationshipCode.put(
-								checkJsonObjNull(obj, "itemCode"),
-								checkJsonObjNull(obj, "itemDesc"));
+						JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
+						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
 					}
-					model.addAttribute("mapRelationshipCode",
-							mapRelationshipCode);
+					model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
 				}
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "travel/travel-plan");		
+				return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel-plan");
 			}
 
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("planPremium", selectPlanPremium);
-			
 
 			model.addAttribute("travelQuote", travelQuote);
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "workingholiday/workingholiday-plan");		
+			return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan");
 		}
-		Map<String,String> mapHkId = new TreeMap<>();
+		Map<String, String> mapHkId = new TreeMap<>();
 
 		String lang = UserRestURIConstants.getLanaguage(request);
 		String hkIdLbl = "HKID";
 		String passportLbl = "Passport";
-		if("tc".equals(lang)){
+		if ("tc".equals(lang)) {
 			hkIdLbl = "香港身份證";
 			passportLbl = "護照";
 		} else {
@@ -450,14 +421,13 @@ public class WorkingHolidayController {
 			passportLbl = "Passport";
 		}
 		mapHkId.put("HKID", hkIdLbl);
-		mapHkId.put("passport", passportLbl);		
+		mapHkId.put("passport", passportLbl);
 		model.addAttribute("mapHkId", mapHkId);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelUserDetails", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "workingholiday/workingholiday-plan-details");		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan-details");
 	}
 	
 	

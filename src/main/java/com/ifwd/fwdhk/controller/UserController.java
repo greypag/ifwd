@@ -42,7 +42,7 @@ public class UserController {
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	
-		// String homeURL = "http://localhost:8088/FWDHKPH1A/changeLang?selectLang=EN&action=/home";
+
 		String homeURL = "/changeLang?selectLang=EN&action=/home";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
@@ -243,7 +243,17 @@ public class UserController {
 			@ModelAttribute("userDetails") UserDetails userDetails,
 			HttpServletRequest servletRequest, Model model) {
 		HttpSession session = servletRequest.getSession(false);
-
+		boolean optIn1 = false;
+		boolean optIn2 = false;
+		
+		if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
+			optIn1 = true;
+		}
+		if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
+			optIn2 = true;
+		}
+		
+		
 		try {
 			
 			JSONObject params = new JSONObject();
@@ -252,6 +262,11 @@ public class UserController {
 			params.put("password", userDetails.getPassword());
 			params.put("email", userDetails.getEmailAddress());
 			params.put("name", userDetails.getFullName());
+			params.put("optIn1", optIn1);
+			params.put("optIn2", optIn2);
+			
+			
+			
 			System.out.println(params);
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.PUT,
 					UserRestURIConstants.USER_JOIN_US,

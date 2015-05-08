@@ -222,12 +222,12 @@
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3" type="checkbox"> <label
+							<input id="checkbox3" name="checkbox3" type="checkbox"> <label
 								for="checkbox3"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4" type="checkbox"> <label
+							<input id="checkbox4" name="checkbox4" type="checkbox"> <label
 								for="checkbox4"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>

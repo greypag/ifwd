@@ -859,7 +859,7 @@
 								</div>
 								<div class="checkbox">
 									<input id="checkbox34" type="checkbox"
-										name="donotWishDirectMarketing3"> <label
+										name="donotDisclose"> <label
 										for="checkbox34"> <fmt:message key="home.details.declarations.PDPO.option2" bundle="${msg}" /><br>
 									</label>
 								</div>
