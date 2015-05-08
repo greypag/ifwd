@@ -415,7 +415,7 @@ public class WorkingHolidayController {
 		String passportLbl = "Passport";
 		if ("tc".equals(lang)) {
 			hkIdLbl = "香港身份證";
-			passportLbl = "護照";
+			passportLbl = "護照號碼";
 		} else {
 			hkIdLbl = "HKID";
 			passportLbl = "Passport";

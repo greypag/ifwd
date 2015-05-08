@@ -333,7 +333,7 @@ public class HomeCareController {
 		return planQuote;
 	}
 	
-	@RequestMapping(value = {"home-temp-save"})
+	@RequestMapping(value = {"/home-temp-save"})
 	public String homeTempSave(
 			@ModelAttribute("frmYourDetails") HomeCareDetailsBean homeCareDetails,
 			BindingResult result, Model model, HttpServletRequest request) {

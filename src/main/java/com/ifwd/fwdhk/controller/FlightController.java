@@ -848,11 +848,11 @@ public class FlightController {
 		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
-		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox1());
-		System.out.println("Flight optIn2 " + planDetailsForm.getCheckbox2());
+		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox3());
+		System.out.println("Flight optIn2 " + planDetailsForm.getCheckbox4());
 		
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox1());
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox2());
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("email", emailAddress);
 
 		request.setAttribute("fullName",     name);
