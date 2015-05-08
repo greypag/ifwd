@@ -189,7 +189,53 @@
 								</div>
 								<div  class="hidden-md hidden-lg">
 							<table class="col-xs-10 table-condensed cf mob-table">
-								
+								<%
+
+                                    for (int i = 0; i < planDetailsForm.getTotalPersonalTraveller(); i++) {
+                                %>
+                                <tr><td class="col-xs-12"><table class="col-xs-12">
+                                
+
+                                <tbody>
+                                    <tr class="">
+                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
+                                        <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
+                                        <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.personal.beneficiary" bundle="${msg}" /></span></td>
+                                        <% } %>
+                                    </tr>
+                                    <tr>
+                                        <td ><span class=""><%=planDetailsForm.getPersonalName()[i]%></span></td>
+                                        <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
+                                        <td  class="gy"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+                                        <% } %>
+                                    </tr>
+                                    <tr>
+                                        <td ><span class=""><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
+                                        <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
+                                        <td  class="">&nbsp;</td>
+                                        <% } %>
+                                    </tr>
+                                    <tr>
+                                        <td ><span class=""><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
+                                        <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
+                                        <td  class="gy"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
+                                        <% } %>
+                                    </tr>
+                                    <tr>
+                                        <td ></td>  <!-- hide relationship if insured -->
+                                        <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
+                                        <td  class="gy"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
+                                        <% } %>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+
+                                    
+                                </tbody>
+                                </table></td></tr>
+                                
+                                <%
+                                    }
+                                %>
 								<%
 
 									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
@@ -648,19 +694,19 @@
 
 						<span id="errchk2" class="error-msg"></span>
 						<div class="clearfix"></div>
-						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
+						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
 						<!-- <div class="hidden-sm hidden-xs pad-none">
 							
-								class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
+								class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn margin-left"
-								value="確�付款" onclick="confirmPayment()" />
+								value="確�付款" onclick="confirmPayment()" />
 						</div>
 						<br> <br>
 						
 						<div class="pad-none hidden-md hidden-lg">
 							<a href="travel-plan-details.html"
-								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
+								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
 							</a>
 						</div> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->
@@ -668,18 +714,18 @@
 							<input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn"
-								value="確�付款" onclick="confirmPayment()" /> -->
+								value="確�付款" onclick="confirmPayment()" /> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->	
 						
 						
 						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 								<a href="#" onclick="BackMe()"
-									class="bdr-curve btn btn-primary bck-btn">返� </a>
+									class="bdr-curve btn btn-primary bck-btn">返� </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn "
-									value="確�付款" onclick="confirmPayment()" />
+									value="確�付款" onclick="confirmPayment()" />
 								
 
 							</div> -->

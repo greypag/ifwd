@@ -6237,3 +6237,7 @@ tr.product-landing-error-wrap {
   	line-height: 18px;
   	text-decoration: none;
 }
+
+.modal-content{
+	border-radius:0px !important;
+}

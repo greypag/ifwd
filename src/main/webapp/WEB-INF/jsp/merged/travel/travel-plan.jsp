@@ -91,6 +91,8 @@ var promoData = '';
 			}
 		});
 	}
+	
+	
 
 	function setValue(result) {
 
@@ -1236,12 +1238,13 @@ var promoData = '';
 				<div class="login-form" id="sendmailofpromocode">
 				<div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
 	                 <span aria-hidden="true" style="font-size:30px;">×</span>
-	               </a>
-	            </div>
-					<form>
-					<div class="form-container">
-						<h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
-						<div class="alert alert-success hide proSuccess"></div>
+
+<div class="scroll-to-top">
+    <a title="Scroll to top" href="#">
+        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
+    </a>
+</div>
+-success hide proSuccess"></div>
 						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
