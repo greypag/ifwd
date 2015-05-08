@@ -275,8 +275,7 @@ function submitLoginForm(formID) {
 								<% }
 							%>
 
-							<li class="chatnow-btn"><a href="#"
-								onClick="zopim_chat_start()"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></a></li>
+							<li class="chatnow-btn"><a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></a></li>
 						</ul>
 					</div>
 				</div>
