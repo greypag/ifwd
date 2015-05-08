@@ -4273,14 +4273,14 @@ a.h4-4 {
 .plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
 .plan-box3 h2 {
 	
-	margin-left: 50px;
+	margin-left: 25px;
 	font-size: 30px;
 	line-height: 42px;
 	
 }
 .plan-box3 h4 {
 	
-	margin-left: 50px;
+	margin-left: 25px;
 	font-size: 24px;
 	line-height: 42px;
 	
@@ -4317,7 +4317,7 @@ a.h4-4 {
 	line-height: 42px;
 	margin-left: 30px;
 	/*font-size: 55px;*/
-	font-size: 45px;
+	font-size: 40px;
 	font-weight: bold;
 }
 .plan-box4 {
@@ -4328,7 +4328,7 @@ a.h4-4 {
 .plan-box4 h2 {
 	color: #fff;
 	line-height: 32px;
-	margin-left: 50px;
+	margin-left: 25sspx;
 	font-size: 30px;
 	line-height: 42px;
 }
@@ -4348,7 +4348,7 @@ a.h4-4 {
 }
 .plan-box4 h4 {
 	color: #fff;
-	margin-left: 50px;
+	margin-left: 25px;
 	font-size: 24px;
 	line-height: 42px;
 	
@@ -4375,7 +4375,7 @@ a.h4-4 {
 	color: #fff;
 	line-height: 42px;
 	margin-left: 30px;
-	font-size: 55px;
+	font-size: 40px;
 	font-weight: bold;
 }
 element.style {
@@ -4415,6 +4415,13 @@ table.purchase-history tr td {
 	line-height: 30px;
 	color: #f68a1d !important;
 	padding-left: 20px;
+}
+#promo-wrap .input-group-addon {
+    background: #f6871e !important;
+    color: #fff !important;
+}
+.input-group-addon:first-child {
+	border: none;
 }
 /*************Travel wizard**************/
 #tr-wizard.shop-tracking-status .form-horizontal {
