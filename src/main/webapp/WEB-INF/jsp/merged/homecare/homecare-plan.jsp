@@ -708,13 +708,15 @@
 								<div class="clearfix"></div>
 								
 								<span class="text-red" id="errPromoCode"></span>
-								<div class="form-group">
-									<div class="input-group">
+								<div id="promo-wrap" class="form-group">
+									<div class="input-group" style="border: 0;">
 										<span class="text-red" id="errPromoCode"></span>
-										<input type="text" id="referralCode" name="referralCode"
+										<input type="text" id="referralCode" name="referralCode" style="border: 1px solid #e3e3e3"
 											class="form-control" placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
-											class="input-group-addon in black-bold"> <span
-											class="apply pointer" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></span>
+											class="input-group-addon in black-bold"> 
+											<span class="input-group-addon in black-bold pointer" onclick="applyHomePromoCode()">
+											 <fmt:message key="home.action.apply" bundle="${msg}" />
+											</span>
 											
 										</span>
 									</div>
