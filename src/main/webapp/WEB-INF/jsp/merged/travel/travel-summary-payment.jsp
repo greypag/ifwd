@@ -123,12 +123,19 @@
 										</td>
 										<td class="pad-none h4-5 ">
 										<%
-											if (planDetailsForm != null)
+											if (planDetailsForm != null) 
 											{
-												out.println( planDetailsForm.getTotalAdultTraveller() +
-															 planDetailsForm.getTotalChildTraveller() +
-															 planDetailsForm.getTotalOtherTraveller()   );
-											}
+												if (planDetailsForm.getPlanSelected().equals("personal"))
+												{
+													out.println( planDetailsForm.getTotalPersonalTraveller() );
+												}
+												else
+												{
+													out.println( planDetailsForm.getTotalAdultTraveller() +
+															 	 planDetailsForm.getTotalChildTraveller() +
+															 	 planDetailsForm.getTotalOtherTraveller()   );
+												}
+											}				
 										%>
 										</td>
 									</tr>
