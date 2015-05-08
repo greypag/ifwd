@@ -33,6 +33,13 @@ return false;
 } --%>
 
 </script>
+<!-- for debug
+Personal : ${planDetailsForm.getTotalPersonalTraveller()}   <br>
+Adult    : ${planDetailsForm.getTotalAdultTraveller()} 		<br>
+Child    : ${planDetailsForm.getTotalChildTraveller()} 		<br>
+Others   : ${planDetailsForm.getTotalOtherTraveller()} 		<br>
+-->
+
 <!--/#main-Content-->
 <section>
     <div class="container">
@@ -182,7 +189,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     <td class=""><input type="text" name="hkid"
                                         class="form-control numberinput textUpper full-control"
                                         id="inputTxtAppHkid"
-                                        placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')">
+                                        placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
                                         <span id="errAppHkid" class="text-red"> </span></td>
                                 </tr>
                                 <tr>
@@ -484,7 +491,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     id="txtInsuHkid${inx}" name="adultHKID"
                                                     class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="value=value.replace(/[\W]/g,'')"/> <span id="errtxtInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span> <span
                                                     id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
