@@ -39,6 +39,24 @@ var promoData = '';
 
 		return flag;
 	}
+	function updateTravelQuote() {
+		
+		$("#errPromoCode").html("");
+		
+		$.ajax({
+			type : 'POST',
+			url : '<%=request.getContextPath()%>/updateTravelQuote',
+			data : $('#frmTravelPlan input').serialize(),
+			success : function(data) {
+				
+				var json = JSON.parse(data);
+				promoData = json;
+				setValue(json);
+			}
+
+		});
+	}
+	
 	function applyTravelPromoCode() {
 		
 		$("#errPromoCode").html("");
@@ -55,6 +73,22 @@ var promoData = '';
 				setValue(json);
 			}
 
+		});
+	}
+	function updateTravelQuote() {
+		
+		$("#errPromoCode").html("");
+		
+		$.ajax({
+			type : 'POST',
+			url : '<%=request.getContextPath()%>/updateTravelQuote',
+			data : $('#frmTravelPlan input').serialize(),
+			success : function(data) {
+				
+				var json = JSON.parse(data);
+				promoData = json;
+				setValue(json);
+			}
 		});
 	}
 

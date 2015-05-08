@@ -65,7 +65,8 @@ public class TravelController {
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		TravelQuoteBean travelQuote;
 		
-		travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		//travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 		
 		if(travelQuote == null){
 			travelQuote = new TravelQuoteBean();
@@ -79,6 +80,9 @@ public class TravelController {
 		else{
 			System.out.println("Plan selected : "+travelQuote.getPlanSelected());
 		}
+		
+		session.setAttribute("corrTravelQuote", travelQuote);
+		
 		//default 
 		/*
 		travelQuote.setTotalPersonalTraveller(1);
@@ -134,6 +138,7 @@ public class TravelController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		
 		System.out.println("/{lang}/travel-insurance/quote");
+		System.out.println("PLAN SELECTED " + travelQuote.getPlanSelected());
 		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
 		System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
 		System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
@@ -158,7 +163,7 @@ public class TravelController {
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
 		}
-		
+		System.out.println("plan: " + travelQuote.getPlanSelected() );
 		session.setAttribute("corrTravelQuote", travelQuote);
 		
 		try {
@@ -308,12 +313,242 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
+		System.out.println("plan: " + travelQuote.getPlanSelected() );
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-plan");
 	}
 
+
+	// BMG updateTravelQuote
+	// return JSON
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "/updateTravelQuote", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateTravelQuote(
+			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+			BindingResult result, Model model, HttpServletRequest request) {
+		System.out.println("/updateTravelQuote");
+		//System.out.println("PLAN SELECTED " + travelQuote.getPlanSelected());
+		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
+		System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
+		System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
+		System.out.println("OTHER " + travelQuote.getTotalOtherTraveller());
+		
+		// test planselected
+		if( travelQuote.getTotalPersonalTraveller() > 0 ) {
+			travelQuote.setPlanSelected("personal");
+		}
+		else if( travelQuote.getTotalAdultTraveller() > 0 ) {
+			travelQuote.setPlanSelected("family");
+		}
+		travelQuote.setTotalPersonalTraveller(Integer.parseInt(request.getParameter("totalPersonalTraveller")));
+		travelQuote.setTotalAdultTraveller(Integer.parseInt(request.getParameter("totalAdultTraveller")));
+		travelQuote.setTotalChildTraveller(Integer.parseInt(request.getParameter("totalChildTraveller")));
+		travelQuote.setTotalOtherTraveller(Integer.parseInt(request.getParameter("totalOtherTraveller")));
+		travelQuote.setTrLeavingDate(request.getParameter("trLeavingDate"));
+		travelQuote.setTrBackDate(request.getParameter("trBackDate"));
+		travelQuote.setTotalTraveller(travelQuote.getTotalAdultTraveller()
+				+ travelQuote.getTotalChildTraveller()
+				+ travelQuote.getTotalOtherTraveller()
+				+ travelQuote.getTotalPersonalTraveller());
+		
+		UserRestURIConstants.setController("Travel");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		HttpSession session = request.getSession();
+		session.removeAttribute("createPolicy");
+		session.removeAttribute("policyNo");
+		
+		if (travelQuote.getTrLeavingDate() != null) 
+		{
+			session.setAttribute("travelQuote", travelQuote);
+		} 
+		else 
+		{
+			travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+			
+			if(travelQuote == null)
+			{
+				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);
+				return "travelQuote == null";
+			}				
+		}
+		
+		session.setAttribute("corrTravelQuote", travelQuote);
+		//System.out.println("plan: " + travelQuote.getPlanSelected() );
+		
+		try {
+			System.out.println("=1");
+			
+			String token = null, username = null;
+			if ((session.getAttribute("token") != null)
+					&& (session.getAttribute("username") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			} else {
+				restService.consumeLoginApi(request);
+				if ((session.getAttribute("token") != null)) {
+					token = session.getAttribute("token").toString();
+					username = session.getAttribute("username").toString();
+				}
+			}
+			
+			System.out.println("=2");
+			int days = 0;
+
+			/* Calculate total Days */
+			Date dateD1 = new Date(travelQuote.getTrLeavingDate());
+			Date dateD2 = new Date(travelQuote.getTrBackDate());
+			LocalDate commencementDate = new LocalDate(dateD1);
+			LocalDate expiryDate = new LocalDate(dateD2);
+			days = Days.daysBetween(commencementDate, expiryDate).getDays();
+			travelQuote.setTotalTravellingDays(days + 1);
+			
+			System.out.println("=3" + travelQuote );
+			System.out.println("plan:"+travelQuote.getPlanSelected());
+			int otherCount = 0, childCount = 0, adultCount = 0;
+			boolean spouseCover = false, selfCover = false;
+			if (travelQuote.getPlanSelected().equals("personal")) 
+			{
+				System.out.println("=4");
+				selfCover = true;
+				spouseCover = false;
+				otherCount = travelQuote.getTotalPersonalTraveller();
+				otherCount -= 1;
+			} 
+			else 
+			{
+				System.out.println("=5");
+				adultCount = travelQuote.getTotalAdultTraveller();
+				childCount = travelQuote.getTotalChildTraveller();
+				otherCount = travelQuote.getTotalOtherTraveller();
+				
+				selfCover = true;
+				if (adultCount > 1) 
+				{
+					spouseCover = true;
+				} 
+				else 
+				{
+					spouseCover = false;
+				}
+			}
+			
+			System.out.println("------------------------------------------------------------");
+			System.out.println("UpdateTravelQuote CALLING API");
+			System.out.println("SELF COVER " + selfCover);
+			System.out.println("SPOUSE COVER " + spouseCover);
+			System.out.println("CHILD COUNT " + childCount);
+			System.out.println("OTHER COUNT " + otherCount);		
+			System.out.print("------------------------------------------------------------");
+			
+			session.setAttribute("planSelected", travelQuote.getPlanSelected());
+			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
+					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
+					+ "&childInput=" + childCount + "&otherInput="
+					+ otherCount + "&commencementDate="
+					+ commencementDate + "&expiryDate=" + expiryDate
+					+ "&referralCode=" + (String) session.getAttribute("referralCode");
+
+			System.out.println("Travel Quote user " + Url);
+
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			if (request.getSession().getAttribute("username") != null) {
+				header.put("userName", username);
+				header.put("token", token);
+			}
+			
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+					Url, header, null);
+
+			System.out.println("total days: " + travelQuote.getTotalTravellingDays());
+			System.out.println("Get Travel Quotes API " + responseJsonObj);
+			if (responseJsonObj.get("errMsgs") == null) {
+				
+				
+				responseJsonObj.put("totalDays", travelQuote.getTotalTravellingDays());
+				
+				QuoteDetails quoteDetails = new QuoteDetails();
+				quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
+				responseJsonObj.get("referralCode");
+				responseJsonObj.get("referralName");
+				responseJsonObj.get("priceInfoA");
+				responseJsonObj.get("priceInfoB");
+				JSONObject jsonPriceInfoA = new JSONObject();
+				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
+				JSONObject jsonPriceInfoB = new JSONObject();
+				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
+				String planeName[] = { "A", "B" };
+				String grossPrem[] = {
+						jsonPriceInfoA.get("grossPremium").toString(),
+						jsonPriceInfoB.get("grossPremium").toString() };
+
+				String discountPercentage[] = {
+						jsonPriceInfoA.get("discountPercentage").toString(),
+						jsonPriceInfoB.get("discountPercentage").toString() };
+
+				String discountAmount[] = {
+						jsonPriceInfoA.get("discountAmount").toString(),
+						jsonPriceInfoB.get("discountAmount").toString() };
+
+				String totalNetPremium[] = {
+						jsonPriceInfoA.get("totalNetPremium").toString(),
+						jsonPriceInfoB.get("totalNetPremium").toString() };
+
+				String totalDue[] = {
+						jsonPriceInfoA.get("totalDue").toString(),
+						jsonPriceInfoB.get("totalDue").toString() };
+
+				quoteDetails.setGrossPremium(grossPrem);
+				quoteDetails.setDiscountPercentage(discountPercentage);
+				quoteDetails.setDiscountAmount(discountAmount);
+				quoteDetails.setTotalNetPremium(totalNetPremium);
+				quoteDetails.setToalDue(totalDue);
+				quoteDetails.setPlanName(planeName);
+
+				request.setAttribute("quoteDetails", quoteDetails);
+				model.addAttribute("quoteDetails", quoteDetails);
+				session.setAttribute("quoteDetails", quoteDetails);
+				
+				
+				model.addAttribute("travelQuoteBean", travelQuote);
+				
+				return responseJsonObj.toString();
+			} else {
+				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				//return new ModelAndView(UserRestURIConstants.getSitePath(request)
+				//		+ "travel/travel");
+				return "exception error";
+			}
+				
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errMsgs", "System Error");
+			//return new ModelAndView(UserRestURIConstants.getSitePath(request)
+			//		+ "travel/travel");
+			return "System Error";
+		}
+//		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
+//		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
+//		model.addAttribute("pageTitle", pageTitle);
+//		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		
+		
+//		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+//				+ "travel/travel-plan");
+//		return "JSON";
+	}
+	
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/applyTravelPromoCode", method = RequestMethod.POST)
 	@ResponseBody
