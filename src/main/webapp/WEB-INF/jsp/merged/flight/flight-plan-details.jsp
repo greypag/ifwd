@@ -519,7 +519,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         </c:forEach>
                                                     </select></div><span id="errselectAgeRange${inx}" class="text-red">
                                                     </span>
-                                                </td>
+          select-label                          </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -638,7 +638,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                                     <label class="bold-500"><fmt:message
+                                    select-label     <label class="bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
@@ -665,7 +665,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                             </option>
                                                         </c:forEach>
                                                     </select></div> <span id="errchildRange${inx}" class="text-red"></span>
-                                                </td>
+              select-label                      </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -774,7 +774,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control"
 	                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> select-labelrtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -803,7 +803,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                                            <option value="${ageList.key}">
 		                                                        </c:otherwise>
 		                                                    </c:choose>
-		                                                    <c:out value="${ageList.value}" />
+		             select-label                           <c:out value="${ageList.value}" />
 		                                                    </option>
 		                                                </c:forEach>
 		                                            </select></div> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
@@ -1012,8 +1012,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                 <!-- <div class="input-group date" id="dp1-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetailsForm.getDepartureDate()}" readonly>
                 </div>-->
-                <div class="input-group date"s> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-               <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetailsForm.getDepartureDate()}" readonly>
+                <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+               <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${planDetailsForm.getDepartureDate()}" readonly>
                 </div>
     
                 

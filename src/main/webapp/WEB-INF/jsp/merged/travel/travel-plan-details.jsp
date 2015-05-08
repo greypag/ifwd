@@ -930,11 +930,10 @@
                             <div class="orange-bdr"></div>
                             <div class="form-container">
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"> <span
-                                        class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
+                                    <fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
                                 </h3>
                                 <h4> 
-                                <div class="input-group date" id="trval-dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                                          <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                 </div>
                              </h4>
@@ -942,11 +941,10 @@
                                     value="01-01-2015">
 
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"><span
-                                        class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
+                                    <fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
                                 </h3>
                                 <h4>
-                                                    <div class="input-group date" id="trval-dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                                    <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                       <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.getTrBackDate()}" readonly>
                     </div>
                                 
@@ -955,8 +953,7 @@
                                     value="${corrTravelQuote.getTrBackDate()}">
 
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"> <span
-                                        class="span2 uline"><fmt:message key="travel.action.change" bundle="${msg}" /></span></a>
+                                    <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
                                 </h3>
                                 <h4>
                                 <%                              
