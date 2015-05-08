@@ -619,13 +619,33 @@ public class TravelController {
 				+ "travel/travel-plan-details");		
 	}
 
+	@RequestMapping(value = { "/travel-temp-save"})
+	@ResponseBody
+	public String travelTempSave(
+			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
+			BindingResult result, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("travel-temp-save", planDetailsForm);
+		return "success";
+		
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/prepareUserSummary", "/{lang}/travel-insurance/travel-summary"})
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
 		String hkId = "hkId", passId = "passport";
+		
+		
 		HttpSession session = request.getSession();
+		
+		
+		
+		
+		
+		
 		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		String planSelected = (String) session.getAttribute("planSelected");
 		if (session.getAttribute("token") == null) {
@@ -1263,8 +1283,8 @@ public class TravelController {
 		System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox2());
 		
 		
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox1());
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox2());
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("email", emailAddress);
 
 		parameters.put("applicant", applicantJsonObj);
@@ -1388,32 +1408,58 @@ public class TravelController {
 	
 
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/processTravePayment")
 	@ResponseBody
 	public String processPayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
-		String month = request.getParameter("epMonth");
-		System.out.println("month " + month);
-		System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
-		System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
-		session.setAttribute("transactionNo", request.getParameter("transNo"));
-		String encryptedCreditCard = request.getParameter("cardNo");
-		System.out.println("cardNo "+ encryptedCreditCard);
 		
-		try {
-			encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
-			System.out.println("encryptedCreditCard "+ encryptedCreditCard);
-			
-			session.setAttribute("creditCardNo", encryptedCreditCard);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			session.setAttribute("creditCardNo", "");
-			e.printStackTrace();
+		
+		
+		String referenceNo = request.getParameter("referenceNo");
+		
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", (String) session.getAttribute("token"));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.POST,
+				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
+				submitPolicy);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				String month = request.getParameter("epMonth");
+				System.out.println("month " + month);
+				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
+				System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
+				session.setAttribute("transactionNo", request.getParameter("transNo"));
+				String encryptedCreditCard = request.getParameter("cardNo");
+				System.out.println("cardNo "+ encryptedCreditCard);
+				
+				try {
+					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
+					System.out.println("encryptedCreditCard "+ encryptedCreditCard);
+					
+					session.setAttribute("creditCardNo", encryptedCreditCard);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					session.setAttribute("creditCardNo", "");
+					e.printStackTrace();
+				}
+				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				return "success";
+			} else {
+				return checkJsonObjNull(jsonResponse, "policyNo");
+			}
+		} else {
+			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
-		session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
-		session.setAttribute("emailAddress", request.getParameter("emailAddress"));
-		return "success";
+		return "fail";
 	}
 
 	@SuppressWarnings({ "unchecked", "finally" })
@@ -1483,6 +1529,8 @@ public class TravelController {
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
+				
+				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("emailAddress",
@@ -1610,5 +1658,7 @@ public class TravelController {
 
 		return response;
 	}
+	
+	
 
 }

@@ -31,6 +31,8 @@ public class HomeCareDetailsBean {
 	private String declarration;
 	private String readAndUnderstood;
 	private String donotWishDirectMarketing;
+	private String donotDisclose;
+	
 	private String planCode;
 	private String totalDue;
 	
@@ -42,9 +44,32 @@ public class HomeCareDetailsBean {
 	
 	private boolean checkbox1;
 	private boolean checkbox2;
+	private boolean checkbox3;
+	private boolean checkbox4;
 	
 	
 	
+	
+	
+	
+	public String getDonotDisclose() {
+		return donotDisclose;
+	}
+	public void setDonotDisclose(String donotDisclose) {
+		this.donotDisclose = donotDisclose;
+	}
+	public boolean getCheckbox3() {
+		return checkbox3;
+	}
+	public void setCheckbox3(boolean checkbox3) {
+		this.checkbox3 = checkbox3;
+	}
+	public boolean getCheckbox4() {
+		return checkbox4;
+	}
+	public void setCheckbox4(boolean checkbox4) {
+		this.checkbox4 = checkbox4;
+	}
 	public boolean getCheckbox1() {
 		return checkbox1;
 	}

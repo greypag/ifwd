@@ -15,6 +15,9 @@ public class PlanDetailsForm {
 	private String totalDue;	
 	private boolean checkbox1;
 	private boolean checkbox2;
+	private boolean checkbox3;
+	private boolean checkbox4;
+	
 	private String departureDate;
 	private String planSelected;
 	
@@ -73,6 +76,21 @@ public class PlanDetailsForm {
 	private String[] otherName;
 	
 	
+	
+	
+	
+	public boolean getCheckbox3() {
+		return checkbox3;
+	}
+	public void setCheckbox3(boolean checkbox3) {
+		this.checkbox3 = checkbox3;
+	}
+	public boolean getCheckbox4() {
+		return checkbox4;
+	}
+	public void setCheckbox4(boolean checkbox4) {
+		this.checkbox4 = checkbox4;
+	}
 	public boolean getCheckbox1() {
 		return checkbox1;
 	}

@@ -21,9 +21,26 @@ public class UserDetails {
 	private String referralCodeUsedCount;
 	private String hkid;
 	private String passport;
+	private String checkbox3;
+	private String checkbox4;
 	
 	
-	
+
+	public String getCheckbox3() {
+		return checkbox3;
+	}
+
+	public void setCheckbox3(String checkbox3) {
+		this.checkbox3 = checkbox3;
+	}
+
+	public String getCheckbox4() {
+		return checkbox4;
+	}
+
+	public void setCheckbox4(String checkbox4) {
+		this.checkbox4 = checkbox4;
+	}
 
 	public String getPassport() {
 		return passport;

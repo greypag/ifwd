@@ -17,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.LocalDate;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -330,6 +332,16 @@ public class HomeCareController {
 		}
 		return planQuote;
 	}
+	
+	@RequestMapping(value = {"home-temp-save"})
+	public String homeTempSave(
+			@ModelAttribute("frmYourDetails") HomeCareDetailsBean homeCareDetails,
+			BindingResult result, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("home-temp-save", homeCareDetails);
+		return "success";
+	}
+	
 
 	@RequestMapping(value = {"/{lang}/prepareUserSummaryForHome", "/{lang}/home-insurance/home-summary"})
 	public String prepareSummary(
@@ -354,6 +366,44 @@ public class HomeCareController {
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
+		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
+		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
+		
+		boolean optIn1;
+		boolean optIn2;
+		if (optIn1Value == null) {
+			homeCareDetails.setCheckbox3(false);
+			optIn1 = false;
+		} else {
+		
+			if (optIn1Value.toUpperCase().toUpperCase().equals("ON")) {
+				homeCareDetails.setCheckbox3(true);
+				optIn1 = true;
+			} else {
+				homeCareDetails.setCheckbox3(false);
+				optIn1 = false;
+			}
+				
+		}
+		
+		if (optIn2Value == null) {
+			homeCareDetails.setCheckbox4(false);
+			optIn2 = false;
+		} else {
+		
+			if (optIn2Value.toUpperCase().toUpperCase().equals("ON")) {
+				homeCareDetails.setCheckbox4(true);
+				optIn2 = true;
+			} else {
+				homeCareDetails.setCheckbox4(false);
+				optIn2 = false;
+			}
+				
+		}
+		
+		
+		
+		
 		if (homeCareDetails.getTotalDue() != null) {
 			session.setAttribute("homeCareDetails", homeCareDetails);
 		} else {
@@ -473,26 +523,57 @@ public class HomeCareController {
 		HttpSession session = request.getSession();
 		session.setAttribute("HomeCareTransactionNo", request.getParameter("orderRef"));
 		
+		String referenceNo = request.getParameter("referenceNo");
 		
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", (String) session.getAttribute("token"));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		
-		try {
-			session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr((String)request.getParameter("cardNo")));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.POST,
+				UserRestURIConstants.HOMECARE_SUBMIT_POLICY, header,
+				submitPolicy);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				try {
+					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr((String)request.getParameter("cardNo")));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				System.out.println("cardNo : ");
+				System.out.println(request.getParameter("cardNo"));
+				System.out.println("emailAddress : ");
+				System.out.println(request.getParameter("emailAddress"));
+				System.out.println("********************************* Inside Process Payment **********************************************");
+				return "success";
+				
+			} else {
+				return checkJsonObjNull(jsonResponse, "policyNo");
+			}
+		} else {
+			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
-
-		session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
-
-		session.setAttribute("emailAddress", request.getParameter("emailAddress"));
-		System.out.println("cardNo : ");
-		System.out.println(request.getParameter("cardNo"));
-		System.out.println("emailAddress : ");
-		System.out.println(request.getParameter("emailAddress"));
-		System.out.println("********************************* Inside Process Payment **********************************************");
-		return "success";
+		return "fail";
+		
+		
+		
+		
 	}
-	
+	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
+		if (obj.get(checkByStr) != null) {
+			return obj.get(checkByStr).toString();
+		} else {
+			return "";
+		}
+	}
 	
 
 	@RequestMapping(value = {"/{lang}/homecare-confirmation", "/{lang}/home-insurance/confirmation"})
@@ -559,6 +640,7 @@ public class HomeCareController {
 					COMMON_HEADERS);
 			session.removeAttribute("HomeCareCreditCardNo");
 			session.removeAttribute("HomeCareCardexpiryDate");
+			session.removeAttribute("home-temp-save");
 			header.put("userName", userName);
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());

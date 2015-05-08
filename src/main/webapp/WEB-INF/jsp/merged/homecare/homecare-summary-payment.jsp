@@ -532,7 +532,10 @@
  						success : function(data) {
  							if (data == 'success') {
  								form.action = geteWayUrl;
- 							}
+ 							} else {
+ 								console.log("fail to home process payment " + data);
+ 	 						}
+ 	 							
  						}
  					});
  			return true;

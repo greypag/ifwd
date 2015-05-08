@@ -45,6 +45,8 @@ public class UserRestURIConstants {
 			+ "/gi/travel/policies";
 	public static final String TRAVEL_CONFIRM_POLICY = SERVICE_URL
 			+ "/gi/travel/payments/make";
+	public static final String TRAVEL_SUBMIT_POLICY = SERVICE_URL + "/gi/homeCare/payments/submit";
+	
 	public static final String TRAVEL_FINALIZE_POLICY = SERVICE_URL
 			+ "/gi/travel/policies";
 	
@@ -55,6 +57,9 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_QUOTE = SERVICE_URL + "/gi/homeCare/quote";
 	public static final String HOMECARE_CREATE_POLICY = SERVICE_URL + "/gi/homeCare/policies";
 	public static final String HOMECARE_CONFIRM_POLICY = SERVICE_URL + "/gi/homeCare/payments/make";
+	public static final String HOMECARE_SUBMIT_POLICY = SERVICE_URL + "/gi/homeCare/payments/submit";
+	
+	
 	public static final String HOMECARE_FINALIZE_POLICY = SERVICE_URL + "/gi/homeCare/policies";
 	public static final String HOMECARE_GET_DISTRICT = SERVICE_URL + "/option/itemDesc?itemTable=HKDistrict";	//SERVICE_URL + "/option/districts";
 	public static final String HOMECARE_GET_TERRITORY_DISTRICT = SERVICE_URL + "/option/itemDesc?itemTable=HKTerritoryDistrict";	//SERVICE_URL + "/option/districts";

@@ -360,28 +360,23 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		String edate = date.toString();
 		System.out.println("E DATE============================>>>" + edate);
-		String strDeclaration = homeCareDetails.getDeclarration();
-		String strReadAndUnderstood = homeCareDetails.getReadAndUnderstood();
-		boolean dec;
-		boolean readAndUnderStood;
-		if (strDeclaration.equalsIgnoreCase("on")) {
-			dec = true;
+		
+		boolean checkbox3;
+		boolean checkbox4;
+		
+		
+		System.out.println("HomeCare checkBox3 " + homeCareDetails.getCheckbox3());
+		System.out.println("HomeCare checkBox4 " + homeCareDetails.getCheckbox4());
+		
+		if (homeCareDetails.getCheckbox3()) {
+			checkbox3 = true;
 		} else {
-			dec = false;
+			checkbox3 = false;
 		}
-		System.out.println("HomeCare checkBox1 " + homeCareDetails.getCheckbox1());
-		System.out.println("HomeCare checkBox2 " + homeCareDetails.getCheckbox2());
-		boolean cb1;
-		boolean cb2;
-		if (homeCareDetails.getCheckbox1()) {
-			cb1 = true;
+		if (homeCareDetails.getCheckbox4()) {
+			checkbox4 = true;
 		} else {
-			cb1 = false;
-		}
-		if (homeCareDetails.getCheckbox2()) {
-			cb2 = true;
-		} else {
-			cb2 = false;
+			checkbox4 = false;
 		}
 		
 
@@ -416,8 +411,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("email", userDetails.getEmailAddress());
 		applicant.put("mobileNo", userDetails.getMobileNo());
 		applicant.put("occupation", "");
-		applicant.put("optIn1", cb1);
-		applicant.put("optIn2",cb2);
+		applicant.put("optIn1", checkbox3);
+		applicant.put("optIn2",checkbox4);
 
 		parameters.put("applicant", applicant);
 

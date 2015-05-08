@@ -856,7 +856,7 @@
 							<div class="declaration-content">
 								<h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
 								<div class="checkbox">
-									<input id="checkbox1" type="checkbox"> 
+									<input id="checkbox1" name="checkbox1" type="checkbox"> 
 									<label for="checkbox1">
 										<fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /> 
 										<ol class="ol-disclaimer">
@@ -871,7 +871,7 @@
 								</div>	
 								<span id="chk1" class="text-red"></span>		
 								<div class="checkbox">
-									<input id="checkbox2" type="checkbox"> <label
+									<input id="checkbox2" name="checkbox2" type="checkbox"> <label
 										for="checkbox2">
 										<fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
 										href="<fmt:message key="PICS.link" bundle="${msg}" />"
@@ -889,14 +889,14 @@
 									</label>
 								</div>
 								 <div class="checkbox">
-									<input id="checkbox3" type="checkbox"> <label
+									<input id="checkbox3" name="checkbox3" type="checkbox"> <label
 
 										for="checkbox3"> <fmt:message key="travel.details.declarations.PDPO.option1" bundle="${msg}" /><br>
 										
 									</label>
 								</div>
 								<div class="checkbox">
-									<input id="checkbox4" type="checkbox"> <label
+									<input id="checkbox4" name="checkbox4" type="checkbox"> <label
 										for="checkbox4">
 
 										<fmt:message key="travel.details.declarations.PDPO.option2" bundle="${msg}" /><br>

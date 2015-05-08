@@ -507,6 +507,18 @@ public class FlightController {
 		return new ModelAndView(returnUrl);
 	}
 
+	@RequestMapping(value = { "/flight-temp-save"})
+	@ResponseBody
+	public String flightTempSave(
+		HttpServletRequest request,
+		@ModelAttribute("confirmationData") PlanDetailsForm planDetailsForm,
+		BindingResult result, Model model) {
+		HttpSession session = request.getSession();
+		session.setAttribute("flight-temp-save", planDetailsForm);
+		return "success";
+		
+	}
+	
 	@RequestMapping(value = { "/{lang}/flight-confirmation",
 			"/{lang}/flight-insurance/confirm-policy" })
 	@ResponseBody
@@ -916,6 +928,7 @@ public class FlightController {
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription",
 					pageMetaDataDescription);
+			session.removeAttribute("flight-temp-save");
 			return "success";
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs")

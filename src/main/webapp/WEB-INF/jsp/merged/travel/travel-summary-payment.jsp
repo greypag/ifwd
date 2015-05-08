@@ -479,7 +479,9 @@
 						type="hidden" name="failUrl" value="${failurePath }"> <input
 						type="hidden" name="errorUrl" value="${failurePath }"> <input
 						type="hidden" name="payType"
-						value="${createPolicy.getPaymentType()}">
+						value="${createPolicy.getPaymentType()}"> <input
+						type="hidden" name="referenceNo"
+						value="${createPolicy.getReferenceNo()}">
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
@@ -648,19 +650,19 @@
 
 						<span id="errchk2" class="error-msg"></span>
 						<div class="clearfix"></div>
-						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
+						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
 						<!-- <div class="hidden-sm hidden-xs pad-none">
 							
-								class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
+								class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn margin-left"
-								value="確�付款" onclick="confirmPayment()" />
+								value="確�付款" onclick="confirmPayment()" />
 						</div>
 						<br> <br>
 						
 						<div class="pad-none hidden-md hidden-lg">
 							<a href="travel-plan-details.html"
-								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
+								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
 							</a>
 						</div> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->
@@ -668,18 +670,18 @@
 							<input
 								type="submit"
 								class="bdr-curve btn btn-primary nxt-btn"
-								value="確�付款" onclick="confirmPayment()" /> -->
+								value="確�付款" onclick="confirmPayment()" /> -->
 						<!-- vincent add a button for paymnet confirmation (mobile) -->	
 						
 						
 						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 								<a href="#" onclick="BackMe()"
-									class="bdr-curve btn btn-primary bck-btn">返� </a>
+									class="bdr-curve btn btn-primary bck-btn">返� </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 								<input type="submit"
 									class="bdr-curve-none btn btn-primary nxt-btn "
-									value="確�付款" onclick="confirmPayment()" />
+									value="確�付款" onclick="confirmPayment()" />
 								
 
 							</div> -->
