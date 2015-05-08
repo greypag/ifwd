@@ -633,10 +633,10 @@ $(document).ready(function() {
         <div class="col-lg-4 col-md-4 pad-none">
           <div class="services-wrap service-bx1">
             <div>
-              <a href="<fmt:message key="flight.main.blog.link1" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
+              <a href="<fmt:message key="flight.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
                 src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
               <h3>
-                <a href="<fmt:message key="flight.main.blog.link1" bundle="${msg}" />" target="_blank">  <fmt:message key="flight.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+                <a href="<fmt:message key="flight.blog.post1.link" bundle="${msg}" />" target="_blank">  <fmt:message key="flight.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
                 </a>
               </h3>
 
@@ -646,10 +646,10 @@ $(document).ready(function() {
         <div class="col-lg-4 col-md-4 pad-none">
           <div class="services-wrap service-bx2">
             <div>
-              <a href="<fmt:message key="flight.main.blog.link2" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
+              <a href="<fmt:message key="flight.blog.post2.link" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
                 src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
               <h3>
-                <a href="<fmt:message key="flight.main.blog.link2" bundle="${msg}" />" target="_blank"> <fmt:message key="flight.main.blog.subheading2" bundle="${msg}" /> <i
+                <a href="<fmt:message key="flight.blog.post2.link" bundle="${msg}" />" target="_blank"> <fmt:message key="flight.main.blog.subheading2" bundle="${msg}" /> <i
                   class="fa fa-caret-right"></i>
                 </a>
               </h3>
@@ -659,10 +659,10 @@ $(document).ready(function() {
         <div class="col-lg-4 col-md-4 pad-none">
           <div class="services-wrap service-bx3">
             <div>
-              <a href="<fmt:message key="flight.main.blog.link3" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
+              <a href="<fmt:message key="flight.blog.post3.link" bundle="${msg}" />" target="_blank"><img class="img-responsive bdr-img"
                 src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
               <h3>
-                <a href="<fmt:message key="flight.main.blog.link3" bundle="${msg}" />" target="_blank"> <fmt:message key="flight.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+                <a href="<fmt:message key="flight.blog.post3.link" bundle="${msg}" />" target="_blank"> <fmt:message key="flight.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
                 </a>
               </h3>
             </div>

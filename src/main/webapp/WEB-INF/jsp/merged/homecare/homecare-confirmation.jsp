@@ -3,8 +3,52 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@page import="com.ifwd.fwdhk.util.Constants"%>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+
+<%
+  /* Show Different Referral Benefits for Visitor & Member */
+  String currUser = session.getAttribute("username").toString().trim();
+  Boolean isMember = !(currUser == null || currUser.equals(Constants.DEFAULT_USERNAME));
+  String userType = (isMember)?"member":"visitor";
+
+  String key_promocodeLabel = "home.confirmation." + userType + ".promocodeLabel";
+  String key_referralCodeDesc = "home.confirmation." + userType + ".referralCodeDesc";
+
+  String key_header1 = "home.referral.benefits." + userType + ".table.header1";
+  String key_header2 = "home.referral.benefits." + userType + ".table.header2";
+  String key_header3 = "home.referral.benefits." + userType + ".table.header3";
+  String key_header4 = "home.referral.benefits." + userType + ".table.header4";
+
+  String key_row1col1 = "home.referral.benefits." + userType + ".table.row1.col1";
+  String key_row1col2 = "home.referral.benefits." + userType + ".table.row1.col2";
+  String key_row1col3 = "home.referral.benefits." + userType + ".table.row1.col3";
+  String key_row1col4 = "home.referral.benefits." + userType + ".table.row1.col4";
+
+  String key_row2col1 = "home.referral.benefits." + userType + ".table.row2.col1";
+  String key_row2col2 = "home.referral.benefits." + userType + ".table.row2.col2";
+  String key_row2col3 = "home.referral.benefits." + userType + ".table.row2.col3";
+  String key_row2col4 = "home.referral.benefits." + userType + ".table.row2.col4";
+
+  String key_row3col1 = "home.referral.benefits." + userType + ".table.row3.col1";
+  String key_row3col2 = "home.referral.benefits." + userType + ".table.row3.col2";
+  String key_row3col3 = "home.referral.benefits." + userType + ".table.row3.col3";
+  String key_row3col4 = "home.referral.benefits." + userType + ".table.row3.col4";
+
+  String key_row4col1 = "home.referral.benefits." + userType + ".table.row4.col1";
+  String key_row4col2 = "home.referral.benefits." + userType + ".table.row4.col2";
+  String key_row4col3 = "home.referral.benefits." + userType + ".table.row4.col3";
+  String key_row4col4 = "home.referral.benefits." + userType + ".table.row4.col4";
+
+  String key_disclaimer1 = "home.referral.benefits." + userType + ".disclaimer1";
+  String key_disclaimer2Part1 = "home.referral.benefits." + userType + ".disclaimer2.part1";
+  String key_disclaimer2Part2 = "home.referral.benefits." + userType + ".disclaimer2.part2";
+  String key_disclaimer2Part3 = "home.referral.benefits." + userType + ".disclaimer2.part3";
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,6 +130,7 @@
 
 </head>
 <body>
+
 	<!--Desktop-header-->
 	<!--/#main-Content-->
 	<section>
@@ -147,7 +192,7 @@
 						<div id="confirm-error-msg" class="alert alert-danger hide"
 							role="alert">${errormsg}</div>
 					</c:if>
-					<div class="container pad-none bdr">
+					<div class="container pad-none bdr margin-bottom-20">
 						<div class="col-sm-12 gray-bg1">
 							<h3>
 								<fmt:message key="home.confirmation.msg.part1" bundle="${msg}" /> <strong><fmt:message key="home.confirmation.msg.part2" bundle="${msg}" /></strong>
@@ -155,29 +200,93 @@
 								<fmt:message key="home.confirmation.msg.part5" bundle="${msg}" /> <strong>${emailID}</strong> <fmt:message key="home.confirmation.msg.part6" bundle="${msg}" />
 							</h3>
 							<h4>
-								Policy Number: <span> ${policyNo}</span>
+								<fmt:message key="home.confirmation.policyNo" bundle="${msg}" />
+								<span> ${policyNo}</span>
 							</h4>
-							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
 								<h5>
-									<fmt:message key="home.confirmation.promocode" bundle="${msg}" /><span> <%=session.getAttribute("myHomeReferralCode")%></span>
+									<fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /><span> <%=session.getAttribute("myHomeReferralCode")%></span>
 								</h5>
-								<div class="h4-3-b margin-left">
-								<fmt:message key="home.confirmation.share" bundle="${msg}" />
+								<div class="h4-3-b margin-left margin-bottom-10">
+									<fmt:message key="<%=key_referralCodeDesc%>" bundle="${msg}" />
 								</div>
+								<!-- Referral Code Table -->
+					                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					                <% if (isMember) { %>
+					                    <table class="table table-bordred table-type-1 margin-bottom-10">
+					                        <tbody>
+					                            <tr>
+					                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                            <tr>
+					                                <td rowspan="2">
+					                                  <strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong>
+					                                </td>
+					                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                            <tr>
+					                                <td><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row2col3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                            <tr>
+					                                <td rowspan="2">
+					                                  <strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong>
+					                                </td>
+					                                <td><strong><fmt:message key="<%=key_row3col2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row3col3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                            <tr>
+					                                <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                        </tbody>
+					                    </table>
+					                    <div class="disclaimer">
+					                      <p><fmt:message key="<%=key_disclaimer1%>" bundle="${msg}" /></p>
+					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
+					                    </div>
+					              <% } else { %>
+					                  <table class="table table-bordred table-type-1 margin-bottom-10">
+					                        <tbody>
+					                            <tr>
+					                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                            <tr>
+					                                <td><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
+					                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
+					                            </tr>
+					                        </tbody>
+					                  </table>
+					              <% } %>                    
+					              </div>
+					            <!-- END Referral Code Table -->	
 							</div>
-							<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div><fmt:message key="home.confirmation.partnerDesc" bundle="${msg}" /></div>
 								<img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="">
 							</div>
 							<div class="clearfix"></div>
-							<br>
 							<br>
 							<div class="h4-2 margin-left">
 							<fmt:message key="home.confirmation.sharenow" bundle="${msg}" />
 							</div>
 
-							<div >
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					         	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
-					         		<div class=" wht-bg1 text-center referral-url"><a class="padding6 h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
+					         		<div class=" wht-bg1 text-center referral-url"><a class=" h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
 					            </div>
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
@@ -189,6 +298,7 @@
 							<div class="clearfix"></div>
 							<br>
 							<div class="col-lg-12 col-md-12 travel-b">
+								<!--
 								<div class="declaration-content1">
 									<b><span class="orange-star">*</span><fmt:message key="home.confirmation.referral.heading" bundle="${msg}" /></b>
 									<p class="margin-none">
@@ -200,6 +310,7 @@
 									</p>
 									<br>
 								</div>
+								-->
 							</div>
 						</div>
 						<div class="clearfix"></div>

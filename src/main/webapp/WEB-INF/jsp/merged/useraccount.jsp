@@ -388,7 +388,7 @@
                   				<fmt:message key="member.account.referral.disclaimer.section2.header" bundle="${msg}" /><br>
                    				<fmt:message key="member.account.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
           						<fmt:message key="member.account.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
-          						<a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
+          						<a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
           							<fmt:message key="member.account.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
           						</a>
           						<fmt:message key="member.account.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
