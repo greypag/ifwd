@@ -194,9 +194,19 @@ $('.plan').change(function () {
       }
       
     }
-    updateTravelQuote();
     
 });
+
+//BMG travel inline change start
+$('.travel-inline-plan').change(function () {
+	updateTravelQuote();
+});
+
+$('.travel-inline-btn-number').click(function(e){
+	updateTravelQuote();
+});
+//BMG travel inline change end
+
 // PLUS AND MINUS BUTTON EVENT TO CONTROLL TRAVERLLER PEOPLE
 $('.btn-number').click(function(e){
     e.preventDefault();
@@ -415,8 +425,6 @@ $('.btn-number').click(function(e){
     } else {
         input.val(0);
     }
-    
-    updateTravelQuote();
 });
 $('.number-spinner input[data-min][data-max]').focusin(function(){
   $(this).data('oldValue', $(this).val());
