@@ -778,12 +778,12 @@ public class TravelController {
 			
 			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
-							planDetailsForm.getSelectedPsHkidPass()[inx],
+							planDetailsForm.getSelectedPersonalHkidPass()[inx],
 							planDetailsForm.getPersonalHKID()[inx])
 					 );
 					 
 			personal.put(passId, checkPasswortAndHkid(passId,
-							planDetailsForm.getSelectedAdHkidPass()[inx],
+							planDetailsForm.getSelectedPersonalHkidPass()[inx],
 							planDetailsForm.getPersonalHKID()[inx])
 					 );
 
@@ -813,12 +813,12 @@ public class TravelController {
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedPsHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalHkidPass()[inx],
 												planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPsHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalHkidPass()[inx],
 												planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						personal.put("beneficiary", beneficiary);

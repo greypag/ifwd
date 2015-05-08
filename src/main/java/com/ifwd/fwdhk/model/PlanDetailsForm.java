@@ -63,7 +63,7 @@ public class PlanDetailsForm {
 	//	private AdultBeneficiary[] adultBeneficiary;
 	
 	private String selectedHkidPassApplicant;
-	private String[] selectedPsHkidPass;
+	private String[] selectedPersonalHkidPass;
 	private String[] selectedPsBenefitiaryHkidPass;
 	private String[] selectedAdHkidPass;
 	private String[] selectedAdBenefitiaryHkidPass;
@@ -101,11 +101,11 @@ public class PlanDetailsForm {
 		this.selectedHkidPassApplicant = selectedHkidPassApplicant;
 	}
 	
-	public String[] getSelectedPsHkidPass() {
-		return selectedPsHkidPass;
+	public String[] getSelectedPersonalHkidPass() {
+		return selectedPersonalHkidPass;
 	}
-	public void setSelectedPsHkidPass(String[] selectedPsHkidPass) {
-		this.selectedPsHkidPass = selectedPsHkidPass;
+	public void setSelectedPersonalHkidPass(String[] selectedPersonalHkidPass) {
+		this.selectedPersonalHkidPass = selectedPersonalHkidPass;
 	}
 	public String[] getSelectedPsBenefitiaryHkidPass() {
 		return selectedPsBenefitiaryHkidPass;
