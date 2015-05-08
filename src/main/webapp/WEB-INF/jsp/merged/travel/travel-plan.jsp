@@ -311,7 +311,8 @@ var promoData = '';
 										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></span>
+									<!-- <span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></span> -->
+									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
 									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 								</h6>
 								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
