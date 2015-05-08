@@ -4420,6 +4420,9 @@ table.purchase-history tr td {
     background: #f6871e !important;
     color: #fff !important;
 }
+.input-group-addon:first-child {
+	border: none;
+}
 /*************Travel wizard**************/
 #tr-wizard.shop-tracking-status .form-horizontal {
 	margin-bottom: 50px
