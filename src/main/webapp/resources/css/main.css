@@ -4314,10 +4314,10 @@ a.h4-4 {
 	font-size: 24px;
 }
 .plan-box3 h6 {
-	
 	line-height: 42px;
 	margin-left: 30px;
-	font-size: 55px;
+	/*font-size: 55px;*/
+	font-size: 45px;
 	font-weight: bold;
 }
 .plan-box4 {
