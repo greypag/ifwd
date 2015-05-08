@@ -1367,22 +1367,25 @@ var promoData = '';
 							</div>
 						</div>
 						<div class="col-xs-12">
-							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-						
-							<span class="text-red" id="errPromoCode"></span>
-							<div id="promo-wrap" class="form-group">
-								<div class="input-group" style="border: 0;">
-									<input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
-										class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-										<span
-										class="input-group-addon in black-bold pointer"
-										onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
-								</div>
-							</div>
-							<div class="travel-italic">
-								<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
-							</div>
+						  <div id="promo-code-body" class="hide-html">
+						     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                            <span class="text-red" id="errPromoCode"></span>
+                            <div id="promo-wrap" class="form-group">
+                                <div class="input-group" style="border: 0;">
+                                    <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
+                                        class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+                                        <span
+                                        class="input-group-addon in black-bold pointer"
+                                        onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
+                                </div>
+                            </div>
+                            <div class="travel-italic">
+                                <a href="" class="sub-link" data-toggle="modal"
+                                        data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
+                            </div>
+						  </div>
+							
+							
 						
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /></h3>
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
@@ -1525,6 +1528,7 @@ var promoData = '';
         }
     }
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
+		$("#promo-code-body").fadeIn();
 		var selected_div;
 		var idArray = [];
 
