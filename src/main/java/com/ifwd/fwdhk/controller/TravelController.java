@@ -923,7 +923,7 @@ public class TravelController {
 		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
 		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
 		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
-		
+System.out.println("tc 1");		
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
 		} else {
@@ -953,12 +953,12 @@ public class TravelController {
 		}
 
 		int totalCount = totalPersonal + totalAdults + totalChild + totalOthers;
-
+System.out.println("tc 2");
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-		
+System.out.println("tc 3");		
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -972,7 +972,7 @@ public class TravelController {
 			relationOfChildTraveller = "CH";
 			relationOfOtherTraveller = "OT";
 		}
-
+System.out.println("tc 4");
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", session.getAttribute("planSelected"));
 		
@@ -981,7 +981,7 @@ public class TravelController {
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
-
+System.out.println("tc 5");
 		String langSelected = UserRestURIConstants.getLanaguage(request);
 		
 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
@@ -999,7 +999,7 @@ public class TravelController {
 		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {	
 			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), langSelected));		
 		}
-		
+System.out.println("tc 6");		
 		// personal
 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -1026,7 +1026,7 @@ public class TravelController {
 			if (inx != 0) {// For other travelers skip first one
 				personal.put("relationship", "FE");
 				
-				
+System.out.println("tc 7");					
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty() 
 							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
@@ -1142,7 +1142,7 @@ public class TravelController {
 					*/
 				}
 			}
-						
+System.out.println("tc 8");							
 			insured.add(personal);
 			
 			// update relationship desc
@@ -1160,7 +1160,7 @@ public class TravelController {
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		// personal
-		
+System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller());		
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -1311,7 +1311,7 @@ public class TravelController {
 			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
 			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
-
+System.out.println("personal done " + planDetailsForm.getTotalAdultTraveller());
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
 				JSONObject child = new JSONObject();
@@ -1400,7 +1400,7 @@ public class TravelController {
 				
 			}
 		}
-
+System.out.println("personal done " + planDetailsForm.getTotalChildTraveller());
 		if (planDetailsForm.getTotalOtherTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
 				JSONObject other = new JSONObject();
@@ -1494,7 +1494,7 @@ public class TravelController {
 				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));				
 			}
 		}
-
+System.out.println("personal done " + planDetailsForm.getTotalOtherTraveller());
 		
 		
 		parameters.put("insured", insured);
