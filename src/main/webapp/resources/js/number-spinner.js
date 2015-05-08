@@ -207,6 +207,16 @@ $('.travel-inline-btn-number').click(function(e){
 });
 //BMG travel inline change end
 
+//BMG flight inline change start
+$('.flight-inline-plan').change(function () {
+	updateFlightQuote();
+});
+
+$('.flight-inline-btn-number').click(function(e){
+	updateFlightQuote();
+});
+//BMG flight inline change end
+
 // PLUS AND MINUS BUTTON EVENT TO CONTROLL TRAVERLLER PEOPLE
 $('.btn-number').click(function(e){
     e.preventDefault();

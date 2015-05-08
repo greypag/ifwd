@@ -495,7 +495,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     class="text-red"> </span> <span
                                                     id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
-                                            </tr>
+ select-label                               </tr>
                                             <tr>
                                                 <td valign="middle" class="">
                                                      <label class="bold-500"><fmt:message
