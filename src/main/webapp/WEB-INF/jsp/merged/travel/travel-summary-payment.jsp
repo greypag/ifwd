@@ -116,7 +116,7 @@
 
 									<tr>
 									<td></td>
-										<td class="h2-1 pad-none">${selectPlanName}  <fmt:message key="travel.summary.plan" bundle="${msg}" /></td>
+										<td class="h2-1 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /> ${selectPlanName}</td>
 										
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>

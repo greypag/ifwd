@@ -85,8 +85,7 @@
 						<div class="row home-summary-heading-row">
 							<div class="col-xs-6 col-md-7">
 								<h3
-									class="margin-left-2 h2-3-existing-fwd-head home-summary-heading">Plan
-									Summary</h3>
+									class="margin-left-2 h2-3-existing-fwd-head home-summary-heading"><fmt:message key="home.summary.plansummary.heading" bundle="${msg}" /></h3>
 							</div>
 							<div class="col-xs-6 col-md-5">
 								<h4 class="h4-trav-full text-right home-summary-change">
@@ -112,8 +111,8 @@
 												key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
 										<td class="h4-5 "><fmt:message
 												key="home.summary.plansummary.desc3" bundle="${msg}" /><br>
-											<fmt:message key="home.summary.plansummary.desc4"
-												bundle="${msg}" /> <br>
+											<!--<fmt:message key="home.summary.plansummary.desc4"
+												bundle="${msg}" /> <br>-->
 											<h4 class="h4-4-full">
 												<!-- + Full coverage details -->
 											</h4></td>
@@ -155,14 +154,17 @@
 									<tr>
 										<td class="h2-1 "><fmt:message
 												key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
-										<td class=" h4-5 ">Yearly</td>
+										<td class=" h4-5 "><fmt:message
+												key="home.summary.plansummary.yearly" bundle="${msg}" /></td>
 									</tr>
 									<tr>
 										<td class="h2-1 "><fmt:message
 												key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br>
 										<fmt:message key="home.summary.plansummary.desc9.part2"
 												bundle="${msg}" /></td>
-										<td class=" h4-5 ">From ${effectiveDate } to
+										<td class=" h4-5 "><fmt:message key="home.summary.plansummary.from"
+												bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to"
+												bundle="${msg}" />
 											${effectiveEndDate}</td>
 									</tr>
 									<tr>

@@ -179,7 +179,7 @@
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
+					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
@@ -370,7 +370,7 @@
                                                                     <tr>
                                                                         <td><strong><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
                                                                         <td><strong><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /> Limits<br>(HK$)
+                                                                        <td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" />
                                                                         </strong></td>
                                                                     </tr>
                                                                     <tr>
@@ -402,6 +402,7 @@
                                                                                 <fmt:message key="home.quote.summary.table.row3.col2.desc3" bundle="${msg}" /><br />
                                                                                 <fmt:message key="home.quote.summary.table.row3.col2.desc4" bundle="${msg}" /><br />
                                                                                 <fmt:message key="home.quote.summary.table.row3.col2.desc5" bundle="${msg}" />
+                                                                                <fmt:message key="home.quote.summary.table.row3.col2.desc6" bundle="${msg}" />
                                                                             </strong>
                                                                         </td>
                                                                         <td><fmt:message key="home.quote.summary.table.row3.col3" bundle="${msg}" /></td>
@@ -535,6 +536,9 @@
 											            </a>
 											            <div class="fwdpanel-heading">
 											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></h4>
+											                <h5>
+											                	<fmt:message key="home.quote.fullDetails.priceTable.desc" bundle="${msg}" />
+											                </h5>
 											            </div>
 											            <div class="fwdpanel-body">
 			                                                <table id="homecarePremium" class="table table-bordred">

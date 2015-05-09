@@ -588,15 +588,15 @@ var promoData = '';
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" /></td>
 			                                                        </tr>
 			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
+			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc2.subheading" bundle="${msg}" /><br/>
+			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc2.content" bundle="${msg}" />
 			                                                            </td>
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc2" bundle="${msg}" /></td>
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc2" bundle="${msg}" /></td>
 			                                                        </tr>
 			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/> 
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
+			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.subheading" bundle="${msg}" /><br/> 
+			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.content" bundle="${msg}" />
 			                                                            </td>
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc3" bundle="${msg}" /></td>
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc3" bundle="${msg}" /></td>
@@ -1408,7 +1408,7 @@ var promoData = '';
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
-				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
+				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /> <fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
 
 		</form:form>
