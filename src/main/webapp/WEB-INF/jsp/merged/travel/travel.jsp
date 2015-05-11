@@ -1,3 +1,18 @@
+<%
+	session = request.getSession();
+	String uatAuth = (String) session.getAttribute("uatAuth");
+	System.out.println("uatAuth " + uatAuth);
+	if (uatAuth == null)
+		response.sendRedirect(request.getContextPath() + "/uatAuth");
+	
+// 	if (!uatAuth.equals("ifwdUser"))
+// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
+		
+%>
+
+
+
+
 <%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
