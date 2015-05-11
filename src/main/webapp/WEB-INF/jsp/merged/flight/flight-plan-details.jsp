@@ -665,7 +665,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                             </option>
                                                         </c:forEach>
                                                     </select></div> <span id="errchildRange${inx}" class="text-red"></span>
-              select-label                      </td>
+                                    </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -774,7 +774,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control"
 	                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onkeyup="hkidValid(this)"/> select-labelrtxtOtherInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span>
                                                 </td>
                                             </tr>
@@ -803,7 +803,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                                            <option value="${ageList.key}">
 		                                                        </c:otherwise>
 		                                                    </c:choose>
-		             select-label                           <c:out value="${ageList.value}" />
+		                                        <c:out value="${ageList.value}" />
 		                                                    </option>
 		                                                </c:forEach>
 		                                            </select></div> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
