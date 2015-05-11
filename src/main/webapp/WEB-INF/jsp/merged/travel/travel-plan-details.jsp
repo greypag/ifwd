@@ -989,6 +989,7 @@
                                 <h3 class="txt-bold">
                                     <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
                                 </h3>
+                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
                                 <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
             </div>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>

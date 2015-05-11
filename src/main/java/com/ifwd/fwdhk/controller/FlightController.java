@@ -84,7 +84,6 @@ public class FlightController {
 			planDetails.setTotalChildTraveller(1);
 			planDetails.setTotalOtherTraveller(0);
 			planDetails.setPlanSelected("personal");
-			planDetails.setTravellerCount(1);
 		}
 		else{
 			System.out.println("Plan selected : "+planDetails.getPlanSelected());
@@ -194,6 +193,8 @@ public class FlightController {
 		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
 		System.out.println("Child    : " + planDetails.getTotalChildTraveller());
 		System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
+		
+		System.out.println("PlanSelected   : " + planDetails.getPlanSelected());
 		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -342,6 +343,7 @@ public class FlightController {
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription",
 					pageMetaDataDescription);
+			
 			return new ModelAndView(
 
 			UserRestURIConstants.getSitePath(request) + "flight/flight-plan");
@@ -367,6 +369,12 @@ public class FlightController {
 		System.out.println("CHILD " + planDetails.getTotalChildTraveller());
 		System.out.println("OTHER " + planDetails.getTotalOtherTraveller());
 		
+System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
+System.out.println("getReturnDate : "+planDetails.getReturnDate());
+		
+System.out.println("departureDate : "+request.getParameter("departureDate"));
+System.out.println("returnDate : "+request.getParameter("returnDate"));
+		
 		// test planselected
 		if( planDetails.getTotalPersonalTraveller() > 0 ) {
 			planDetails.setPlanSelected("personal");
@@ -385,6 +393,12 @@ public class FlightController {
 				+ planDetails.getTotalOtherTraveller()
 				+ planDetails.getTotalPersonalTraveller());
 		
+		
+System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
+System.out.println("getReturnDate : "+planDetails.getReturnDate());
+
+System.out.println("departureDate : "+request.getParameter("departureDate"));
+System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -409,7 +423,12 @@ public class FlightController {
 		Date dateD2 = new Date(planDetails.getReturnDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
+		
+		System.out.println("commencementDate : "+commencementDate);
+		System.out.println("expiryDate : "+expiryDate);
+		
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
+		planDetails.setTotalTravellingDays(days + 1);
 		planDetails.setDays(days + 1);
 		if (session != null) {
 			session.setAttribute("leavingDate", planDetails.getDepartureDate());
@@ -492,6 +511,8 @@ public class FlightController {
 		System.out.println(jsonObject);
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
+			
+			jsonObject.put("totalDays", planDetails.getDays());
 
 			JSONObject jsonPriceInfoA = new JSONObject();
 			jsonPriceInfoA = (JSONObject) jsonObject.get("priceInfoA");
@@ -524,7 +545,8 @@ public class FlightController {
 					pageMetaDataDescription);
 //			return new ModelAndView(
 //			UserRestURIConstants.getSitePath(request) + "flight/flight-plan");
-			return "days: " + days;
+//			return "days: " + planDetails.getTotalTravellingDays();
+			return jsonObject.toString();
 
 		} else {
 			// return flight(request, model, "tc");
