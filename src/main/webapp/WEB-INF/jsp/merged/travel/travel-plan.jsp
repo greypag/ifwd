@@ -151,7 +151,7 @@ var promoData = '';
 			}
 			if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
 				//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				$('.actualPriceA del').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+				$('.actualPriceA del').html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
 			}
 			/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
 			$('.totalPriceA').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
