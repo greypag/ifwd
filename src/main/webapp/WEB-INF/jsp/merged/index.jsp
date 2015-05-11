@@ -13,6 +13,19 @@
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!--Google Code for SEO-->
 
+
+
+ 
+<%-- <% --%>
+<%-- 	session = request.getSession();
+// 	String uatAuth = (String) session.getAttribute("uatAuth");
+// 	System.out.println("uatAuth " + uatAuth);
+// 	if (uatAuth == null)
+// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
+<%-- %> --%>
+
+
+
 <noscript>
 <iframe src="//www.googletagmanager.com/ns.html?id=GTMK7TX8B"
 height="0" width="0" style="display:none;visibility:hidden"></iframe>

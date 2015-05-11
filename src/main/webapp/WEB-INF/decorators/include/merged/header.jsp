@@ -53,6 +53,12 @@ function submitLoginForm(formID) {
 <!-- Session is alive or not -->
 <%
 	session = request.getSession();
+		String uatAuth = (String) session.getAttribute("uatAuth");
+// 	if (uatAuth == null)
+// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
+// 	if (!uatAuth.equals("userName"))
+// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
+		
 	UserDetails user = new UserDetails();
 	if (session.getAttribute("userDetails") != null) {
 		user = (UserDetails) session.getAttribute("userDetails");
@@ -116,6 +122,7 @@ function submitLoginForm(formID) {
 							<% } %>
 							<li>
 							<%
+							System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
 							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
 								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
@@ -324,7 +331,7 @@ function submitLoginForm(formID) {
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
 			<%
-				if ("EN".equals(session.getAttribute("language").toString())) {
+				if ("en".equals(session.getAttribute("language").toString())) {
 				%>
 					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
 				<%
