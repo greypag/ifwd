@@ -43,6 +43,7 @@ public class RestServiceImpl implements RestServiceDao {
 		realMap.put("country", "HK");
 		realMap.put("language", "EN");
 		realMap.put("Accept", "application/json");
+		realMap.put("Charset", "utf-8");
 		
 		COMMON_HEADERS = Collections.unmodifiableMap(realMap);
 	}
@@ -83,9 +84,11 @@ public class RestServiceImpl implements RestServiceDao {
 											headParam.getValue());
 								});
 			}
-
+			postMehod.addHeader("Content-Type", "text/html; charset=UTF-8");
+			
+			postMehod.addHeader("Accept-Charset", "UTF-8");	
 			postMehod.setEntity(new StringEntity(params.toJSONString()));
-
+			
 			responseJsonObj = restClient.execute(postMehod,
 					new ResponseHandler<JSONObject>() {
 						@Override

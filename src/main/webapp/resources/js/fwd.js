@@ -12,13 +12,13 @@ var getBundleLanguage = "";
 var lang = UILANGUAGE;
 
 if(lang === "EN"){
-	getBundleLanguage = "";
+	getBundleLanguage = "en";
 }else 
 if(lang === "tc"){
-	getBundleLanguage = "zh-HK";
+	getBundleLanguage = "zh";
 } 
 else{
-	getBundleLanguage = "";
+	getBundleLanguage = "en";
 }
 
 var chin = false;
