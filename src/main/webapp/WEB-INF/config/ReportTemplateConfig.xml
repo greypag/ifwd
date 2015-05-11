@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+	<template id="Flight">	    
+	    <templatefile>D:/JasperReport/spring_report.jasper</templatefile>
+	    <outputpath>d:/temp/Flight/</outputpath>
+		<description>Flight Insurance</description>
+		<sql><![CDATA[
+		
+		select * from dbo.address where id=2
+
+		]]></sql>
+	</template>
+	
+	<template id="Travel">
+	    <templatefile>D:/JasperReport/spring_report.jasper</templatefile>
+	    <outputpath>d:/temp/Travel/</outputpath>
+		<description>Travel Insurance</description>
+		<sql><![CDATA[
+		
+select * from dbo.address where id=2
+
+		]]></sql>
+	</template>
+	
+	<template id="Home">
+	    <templatefile>D:/JasperReport/spring_report.jasper</templatefile>
+	    <outputpath>d:/temp/Home/</outputpath>
+		<description>Home Insurance</description>
+		<sql><![CDATA[
+		
+select * from dbo.address where id=2
+
+		]]></sql>
+	</template>
+	
+	
+	<template id="WorkingHoliday">
+	    <templatefile>D:/JasperReport/spring_report.jasper</templatefile>
+	    <outputpath>d:/temp/WorkingHoliday/</outputpath>
+		<description>WorkingHoliday Insurance</description>
+		<sql><![CDATA[
+		
+select * from dbo.address where id=2
+
+		]]></sql>
+	</template>
+	
+</templates>

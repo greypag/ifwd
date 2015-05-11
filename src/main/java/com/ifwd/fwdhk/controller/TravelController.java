@@ -1026,7 +1026,7 @@ System.out.println("tc 6");
 			if (inx != 0) {// For other travelers skip first one
 				personal.put("relationship", "FE");
 				
-System.out.println("tc 7");					
+			
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty() 
 							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
@@ -1126,20 +1126,24 @@ System.out.println("tc 7");
 						//planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary then
-					/*
+					
 					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-					beneficiary.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedPsHkidPass()[inx],
-											planDetailsForm.getPersonalHKID()[inx]));
-					beneficiary.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm.getSelectedPsHkidPass()[inx],
-											planDetailsForm.getPersonalHKID()[inx]));
+					System.out.println("planDetailsForm.getSelectedPersonalHkidPass()[inx] " + planDetailsForm.getSelectedPersonalHkidPass()[inx]);
+					System.out.println("planDetailsForm.getPersonalHKID()[inx] " + planDetailsForm.getPersonalHKID()[inx]);
+					
+					beneficiary.put("hkId", 
+							checkPasswortAndHkid(
+									"hkId",
+									planDetailsForm.getSelectedPersonalHkidPass()[inx],
+									planDetailsForm.getPersonalHKID()[inx]));
+					beneficiary.put("passport",
+							checkPasswortAndHkid(
+									"passport",
+									planDetailsForm.getSelectedPersonalHkidPass()[inx],
+									planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary.put("relationship", "SE");
 					personal.put("beneficiary", beneficiary);
-					*/
+					
 				}
 			}
 System.out.println("tc 8");							
@@ -1156,7 +1160,12 @@ System.out.println("tc 8");
 				// not found in ModelAttribute
 				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
 			}
+			
+			System.out.println("personal relationship " + personal.get("relationship").toString());
+			System.out.println("beneficiary relationship " + beneficiary.get("relationship").toString());
+			
 			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, personal.get("relationship").toString(), inx));
+			
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		// personal

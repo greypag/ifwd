@@ -121,7 +121,40 @@ public class UserRestURIConstants {
 		}
 		return result;
 	}
-		
+	
+	/* Set Url From config.properties file */
+	public static String getProperties(String key) {
+
+		String result = "";
+
+		Properties prop = new Properties();
+		String propFileName = "config.properties";
+		InputStream input = null;
+
+		try {
+			input = UserRestURIConstants.class.getClassLoader()
+					.getResourceAsStream(propFileName);
+
+			// load a properties file
+			prop.load(input);
+
+			// get the property value and print it out
+			result = prop.getProperty(key).toString();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+	
 	public static String getLanaguage(HttpServletRequest request) 
 	{
 		HttpSession session = request.getSession();	

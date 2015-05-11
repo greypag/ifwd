@@ -236,7 +236,36 @@ public class UserController {
 
 		return "useraccount";
 	}
-
+	
+	
+	@RequestMapping(value = "/uatAuth", method = RequestMethod.GET)
+	public String uatAuthBrowse(HttpServletRequest request, Model model) {
+		
+		String dir = UserRestURIConstants.getSitePath(request);
+		
+//		session.setAttribute("language", "EN");
+		String redirect ="../jsp/" + dir + "/uatLogin";
+		System.out.println("redirect " + redirect);
+		return redirect;
+	}
+	
+	@RequestMapping(value = "/uatAuth", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView uatAuth(HttpServletRequest request, Model model) {
+		String userName = request.getParameter("uatUserName");
+		String password = request.getParameter("uatPassword");
+		if (userName.equals("ifwdUser") && password.equals("Pass1234")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("uatAuth", "ifwdUser");
+			System.out.println("redirect to home lang from uatAuth: ");
+			return new ModelAndView("redirect:" + "/tc/home");
+		}
+		return null;
+	}
+			
+			
+	
+	
 	@RequestMapping(value = {"/joinus", "/join-us"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String registerUser(
