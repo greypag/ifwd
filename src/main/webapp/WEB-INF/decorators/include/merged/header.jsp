@@ -23,12 +23,14 @@ function submitLoginForm(formID) {
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
+				console.log(data);
 				$('#ajax-loading').hide();
 				if (data == 'success') {
-					$('#ajax-loading').hide();
-					var Backlen = history.length;
-					history.go(-Backlen);
-					window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+					//$('#ajax-loading').hide();
+					//var Backlen = history.length;
+					//history.go(-Backlen);
+					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+					location.reload();
 				} else if (data == 'fail') {
 					$('#ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
