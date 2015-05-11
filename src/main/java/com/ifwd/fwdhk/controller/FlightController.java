@@ -255,7 +255,7 @@ public class FlightController {
 		if (planDetails.getPlanSelected().equals("personal")) {
 			selfCover = true;
 			spouseCover = false;
-			otherCount = planDetails.getTravellerCount();
+			otherCount = planDetails.getTotalPersonalTraveller();
 			planDetails.setTotalChildTraveller(0);
 			planDetails.setTotalAdultTraveller(0);
 			planDetails.setTotalOtherTraveller(0);
