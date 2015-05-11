@@ -227,6 +227,9 @@
                             </table>
                         </div>
                         <input type="hidden" id="isLogin" value="false">
+                        <input type="hidden" id="totalTravallingDays" name="totalTravallingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
+                        
+                        
                         <%
                             }
                             else
