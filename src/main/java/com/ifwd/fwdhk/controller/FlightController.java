@@ -250,7 +250,6 @@ public class FlightController {
 
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
-		;
 
 		if (planDetails.getPlanSelected().equals("personal")) {
 			selfCover = true;
@@ -386,7 +385,152 @@ public class FlightController {
 				+ planDetails.getTotalOtherTraveller()
 				+ planDetails.getTotalPersonalTraveller());
 		
-		return "JSON";
+		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		HttpSession session = request.getSession();
+		// back btn to flight plan
+		UserRestURIConstants.setController("Flight");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+
+		if (planDetails.getDepartureDate() != null) {
+			session.setAttribute("flightPlanDetails", planDetails);
+		} else {
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+
+			if (planDetails == null) {
+				return "planDetails == null";
+			}
+		}
+		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
+		int days = 0;
+
+		Date dateD1 = new Date(planDetails.getDepartureDate());
+		Date dateD2 = new Date(planDetails.getReturnDate());
+		LocalDate commencementDate = new LocalDate(dateD1);
+		LocalDate expiryDate = new LocalDate(dateD2);
+		days = Days.daysBetween(commencementDate, expiryDate).getDays();
+		planDetails.setDays(days + 1);
+		if (session != null) {
+			session.setAttribute("leavingDate", planDetails.getDepartureDate());
+			session.setAttribute("backDate", planDetails.getReturnDate());
+			session.setAttribute("planType", planDetails.getPlanSelected());
+			session.setAttribute("count", planDetails.getTravellerCount());
+			session.setAttribute("days", planDetails.getDays());		
+			session.setAttribute("totalAdultTraveller",
+					planDetails.getTotalAdultTraveller());
+			session.setAttribute("totalChildTraveller",
+					planDetails.getTotalChildTraveller());
+			session.setAttribute("totalOtherTraveller",
+					planDetails.getTotalOtherTraveller());
+			session.setAttribute("referralCode",
+					StringHelper.emptyIfNull(planDetails.getReferralCode()));
+
+		}
+		
+		int otherCount = 0, childCount = 0, adultCount = 0;
+		boolean spouseCover = false, selfCover = false;
+
+		if (planDetails.getPlanSelected().equals("personal")) {
+			selfCover = true;
+			spouseCover = false;
+			otherCount = planDetails.getTravellerCount();
+			planDetails.setTotalChildTraveller(0);
+			planDetails.setTotalAdultTraveller(0);
+			planDetails.setTotalOtherTraveller(0);
+			otherCount = otherCount - 1;
+
+		} else if (planDetails.getPlanSelected().equals("family")) {
+			selfCover = true;
+			planDetails.setTravellerCount(0);
+			childCount = planDetails.getTotalChildTraveller();
+			adultCount = planDetails.getTotalAdultTraveller();
+			if (adultCount > 1)
+				spouseCover = true;
+			else
+				spouseCover = false;
+			otherCount = planDetails.getTotalOtherTraveller();
+		}
+		TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+		travelQuoteCount.setSelfCover(selfCover);
+		travelQuoteCount.setSpouseCover(spouseCover);
+		travelQuoteCount.setTotalChildTraveller(childCount);
+		travelQuoteCount.setTotalOtherTraveller(otherCount);
+		session.setAttribute("travelQuoteCount", travelQuoteCount);
+		String base = UserRestURIConstants.GETFLIGHTQUOTE
+				+ "?planCode=FlightCare" + "&selfCover=" + selfCover
+				+ "&spouseCover=" + spouseCover + "&childInput=" + childCount
+				+ "&otherInput=" + otherCount + "&commencementDate="
+				+ commencementDate + "&expiryDate=" + expiryDate
+				+ "&referralCode="
+				+ (String) session.getAttribute("referralCode");
+		
+		/* flight landing page save date */
+		System.out.println("Fight Quote user " + base);
+		
+		String token = null, username = null;
+
+		if ((session.getAttribute("token") != null)
+				&& (session.getAttribute("username") != null)) {
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		} else {
+			restService.consumeLoginApi(request);
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+
+		}
+
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		header.put("token", token);
+		header.put("userName", username);
+		header.put("language", WebServiceUtils
+				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
+				header, null);
+		System.out.println(jsonObject);
+
+		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
+
+			JSONObject jsonPriceInfoA = new JSONObject();
+			jsonPriceInfoA = (JSONObject) jsonObject.get("priceInfoA");
+
+			flightQuoteDetails.setGrossPremium(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"grossPremium")));
+			flightQuoteDetails.setDiscountPercentage(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"discountPercentage")));
+			flightQuoteDetails.setDiscountAmount(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"discountAmount")));
+			flightQuoteDetails.setTotalNetPremium(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA,
+							"totalNetPremium")));
+			flightQuoteDetails.setToalDue(StringHelper
+					.formatPrice(checkJsonObjNull(jsonPriceInfoA, "totalDue")));
+			planDetails.setFlightQuoteDetails(flightQuoteDetails);
+			model.addAttribute(planDetails);
+			model.addAttribute(flightQuoteDetails);
+			String pageTitle = WebServiceUtils.getPageTitle(
+					"page.flightQuotation",
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta.flightQuotation",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription",
+					pageMetaDataDescription);
+//			return new ModelAndView(
+//			UserRestURIConstants.getSitePath(request) + "flight/flight-plan");
+			return "days: " + days;
+
+		} else {
+			// return flight(request, model, "tc");
+			//return flight(request, model);
+			return "flight(request, model)";
+		}		
 	}
 	// BMG updateFlightQuote
 	
