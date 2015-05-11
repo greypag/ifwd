@@ -5320,7 +5320,10 @@ border-left: 7px solid transparent;}
 
 .marg-t2{ margin-top:7px;}
 .marg-b2{ margin-bottom:0px !important;}
-
+#txtStartDateDesk, 
+#txtEndDateDesk {
+	border: none;
+}
 /*CN*/
 
 #cn .nxt-btn {

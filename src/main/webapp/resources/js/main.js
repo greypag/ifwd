@@ -143,8 +143,10 @@ $(document).ready(function(){
 $("#inputFullName").keyup(function() {
    document.getElementById("txtAdFullName1").value = this.value;
 });
+
 $("#inputTxtAppHkid").keyup(function() {
-   document.getElementById("txtInsuHkid1").value = this.value;
+   //document.getElementById("txtInsuHkid1").value = this.value;
+	$("#txtInsuHkid1").val(this.value).css("color", "#000000");
 });
 
 jQuery('ul.maintabs li').hover(function () {
