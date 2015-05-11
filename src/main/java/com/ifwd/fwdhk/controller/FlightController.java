@@ -353,6 +353,43 @@ public class FlightController {
 		}
 	}
 
+	// BMG updateFlightQuote
+	// return JSON
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "/updateFlightQuote", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateFlightQuote(
+			@ModelAttribute("planBind") PlanDetails planDetails,
+			BindingResult result, Model model, HttpServletRequest request) {
+		System.out.println("/updateFlightQuote");
+		System.out.println("PLAN SELECTED " + planDetails.getPlanSelected());
+		System.out.println("PERSONAL " + planDetails.getTotalPersonalTraveller());
+		System.out.println("ADULT " + planDetails.getTotalAdultTraveller());
+		System.out.println("CHILD " + planDetails.getTotalChildTraveller());
+		System.out.println("OTHER " + planDetails.getTotalOtherTraveller());
+		
+		// test planselected
+		if( planDetails.getTotalPersonalTraveller() > 0 ) {
+			planDetails.setPlanSelected("personal");
+		}
+		else if( planDetails.getTotalAdultTraveller() > 0 ) {
+			planDetails.setPlanSelected("family");
+		}
+		planDetails.setTotalPersonalTraveller(Integer.parseInt(request.getParameter("totalPersonalTraveller")));
+		planDetails.setTotalAdultTraveller(Integer.parseInt(request.getParameter("totalAdultTraveller")));
+		planDetails.setTotalChildTraveller(Integer.parseInt(request.getParameter("totalChildTraveller")));
+		planDetails.setTotalOtherTraveller(Integer.parseInt(request.getParameter("totalOtherTraveller")));
+		planDetails.setDepartureDate(request.getParameter("departureDate"));
+		planDetails.setReturnDate(request.getParameter("returnDate"));
+		planDetails.setTravellerCount(planDetails.getTotalAdultTraveller()
+				+ planDetails.getTotalChildTraveller()
+				+ planDetails.getTotalOtherTraveller()
+				+ planDetails.getTotalPersonalTraveller());
+		
+		return "JSON";
+	}
+	// BMG updateFlightQuote
+	
 	// @Link(label="Flight Plan Detail", family="FlightController", parent =
 	@SuppressWarnings("rawtypes")
 	// "Flight Plan" )

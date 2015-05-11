@@ -144,7 +144,7 @@ $(document).ready(function() {
 			<div class="carousel-inner">
 				<div class="item active item-border">
 					
-					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="" />
+					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image" bundle="${msg}" />" alt="" />
 				</div>
 				<!--/.item-->
 			</div>
