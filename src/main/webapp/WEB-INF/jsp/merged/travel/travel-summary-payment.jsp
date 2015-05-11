@@ -105,19 +105,119 @@
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div
 						class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1">
-						<div class="col-xs-12 col-md-7  pad-none">
+						<div class="col-xs-12 col-md-10  pad-none">
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
 							<table class="table activation-form margin-left-2 vert-middle travel-summary">
 								<tbody>
 									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
+										<td class="col-lg-4 col-xs-4 col-sm-4 col-md-4 h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${createPolicy.getReferenceNo()}</td>
 									</tr>
 
 									<tr>
 									<td></td>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /> ${selectPlanName}</td>
-										
+									</tr>
+									<tr>
+                                        <td></td>
+                                        <td class="h2-1 pad-none">
+                                            <!-- Plan benefits -->
+				                            <div class="fwdpanel">
+				                                <c:if test="${selectPlanName=='A'}">
+				                            
+				                                <div class="fwdpanel-heading">
+				                                    <h4 class=" benefits">
+				                                        <span><i
+				                                                class="fa fa-plus"></i> <a href="#"
+				                                            class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a> </span>
+				                                    </h4>
+				                                </div>
+				                                <div class="fwdpanel-body" style="display: none;">
+				                                        <div class="col-xs-11 col-xs-offset-1">
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="travel.quote.plan1.benefits.desc1.price" bundle="${msg}" />
+				                                            </div>
+				                                        </div>
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc2" bundle="${msg}" />
+				                                            </div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="travel.quote.plan1.benefits.desc2.price" bundle="${msg}" />
+				                                            </div>
+				                                        </div> 
+				                                        
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="travel.quote.plan1.benefits.desc3.price" bundle="${msg}" />
+				                                            </div>
+				                                        </div>
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="travel.quote.plan1.benefits.desc4.price" bundle="${msg}" />
+				                                            </div>
+				                                            </div>
+				                                        </div>
+				                                </div>
+				                                </c:if>
+				                                <c:if test="${selectPlanName=='B'}">
+                                            
+                                                <div class="fwdpanel-heading">
+                                                    <h4 class=" benefits">
+                                                        <span><i
+                                                                class="fa fa-plus"></i> <a href="#"
+                                                            class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan2.benefits" bundle="${msg}" /></a> </span>
+                                                    </h4>
+                                                </div>
+                                                <div class="fwdpanel-body" style="display: none;">
+                                                        <div class="col-xs-11 col-xs-offset-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="travel.quote.plan2.benefits.desc1.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="travel.quote.plan2.benefits.desc2.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div> 
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="travel.quote.plan2.benefits.desc3.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="travel.quote.plan2.benefits.desc4.price" bundle="${msg}" />
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                </c:if>
+				                                
+				                                
+				                                <div class="clearfix"></div>
+				                            </div>
+				                            <!-- / Plan benefits -->
+                                        </td>
+                                    </tr>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
 										</td>
@@ -178,8 +278,8 @@
 						</div>
 						
 						<div
-							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
-							<h4 class="h4-trav-full col-xs-offset-8">
+							class="col-md-2 pad-none pull-right hidden-sm hidden-xs">
+							<h4 class="h4-trav-full col-xs-offset-1">
 								<a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 							</h4>
 							
