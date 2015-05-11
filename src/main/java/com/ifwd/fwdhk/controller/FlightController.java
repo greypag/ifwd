@@ -562,7 +562,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 	@RequestMapping(value = { "/{lang}/flight-plan-details",
 			"/{lang}/flight-insurance/user-details" })
 	public ModelAndView flightPlanDetails(HttpServletRequest request,
-			@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
+			//@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
+			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) {
 
 		System.out.println("/flight-insurance/user-details");
