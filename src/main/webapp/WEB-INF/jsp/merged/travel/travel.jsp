@@ -7,7 +7,6 @@
 	
 // 	if (!uatAuth.equals("ifwdUser"))
 // 		response.sendRedirect(request.getContextPath() + "/uatAuth");
-		
 %>
 
 
