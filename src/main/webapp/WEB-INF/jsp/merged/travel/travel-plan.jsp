@@ -127,7 +127,7 @@ var promoData = '';
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));*/
 				$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
                 $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-				
+                $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
 				
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
@@ -146,6 +146,7 @@ var promoData = '';
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));*/
 				$('#selectedAmountDue').val(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
                 $('#selectPlanPremium').val(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+                $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
 
 			}
 			if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
@@ -161,6 +162,7 @@ var promoData = '';
             }
 			//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 			$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+			
 		}
 	}
 	$(document).ready(function() {
