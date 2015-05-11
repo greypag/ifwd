@@ -150,6 +150,7 @@ hr {
 }
 .form-control {
     height: 50px;
+    padding: 6px 20px;
 }
 .top-menu .nav>li>a {
 	padding: 8px !important;
@@ -912,7 +913,7 @@ body > section {
 	background: #061d2a;
 	line-height: 36px;
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     width: 100%;
 }
 /* .top-bar .col-lg-7.col-md-7{
@@ -3461,6 +3462,7 @@ del {
 .flightcare-hk {
 	text-align: left;
 	font-size: 48px;
+	font-weight: bold;
 }
 .hk {
 	color: #f68a1d;
@@ -4233,6 +4235,9 @@ article h2 {
 .text-red {
 	color: red;
 }
+.text-grey {
+	color: #9A9A9A;
+}
 .hide-html {
 	display: none;
 }
@@ -4907,7 +4912,9 @@ h2.from-control {
 	font-weight: normal !important;
    color: #061d2a !important;
 }
-
+.or {
+	font-size: 16px !important;;
+}
 
 select.soflow, select.soflow-color {
 	/*-webkit-appearance: button;*/

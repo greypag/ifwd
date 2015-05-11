@@ -122,7 +122,7 @@
                             }
                         %>
 
-
+                        <br/>
                         <div class="gray-bdr"></div>
                         <table class="table activation-form margin-left-2 vert-middle">
                             <tbody>
@@ -194,7 +194,7 @@
                                 <tbody>
                                     <tr>
                                         <td colspan="2"><h3><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
-                                            <i><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i> <br></td>
+                                            <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i> <br></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">&nbsp;</td>
@@ -933,7 +933,7 @@
                                     <fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
                                 </h3>
                                 <h4> 
-                                <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
                                          <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                 </div>
                              </h4>
