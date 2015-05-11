@@ -127,7 +127,7 @@ var promoData = '';
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));*/
 				$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
                 $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-				
+                $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
 				
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
@@ -146,6 +146,7 @@ var promoData = '';
 				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));*/
 				$('#selectedAmountDue').val(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
                 $('#selectPlanPremium').val(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+                $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
 
 			}
 			if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
@@ -161,6 +162,7 @@ var promoData = '';
             }
 			//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 			$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+			
 		}
 	}
 	$(document).ready(function() {
@@ -1209,7 +1211,7 @@ var promoData = '';
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 								</h3>
 								<div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
-                          <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
+                          <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk">${corrTravelQuote.getTotalPersonalTraveller()}</label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
                           <div class="dropdown-menu bdr1">
                             <div class="drop-content">
                               <div class="col-lg-6 col-md-6">
@@ -1399,6 +1401,9 @@ var promoData = '';
 						<br>
 					</div>
 					<div class="clearfix"></div>
+					<span id="divPersonsDesk"></span>
+                    <span id="lblDaysDesk" style="display: none"></span>
+                    <div id="quote-wrap" class="clearfix"></div>
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
@@ -1426,13 +1431,6 @@ var promoData = '';
 				<div class="login-form" id="sendmailofpromocode">
 				<div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
 	                 <span aria-hidden="true" style="font-size:30px;">×</span>
-
-<div class="scroll-to-top">
-    <a title="Scroll to top" href="#">
-        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
-    </a>
-</div>
--success hide proSuccess"></div>
 						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""

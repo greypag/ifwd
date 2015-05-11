@@ -638,7 +638,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                    select-label     <label class="bold-500"><fmt:message
+                                                    <label class="bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
@@ -665,7 +665,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                             </option>
                                                         </c:forEach>
                                                     </select></div> <span id="errchildRange${inx}" class="text-red"></span>
-                                            </td>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -774,7 +774,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control"
 	                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onkeyup="hkidValid(this)"/> select-labelrtxtOtherInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span>
                                                 </td>
                                             </tr>

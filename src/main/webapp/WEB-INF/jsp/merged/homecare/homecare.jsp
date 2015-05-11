@@ -1,3 +1,14 @@
+<%
+//  session = request.getSession();
+//  String uatAuth = (String) session.getAttribute("uatAuth");
+//  System.out.println("uatAuth " + uatAuth);
+//  if (uatAuth == null)
+//      response.sendRedirect(request.getContextPath() + "/uatAuth");
+    
+//  if (!uatAuth.equals("ifwdUser"))
+//      response.sendRedirect(request.getContextPath() + "/uatAuth");
+%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -145,7 +156,7 @@ $(document).ready(function() {
 			<div class="carousel-inner">
 				<div class="item active item-border">
 					
-					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="" />
+					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image" bundle="${msg}" />" alt="" />
 				</div>
 				<!--/.item-->
 			</div>

@@ -1,4 +1,13 @@
-
+<%
+//  session = request.getSession();
+//  String uatAuth = (String) session.getAttribute("uatAuth");
+//  System.out.println("uatAuth " + uatAuth);
+//  if (uatAuth == null)
+//      response.sendRedirect(request.getContextPath() + "/uatAuth");
+    
+//  if (!uatAuth.equals("ifwdUser"))
+//      response.sendRedirect(request.getContextPath() + "/uatAuth");
+%>
 
 <%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,7 +35,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   var traveller;  
   
   // personal
-  var personalTraveller = parseInt("${planDetails.getTravellerCount()}");
+  var personalTraveller = parseInt("${planDetails.getTotalPersonalTraveller()}");
   // family
   var familyAdult = "${planDetails.getTotalAdultTraveller()}";
   var familyChild = "${planDetails.getTotalChildTraveller()}";
@@ -193,8 +202,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
-                            <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTravellerCount()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
+                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTotalPersonalTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -346,8 +355,8 @@ $(document).ready(function() {
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
-                <input type="hidden" name="travellerCount" id="txtTravellersMob" data-min="1" data-max="15" value="${planDetails.getTravellerCount()}"/>
+                <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
+                <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${planDetails.getTotalPersonalTraveller()}"/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -754,8 +763,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTravellerCount()}</div>
-                            <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersBtm" value="${planDetails.getTravellerCount()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
+                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersBtm" value="${planDetails.getTotalPersonalTraveller()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
