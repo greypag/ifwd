@@ -247,7 +247,7 @@
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${totalTravallingDays}</td>
+										<td class="pad-none h4-5 ">${totalTravellingDays}</td>
 									</tr>
 
 									<tr>
