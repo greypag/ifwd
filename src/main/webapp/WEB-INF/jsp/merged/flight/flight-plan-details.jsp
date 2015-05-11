@@ -495,7 +495,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     class="text-red"> </span> <span
                                                     id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
- select-label                               </tr>
+                                            </tr>
                                             <tr>
                                                 <td valign="middle" class="">
                                                      <label class="bold-500"><fmt:message
@@ -519,7 +519,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         </c:forEach>
                                                     </select></div><span id="errselectAgeRange${inx}" class="text-red">
                                                     </span>
-          select-label                          </td>
+                                              </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -638,7 +638,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                    select-label     <label class="bold-500"><fmt:message
+                                                    <label class="bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
@@ -665,7 +665,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                             </option>
                                                         </c:forEach>
                                                     </select></div> <span id="errchildRange${inx}" class="text-red"></span>
-                                    </td>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -803,7 +803,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                                            <option value="${ageList.key}">
 		                                                        </c:otherwise>
 		                                                    </c:choose>
-		                                        <c:out value="${ageList.value}" />
+		                                                    <c:out value="${ageList.value}" />
 		                                                    </option>
 		                                                </c:forEach>
 		                                            </select></div> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
