@@ -227,7 +227,7 @@
                             </table>
                         </div>
                         <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravallingDays" name="totalTravallingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
+                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
                         
                         
                         <%

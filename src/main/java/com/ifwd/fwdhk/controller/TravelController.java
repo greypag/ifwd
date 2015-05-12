@@ -924,8 +924,8 @@ public class TravelController {
 		
 		
 		
-		String totalTravallingDays = WebServiceUtils.getParameterValue("totalTravallingDays", session, request);
-		System.out.println("totalTravallingDays " + totalTravallingDays);
+		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
+		System.out.println("totalTravellingDays " + totalTravellingDays);
 		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
 		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
 		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
@@ -1630,7 +1630,7 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount);
-		model.addAttribute("totalTravallingDays", totalTravallingDays);
+		model.addAttribute("totalTravellingDays", totalTravellingDays);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);

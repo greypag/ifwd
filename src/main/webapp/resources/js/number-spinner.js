@@ -63,141 +63,128 @@ $('.plan').change(function () {
 
     if(parent_id =='desk')
     {
-      $('#lblCountDesk').html('');
+    	$('#lblCountDesk').html('');
         if(id == 'personal_plan_desk')
-    {
-          //document.getElementById("divPersonsDesk").style.visibility = "visible";
+        {
+        	$("#totalAdultTraveller").val(0);
+        	$("#totalChildTraveller").val(0);
+        	$("#totalOtherTraveller").val(0);
+        	
             $('#lblCountDesk').show();
-            //$('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
-            $('#lblCountDesk').html(personalTraveller);
-            $('#lblPeopleDesk').html('' + personalTraveller);
             
             var parent = $('.plan_spinner_' + parent_id);
-          changeSpinnerValue(parent.find(' #txtAdultsDesk'), 0);
-          changeSpinnerValue(parent.find(' #txtChildDesk'), 0);
-          changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
+            changeSpinnerValue(parent.find(' #txtAdultsDesk'), 0);
+            changeSpinnerValue(parent.find(' #txtChildDesk'), 0);
+            changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
           
-      changeSpinnerValue($('#txtTravellersDesk'), 1);
+            changeSpinnerValue($('#txtTravellersDesk'), 1);
       
             personalTraveller=$('#txtTravellersDesk').val();
-            //$('#lblCountDesk').html(personalTraveller + ' Traveller(s)');
             $('#lblCountDesk').html(1);
             $('#lblPeopleDesk').html('' + 1);
-        }
-        else if(id  == 'family_plan_desk') 
-        {   
-          var parent = $('.plan_spinner_' + parent_id);
-          changeSpinnerValue(parent.find(' #txtAdultsDesk'), 1);
-          changeSpinnerValue(parent.find(' #txtChildDesk'), 1);
-          changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
+        }else if(id  == 'family_plan_desk'){   
+        	$("#totalPersonalTraveller").val(0);
+        	
+        	var parent = $('.plan_spinner_' + parent_id);
+        	changeSpinnerValue(parent.find(' #txtAdultsDesk'), 1);
+        	changeSpinnerValue(parent.find(' #txtChildDesk'), 1);
+        	changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
           
-      changeSpinnerValue($('#txtTravellersDesk'), 0);
-      personalTraveller=$('#txtTravellersDesk').val();
+        	changeSpinnerValue($('#txtTravellersDesk'), 0);
+        	personalTraveller=$('#txtTravellersDesk').val();
       
             
-            //document.getElementById("divPersonsDesk").style.visibility = "visible";
             $('#lblCountDesk').show();
-            //$('#lblCountDesk').html(familyTraveller + ' Traveller(s)');
             $('#lblCountDesk').html(2);
             $('#lblPeopleDesk').html('' + 2);
             $('#family_desk_count').val(2);
-        }else
-        {
-            //document.getElementById("divPersonsDesk").style.visibility = "hidden";
+        }else{
             $('#lblCountDesk').show();
             $('#lblCountDesk').html('');
             $('#lblPeopleDesk').html('');
             $('#family_desk_count').val('');       
         }
+    }else if(parent_id =='mob'){      
+    	$('#lblCountMob').html('');      
+    	if(id  == 'family_plan_mob') 
+    	{
+    		$("#totalPersonalTraveller").val(0);
+    		
+    		var parent = $('.plan_spinner_' + parent_id);
+    		changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
+    		changeSpinnerValue(parent.find(' #txtChildMob'), 1);
+    		changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
         
-    }else if(parent_id =='mob')
-    {      
-      $('#lblCountMob').html('');      
-      if(id  == 'family_plan_mob') 
-      {
-        var parent = $('.plan_spinner_' + parent_id);
-        changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
-        changeSpinnerValue(parent.find(' #txtChildMob'), 1);
-        changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
+    		changeSpinnerValue($('#txtTravellersDesk'), 0);
+    		personalTraveller=$('#txtTravellersDesk').val();
         
-        changeSpinnerValue($('#txtTravellersDesk'), 0);
-        personalTraveller=$('#txtTravellersDesk').val();
-        
-          document.getElementById("divPersonsMob").style.visibility = "visible";
-          $('#lblCountMob').show();
-          //$('#lblCountMob').html(familyTraveller + ' Traveller(s)');
-          $('#lblCountMob').html(familyTraveller);
-          $('#lblPeopleMob').html('' + familyTraveller);
-          $('#family_mob_count').val(familyTraveller);
-         
-      }else
-      {
-        var parent = $('.plan_spinner_' + parent_id);
-        changeSpinnerValue(parent.find(' #txtAdultsMob'), 0);
-        changeSpinnerValue(parent.find(' #txtChildMob'), 0);
-        changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
+    		document.getElementById("divPersonsMob").style.visibility = "visible";
+    		$('#lblCountMob').show();
+    		$('#lblCountMob').html(2);
+    		$('#lblPeopleMob').html('' + 2);
+    		$('#family_mob_count').val(2);
+    	}else{
+    		$("#totalAdultTraveller").val(0);
+        	$("#totalChildTraveller").val(0);
+        	$("#totalOtherTraveller").val(0);
+    		
+    		var parent = $('.plan_spinner_' + parent_id);
+    		changeSpinnerValue(parent.find(' #txtAdultsMob'), 0);
+    		changeSpinnerValue(parent.find(' #txtChildMob'), 0);
+    		changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
           
-        $('#lblCountMob').show();
-          $('#lblCountMob').html('');
-          $('#lblPeopleMob').html('');
-          $('#family_mob_count').val('');
+    		$('#lblCountMob').show();
+    		$('#lblCountMob').html('');
+    		$('#lblPeopleMob').html('');
+    		$('#family_mob_count').val('');
           
-          document.getElementById("divPersonsMob").style.visibility = "visible";
+    		document.getElementById("divPersonsMob").style.visibility = "visible";
           
           
-          changeSpinnerValue($('#txtTravellersMob'), 1);          
-          personalTraveller= $('#txtTravellersMob').val();
-          //$('#lblCountMob').html(personalTraveller + ' Traveller(s)');
-          $('#lblCountMob').html(personalTraveller);
-          $('#lblPeopleMob').html('' + personalTraveller);
-          
-          
-          
-          
-      }
-      
-
+    		changeSpinnerValue($('#txtTravellersMob'), 1);          
+    		personalTraveller= $('#txtTravellersMob').val();
+    		$('#lblCountMob').html(1);
+    		$('#lblPeopleMob').html('' + 1);
+    	}
     }else if(parent_id =='btm')  // Bottom plan selector
     {
-
-      $('#lblCountBtm').html('');      
-      if(id  == 'family_plan_btm') 
-      {
-        var parent = $('.plan_spinner_' + parent_id);
-        changeSpinnerValue(parent.find(' #txtAdultsBtm'), familyAdult);
-        changeSpinnerValue(parent.find(' #txtChildBtm'), familyChild);
-        changeSpinnerValue(parent.find(' #txtOtherBtm'), familyOther);
+    	$('#lblCountBtm').html('');      
+    	if(id  == 'family_plan_btm') 
+    	{
+    		$("#totalPersonalTraveller").val(0);
+    		
+    		var parent = $('.plan_spinner_' + parent_id);
+    		changeSpinnerValue(parent.find(' #txtAdultsBtm'), 1);
+    		changeSpinnerValue(parent.find(' #txtChildBtm'), 1);
+    		changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
         
-          document.getElementById("divPersonsBtm").style.visibility = "visible";
-          $('#lblCountBtm').show();
-          //$('#lblCountBtm').html(familyTraveller + ' Traveller(s)');
-          $('#lblCountBtm').html(familyTraveller);
-          $('#lblPeopleBtm').html('' + familyTraveller);
-          $('#family_btm_count').val(familyTraveller);
+    		document.getElementById("divPersonsBtm").style.visibility = "visible";
+    		$('#lblCountBtm').show();
+    		$('#lblCountBtm').html(2);
+    		$('#lblPeopleBtm').html('' + 2);
+          	$('#family_btm_count').val(2);
  
-      }else
-      {
-        var parent = $('.plan_spinner_' + parent_id);
-        changeSpinnerValue(parent.find(' #txtAdultsBtm'), 1);
-        changeSpinnerValue(parent.find(' #txtChildBtm'), 0);
-        changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
+    	}else{
+    		$("#totalAdultTraveller").val(0);
+        	$("#totalChildTraveller").val(0);
+        	$("#totalOtherTraveller").val(0);
+    		
+    		var parent = $('.plan_spinner_' + parent_id);
+    		changeSpinnerValue(parent.find(' #txtAdultsBtm'), 1);
+    		changeSpinnerValue(parent.find(' #txtChildBtm'), 0);
+    		changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
         
-          $('#lblCountBtm').show();
-          $('#lblCountBtm').html('');
-          $('#lblPeopleBtm').html('');
-          $('#family_btm_count').val('');
-          
-          //document.getElementById("divPersonsDesk").style.visibility = "visible";          
-          changeSpinnerValue($('#txtTravellersBtm'), 1);          
-          personalTraveller=$('#txtTravellersBtm').val();
-          $('#lblCountBtm').html(personalTraveller);
-          //$('#lblCountBtm').html(personalTraveller + ' Traveller(s)');
-          $('#lblPeopleBtm').html('' + personalTraveller);
-
-      }
-      
-    }
-    
+    		$('#lblCountBtm').show();
+    		$('#lblCountBtm').html('');
+    		$('#lblPeopleBtm').html('');
+    		$('#family_btm_count').val('');
+                   
+    		changeSpinnerValue($('#txtTravellersBtm'), 1);          
+    		personalTraveller=$('#txtTravellersBtm').val();
+    		$('#lblCountBtm').html(1);
+    		$('#lblPeopleBtm').html('' + 1);
+    	}
+	}
 });
 
 //BMG travel inline change start
