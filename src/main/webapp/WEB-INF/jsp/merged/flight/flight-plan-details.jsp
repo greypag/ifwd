@@ -1091,7 +1091,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         <fmt:message key="flight.sidebar.summary.label.family.others"
                                             bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br>
                                     </c:if>
-                                    <c:if test="${planDetailsForm.getTravellerCount() !=0}">
+                                    <c:if test="${planDetailsForm.getTotalPersonalTraveller() !=0}">
                                         <fmt:message key="flight.sidebar.summary.label.personal"
                                             bundle="${msg}" />: ${planDetailsForm.getTotalPersonalTraveller()}</c:if>
                                 </h4>
