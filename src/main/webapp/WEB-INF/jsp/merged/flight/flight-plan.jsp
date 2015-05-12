@@ -95,9 +95,6 @@
 			     <!-- <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> --> 
 			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.getToalDue()}"> 
 			     <!-- <input type="hidden" name="planSelected" value="${planDetails.getPlanSelected()}"> -->
-			    
-			    <!--  add vincent  -->
-			    <input type="hidden" name="totalPersonalTraveller" id="totalPersonalTraveller" value="${planDetails.getTotalPersonalTraveller()}"> 
 			     
 			
 
@@ -320,7 +317,7 @@
                                         <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                                         </span>
                                         <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
-                                        <input type="hidden" name="travellerCount" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTotalPersonalTraveller()}"/>
+                                        <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTotalPersonalTraveller()}"/>
                                         <span class="input-group-btn data-up ">
                                         <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                                         </span> </div>
