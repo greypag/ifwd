@@ -83,9 +83,9 @@ public class RestServiceImpl implements RestServiceDao {
 											headParam.getValue());
 								});
 			}
-			postMehod.addHeader("Content-Type", "text/html; charset=UTF-8");
-			
-			postMehod.addHeader("Accept-Charset", "UTF-8");	
+//			postMehod.addHeader("Content-Type", "text/html; charset=UTF-8");
+//			
+//			postMehod.addHeader("Accept-Charset", "UTF-8");	
 			postMehod.setEntity(new StringEntity(params.toJSONString()));
 			StringEntity entity=new StringEntity(params.toJSONString(),"UTF-8");
 			postMehod.setEntity(entity);

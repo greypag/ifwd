@@ -433,7 +433,7 @@ public class UserController {
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
-			return obj.get(checkByStr).toString();
+			return obj.get(checkByStr).toString().trim();
 		} else {
 			return "";
 		}
