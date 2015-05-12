@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.Days;
@@ -23,7 +25,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -33,6 +37,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -295,6 +300,14 @@ public class WorkingHolidayController {
 		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
 		selectPlanName = planName;
 		System.out.println("Seeeeeee" + selectPlanName);
+
+		//Holiday
+		String whLeavingDate = WebServiceUtils.getParameterValue("whLeavingDate", session, request);
+		String whBackDate = WebServiceUtils.getParameterValue("whBackDate", session, request);
+		String WorkingHolidayQuoteDetails = WebServiceUtils.getParameterValue("WorkingHolidayQuoteDetails", session, request);
+		
+		//Holiday
+		
 
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
@@ -1083,9 +1096,43 @@ public class WorkingHolidayController {
 		return response;
 	}
 	
-	
-	
-	
-	
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "/{lang}/applyWHQuote", method = RequestMethod.POST)
+	@ResponseBody
+	public String processWHQuote(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+//		String trLeavingDate = request.getParameter("trLeavingDate");
+//		String trBackDate = request.getParameter("trBackDate");
+		String trLeavingDate = "11 May 2015";
+		String trBackDate = "11 May 2016";
+		
+		
+		String referralCode = request.getParameter("referralCode");
+		String selectedPlanName = request.getParameter("selectedPlanName");
+		LocalDate commencementDate = new LocalDate(new Date(trLeavingDate));
+  		LocalDate expiryDate = new LocalDate(new Date(trBackDate));
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+		}
+  		StringBuffer sb = new StringBuffer("?commencementDate=").append(commencementDate).append("&expiryDate=").append(expiryDate)
+ 				.append("&referralCode=").append(referralCode).append("&planCode=").append("WorkingHoliday");
+ 		String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + sb.toString();
+		
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+		
+		System.out.println("------------------------------------------------------------");
+		System.out.println(Url);
+		System.out.println(responseJsonObj);
+		return responseJsonObj.toJSONString();
+	}
 	
 }
