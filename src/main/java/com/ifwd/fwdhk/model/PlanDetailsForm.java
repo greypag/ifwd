@@ -65,6 +65,8 @@ public class PlanDetailsForm {
 	private String selectedHkidPassApplicant;
 	private String[] selectedPersonalHkidPass;
 	private String[] selectedPsBenefitiaryHkidPass;
+	private String[] selectedPersonalBenefitiaryHkidPass;
+	
 	private String[] selectedAdHkidPass;
 	private String[] selectedAdBenefitiaryHkidPass;
 	private String[] selectedChldHkidPass;
@@ -532,5 +534,12 @@ public class PlanDetailsForm {
 	public void setOtherBeneRelationDesc(String[] otherBeneRelationDesc) {
 		this.otherBeneRelationDesc = otherBeneRelationDesc;
 	}
-
+	public String[] getSelectedPersonalBenefitiaryHkidPass() {
+		return selectedPersonalBenefitiaryHkidPass;
+	}
+	public void setSelectedPersonalBenefitiaryHkidPass(
+			String[] selectedPersonalBenefitiaryHkidPass) {
+		this.selectedPersonalBenefitiaryHkidPass = selectedPersonalBenefitiaryHkidPass;
+	}
+	
 }
