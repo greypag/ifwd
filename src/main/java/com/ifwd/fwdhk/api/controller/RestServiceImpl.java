@@ -39,10 +39,10 @@ public class RestServiceImpl implements RestServiceDao {
 
 	static {
 		Map<String, String> realMap = new HashMap<String, String>();
-		realMap.put("Content-Type", "application/json;charset=UTF-8");
+		realMap.put("Content-Type", "application/json");
 		realMap.put("country", "HK");
 		realMap.put("language", "EN");
-		realMap.put("Accept", "application/json;charset=UTF-8");
+		
 		
 		COMMON_HEADERS = Collections.unmodifiableMap(realMap);
 	}
