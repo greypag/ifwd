@@ -360,7 +360,7 @@ public class HomeCareController {
 		UserDetails userDetails = new UserDetails();
 
 		String passportORhkid = WebServiceUtils.getParameterValue("apphkidandpassport", session, request);
-		String hkId = WebServiceUtils.getParameterValue("hkId", session, request);
+		String hkId = StringHelper.emptyIfNull(WebServiceUtils.getParameterValue("hkId", session, request));
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
@@ -415,7 +415,9 @@ public class HomeCareController {
 		System.out.println("***************passportORhkid********************");
 		if (passportORhkid.equalsIgnoreCase("appHkid")) {
 			userDetails.setHkid(hkId);
+			userDetails.setPassport("");
 		} else {
+			userDetails.setHkid("");
 			userDetails.setPassport(hkId);
 		}
 		userDetails.setFullName(applicantName);

@@ -223,7 +223,12 @@ public class TravelController {
 			System.out.println("CHILD COUNT " + childCount);
 			System.out.println("OTHER COUNT " + otherCount);		
 			System.out.print("------------------------------------------------------------");
-			
+			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+			travelQuoteCount.setSelfCover(selfCover);
+			travelQuoteCount.setSpouseCover(spouseCover);
+			travelQuoteCount.setTotalChildTraveller(childCount);
+			travelQuoteCount.setTotalOtherTraveller(otherCount);
+			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
@@ -441,7 +446,12 @@ public class TravelController {
 			System.out.println("CHILD COUNT " + childCount);
 			System.out.println("OTHER COUNT " + otherCount);		
 			System.out.print("------------------------------------------------------------");
-			
+			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+			travelQuoteCount.setSelfCover(selfCover);
+			travelQuoteCount.setSpouseCover(spouseCover);
+			travelQuoteCount.setTotalChildTraveller(childCount);
+			travelQuoteCount.setTotalOtherTraveller(otherCount);
+			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover

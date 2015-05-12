@@ -274,12 +274,21 @@ public class UserController {
 		HttpSession session = servletRequest.getSession(false);
 		boolean optIn1 = false;
 		boolean optIn2 = false;
-		
-		if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
+		if (userDetails.getCheckbox3() == null) { 
+			optIn1 = false;
+		} else	if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
 			optIn1 = true;
+		} else {
+			optIn1 = false;
 		}
-		if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
+		
+		if (userDetails.getCheckbox4() == null) {
+			optIn2 = false;
+		}
+		else if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
 			optIn2 = true;
+		} else {
+			optIn2 = false;
 		}
 		
 		
