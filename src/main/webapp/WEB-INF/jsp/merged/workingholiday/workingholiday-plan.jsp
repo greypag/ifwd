@@ -96,8 +96,8 @@ var promoData = '';
 	}
 </script>
 <style>
-.travelproductbox:hover {
-	background-color: #616163;
+.workingholidaybox:hover {
+	background-color: #f68a1d;
 	-webkit-transition: background-color 500ms linear;
 	-moz-transition: background-color 500ms linear;
 	-o-transition: background-color 500ms linear;
@@ -183,7 +183,7 @@ var promoData = '';
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
-						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
+						<div class="col-lg-12 col-md-12 plan-box3 workingholidaybox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
@@ -973,7 +973,7 @@ var promoData = '';
 									<div class="text-left pad-right1 h2-2 h2">
 										<div class="hk">
 											<fmt:message key="travel.dollar" bundle="${msg}" />
-											<div class="flightcare-hk" id="plansummary">0</div>
+											<div style="font-weight: bold;" class="flightcare-hk" id="plansummary">0</div>
 											<input type="hidden" name="txtgrossPremiumAmt"
 												id="txtgrossPremiumAmt" value="">
 										</div>
@@ -982,64 +982,8 @@ var promoData = '';
 								<div class="clearfix"></div>
 							</div>
 							<div class="orange-bdr"></div>
-							<div class="">
-								<h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /></h3>
-								<div class="form-group">
-									<div class="input-group wd2">
-										<input name="trLeavingDate" type="text"
-											class="datepicker form-control"
-											value="${travelQuoteBean.getTrLeavingDate() }" readonly>
-									</div>
-								</div>
-								<h3><fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /></h3>
-	
-								<div class="form-group">
-									<div class="input-group wd2">
-										<input name="trBackDate" type="text"
-											class="datepicker form-control"
-											value="${travelQuoteBean.getTrBackDate() }" readonly>
-									</div>
-								</div>
-								<h3><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /></h3>
-								<div class="form-group likeDatePicker bcg-trans">
-	              					<div class="input-group wd2 datepicker form-control" > 
-									<%	
-										if (travelQuote == null)
-								 			travelQuote = (QuoteDetails) session.getAttribute("tq");
-									
-										if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
-										{ 
-									%>
-											<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.getTotalPersonalTraveller()}    </c:if>
-									<% } 
-									   else 
-									   {
-									%>
-											<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}  <br></c:if>
-											<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.getTotalChildTraveller()} <br></c:if>
-											<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.getTotalOtherTraveller()} <br></c:if>
-									<% }
-									%>
-									</div>
-								</div>
-								<input type="hidden" name="totalAdultTraveller"
-									id="totalAdultTraveller"
-									value="${travelQuoteBean.getTotalAdultTraveller()+travelQuoteBean.getTotalPersonalTraveller()}">
-								<input type="hidden" name="totalChildTraveller"
-									id="totalChildTraveller"
-									value="${travelQuoteBean.getTotalChildTraveller()}"> <input
-									type="hidden" name="totalOtherTraveller"
-									id="totalOtherTraveller"
-									value="${travelQuoteBean.getTotalOtherTraveller()}">
-								<%-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${travelQuoteBean.getTotalPersonalTraveller()}"> --%>
-								<h3>
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span> ${travelQuoteBean.getTotalTravellingDays()} <input
-										type="hidden" name="totalTravellingDays"
-										id="totalTravellingDays"
-										value="${travelQuoteBean.getTotalTravellingDays()}">
-									</span>
-								</h3>
-							</div>
+							
+							<!--  //removed the leaving day and return day  -->
 						</div>
 						<div class="col-xs-12">
 							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
@@ -1048,7 +992,7 @@ var promoData = '';
 							<div class="form-group">
 								<div class="input-group">
 									<input type="text" id="promoCode" name="promoCode"
-										class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
+										class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span style="color:black;  font-weight: bold; font-size:20px;"
 										class="input-group-addon in black-bold pointer"
 										onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
 								</div>
@@ -1062,8 +1006,8 @@ var promoData = '';
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="subtotal"></h3>
 						<input type="hidden" name="subTotal" id="subTotal" value="540">
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
+						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /></h3>
+						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="discountAmt">-</h3>
 						<input type="hidden" name="selectedDiscountAmt"
 							id="selectedDiscountAmt" value="">
@@ -1077,11 +1021,12 @@ var promoData = '';
 						<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
 							
 							</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/travel-insurance"
+							
+						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+							<a href="<%=request.getContextPath()%>/workingholiday-insurance"
 								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<button type="submit" class="bdr-curve btn btn-primary btn-next">
 								<fmt:message key="travel.action.next" bundle="${msg}" /></button>
 						</div>
@@ -1159,7 +1104,7 @@ var promoData = '';
 		$('#discountAmt').html('0');
 		
 
-		$(".travelproductbox").animate({
+		$(".workingholidaybox").animate({
 			"background-color" : "#000"
 		}, 3000);
 	});
@@ -1167,7 +1112,7 @@ var promoData = '';
 		var selected_div;
 		var idArray = [];
 
-		$('.travelproductbox').each(function() {
+		$('.workingholidaybox').each(function() {
 			idArray.push(this.id);
 		});
 
@@ -1175,7 +1120,7 @@ var promoData = '';
 		if (index > -1) {
 			idArray.splice(index, 1);
 			for (var i = 0; i < idArray.length; i++) {
-				$('#' + idArray).removeClass("plan-box4");
+				$('#' + idArray).removeClass("plan-box5");
 				$('#' + idArray).addClass("plan-box3");
 			}
 		}
@@ -1193,7 +1138,7 @@ var promoData = '';
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 
-		$('#' + id).addClass("plan-box4");
+		$('#' + id).addClass("plan-box5");
 
 		$('#discountAmt').html(parseFloat(discountAmt).toFixed(2));
 		

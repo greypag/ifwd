@@ -82,6 +82,15 @@ a.active {
 
 /**End**/
 
+.topten{
+    margin-top:-10px;	
+}
+
+.top35{
+	margin-top:35px;
+}
+
+
 body {
 	background: #fff;
 	font-family: Calibri, sans-serif !important;
@@ -3416,6 +3425,17 @@ del {
 	padding: 20px 78px ;
 	border: 1px solid #f68a1d;
 }
+.btn-next3{
+	padding: 25px 72px;
+    font-size: 28px;
+    line-height: 31.5px;
+    font-weight: normal;
+    
+    border: 1px solid #f68a1d;
+    
+    
+}
+
 .bck-btn {
 	display: block;
 	 width: 100%;
@@ -3446,7 +3466,21 @@ del {
 	
 }
 
-.bck-btn2:hover {
+.bck-btn3 {
+    padding: 25px 72px;
+    font-size: 28px;
+    line-height: 31.5px;
+    font-weight: normal;
+    
+    background-color: #fff ;
+    border: 1px solid #f68a1d;
+    color: #f68a1d;
+    
+    
+    
+}
+
+.bck-btn2:hover, .bck-btn3:hover {
 	color: #fff;
 	background-color: #f68a1d;
 	border: 1px solid #f68a1d;
@@ -4270,7 +4304,7 @@ a.h4-4 {
 	color: #061d2a;
 }
 .plan-box3:hover, .plan-box3:hover h3, .plan-box3:hover .fwdpanel h4.benefits a{color:#fff !important;}
-.plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
+.plan-box5, .plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
 .plan-box3 h2 {
 	
 	margin-left: 25px;
@@ -4320,19 +4354,26 @@ a.h4-4 {
 	font-size: 40px;
 	font-weight: bold;
 }
+
+.plan-box5 {
+    background-color: #f68a1d;
+    padding: 10px;
+    border: 1px solid #f68a1d;
+}
+
 .plan-box4 {
 	background-color: #616163;
 	padding: 10px;
 	border: 1px solid #616163;
 }
-.plan-box4 h2 {
+.plan-box4 h2, .plan-box5 h2 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 25sspx;
 	font-size: 30px;
 	line-height: 42px;
 }
-.plan-box4 h3 {
+.plan-box4 h3, .plan-box5 h3 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 30px;
@@ -4340,38 +4381,43 @@ a.h4-4 {
 	line-height: 42px;
 	
 }
+
+.plan-box3.workingholidaybox h3,
+.plan-box3.workingholidaybox h6,
+.plan-box5.workingholidaybox h3,
+.plan-box5.workingholidaybox h6,
 .plan-box3.travelproductbox h3,
 .plan-box3.travelproductbox h6,
 .plan-box4.travelproductbox h3,
 .plan-box4.travelproductbox h6 {
 	margin-left: 0;
 }
-.plan-box4 h4 {
+.plan-box4 h4, .plan-box5 h4 {
 	color: #fff;
 	margin-left: 25px;
 	font-size: 24px;
 	line-height: 42px;
 	
 }
-.plan-box4 h5 {
+.plan-box4 h5, .plan-box5 h5 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 50px;
 	font-size: 30px;
 	font-weight: bold;
 }
-.plan-box4 span.del del {
+.plan-box4 span.del del, .plan-box5 span.del del {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 30px;
 	font-size: 36px;
 	
 }
-.plan-box4 span.actualPrice del {
+.plan-box4 span.actualPrice del, .plan-box5 span.actualPrice del {
     margin-left: 0px;
 }
 
-.plan-box4 h6 {
+.plan-box4 h6, .plan-box5 h6 {
 	color: #fff;
 	line-height: 42px;
 	margin-left: 30px;
@@ -6006,6 +6052,8 @@ p.mute{
 .text-right-imp{
 	text-align: right !important;
 }
+.plan-box5.double-dot h2,
+.plan-box5.double-dot h4,
 .plan-box4.double-dot h2,
 .plan-box4.double-dot h4{
 	margin-left: 0;
