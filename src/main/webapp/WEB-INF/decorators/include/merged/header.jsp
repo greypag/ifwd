@@ -23,12 +23,14 @@ function submitLoginForm(formID) {
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
+				console.log(data);
 				$('#ajax-loading').hide();
 				if (data == 'success') {
-					$('#ajax-loading').hide();
-					var Backlen = history.length;
-					history.go(-Backlen);
-					window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+					//$('#ajax-loading').hide();
+					//var Backlen = history.length;
+					//history.go(-Backlen);
+					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+					location.reload();
 				} else if (data == 'fail') {
 					$('#ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
@@ -122,6 +124,7 @@ function submitLoginForm(formID) {
 							<% } %>
 							<li>
 							<%
+							System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
 							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
 								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
@@ -330,7 +333,7 @@ function submitLoginForm(formID) {
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
 			<%
-				if ("EN".equals(session.getAttribute("language").toString())) {
+				if ("en".equals(session.getAttribute("language").toString())) {
 				%>
 					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
 				<%

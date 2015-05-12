@@ -102,7 +102,7 @@ public class TravelController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
-		
+		System.out.println("travel path " + request.getRequestURI().toString());
 		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/travel-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/travel-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
@@ -911,19 +911,25 @@ public class TravelController {
 				.getAttribute("departureDate"));
 		String returnDate = dateApi.pickDate((String) session
 				.getAttribute("returnDate"));
-
+		
+		System.out.println("departureDate " + deaprtureDate);
+		System.out.println("returnDate " + returnDate);
+		
+		
+		
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		String totalTravallingDays = WebServiceUtils.getParameterValue("totalTrDays", session, request);
-		String totalTravallers = WebServiceUtils.getParameterValue("totalTravallingDays", session, request);
-		/* System.out.println("applicantHKID=="+applicantHKID); */
-		// String strPersonalCount = WebServiceUtils.getParameterValue("totalPersonalTraveller", session, request);
+		
+		
+		
+		String totalTravallingDays = WebServiceUtils.getParameterValue("totalTravallingDays", session, request);
+		System.out.println("totalTravallingDays " + totalTravallingDays);
 		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
 		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
 		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
-System.out.println("tc 1");		
+				
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
 		} else {
@@ -953,12 +959,12 @@ System.out.println("tc 1");
 		}
 
 		int totalCount = totalPersonal + totalAdults + totalChild + totalOthers;
-System.out.println("tc 2");
+
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-System.out.println("tc 3");		
+		
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -972,7 +978,7 @@ System.out.println("tc 3");
 			relationOfChildTraveller = "CH";
 			relationOfOtherTraveller = "OT";
 		}
-System.out.println("tc 4");
+
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", session.getAttribute("planSelected"));
 		
@@ -981,7 +987,7 @@ System.out.println("tc 4");
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
-System.out.println("tc 5");
+
 		String langSelected = UserRestURIConstants.getLanaguage(request);
 		
 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
@@ -999,7 +1005,7 @@ System.out.println("tc 5");
 		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {	
 			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), langSelected));		
 		}
-System.out.println("tc 6");		
+		
 		// personal
 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -1146,7 +1152,7 @@ System.out.println("tc 6");
 					
 				}
 			}
-System.out.println("tc 8");							
+							
 			insured.add(personal);
 			
 			// update relationship desc
@@ -1320,7 +1326,7 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
 			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
-System.out.println("personal done " + planDetailsForm.getTotalAdultTraveller());
+		System.out.println("personal done " + planDetailsForm.getTotalAdultTraveller());
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
 				JSONObject child = new JSONObject();
@@ -1409,7 +1415,7 @@ System.out.println("personal done " + planDetailsForm.getTotalAdultTraveller());
 				
 			}
 		}
-System.out.println("personal done " + planDetailsForm.getTotalChildTraveller());
+		System.out.println("personal done " + planDetailsForm.getTotalChildTraveller());
 		if (planDetailsForm.getTotalOtherTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
 				JSONObject other = new JSONObject();
@@ -1503,7 +1509,7 @@ System.out.println("personal done " + planDetailsForm.getTotalChildTraveller());
 				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));				
 			}
 		}
-System.out.println("personal done " + planDetailsForm.getTotalOtherTraveller());
+		System.out.println("personal done " + planDetailsForm.getTotalOtherTraveller());
 		
 		
 		parameters.put("insured", insured);

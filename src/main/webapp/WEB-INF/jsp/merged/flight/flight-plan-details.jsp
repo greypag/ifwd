@@ -163,7 +163,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         for="inputFullName" class="bold-500"><fmt:message
                                                 key="flight.details.applicant.name" bundle="${msg}" /></label></td>
                                     <td class=""><input type="text"
-                                        value="${userDetails.getFullName()}" class="form-control full-control"
+                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                         id="inputFullName" name="fullName"
                                         placeholder="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />"
                                         onblur="replaceAlpha(this);"
@@ -189,7 +189,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     <td class=""><input type="text" name="hkid"
                                         class="form-control numberinput textUpper full-control"
                                         id="inputTxtAppHkid"
-                                        placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
+                                        placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')" />
                                         <span id="errAppHkid" class="text-red"> </span></td>
                                 </tr>
                                 <tr>
@@ -197,7 +197,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         class="bold-500"><fmt:message
                                                 key="flight.details.applicant.mobile" bundle="${msg}" /></label></td>
                                     <td class=""><input type="text"
-                                        value="${userDetails.getMobileNo()}" class="form-control full-control"
+                                        value="${userDetails.getMobileNo().trim()}" class="form-control full-control"
                                         name="mobileNo" id="inputMobileNo"
                                         placeholder="<fmt:message key="flight.details.applicant.mobile.placeholder" bundle="${msg}" />"
                                         onkeypress="return isNumeric(event)"
@@ -209,7 +209,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         class="bold-500"><fmt:message
                                                 key="flight.details.applicant.email" bundle="${msg}" /></label></td>
                                     <td class=""><input class="form-control full-control"
-                                        value="${userDetails.getEmailAddress()}" name="emailAddress"
+                                        value="${userDetails.getEmailAddress().trim()}" name="emailAddress"
                                         id="inputEmailId"
                                         placeholder="<fmt:message key="flight.details.applicant.email.placeholder" bundle="${msg}" />"
                                         maxlength="50"> <span id="emailid" class="text-red"></span></td>
@@ -291,8 +291,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             <!-- Personal -->
                             
                             <input type="hidden" name="totalPersonalTraveller"
-                                id="totalPersonalTraveller" value="${totalPersonalCount}">
-                            <c:forEach var="inx" begin="1" end="${totalPersonalCount}">
+                                id="totalPersonalTraveller" value="${planDetailsForm.getTotalPersonalTraveller()}">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalPersonalTraveller()}">
                                 <div id="personaltraveller">
                                     <h4 class="color1 margin-left-28">
                                        <fmt:message key="flight.details.insured.label.personal"
@@ -310,7 +310,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                      <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="personalName" id="txtPersonalFullName${inx}"
-                                                        value="${userDetails.getFullName()}" class="form-control full-control"
+                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                                         placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onblur="replaceAlpha(this);"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
@@ -328,12 +328,15 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                                    <div class="styled-select custom-select-label">
+                                                    <label class="bold-500"><fmt:message
+                                                            key="flight.details.applicant.hkid"
+                                                            bundle="${msg}" /></label>
+                                                    <!-- <div class="styled-select custom-select-label">
                                                         <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
-                                                    </div>
+                                                    </div>-->
 	                                            </td>
 	                                            <td class="">
                                                          <input
@@ -438,8 +441,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             <!-- adult  -->
                         
                             <input type="hidden" name="totalAdultTraveller"
-                                id="totalAdultTraveler" value="${totalAdultCount}">
-                            <c:forEach var="inx" begin="1" end="${totalAdultCount}">
+                                id="totalAdultTraveler" value="${planDetailsForm.getTotalAdultTraveller()}">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalAdultTraveller()}">
                                 <div id="adulttraveller">
                                     <h4 class="color1 margin-left-28">
                                         <fmt:message
@@ -458,7 +461,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                      <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="adultName" id="txtAdFullName${inx}"
-                                                        value="${userDetails.getFullName()}" class="form-control full-control"
+                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                                         placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onblur="replaceAlpha(this);"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
@@ -491,11 +494,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     id="txtInsuHkid${inx}" name="adultHKID"
                                                     class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtInsuHkid${inx}"
+                                                    value="" onkeyup="value=value.replace(/[\W]/g,'')"/> <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span> <span
                                                     id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
- select-label                               </tr>
+                                            </tr>
                                             <tr>
                                                 <td valign="middle" class="">
                                                      <label class="bold-500"><fmt:message
@@ -519,7 +522,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         </c:forEach>
                                                     </select></div><span id="errselectAgeRange${inx}" class="text-red">
                                                     </span>
-          select-label                          </td>
+                                              </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -589,8 +592,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             <!-- child  -->
 
                             <input type="hidden" name="totalChildTraveller"
-                                value="${totalChildTraveller}" id="totalCountOfChild">
-                            <c:forEach var="inx" begin="1" end="${totalChildTraveller}">
+                                value="${planDetailsForm.getTotalChildTraveller()}" id="totalCountOfChild">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalChildTraveller()}">
                                 <div id="childtraveller">
                                     <h4 class="color1 margin-left-28">
                                         <fmt:message key="flight.details.insured.label.family.child"
@@ -665,7 +668,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                             </option>
                                                         </c:forEach>
                                                     </select></div> <span id="errchildRange${inx}" class="text-red"></span>
-              select-label                      </td>
+                                            </td>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
@@ -730,9 +733,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 
 
                             <input type="hidden" name="totalOtherTraveller"
-                                value="${totalOtherTraveller}" id="totalCountOther">
+                                value="${planDetailsForm.getTotalOtherTraveller()}" id="totalCountOther">
 
-                            <c:forEach var="inx" begin="1" end="${totalOtherTraveller}">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalOtherTraveller()}">
                                 <div id="childtraveller">
                                     <h4 class="color1 margin-left-28">
                                         <fmt:message key="flight.details.insured.label.family.others"
@@ -803,7 +806,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                                            <option value="${ageList.key}">
 		                                                        </c:otherwise>
 		                                                    </c:choose>
-		             select-label                           <c:out value="${ageList.value}" />
+		                                                    <c:out value="${ageList.value}" />
 		                                                    </option>
 		                                                </c:forEach>
 		                                            </select></div> <span id="errselectOtherAgeRange${inx}" class="text-red"></span>
@@ -1090,7 +1093,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     </c:if>
                                     <c:if test="${planDetailsForm.getTravellerCount() !=0}">
                                         <fmt:message key="flight.sidebar.summary.label.personal"
-                                            bundle="${msg}" />: ${planDetailsForm.getTravellerCount()}</c:if>
+                                            bundle="${msg}" />: ${planDetailsForm.getTotalPersonalTraveller()}</c:if>
                                 </h4>
                                 <input type="hidden" name="otherInput"
                                     value="${planDetailsForm.getTotalOtherTraveller()}"> <input

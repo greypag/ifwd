@@ -16,6 +16,14 @@
 
 
 
+ 
+<%-- <% --%>
+<%-- 	session = request.getSession();
+// 	String uatAuth = (String) session.getAttribute("uatAuth");
+// 	System.out.println("uatAuth " + uatAuth);
+// 	if (uatAuth == null)
+
+
 <%
 // 	session = request.getSession();
 // 	String uatAuth = (String) session.getAttribute("uatAuth");
@@ -25,8 +33,7 @@
 	
 // 	if (!uatAuth.equals("ifwdUser"))
 // 		response.sendRedirect(request.getContextPath() + "/uatAuth");
-		
-%>
+<%-- %> --%>
 
 
 

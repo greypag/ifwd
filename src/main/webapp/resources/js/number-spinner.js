@@ -10,8 +10,7 @@ $(window).load(function(){
       $('#lblCountDesk').show();
       /*$('#lblCountDesk').html(traveller + ' Traveller(s)');*/
       $('#lblCountDesk').html(traveller);
-      $('#lblPeopleDesk').html('' + traveller);
-      
+      $('#lblPeopleDesk').html('' + traveller);      
       
       var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
       var endDate = new Date($('#dp2').datepicker("getDate").valueOf());

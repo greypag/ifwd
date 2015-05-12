@@ -12,13 +12,13 @@ var getBundleLanguage = "";
 var lang = UILANGUAGE;
 
 if(lang === "EN"){
-	getBundleLanguage = "";
+	getBundleLanguage = "en";
 }else 
 if(lang === "tc"){
-	getBundleLanguage = "zh-HK";
+	getBundleLanguage = "zh";
 } 
 else{
-	getBundleLanguage = "";
+	getBundleLanguage = "en";
 }
 
 var chin = false;
@@ -3999,7 +3999,7 @@ function chkNotNullCreditCareName(element, errElementId)
 		return false;
 	}
 	else if (element.value.length < 7 && element.value.trim().indexOf(" ") > 0) {
-		var msg = "Credit Card is less than 7 and contains space";
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.noSpaces.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		alert( "element.value [" + element.value + "]" );
 	}

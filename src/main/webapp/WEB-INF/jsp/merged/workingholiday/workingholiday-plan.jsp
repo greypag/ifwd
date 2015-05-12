@@ -989,14 +989,31 @@ var promoData = '';
 							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 						
 							<span class="text-red" id="errPromoCode"></span>
+							
+							<div id="promo-wrap" class="form-group">
+                                <div class="input-group" style="border: 0;">
+                                    <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
+                                        class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+                                        <span
+                                        class="input-group-addon in black-bold pointer"
+                                        onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
+                                </div>
+                            </div>
+							
+							
+							<!-- this is the old one
 							<div class="form-group">
 								<div class="input-group">
 									<input type="text" id="promoCode" name="promoCode"
-										class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span style="color:black;  font-weight: bold; font-size:20px;"
-										class="input-group-addon in black-bold pointer"
-										onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
+										class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 								</div>
+								<span style="color:black;  font-weight: bold; font-size:20px;" class="pointer" onclick="applyTravelPromoCode()">
+                                  <span><fmt:message key="travel.action.apply" bundle="${msg}" /></span>
+                                </span>
 							</div>
+							 -->
+							
+							
 							<div class="travel-italic">
 								<a href="" class="sub-link" data-toggle="modal"
 										data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>

@@ -47,8 +47,6 @@ public class ECommController {
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 		}
 
-		// viewName = action.replace("/", "");
-		
 		viewName = action;
 		
 		if (viewName.indexOf("en") > 0)
@@ -82,7 +80,7 @@ public class ECommController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
-		
+		System.out.println("index path " + req.getRequestURI().toString());
 		if (req.getRequestURI().toString().equals(req.getContextPath() + "/tc/home/sharing/") || req.getRequestURI().toString().equals(req.getContextPath() + "/en/home/sharing/")) {
 			ogTitle = WebServiceUtils.getPageTitle("index.sharing.og.title", UserRestURIConstants.getLanaguage(req));
 			ogType = WebServiceUtils.getPageTitle("index.sharing.og.type", UserRestURIConstants.getLanaguage(req));
