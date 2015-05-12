@@ -1426,41 +1426,47 @@ var promoData = '';
 <!--Get promotion code popup-->
 <div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
   <div class="modal-dialog modal-lg">
-			<div class="modal-content plan-modal">
-				<div class="login-form" id="sendmailofpromocode">
-				<div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
-	                 <span aria-hidden="true" style="font-size:30px;">×</span>
-						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder=""
-								name="emailToSendPromoCode" id="emailToSendPromoCode">
-						</div>
-						<span id="errPromoEmail" class="text-red"></span> <br>
-						<div class="row">
-							<div class="col-lg-6 col-md-6">
-								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
-							</div>
-							<div class="col-md-2">
-								<br>
-							</div>
-							<div class="col-lg-4 col-md-4">
-								<!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
-							</div>
-							<br> <br>
-							<div class="col-lg-12 col-md-12">
-								<p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
-							</div>
-						</div>
-					</div>
-				</form>
-				</div>
-				
-				
-			</div>
-		</div>
+            <div class="modal-content plan-modal">
+                <div class="login-form" id="sendmailofpromocode">
+                <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                     <span aria-hidden="true" style="font-size:30px;">×</span>
+                   </a>
+                </div>
+                    <form>
+                    <div class="form-container">
+                        <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
+                        <div class="alert alert-success hide proSuccess"></div>
+                        <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder=""
+                                name="emailToSendPromoCode" id="emailToSendPromoCode">
+                        </div>
+                        <span id="errPromoEmail" class="text-red"></span> <br>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
+                                    onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
+                            </div>
+                            <br> <br>
+                            <div class="col-lg-12 col-md-12">
+                                <p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                
+                
+            </div>
+        </div>
 </div>
-<!--/ Get promotion code popup--> 
+<!--/ Get promotion code popup-->
 
 <div class="scroll-to-top">
     <a title="Scroll to top" href="#">
