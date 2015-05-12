@@ -111,7 +111,7 @@ public class FlightController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
-
+		System.out.println("flight path " + request.getRequestURI().toString());
 		if (request
 				.getRequestURI()
 				.toString()

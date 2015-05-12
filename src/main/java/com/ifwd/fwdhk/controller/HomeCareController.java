@@ -139,7 +139,7 @@ public class HomeCareController {
 			String ogImage = "";
 			String ogDescription = "";
 			
-			
+			System.out.println("homecare path " + request.getRequestURI().toString());
 			if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/home-insurance/sharing/") ||request.getRequestURI().toString().equals(request.getContextPath() + "/en/home-insurance/sharing/")) 
 			{
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", lang);

@@ -284,7 +284,7 @@ public class WebServiceUtils {
         
             InputStream stream = null;
             ClassLoader loader = Thread.currentThread().getContextClassLoader();  
-            if (language.equals("EN"))
+            if (language.toUpperCase().equals("EN"))
             	 stream = loader.getResourceAsStream("page_en_US.properties");
             else
             	stream = loader.getResourceAsStream("page_zh_TW.properties");
