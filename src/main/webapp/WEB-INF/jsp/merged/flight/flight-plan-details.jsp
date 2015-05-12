@@ -163,7 +163,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         for="inputFullName" class="bold-500"><fmt:message
                                                 key="flight.details.applicant.name" bundle="${msg}" /></label></td>
                                     <td class=""><input type="text"
-                                        value="${userDetails.getFullName()}" class="form-control full-control"
+                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                         id="inputFullName" name="fullName"
                                         placeholder="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />"
                                         onblur="replaceAlpha(this);"
@@ -197,7 +197,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         class="bold-500"><fmt:message
                                                 key="flight.details.applicant.mobile" bundle="${msg}" /></label></td>
                                     <td class=""><input type="text"
-                                        value="${userDetails.getMobileNo()}" class="form-control full-control"
+                                        value="${userDetails.getMobileNo().trim()}" class="form-control full-control"
                                         name="mobileNo" id="inputMobileNo"
                                         placeholder="<fmt:message key="flight.details.applicant.mobile.placeholder" bundle="${msg}" />"
                                         onkeypress="return isNumeric(event)"
@@ -209,7 +209,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         class="bold-500"><fmt:message
                                                 key="flight.details.applicant.email" bundle="${msg}" /></label></td>
                                     <td class=""><input class="form-control full-control"
-                                        value="${userDetails.getEmailAddress()}" name="emailAddress"
+                                        value="${userDetails.getEmailAddress().trim()}" name="emailAddress"
                                         id="inputEmailId"
                                         placeholder="<fmt:message key="flight.details.applicant.email.placeholder" bundle="${msg}" />"
                                         maxlength="50"> <span id="emailid" class="text-red"></span></td>
@@ -310,7 +310,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                      <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="personalName" id="txtPersonalFullName${inx}"
-                                                        value="${userDetails.getFullName()}" class="form-control full-control"
+                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                                         placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onblur="replaceAlpha(this);"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
@@ -461,7 +461,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                      <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="adultName" id="txtAdFullName${inx}"
-                                                        value="${userDetails.getFullName()}" class="form-control full-control"
+                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                                         placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onblur="replaceAlpha(this);"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
