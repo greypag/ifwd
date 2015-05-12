@@ -162,7 +162,7 @@ var promoData = '';
             }
 			//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 			$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-			
+			l
 		}
 	}
 	$(document).ready(function() {
@@ -293,7 +293,7 @@ var promoData = '';
 						%>
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
 							id="box<%=i%>"
-							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
+							onclick="changeColorAndPrice('<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
 								<h2>
 									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
@@ -400,15 +400,15 @@ var promoData = '';
 							<!-- / Plan benefits -->
 						</div>
 
-						<input type="hidden" name="txtTotalDue"
+						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
 							value="<%=travelQuote.getToalDue()[i]%>"> <input
-							type="hidden" name="txtGrossPremium"
+							type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
 							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
-							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount"
+							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
 							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
-							type="hidden" name="referralCode"
+							type="hidden" name="referralCode" id="referralCode<%=i%>"
 							value="<%=travelQuote.getReferralCode()%>"> <input
-							type="hidden" name="referralName"
+							type="hidden" name="referralName" id="referralName<%=i%>"
 							value="<%=travelQuote.getReferralName()%>">
 						<%
 							}
@@ -1523,7 +1523,7 @@ var promoData = '';
 			}
 		}
 
-		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
+		var selected_price = $("#txtGrossPremium"+id).val();//$('#' + id).find('h6').text();
 		selected_price = parseFloat(selected_price).toFixed(2);
 		
 		//$('#amountdue').html(parseFloat(totalDue).toFixed(2));

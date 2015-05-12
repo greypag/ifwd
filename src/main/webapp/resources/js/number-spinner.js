@@ -92,6 +92,7 @@ $('.plan').change(function () {
           changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
           
       changeSpinnerValue($('#txtTravellersDesk'), 0);
+      personalTraveller=$('#txtTravellersDesk').val();
       
             
             //document.getElementById("divPersonsDesk").style.visibility = "visible";
@@ -118,6 +119,9 @@ $('.plan').change(function () {
         changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
         changeSpinnerValue(parent.find(' #txtChildMob'), 1);
         changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
+        
+        changeSpinnerValue($('#txtTravellersDesk'), 0);
+        personalTraveller=$('#txtTravellersDesk').val();
         
           document.getElementById("divPersonsMob").style.visibility = "visible";
           $('#lblCountMob').show();
