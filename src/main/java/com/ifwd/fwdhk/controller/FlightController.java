@@ -771,6 +771,130 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 		String langSelected = UserRestURIConstants.getLanaguage(request);
 
+		
+		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
+
+			JSONObject beneficiary = new JSONObject();
+			JSONObject personal = new JSONObject();
+			personal.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
+			personal.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getPersonalAgeRange()[inx] ).toUpperCase());
+			personal.put("hkId", StringHelper.emptyIfNull( planDetailsForm.getPersonalHKID()[inx] ).toUpperCase());
+			personal.put("passport", "");
+			if (inx != 0) {// For other travelers skip first one
+				personal.put("relationship", "FE"); // adult - should be friend
+				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
+					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty()
+							&& INSURED_RELATIONSHIP_SELF
+									.compareToIgnoreCase(planDetailsForm
+											.getPersonalBeneficiary()[inx]) != 0) {// If
+																				// have
+																				// beneficiary
+						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",	planDetailsForm.getPersonalBenificiaryHkid()[inx]);
+						beneficiary.put("passport", "");
+						beneficiary.put("relationship",
+								planDetailsForm.getPersonalBeneficiary()[inx]); // input
+						personal.put("beneficiary", beneficiary);
+					} else {// If don't have beneficiary then
+						beneficiary.put("name",	StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",	planDetailsForm.getPersonalHKID()[inx]);
+						
+						beneficiary.put("passport", "");
+						beneficiary.put("relationship",	planDetailsForm.getPersonalBeneficiary()[inx]); // input
+						personal.put("beneficiary", beneficiary);
+					}
+				} else {// If don't have beneficiary then
+
+					beneficiary
+							.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
+					beneficiary
+							.put("hkId", planDetailsForm.getPersonalHKID()[inx]);
+					beneficiary.put("passport", "");
+					beneficiary.put("relationship",
+							planDetailsForm.getPersonalBeneficiary()[inx]); // input
+					personal.put("beneficiary", beneficiary);
+
+					// clear bene info if bene relationship is SE
+					planDetailsForm.getPersonalBenificiaryFullName()[inx] = "";
+					planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
+				}
+			} else {// This is for Myself - with & wothout the beneficiary
+				personal.put("relationship", "SE"); // adult, should be self for
+													// 1st insured
+				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
+					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx]
+							.isEmpty()
+							&& INSURED_RELATIONSHIP_SELF
+									.compareToIgnoreCase(planDetailsForm
+											.getPersonalBeneficiary()[inx]) != 0) {// If
+																				// have
+																				// beneficiary
+						beneficiary
+								.put("name", StringHelper.emptyIfNull( planDetailsForm
+										.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",
+								planDetailsForm.getPersonalBenificiaryHkid()[inx]);
+						beneficiary.put("passport", "");
+						beneficiary.put("relationship", StringHelper.emptyIfNull( 
+								planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase()); // input
+						personal.put("beneficiary", beneficiary);
+					} else {// If don't have beneficiary then
+						beneficiary.put("name", StringHelper.emptyIfNull( 
+								planDetailsForm.getPersonalName()[inx] ).toUpperCase());
+						beneficiary.put("hkId",
+								planDetailsForm.getPersonalHKID()[inx]);
+						beneficiary.put("passport", "");
+						beneficiary.put("relationship",
+								planDetailsForm.getPersonalBeneficiary()[inx]); // input
+						personal.put("beneficiary", beneficiary);
+						planDetailsForm.getPersonalBenificiaryFullName()[inx] = "";
+						planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
+					}
+				} else {// If don't have beneficiary then
+					beneficiary
+							.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
+					beneficiary
+							.put("hkId", planDetailsForm.getPersonalHKID()[inx]);
+					beneficiary.put("passport", "");
+					beneficiary.put("relationship", StringHelper.emptyIfNull( 
+							planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase()); // input
+					personal.put("beneficiary", beneficiary);
+				}
+			}
+			insured.add(personal);
+
+			// update relationship desc
+			String[] relationships = planDetailsForm.getPersonalRelationDesc();
+			if (relationships == null) {
+				// not found in ModelAttribute
+				relationships = new String[planDetailsForm
+						.getTotalPersonalTraveller()];
+			}
+			String[] beneRelationships = planDetailsForm
+					.getPersonalBeneRelationDesc();
+			if (beneRelationships == null) {
+				// not found in ModelAttribute
+				beneRelationships = new String[planDetailsForm
+						.getTotalPersonalTraveller()];
+			}
+			planDetailsForm.setPersonalRelationDesc(WebServiceUtils
+					.getInsuredRelationshipDesc(relationships, langSelected,
+							personal.get("relationship").toString(), inx));
+			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils
+					.getBeneRelationshipDesc(beneRelationships, langSelected,
+							beneficiary.get("relationship").toString(), inx));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 
 			JSONObject beneficiary = new JSONObject();
