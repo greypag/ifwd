@@ -27,7 +27,7 @@ public class UserRestURIConstants {
 			+ "/member/forgotUserName";
 	public static final String USER_DETAILS = SERVICE_URL + "/member/details";
 	public static final String USER_PURCHASE_POLICY_HISTORY = SERVICE_URL
-			+ "/policies";
+			+ "/policies/retrieve";
 
 	/* Flight Api */
 	public static final String GETFLIGHTQUOTE = SERVICE_URL
