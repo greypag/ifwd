@@ -629,6 +629,7 @@ vertical-align:middle;
 }
 
 
+
 /*Ganesh 15march*/
 .btm-pad-5
 {
@@ -4467,6 +4468,15 @@ table.purchase-history tr td {
 	color: #f68a1d !important;
 	padding-left: 20px;
 }
+
+.h4-4-orange {
+    font-size: 24px;
+    
+    line-height: 30px;
+    color: #f68a1d !important;
+    padding-left: 20px;
+}
+
 #promo-wrap .input-group-addon {
     background: #f6871e !important;
     color: #fff !important;
@@ -6306,3 +6316,14 @@ tr.product-landing-error-wrap {
 .modal-content{
 	border-radius:0px !important;
 }
+
+
+.padleft28{
+    padding-left:29px;
+}
+
+.right28{
+    margin-right:28px;
+}
+
+
