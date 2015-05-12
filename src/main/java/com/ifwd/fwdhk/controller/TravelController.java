@@ -223,7 +223,12 @@ public class TravelController {
 			System.out.println("CHILD COUNT " + childCount);
 			System.out.println("OTHER COUNT " + otherCount);		
 			System.out.print("------------------------------------------------------------");
-			
+			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+			travelQuoteCount.setSelfCover(selfCover);
+			travelQuoteCount.setSpouseCover(spouseCover);
+			travelQuoteCount.setTotalChildTraveller(childCount);
+			travelQuoteCount.setTotalOtherTraveller(otherCount);
+			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
@@ -441,7 +446,12 @@ public class TravelController {
 			System.out.println("CHILD COUNT " + childCount);
 			System.out.println("OTHER COUNT " + otherCount);		
 			System.out.print("------------------------------------------------------------");
-			
+			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+			travelQuoteCount.setSelfCover(selfCover);
+			travelQuoteCount.setSpouseCover(spouseCover);
+			travelQuoteCount.setTotalChildTraveller(childCount);
+			travelQuoteCount.setTotalOtherTraveller(otherCount);
+			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
@@ -924,8 +934,8 @@ public class TravelController {
 		
 		
 		
-		String totalTravallingDays = WebServiceUtils.getParameterValue("totalTravallingDays", session, request);
-		System.out.println("totalTravallingDays " + totalTravallingDays);
+		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
+		System.out.println("totalTravellingDays " + totalTravellingDays);
 		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
 		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
 		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
@@ -1630,7 +1640,7 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount);
-		model.addAttribute("totalTravallingDays", totalTravallingDays);
+		model.addAttribute("totalTravellingDays", totalTravellingDays);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);

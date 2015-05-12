@@ -1328,7 +1328,7 @@ $(function () {
 						return false;
 					}	
 					if (tr1 == false) {
-						$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message"));
+						$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 						
 						return false;						
 					}
@@ -2146,7 +2146,7 @@ function tPlanValid()
 				flag = false;
 			}
 			if (tr1 == false) {
-				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message"));
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 				
 				flag = false;
 			}			
@@ -3767,7 +3767,7 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
 	}else if(!chkTravelHKPassLen(element.value) && type == 'Passport'){
-		var msg = getBundle(getBundleLanguage, "applicant.passport.notEnoughLen.message");
+		var msg = getBundle(getBundleLanguage, "applicant.passport.notValidLength.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;

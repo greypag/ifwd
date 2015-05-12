@@ -162,7 +162,6 @@ var promoData = '';
             }
 			//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
 			$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-			
 		}
 	}
 	$(document).ready(function() {
@@ -293,7 +292,7 @@ var promoData = '';
 						%>
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
 							id="box<%=i%>"
-							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
+							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
 								<h2>
 									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
@@ -400,15 +399,15 @@ var promoData = '';
 							<!-- / Plan benefits -->
 						</div>
 
-						<input type="hidden" name="txtTotalDue"
+						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
 							value="<%=travelQuote.getToalDue()[i]%>"> <input
-							type="hidden" name="txtGrossPremium"
+							type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
 							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
-							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount"
+							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
 							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
-							type="hidden" name="referralCode"
+							type="hidden" name="referralCode" id="referralCode<%=i%>"
 							value="<%=travelQuote.getReferralCode()%>"> <input
-							type="hidden" name="referralName"
+							type="hidden" name="referralName" id="referralName<%=i%>"
 							value="<%=travelQuote.getReferralName()%>">
 						<%
 							}
@@ -1427,41 +1426,47 @@ var promoData = '';
 <!--Get promotion code popup-->
 <div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
   <div class="modal-dialog modal-lg">
-			<div class="modal-content plan-modal">
-				<div class="login-form" id="sendmailofpromocode">
-				<div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
-	                 <span aria-hidden="true" style="font-size:30px;">×</span>
-						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder=""
-								name="emailToSendPromoCode" id="emailToSendPromoCode">
-						</div>
-						<span id="errPromoEmail" class="text-red"></span> <br>
-						<div class="row">
-							<div class="col-lg-6 col-md-6">
-								<a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-									onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
-							</div>
-							<div class="col-md-2">
-								<br>
-							</div>
-							<div class="col-lg-4 col-md-4">
-								<!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
-							</div>
-							<br> <br>
-							<div class="col-lg-12 col-md-12">
-								<p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
-							</div>
-						</div>
-					</div>
-				</form>
-				</div>
-				
-				
-			</div>
-		</div>
+            <div class="modal-content plan-modal">
+                <div class="login-form" id="sendmailofpromocode">
+                <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                     <span aria-hidden="true" style="font-size:30px;">×</span>
+                   </a>
+                </div>
+                    <form>
+                    <div class="form-container">
+                        <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
+                        <div class="alert alert-success hide proSuccess"></div>
+                        <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder=""
+                                name="emailToSendPromoCode" id="emailToSendPromoCode">
+                        </div>
+                        <span id="errPromoEmail" class="text-red"></span> <br>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
+                                    onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
+                            </div>
+                            <br> <br>
+                            <div class="col-lg-12 col-md-12">
+                                <p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                
+                
+            </div>
+        </div>
 </div>
-<!--/ Get promotion code popup--> 
+<!--/ Get promotion code popup-->
 
 <div class="scroll-to-top">
     <a title="Scroll to top" href="#">
@@ -1505,7 +1510,7 @@ var promoData = '';
 	        return false;
         }
     }
-	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
+	function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 		$("#promo-code-body").fadeIn();
 		var selected_div;
 		var idArray = [];
@@ -1523,7 +1528,7 @@ var promoData = '';
 			}
 		}
 
-		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
+		var selected_price = $("#txtGrossPremium"+index).val();//$('#' + id).find('h6').text();
 		selected_price = parseFloat(selected_price).toFixed(2);
 		
 		//$('#amountdue').html(parseFloat(totalDue).toFixed(2));
