@@ -1502,6 +1502,13 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
+			for (int inx = 0; inx < plandetailsForm.getTotalPersonalTraveller(); inx++) {
+				plandetailsForm.setPersonalAgeRangeName(WebServiceUtils
+						.getAgeRangeNames(plandetailsForm.getPersonalAgeRange(),
+								UserRestURIConstants.getLanaguage(request)));
+			}
+			
+			
 			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
 				plandetailsForm.setAdultAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getAdultAgeRange(),
@@ -1586,7 +1593,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
 			session.setAttribute("transNo", createPolicy.getTransactionNo());
 			model.addAttribute("selectPlanName", selectPlanName);
-			/* System.out.println("Session Id" + request.getSession().getId()); */
 		} else {
 			return UserRestURIConstants.getSitePath(request) + "travel/travel";
 		}
@@ -1638,12 +1644,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
-//		kdjfdkjfa
-//		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-//		String planSelected = (String) session.getAttribute("planSelected");
-//		
-		
 		return UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-summary-payment";
 	}
