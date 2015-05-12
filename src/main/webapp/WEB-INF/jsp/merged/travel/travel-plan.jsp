@@ -1440,6 +1440,7 @@ var promoData = '';
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode">
+                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                         </div>
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
