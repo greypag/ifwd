@@ -431,7 +431,7 @@
 
 							<div class="clearfix"></div>
 							<div class="gray-bdr"></div>
-							<table class="table activation-form margin-left-2 vert-middle-small">
+							<table class="table activation-form margin-left-2 vert-middle">
 								<tbody>
 									<tr>
 										<td colspan="2"><h3
@@ -439,7 +439,7 @@
 									</tr>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label></td>
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
@@ -468,15 +468,26 @@
 											</div>
 										</td>
 										<td class=""><input type="text" name="hkId"
-											class="form-control numberinput textUppe full-control" id="txtAppHkid"
+											class="form-control numberinput textUpper full-control" id="txtAppHkid"
 											placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
 											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
 									</tr>
+									<!-- Birthday starts -->
+	                                <tr>
+	                                    <td valign="middle"><label for="inputApplicantDob"
+	                                        class="bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label></td>
+	                                    <td>
+	                                        <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+	                                            <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}">
+	                                        </div>
+	                                    </td>
+	                                </tr>
+	                                <!-- Birthday ends -->
 									<tr>
 										<td class=""><label
-											class="control-label bold-500"><fmt:message key="home.details.applicant.mobile" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.applicant.mobile" bundle="${msg}" /></label></td>
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
@@ -487,7 +498,7 @@
 									</tr>
 									<tr>
 										<td class=""><label
-											class="control-label bold-500"><fmt:message key="home.details.applicant.email" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.applicant.email" bundle="${msg}" /></label></td>
 										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
@@ -519,7 +530,7 @@
 										</tr>
 										<tr>
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-												class="control-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
+												class="bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
 											<td class=""><input type="text"
 												class="form-control marginbt full-control" id="Username"
 												placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />" name="userName"> <span id="UsernameError"
@@ -527,7 +538,7 @@
 										</tr>
 										<tr>
 											<td class=""><label
-												class="control-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
+												class="bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Password" autocomplete="off" name="password"
 												placeholder="<fmt:message key="home.details.registration.password.placeholder" bundle="${msg}" />"> <span id="PasswordError"
@@ -535,7 +546,7 @@
 										</tr>
 										<tr>
 											<td class=""><label
-												class="control-label bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
+												class="bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Confirm-Password" autocomplete="off"
 												placeholder="<fmt:message key="home.details.registration.confirmPassword.placeholder" bundle="${msg}" />"> <span
@@ -560,7 +571,7 @@
 									<tr>
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
 										<td><input type="text" class="form-control wd2"
 											id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
@@ -667,8 +678,8 @@
 								<tbody>
 									<tr>
 										<td rowspan="5"
-											class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
-											class="control-label bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label></td>
+											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
+											class="bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label></td>
 										<td colspan="2"><input type="text"
 											class="form-control wd2 full-control" id="inputARoom" name="aRoom"
 											placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
@@ -780,7 +791,7 @@
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 "><label
-											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
+											class="bold-500"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
 										</label></td>
 										<td class="">
 
@@ -809,7 +820,7 @@
 									</tr>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
+											class="bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
 										</label></td>
 										<td class=""><div class="form-group">
 												<div class="input-group date" id="homecareDp">
