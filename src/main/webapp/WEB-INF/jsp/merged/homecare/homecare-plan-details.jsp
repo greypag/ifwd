@@ -350,7 +350,7 @@
 
 	<!--/#main-Content-->
 	<section>
-		<div class="container">
+		<div id="cn" class="container">
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
 					action="${pageContext.request.contextPath}/${language}/home-insurance/home-summary" method="post"
@@ -412,8 +412,8 @@
 							%>
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
 							<a href="#"
-								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-								data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
+								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4 login-btn"
+								data-toggle="modal" data-target="#loginpopup"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
 							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
 								<h3 class="text-left or-continue">
 									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span> <fmt:message key="home.details.login.other.part2" bundle="${msg}" />
@@ -430,6 +430,7 @@
 							%>
 
 							<div class="clearfix"></div>
+							<br/>
 							<div class="gray-bdr"></div>
 							<table class="table activation-form margin-left-2 vert-middle">
 								<tbody>
@@ -960,7 +961,7 @@
 									<a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="home.action.next" bundle="${msg}" />" />
+									<input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
 								</div>
 
 

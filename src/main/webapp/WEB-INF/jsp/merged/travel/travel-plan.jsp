@@ -1430,7 +1430,7 @@ if(personalTraveller>familyTraveller){
 								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary btn-next">
+							<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
 								<fmt:message key="travel.action.next" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>

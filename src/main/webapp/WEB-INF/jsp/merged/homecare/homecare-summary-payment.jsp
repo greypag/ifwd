@@ -14,7 +14,7 @@
 
 
 <section>
-	<div class="container">
+	<div id="cn" class="container">
 		<div class="row">
 			<form name="paymentForm" id="paymentForm"
 				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');"
@@ -435,6 +435,8 @@
 						</div>
 						<span id="errchk2" class="error-msg"></span>-->
 						<div class="clearfix"></div>
+						
+						<!-- old buttons
 						<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message
@@ -442,6 +444,24 @@
 							<input type="submit" class="bdr-curve btn btn-primary nxt-btn margin-left"
 								value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 						</div>
+						-->
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn">
+	                                <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
+	                            </a>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <input type="submit"
+	                                class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />" />
+	                        </div>
+                        </div>
+						
+						
+						
+						<!-- 
+						
+						
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -461,6 +481,7 @@
 							<div class="clearfix"></div>
 
 						</div>
+						 -->
 						<br>
                             <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
                         <br>

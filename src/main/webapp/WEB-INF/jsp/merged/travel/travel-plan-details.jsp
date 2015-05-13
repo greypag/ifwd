@@ -101,12 +101,16 @@
                         %>
                         <h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.details.login" bundle="${msg}" /></h3>
 
-                        <a href="#"
+                        <!-- <a href="#"
                             class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-                            data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>
+                            data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a> -->
+                        <a href="#"
+                            class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4 login-btn"
+                            data-toggle="modal" data-target="#loginpopup"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>    
+                        
                         <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
                             <h3 class="text-left or-continue">
-                                <fmt:message key="travel.details.login.other.part1" bundle="${msg}" />
+                                <span><fmt:message key="travel.details.login.other.part1" bundle="${msg}" /></span>
                                 <fmt:message key="travel.details.login.other.part2" bundle="${msg}" />
                             </h3>
                         </div>
@@ -1020,7 +1024,7 @@
      <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
-    <input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+    <input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 </div>
 <div class="clearfix"></div>
 <br>

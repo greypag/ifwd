@@ -185,7 +185,7 @@ var promoCodeInsertFlag = true;
 
 	<!--/#main-Content-->
 	<section>
-		<div class="container">
+		<div id="cn" class="container">
 			<div class="row">
 
 				<ol class="breadcrumb pad-none">
@@ -238,7 +238,7 @@ var promoCodeInsertFlag = true;
 				
 				<%
 							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
-				<div id="quote-wrap" class="container pad-none bdr ur-opt-content">
+				<div id="quote-wrap" class="container pad-none bdr">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
 							<!-- Choose a plan -->
@@ -324,7 +324,7 @@ var promoCodeInsertFlag = true;
 
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-1" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -355,7 +355,7 @@ var promoCodeInsertFlag = true;
                                         <!--  Summary of Coverage  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-2" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.summary.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -367,7 +367,7 @@ var promoCodeInsertFlag = true;
 											            <span aria-hidden="true" style="font-size:30px;">×</span>
 											            </a>
 											            <div class="fwdpanel-heading">
-											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
+											                <h4 class="fwdpanel-title h4-4-full"><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
 											            </div>
 											            <div class="fwdpanel-body">
                                                             <h4 class="h4-2">
@@ -535,7 +535,7 @@ var promoCodeInsertFlag = true;
                                         <!--   Major Exclusions  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-3" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
                                                 </h4>
@@ -585,7 +585,7 @@ var promoCodeInsertFlag = true;
                                         <!--   Age limit  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-4" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -622,7 +622,7 @@ var promoCodeInsertFlag = true;
                                         <!--   Premium table (HK$)  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-5" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.excess.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -780,7 +780,7 @@ var promoCodeInsertFlag = true;
 							<input type="hidden" name="answer2" value="${answer2}">
 
 							
-
+                            <!-- 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
 								<a href="<%=request.getContextPath()%>/${language}/home-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
@@ -790,7 +790,18 @@ var promoCodeInsertFlag = true;
 								<button type="submit" class="bdr-curve btn btn-primary btn-next">
 									<fmt:message key="home.action.next" bundle="${msg}" />
 								</button>
-							</div>
+							</div> -->
+							
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance"
+	                                class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> 
+	                            </a>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn">
+	                                <fmt:message key="home.action.next" bundle="${msg}" /></button>
+	                        </div>
+							
 
 							<div class="clearfix"></div>
 							<br>

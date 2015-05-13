@@ -425,10 +425,10 @@ $(document).ready(function() {
     </div>
   </div>
   
-  <div class="btn-box text-center">
+  <div class="form-container">
     <h3 class="text-center"> 
       <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()">立即申請免費保障! </a>  -->
-      <button type="submit" class="bdr-curve-none btn btn-primary btn-lg ">
+      <button type="submit" class="bdr-curve-none btn btn-primary btn-lg btn-block">
               <fmt:message key="travel.main.quote.top.action" bundle="${msg}" /> 
              </button>
     </h3>
