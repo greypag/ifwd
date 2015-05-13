@@ -155,7 +155,7 @@ public class WebServiceUtils {
 			else if (relationship.equals("GR"))
 				desc = "Grand Child";
 			else if (relationship.equals("SE"))
-				desc = "Self";				
+				desc = "Own Estate";				
 			else
 				desc = relationship;
 		} else {
