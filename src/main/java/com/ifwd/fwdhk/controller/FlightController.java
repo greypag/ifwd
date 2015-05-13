@@ -1218,17 +1218,19 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		String hkid 		= StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
 		String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
 		String mobileNo     = request.getParameter("mobileNo");
-//		String dob = WebServiceUtils.getParameterValue("dob", session, request);
-//		Calendar dateDob = Calendar.getInstance();
-//		dateDob.setTime(new Date(dob));
-//		Format f = new SimpleDateFormat("yyyy-MM-dd");
-//		dob = f.format(dateDob.getTime());
+		
+		
+		String dob = request.getParameter("applicantDob");
+		Calendar dateDob = Calendar.getInstance();
+		dateDob.setTime(new Date(dob));
+		Format f = new SimpleDateFormat("yyyy-MM-dd");
+		dob = f.format(dateDob.getTime());
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
 		applicantJsonObj.put("hkId", hkid);
-//		applicantJsonObj.put("dob", dob);
-		applicantJsonObj.put("dob", "");
+		applicantJsonObj.put("dob", dob);
+//		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
 		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox3());
@@ -1635,6 +1637,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				+ plandetailsForm.getTotalOtherTraveller());
 		model.addAttribute("dueAmount", dueAmount);
 		model.addAttribute("totalTravallingDays", totalTravallingDays);
+		model.addAttribute("totalTravellingDays", totalTravallingDays);
+		
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", plandetailsForm);

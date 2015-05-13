@@ -369,11 +369,11 @@ public class HomeCareController {
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
-//		String dob = WebServiceUtils.getParameterValue("dob", session, request);
-//		Calendar dateDob = Calendar.getInstance();
-//		dateDob.setTime(new Date(dob));
-//		Format f = new SimpleDateFormat("yyyy-MM-dd");
-//		dob = f.format(dateDob.getTime());
+		String dob = request.getParameter("applicantDob");
+		Calendar dateDob = Calendar.getInstance();
+		dateDob.setTime(new Date(dob));
+		Format f = new SimpleDateFormat("yyyy-MM-dd");
+		dob = f.format(dateDob.getTime());
 		
 		boolean optIn1;
 		boolean optIn2;
@@ -429,8 +429,8 @@ public class HomeCareController {
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
-		userDetails.setDob("");
-		//userDetails.setDob(dob);
+//		userDetails.setDob("");
+		userDetails.setDob(dob);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		
@@ -477,8 +477,9 @@ public class HomeCareController {
 		model.addAttribute("userDetails", userDetails);
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date(homeCareDetails.getEffectiveDate()));
-		Format f = new SimpleDateFormat("dd MMMM yyyy");
+		f = new SimpleDateFormat("dd MMMM yyyy");
 		date.add(Calendar.YEAR, 1);
+		date.add(Calendar.DATE, -1);
 		String endDate = f.format(date.getTime());
 			
 		// get netFloorArea desc

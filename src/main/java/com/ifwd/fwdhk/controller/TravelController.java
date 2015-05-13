@@ -7,6 +7,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -934,12 +935,26 @@ public class TravelController {
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-//		String dob = WebServiceUtils.getParameterValue("dob", session, request);
-//		Calendar dateDob = Calendar.getInstance();
-//		dateDob.setTime(new Date(dob));
-//		Format f = new SimpleDateFormat("yyyy-MM-dd");
-//		dob = f.format(dateDob.getTime());
-//		
+		
+		Enumeration<String> parameterNames = request.getParameterNames();
+		while (parameterNames.hasMoreElements()) {
+			String paramName = parameterNames.nextElement();
+			
+			String[] paramValues = request.getParameterValues(paramName);
+			for (int i = 0; i < paramValues.length; i++) {
+				String paramValue = paramValues[i];
+				System.out.println(paramName + " t " + paramValue);
+				
+			}
+		}
+		
+		//String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
+		String dob = request.getParameter("applicantDob");
+		Calendar dateDob = Calendar.getInstance();
+		dateDob.setTime(new Date(dob));
+		Format f = new SimpleDateFormat("yyyy-MM-dd");
+		dob = f.format(dateDob.getTime());
+
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 		System.out.println("totalTravellingDays " + totalTravellingDays);
@@ -981,8 +996,8 @@ public class TravelController {
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-		//userDetails.setDob(dob);
-		userDetails.setDob("");
+		userDetails.setDob(dob);
+//		userDetails.setDob("");
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -1193,7 +1208,7 @@ public class TravelController {
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		// personal
-System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller());		
+		System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller());		
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -1544,11 +1559,11 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
 		applicantJsonObj.put(hkId, applicantHKID);
-		applicantJsonObj.put("dob", "");
+		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", applicantMobNo);
 		
-		System.out.println("Travel optIn1 " + planDetailsForm.getCheckbox1());
-		System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox2());
+		System.out.println("Travel optIn1 " + planDetailsForm.getCheckbox3());
+		System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox4());
 		
 		
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
@@ -1558,9 +1573,6 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
-		addressJsonObj.put("room", "");
-		addressJsonObj.put("floor", "");
-
 		parameters.put("address", addressJsonObj);
 
 		/* System.out.println(parameters); */
