@@ -2820,7 +2820,7 @@ function flightValidateDeskTravel()
 		flag = false;
 	}
 	else {
-		if (startdays > 30) {
+		if (startdays > 90) {
 			$('#startDateDeskIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
 		}
@@ -2871,7 +2871,7 @@ function flightValidateMobTravel() {
 		$('#startDateMobIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
 	} else {
-		if (startdays > 30) {
+		if (startdays > 90) {
 			
 			$('#startDateMobIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
@@ -2921,7 +2921,7 @@ function flightValidateBtmTravel() {
 	}
 	else
 	{
-		if(startdays>30)
+		if(startdays>90)
 		{
 			$('#startDateBtmIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
@@ -3779,7 +3779,7 @@ function chkValidFlightDepartureDate(element, errElementId, name){
         	document.getElementById(errElementId).innerHTML = msg;
             return false;
 	    }
-	    if (dateDiff > 30) {
+	    if (dateDiff > 90) {
         	var msg = getBundle(getBundleLanguage, "flight.departureDate.notValid.message");
         	document.getElementById(errElementId).innerHTML = msg;
             return false;
