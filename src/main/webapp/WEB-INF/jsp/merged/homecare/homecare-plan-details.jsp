@@ -416,7 +416,7 @@
 								data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
 							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
 								<h3 class="text-left or-continue">
-									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span><fmt:message key="home.details.login.other.part2" bundle="${msg}" />
+									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span> <fmt:message key="home.details.login.other.part2" bundle="${msg}" />
 								</h3>
 							</div>
 							<%
