@@ -37,6 +37,10 @@ var t1 = "${corrTravelQuote.getTotalAdultTraveller()}";
 var t2 = "${corrTravelQuote.getTotalChildTraveller()}";
 var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";  
 var promoData = '';
+
+var promoCodeInsertFlag = true;
+
+
 	function getuserDetails() {
 
 		
@@ -46,6 +50,7 @@ var promoData = '';
 		var promoCode = document.getElementById("promoCode").value;
 
 		if (promoCode.trim() == "") {
+			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
 		} else
@@ -67,22 +72,26 @@ var promoData = '';
 	}
 	
 	function applyTravelPromoCode() {
-		
-		$("#errPromoCode").html("");
-		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyTravelPromoCode',
-			data : $('#frmTravelPlan input').serialize(),
-			success : function(data) {
-				
-				var json = JSON.parse(data);
-				promoData = json;
-				setValue(json);
-			}
+		if(promoCodeInsertFlag){
+			promoCodeInsertFlag = false;
+			
+			$("#errPromoCode").html("");
+	        
+	        if(chkPromoCode()){
+	        	$.ajax({
+	                type : 'POST',
+	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
+	                data : $('#frmTravelPlan input').serialize(),
+	                success : function(data) {
+	                    promoCodeInsertFlag = true;
+	                    var json = JSON.parse(data);
+	                    promoData = json;
+	                    setValue(json);
+	                }
 
-		});
+	            });
+	        }
+		}
 	}
 	function updateTravelQuote() {
 		$.ajax({
