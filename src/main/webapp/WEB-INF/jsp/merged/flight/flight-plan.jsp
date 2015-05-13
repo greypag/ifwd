@@ -319,7 +319,7 @@
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
                             </h3>
                             
-                            <span class="text-grey" id="loadingUpdate" style="display:none;">更新中...</span>
+                            <span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
                             
                             <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
                  

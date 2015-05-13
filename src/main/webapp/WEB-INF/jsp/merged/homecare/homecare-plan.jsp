@@ -723,7 +723,7 @@ var promoCodeInsertFlag = true;
 								</div>
 								<div class="clearfix"></div>
 								
-								<span class="text-grey" id="loadingPromo" style="display:none;">更新中...</span>
+								<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 								
 								<span class="text-red" id="errPromoCode"></span>
 								<div id="promo-wrap" class="form-group">

@@ -1251,7 +1251,7 @@ if(personalTraveller>familyTraveller){
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 								</h3>
 								
-								<span class="text-grey" id="loadingUpdate" style="display:none;">更新中...</span>
+								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 								
 								<div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
                           <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk">${corrTravelQuote.getTotalPersonalTraveller()}</label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
@@ -1386,7 +1386,7 @@ if(personalTraveller>familyTraveller){
 						  <div id="promo-code-body" class="hide-html">
 						     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 						     
-						     <span class="text-grey" id="loadingPromo" style="display:none;">更新中...</span>
+						     <span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 						     
                             <span class="text-red" id="errPromoCode"></span>
                             <div id="promo-wrap" class="form-group">
