@@ -109,6 +109,24 @@
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
 							<table class="table activation-form margin-left-2 vert-middle travel-summary">
 								<tbody>
+								    <tr>
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
+                                    </tr>
+								
 									<tr>
 										<td class="col-lg-4 col-xs-4 col-sm-4 col-md-4 h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${createPolicy.getReferenceNo()}</td>
@@ -248,24 +266,6 @@
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${totalTravellingDays}</td>
-									</tr>
-
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
-									</tr>
-									<tr>
-
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
 									</tr>
 									<tr>
 										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />

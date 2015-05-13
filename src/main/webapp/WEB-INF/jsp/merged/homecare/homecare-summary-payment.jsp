@@ -94,20 +94,48 @@
 							</div>
 						</div>
 
+                        <div
+                            class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
 
-						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
-
-							<table class="table activation-form margin-left-2">
-								<tbody>
+                            <table class="table activation-form margin-left-2">
+                                <tbody>
+                                    <tr>
+                                        <td class=""><span
+                                            class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message
+                                                    key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
+                                        <td class=" h4-5 "></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 h2-1"><fmt:message
+                                                key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
+                                        <td class=" h4-5 ">${userDetails.getFullName()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1"><fmt:message
+                                                key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
+                                        <td class="h4-5 ">
+                                        <c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1"><fmt:message
+                                                key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
+                                        <td class="h4-5 ">${userDetails.getEmailAddress()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1"><fmt:message
+                                                key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
+                                        <td class="h4-5 ">${userDetails.getMobileNo()}</td>
+                                    </tr>
 									<tr>
-										<td class="h2-1 pad-left1 col-lg-5"><fmt:message
+										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc1" bundle="${msg}" /></td>
 										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
 											type="hidden" name="referenceNo"
 											value="${createdPolicy.getReferenceNo()}"></td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message
+										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
 										<td class="h4-5 "><fmt:message
 												key="home.summary.plansummary.desc3" bundle="${msg}" /><br>
@@ -118,33 +146,33 @@
 											</h4></td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message
+										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc5.part1" bundle="${msg}" />
 											<br>
 										<fmt:message key="home.summary.plansummary.desc5.part2"
 												bundle="${msg}" /></td>
 										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getApplicantRoom()}, Floor ${homeCareDetails.getApplicantFloor()},
-											Block ${homeCareDetails.getApplicantBlock()}, <br>
+											Block ${homeCareDetails.getApplicantBlock()}, 
 											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}<br>
-											${homeCareDetails.getApplicantStreetName()}<br>
+											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}
+											${homeCareDetails.getApplicantStreetName()}
 											${homeCareDetails.getApplicantDistrictDesc()}, 
 											${homeCareDetails.getApplicantAreaDesc() }
 										</td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message
+										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
 										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getaRoom()}, Floor ${homeCareDetails.getaFloor()},
-											Block ${homeCareDetails.getaBlock() },<br>
+											Block ${homeCareDetails.getaBlock() },
 											${homeCareDetails.getaBuilding()},
-											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }<br>
-											${homeCareDetails.getaStreetName() }<br>
+											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }
+											${homeCareDetails.getaStreetName() }
 											${homeCareDetails.getaDistrictDesc()}, 
 											${homeCareDetails.getaAreaDesc() }</td>
 									</tr>
 									<tr>
-										<td class="h2-1 "><fmt:message
+										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br>
 										<fmt:message key="home.summary.plansummary.desc7.part2"
 												bundle="${msg}" /></td>
@@ -182,42 +210,7 @@
 								</tbody>
 							</table>
 						</div>
-						<div
-							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
-
-							<table class="table activation-form margin-left-2">
-								<tbody>
-									<tr>
-										<td class="pad-none "><span
-											class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message
-													key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
-										<td class="pad-none h4-5 "></td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getFullName()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">
-										<c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getEmailAddress()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getMobileNo()}</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						
 
 
 					</div>
