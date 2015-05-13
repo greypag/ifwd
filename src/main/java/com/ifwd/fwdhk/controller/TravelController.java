@@ -3,6 +3,9 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -931,8 +934,12 @@ public class TravelController {
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		
-		
+//		String dob = WebServiceUtils.getParameterValue("dob", session, request);
+//		Calendar dateDob = Calendar.getInstance();
+//		dateDob.setTime(new Date(dob));
+//		Format f = new SimpleDateFormat("yyyy-MM-dd");
+//		dob = f.format(dateDob.getTime());
+//		
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 		System.out.println("totalTravellingDays " + totalTravellingDays);
@@ -974,7 +981,8 @@ public class TravelController {
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-		
+		//userDetails.setDob(dob);
+		userDetails.setDob("");
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -1860,7 +1868,8 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 
 		boolean mailed = false;
 		HttpSession session = request.getSession();
-
+		String planCode = request
+				.getParameter("planCode");
 		String usernameInSession = null;
 		String tokenInSession = null;
 		String emailToSendPromoCode = request
@@ -1879,8 +1888,14 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		if (planCode == null)
+			planCode = "TRAVELCARE";
+		if (planCode.toUpperCase().equals("HOMECARE"))
+		
 		// String referalCOde = session.getAttribute("referralCode").toString();
-		mailed = sendEmail.sendEmail(emailToSendPromoCode, "", header);
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
+		else
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
 		if (mailed) {
 			return "success";
 		} else {
