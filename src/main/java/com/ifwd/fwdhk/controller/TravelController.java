@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -814,7 +815,7 @@ public class TravelController {
 					System.out.println(" jsonRelationShipArray ====>>>>>>"
 							+ jsonRelationshipCode);
 
-					Map<String, String> mapRelationshipCode = new HashMap<String, String>();
+					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 						JSONObject obj = (JSONObject) jsonRelationshipCode
 								.get(i);

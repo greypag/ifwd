@@ -11,8 +11,10 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -568,7 +570,15 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			//@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) {
-
+		
+		HttpSession session = request.getSession();
+		//FOLOWING IS TO HANDLE CHANGE LANGUAGE AS THE planDetails WILL BE NULL
+		if (planDetails.getReturnDate() == null) {
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+		} else {
+			session.setAttribute("flightPlanDetails", planDetails);
+		}
+			
 		System.out.println("/flight-insurance/user-details");
 		System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
 		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
@@ -580,7 +590,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		HttpSession session = request.getSession();
+		
 
 		if (session.getAttribute("token") == null) {
 			return flight(request, model);
@@ -676,7 +686,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			System.out.println(" jsonRelationShipArray ====>>>>>>"
 					+ jsonRelationshipCode);
 
-			Map<String, String> mapRelationshipCode = new HashMap<String, String>();
+			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 			for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 				JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
 				mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"),
