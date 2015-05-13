@@ -652,7 +652,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             </tr>
                                             <tr>
                                                 <td valign="middle" class="">
-                                    select-label     <label class="bold-500"><fmt:message
+                                                    <label class="bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
