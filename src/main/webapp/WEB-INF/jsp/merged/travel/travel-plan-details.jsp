@@ -176,6 +176,16 @@
                                     </span></td>
                                 </tr>
                                 <tr>
+                                    <td valign="middle"><label for="inputMobileNo"
+                                        class="bold-500">Birthday</label></td>
+                                    <td>
+                                        <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+                                            <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}">
+		                                </div>
+                                        <span id="errMobileNo" class="text-red"></span>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td valign="middle"><label for="inputEmailId"
                                         class="bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label></td>
                                     <td><input class="form-control full-control" name="emailAddress"
