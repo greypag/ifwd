@@ -4,6 +4,9 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -1208,7 +1211,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 										.toString(), inx));
 			}
 		}
-
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 		
@@ -1216,11 +1218,16 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		String hkid 		= StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
 		String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
 		String mobileNo     = request.getParameter("mobileNo");
-
+//		String dob = WebServiceUtils.getParameterValue("dob", session, request);
+//		Calendar dateDob = Calendar.getInstance();
+//		dateDob.setTime(new Date(dob));
+//		Format f = new SimpleDateFormat("yyyy-MM-dd");
+//		dob = f.format(dateDob.getTime());
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
 		applicantJsonObj.put("hkId", hkid);
+//		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
@@ -1231,11 +1238,10 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("email", emailAddress);
 
-		request.setAttribute("fullName",     name);
-		request.setAttribute("hkid",         hkid);
-		request.setAttribute("mobileNo",     mobileNo);
+		request.setAttribute("fullName", name);
+		request.setAttribute("hkid", hkid);
+		request.setAttribute("mobileNo", mobileNo);
 		request.setAttribute("emailAddress", emailAddress);
-
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();

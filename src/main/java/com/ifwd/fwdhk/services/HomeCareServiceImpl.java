@@ -404,7 +404,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("name", userDetails.getFullName());
 		applicant.put("gender", "M");
 
-		applicant.put("dob", "");
+		applicant.put("dob", userDetails.getDob());
 
 		applicant.put("hkId", userDetails.getHkid());
 		applicant.put("passport", userDetails.getPassport());
