@@ -483,6 +483,7 @@ $(function () {
 		endDate: dob_date
 		/*language: getBundleLanguage*/
 	});
+	$('#input_dob').datepicker('update', dob_date);
 	
 	
 	
