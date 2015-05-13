@@ -60,7 +60,7 @@ public class WorkingHolidayController {
 
 		UserRestURIConstants.setController("Working");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
+		//return UserRestURIConstants.checkLangSetPage(request) + "workingholiday/workingholiday";
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
@@ -69,26 +69,55 @@ public class WorkingHolidayController {
 		workingholidayQuote = (WorkingHolidayQuoteBean) session.getAttribute("workingholidayQuote");
 		
 		if(workingholidayQuote == null){
-			workingholidayQuote = new WorkingHolidayQuoteBean();			
+			workingholidayQuote = new WorkingHolidayQuoteBean();
+			
+			workingholidayQuote.setTotalPersonalWorkingHolidayer(1);
+			workingholidayQuote.setTotalAdultWorkingHolidayer(1);
+			workingholidayQuote.setTotalChildWorkingHolidayer(1);
+			workingholidayQuote.setTotalOtherWorkingHolidayer(0);
+			workingholidayQuote.setPlanSelected("personal");
 		}
-		
-		//default 
-		workingholidayQuote.setTotalPersonalWorkingHolidayer(1);
-		workingholidayQuote.setTotalAdultWorkingHolidayer(1);
-		workingholidayQuote.setTotalChildWorkingHolidayer(1);
-		workingholidayQuote.setTotalOtherWorkingHolidayer(0);
-		workingholidayQuote.setPlanSelected("personal");
-		
+		else{
+			System.out.println("Plan selected : "+workingholidayQuote.getPlanSelected());
+		}
 		
 		
 		model.addAttribute("workingholidayQuote", workingholidayQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.workingholiday", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholiday", UserRestURIConstants.getLanaguage(request));
+		
+		String ogTitle = "";
+		String ogType = "";
+		String ogUrl = "";
+		String ogImage = "";
+		String ogDescription = "";
+		System.out.println("working holiday path " + request.getRequestURI().toString());
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/workingholiday-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/workingholiday-insurance/sharing/")) 
+		{
+			ogTitle = WebServiceUtils.getPageTitle("workingholiday.og.title", UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("workingholiday.og.type", UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("workingholiday.og.url", UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("workingholiday.og.image", UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle("workingholiday.og.description", UserRestURIConstants.getLanaguage(request));
+		} else {
+			ogTitle = WebServiceUtils.getPageTitle("workingholiday.sharing.og.title", UserRestURIConstants.getLanaguage(request));
+			ogType = WebServiceUtils.getPageTitle("workingholiday.sharing.og.type", UserRestURIConstants.getLanaguage(request));
+			ogUrl = WebServiceUtils.getPageTitle("workingholiday.sharing.og.url", UserRestURIConstants.getLanaguage(request));
+			ogImage = WebServiceUtils.getPageTitle("workingholiday.sharing.og.image", UserRestURIConstants.getLanaguage(request));
+			ogDescription = WebServiceUtils.getPageTitle("workingholiday.sharing.og.description", UserRestURIConstants.getLanaguage(request));
+			
+		}
+		
+		
+		/*String pageTitle = WebServiceUtils.getPageTitle("page.workingholiday", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholiday", UserRestURIConstants.getLanaguage(request));
 		String ogTitle = WebServiceUtils.getPageTitle("workingholiday.og.title", UserRestURIConstants.getLanaguage(request));
 		String ogType = WebServiceUtils.getPageTitle("workingholiday.og.type", UserRestURIConstants.getLanaguage(request));
 		String ogUrl = WebServiceUtils.getPageTitle("workingholiday.og.url", UserRestURIConstants.getLanaguage(request));
 		String ogImage = WebServiceUtils.getPageTitle("workingholiday.og.image", UserRestURIConstants.getLanaguage(request));
-		String ogDescription = WebServiceUtils.getPageTitle("workingholiday.og.description", UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle("workingholiday.og.description", UserRestURIConstants.getLanaguage(request));*/
+		
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		model.addAttribute("ogTitle", ogTitle);
@@ -112,6 +141,11 @@ public class WorkingHolidayController {
 		System.out.println("ADULT " + workingholidayQuote.getTotalAdultWorkingHolidayer());
 		System.out.println("CHILD " + workingholidayQuote.getTotalChildWorkingHolidayer());
 		System.out.println("OTHER " + workingholidayQuote.getTotalOtherWorkingHolidayer());
+		
+		
+		
+		System.out.println("LeavingDate " + workingholidayQuote.getTrLeavingDate());
+		System.out.println("BackDate " + workingholidayQuote.getTrBackDate());
 		
 		UserRestURIConstants.setController("Working");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -188,12 +222,8 @@ public class WorkingHolidayController {
 			System.out.print("------------------------------------------------------------");
 			
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
-					+ "&childInput=" + childCount + "&otherInput="
-					+ otherCount + "&commencementDate="
-					+ commencementDate + "&expiryDate=" + expiryDate
-					+ "&referralCode=" + (String) session.getAttribute("referralCode");
+			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
+					+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
 
 			System.out.println("Travel Quote user " + Url);
 
@@ -212,7 +242,7 @@ public class WorkingHolidayController {
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
-			System.out.println("Get Travel Quotes API " + responseJsonObj);
+			System.out.println("Get Working Holiday Quotes API " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
@@ -941,16 +971,16 @@ public class WorkingHolidayController {
 		int days = 0;
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
-		Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
-		Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
-		LocalDate commencementDate = new LocalDate(dateD1);
-		LocalDate expiryDate = new LocalDate(dateD2);
-		days = Days.daysBetween(commencementDate, expiryDate).getDays();
-		TravelQuoteBean travelQuoteCount = (TravelQuoteBean)session.getAttribute("workingholidayQuoteCount");
-		selfCover = travelQuoteCount.isSelfCover();
-		spouseCover = travelQuoteCount.isSpouseCover();
-		childCount = travelQuoteCount.getTotalChildTraveller();
-		otherCount = travelQuoteCount.getTotalOtherTraveller();
+		//Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
+		//Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
+		LocalDate commencementDate = new LocalDate(new Date());
+		//LocalDate expiryDate = new LocalDate(dateD2);
+		//days = Days.daysBetween(commencementDate, expiryDate).getDays();
+		WorkingHolidayQuoteBean workingholidayQuoteCount = (WorkingHolidayQuoteBean)session.getAttribute("workingholidayQuoteCount");
+		selfCover = workingholidayQuoteCount.isSelfCover();
+		spouseCover = workingholidayQuoteCount.isSpouseCover();
+		childCount = workingholidayQuoteCount.getTotalChildWorkingHolidayer();
+		otherCount = workingholidayQuoteCount.getTotalOtherWorkingHolidayer();
 		System.out.println("------------------------------------------------------------");
 		System.out.println("CALLING API");
 		System.out.println("SELF COVER " + selfCover);
@@ -961,11 +991,9 @@ public class WorkingHolidayController {
 		
 		try {
 			workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
-					+ "&childInput=" + childCount + "&otherInput=" + otherCount
-					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&referralCode=" + request.getParameter("promoCode");
+			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
+					+ "&commencementDate=" + commencementDate
+					+ "&referralCode=" + request.getParameter("promoCode");
 
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc"))
@@ -984,7 +1012,7 @@ public class WorkingHolidayController {
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
-			System.out.println("Response Get Travel Quotes API "
+			System.out.println("Response Get Working Holiday Quotes API "
 					+ responseJsonObj);
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");

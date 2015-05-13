@@ -26,7 +26,7 @@
   }
 
     function reset_submit()
-    {        
+    {
       if(document.getElementById("family_plan_desk").checked)
       {
     	  $('#txtworkingholidayersDesk').val(0);
@@ -38,7 +38,7 @@
         $('#txtChildDesk').val(0);
       }
       
-      var frm = document.getElementById("frmWorkingGetQuote");
+      var frm = document.getElementById("frmWorkingHolidayGetQuote");
       //alert("reset_submit");
       //frm.submit();
     }   
@@ -82,7 +82,7 @@ $(document).ready(function() {
   </div>
   <!--/.carousel--> 
 </section>
-<form name="frmWorkingGetQuote" id="frmWorkingGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();">
 <section id="middle" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
@@ -141,7 +141,7 @@ $(document).ready(function() {
                              <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtworkingholidayersDesk" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                              </span>
                   <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalPersonalWorkingHolidayer()}</div>
-                             <input type="hidden" name="totalPersonalworkingholidayer" id="txtworkingholidayersDesk" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
+                             <input type="hidden" name="totalPersonalWorkingHolidayer" id="txtworkingholidayersDesk" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
                              <span class="input-group-btn data-up ">
                              <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtworkingholidayersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                              </span> </div>
@@ -160,7 +160,7 @@ $(document).ready(function() {
                              <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                              </span>
                              <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalAdultWorkingHolidayer()}</div>
-                             <input type="hidden" name="totalAdultworkingholidayer" id="txtAdultsDesk" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
+                             <input type="hidden" name="totalAdultWorkingHolidayer" id="txtAdultsDesk" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
                              <span class="input-group-btn data-up ">
                              <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                              </span> </div>
@@ -174,7 +174,7 @@ $(document).ready(function() {
                              <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                              </span>
                              <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalChildWorkingHolidayer()}</div>
-                             <input type="hidden" name="totalChildworkingholidayer" id="txtChildDesk" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
+                             <input type="hidden" name="totalChildWorkingHolidayer" id="txtChildDesk" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
                              <span class="input-group-btn data-up ">
                              <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                              </span> </div>
@@ -188,7 +188,7 @@ $(document).ready(function() {
                              <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                              </span>
                              <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalOtherWorkingHolidayer()}</div>
-                             <input type="hidden" name="totalOtherworkingholidayer" id="txtOtherDesk" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
+                             <input type="hidden" name="totalOtherWorkingHolidayer" id="txtOtherDesk" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
                              <span class="input-group-btn data-up ">
                              <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                              </span> </div>
@@ -229,7 +229,7 @@ $(document).ready(function() {
 
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
-<form name="frmWorkingGetQuote" id="frmWorkingGetQuote" commandName="workingholidayQuote" action="getWorkingHolidayQuote" method="post" onsubmit="return flightValidateMobWorkingHoliday();">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="getWorkingHolidayQuote" method="post" onsubmit="return flightValidateMobWorkingHoliday();">
   <div class="form-container">
     <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /> </h4>
@@ -279,7 +279,7 @@ $(document).ready(function() {
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalPersonalWorkingHolidayer()}</div>
-              <input type="hidden" name="totalPersonalworkingholidayer" id="txtworkingholidayersMob" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
+              <input type="hidden" name="totalPersonalWorkingHolidayer" id="txtworkingholidayersMob" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtWorkingHolidaylersMob" data-parent="personal">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -304,7 +304,7 @@ $(document).ready(function() {
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalAdultWorkingHolidayer()}</div>
-              <input type="hidden" name="totalAdultworkingholidayer" id="txtAdultsMob" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
+              <input type="hidden" name="totalAdultWorkingHolidayer" id="txtAdultsMob" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -325,7 +325,7 @@ $(document).ready(function() {
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalChildWorkingHolidayer()}</div>
-              <input type="hidden" name="totalChildworkingholidayer" id="txtChildMob" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
+              <input type="hidden" name="totalChildWorkingHolidayer" id="txtChildMob" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -346,7 +346,7 @@ $(document).ready(function() {
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalOtherWorkingHolidayer()}</div>
-              <input type="hidden" name="totalOtherworkingholidayer" id="txtOtherMob" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
+              <input type="hidden" name="totalOtherWorkingHolidayer" id="txtOtherMob" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -728,7 +728,7 @@ $(document).ready(function() {
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-    <form name="frmWorkingGetQuote" id="frmWorkingGetQuote" commandName="workingholidayQuote" action="getworkingholidayQuote" method="post" onsubmit="return flightValidateBtmWorkingHoliday();">
+    <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/getWorkingHolidayQuote" method="post" onsubmit="return flightValidateBtmWorkingHoliday();">
       <div class="col-lg-12 col-md-12 pad-none">
         <h2><fmt:message key="workingholiday.main.quote.bottom.heading" bundle="${msg}" /></h2>
         <table class="table activation-form3">
@@ -789,7 +789,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtworkingholidayersBtm" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalPersonalWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalPersonalworkingholidayer" id="txtworkingholidayersBtm" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
+                            <input type="hidden" name="totalPersonalWorkingHolidayer" id="txtworkingholidayersBtm" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtworkingholidayersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -809,7 +809,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalAdultWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalAdultworkingholidayer" id="txtAdultsBtm" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
+                            <input type="hidden" name="totalAdultWorkingHolidayer" id="txtAdultsBtm" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -824,7 +824,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalChildWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalChildworkingholidayer" id="txtChildBtm" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
+                            <input type="hidden" name="totalChildWorkingHolidayer" id="txtChildBtm" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -839,7 +839,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalOtherWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalOtherworkingholidayer" id="txtOtherBtm" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
+                            <input type="hidden" name="totalOtherWorkingHolidayer" id="txtOtherBtm" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

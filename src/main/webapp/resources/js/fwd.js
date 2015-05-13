@@ -2863,10 +2863,10 @@ function flightValidateDeskWorkingHoliday()
 
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
-	document.getElementById("travelCountDeskIn").style.display = "none";
+	document.getElementById("workingholidayCountDeskIn").style.display = "none";
 	var startDate = document.getElementById("txtStartDateDesk").value;    
 	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;
+	var workingholidayers = document.getElementById("txtworkingholidayersDesk").value;
 	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
 
 	var nowTemp = new Date();
@@ -2897,14 +2897,14 @@ function flightValidateDeskWorkingHoliday()
 			flag = false;
 		}
 	}
-	if(travellers.trim()=="")
+	if(workingholidayers.trim()=="")
 	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
+		document.getElementById("workingholidayCountDeskIn").style.display = "block";
 		flag = false;
 	}
 	if(peopleCount.trim()==""||peopleCount=="0")
 	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
+		document.getElementById("workingholidayCountDeskIn").style.display = "block";
 		flag = false;
 	}
 	return flag;
@@ -2917,10 +2917,10 @@ function flightValidateBtmWorkingHoliday() {
 
 	document.getElementById("startDateBtmIn").innerHTML = "";
 	document.getElementById("endDateBtmIn").innerHTML = "";
-	$("#travelCountBtmIn").hide();
+	$("#workingholidayCountBtmIn").hide();
 	var startDate = document.getElementById("txtStartDateBtm").value;
 	var endDate = document.getElementById("txtEndDateBtm").value;
-	var travellers = document.getElementById("txtTravellersBtm").value;
+	var workingholidayers = document.getElementById("txtworkingholidayersBtm").value;
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
@@ -2952,13 +2952,13 @@ function flightValidateBtmWorkingHoliday() {
 			flag = false;
 		}
 	}
-	if (travellers.trim() == "") {
-		$("#travelCountBtmIn").show();
+	if (workingholidayers.trim() == "") {
+		$("#workingholidayCountBtmIn").show();
 		flag = false;
 	}
 	if(peopleCount.trim()==""||peopleCount=="0")
 	{
-		$("#travelCountBtmIn").show();
+		$("#workingholidayCountBtmIn").show();
 		flag = false;
 	}
 	return flag;

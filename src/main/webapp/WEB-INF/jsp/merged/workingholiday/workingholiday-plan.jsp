@@ -39,14 +39,13 @@ var promoData = '';
 		return flag;
 	}
 	function applyWorkingHolidayPromoCode() {
-		
 		$("#errPromoCode").html("");
 		
 		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
 			url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
-			data : $('#frmWorkingPlan input').serialize(),
+			data : $('#frmWorkingHolidayPlan input').serialize(),
 			success : function(data) {
 				
 				var json = JSON.parse(data);
@@ -110,7 +109,7 @@ var promoData = '';
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmWorkingPlan" id="frmWorkingPlan" action='${pageContext.request.contextPath}/${language}/workingholiday-insurance/user-details' method="post" modelAttribute="workingholidayQuote" onsubmit="return chkDueAmount();" >
+			<form:form name="frmWorkingHolidayPlan" id="frmWorkingHolidayPlan" action='${pageContext.request.contextPath}/${language}/workingholiday-insurance/user-details' method="post" modelAttribute="workingholidayQuote" onsubmit="return chkDueAmount();" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -1151,7 +1150,7 @@ var promoData = '';
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(parseFloat(selected_price).toFixed(2));
 		$('#plansummary').html(parseFloat(selected_price).toFixed(2));
-		$('#seletedplanname').html('<fmt:message key="workingholiday.summary.plan" bundle="${msg}" />'+' '+ planName + ' summary');
+		$('#seletedplanname').html('<fmt:message key="workingholiday.summary.plan" bundle="${msg}" />'+' '+ planName + ' ' + '<fmt:message key="workingholiday.summary" bundle="${msg}"/>');
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 
