@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
-<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
+<%@page import="com.ifwd.fwdhk.model.WorkingHolidayQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -31,21 +31,21 @@ var promoData = '';
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
-			document.getElementById("errDue").innerHTML = "<fmt:message key="working.plan.empty" bundle="${msg}" />";
+			document.getElementById("errDue").innerHTML = "<fmt:message key="workingholiday.plan.empty" bundle="${msg}" />";
 			flag = false;
 		} else
 			flag = true;
 
 		return flag;
 	}
-	function applyTravelPromoCode() {
+	function applyWorkingHolidayPromoCode() {
 		
 		$("#errPromoCode").html("");
 		
 		if(chkPromoCode())
 		$.ajax({
 			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyTravelPromoCode',
+			url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
 			data : $('#frmWorkingPlan input').serialize(),
 			success : function(data) {
 				
@@ -110,17 +110,17 @@ var promoData = '';
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmWorkingPlan" id="frmWorkingPlan" action='${pageContext.request.contextPath}/${language}/workingholiday-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
+			<form:form name="frmWorkingPlan" id="frmWorkingPlan" action='${pageContext.request.contextPath}/${language}/workingholiday-insurance/user-details' method="post" modelAttribute="workingholidayQuote" onsubmit="return chkDueAmount();" >
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="working.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="working.breadcrumb1.item2" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="working.breadcrumb1.item3" bundle="${msg}" /></li>
+					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a></li>
+					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
-							<h2><fmt:message key="working.quote.jumbo" bundle="${msg}" /></h2>
+							<h2><fmt:message key="workingholiday.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
 						<div class="col-lg-12 col-md-12">
@@ -136,22 +136,22 @@ var promoData = '';
 									</div>
 									<div
 										class="image-order-status image-order-status-new active img-circle act first">
-										<span class="status"><fmt:message key="working.breadcrumb2.item1" bundle="${msg}" /></span>
+										<span class="status"><fmt:message key="workingholiday.breadcrumb2.item1" bundle="${msg}" /></span>
 										<div class="icon">1</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-intransit  img-circle disabled second">
-										<span class="status"><fmt:message key="working.breadcrumb2.item2" bundle="${msg}" /></span>
+										<span class="status"><fmt:message key="workingholiday.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-delivered  img-circle disabled third">
-										<span class="status"><fmt:message key="working.breadcrumb2.item3" bundle="${msg}" /></span>
+										<span class="status"><fmt:message key="workingholiday.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
 										class="image-order-status image-order-status-completed  img-circle disabled fourth">
-										<span class="status lst-status"><fmt:message key="working.breadcrumb2.item4" bundle="${msg}" /></span>
+										<span class="status lst-status"><fmt:message key="workingholiday.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
 								</div>
@@ -161,61 +161,61 @@ var promoData = '';
 				</div>
 				<div class="container pad-none bdr">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
-						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="working.quote.choose" bundle="${msg}" /></h2>
+						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="workingholiday.quote.choose" bundle="${msg}" /></h2>
 						<%
-							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
+							QuoteDetails workingholidayQuote = (QuoteDetails) request.getAttribute("quoteDetails");
 						
-							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
-					    	if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
+							WorkingHolidayQuoteBean workingholidayQuoteBean = (WorkingHolidayQuoteBean)request.getAttribute("workingholidayQuote"); 
+					    	if(workingholidayQuote.getPlanSelected().equalsIgnoreCase("personal"))
 					    	{
-					    		travelQuoteBean.setTotalOtherTraveller(0);
+					    		workingholidayQuoteBean.setTotalOtherWorkingHolidayer(0);
 	
-							 		//System.out.println("travelQuote is not null");
-							 		//session.setAttribute("travelQuoteBean", travelQuoteBean);
+							 		//System.out.println("workingholidayQuote is not null");
+							 		//session.setAttribute("workingholidayQuoteBean", workingholidayQuoteBean);
 							
 					    	}
 					    	
-					    	if (travelQuote != null)
+					    	if (workingholidayQuote != null)
 						 	{
-					    	 	session.setAttribute("tq", travelQuote);
+					    	 	session.setAttribute("tq", workingholidayQuote);
 						 	}
 						
-								if (travelQuote.getPlanName().length > 0) {
-									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
+								if (workingholidayQuote.getPlanName().length > 0) {
+									for (int i = 0; i < workingholidayQuote.getPlanName().length; i++) {
 						%>
 						<div class="col-lg-12 col-md-12 plan-box3 workingholidaybox"
 							id="box<%=i%>"
-							onclick="changeColorAndPrice('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
+							onclick="changeColorAndPrice('box<%=i%>','<%=workingholidayQuote.getPlanName()[i]%>','<%=workingholidayQuote.getDiscountAmount()[i]%>','<%=workingholidayQuote.getToalDue()[i]%>')">
 							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
 								<h2>
-									<fmt:message key="working.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
-									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
-									{%>  <fmt:message key="working.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="working.quote.plan1.medical" bundle="${msg}" />
+									<fmt:message key="workingholiday.quote.plan" bundle="${msg}" /> <%=workingholidayQuote.getPlanName()[i]%>									
+									<br> <%if (workingholidayQuote.getPlanName()[i].equals("A"))
+									{%>  <fmt:message key="workingholiday.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="workingholiday.quote.plan1.medical" bundle="${msg}" />
 								<%}	else{ %>
-										<fmt:message key="working.quote.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="working.quote.plan2.medical" bundle="${msg}" />
+										<fmt:message key="workingholiday.quote.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="workingholiday.quote.plan2.medical" bundle="${msg}" />
 									<%} %>
 									
 								</h2>	
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
 								
-								<h3><fmt:message key="working.dollar" bundle="${msg}" /></h3>
+								<h3><fmt:message key="workingholiday.dollar" bundle="${msg}" /></h3>
 								<%
-										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
+										if (Double.parseDouble(workingholidayQuote.getDiscountAmount()[i]) == 0) {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></span>
-									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=workingholidayQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(workingholidayQuote.getGrossPremium()[i]))%></span>
+									<span class="hide"><%=workingholidayQuote.getGrossPremium()[i]%></span>
 								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
+								<span class="del actualPrice<%=workingholidayQuote.getPlanName()[i]%>"><del></del></span>
 									<%
 										} else {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></span>
-									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=workingholidayQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(workingholidayQuote.getToalDue()[i]))%></span>
+									<span class="hide"><%=workingholidayQuote.getGrossPremium()[i]%></span>
 								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del></span>
+								<span class="del actualPrice<%=workingholidayQuote.getPlanName()[i]%>"><del><%=String.format("%.2f",Double.parseDouble(workingholidayQuote.getGrossPremium()[i]))%></del></span>
 									<%
 										}
 									%>
@@ -234,15 +234,15 @@ var promoData = '';
 								<div class="fwdpanel-heading">
 									<h4 class=" benefits">
 									<%
-										String planBenefitKey = "working.quote.plan" + (i+1)+ ".benefits";
-										String planBenefitDesc1Key = "working.quote.plan" + (i+1)+ ".benefits.desc1";
-										String planBenefitDesc2Key = "working.quote.plan" + (i+1)+ ".benefits.desc2";
-										String planBenefitDesc3Key = "working.quote.plan" + (i+1)+ ".benefits.desc3";
-										String planBenefitDesc4Key = "working.quote.plan" + (i+1)+ ".benefits.desc4";
-										String planBenefitDesc1PriceKey = "working.quote.plan" + (i+1)+ ".benefits.desc1.price";
-										String planBenefitDesc2PriceKey = "working.quote.plan" + (i+1)+ ".benefits.desc2.price";
-										String planBenefitDesc3PriceKey = "working.quote.plan" + (i+1)+ ".benefits.desc3.price";
-										String planBenefitDesc4PriceKey = "working.quote.plan" + (i+1)+ ".benefits.desc4.price";
+										String planBenefitKey = "workingholiday.quote.plan" + (i+1)+ ".benefits";
+										String planBenefitDesc1Key = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc1";
+										String planBenefitDesc2Key = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc2";
+										String planBenefitDesc3Key = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc3";
+										String planBenefitDesc4Key = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc4";
+										String planBenefitDesc1PriceKey = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc1.price";
+										String planBenefitDesc2PriceKey = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc2.price";
+										String planBenefitDesc3PriceKey = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc3.price";
+										String planBenefitDesc4PriceKey = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc4.price";
 									%>
 										<span><i
 												class="fa fa-plus"></i> <a href="#"
@@ -292,15 +292,15 @@ var promoData = '';
 						</div>
 
 						<input type="hidden" name="txtTotalDue"
-							value="<%=travelQuote.getToalDue()[i]%>"> <input
+							value="<%=workingholidayQuote.getToalDue()[i]%>"> <input
 							type="hidden" name="txtGrossPremium"
-							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
+							value="<%=workingholidayQuote.getGrossPremium()[i]%>"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount"
-							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
+							value="<%=workingholidayQuote.getDiscountAmount()[i]%>"> <input
 							type="hidden" name="referralCode"
-							value="<%=travelQuote.getReferralCode()%>"> <input
+							value="<%=workingholidayQuote.getReferralCode()%>"> <input
 							type="hidden" name="referralName"
-							value="<%=travelQuote.getReferralName()%>">
+							value="<%=workingholidayQuote.getReferralName()%>">
 						<%
 							}
 						%>
@@ -313,7 +313,7 @@ var promoData = '';
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
 									<span><i
-											class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="working.quote.fullDetails.heading" bundle="${msg}" /></a> </span>
+											class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.heading" bundle="${msg}" /></a> </span>
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
@@ -324,34 +324,34 @@ var promoData = '';
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full ">
 													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="working.quote.fullDetails.keyFeature1" bundle="${msg}" /></a> </span>
+															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.keyFeature1" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
-												<p><fmt:message key="working.quote.fullDetails.keyFeature1.subheading" bundle="${msg}" /></p>
+												<p><fmt:message key="workingholiday.quote.fullDetails.keyFeature1.subheading" bundle="${msg}" /></p>
 												<br>
 												<p>
 													<ul class="text-justify">
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc1" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc1" bundle="${msg}" />
 														</li>
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc2" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc2" bundle="${msg}" />
 														</li>
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc3" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc3" bundle="${msg}" />
 														</li>
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc4" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc4" bundle="${msg}" />
 														</li>
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc5" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc5" bundle="${msg}" />
 														</li>
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc6" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc6" bundle="${msg}" />
 														</li>
 														<li>
-															<fmt:message key="working.quote.fullDetails.keyFeature1.desc7" bundle="${msg}" />
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc7" bundle="${msg}" />
 														</li>
 													</ul>
 												</p>
@@ -364,185 +364,185 @@ var promoData = '';
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="working.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
+															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 												<table id="summary" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td rowspan="2"><fmt:message key="working.quote.fullDetails.table.header1" bundle="${msg}" /></td>
-															<td rowspan="2"><fmt:message key="working.quote.fullDetails.table.header2" bundle="${msg}" /></td>
-															<td colspan="2"><fmt:message key="working.quote.fullDetails.table.header3" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.header1" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.header2" bundle="${msg}" /></td>
+															<td colspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.header3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.header3.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.header3.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.header3.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.header3.col2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row1.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row1.col2.desc1" bundle="${msg}" /> <br/><br/>
-																<fmt:message key="working.quote.fullDetails.table.row1.col2.desc2" bundle="${msg}" />
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row1.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row1.col2.desc1" bundle="${msg}" /> <br/><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row1.col2.desc2" bundle="${msg}" />
 															</td>
-															<td><fmt:message key="working.quote.fullDetails.table.row1.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row1.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row1.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row1.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2"><fmt:message key="working.quote.fullDetails.table.row2.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row2.col2.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row2.col3.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row2.col4.desc1" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.row2.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row2.col2.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row2.col3.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row2.col4.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="9"><fmt:message key="working.quote.fullDetails.table.row3.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc1" bundle="${msg}" /></td>
+															<td rowspan="9"><fmt:message key="workingholiday.quote.fullDetails.table.row3.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc4" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc4" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc5" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc5" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc5" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc5" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc5" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc5" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc6" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc6" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc6" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc6" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc6" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc6" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc7" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc7" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc7" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc7" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc7" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc7" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc8" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc8" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc8" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc8" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc8" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc8" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col2.desc9" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col3.desc9" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row3.col4.desc9" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc9" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc9" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc9" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="3"><fmt:message key="working.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="working.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col3.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" /></td>
+															<td rowspan="3"><fmt:message key="workingholiday.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="working.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
 															</td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col3.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col4.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/> 
-																<fmt:message key="working.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/> 
+																<fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
 															</td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col3.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row4.col4.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4.desc3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row5.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row5.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row5.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row5.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row6.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row6.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row6.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row6.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row6.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row6.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row6.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row6.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row7.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row7.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row7.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row7.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row8.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row8.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row8.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row8.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="3"><fmt:message key="working.quote.fullDetails.table.row9.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col2.desc1.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="working.quote.fullDetails.table.row9.col2.desc1.content" bundle="${msg}" />
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col3.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col4.desc1" bundle="${msg}" /></td>
+															<td rowspan="3"><fmt:message key="workingholiday.quote.fullDetails.table.row9.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc1.subheading" bundle="${msg}" /><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc1.content" bundle="${msg}" />
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col3.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col4.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col2.desc2.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="working.quote.fullDetails.table.row9.col2.desc2.content" bundle="${msg}" />
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc2.subheading" bundle="${msg}" /><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc2.content" bundle="${msg}" />
 															</td>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col3.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col4.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col3.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col4.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col2.desc3.subheading" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col3.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row9.col4.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc3.subheading" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col3.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col4.desc3" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row10.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row10.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row10.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row10.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row11.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row11.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row11.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row11.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row12.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row12.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row12.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row12.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row13.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row13.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row13.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row13.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row14.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row14.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row14.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row14.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.table.row15.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row15.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row15.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.table.row15.col4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col4" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -554,21 +554,21 @@ var promoData = '';
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="working.quote.fullDetails.majorExclusion" bundle="${msg}" /></a> </span>
+															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.majorExclusion" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 												<ol class="text-justify">
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc1" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc2" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc3" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc4" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc5" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc6" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc7" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc8" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc9" bundle="${msg}" /></li>
-													<li><fmt:message key="working.quote.fullDetails.majorExclusion.desc10" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc1" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc2" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc3" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc4" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc5" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc6" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc7" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc8" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc9" bundle="${msg}" /></li>
+													<li><fmt:message key="workingholiday.quote.fullDetails.majorExclusion.desc10" bundle="${msg}" /></li>
 												</ol>
 											</div>
 										</div>
@@ -578,12 +578,12 @@ var promoData = '';
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
-															class="fa fa-plus"></i>  <a href="#" class="fwdpanel-minimize"><fmt:message key="working.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
+															class="fa fa-plus"></i>  <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
-												<p><fmt:message key="working.quote.fullDetails.ageLimit.desc1" bundle="${msg}" /><br/>
-													<fmt:message key="working.quote.fullDetails.ageLimit.desc2" bundle="${msg}" />
+												<p><fmt:message key="workingholiday.quote.fullDetails.ageLimit.desc1" bundle="${msg}" /><br/>
+													<fmt:message key="workingholiday.quote.fullDetails.ageLimit.desc2" bundle="${msg}" />
 												</p>
 											</div>
 										</div>
@@ -593,28 +593,28 @@ var promoData = '';
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
 													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="working.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
+															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
 												<h4 class="h4-2">
-													<strong><fmt:message key="working.quote.fullDetails.priceTable.single.heading" bundle="${msg}" /></strong>
+													<strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.heading" bundle="${msg}" /></strong>
 												</h4>
 												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td rowspan="2"><strong><fmt:message key="working.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></strong></td>
-															<td colspan="2"><strong><fmt:message key="working.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></strong></td>
-															<td colspan="2"><strong><fmt:message key="working.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></strong></td>
-															<td colspan="2"><strong><fmt:message key="working.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></strong></td>
+															<td rowspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></strong></td>
+															<td colspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></strong></td>
+															<td colspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></strong></td>
+															<td colspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></strong></td>
 														</tr>
 														<tr>
-															<td width="101"><strong><fmt:message key="working.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-															<td width="86"><strong><fmt:message key="working.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-															<td width="84"><strong><fmt:message key="working.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-															<td width="81"><strong><fmt:message key="working.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-															<td width="93"><strong><fmt:message key="working.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-															<td width="88"><strong><fmt:message key="working.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
+															<td width="101"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
+															<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
+															<td width="84"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
+															<td width="81"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
+															<td width="93"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
+															<td width="88"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
 														</tr>
 														<tr>
 															<td>1</td>
@@ -896,7 +896,7 @@ var promoData = '';
 															<td>1193</td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.priceTable.dayLimit" bundle="${msg}" />
+															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.dayLimit" bundle="${msg}" />
 															<td>20</td>
 															<td>12</td>
 															<td>35</td>
@@ -907,39 +907,39 @@ var promoData = '';
 													</tbody>
 												</table>
 												<h4 class="h4-2">
-													<strong><fmt:message key="working.quote.fullDetails.priceTable.annual.heading" bundle="${msg}" /></strong>
+													<strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.heading" bundle="${msg}" /></strong>
 												</h4>
 												<table id="annual" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td width="208" rowspan="4"><strong><fmt:message key="working.quote.fullDetails.priceTable.annual.header1" bundle="${msg}" /></strong></td>
-															<td colspan="2" rowspan="2"><fmt:message key="working.quote.fullDetails.priceTable.annual.header2" bundle="${msg}" /></td>
-															<td width="108"><fmt:message key="working.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
+															<td width="208" rowspan="4"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.header1" bundle="${msg}" /></strong></td>
+															<td colspan="2" rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.header2" bundle="${msg}" /></td>
+															<td width="108"><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
 															<td width="36">1,800</td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
 															<td>1,300</td>
 														</tr>
 														<tr>
-															<td colspan="2" rowspan="2"><fmt:message key="working.quote.fullDetails.priceTable.annual.header3" bundle="${msg}" /></td>
-															<td><fmt:message key="working.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
+															<td colspan="2" rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.header3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
 															<td>3,600</td>
 														</tr>
 														<tr>
-															<td><fmt:message key="working.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
 															<td>2,600</td>
 														</tr>
 													</tbody>
 												</table>
 												<br>
 												<h4 class="h4-2">
-													<strong><fmt:message key="working.quote.fullDetails.priceTable.remark" bundle="${msg}" /></strong>
+													<strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.remark" bundle="${msg}" /></strong>
 												</h4>
-												<p><fmt:message key="working.quote.fullDetails.priceTable.remark.desc1" bundle="${msg}" /><br/>
-													<fmt:message key="working.quote.fullDetails.priceTable.remark.desc2" bundle="${msg}" /><br/>
-													<fmt:message key="working.quote.fullDetails.priceTable.remark.desc3" bundle="${msg}" /><br/>
-													<fmt:message key="working.quote.fullDetails.priceTable.remark.desc4" bundle="${msg}" />
+												<p><fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc1" bundle="${msg}" /><br/>
+													<fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc2" bundle="${msg}" /><br/>
+													<fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc3" bundle="${msg}" /><br/>
+													<fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc4" bundle="${msg}" />
 												</p>
 											</div>
 										</div>
@@ -951,8 +951,8 @@ var promoData = '';
 							</div>
 							<h4 class="h4-4">
 								<i class="fa fa-download"></i> <a
-									href="<fmt:message key="working.brochure.link" bundle="${msg}" />"
-									target="_blank"><fmt:message key="working.quote.fullDetails.download" bundle="${msg}" /></a>
+									href="<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />"
+									target="_blank"><fmt:message key="workingholiday.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
 						</div>
 					</div>
@@ -962,7 +962,7 @@ var promoData = '';
 						<div class="col-xs-12 hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left">
-									<h2 class="h2-3-choose"><fmt:message key="working.sidebar.summary.product" bundle="${msg}" /></h2>
+									<h2 class="h2-3-choose"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
 									<h4 id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
@@ -972,7 +972,7 @@ var promoData = '';
 								<div class="pull-right">
 									<div class="text-left pad-right1 h2-2 h2">
 										<div class="hk">
-											<fmt:message key="working.dollar" bundle="${msg}" />
+											<fmt:message key="workingholiday.dollar" bundle="${msg}" />
 											<div style="font-weight: bold;" class="flightcare-hk" id="plansummary">0</div>
 											<input type="hidden" name="txtgrossPremiumAmt"
 												id="txtgrossPremiumAmt" value="">
@@ -986,17 +986,17 @@ var promoData = '';
 							<!--  //removed the leaving day and return day  -->
 						</div>
 						<div class="col-xs-12">
-							<h3><fmt:message key="working.sidebar.summary.promocode" bundle="${msg}" /></h3>
+							<h3><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
 						
 							<span class="text-red" id="errPromoCode"></span>
 							
 							<div id="promo-wrap" class="form-group">
                                 <div class="input-group" style="border: 0;">
                                     <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
-                                        class="form-control" placeholder="<fmt:message key="working.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+                                        class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
                                         <span
                                         class="input-group-addon in black-bold pointer"
-                                        onclick="applyTravelPromoCode()"><span><fmt:message key="working.action.apply" bundle="${msg}" /></span></span>
+                                        onclick="applyWorkingHolidayPromoCode()"><span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span></span>
                                 </div>
                             </div>
 							
@@ -1005,10 +1005,10 @@ var promoData = '';
 							<div class="form-group">
 								<div class="input-group">
 									<input type="text" id="promoCode" name="promoCode"
-										class="form-control" placeholder="<fmt:message key="working.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+										class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 								</div>
-								<span style="color:black;  font-weight: bold; font-size:20px;" class="pointer" onclick="applyTravelPromoCode()">
-                                  <span><fmt:message key="working.action.apply" bundle="${msg}" /></span>
+								<span style="color:black;  font-weight: bold; font-size:20px;" class="pointer" onclick="applyworkingholidayPromoCode()">
+                                  <span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span>
                                 </span>
 							</div>
 							 -->
@@ -1016,21 +1016,21 @@ var promoData = '';
 							
 							<div class="working-italic">
 								<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i><fmt:message key="working.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
+										data-target=".bs-promo-modal-lg"><i><fmt:message key="workingholiday.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 							</div>
 						
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="working.sidebar.summary.subtotal" bundle="${msg}" /></h3>
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /></h3>
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="subtotal"></h3>
 						<input type="hidden" name="subTotal" id="subTotal" value="540">
-						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="working.sidebar.summary.discount" bundle="${msg}" /></h3>
+						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="workingholiday.sidebar.summary.discount" bundle="${msg}" /></h3>
 						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="discountAmt">-</h3>
 						<input type="hidden" name="selectedDiscountAmt"
 							id="selectedDiscountAmt" value="">
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="working.sidebar.summary.amountDue" bundle="${msg}" /></h3>
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="workingholiday.sidebar.summary.amountDue" bundle="${msg}" /></h3>
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
 							id="amountdue">0</h3>
 						<input type="hidden" name="selectedAmountDue"
@@ -1041,11 +1041,11 @@ var promoData = '';
 							
 						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 							<a href="<%=request.getContextPath()%>/workingholiday-insurance"
-								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="working.action.back" bundle="${msg}" /> </a>
+								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<button type="submit" class="bdr-curve btn btn-primary btn-next">
-								<fmt:message key="working.action.next" bundle="${msg}" /></button>
+								<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>
 						<br> <span class="text-red" id="errDue"></span> <br>
@@ -1054,13 +1054,13 @@ var promoData = '';
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
-			value="<%=travelQuote.getPlanSelected()%>">
+			value="<%=workingholidayQuote.getPlanSelected()%>">
 		<p class="padding1 hidden-sm hidden-xs">
-			<fmt:message key="working.main.other.disclaimer.part1" bundle="${msg}" />
+			<fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
-				href="<%=request.getContextPath()%>/<fmt:message key="working.provision.link" bundle="${msg}" />"
-				target="_blank"><fmt:message key="working.main.other.disclaimer.part2" bundle="${msg}" /></a>
-				<fmt:message key="working.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="working.main.other.disclaimer.part4" bundle="${msg}" />
+				href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />"
+				target="_blank"><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a>
+				<fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
 
 		</form:form>
@@ -1151,7 +1151,7 @@ var promoData = '';
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(parseFloat(selected_price).toFixed(2));
 		$('#plansummary').html(parseFloat(selected_price).toFixed(2));
-		$('#seletedplanname').html('<fmt:message key="working.summary.plan" bundle="${msg}" />'+planName);
+		$('#seletedplanname').html('<fmt:message key="workingholiday.summary.plan" bundle="${msg}" />'+' '+ planName + ' summary');
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 
