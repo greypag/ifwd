@@ -16,11 +16,26 @@
   // personal
   var personalTraveller = parseInt("${planDetails.getTotalPersonalTraveller()}");
   // family
-  var familyAdult = "${planDetails.getTotalAdultTraveller()}";
-  var familyChild = "${planDetails.getTotalChildTraveller()}";
-  var familyOther = "${planDetails.getTotalOtherTraveller()}";  
+  var familyAdult = parseInt("${planDetails.getTotalAdultTraveller()}");
+  var familyChild = parseInt("${planDetails.getTotalChildTraveller()}");
+  var familyOther = parseInt("${planDetails.getTotalOtherTraveller()}");
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
  
+//bmg inline variable
+  var updateQuoteFlag = true;
+  var tempPersonalTraveller = personalTraveller;
+  var tempAdultTraveller = familyAdult;
+  var tempChildTraveller = familyChild;
+  var tempOtherTraveller = familyOther;
+
+  var tempTotalTraveller = 0;
+  if(personalTraveller>familyTraveller){
+      tempTotalTraveller=personalTraveller;
+  }else{
+      tempTotalTraveller=familyTraveller;
+  }
+  //bmg inline variable
+  
   $(document).ready(function() {
 		 // update quote area to show headcounts
 	    if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
@@ -51,17 +66,31 @@
     });
   
   function updateFlightQuote() {
-      $.ajax({
-          type : 'POST',
-          url : '<%=request.getContextPath()%>/updateFlightQuote',
-          data : $('#frmFlightPlan input').serialize(),
-          success : function(data) {
-              
-              var json = JSON.parse(data);
-              promoData = json;
-              $("#totalTravellingDaysSpan").html(json.totalDays);
-          }
-      });
+	  if(updateQuoteFlag){
+          updateQuoteFlag = false;
+          
+          $('#lblCountDesk').html(tempTotalTraveller);
+          $("#totalPersonalTraveller").val(tempPersonalTraveller);
+          $("#totalAdultTraveller").val(tempAdultTraveller);
+          $("#totalChildTraveller").val(tempChildTraveller);
+          $("#totalOtherTraveller").val(tempOtherTraveller);
+          
+          $('#myFWDropdown').toggleClass('open');
+          
+	      $.ajax({
+	          type : 'POST',
+	          url : '<%=request.getContextPath()%>/updateFlightQuote',
+	          data : $('#frmFlightPlan input').serialize(),
+	          success : function(data) {
+	        	  updateQuoteFlag = true;
+	        	  
+	              var json = JSON.parse(data);
+	              promoData = json;
+	              $("#totalTravellingDays").val(json.totalDays);
+	              $("#totalTravellingDaysSpan").html(json.totalDays);
+	          }
+	      });
+	  }
   }
 </script>
 <%
@@ -294,32 +323,32 @@
                                 <div class="drop-content">
                                   <div class="col-lg-6">
                                     <label class="radio radio-warning radio-inline">
-                                      <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan flight-inline-plan" value="personal"  <%=PersonalPlanChecked%> >
-                                      <label for="personal_plan_desk"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
+                                      <input type="radio" name="planSelected" id="personal_plan_inline" data-id="desk" class="plan flight-inline-plan" value="personal"  <%=PersonalPlanChecked%> >
+                                      <label for="personal_plan_inline"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
                                      </label> 
                                   </div>
                                   <div class="col-lg-6">
                                    <label class="radio radio-warning radio-inline">
-                                      <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan flight-inline-plan" value="family" <%=FamilyPlanChecked %>>
-                                      <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /> </label>
+                                      <input type="radio" name="planSelected" id="family_plan_inline" data-id="desk" class="plan flight-inline-plan" value="family" <%=FamilyPlanChecked %>>
+                                      <label for="family_plan_inline"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /> </label>
                                       </label>
                                   </div>
                                   <div class="clearfix"></div>
                                   <hr>
                                   <!-- start of personal plan desk spinner-->
                                   <input type="hidden" name="" id="family_desk_count" value="${planDetails.getTotalFamilyTravellers()}">
-                                  <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
+                                  <div class="plan_spinner_desk" id="personal_plan_inline_spinner" <%=personalSpinnerStyle%>>
                                     <div class="col-lg-6">
                                       <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /> </h4>
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtTravellersInline" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                                         </span>
                                         <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
-                                        <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTotalPersonalTraveller()}"/>
+                                        <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersInline" value="${planDetails.getTotalPersonalTraveller()}"/>
                                         <span class="input-group-btn data-up ">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtTravellersInline" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                                         </span> </div>
                                     </div>
                                   </div>
@@ -327,18 +356,18 @@
                                   <div class="clearfix"></div>
                                   
                                   <!-- start of family plan desk spinner-->
-                                  <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
+                                  <div class="plan_spinner_desk" id="family_plan_inline_spinner" <%=familySpinnerStyle%>>
                                     <div class="col-lg-6">
                                       <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /> </h4>
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtAdultsInline" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                         </span>
                                         <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalAdultTraveller()}</div>
-                          <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
+                          <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
                                         <span class="input-group-btn data-up ">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtAdultsInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                         </span> </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -347,12 +376,12 @@
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtChildInline" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                         </span>
                                         <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
-                          <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
+                          <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
                                         <span class="input-group-btn data-up ">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtChildInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                         </span> </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -361,12 +390,12 @@
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number flight-inline-btn-number" data-type="minus" data-field="txtOtherInline" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                         </span>
                                         <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalOtherTraveller()}</div>
-                                        <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
+                                        <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
                                         <span class="input-group-btn data-up ">
-                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                        <button class="btn btn-default btn-info drop-down-bg btn-new btn-number flight-inline-btn-number" data-type="plus" data-field="txtOtherInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                         </span> </div>
                                     </div>
                                     <div class="col-lg-12 child-notes">
@@ -375,7 +404,15 @@
                                   </div>
                                   
                                   <!-- start of family plan bottom spinner-->
-                                  
+                                  <div class="clearfix"></div>
+                           
+		                           <!-- bmg confirm button -->
+		                           <hr>
+		                           
+		                           <div class="col-lg-6 col-md-6">
+		                                <div class="bdr-curve btn btn-primary btn-next" onclick="updateFlightQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
+		                           </div>
+		                           <!-- bmg confirm button -->
                                   <div class="clearfix"></div>
                                 </div>
                               </div>
