@@ -36,8 +36,9 @@ import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.WorkingHolidayDetailsBean;
+import com.ifwd.fwdhk.model.WorkingHolidayQuoteDetails;
 import com.ifwd.fwdhk.util.DateApi;
-import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -302,9 +303,8 @@ public class WorkingHolidayController {
 		System.out.println("Seeeeeee" + selectPlanName);
 
 		//Holiday
-		String whLeavingDate = WebServiceUtils.getParameterValue("whLeavingDate", session, request);
-		String whBackDate = WebServiceUtils.getParameterValue("whBackDate", session, request);
-		String WorkingHolidayQuoteDetails = WebServiceUtils.getParameterValue("WorkingHolidayQuoteDetails", session, request);
+		WorkingHolidayQuoteDetails whQuote = (WorkingHolidayQuoteDetails)request.getAttribute("workingHolidayQuoteDetails");
+		
 		
 		//Holiday
 		
@@ -339,10 +339,9 @@ public class WorkingHolidayController {
 			travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller() + travelQuote.getTotalPersonalTraveller());
 			request.getSession().setAttribute("departureDate", travelQuote.getTrLeavingDate());
 			request.getSession().setAttribute("returnDate", travelQuote.getTrBackDate());
+			
 			String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
-
 			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc"))
 				lang = "CN";
