@@ -83,7 +83,7 @@
 
 <!--/#main-Content-->
 <section>
-	<div class="container">
+	<div id="cn" class="container">
 		<div class="row">
 			<form name="frmFlightPlan" id="frmFlightPlan" action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post" onsubmit="return flightValidateDesk()">
 				<!-- <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveller" value="${planDetails.getTotalAdultTraveller()}"> --> 
@@ -414,7 +414,7 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary btn-next " Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+								class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 						</div>
 
 
@@ -448,9 +448,9 @@
 
 <!--mob-#bottom-->
 <div class="hidden-lg hidden-md text-center">
-	<div class="btn-box">
+	<div class="form-container">
 		<h3 class="text-center marg-t">
-			<a href="<%=request.getContextPath()%>/${language}/flight-insurance/user-details"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
+			<a href="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" class="bdr-curve-none btn btn-primary btn-lg btn-block"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
 		</h3>
 	</div>
 

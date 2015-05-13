@@ -6,6 +6,8 @@ var mobile_pattern = /^1[0-9]{10}$|^[5689][0-9]{7}$/;   /* /^\d{8}$/; */
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
 var passport_pattern = /^[a-zA-Z0-9]{5,15}$/;
+
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
  
 	
 var getBundleLanguage = "";
@@ -76,32 +78,33 @@ function IsHKID(str) {
 $(function () {
 	
     /* scrolling code starts */
-    var floatingbox = $('.floatingbox');
-    
-    if (floatingbox[0]){
-    	var floatingboxY = floatingbox.offset().top,
-        wrapboxY = $("#quote-wrap").offset().top;
-        var topMargin = 40;
-        
-        $(window).on('scroll', function(event) {
-        	if ($("#quote-wrap").height() > $(".floatingbox").height()){
-        		var scrollTop = $(window).scrollTop();
-        		var wrapboxRY = wrapboxY+$("#quote-wrap").height();
-        		var floatingboxRY = scrollTop+$(".floatingbox").height()+topMargin;
+	if (!isMobile){
+		var floatingbox = $('.floatingbox');
+	    
+	    if (floatingbox[0]){
+	    	var floatingboxY = floatingbox.offset().top,
+	        wrapboxY = $("#quote-wrap").offset().top;
+	        var topMargin = 40;
+	        
+	        $(window).on('scroll', function(event) {
+	        	if ($("#quote-wrap").height() > $(".floatingbox").height()){
+	        		var scrollTop = $(window).scrollTop();
+	        		var wrapboxRY = wrapboxY+$("#quote-wrap").height();
+	        		var floatingboxRY = scrollTop+$(".floatingbox").height()+topMargin;
 
-        		if (wrapboxRY > floatingboxRY){
-        			floatingbox.stop(false).animate({
-                        top: scrollTop < floatingboxY ? 0 : scrollTop - floatingboxY + topMargin
-                    }, 100);
-        		}else{
-        			if (floatingboxRY > wrapboxRY){
-                        floatingbox.css("top", $("#quote-wrap").height()-$(".floatingbox").height())
-                    }
-        		}
-        	}
-        });
-    }
-
+	        		if (wrapboxRY > floatingboxRY){
+	        			floatingbox.stop(false).animate({
+	                        top: scrollTop < floatingboxY ? 0 : scrollTop - floatingboxY + topMargin
+	                    }, 100);
+	        		}else{
+	        			if (floatingboxRY > wrapboxRY){
+	                        floatingbox.css("top", $("#quote-wrap").height()-$(".floatingbox").height())
+	                    }
+	        		}
+	        	}
+	        });
+	    }
+	}
     /* scrolling code ends */
     
 	chin = $('body').hasClass('chin');
@@ -468,13 +471,16 @@ $(function () {
 	//================================================================================================================================ end fight page detail datepicker
 	//================================================================================================================================
 	
+	// 18 year ago date
+	var dob_date = new Date();
+	dob_date.setFullYear(dob_date.getFullYear()-18);
 	
 	// birthday datepicker
 	$('#input_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
 		format: "dd MM yyyy",
-		endDate: new Date()
+		endDate: dob_date
 		/*language: getBundleLanguage*/
 	});
 	

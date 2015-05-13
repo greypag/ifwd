@@ -427,7 +427,7 @@ $(document).ready(function() {
        <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </small>
     </div>
   </div>
-  <div class="btn-box">
+  <div class="form-container">
     <h3 class="text-center"> 
   <button type="submit"  class="bdr-curve-none btn btn-primary btn-lg btn-block "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
   </h3> 

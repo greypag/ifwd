@@ -42,7 +42,7 @@ Others   : ${planDetailsForm.getTotalOtherTraveller()} 		<br>
 
 <!--/#main-Content-->
 <section>
-    <div class="container">
+    <div id="cn" class="container">
         <div class="row">
             <%-- <form:form name="freeFlight" method="post"
 action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
@@ -129,8 +129,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         </h3>
 
                         <a href="#"
-                            class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-                            data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message
+                            class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4 login-btn"
+                            data-toggle="modal" data-target="#loginpopup"><fmt:message
                                 key="flight.details.login.action" bundle="${msg}" /></a>
 
 
@@ -174,7 +174,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     <td valign="middle" class="">
                                     
                                         <label for="inputEmail3"
-                                        class="control-label bold-500"><fmt:message
+                                        class="bold-500"><fmt:message
                                                 key="flight.details.applicant.hkid" bundle="${msg}" /></label>
                                     
                                         <%-- <div class="styled-select custom-select-label">
@@ -1142,7 +1142,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 
                             <input type="submit"
-                                class="bdr-curve-none btn btn-primary btn-next "
+                                class="bdr-curve-none btn btn-primary nxt-btn"
                                 value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
                             <!-- <button class="bdr-curve-none btn btn-primary nxt-btn "
 onclick="return flightPlanValidation();">Next</button> -->

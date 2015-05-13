@@ -872,6 +872,18 @@
 						<!-- vincent add a button for paymnet confirmation (mobile) -->	
 						
 						
+						<div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn">
+                                    <fmt:message key="travel.action.back" bundle="${msg}" /> 
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+                                <input type="submit"
+                                    class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="travel.action.payment" bundle="${msg}" />" />
+                            </div>
+                        </div>
+						
 						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 								<a href="#" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn">返� </a>
@@ -883,7 +895,7 @@
 								
 
 							</div> -->
-							
+							<!-- 
 							<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
@@ -891,7 +903,8 @@
 								class="bdr-curve btn btn-primary nxt-btn margin-left" 
 								value="<fmt:message key="travel.action.payment" bundle="${msg}" />">
 								
-						</div>
+						      </div>
+						      
 						<br> <br>
 						<div class="row hidden-md hidden-lg">
 							<div class="clearfix"></div>
@@ -910,7 +923,7 @@
 							</div>
 							<div class="clearfix"></div>
 						</div>
-							
+							 -->
 							
 							
 													
