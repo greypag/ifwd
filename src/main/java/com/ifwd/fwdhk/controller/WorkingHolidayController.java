@@ -443,69 +443,53 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked"})
-	@RequestMapping(value = {"/{lang}/prepareUserSummary", "/{lang}/workingholiday-insurance/workingholiday-summary"})
-	public ModelAndView prepareSummary(
-			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
-			BindingResult result, Model model, HttpServletRequest request) {
+	@SuppressWarnings({ "unchecked" })
+	@RequestMapping(value = { "/{lang}/prepareUserSummary", "/{lang}/workingholiday-insurance/workingholiday-summary" })
+	public ModelAndView prepareSummary(@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm, BindingResult result, Model model,
+			HttpServletRequest request) {
 		String hkId = "hkId", passId = "passport";
 		HttpSession session = request.getSession();
 		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		String planSelected = (String) session.getAttribute("planSelected");
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			return getWorkingHolidayHomePage((String)session.getAttribute("referralCode"), request, model);	
+			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
 		}
-		if(travelQuote == null || planSelected == null){
-			//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);				
-			return getWorkingHolidayHomePage((String)session.getAttribute("referralCode"), request, model);		
+		if (travelQuote == null || planSelected == null) {
+			// return
+			// getTravelHomePage((String)session.getAttribute("referralCode"),
+			// request, model);
+			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
 		}
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		 
-		
+
 		UserDetails userDetails = new UserDetails();
 		DateApi dateApi = new DateApi();
 
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",
-				session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectedPlanName", session, request);
-		;
+		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 
-		System.out.println("inside Controller fro prepare Summary"
-				+ selectPlanName);
+		System.out.println("inside Controller fro prepare Summary" + selectPlanName);
 
-		String deaprtureDate = dateApi.pickDate((String) session
-				.getAttribute("departureDate"));
-		String returnDate = dateApi.pickDate((String) session
-				.getAttribute("returnDate"));
+		String deaprtureDate = dateApi.pickDate((String) session.getAttribute("departureDate"));
+		String returnDate = dateApi.pickDate((String) session.getAttribute("returnDate"));
 
-		String applicantFullName = WebServiceUtils.getParameterValue(
-				"fullName", session, request);
-		String applicantHKID = WebServiceUtils.getParameterValue("hkid",
-				session, request);
-		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo",
-				session, request);
-		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",
-				session, request);
-		String totalTravallingDays = WebServiceUtils.getParameterValue(
-				"totalTrDays", session, request);
-		String totalTravallers = WebServiceUtils.getParameterValue(
-				"totalTravallingDays", session, request);
+		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
+		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
+		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
+		String totalTravallingDays = WebServiceUtils.getParameterValue("totalTrDays", session, request);
+		String totalTravallers = WebServiceUtils.getParameterValue("totalTravallingDays", session, request);
 		/* System.out.println("applicantHKID=="+applicantHKID); */
-		String strChildCount = WebServiceUtils.getParameterValue(
-				"totalChildTraveller", session, request);
-		String strAdultCount = WebServiceUtils.getParameterValue(
-				"totalAdultTraveller", session, request);
-		String strOtherCount = WebServiceUtils.getParameterValue(
-				"totalOtherTraveller", session, request);
+		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
+		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
+		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
 
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
 		} else {
-			planDetailsForm = (PlanDetailsForm) session
-					.getAttribute("travelPlanDetailsForm");
+			planDetailsForm = (PlanDetailsForm) session.getAttribute("travelPlanDetailsForm");
 		}
 		int totalChild;
 		int totalAdults;
@@ -533,7 +517,7 @@ public class WorkingHolidayController {
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-		
+
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -550,186 +534,142 @@ public class WorkingHolidayController {
 
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", session.getAttribute("planSelected"));
-		
-		//parameters.put("planCode", planDetailsForm.getPlanCode());
-		
+
+		// parameters.put("planCode", planDetailsForm.getPlanCode());
+
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
 
 		String langSelected = UserRestURIConstants.getLanaguage(request);
-		
+
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			planDetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), langSelected));
 		}
-		
+
 		for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
 			planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getChildAgeRange(), langSelected));
 		}
-		
-		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {	
-			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), langSelected));		
+
+		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
+			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), langSelected));
 		}
-		
-		
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
 			JSONObject adult = new JSONObject();
 			adult.put("name", planDetailsForm.getAdultName()[inx]);
 			adult.put("ageRange", planDetailsForm.getAdultAgeRange()[inx]);
-			adult.put(
-					hkId,
-					checkPasswortAndHkid(hkId,
-							planDetailsForm.getSelectedAdHkidPass()[inx],
-							planDetailsForm.getAdultHKID()[inx]));
-			adult.put(
-					passId,
-					checkPasswortAndHkid(passId,
-							planDetailsForm.getSelectedAdHkidPass()[inx],
-							planDetailsForm.getAdultHKID()[inx]));
-
+			adult.put(hkId, checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
+			adult.put(passId, checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
 
 			if (inx != 0) {// For other travelers skip first one
-				
+
 				if (planDetailsForm.getPlanSelected().equals("personal")) {
 					adult.put("relationship", "FE");
 				} else {
 					adult.put("relationship", "SP");
 				}
-				
+
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty() 
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
+					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If
+																																// have
+																																// beneficiary
 						beneficiary.put("name", planDetailsForm.getAdultBenificiaryFullName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
+						beneficiary.put(
+								hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+										planDetailsForm.getAdultBenificiaryHkid()[inx]));
+						beneficiary.put(
+								passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+										planDetailsForm.getAdultBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
 						beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
+						beneficiary.put(hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
+						beneficiary.put(passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						adult.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
 						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
-						
+
 					}
 				} else {// If don't have beneficiary then
 					beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, 
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
+					beneficiary.put(hkId,
+							checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
+					beneficiary.put(passId,
+							checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
 					beneficiary.put("relationship", "SE");
-					adult.put("beneficiary", beneficiary);				
+					adult.put("beneficiary", beneficiary);
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
 				adult.put("relationship", relationOfSelfTraveller);
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If
+																																// have
+																																// beneficiary
 						beneficiary.put("name", planDetailsForm.getAdultBenificiaryFullName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
+						beneficiary.put(
+								hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+										planDetailsForm.getAdultBenificiaryHkid()[inx]));
+						beneficiary.put(
+								passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+										planDetailsForm.getAdultBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
 						beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
+						beneficiary.put(hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
+						beneficiary.put(passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
 
 						beneficiary.put("relationship", "SE");
 						adult.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
 						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary then
-					beneficiary .put("name", planDetailsForm.getAdultName()[inx]);
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm
-													.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
+					beneficiary.put("name", planDetailsForm.getAdultName()[inx]);
+					beneficiary.put(hkId,
+							checkPasswortAndHkid(hkId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
+					beneficiary.put(passId,
+							checkPasswortAndHkid(passId, planDetailsForm.getSelectedAdHkidPass()[inx], planDetailsForm.getAdultHKID()[inx]));
 					beneficiary.put("relationship", "SE");
 					adult.put("beneficiary", beneficiary);
 				}
 			}
-						
+
 			insured.add(adult);
-			
+
 			// update relationship desc
 			String[] relationships = planDetailsForm.getAdultRelationDesc();
-			if(relationships == null){
+			if (relationships == null) {
 				// not found in ModelAttribute
 				relationships = new String[planDetailsForm.getTotalAdultTraveller()];
 			}
 			String[] beneRelationships = planDetailsForm.getAdultBeneRelationDesc();
-			if(beneRelationships == null){
+			if (beneRelationships == null) {
 				// not found in ModelAttribute
 				beneRelationships = new String[planDetailsForm.getTotalAdultTraveller()];
 			}
-			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
-			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
+			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship")
+					.toString(), inx));
+			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected,
+					beneficiary.get("relationship").toString(), inx));
 		}
 
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
@@ -738,92 +678,69 @@ public class WorkingHolidayController {
 				JSONObject beneficiary = new JSONObject();
 				child.put("name", planDetailsForm.getChildName()[inx]);
 				child.put("ageRange", planDetailsForm.getChildAgeRange()[inx]);
-				
-				child.put(
-						hkId,
-						checkPasswortAndHkid(hkId,
-								planDetailsForm.getSelectedChldHkidPass()[inx],
-								planDetailsForm.getChildHKID()[inx]));
-				child.put(
-						passId,
-						checkPasswortAndHkid(passId,
-								planDetailsForm.getSelectedChldHkidPass()[inx],
-								planDetailsForm.getChildHKID()[inx]));
+
+				child.put(hkId, checkPasswortAndHkid(hkId, planDetailsForm.getSelectedChldHkidPass()[inx], planDetailsForm.getChildHKID()[inx]));
+				child.put(passId, checkPasswortAndHkid(passId, planDetailsForm.getSelectedChldHkidPass()[inx], planDetailsForm.getChildHKID()[inx]));
 				child.put("relationship", relationOfChildTraveller);
 
 				/* String strings = planDetailsForm.getAdultBeneficiary()[inx]; */
 				/* JSONObject beneficiary = new JSONObject(); */
 				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getChildBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If
+																																// have
+																																// beneficiary
 						beneficiary.put("name", planDetailsForm.getChildBenificiaryFullName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
-												planDetailsForm.getChildBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
-												planDetailsForm.getChildBenificiaryHkid()[inx]));
+						beneficiary.put(
+								hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
+										planDetailsForm.getChildBenificiaryHkid()[inx]));
+						beneficiary.put(
+								passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
+										planDetailsForm.getChildBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getChildBeneficiary()[inx]);
 						child.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
 						beneficiary.put("name", planDetailsForm.getChildName()[inx]);
-						beneficiary.put(
-								hkId,
-								checkPasswortAndHkid(hkId, planDetailsForm
-										.getSelectedChldHkidPass()[inx],
-										planDetailsForm.getChildHKID()[inx]));
-						beneficiary.put(
-								passId,
-								checkPasswortAndHkid(passId, planDetailsForm
-										.getSelectedChldHkidPass()[inx],
-										planDetailsForm.getChildHKID()[inx]));
+						beneficiary.put(hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedChldHkidPass()[inx], planDetailsForm.getChildHKID()[inx]));
+						beneficiary.put(passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedChldHkidPass()[inx], planDetailsForm.getChildHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						child.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getChildBenificiaryFullName()[inx] = "";
 						planDetailsForm.getChildBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary
 					beneficiary.put("name", planDetailsForm.getChildName()[inx]);
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedChldHkidPass()[inx],
-											planDetailsForm.getChildHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm
-													.getSelectedChldHkidPass()[inx],
-											planDetailsForm.getChildHKID()[inx]));
-					beneficiary.put("relationship","SE");
+					beneficiary.put(hkId,
+							checkPasswortAndHkid(hkId, planDetailsForm.getSelectedChldHkidPass()[inx], planDetailsForm.getChildHKID()[inx]));
+					beneficiary.put(passId,
+							checkPasswortAndHkid(passId, planDetailsForm.getSelectedChldHkidPass()[inx], planDetailsForm.getChildHKID()[inx]));
+					beneficiary.put("relationship", "SE");
 					child.put("beneficiary", beneficiary);
 				}
 				insured.add(child);
-				
-				
+
 				// update relationship desc
 				String[] relationships = planDetailsForm.getChildRelationDesc();
-				if(relationships == null){
+				if (relationships == null) {
 					// not found in ModelAttribute
 					relationships = new String[planDetailsForm.getTotalChildTraveller()];
 				}
 				String[] beneRelationships = planDetailsForm.getChildBeneRelationDesc();
-				if(beneRelationships == null){
+				if (beneRelationships == null) {
 					// not found in ModelAttribute
 					beneRelationships = new String[planDetailsForm.getTotalChildTraveller()];
 				}
-				planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, child.get("relationship").toString(), inx));
-				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));	
-				
+				planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, child
+						.get("relationship").toString(), inx));
+				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected,
+						beneficiary.get("relationship").toString(), inx));
+
 			}
 		}
 
@@ -832,16 +749,8 @@ public class WorkingHolidayController {
 				JSONObject other = new JSONObject();
 				other.put("name", planDetailsForm.getOtherName()[inx]);
 				other.put("ageRange", planDetailsForm.getOtherAgeRange()[inx]);
-				other.put(
-						hkId,
-						checkPasswortAndHkid(hkId,
-								planDetailsForm.getSelectedOtHkidPass()[inx],
-								planDetailsForm.getOtherHKID()[inx]));
-				other.put(
-						passId,
-						checkPasswortAndHkid(passId,
-								planDetailsForm.getSelectedOtHkidPass()[inx],
-								planDetailsForm.getOtherHKID()[inx]));
+				other.put(hkId, checkPasswortAndHkid(hkId, planDetailsForm.getSelectedOtHkidPass()[inx], planDetailsForm.getOtherHKID()[inx]));
+				other.put(passId, checkPasswortAndHkid(passId, planDetailsForm.getSelectedOtHkidPass()[inx], planDetailsForm.getOtherHKID()[inx]));
 				other.put("relationship", relationOfOtherTraveller);
 
 				JSONObject beneficiary = new JSONObject();
@@ -850,79 +759,59 @@ public class WorkingHolidayController {
 					if (!planDetailsForm.getOtherBenificiaryFullName()[inx].isEmpty()
 							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getOtherBeneficiary()[inx]) != 0) {
 						beneficiary.put("name", planDetailsForm.getOtherBenificiaryFullName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
-												planDetailsForm.getOtherBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
-												planDetailsForm.getOtherBenificiaryHkid()[inx]));
+						beneficiary.put(
+								hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
+										planDetailsForm.getOtherBenificiaryHkid()[inx]));
+						beneficiary.put(
+								passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
+										planDetailsForm.getOtherBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getOtherBeneficiary()[inx]);
 						other.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name",planDetailsForm.getOtherName()[inx]);
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedOtHkidPass()[inx],
-												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedOtHkidPass()[inx],
-												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary.put("relationship","SE");
+						beneficiary.put("name", planDetailsForm.getOtherName()[inx]);
+						beneficiary.put(hkId,
+								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedOtHkidPass()[inx], planDetailsForm.getOtherHKID()[inx]));
+						beneficiary.put(passId,
+								checkPasswortAndHkid(passId, planDetailsForm.getSelectedOtHkidPass()[inx], planDetailsForm.getOtherHKID()[inx]));
+						beneficiary.put("relationship", "SE");
 						other.put("beneficiary", beneficiary);
-						
+
 						// clear bene info if bene relationship is SE
 						planDetailsForm.getOtherBenificiaryFullName()[inx] = "";
-						planDetailsForm.getOtherBenificiaryHkid()[inx] = "";						
+						planDetailsForm.getOtherBenificiaryHkid()[inx] = "";
 					}
 				} else {// If don't have beneficiary
 					beneficiary.put("name", planDetailsForm.getOtherName()[inx]);
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedOtHkidPass()[inx],
-											planDetailsForm.getOtherHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm
-													.getSelectedOtHkidPass()[inx],
-											planDetailsForm.getOtherHKID()[inx]));
-					beneficiary.put("relationship","SE");
+					beneficiary.put(hkId,
+							checkPasswortAndHkid(hkId, planDetailsForm.getSelectedOtHkidPass()[inx], planDetailsForm.getOtherHKID()[inx]));
+					beneficiary.put(passId,
+							checkPasswortAndHkid(passId, planDetailsForm.getSelectedOtHkidPass()[inx], planDetailsForm.getOtherHKID()[inx]));
+					beneficiary.put("relationship", "SE");
 					other.put("beneficiary", beneficiary);
 				}
-								
+
 				insured.add(other);
-				
+
 				// update relationship desc
 				String[] relationships = planDetailsForm.getOtherRelationDesc();
-				if(relationships == null){
+				if (relationships == null) {
 					// not found in ModelAttribute
 					relationships = new String[planDetailsForm.getTotalOtherTraveller()];
 				}
 				String[] beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
-				if(beneRelationships == null){
+				if (beneRelationships == null) {
 					// not found in ModelAttribute
 					beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
 				}
-				planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, other.get("relationship").toString(), inx));
-				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));				
+				planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, other
+						.get("relationship").toString(), inx));
+				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected,
+						beneficiary.get("relationship").toString(), inx));
 			}
 		}
 
-		
-		
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
@@ -948,34 +837,28 @@ public class WorkingHolidayController {
 
 		/* System.out.println(parameters); */
 
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
-		header.put("language", WebServiceUtils
-				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		/*
 		 * System.out.println("headers=====>>>>>" + header);
 		 */
 		// Comment for to avoid over load Data
 
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
-		CreatePolicy createPolicy = (CreatePolicy) session
-				.getAttribute("createPolicy");
+		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("createPolicy");
 		JSONObject responsObject = new JSONObject();
 		if (createPolicy == null) {
 
-			responsObject = restService.consumeApi(HttpMethod.PUT,
-					UserRestURIConstants.TRAVEL_CREATE_POLICY, header,
-					parameters);
+			responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 			createPolicy = new CreatePolicy();
 			System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
 
 			String finalizeReferenceNo = "";
 
 			if (responsObject.get("errMsgs") == null) {
-				JSONObject jsonPriceInfoA = (JSONObject) responsObject
-						.get("priceInfoA");
+				JSONObject jsonPriceInfoA = (JSONObject) responsObject.get("priceInfoA");
 
 				finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
 				createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
@@ -990,40 +873,29 @@ public class WorkingHolidayController {
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				System.out.println("Header Object for Confirm"
-						+ confirmPolicyParameter);
-				JSONObject jsonResponse = restService.consumeApi(
-						HttpMethod.POST,
-						UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
+				System.out.println("Header Object for Confirm" + confirmPolicyParameter);
+				JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 						confirmPolicyParameter);
 
-				System.out.println("Response From Confirm Travel Policy "
-						+ jsonResponse);
+				System.out.println("Response From Confirm Travel Policy " + jsonResponse);
 
-				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
-						"secureHash"));
-				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse,
-						"transactionNumber"));
-				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
-						"transactionDate"));
+				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
+				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
+				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
 			}
 
-		} 
-		session.setAttribute("finalizeReferenceNo",
-				createPolicy.getReferenceNo());
-		session.setAttribute("transactionDate",
-				createPolicy.getTransactionDate());
+		}
+		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+		session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
 
 		TravelQuoteBean travelBean = new TravelQuoteBean();
 		travelBean.setTrLeavingDate(deaprtureDate);
 		travelBean.setTrBackDate(returnDate);
-		travelBean.setTotalTraveller(planDetailsForm.getTotalAdultTraveller()
-				+ planDetailsForm.getTotalChildTraveller()
-				+ planDetailsForm.getTotalOtherTraveller()
-				+ planDetailsForm.getTravellerCount());
+		travelBean.setTotalTraveller(planDetailsForm.getTotalAdultTraveller() + planDetailsForm.getTotalChildTraveller()
+				+ planDetailsForm.getTotalOtherTraveller() + planDetailsForm.getTravellerCount());
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount);
@@ -1032,25 +904,24 @@ public class WorkingHolidayController {
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
 		System.out.println("path " + path);
-		
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation"));
-		
+
+		model.addAttribute("path", path.replace("travel-summary", "confirmation"));
+
 		System.out.println("modal path " + path.replace("travel-summary", "confirmation"));
-		//model.addAttribute("path", path + "/FWDHKPH1A/travel-insurance/confirmation");
-        model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
-        String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
-        String errorMsg =request.getParameter("errorMsg");
-        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
-            errorMsg = "Payment failure";     
-        }        
-        model.addAttribute("errormsg", errorMsg);        
-        String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		// model.addAttribute("path", path +
+		// "/FWDHKPH1A/travel-insurance/confirmation");
+		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		String paymentGatewayFlag = request.getParameter("paymentGatewayFlag");
+		String errorMsg = request.getParameter("errorMsg");
+		if (paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null) {
+			errorMsg = "Payment failure";
+		}
+		model.addAttribute("errormsg", errorMsg);
+		String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "/workingholiday/workingholiday-payment");				
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/workingholiday/workingholiday-payment");
 	}
 	
 	
