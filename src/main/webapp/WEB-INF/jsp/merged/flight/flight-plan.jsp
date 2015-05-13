@@ -90,6 +90,8 @@
 	              promoData = json;
 	              $("#totalTravellingDays").val(json.totalDays);
 	              $("#totalTravellingDaysSpan").html(json.totalDays);
+	              $("#days").val(json.totalDays);
+	              
 	          }
 	      });
 	  }
@@ -122,7 +124,7 @@
 				<!-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${planDetails.getTotalOtherTraveller()}"> -->
 				<!-- <input type="hidden" name="returnDate" id="returnDate" value="${planDetails.getReturnDate()}"> -->
 				<!-- <input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}"> -->
-			    <input type="hidden" name="days" value="${days}">
+			    <input type="hidden" id="days" name="days" value="${days}">
 			     <!-- <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> --> 
 			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.getToalDue()}"> 
 			     <!-- <input type="hidden" name="planSelected" value="${planDetails.getPlanSelected()}"> -->

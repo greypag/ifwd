@@ -948,14 +948,17 @@ public class TravelController {
 				
 			}
 		}
-		
+		String dob = "";
 		//String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
-		String dob = request.getParameter("applicantDob");
-		Calendar dateDob = Calendar.getInstance();
-		dateDob.setTime(new Date(dob));
-		Format f = new SimpleDateFormat("yyyy-MM-dd");
-		dob = f.format(dateDob.getTime());
-
+		try {
+			dob = request.getParameter("applicantDob");
+			Calendar dateDob = Calendar.getInstance();
+			dateDob.setTime(new Date(dob));
+			Format f = new SimpleDateFormat("yyyy-MM-dd");
+			dob = f.format(dateDob.getTime());
+		} catch (Exception e) {
+			
+		}
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 		System.out.println("totalTravellingDays " + totalTravellingDays);

@@ -1265,6 +1265,7 @@ function createFlightFnc(form)
             async : false,
             success : function(data) 
             {
+            	flight_click = false;
                 if (data == 'success') {
                     $('#errorMessages').hide();
                     flag= true;
@@ -1277,8 +1278,10 @@ function createFlightFnc(form)
         
             }
         });
+    } else {
+    	flight_click = false;
+    	flag = false;
     }
-
     return flag;
 }
 </script>
