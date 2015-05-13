@@ -67,6 +67,7 @@
   
   function updateFlightQuote() {
 	  if(updateQuoteFlag){
+		  $("#loadingUpdate").show();
           updateQuoteFlag = false;
           
           $('#lblCountDesk').html(tempTotalTraveller);
@@ -82,6 +83,7 @@
 	          url : '<%=request.getContextPath()%>/updateFlightQuote',
 	          data : $('#frmFlightPlan input').serialize(),
 	          success : function(data) {
+	        	  $("#loadingUpdate").hide();
 	        	  updateQuoteFlag = true;
 	        	  
 	              var json = JSON.parse(data);
@@ -316,6 +318,9 @@
 							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
                             </h3>
+                            
+                            <span class="text-grey" id="loadingUpdate" style="display:none;">更新中...</span>
+                            
                             <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
                  
                               <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label>&nbsp;<label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
@@ -409,8 +414,8 @@
 		                           <!-- bmg confirm button -->
 		                           <hr>
 		                           
-		                           <div class="col-lg-6 col-md-6">
-		                                <div class="bdr-curve btn btn-primary btn-next" onclick="updateFlightQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
+		                           <div class="col-lg-3 col-md-3">
+		                                <div class="bdr-curve btn btn-primary btn-next" style="font-size:12px;" onclick="updateFlightQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
 		                           </div>
 		                           <!-- bmg confirm button -->
                                   <div class="clearfix"></div>

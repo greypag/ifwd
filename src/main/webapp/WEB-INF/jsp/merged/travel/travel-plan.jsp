@@ -62,6 +62,7 @@ if(personalTraveller>familyTraveller){
 		var promoCode = document.getElementById("promoCode").value;
 
 		if (promoCode.trim() == "") {
+			$("#loadingPromo").hide();
 			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
@@ -85,6 +86,8 @@ if(personalTraveller>familyTraveller){
 	
 	function applyTravelPromoCode() {
 		if(promoCodeInsertFlag){
+			$("#loadingPromo").show();
+			
 			promoCodeInsertFlag = false;
 			
 			$("#errPromoCode").html("");
@@ -95,7 +98,9 @@ if(personalTraveller>familyTraveller){
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
+	                	$("#loadingPromo").hide();
 	                    promoCodeInsertFlag = true;
+	                    
 	                    var json = JSON.parse(data);
 	                    promoData = json;
 	                    setValue(json);
@@ -107,6 +112,7 @@ if(personalTraveller>familyTraveller){
 	}
 	function updateTravelQuote() {
 		if(updateQuoteFlag){
+			$("#loadingUpdate").show();
 			updateQuoteFlag = false;
 			
 			$('#lblCountDesk').html(tempTotalTraveller);
@@ -122,6 +128,7 @@ if(personalTraveller>familyTraveller){
 				url : '<%=request.getContextPath()%>/updateTravelQuote',
 				data : $('#frmTravelPlan input').serialize(),
 				success : function(data) {
+					$("#loadingUpdate").hide();
 					updateQuoteFlag = true;
 					
 					var json = JSON.parse(data);
@@ -1243,6 +1250,9 @@ if(personalTraveller>familyTraveller){
 								<span class="span2 uline">
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 								</h3>
+								
+								<span class="text-grey" id="loadingUpdate" style="display:none;">更新中...</span>
+								
 								<div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
                           <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk">${corrTravelQuote.getTotalPersonalTraveller()}</label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
                           <div class="dropdown-menu bdr1">
@@ -1332,8 +1342,8 @@ if(personalTraveller>familyTraveller){
                            <!-- bmg confirm button -->
                            <hr>
                            
-                           <div class="col-lg-6 col-md-6">
-                                <div class="bdr-curve btn btn-primary btn-next" onclick="updateTravelQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
+                           <div class="col-lg-3 col-md-3">
+                                <div class="bdr-curve btn btn-primary btn-next" style="font-size:12px;" onclick="updateTravelQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
                            </div>
                            <!-- bmg confirm button -->
                            <div class="clearfix"></div>
@@ -1375,6 +1385,9 @@ if(personalTraveller>familyTraveller){
 						<div class="col-xs-12">
 						  <div id="promo-code-body" class="hide-html">
 						     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+						     
+						     <span class="text-grey" id="loadingPromo" style="display:none;">更新中...</span>
+						     
                             <span class="text-red" id="errPromoCode"></span>
                             <div id="promo-wrap" class="form-group">
                                 <div class="input-group" style="border: 0;">

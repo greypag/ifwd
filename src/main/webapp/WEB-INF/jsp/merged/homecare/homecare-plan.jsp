@@ -88,6 +88,11 @@
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <script>
+
+//bmg inline variable
+var promoCodeInsertFlag = true;
+//bmg inline variable
+
 	function chkPromoCode() {
 		var flag = false;
 		var promoCode = document.getElementById("referralCode").value;
@@ -101,23 +106,30 @@
 		return flag;
 	}
 	function applyHomePromoCode() {
-		
-		$("#errPromoCode").html("");
-		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyHomePromoCode',
-			data : $('#frmHomeCarePlan input').serialize(),
-			success : function(data) {
-
-				var json = JSON.parse(data);
-
-				//console.log("json " + json);
-				setValue(json);
-			}
-
-		});
+		if(promoCodeInsertFlag){
+            $("#loadingPromo").show();
+            
+            promoCodeInsertFlag = false;
+            
+			$("#errPromoCode").html("");
+			
+			if(chkPromoCode())
+			$.ajax({
+				type : 'POST',
+				url : '<%=request.getContextPath()%>/applyHomePromoCode',
+				data : $('#frmHomeCarePlan input').serialize(),
+				success : function(data) {
+					$("#loadingPromo").hide();
+                    promoCodeInsertFlag = true;
+	
+					var json = JSON.parse(data);
+	
+					//console.log("json " + json);
+					setValue(json);
+				}
+	
+			});
+		}
 	}
 
 	function setValue(result) {
@@ -710,6 +722,8 @@
 										data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 								</div>
 								<div class="clearfix"></div>
+								
+								<span class="text-grey" id="loadingPromo" style="display:none;">更新中...</span>
 								
 								<span class="text-red" id="errPromoCode"></span>
 								<div id="promo-wrap" class="form-group">
