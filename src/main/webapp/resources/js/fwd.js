@@ -469,41 +469,14 @@ $(function () {
 	//================================================================================================================================
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	// birthday datepicker
+	$('#input_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd MM yyyy",
+		endDate: new Date()
+		/*language: getBundleLanguage*/
+	});
 	
 	
 	

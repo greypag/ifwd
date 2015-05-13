@@ -364,10 +364,16 @@ public class HomeCareController {
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
+//		String dob = WebServiceUtils.getParameterValue("dob", session, request);
+//		Calendar dateDob = Calendar.getInstance();
+//		dateDob.setTime(new Date(dob));
+//		Format f = new SimpleDateFormat("yyyy-MM-dd");
+//		dob = f.format(dateDob.getTime());
 		
 		boolean optIn1;
 		boolean optIn2;
@@ -423,6 +429,8 @@ public class HomeCareController {
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
+		userDetails.setDob("");
+		//userDetails.setDob(dob);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		
