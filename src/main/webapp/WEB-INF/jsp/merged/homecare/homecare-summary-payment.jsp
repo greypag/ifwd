@@ -549,7 +549,9 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								console.log("fail to home process payment " + data);
+ 								//console.log("fail to home process payment " + data);
+ 								$('#paymentErrorPopup').modal('show');
+ 								return false;
  	 						}
  	 							
  						}
