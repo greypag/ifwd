@@ -1,7 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-import groovyjarjarantlr.StringUtils;
 
 import java.io.IOException;
 import java.util.Date;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -37,7 +35,6 @@ import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
-import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.WorkingHolidayQuoteBean;
 import com.ifwd.fwdhk.model.WorkingHolidayQuoteDetails;
@@ -77,15 +74,15 @@ public class WorkingHolidayController {
 		if(workingholidayQuote == null){
 			workingholidayQuote = new WorkingHolidayQuoteBean();
 			
-			workingholidayQuote.setTotalPersonalWorkingHolidayer(1);
+			/*workingholidayQuote.setTotalPersonalWorkingHolidayer(1);
 			workingholidayQuote.setTotalAdultWorkingHolidayer(1);
 			workingholidayQuote.setTotalChildWorkingHolidayer(1);
 			workingholidayQuote.setTotalOtherWorkingHolidayer(0);
-			workingholidayQuote.setPlanSelected("personal");
+			workingholidayQuote.setPlanSelected("personal");*/
 		}
-		else{
+		/*else{
 			System.out.println("Plan selected : "+workingholidayQuote.getPlanSelected());
-		}
+		}*/
 		
 		
 		model.addAttribute("workingholidayQuote", workingholidayQuote);
@@ -142,19 +139,19 @@ public class WorkingHolidayController {
 			@ModelAttribute("workingholidayQuote") WorkingHolidayQuoteBean workingholidayQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 		
-		System.out.println("PERSONAL " + workingholidayQuote.getTotalPersonalWorkingHolidayer());
+		UserRestURIConstants.setController("WorkingHoliday");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		HttpSession session = request.getSession();
+		
+		/*System.out.println("PERSONAL " + workingholidayQuote.getTotalPersonalWorkingHolidayer());
 		System.out.println("ADULT " + workingholidayQuote.getTotalAdultWorkingHolidayer());
 		System.out.println("CHILD " + workingholidayQuote.getTotalChildWorkingHolidayer());
 		System.out.println("OTHER " + workingholidayQuote.getTotalOtherWorkingHolidayer());
 		
 		
-		
 		System.out.println("LeavingDate " + workingholidayQuote.getTrLeavingDate());
-		System.out.println("BackDate " + workingholidayQuote.getTrBackDate());
+		System.out.println("BackDate " + workingholidayQuote.getTrBackDate());*/
 		
-		UserRestURIConstants.setController("WorkingHoliday");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-		HttpSession session = request.getSession();
 		/*if (workingholidayQuote.getTrLeavingDate() != null) {
 			session.setAttribute("workingholidayQuote", workingholidayQuote);
 		} else {
@@ -182,7 +179,6 @@ public class WorkingHolidayController {
 			/* Calculate total Days */
 			//Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
 			//Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
-			LocalDate commencementDate = new LocalDate(new Date());
 			//LocalDate expiryDate = new LocalDate(dateD2);
 			//days = Days.daysBetween(commencementDate, expiryDate).getDays();
 			//workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
@@ -227,6 +223,7 @@ public class WorkingHolidayController {
 			System.out.print("------------------------------------------------------------");*/
 			
 			
+			LocalDate commencementDate = new LocalDate(new Date());
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
 			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
 					+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
@@ -251,7 +248,7 @@ public class WorkingHolidayController {
 			System.out.println("Get Working Holiday Quotes API " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
-				quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
+				//quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
 				responseJsonObj.get("referralCode");
 				responseJsonObj.get("referralName");
 				responseJsonObj.get("priceInfoA");

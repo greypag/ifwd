@@ -9,7 +9,7 @@
 <!--   Main Content-->
 
 <script type="text/javascript">
-  // personal or family
+ /*  // personal or family
   var workingholidayer;  
   // personal
   var personalworkingholidayer = parseInt("${workingholidayQuote.getTotalPersonalWorkingHolidayer()}");
@@ -23,7 +23,7 @@
     workingholidayer = familyworkingholidayer;
   }else{
     workingholidayer = personalworkingholidayer;
-  }
+  } */
 
     function reset_submit()
     {
@@ -50,7 +50,7 @@ $(document).ready(function() {
 });
 </script>
 <!-- End fixed header -->
-<%
+<%-- <%
     String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";
   String personalSpinnerStyle = "";
@@ -64,7 +64,7 @@ $(document).ready(function() {
       personalSpinnerStyle = "style='display:none'";
       familySpinnerStyle = "";
     } 
-%>
+%> --%>
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
   <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
@@ -90,8 +90,8 @@ $(document).ready(function() {
         <!-- <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2> -->
                 <table class="table activation-form3">
               <tbody>
-               <%-- <tr>
-                  <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+                <tr>
+                  <%--<td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
                   <td><div id="divPersonsDesk" style="visibility:hidden;">
@@ -233,7 +233,7 @@ $(document).ready(function() {
 <div class="slider-form hidden-lg hidden-md">
 <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="getWorkingHolidayQuote" method="post" onsubmit="return flightValidateMobWorkingHoliday();">
   <div class="form-container">
-    <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
+   <%--  <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /> </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
@@ -287,13 +287,13 @@ $(document).ready(function() {
                    <span class="glyphicon glyphicon-plus"></span>
                  </button>
               </span>
-           </div>
+           </div> 
           </div>
 
-         </div>
+     </div>
           <!-- End of personal plan mobile spinner-->
            <!-- Start of family plan mobile spinner-->
-         <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
+          <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
 
            <div class="col-xs-6 col-sm-8">
             <h4><fmt:message key="workingholiday.main.quote.plan2.type1" bundle="${msg}" /></h4>
@@ -358,6 +358,8 @@ $(document).ready(function() {
           </div>
            </div>
            <!-- End of family plan mobile spinner -->
+           
+           
           <div class="clearfix"></div>
         </div>
       </div>
@@ -384,7 +386,7 @@ $(document).ready(function() {
       <button type="submit" class="bdr-curve-none btn btn-primary btn-lg ">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
              </button>
-    </h3>
+    </h3> --%>
   </div>
   </form>
 </div>
@@ -736,7 +738,7 @@ $(document).ready(function() {
         <table class="table activation-form3">
           <tbody>
           <tr>
-            <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+            <%-- <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
             <td><div id="divPersonsBtm" style="visibility:hidden;">
@@ -856,19 +858,21 @@ $(document).ready(function() {
                   <div class="clearfix"></div>
                 </div>
                 
-        </td>
+        </td> --%>
+        	  <td></td>	
               <td class="col-md-2 ">
                   <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
-                 </td>
+              </td>
+              <td></td>	   
             </tr>
-            <tr>
+            <%-- <tr>
               <td><span id="startDateBtmIn" style="color:red"> </span></td>
               <td><span id="endDateBtmIn" style="color:red"> </span></td>
               <td><span id="workingholidayCountBtmIn" style="display: none;">
                 <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                 </span></td>
               <td></td>
-            </tr>
+            </tr> --%>
           </tbody>
         </table>
       </div>
