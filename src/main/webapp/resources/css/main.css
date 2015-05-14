@@ -5605,17 +5605,24 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 .chin .insure-travel #adulttraveller{
     padding: 0;
-    border-bottom: 2px solid #f5f5f5;
+    /*border-bottom: 2px solid #f5f5f5;*/
     padding-bottom: 30px;
+}
+.insure-travel #adulttraveller{
+	border-bottom: 2px solid #f68a1d;
 }
 
 .chin #personaltraveller{
     padding: 0 20px;
 }
+
 .chin .insure-travel #personaltraveller{
     padding: 0;
-    border-bottom: 2px solid #f5f5f5;
+    /*border-bottom: 2px solid #f5f5f5;*/
     padding-bottom: 30px;
+}
+.insure-travel #personaltraveller{
+    border-bottom: 2px solid #f68a1d;
 }
 
 .chin #childtraveller{
@@ -5623,10 +5630,12 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 .chin .insure-travel #childtraveller{
     padding: 0;
-    border-bottom: 2px solid #f5f5f5;
+    /*border-bottom: 2px solid #f5f5f5;*/
     padding-bottom: 30px;
 }
-
+.insure-travel #childtraveller{
+    border-bottom: 2px solid #f68a1d;
+}
 .major-exc li {
 	font-size: 18px;
 	line-height: 1.4;
@@ -5645,7 +5654,8 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 }
 #freeFlightForm #personaltraveller, #freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
 	margin-bottom: 30px;
-    border-bottom: 2px solid #f5f5f5;
+    /*border-bottom: 2px solid #f5f5f5;*/
+    border-bottom: 2px solid #f68a1d;
     padding-bottom: 30px;
 }
 @media screen and (max-width:991px) {
@@ -6227,10 +6237,19 @@ tr.product-landing-error-wrap {
     font-size: 14px;
     margin-top: -35px;
     margin-bottom: 50px;
-    padding-top: 16px;
+    /*padding-top: 16px;*/
+    padding-top: 12px;
     padding-left: 20px;
+    line-height: 15px;
     display:none;
+    
 }
+.chin .flightCheckboxBubble {
+	padding-top: 16px;
+	line-height: 20px;
+}
+
+
 
 .checkboxBubble{
 	background-image:  url("../images/bubble.png") ;
@@ -6241,10 +6260,15 @@ tr.product-landing-error-wrap {
     line-height: 14px;
 	margin-top: -15px;
 	margin-bottom: 50px;
-	padding-top: 16px;
+	/*padding-top: 16px;*/
+	padding-top: 12px;
 	padding-left: 20px;
 	overflow:hidden;
 	display:none;
+}
+.chin .checkboxBubble{
+    padding-top: 16px;
+    line-height: 20px;
 }
 
 .custom-select-label{
