@@ -27,7 +27,7 @@
 
     function reset_submit()
     {
-      if(document.getElementById("family_plan_desk").checked)
+      /* if(document.getElementById("family_plan_desk").checked)
       {
     	  $('#txtworkingholidayersDesk').val(0);
       }
@@ -36,7 +36,7 @@
         $('#txtAdultsDesk').val(0);
         $('#txtOtherDesk').val(0);
         $('#txtChildDesk').val(0);
-      }
+      } */
       
       var frm = document.getElementById("frmWorkingHolidayGetQuote");
       //alert("reset_submit");
@@ -90,7 +90,7 @@ $(document).ready(function() {
         <!-- <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2> -->
                 <table class="table activation-form3">
               <tbody>
-                <tr>
+               <%-- <tr>
                   <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
@@ -201,20 +201,22 @@ $(document).ready(function() {
                    </div>
                    <div class="clearfix"></div>
                  </div>
-                 </td>
+                 </td> --%>
+               <td></td>  
                <td class="col-md-2 pad-none">
                 <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
                  <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskWorkingHoliday()">立即報價</a> -->
               </td>
+              <td></td>
              </tr>
-             <tr>
+             <%-- <tr>
               <td><span id="startDateDeskIn" class="text-red"> </span></td>
               <td><span id="endDateDeskIn" class="text-red"> </span></td>
               <td><span id="workingholidayCountDeskIn"  style="display:none">
                  <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                  </span></td>
               <td></td>
-             </tr>
+             </tr> --%>
            </tbody>
          </table>
       </div>

@@ -163,16 +163,6 @@ var promoData = '';
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="workingholiday.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails workingholidayQuote = (QuoteDetails) request.getAttribute("quoteDetails");
-						
-							WorkingHolidayQuoteBean workingholidayQuoteBean = (WorkingHolidayQuoteBean)request.getAttribute("workingholidayQuote"); 
-					    	if(workingholidayQuote.getPlanSelected().equalsIgnoreCase("personal"))
-					    	{
-					    		workingholidayQuoteBean.setTotalOtherWorkingHolidayer(0);
-	
-							 		//System.out.println("workingholidayQuote is not null");
-							 		//session.setAttribute("workingholidayQuoteBean", workingholidayQuoteBean);
-							
-					    	}
 					    	
 					    	if (workingholidayQuote != null)
 						 	{

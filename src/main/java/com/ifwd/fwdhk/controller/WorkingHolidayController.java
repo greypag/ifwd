@@ -44,6 +44,7 @@ import com.ifwd.fwdhk.model.WorkingHolidayQuoteDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -63,7 +64,7 @@ public class WorkingHolidayController {
 	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/workingholiday-insurance"})
 	public ModelAndView getWorkingHolidayHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
-		UserRestURIConstants.setController("Working");
+		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.checkLangSetPage(request) + "workingholiday/workingholiday";
 		
@@ -136,7 +137,6 @@ public class WorkingHolidayController {
 	
 	
 	
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = {"/{lang}/getWorkingHolidayQuote", "/{lang}/workingholiday-insurance/quote"})
 	public ModelAndView prepareWorkingHolidayPlan(
 			@ModelAttribute("workingholidayQuote") WorkingHolidayQuoteBean workingholidayQuote,
@@ -152,17 +152,17 @@ public class WorkingHolidayController {
 		System.out.println("LeavingDate " + workingholidayQuote.getTrLeavingDate());
 		System.out.println("BackDate " + workingholidayQuote.getTrBackDate());
 		
-		UserRestURIConstants.setController("Working");
+		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
-		if (workingholidayQuote.getTrLeavingDate() != null) {
+		/*if (workingholidayQuote.getTrLeavingDate() != null) {
 			session.setAttribute("workingholidayQuote", workingholidayQuote);
 		} else {
 			workingholidayQuote = (WorkingHolidayQuoteBean) session.getAttribute("workingholidayQuote");
 			if(workingholidayQuote == null){
 				return getWorkingHolidayHomePage((String)session.getAttribute("referralCode"), request, model);		
 			}				
-		}
+		}*/
 		try {
 			String token = null, username = null;
 			if ((session.getAttribute("token") != null)
@@ -177,17 +177,17 @@ public class WorkingHolidayController {
 				}
 			}
 
-			int days = 0;
+			//int days = 0;
 
 			/* Calculate total Days */
-			Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
-			Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
-			LocalDate commencementDate = new LocalDate(dateD1);
-			LocalDate expiryDate = new LocalDate(dateD2);
-			days = Days.daysBetween(commencementDate, expiryDate).getDays();
-			workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
+			//Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
+			//Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
+			LocalDate commencementDate = new LocalDate(new Date());
+			//LocalDate expiryDate = new LocalDate(dateD2);
+			//days = Days.daysBetween(commencementDate, expiryDate).getDays();
+			//workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
 
-			int otherCount = 0, childCount = 0, adultCount = 0;
+			/*int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
 			if (workingholidayQuote.getPlanSelected().equals("personal")) {
 				selfCover = true;
@@ -224,13 +224,14 @@ public class WorkingHolidayController {
 			System.out.println("SPOUSE COVER " + spouseCover);
 			System.out.println("CHILD COUNT " + childCount);
 			System.out.println("OTHER COUNT " + otherCount);		
-			System.out.print("------------------------------------------------------------");
+			System.out.print("------------------------------------------------------------");*/
+			
 			
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
 			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
 					+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
 
-			System.out.println("Travel Quote user " + Url);
+			System.out.println("Working Holiday Quote user " + Url);
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -617,7 +618,123 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "unchecked" })
+	@RequestMapping(value = {"/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
+	public String processPayment(Model model, HttpServletRequest request,
+			@RequestParam(required = false) String Ref ) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("token") == null) {
+			System.out.println("Session Expired");
+			model.addAttribute("errormsg", "Session Expired");
+			return UserRestURIConstants.getSitePath(request)
+					+ "workingholiday/workingholiday-confirmation";
+		}
+		
+		UserRestURIConstants.setController("Travel");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		
+
+		JSONObject responsObject = new JSONObject();
+
+		try {
+			JSONObject parameters = new JSONObject();
+			parameters.put("referenceNo",
+					session.getAttribute("finalizeReferenceNo"));
+			parameters
+					.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate",
+					session.getAttribute("transactionDate"));
+			
+			
+			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			
+			if (creditCardNo !=null) { 
+				parameters
+						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+			} else {
+				
+				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				model.addAttribute("emailAddress",
+						session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",
+						session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return UserRestURIConstants.getSitePath(request)
+						+ "workingholiday/workingholiday-confirmation";
+			}
+				
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
+					+ parameters);
+			System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
+			responsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
+					parameters);
+			
+			if (responsObject.get("errMsgs") == null) {
+				session.removeAttribute("creditCardNo");
+				session.removeAttribute("expiryDate");
+				
+				session.removeAttribute("travel-temp-save");
+				session.setAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("emailAddress",
+						session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",
+						session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				
+				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
+				
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return UserRestURIConstants.getSitePath(request)
+						+ "workingholiday/workingholiday-confirmation";
+			} else {
+				
+				System.out.println(responsObject.get("errMsgs").toString());
+				
+				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
+					model.addAttribute("errorHeader1", "Invalid Payment Amount");
+					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
+					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+				} else {
+					model.addAttribute("errorHeader1", "Policy is not generated");
+					model.addAttribute("errorDescription1", "There is a problem in the system " + responsObject.get("errMsgs").toString());
+					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+				}
+				
+				System.out.println("workingholiday confirmation" + UserRestURIConstants.getSitePath(request)
+						+ "error");
+				return UserRestURIConstants.getSitePath(request)
+						+ "error";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			model.addAttribute("errMsgs", e.toString());
+			return UserRestURIConstants.getSitePath(request)
+					+ "workingholiday/workingholiday-summary-payment";
+		}
+	}
+	
+	
+	
+	
 	@RequestMapping(value = "/applyWorkingHolidayPromoCode", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyPromotionCode(
@@ -630,14 +747,14 @@ public class WorkingHolidayController {
 			model.addAttribute("errMsgs", "Session Expired");
 			return "fail";		
 		}
-		int days = 0;
+		/*int days = 0;
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
-		//Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
-		//Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
+		Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
+		Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
 		LocalDate commencementDate = new LocalDate(new Date());
-		//LocalDate expiryDate = new LocalDate(dateD2);
-		//days = Days.daysBetween(commencementDate, expiryDate).getDays();
+		LocalDate expiryDate = new LocalDate(dateD2);
+		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		WorkingHolidayQuoteBean workingholidayQuoteCount = (WorkingHolidayQuoteBean)session.getAttribute("workingholidayQuoteCount");
 		selfCover = workingholidayQuoteCount.isSelfCover();
 		spouseCover = workingholidayQuoteCount.isSpouseCover();
@@ -649,10 +766,12 @@ public class WorkingHolidayController {
 		System.out.println("SPOUSE COVER " + spouseCover);
 		System.out.println("CHILD COUNT " + childCount);
 		System.out.println("OTHER COUNT " + otherCount);		
-		System.out.println("------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------");*/
+		
+		LocalDate commencementDate = new LocalDate(new Date());
 		
 		try {
-			workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
+			//workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
 			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
 					+ "&commencementDate=" + commencementDate
 					+ "&referralCode=" + request.getParameter("promoCode");

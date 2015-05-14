@@ -2859,6 +2859,7 @@ function flightValidateBtmTravel() {
 
 function flightValidateDeskWorkingHoliday()
 {
+	return true;
 	var flag = true;
 
 	document.getElementById("startDateDeskIn").innerHTML = "";
