@@ -174,7 +174,7 @@
                                         class="bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label></td>
                                     <td>
                                         <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                            <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}">
+                                            <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                         </div>                 
                                     </td>
                                 </tr>
@@ -1005,7 +1005,10 @@
                                     <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
                                 </h3>
                                 <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
-                                <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                                <c:if test="${referralCode!=''}">
+                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                                    <h4>${referralCode}</h4>
+                                </c:if>
             </div>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planPremium}</h3>
@@ -1034,7 +1037,7 @@
 <p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
 <a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
 <fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
-<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" />
+<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" /><br>
 <fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
 </form:form>
 </div>

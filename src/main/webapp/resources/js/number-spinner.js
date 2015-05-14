@@ -207,7 +207,7 @@ $('.plan').change(function () {
 	        	$("#totalOtherTraveller").val(0);
 	    		
 	    		var parent = $('.plan_spinner_' + parent_id);
-	    		changeSpinnerValue(parent.find(' #txtAdultsBtm'), 1);
+	    		changeSpinnerValue(parent.find(' #txtAdultsBtm'), 0);
 	    		changeSpinnerValue(parent.find(' #txtChildBtm'), 0);
 	    		changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
 	        

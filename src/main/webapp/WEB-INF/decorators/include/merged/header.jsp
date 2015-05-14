@@ -495,7 +495,9 @@ $('.navmenu').on('show.bs.offcanvas', function(){
 	$('#test').show();
 });
 $('.navmenu').on('hidden.bs.offcanvas', function(){
-	$('#test').hide();
+	$('#test').hide(function(){
+		$( "#main-slider" ).trigger( "click" );
+	});
 });
 $('#test').click(function(){
 	$('.navmenu').offcanvas('hide');

@@ -51,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     traveller = personalTraveller;
   }*/
 
-     function reset_submit()
+     function reset_desktop_submit()
      {        
       if(document.getElementById("family_plan_desk").checked)
       {
@@ -65,8 +65,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       
       var frm = document.getElementById("freeFlight");
-      //frm.submit();
      }  
+  
+  function reset_mobile_submit()
+  {        
+   if(document.getElementById("family_plan_mob").checked)
+   {
+       $('#txtTravellersMob').val(0);
+   }
+   else if (document.getElementById("personal_plan_mob").checked)
+   {
+       $('#txtAdultsMob').val(0);
+       $('#txtOtherMob').val(0);
+       $('#txtChildMob').val(0);
+   }
+   
+   var frm = document.getElementById("freeFlight");
+  }  
+  
+  function reset_bottom_submit()
+  {        
+   if(document.getElementById("family_plan_btm").checked)
+   {
+       $('#txtTravellersBtm').val(0);
+   }
+   else if (document.getElementById("personal_plan_btm").checked)
+   {
+       $('#txtAdultsBtm').val(0);
+       $('#txtOtherBtm').val(0);
+       $('#txtChildBtm').val(0);
+   }
+   
+   var frm = document.getElementById("freeFlight");
+  }  
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
@@ -270,7 +301,7 @@ $(document).ready(function() {
                 
                 </td>
               <td class="col-md-2 pad-none">
-                <button  type="submit" class="bdr-curve-none btn btn-primary btn-lg marg-t2 pad-increase" onclick="reset_submit()">
+                <button  type="submit" class="bdr-curve-none btn btn-primary btn-lg marg-t2 pad-increase" onclick="reset_desktop_submit()">
               <fmt:message key="flight.main.quote.top.action" bundle="${msg}" />
              </button> 
               </td>
@@ -309,7 +340,7 @@ $(document).ready(function() {
 
 <!--Mobile-form-->
 <div class="slider-form hidden-lg hidden-md">
- <form name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
+ <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
   <div class="form-container">
     <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h4>
@@ -429,7 +460,7 @@ $(document).ready(function() {
   </div>
   <div class="form-container">
     <h3 class="text-center"> 
-  <button type="submit"  class="bdr-curve-none btn btn-primary btn-lg btn-block "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
+  <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve-none btn btn-primary btn-lg btn-block "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
   </h3> 
   </div>
   </form>
@@ -696,7 +727,7 @@ $(document).ready(function() {
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-     <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
+     <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <!-- <h2><fmt:message key="flight.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
         <table class="table activation-form3">
@@ -834,7 +865,7 @@ $(document).ready(function() {
                 </td>
               <td class="col-md-2 pad-none">
                 <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
-                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
+                 <button  type="submit" onclick="reset_bottom_submit()" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
               <fmt:message key="flight.main.quote.bottom.action" bundle="${msg}" />
              </button> 
             </tr>

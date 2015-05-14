@@ -151,11 +151,19 @@
 											<br>
 										<fmt:message key="home.summary.plansummary.desc5.part2"
 												bundle="${msg}" /></td>
-										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getApplicantRoom()}, Floor ${homeCareDetails.getApplicantFloor()},
-											Block ${homeCareDetails.getApplicantBlock()}, 
+										<td class=" h4-5 ">
+											<c:if test="${homeCareDetails.getApplicantRoom() != ''}">
+                                                Room/Flat ${homeCareDetails.getApplicantRoom()}, 
+											</c:if>
+											<c:if test="${homeCareDetails.getApplicantFloor() != ''}">
+                                                Floor ${homeCareDetails.getApplicantFloor()}, 
+                                            </c:if>
+                                            <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
+                                                Block ${homeCareDetails.getApplicantBlock()}, 
+                                            </c:if>
 											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}
-											${homeCareDetails.getApplicantStreetName()}
+											${homeCareDetails.getApplicantEstate() }, 
+											${homeCareDetails.getApplicantStreetNo()} ${homeCareDetails.getApplicantStreetName()}, 
 											${homeCareDetails.getApplicantDistrictDesc()}, 
 											${homeCareDetails.getApplicantAreaDesc() }
 										</td>
@@ -163,11 +171,19 @@
 									<tr>
 										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
-										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getaRoom()}, Floor ${homeCareDetails.getaFloor()},
-											Block ${homeCareDetails.getaBlock() },
+										<td class=" h4-5 ">
+										    <c:if test="${homeCareDetails.getaRoom() != ''}">
+                                                Room/Flat ${homeCareDetails.getaRoom()}, 
+                                            </c:if>
+                                            <c:if test="${homeCareDetails.getaFloor() != ''}">
+                                                Floor ${homeCareDetails.getaFloor()}, 
+                                            </c:if>
+                                            <c:if test="${homeCareDetails.getaBlock() != ''}">
+                                                Block ${homeCareDetails.getaBlock()}, 
+                                            </c:if>
 											${homeCareDetails.getaBuilding()},
-											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }
-											${homeCareDetails.getaStreetName() }
+											${homeCareDetails.getaEstate() }, 
+											${homeCareDetails.getaStreetNo() } ${homeCareDetails.getaStreetName() }, 
 											${homeCareDetails.getaDistrictDesc()}, 
 											${homeCareDetails.getaAreaDesc() }</td>
 									</tr>
@@ -482,9 +498,18 @@
 
 						</div>
 						 -->
-						<br>
+						<!-- <br>
                             <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
-                        <br>
+                        <br>-->
+                        <br/>
+                        <div style="overflow: hidden;">
+                          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 row pull-left">
+                              <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+                            </div>
+                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left" style="padding-left: 15px;line-height: 45px;">
+                              <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+                            </div>
+                        </div>
 
 					</div>
 
@@ -522,7 +547,8 @@
 						form.action = geteWayUrl;
 						$('#PaymentingDiv').hide();
 					} else {
-						console.log("process home payment fail " + data);
+						//console.log("process home payment fail " + data);
+						$('#paymentErrorPopup').modal('show');
 					}
 				}
 			});
@@ -549,7 +575,9 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								console.log("fail to home process payment " + data);
+ 								//console.log("fail to home process payment " + data);
+ 								$('#paymentErrorPopup').modal('show');
+ 								return false;
  	 						}
  	 							
  						}

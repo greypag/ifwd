@@ -31,7 +31,8 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								console.log("fail to process payment " + data);
+ 								//console.log("fail to process payment " + data);
+ 								$('#paymentErrorPopup').modal('show');
  							}
  						}
  					});
@@ -510,16 +511,8 @@
 	                                    <tr class="hidden-sm hidden-xs">
 	                                        <td class="pad-none" data-title="Personal <%=i + 1%>">
 	                                        <span class="h2-1-td">
-	                                        <c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
 	                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
 	                                                <%=i + 1%>
-	                                        </c:if>
-	                                        
-	                                        <c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
-	                                            <fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
-	                                                <%=i + 1%>
-	                                        </c:if>
-	                                        
 	                                        </span>
 	                                        </td>
 	                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
@@ -555,16 +548,8 @@
 									<tr class="hidden-sm hidden-xs">
 										<td class="pad-none" data-title="Adult <%=i + 1%>">
 										<span class="h2-1-td">
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
-											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-												<%=i + 1%>
-										</c:if>
-										
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
 												<%=i + 1%>
-										</c:if>
-										
 										</span>
 										</td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
@@ -931,7 +916,15 @@
 							<div class="clearfix"></div>
 						</div>
 						<br>
-						<img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+						<div class="declaration-content margin-left-small" style="overflow: hidden;">
+						  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 row pull-left">
+	                          <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+	                        </div>
+	                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left" style="padding-left: 15px;line-height: 45px;">
+	                          <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+	                        </div>
+						</div>
+						
 						<br>
 					</div>
 				</div>
