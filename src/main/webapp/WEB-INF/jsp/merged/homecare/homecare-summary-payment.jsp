@@ -153,17 +153,17 @@
 												bundle="${msg}" /></td>
 										<td class=" h4-5 ">
 											<c:if test="${homeCareDetails.getApplicantRoom() != ''}">
-                                                Room/Flat ${homeCareDetails.getApplicantRoom()},
+                                                Room/Flat ${homeCareDetails.getApplicantRoom()}, 
 											</c:if>
 											<c:if test="${homeCareDetails.getApplicantFloor() != ''}">
-                                                Floor ${homeCareDetails.getApplicantFloor()},
+                                                Floor ${homeCareDetails.getApplicantFloor()}, 
                                             </c:if>
                                             <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
-                                                Block ${homeCareDetails.getApplicantBlock()},
+                                                Block ${homeCareDetails.getApplicantBlock()}, 
                                             </c:if>
 											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}
-											${homeCareDetails.getApplicantStreetName()}
+											${homeCareDetails.getApplicantEstate() }, 
+											${homeCareDetails.getApplicantStreetNo()} ${homeCareDetails.getApplicantStreetName()}, 
 											${homeCareDetails.getApplicantDistrictDesc()}, 
 											${homeCareDetails.getApplicantAreaDesc() }
 										</td>
@@ -173,17 +173,17 @@
 												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
 										<td class=" h4-5 ">
 										    <c:if test="${homeCareDetails.getaRoom() != ''}">
-                                                Room/Flat ${homeCareDetails.getaRoom()},
+                                                Room/Flat ${homeCareDetails.getaRoom()}, 
                                             </c:if>
                                             <c:if test="${homeCareDetails.getaFloor() != ''}">
-                                                Floor ${homeCareDetails.getaFloor()},
+                                                Floor ${homeCareDetails.getaFloor()}, 
                                             </c:if>
                                             <c:if test="${homeCareDetails.getaBlock() != ''}">
-                                                Block ${homeCareDetails.getaBlock()},
+                                                Block ${homeCareDetails.getaBlock()}, 
                                             </c:if>
 											${homeCareDetails.getaBuilding()},
-											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }
-											${homeCareDetails.getaStreetName() }
+											${homeCareDetails.getaEstate() }, 
+											${homeCareDetails.getaStreetNo() } ${homeCareDetails.getaStreetName() }, 
 											${homeCareDetails.getaDistrictDesc()}, 
 											${homeCareDetails.getaAreaDesc() }</td>
 									</tr>
