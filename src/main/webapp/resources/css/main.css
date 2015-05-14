@@ -6292,3 +6292,15 @@ tr.product-landing-error-wrap {
 .modal-content{
 	border-radius:0px !important;
 }
+
+.btn-confirm-inline-change{
+	background: #061d2a !important;
+    color: #fff !important;
+    padding: 20px 10px;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 1;
+	text-align: center;
+	border: 0 !important;
+	border-radius: 0px;
+}

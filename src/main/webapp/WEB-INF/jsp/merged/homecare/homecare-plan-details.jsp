@@ -932,6 +932,14 @@
 									</div>
 
 								</div>
+								
+								<c:if test="${referralCode!=''}">
+								    <div class="form-container">
+	                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                                        <h4>${referralCode}</h4>
+	                                </div>
+                                </c:if>
+								
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%>
