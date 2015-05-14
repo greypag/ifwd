@@ -199,22 +199,22 @@ $(function () {
 			
 			//要搵返D 變數post 返
 					
-			$.ajax({
-				  type: "POST",
-				  url: fullPath,
-				  data: { 'trLeavingDate': dateFormate(startDate),
-					  	  'trBackDate': dateFormate(endDate),
-					  	  'totalAdultTraveller':'',
-					  	  'totalChildTraveller':'',					  	  
-					  	  'days':'',
-					  	  'travellerCount':'',
-					  	  'ToalDue':'1',
-					  	  'planSelected':''					  	 
-				  },					  				  							  
-				  success: function(){					 					 
-				  }
-			
-			});
+//			$.ajax({
+//				  type: "POST",
+//				  url: fullPath,
+//				  data: { 'trLeavingDate': dateFormate(startDate),
+//					  	  'trBackDate': dateFormate(endDate),
+//					  	  'totalAdultTraveller':'',
+//					  	  'totalChildTraveller':'',					  	  
+//					  	  'days':'',
+//					  	  'travellerCount':'',
+//					  	  'ToalDue':'1',
+//					  	  'planSelected':''					  	 
+//				  },					  				  							  
+//				  success: function(){					 					 
+//				  }
+//			
+//			});
 							
 			//-------------------------------------------------------------------------------ajax		
 						
@@ -267,22 +267,22 @@ $(function () {
 		
 		//要搵返D 變數post 返
 				
-		$.ajax({
-			  type: "POST",
-			  url: fullPath,
-			  data: { 'trLeavingDate': dateFormate(startDate),
-				  	  'trBackDate': dateFormate(endDate),
-				  	  'totalAdultTraveller':'',
-				  	  'totalChildTraveller':'',					  	  
-				  	  'days':'',
-				  	  'travellerCount':'',
-				  	  'ToalDue':'1',
-				  	  'planSelected':''					  	 
-			  },					  				  							  
-			  success: function(){					 					 
-			  }
-		
-		});
+//		$.ajax({
+//			  type: "POST",
+//			  url: fullPath,
+//			  data: { 'trLeavingDate': dateFormate(startDate),
+//				  	  'trBackDate': dateFormate(endDate),
+//				  	  'totalAdultTraveller':'',
+//				  	  'totalChildTraveller':'',					  	  
+//				  	  'days':'',
+//				  	  'travellerCount':'',
+//				  	  'ToalDue':'1',
+//				  	  'planSelected':''					  	 
+//			  },					  				  							  
+//			  success: function(){					 					 
+//			  }
+//		
+//		});
 								
 		
 		
@@ -357,22 +357,22 @@ $(function () {
 			
 			
 					
-			$.ajax({
-				  type: "POST",
-				  url: fullPath,
-				  data: { 'departureDate': dateFormate(startDate),
-					  	  'returnDate': dateFormate(endDate),
-					  	  'totalAdultTraveller':'',
-					  	  'totalChildTraveller':'',					  	  
-					  	  'days':'',
-					  	  'travellerCount':'',
-					  	  'ToalDue':'1',
-					  	  'planSelected':''					  	 
-				  },					  				  							  
-				  success: function(){					 					 
-				  }
-			
-			});
+//			$.ajax({
+//				  type: "POST",
+//				  url: fullPath,
+//				  data: { 'departureDate': dateFormate(startDate),
+//					  	  'returnDate': dateFormate(endDate),
+//					  	  'totalAdultTraveller':'',
+//					  	  'totalChildTraveller':'',					  	  
+//					  	  'days':'',
+//					  	  'travellerCount':'',
+//					  	  'ToalDue':'1',
+//					  	  'planSelected':''					  	 
+//				  },					  				  							  
+//				  success: function(){					 					 
+//				  }
+//			
+//			});
 							
 			//-------------------------------------------------------------------------------ajax		
 						
@@ -437,22 +437,22 @@ $(function () {
 		var end = path.indexOf('flight-insurance');
 		var fullPath = path.substring(0, end) + "flight-insurance/quote";
 				
-		$.ajax({
-			  type: "POST",
-			  url: fullPath,
-			  data: { 'departureDate': dateFormate(startDate),
-				  	  'returnDate': dateFormate(endDate),
-				  	  'totalAdultTraveller':'',
-				  	  'totalChildTraveller':'',					  	  
-				  	  'days':'',
-				  	  'travellerCount':'',
-				  	  'ToalDue':'1',
-				  	  'planSelected':''					  	 
-			  },					  				  							  
-			  success: function(){					 					 
-			  }
-		
-		});
+//		$.ajax({
+//			  type: "POST",
+//			  url: fullPath,
+//			  data: { 'departureDate': dateFormate(startDate),
+//				  	  'returnDate': dateFormate(endDate),
+//				  	  'totalAdultTraveller':'',
+//				  	  'totalChildTraveller':'',					  	  
+//				  	  'days':'',
+//				  	  'travellerCount':'',
+//				  	  'ToalDue':'1',
+//				  	  'planSelected':''					  	 
+//			  },					  				  							  
+//			  success: function(){					 					 
+//			  }
+//		
+//		});
 						
 		//-------------------------------------------------------------------------------ajax			
 		
@@ -538,44 +538,44 @@ $(function () {
 			
 			if(end>0){
 				fullPath = path.substring(0, end) + "flight-insurance/quote";	
-				$.ajax({
-					  type: "POST",
-					  url: fullPath,
-					  data: { 'departureDate': dateFormate(startDate),
-						  	  'returnDate': dateFormate(endDate),
-						  	  'totalAdultTraveller':'',
-						  	  'totalChildTraveller':'',					  	  
-						  	  'days':'',
-						  	  'travellerCount':'',
-						  	  'ToalDue':'1',
-						  	  'planSelected':''					  	 
-					  },					  				  							  
-					  success: function(){					 					 
-					  }
-				
-				});
+//				$.ajax({
+//					  type: "POST",
+//					  url: fullPath,
+//					  data: { 'departureDate': dateFormate(startDate),
+//						  	  'returnDate': dateFormate(endDate),
+//						  	  'totalAdultTraveller':'',
+//						  	  'totalChildTraveller':'',					  	  
+//						  	  'days':'',
+//						  	  'travellerCount':'',
+//						  	  'ToalDue':'1',
+//						  	  'planSelected':''					  	 
+//					  },					  				  							  
+//					  success: function(){					 					 
+//					  }
+//				
+//				});
 				
 			}else{
 				end = path.indexOf('travel-insurance')
 				fullPath = path.substring(0, end) + "travel-insurance/quote";	
 				
 				
-				$.ajax({
-					  type: "POST",
-					  url: fullPath,
-					  data: { 'trLeavingDate': dateFormate(startDate),
-						  	  'trBackDate': dateFormate(endDate),
-						  	  'totalAdultTraveller':'',
-						  	  'totalChildTraveller':'',					  	  
-						  	  'days':'',
-						  	  'travellerCount':'',
-						  	  'ToalDue':'1',
-						  	  'planSelected':''					  	 
-					  },					  				  							  
-					  success: function(){					 					 
-					  }
-				
-				});
+//				$.ajax({
+//					  type: "POST",
+//					  url: fullPath,
+//					  data: { 'trLeavingDate': dateFormate(startDate),
+//						  	  'trBackDate': dateFormate(endDate),
+//						  	  'totalAdultTraveller':'',
+//						  	  'totalChildTraveller':'',					  	  
+//						  	  'days':'',
+//						  	  'travellerCount':'',
+//						  	  'ToalDue':'1',
+//						  	  'planSelected':''					  	 
+//					  },					  				  							  
+//					  success: function(){					 					 
+//					  }
+//				
+//				});
 			}
 			
 			
@@ -624,22 +624,22 @@ $(function () {
 		
 		if(end>0){
 			fullPath = path.substring(0, end) + "flight-insurance/quote";	
-			$.ajax({
-				  type: "POST",
-				  url: fullPath,
-				  data: { 'departureDate': dateFormate(startDate),
-					  	  'returnDate': dateFormate(endDate),
-					  	  'totalAdultTraveller':'',
-					  	  'totalChildTraveller':'',					  	  
-					  	  'days':'',
-					  	  'travellerCount':'',
-					  	  'ToalDue':'1',
-					  	  'planSelected':''					  	 
-				  },					  				  							  
-				  success: function(){					 					 
-				  }
-			
-			});
+//			$.ajax({
+//				  type: "POST",
+//				  url: fullPath,
+//				  data: { 'departureDate': dateFormate(startDate),
+//					  	  'returnDate': dateFormate(endDate),
+//					  	  'totalAdultTraveller':'',
+//					  	  'totalChildTraveller':'',					  	  
+//					  	  'days':'',
+//					  	  'travellerCount':'',
+//					  	  'ToalDue':'1',
+//					  	  'planSelected':''					  	 
+//				  },					  				  							  
+//				  success: function(){					 					 
+//				  }
+//			
+//			});
 			
 		}
 		
@@ -650,22 +650,22 @@ $(function () {
 			fullPath = path.substring(0, end) + "travel-insurance/quote";	
 			
 			
-			$.ajax({
-				  type: "POST",
-				  url: fullPath,
-				  data: { 'trLeavingDate': dateFormate(startDate),
-					  	  'trBackDate': dateFormate(endDate),
-					  	  'totalAdultTraveller':'',
-					  	  'totalChildTraveller':'',					  	  
-					  	  'days':'',
-					  	  'travellerCount':'',
-					  	  'ToalDue':'1',
-					  	  'planSelected':''					  	 
-				  },					  				  							  
-				  success: function(){					 					 
-				  }
-			
-			});
+//			$.ajax({
+//				  type: "POST",
+//				  url: fullPath,
+//				  data: { 'trLeavingDate': dateFormate(startDate),
+//					  	  'trBackDate': dateFormate(endDate),
+//					  	  'totalAdultTraveller':'',
+//					  	  'totalChildTraveller':'',					  	  
+//					  	  'days':'',
+//					  	  'travellerCount':'',
+//					  	  'ToalDue':'1',
+//					  	  'planSelected':''					  	 
+//				  },					  				  							  
+//				  success: function(){					 					 
+//				  }
+//			
+//			});
 			
 			
 		}
