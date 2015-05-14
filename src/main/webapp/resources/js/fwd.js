@@ -472,18 +472,25 @@ $(function () {
 	//================================================================================================================================
 	
 	// 18 year ago date
-	var dob_date = new Date();
-	dob_date.setFullYear(dob_date.getFullYear()-18);
+	var dob_end_date = new Date();
+	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 	
-	// birthday datepicker
+	// 86 year ago date
+	var dob_start_date = new Date();
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+	dob_start_date.setDate(dob_start_date.getDate()+1);
+	
+	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
 		format: "dd MM yyyy",
-		endDate: dob_date
+		startDate: dob_start_date,
+		endDate: dob_end_date
 		/*language: getBundleLanguage*/
 	});
-	$('#input_dob').datepicker('update', dob_date);
+	$('#input_dob').datepicker('setDate', dob_end_date);
+
 	
 	
 	
