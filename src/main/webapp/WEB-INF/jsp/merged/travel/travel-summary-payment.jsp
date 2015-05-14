@@ -31,7 +31,8 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								console.log("fail to process payment " + data);
+ 								//console.log("fail to process payment " + data);
+ 								$('#paymentErrorPopup').modal('show');
  							}
  						}
  					});
