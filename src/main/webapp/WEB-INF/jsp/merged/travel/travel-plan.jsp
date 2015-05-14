@@ -170,7 +170,7 @@ if(personalTraveller>familyTraveller){
                 $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
                 $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
 				
-			} else {
+			} else if (selValue == "A") {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 				//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 				$("#subtotal").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
