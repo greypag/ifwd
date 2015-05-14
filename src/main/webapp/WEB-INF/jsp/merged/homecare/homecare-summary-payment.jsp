@@ -151,8 +151,16 @@
 											<br>
 										<fmt:message key="home.summary.plansummary.desc5.part2"
 												bundle="${msg}" /></td>
-										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getApplicantRoom()}, Floor ${homeCareDetails.getApplicantFloor()},
-											Block ${homeCareDetails.getApplicantBlock()}, 
+										<td class=" h4-5 ">
+											<c:if test="${homeCareDetails.getApplicantRoom() != ''}">
+                                                Room/Flat ${homeCareDetails.getApplicantRoom()},
+											</c:if>
+											<c:if test="${homeCareDetails.getApplicantFloor() != ''}">
+                                                Floor ${homeCareDetails.getApplicantFloor()},
+                                            </c:if>
+                                            <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
+                                                Block ${homeCareDetails.getApplicantBlock()},
+                                            </c:if>
 											${homeCareDetails.getApplicantBuilding() },
 											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}
 											${homeCareDetails.getApplicantStreetName()}
@@ -163,8 +171,16 @@
 									<tr>
 										<td class="h2-1"><fmt:message
 												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
-										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getaRoom()}, Floor ${homeCareDetails.getaFloor()},
-											Block ${homeCareDetails.getaBlock() },
+										<td class=" h4-5 ">
+										    <c:if test="${homeCareDetails.getaRoom() != ''}">
+                                                Room/Flat ${homeCareDetails.getaRoom()},
+                                            </c:if>
+                                            <c:if test="${homeCareDetails.getaFloor() != ''}">
+                                                Floor ${homeCareDetails.getaFloor()},
+                                            </c:if>
+                                            <c:if test="${homeCareDetails.getaBlock() != ''}">
+                                                Block ${homeCareDetails.getaBlock()},
+                                            </c:if>
 											${homeCareDetails.getaBuilding()},
 											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }
 											${homeCareDetails.getaStreetName() }
