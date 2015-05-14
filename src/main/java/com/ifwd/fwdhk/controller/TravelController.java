@@ -936,7 +936,7 @@ public class TravelController {
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		
+		String selectedHkidPassApplicant = WebServiceUtils.getParameterValue("selectedHkidPassApplicant",	session, request);
 		Enumeration<String> parameterNames = request.getParameterNames();
 		while (parameterNames.hasMoreElements()) {
 			String paramName = parameterNames.nextElement();
@@ -1044,16 +1044,23 @@ public class TravelController {
 		}
 		
 		// personal
-		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
+ 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
 			JSONObject personal = new JSONObject();
 		
 			personal.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase() );
 			personal.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getPersonalAgeRange()[inx] ).toUpperCase() );
 			
-			personal.put(hkId, applicantHKID);
-			personal.put(passId, "");
 			
+			personal.put(hkId,	checkPasswortAndHkid(hkId,
+					planDetailsForm.getSelectedPersonalHkidPass()[inx],
+					planDetailsForm.getPersonalHKID()[inx])
+			 );
+			personal.put(passId, checkPasswortAndHkid(passId,
+					planDetailsForm.getSelectedPersonalHkidPass()[inx],
+					planDetailsForm.getPersonalHKID()[inx])
+			 );
+
 			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
 							planDetailsForm.getSelectedPersonalHkidPass()[inx],
@@ -1077,12 +1084,12 @@ public class TravelController {
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPsBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", StringHelper.emptyIfNull( planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase());
 						personal.put("beneficiary", beneficiary);
@@ -1112,13 +1119,13 @@ public class TravelController {
 					beneficiary
 							.put(hkId,
 									checkPasswortAndHkid(hkId, 
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
+											planDetailsForm.getSelectedPersonalHkidPass()[inx],
+											planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary
 							.put(passId,
 									checkPasswortAndHkid(
 											passId,
-											planDetailsForm.getSelectedAdHkidPass()[inx],
+											planDetailsForm.getSelectedPersonalHkidPass()[inx],
 											planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary.put("relationship", "SE");
 					personal.put("beneficiary", beneficiary);				
@@ -1133,34 +1140,29 @@ public class TravelController {
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedPsBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPsBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary()[inx]);
 						personal.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-						beneficiary.put(hkId, applicantHKID);
-						beneficiary.put(passId, "");
-						/*
 						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getPersonalHKID()[inx]));
+						.put(hkId,
+								checkPasswortAndHkid(hkId, 
+										planDetailsForm.getSelectedPersonalHkidPass()[inx],
+										planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getPersonalHKID()[inx]));
-						 */
+						.put(passId,
+								checkPasswortAndHkid(
+										passId,
+										planDetailsForm.getSelectedPersonalHkidPass()[inx],
+										planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						personal.put("beneficiary", beneficiary);
 						
@@ -1562,7 +1564,19 @@ public class TravelController {
 			
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
-		applicantJsonObj.put(hkId, applicantHKID);
+		
+		if (selectedHkidPassApplicant.toUpperCase().equals("HKID")) {
+			applicantJsonObj.put("hkId", applicantHKID);
+			applicantJsonObj.put("passport", "");	
+		} else {
+			applicantJsonObj.put("hkId", "");
+			applicantJsonObj.put("passport", applicantHKID);
+		}
+			
+		
+		
+		
+		
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", applicantMobNo);
 		

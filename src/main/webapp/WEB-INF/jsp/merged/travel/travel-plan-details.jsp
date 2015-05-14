@@ -174,8 +174,9 @@
                                         class="bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label></td>
                                     <td>
                                         <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                            <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
-                                        </div>                 
+                                            <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                        </div>
+                                        <span id="dobInvalid" class="text-red"></span>           
                                     </td>
                                 </tr>
                                 <!-- Birthday ends -->
@@ -259,6 +260,14 @@
 
 
                         <div class="col-xs-12 col-sm-12 col-md-12 pad-none insure-travel">
+                        	<h3 class="black-bold pad-none margin-left-28">
+	                           <fmt:message key="flight.details.insured.heading" bundle="${msg}" />
+	                           <br>
+	                       </h3>
+                        
+                        
+                        
+                        
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
                                 value="${corrTravelQuote.getTotalPersonalTraveller()}">
@@ -620,7 +629,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="styled-select custom-select-label">
-                                                        <select id="selectChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass">
+                                                        <select id="selectedChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
@@ -696,7 +705,7 @@
                                             <tr id="childbenificiaryId${inx}b" class="hide">
                                                 <td>
                                                     <div class="styled-select custom-select-label">
-                                                        <select id="selectChildBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
+                                                        <select id="selectedChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
@@ -706,7 +715,7 @@
                                                     <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtchildInsuHkid${inx}','selectChildBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtchildInsuHkid${inx}','selectedChldBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
                                                     class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
                                                     class="text-red"> </span>
                                                 </td>

@@ -93,8 +93,7 @@ public class WebServiceUtils {
 				desc = "Others";	
 			else if (relationship.equals("RE"))
 				desc = "Relative";	
-			else if (relationship.equals("SE"))
-				desc = "Self";	
+			
 			else if (relationship.equals("ST"))
 				desc = "Student";				
 			else
@@ -149,7 +148,9 @@ public class WebServiceUtils {
 			else if (relationship.equals("SP"))
 				desc = "Spouse";
 			else if (relationship.equals("FM"))
-				desc = "Fiance";			
+				desc = "Fiance";
+			else if (relationship.equals("FF"))
+				desc = "Fiancee";
 			else if (relationship.equals("GP"))
 				desc = "Grand Parent";
 			else if (relationship.equals("GR"))
@@ -177,6 +178,10 @@ public class WebServiceUtils {
 				desc = "孫兒";
 			else if (relationship.equals("SE"))
 				desc = "個人遺產";			
+			else if (relationship.equals("FM"))
+				desc = "未婚妻";
+			else if (relationship.equals("FF"))
+				desc = "未婚夫";
 			else
 				desc = relationship;
 		}

@@ -213,7 +213,7 @@
                                     
                                     <!-- 忘記使用者END -->
                                     
-                                    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
     <script>
         function getForgotUserName() {
             var validationFormVal = forgotUserName();
@@ -423,7 +423,7 @@
                                 
                                 
                         
-    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
     <script>
         function forgotUserPassword() {
             

@@ -1484,7 +1484,7 @@ if(personalTraveller>familyTraveller){
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-                                    onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                                    onclick="return sendEmail()" "><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
                             </div>
                             <div class="col-md-2">
                                 <br>

@@ -113,22 +113,25 @@ var promoCodeInsertFlag = true;
             
 			$("#errPromoCode").html("");
 			
-			if(chkPromoCode())
-			$.ajax({
-				type : 'POST',
-				url : '<%=request.getContextPath()%>/applyHomePromoCode',
-				data : $('#frmHomeCarePlan input').serialize(),
-				success : function(data) {
-					$("#loadingPromo").hide();
-                    promoCodeInsertFlag = true;
-	
-					var json = JSON.parse(data);
-	
-					//console.log("json " + json);
-					setValue(json);
-				}
-	
-			});
+			if(chkPromoCode()) {
+				$.ajax({
+					type : 'POST',
+					url : '<%=request.getContextPath()%>/applyHomePromoCode',
+					data : $('#frmHomeCarePlan input').serialize(),
+					success : function(data) {
+						$("#loadingPromo").hide();
+	                    promoCodeInsertFlag = true;
+		
+						var json = JSON.parse(data);
+		
+						//console.log("json " + json);
+						setValue(json);
+					}
+		
+				});
+			} else {
+				promoCodeInsertFlag = true;
+			}
 		}
 	}
 

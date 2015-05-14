@@ -161,11 +161,29 @@
                                             <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
                                                 Block ${homeCareDetails.getApplicantBlock()}, 
                                             </c:if>
-											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() }, 
-											${homeCareDetails.getApplicantStreetNo()} ${homeCareDetails.getApplicantStreetName()}, 
-											${homeCareDetails.getApplicantDistrictDesc()}, 
-											${homeCareDetails.getApplicantAreaDesc() }
+                                            <c:if test="${homeCareDetails.getApplicantBuilding() != ''}">
+                                            	${homeCareDetails.getApplicantBuilding() },
+                                            </c:if>
+											
+											
+											<c:if test="${homeCareDetails.getApplicantEstate() != ''}">
+                                            	${homeCareDetails.getApplicantEstate() },
+                                            </c:if>
+											<c:if test="${homeCareDetails.getApplicantStreetNo() != ''}">
+                                            	${homeCareDetails.getApplicantStreetNo() },
+                                            </c:if>
+											 <c:if test="${homeCareDetails.getApplicantStreetName() != ''}">
+                                            	${homeCareDetails.getApplicantStreetName() },
+                                            </c:if>
+                                            
+                                            <c:if test="${homeCareDetails.getApplicantDistrictDesc() != ''}">
+                                            	${homeCareDetails.getApplicantDistrictDesc() },
+                                            </c:if>
+                                            
+											<c:if test="${homeCareDetails.getApplicantAreaDesc() != ''}">
+                                            	${homeCareDetails.getApplicantAreaDesc() }
+                                            </c:if>
+
 										</td>
 									</tr>
 									<tr>
@@ -181,11 +199,26 @@
                                             <c:if test="${homeCareDetails.getaBlock() != ''}">
                                                 Block ${homeCareDetails.getaBlock()}, 
                                             </c:if>
-											${homeCareDetails.getaBuilding()},
-											${homeCareDetails.getaEstate() }, 
-											${homeCareDetails.getaStreetNo() } ${homeCareDetails.getaStreetName() }, 
-											${homeCareDetails.getaDistrictDesc()}, 
-											${homeCareDetails.getaAreaDesc() }</td>
+                                            
+                                            <c:if test="${homeCareDetails.getaBuilding() != ''}">
+												${homeCareDetails.getaBuilding()},
+											</c:if>
+											<c:if test="${homeCareDetails.getaEstate() != ''}">
+												${homeCareDetails.getaEstate()},
+											</c:if>
+											<c:if test="${homeCareDetails.getaStreetNo() != ''}">
+												${homeCareDetails.getaStreetNo()},
+											</c:if>
+											<c:if test="${homeCareDetails.getaStreetName() != ''}">
+												${homeCareDetails.getaStreetName()},
+											</c:if>
+											<c:if test="${homeCareDetails.getaDistrictDesc() != ''}">
+												${homeCareDetails.getaDistrictDesc()},
+											</c:if>
+											<c:if test="${homeCareDetails.getaAreaDesc() != ''}">
+												${homeCareDetails.getaAreaDesc()}
+											</c:if>
+										</td>
 									</tr>
 									<tr>
 										<td class="h2-1"><fmt:message

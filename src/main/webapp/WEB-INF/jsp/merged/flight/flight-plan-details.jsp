@@ -200,6 +200,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
                                             <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                         </div>
+                                        <span id="dobInvalid" class="text-red"></span>
                                     </td>
                                 </tr>
                                 <!-- Birthday ends -->
@@ -212,8 +213,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         name="mobileNo" id="inputMobileNo"
                                         placeholder="<fmt:message key="flight.details.applicant.mobile.placeholder" bundle="${msg}" />"
                                         onkeypress="return isNumeric(event)"
-                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNo');" maxlength="8" /> <span
-                                        id="mobileNo" class="text-red"></span></td>
+                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" /> <span
+                                        id="mobileNoInvalid" class="text-red"></span></td>
                                 </tr>
                                 <tr>
                                     <td valign="middle" class=""><label for="inputEmailId"
@@ -723,7 +724,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                             <tr id="childbenificiaryId${inx}b" class="hide">
                                                 <td valign="middle" class="">
                                                     <div class="styled-select custom-select-label">
-	                                                    <select id="selectChildBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChildBenefitiaryHkidPass">
+	                                                    <select id="selectedChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
 	                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
 	                                                        <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 	                                                    </select>
@@ -733,7 +734,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                       <input id="txtchildInsuHkid${inx}"
                                             name="childBenificiaryHkid" class="form-control textUpper full-control"
                                             placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                            value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtchildInsuHkid${inx}','selectChildBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
+                                            value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtchildInsuHkid${inx}','selectChldBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
                                             class="text-red"> </span>
                                                 </td>
                                             </tr>

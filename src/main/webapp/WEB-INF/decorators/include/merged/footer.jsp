@@ -94,8 +94,7 @@
   src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>  
-<%-- <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/validation.js"></script> --%>
+
 
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>

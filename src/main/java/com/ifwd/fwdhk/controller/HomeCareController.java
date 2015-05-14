@@ -369,12 +369,17 @@ public class HomeCareController {
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
-		String dob = request.getParameter("applicantDob");
-		Calendar dateDob = Calendar.getInstance();
-		dateDob.setTime(new Date(dob));
+		String dob = "";
 		Format f = new SimpleDateFormat("yyyy-MM-dd");
-		dob = f.format(dateDob.getTime());
-		
+		try {
+			dob = request.getParameter("applicantDob");
+			Calendar dateDob = Calendar.getInstance();
+			dateDob.setTime(new Date(dob));
+			f = new SimpleDateFormat("yyyy-MM-dd");
+			dob = f.format(dateDob.getTime());
+		} catch (Exception e) {
+			
+		}
 		boolean optIn1;
 		boolean optIn2;
 		if (optIn1Value == null) {

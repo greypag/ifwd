@@ -483,6 +483,7 @@
 	                                        <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
 	                                            <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
 	                                        </div>
+	                                        <span id="dobInvalid" class="text-red"> </span></td>
 	                                    </td>
 	                                </tr>
 	                                <!-- Birthday ends -->
