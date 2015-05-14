@@ -1342,8 +1342,8 @@ if(personalTraveller>familyTraveller){
                            <!-- bmg confirm button -->
                            <hr>
                            
-                           <div class="col-lg-3 col-md-3">
-                                <div class="bdr-curve btn btn-primary btn-next" style="font-size:12px;" onclick="updateTravelQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
+                           <div class="col-lg-5 col-md-5">
+                                <div class="btn-confirm-inline-change pointer" onclick="updateTravelQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
                            </div>
                            <!-- bmg confirm button -->
                            <div class="clearfix"></div>
