@@ -511,16 +511,8 @@
 	                                    <tr class="hidden-sm hidden-xs">
 	                                        <td class="pad-none" data-title="Personal <%=i + 1%>">
 	                                        <span class="h2-1-td">
-	                                        <c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
 	                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
 	                                                <%=i + 1%>
-	                                        </c:if>
-	                                        
-	                                        <c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
-	                                            <fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
-	                                                <%=i + 1%>
-	                                        </c:if>
-	                                        
 	                                        </span>
 	                                        </td>
 	                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
@@ -556,16 +548,8 @@
 									<tr class="hidden-sm hidden-xs">
 										<td class="pad-none" data-title="Adult <%=i + 1%>">
 										<span class="h2-1-td">
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
-											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-												<%=i + 1%>
-										</c:if>
-										
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
 												<%=i + 1%>
-										</c:if>
-										
 										</span>
 										</td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
