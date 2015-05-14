@@ -195,7 +195,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                 <!-- Birthday starts -->
                                 <tr>
                                     <td valign="middle"><label for="inputApplicantDob"
-                                        class="bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label></td>
+                                        class="bold-500"><fmt:message key="flight.details.applicant.birthday" bundle="${msg}" /></label></td>
                                     <td>
                                         <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
                                             <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}">
@@ -1265,6 +1265,7 @@ function createFlightFnc(form)
             async : false,
             success : function(data) 
             {
+            	flight_click = false;
                 if (data == 'success') {
                     $('#errorMessages').hide();
                     flag= true;
@@ -1277,8 +1278,10 @@ function createFlightFnc(form)
         
             }
         });
+    } else {
+    	flight_click = false;
+    	flag = false;
     }
-
     return flag;
 }
 </script>

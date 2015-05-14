@@ -267,6 +267,7 @@
 										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${totalTravellingDays}</td>
 									</tr>
+
 									<tr>
 										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />
 										</span></td>
@@ -305,7 +306,7 @@
 
                                 <tbody>
                                     <tr class="">
-                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
+                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" /> <%=i + 1%></span></td>
                                         <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
                                         <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.personal.beneficiary" bundle="${msg}" /></span></td>
                                         <% } %>

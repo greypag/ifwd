@@ -90,6 +90,8 @@
 	              promoData = json;
 	              $("#totalTravellingDays").val(json.totalDays);
 	              $("#totalTravellingDaysSpan").html(json.totalDays);
+	              $("#days").val(json.totalDays);
+	              
 	          }
 	      });
 	  }
@@ -122,7 +124,7 @@
 				<!-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${planDetails.getTotalOtherTraveller()}"> -->
 				<!-- <input type="hidden" name="returnDate" id="returnDate" value="${planDetails.getReturnDate()}"> -->
 				<!-- <input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}"> -->
-			    <input type="hidden" name="days" value="${days}">
+			    <input type="hidden" id="days" name="days" value="${days}">
 			     <!-- <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> --> 
 			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.getToalDue()}"> 
 			     <!-- <input type="hidden" name="planSelected" value="${planDetails.getPlanSelected()}"> -->
@@ -319,7 +321,7 @@
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
                             </h3>
                             
-                            <span class="text-grey" id="loadingUpdate" style="display:none;">更新中...</span>
+                            <span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
                             
                             <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
                  
