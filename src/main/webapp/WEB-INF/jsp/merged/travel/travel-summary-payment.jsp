@@ -916,13 +916,13 @@
 							<div class="clearfix"></div>
 						</div>
 						<br>
-						<div class="declaration-content margin-left-small" style="overflow: hidden;">
-						  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 row pull-left">
-	                          <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
-	                        </div>
-	                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left" style="padding-left: 15px;line-height: 45px;">
+						<div id="paydoller-wrap" class="declaration-content margin-left-small float">
+						  <div id="paydollar-icon" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pull-left">
+                            <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+                           </div>
+                           <div id="paydollar-desc" class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pull-left">
 	                          <fmt:message key="travel.action.paydollar" bundle="${msg}" />
-	                        </div>
+	                       </div>
 						</div>
 						
 						<br>

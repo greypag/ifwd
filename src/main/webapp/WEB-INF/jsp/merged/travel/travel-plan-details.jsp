@@ -135,7 +135,7 @@
                                             class="black-bold"><fmt:message key="travel.details.applicant.heading" bundle="${msg}" /></h3></td>
                                 </tr>
                                 <tr>
-                                    <td valign="middle" class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
+                                    <td valign="middle" class="col-lg-5 col-md-5 col-sm-5 col-xs-4"><label
                                         for="inputFullName" class="bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label></td>
                                     <td><input type="text" name="fullName"
                                         class="form-control full-control" id="inputFullName"
@@ -282,7 +282,7 @@
                                     <table class="table activation-form margin-left-2 vert-middle">
                                         <tbody>
                                             <tr>
-                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-4">
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                                 </td>
                                                 <td>

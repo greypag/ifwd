@@ -574,7 +574,7 @@
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
-										<td><input type="text" class="form-control wd2"
+										<td><input type="text" class="form-control full-control"
 											id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>

@@ -255,7 +255,6 @@ var promoCodeInsertFlag = true;
 								</h2>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-								<br>
 								<div class="h4">
 									HK$ <br>
 									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
