@@ -230,10 +230,10 @@ $(document).ready(function() {
 </form>
 
 <!--Mobileform-->
-<div class="slider-form hidden-lg hidden-md">
+<%-- <div class="slider-form hidden-lg hidden-md">
 <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="getWorkingHolidayQuote" method="post" onsubmit="return flightValidateMobWorkingHoliday();">
   <div class="form-container">
-   <%--  <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
+    <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /> </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
@@ -386,10 +386,10 @@ $(document).ready(function() {
       <button type="submit" class="bdr-curve-none btn btn-primary btn-lg ">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
              </button>
-    </h3> --%>
+    </h3>
   </div>
   </form>
-</div>
+</div> --%>
 <!--Mobileform--> 
 
 <!--/#main slider-->
