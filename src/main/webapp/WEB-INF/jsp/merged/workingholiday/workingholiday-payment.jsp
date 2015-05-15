@@ -1,8 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@page import="com.ifwd.fwdhk.model.PlanDetailsForm"%>
+<%@page import="com.ifwd.fwdhk.model.WorkingHolidayDetailsBean"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -29,8 +28,9 @@
 	}
 	
 </script>
-
-<!--/#main-Content-->
+<%
+WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.getAttribute("planDetailsForm");
+%>
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
@@ -94,38 +94,6 @@
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
 							<table class="table activation-form margin-left-2 vert-middle travel-summary">
 								<tbody>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${createPolicy.getReferenceNo()}</td>
-									</tr>
-
-									<tr>
-									<td></td>
-										<td class="h2-1 pad-none">${selectPlanName}  <fmt:message key="travel.summary.plan" bundle="${msg}" /></td>
-										<!-- <td class="pad-none h4-5 ">計劃B 基本保障<br> HK$500,000
-
-											醫療保障--><!--<br>
-                        <h4 class="h4-4-full">+ [承保範圍]</h4>
-										</td>
-
-									</tr>-->
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
-										</td>
-										<td class="pad-none h4-5 ">${travelBean.getTotalTraveller()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.period" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 "><fmt:message key="travel.summary.period.from" bundle="${msg}" />
-											${travelBean.getTrLeavingDate()} <fmt:message key="travel.summary.period.to" bundle="${msg}" />
-											${travelBean.getTrBackDate()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${totalTravallingDays}</td>
-									</tr>
-
-									<tr>
 										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
 									</tr>
@@ -143,6 +111,32 @@
 										<td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
 									</tr>
 									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
+										<td class="pad-none h4-5">${createPolicy.getReferenceNo()}</td>
+									</tr>
+
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /></td>
+										<td class="pad-none h4-5">${selectPlanName}  <fmt:message key="travel.summary.plan" bundle="${msg}" /></td>
+										<!-- <td class="pad-none h4-5 ">計劃B 基本保障<br> HK$500,000
+
+											醫療保障--><!--<br>
+                        <h4 class="h4-4-full">+ [承保範圍]</h4>
+										</td>
+
+									</tr>-->
+									<tr>
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="travel.summary.period" bundle="${msg}" /></td>
+										<td class="pad-none h4-5 "><fmt:message key="travel.summary.period.from" bundle="${msg}" />
+											${commencementDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" />
+											${expiryDate}</td>
+									</tr>
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
+										<td class="h4-4-orange-b pad-none h4-5 ">${totalDays}</td>
+									</tr>
+									<tr>
 										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />
 										</span></td>
 										<td class="pad-none "><span
@@ -155,285 +149,12 @@
 						<div
 							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
 							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="<%=request.getContextPath()%>/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 							</h4>
 							
 						</div> 
 						
 						<div class="clearfix"></div>
-						
-						<div id="no-more-tables2">
-							<div class="col-xs-12 col-sm-12">
-								<div class="travel-tb-td hidden-md hidden-lg text-left wd2">
-									<h3 class="color4 h2-1 insur padding-t"><fmt:message key="travel.summary.insured" bundle="${msg}" /></h3>
-									
-									<!-- Mobile Table starts -->
-								</div>
-								<div  class="hidden-md hidden-lg">
-							<table class="col-xs-10 table-condensed cf mob-table">
-								
-								<%
-									PlanDetailsForm planDetailsForm = (PlanDetailsForm) request
-											.getAttribute("planDetailsForm");
-									for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
-								%>
-								<tr><td class="col-xs-12"><table class="col-xs-12">
-								
-
-								<tbody>
-									<tr class="">
-										<td  ><span class="bd"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" /> <%=i + 1%></span></td>
-										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><span class=""><%=planDetailsForm.getAdultName()[i]%></span></td>
-										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><span class=""><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
-										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td  class="">&nbsp;</td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><span class=""><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ></td>	<!-- hide relationship if insured -->
-										<% if (planDetailsForm.getAdultBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
-										<% } %>
-									</tr>
-									<tr><td>&nbsp;</td></tr>
-
-									
-								</tbody>
-								</table></td></tr>
-								
-								<%
-									}
-								%>
-								<%
-									for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
-								%>
-								<tr><td class="col-xs-12"><table class="col-xs-12">
-								<tbody>
-									<tr><td>&nbsp;</td></tr>
-									<tr>
-										<td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" /> <%=i + 1%></span></td>
-										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td ><span class="bd gy" ><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<% } %>
-									</tr>
-									<tr>	
-										<td ><%=planDetailsForm.getChildName()[i]%></td>
-										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td class="gy"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
-										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td >&nbsp;</td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><%=planDetailsForm.getChildHKID()[i]%></td>
-										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ></td>	<!-- hide relationship if insured -->
-										<% if (planDetailsForm.getChildBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
-										<% } %>
-									</tr>
-									<tr><td>&nbsp;</td></tr>
-								</tbody>
-								</table></td></tr>
-
-								<%
-									}
-								%>
-								<%
-									for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
-								%>
-								<tr><td class="col-xs-12"><table class="col-xs-12">
-								<tbody>
-									<tr><td>&nbsp;</td></tr>
-									<tr class="">
-										<td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" /><%=i + 1%></span></td>
-										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td ><span  class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><%=planDetailsForm.getOtherName()[i]%></td>
-										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
-										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td >&nbsp;</td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ><%=planDetailsForm.getOtherHKID()[i]%></td>
-										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>
-										<% } %>
-									</tr>
-									<tr>
-										<td ></td>	<!-- hide relationship if insured -->
-										<% if (planDetailsForm.getOtherBenificiaryFullName().length > 0) { %>
-										<td  class="gy"><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
-										<% } %>
-									</tr>
-									<tr><td>&nbsp;</td></tr>
-								</tbody>
-								</table></td></tr>
-								<%
-									}
-								%>
-
-
-							</table>
-									<!-- Mobile table ends -->
-								</div>
-							</div>
-						</div>
-						
-						
-						<div id="no-more-tables" class="hidden-sm hidden-xs">
-							
-							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
-
-								<tbody>
-									<tr class="travel-tb-head">
-										<td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured" bundle="${msg}" /></td>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.name" bundle="${msg}" /></td>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.age" bundle="${msg}" /></td>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.hkid" bundle="${msg}" /></td>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.beneficiary.relation" bundle="${msg}" /></td>
-									</tr>
-									<%
-										for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) 
-										{
-									%>
-
-									<tr class="hidden-sm hidden-xs">
-										<td class="pad-none" data-title="Adult <%=i + 1%>">
-										<span class="h2-1-td">
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
-											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-												<%=i + 1%>
-										</c:if>
-										
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
-											<fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
-												<%=i + 1%>
-										</c:if>
-										
-										</span>
-										</td>
-										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-										<td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
-										<td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-										<td data-title="Relationship"><span class="h4-5"></span></td>	<!-- hide relationship if insured -->
-									</tr>
-									<%
-											if (planDetailsForm.getAdultBenificiaryFullName().length > 0) 
-											{
-									%>
-									<tr>
-										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-										
-										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
-<!-- 										<td data-title="Relationship" class="travel-tb-h3"></td> -->
-									</tr>
-									<%
-											}
-									%>
-								</tbody>
-								<%
-									     }
-								%>
-								<%
-									for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
-								%>
-								<tr>
-									<td data-title="Child <%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />
-											<%=i + 1%></span></td>
-									<td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
-									<td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
-									<td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>									
-									<td class="h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
-								</tr>
-								<%
-									if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
-								%>
-								<tr>
-									<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-									<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-									<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-									<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
-									
-									<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
-								</tr>
-								<%
-									}
-								%>
-								</tbody>
-								<%
-									}
-								%>
-								<%
-									for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
-								%>
-								<tbody>
-									<tr class="hidden-sm hidden-xs">
-										<td data-title="Other<%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />
-												<%=i + 1%></span></td>
-										<td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
-										<td class=" h4-5" data-title="Age range"><%=planDetailsForm.getOtherAgeRangeName()[i]%></td>
-										<td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
-										<td class=" h4-5" data-title="Relationship"></td>	<!-- hide relationship if insured -->
-									</tr>
-									<%
-										if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
-									%>
-									<tr>
-										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>										
-										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
-									</tr>
-									<%
-										}
-									%>
-								</tbody>
-								<%
-									}
-								%>
-
-
-							</table>
-						
-						</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -451,8 +172,7 @@
 						type="hidden" name="successUrl" value="${path}"> <input
 						type="hidden" name="failUrl" value="${failurePath }"> <input
 						type="hidden" name="errorUrl" value="${failurePath }"> <input
-						type="hidden" name="payType"
-						value="${createPolicy.getPaymentType()}">
+						type="hidden" name="payType" value="${createPolicy.getPaymentType()}">
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
@@ -462,7 +182,7 @@
 						//if (payLang.equals("t"))
 						
 					%>
-<%-- 					<input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
+					<input type="hidden" name="lang" value="<%=payLang%>"> <input
 					<input type="hidden" name="lang" value="C"> <input
 						type="hidden" name="secureHash"
 						value="${createPolicy.getSecureHash() }"> <input
@@ -550,10 +270,10 @@
 <!-- 										<option value="2018">2018</option> -->
 <!-- 										<option value="2019">2019</option> -->
 <!-- 										<option value="2020">2020</option> -->
-									<c:forEach begin="0" end="5" varStatus="loop">
+									<%-- <c:forEach begin="0" end="5" varStatus="loop">
 										<c:set var="currentYear" value="${year + loop.index}" />
 										<option value="${currentYear}">${currentYear}</option>
-									</c:forEach>
+									</c:forEach> --%>
 								</select></div></td>
 							</tr>
 							<tr>
@@ -650,7 +370,7 @@
 							</div> -->
 							
 							<div class="hidden-sm hidden-xs pad-none">
-							<a href="<%=request.getContextPath()%>/travel-insurance/user-details"
+							<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 							<button onclick="confirmPayment();"
 								class="bdr-curve btn btn-primary nxt-btn margin-left">
@@ -661,7 +381,7 @@
 							<div class="clearfix"></div>
 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="<%=request.getContextPath()%>/travel-insurance/user-details"
+								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" />  </a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
@@ -697,5 +417,3 @@
 		style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%"
 		src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 </div>
-</body>
-</html>

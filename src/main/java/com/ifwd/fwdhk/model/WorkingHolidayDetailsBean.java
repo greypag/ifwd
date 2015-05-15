@@ -25,9 +25,27 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	private String whInsStreetName;
 	private String whInsDistrict;
 	private String whInsArea;
-	
 	private String whInseffectiveDate;
 	
+	private String selectWhAppHKID;
+	private String selectWhInsHKID;
+	
+	public String getSelectWhAppHKID() {
+		return selectWhAppHKID;
+	}
+
+	public void setSelectWhAppHKID(String selectWhAppHKID) {
+		this.selectWhAppHKID = selectWhAppHKID;
+	}
+
+	public String getSelectWhInsHKID() {
+		return selectWhInsHKID;
+	}
+
+	public void setSelectWhInsHKID(String selectWhInsHKID) {
+		this.selectWhInsHKID = selectWhInsHKID;
+	}
+
 	public String getWhInsBlock() {
 		return whInsBlock;
 	}

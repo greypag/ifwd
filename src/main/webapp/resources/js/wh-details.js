@@ -45,14 +45,14 @@ $(function () {
 		if($('#selectWhAppHKID').length > 0 && ($('#selectWhAppHKID').val().toLowerCase() == 'passport' || $('#selectWhAppHKID').val().toLowerCase() == 'apppassport')){
 
 			if (appHkid.trim() == "") {
-				$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
+				$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
 				return false;
 			}else{
 				var tr = chkTravelHKPass(appHkid.trim());
                 var tr1 = chkTravelHKPassLen(appHkid.trim());
                 
 				if (tr == false) {
-					$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
+					$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValid.message"));
 					
 					return false;
 				}	
@@ -78,6 +78,76 @@ $(function () {
 		//$("#txtInsuHkid1").val($(this).val());
 		$('#whAppHKID').html('');
 	});
+	
+	$("#inputWhAppMobileNO").blur(function() {
+		var mobileNo = $(this).val();
+		
+		if (mobileNo.trim() == "") {
+			$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
+			return false;
+		}else {        
+			if (mobile_pattern.test(mobileNo) == false) {
+				$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message"));
+				return false;
+			}
+		}
+		$("#whAppMobileNO").html("");
+	});
+	
+	$("#inputWhAppEmailAdd").blur(function() {
+		var emailId = $(this).val();
+		
+		if (emailId.trim() == "") {
+			$("#whAppEmailAdd").html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
+			return false;
+		} else {
+			if (emailreg.test(emailId) == false) {
+
+				$("#whAppEmailAdd").html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
+				return false;
+			}
+		}
+		$("#whAppEmailAdd").html("");
+		
+	});
+	
+	$( "#inputWhInsFullName" ).on( "change blur", function() {
+	    var fullname = $(this).val();
+		if (fullname.trim() == "") {
+			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));//"Please enter your Name in English.";
+			return false;
+		}
+		$("#whInsFullName").html('');
+	});
+	
+	$( "#inputWhInsHKID" ).on( "change blur", function() {
+		var appHkid = $(this).val();
+		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
+			if (appHkid.trim() == "") {
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
+				return false;
+			}else{
+				var tr = chkTravelHKPass(appHkid.trim());
+				if (tr == false) {
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+					return false;
+				}	
+			}
+		}else{ 
+			if (appHkid.trim() == "") {
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+				return false;
+			}
+			var tr=IsHKID(appHkid.trim());
+			if(tr==false)
+			{
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+				return false;
+			}
+		}
+		$("#whInsHKID").html('');
+	});
+	
 });
 
 function dateFormate(thisDate) {
