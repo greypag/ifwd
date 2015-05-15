@@ -266,7 +266,15 @@ public class HomeCareController {
 			List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
 			Map<String, String> mapNetFloorArea = homecareService.getNetFloorArea(userName, token, lang);
 			request.setAttribute("districtList", districtList);
-			
+			try {
+				if (homeQuoteDetails == null) {
+					homeQuoteDetails = new HomeQuoteBean();
+					homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
+				}
+			} catch (Exception e) {
+				homeQuoteDetails = new HomeQuoteBean();
+				homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
+			}
 			if (homeQuoteDetails.getTotalDue() != null) 
 			{
 				session.setAttribute("homeQuoteDetails", homeQuoteDetails);
@@ -466,7 +474,9 @@ public class HomeCareController {
 			model.addAttribute("confirm", confirm);
 		} else {
 			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
-			return "/home-insurance/user-details";
+			//return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return prepareYoursDetails(null, model, request); 
+			
 //			return UserRestURIConstants.getSitePath(request)
 //					+ "home-insurance/user-details";
 		}
