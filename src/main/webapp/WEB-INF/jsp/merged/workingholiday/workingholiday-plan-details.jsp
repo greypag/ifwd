@@ -134,18 +134,20 @@
 								</tr>
 								<tr>
 									<td class="pad-none">
-										<select id="selectWhAppHKID"
-											name="selectWhAppHKID" onchange="selected(this)"
-											class="soflow">
-											<c:forEach var="hkidList"
-												items="${mapHkId}">
-												<option
-													value="${hkidList.key}">
-													<c:out
-														value="${hkidList.value}" />
-												</option>
-											</c:forEach>
-										</select>
+									    <div class="styled-select custom-select-label">
+											<select id="selectWhAppHKID"
+												name="selectWhAppHKID" onchange="selected(this)"
+												class="soflow">
+												<c:forEach var="hkidList"
+													items="${mapHkId}">
+													<option
+														value="${hkidList.key}">
+														<c:out
+															value="${hkidList.value}" />
+													</option>
+												</c:forEach>
+											</select>
+										</div>
 									</td>
 									<td class="pad-none">
 									<input type="text" name="whAppHKID" class="form-control numberinput btm-pad-10" id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
