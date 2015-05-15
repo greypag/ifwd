@@ -203,17 +203,17 @@
 									</td>
 								</tr>
 								
-								
 								<tr>
-									<td colspan="2" class="pad-none">
-										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
-									</td>
-								</tr>
-								<tr>
-									<td class="pad-none"><label for="inputWhInsFullName"
-										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label></td>
+								    <td class="pad-none"><label
+                                        class="control-label bold-500">&nbsp;</label></td>
+                                        
 									<td class="pad-none">
-										<input type="text"
+									
+									    <label style="margin-top:-10px; width:120px; float:left;" for="inputWhInsFullName"
+										class="control-label bold-500">
+										<fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label>
+										
+										<input style="width:300px;" type="text"
 										id="inputWhInsFullName" name="whInsFullName" value="${userDetails.getFullName()}"
 										class="form-control" placeholder="<fmt:message key="workingholiday.details.insured.name.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
@@ -221,11 +221,18 @@
 										<span id="whInsFullName" class="text-red"></span>
 									</td>
 								</tr>
+								
 								<tr>
-									<td class="pad-none"><label for="inputWhInsHKID"
-										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label></td>
+								
+								    <td class="pad-none"><label
+                                        class="control-label bold-500">&nbsp;</label></td>
+                                        
 									<td class="pad-none">
-										<select id="selectWhInsHKID" name="selectWhInsHKID" class="soflow">
+									
+									   <label style="margin-top:-3px; width:120px; float:left;" for="inputWhInsHKID"
+										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label>
+						            
+										<select style="width:300px;" id="selectWhInsHKID" name="selectWhInsHKID" class="soflow-s">
 											<c:forEach var="hkidList" items="${mapHkId}">
 												<option value="${hkidList.key}">
 													<c:out value="${hkidList.value}" />
@@ -237,8 +244,14 @@
 								<tr>
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
+								    
 									<td class="pad-none">
-										<input id="inputWhInsHKID" name="whInsHKID" class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+									
+									    <label style="margin-top:-3px; width:120px; float:left;"
+                                        class="control-label bold-500">&nbsp;</label>
+                                        
+                                        
+										<input style="width:300px; margin-top:10px;" id="inputWhInsHKID" name="whInsHKID" class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
 										<span id="whInsHKID" class="text-red"> </span> 
 									</td>
 								</tr>
@@ -277,30 +290,47 @@
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
-										<td colspan="2"><input type="text" class="form-control full-control"
+									   
+										<td colspan="3"><input type="text" class="form-control full-control"
 											id="inputWhInsBuilding" name="whInsBuilding"
 											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
-										<td><input type="text" class="form-control full-control"
-											id="inputWhInsEstate" name="whInsEstate"
-											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
-											<span id="errCAEstate" class="text-red"> </span></td>
+										
 									</tr>
+									
 									<tr>
-										<td colspan="1"><input type="text" class="form-control full-control"
+									   <td colspan="3" ><input type="text" class="form-control full-control"
+                                            id="inputWhInsEstate" name="whInsEstate"
+                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
+                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+                                            <span id="errCAEstate" class="text-red"> </span></td>
+									</tr>
+									
+									
+									<tr>
+										<td colspan="3"><input type="text" class="form-control full-control"
 											id="inputWhInsStreetNo" name="whInsStreetNo"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
-										<td colspan="2"><input type="text" class="form-control full-control"
-											id="inputWhInsStreetName" name="whInsStreetName"
-											placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
+										
 									</tr>
+									
+									
+									<tr>
+									
+									   <td colspan="3"><input type="text" class="form-control full-control"
+                                            id="inputWhInsStreetName" name="whInsStreetName"
+                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
+									
+									</tr>
+									
+									
 									<tr>
 										<td colspan="3">
-										<div class="styled-select"><select name="whInsDistrict"
+										
+										<select name="whInsDistrict"
 											class="form-control soflow full-control" id="selectWhInsDistrict"
 											onchange="setDropArea(this.value)">
 												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
@@ -315,13 +345,20 @@
 												<%
 													}
 												%>
-										</select></div>
+										</select>
 										<span id="whInsDistrict" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="3"><label class="radio-inline homecare-lb">
+										<td colspan="3">
+										
+										<label style="margin-top:-3px; width:120px; float:left;"
+                                        class="control-label bold-500">&nbsp;</label>
+										
+										<label class="radio-inline homecare-lb">
 												<input type="radio" name="whInsArea" id="inlineCARadio3"
-												value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
+												value="HK" checked="" class="home-input1"> 
+										    <span>
+										      <fmt:message key="home.details.registration.hk" bundle="${msg}" />
 											</span>
 										</label> <label class="radio-inline homecare-lb"> <input
 												type="radio" name="whInsArea" id="inlineCARadio4"

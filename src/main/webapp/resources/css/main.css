@@ -3683,7 +3683,6 @@ margin-bottom: 10px;}
 .margin-left-28 {
     margin-left: 28px !important;
 }
-
 .margin-left-3 {
 	margin-left: 25%;
 }
@@ -4972,6 +4971,40 @@ h2.from-control {
 .or {
 	font-size: 16px !important;;
 }
+
+
+select.soflow-s {
+    /*-webkit-appearance: button;*/
+        /*-webkit-appearance: none;
+        -moz-appearance:none;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image: url(../images/down-arrow.png);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    padding: 5px 10px;*/
+    
+       
+    border: none  ! important;    
+    outline : medium none !important;
+    display: inline-flex !important;   
+    -webkit-appearance: none;   
+    background-image: url("../images/down-arrow.png");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+background-color: rgb(245, 245, 245);
+    height: 60px;
+    line-height: 31.5px;
+/*    padding: 6px 12px;*/
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    vertical-align: middle;
+-moz-appearance:none;
+padding-left: 10px;
+}
+
 
 select.soflow, select.soflow-color {
 	/*-webkit-appearance: button;*/
