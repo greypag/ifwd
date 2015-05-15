@@ -154,11 +154,11 @@
 									<span id="whAppHKID" class="text-red" ></span></td>
 								</tr>
 								<tr>
-									<td class="pad-none"><label for="inputMobileNo"
+									<td class="pad-none"><label for="inputWhAppMobileNO"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="whAppMobileNO" type="text"
 										class="form-control" value="${userDetails.getMobileNo().trim()}"
-										id="inputMobileNo" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
+										id="inputWhAppMobileNO" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" />
 										<span id="whAppMobileNO" class="text-red">
@@ -674,7 +674,7 @@
             
             <!--mob-->
 			<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-				 <a href="<%=request.getContextPath()%>/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+				 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 			</div>
 			<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 				<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
