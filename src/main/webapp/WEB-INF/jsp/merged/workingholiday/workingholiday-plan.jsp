@@ -1032,7 +1032,7 @@ var promoData = '';
 							</div>
 							
 						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/workingholiday-insurance"
+							<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
 								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
@@ -1118,6 +1118,8 @@ var promoData = '';
 		}, 3000);
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
+		document.getElementById("errDue").innerHTML = "";
+		
 		var selected_div;
 		var idArray = [];
 
