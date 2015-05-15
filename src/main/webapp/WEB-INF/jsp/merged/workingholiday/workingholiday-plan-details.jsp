@@ -90,10 +90,10 @@
 						<%
 							if (authenticate.equals("false") || authenticate.equals("direct")) {
 						%>
-						<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="workingholiday.details.login" bundle="${msg}" /></h3>
+						<h3 class="margin-left1 h2-3-existing-fwd-head"><fmt:message key="workingholiday.details.login" bundle="${msg}" /></h3>
 
-						<a href="#"
-							class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
+						<a style="width:120px;" href="#"
+							class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left1 color4"
 							data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="workingholiday.details.login.action" bundle="${msg}" /></a>
 						<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
 							<h3 class="text-left or-continue">
@@ -114,8 +114,8 @@
 						%>
 
 
-						<div class="gray-bdr"></div>
-						<table class="table activation-form margin-left-2">
+						<div style="margin-top:35px;" class="gray-bdr"></div>
+						<table class="table activation-form margin-left1">
 							<tbody>
 								<tr>
 									<td colspan="2" class="pad-none"><h3
@@ -176,30 +176,16 @@
 								<!-- new -->
 								<tr>
 									<td class="pad-none"><label for="whInsAgeRange"
-										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.age" bundle="${msg}" /></label></td>
+										class="control-label bold-500">Date of birth</label></td>
 									<td class="pad-none">
-										<select name="whInsAgeRange" class="soflow" id="selectWhInsAgeRange">
-											<c:forEach
-												var="ageList" items="${mapSelfType}">
-												<c:choose>
-													<c:when
-														test="${ageList.key == '2'}">
-														<option
-															value="${ageList.key}" selected>
-													</c:when>
-													<c:otherwise>
-														<option
-															value="${ageList.key}">
-													</c:otherwise>
-												</c:choose>
-												<c:out
-													value="${ageList.value}" />
-												</option>
-											</c:forEach>
-										</select>
-										<span id="selectWhInsAgeRange" class="text-red"></span>
+									   <div class="input-group date" id="dpEffectiveDate"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                          <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${workingholidayQuote.getTrLeavingDate()}" readonly>
+                                        </div>
+                                        <span id="whInseffectiveDate" class="text-red"></span>
 									</td>
 								</tr>
+								
+								
 								<tr>
 									<td class="pad-none"><label for="selectWhInsBeneficary"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></label></td>
@@ -216,6 +202,8 @@
 										<span id="whInsBeneficary" class="text-red"></span>
 									</td>
 								</tr>
+								
+								
 								<tr>
 									<td colspan="2" class="pad-none">
 										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
@@ -269,10 +257,10 @@
 								</tr>
 							</tbody>
 							<!-- addr -->
-							<table class="table activation-form margin-left-2 autofillForm">
+							<table class="table activation-form margin-left1 autofillForm">
 								<tbody>
 									<tr>
-										<td rowspan="5"
+										<td class="pad-none" rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
 										<td><input type="text" class="form-control wd2"
@@ -345,7 +333,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<table class="table activation-form margin-left-2">
+							<table class="table activation-form margin-left1">
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
@@ -614,14 +602,14 @@
 						<div class="hidden-sm hidden-xs">
 
 							<div class="wd2">
-								<div class="pull-left">
+								<div class="pull-left" style="width:250px;">
 									<h2 class="h2-3-choose"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4><fmt:message key="workingholiday.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="workingholiday.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
+									<h4 style="margin-top:-5px;"><fmt:message key="workingholiday.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="workingholiday.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
 									<input type="hidden" name="selectedPlanName" value="${planName }">
 								</div>
 								<div class="pull-right">
 									<div class="text-left pad-right1 h2-2 h2">
-										<div class="hk">
+										<div class="hk" style="margin-top:40px;">
 											<fmt:message key="workingholiday.dollar" bundle="${msg}" />
 											<div class="flightcare-hk">${planPremium}</div>
 										</div>
@@ -629,7 +617,7 @@
 								</div>
 							</div>
 							<div class="clearfix"></div>
-							<div class="orange-bdr"></div>
+							<div style="margin-top:70px;" class="orange-bdr"></div>
 							<div class="form-container">
 								
 								
