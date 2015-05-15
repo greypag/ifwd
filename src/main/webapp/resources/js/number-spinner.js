@@ -60,7 +60,7 @@ $('.plan').change(function () {
     $('#family_mob_count').val(0);
 
   // to set 0 val when change event occurence 
-
+    
     if(id == "personal_plan_inline" || id == "family_plan_inline"){
     	//bmg inline
     	
@@ -98,128 +98,251 @@ $('.plan').change(function () {
     }else{
     	//non bmg
     	
+    	document.getElementById("divPersonsDesk").style.visibility = "visible";
+        document.getElementById("divPersonsMob").style.visibility = "visible";
+        document.getElementById("divPersonsBtm").style.visibility = "visible";
+    	
 	    if(parent_id =='desk')
 	    {
 	    	$('#lblCountDesk').html('');
 	        if(id == 'personal_plan_desk')
 	        {
+	        	$("#personal_plan_desk").attr("checked", true);
+	        	$("#personal_plan_mob").attr("checked", true);
+	        	$("#personal_plan_btm").attr("checked", true);
+	        	
+	        	$('.plan_spinner_desk').hide();
+	        	$('.plan_spinner_mob').hide();
+	        	$('.plan_spinner_btm').hide();
+	            $("#personal_plan_desk_spinner").show();
+	            $("#personal_plan_mob_spinner").show();
+	            $("#personal_plan_btm_spinner").show();
+	        	
 	        	$("#totalAdultTraveller").val(0);
 	        	$("#totalChildTraveller").val(0);
 	        	$("#totalOtherTraveller").val(0);
 	        	
-	            $('#lblCountDesk').show();
-	            
-	            var parent = $('.plan_spinner_' + parent_id);
-	            changeSpinnerValue(parent.find(' #txtAdultsDesk'), 0);
-	            changeSpinnerValue(parent.find(' #txtChildDesk'), 0);
-	            changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
 	          
 	            changeSpinnerValue($('#txtTravellersDesk'), 1);
-	      
 	            personalTraveller=$('#txtTravellersDesk').val();
+	            changeSpinnerValue($('#txtTravellersMob'), 1);
+	            changeSpinnerValue($('#txtTravellersBtm'), 1);
+	            
 	            $('#lblCountDesk').html(1);
-	            $('#lblPeopleDesk').html('' + 1);
-	        }else if(id  == 'family_plan_desk'){   
+	            $('#lblCountMob').html(1);
+	            $('#lblCountBtm').html(1);
+	            $('#lblCountDesk').show();
+	            
+	            $('#family_desk_count').val(0);
+	            $('#family_mob_count').val(0);
+	            $('#family_btm_count').val(0);
+	        }else if(id  == 'family_plan_desk'){  
+	        	$("#family_plan_desk").attr("checked", true);
+	        	$("#family_plan_mob").attr("checked", true);
+	        	$("#family_plan_btm").attr("checked", true);
+	        	
+	        	$('.plan_spinner_desk').hide();
+	        	$('.plan_spinner_mob').hide();
+	        	$('.plan_spinner_btm').hide();
+	            $("#family_plan_desk_spinner").show();
+	            $("#family_plan_mob_spinner").show();
+	            $("#family_plan_btm_spinner").show();
+	        	
 	        	$("#totalPersonalTraveller").val(0);
 	        	
-	        	var parent = $('.plan_spinner_' + parent_id);
-	        	changeSpinnerValue(parent.find(' #txtAdultsDesk'), 1);
-	        	changeSpinnerValue(parent.find(' #txtChildDesk'), 1);
-	        	changeSpinnerValue(parent.find(' #txtOtherDesk'), 0);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	        	changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
 	          
 	        	changeSpinnerValue($('#txtTravellersDesk'), 0);
 	        	personalTraveller=$('#txtTravellersDesk').val();
+	        	changeSpinnerValue($('#txtTravellersMob'), 0);
+	            changeSpinnerValue($('#txtTravellersBtm'), 0);
 	      
-	            
-	            $('#lblCountDesk').show();
 	            $('#lblCountDesk').html(2);
-	            $('#lblPeopleDesk').html('' + 2);
-	            $('#family_desk_count').val(2);
-	        }else{
+	            $('#lblCountMob').html(2);
+	            $('#lblCountBtm').html(2);
 	            $('#lblCountDesk').show();
-	            $('#lblCountDesk').html('');
-	            $('#lblPeopleDesk').html('');
-	            $('#family_desk_count').val('');       
+	            
+	            $('#family_desk_count').val(2);
+	            $('#family_mob_count').val(2);
+	            $('#family_btm_count').val(2);
 	        }
 	    }else if(parent_id =='mob'){      
 	    	$('#lblCountMob').html('');      
 	    	if(id  == 'family_plan_mob') 
 	    	{
+	    		$("#family_plan_desk").attr("checked", true);
+	        	$("#family_plan_mob").attr("checked", true);
+	        	$("#family_plan_btm").attr("checked", true);
+	    		
+	    		$('.plan_spinner_desk').hide();
+	        	$('.plan_spinner_mob').hide();
+	        	$('.plan_spinner_btm').hide();
+	            $("#family_plan_desk_spinner").show();
+	            $("#family_plan_mob_spinner").show();
+	            $("#family_plan_btm_spinner").show();
+	    		
 	    		$("#totalPersonalTraveller").val(0);
 	    		
-	    		var parent = $('.plan_spinner_' + parent_id);
-	    		changeSpinnerValue(parent.find(' #txtAdultsMob'), 1);
-	    		changeSpinnerValue(parent.find(' #txtChildMob'), 1);
-	    		changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	        	changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
 	        
 	    		changeSpinnerValue($('#txtTravellersDesk'), 0);
-	    		personalTraveller=$('#txtTravellersDesk').val();
+	        	changeSpinnerValue($('#txtTravellersMob'), 0);
+	            personalTraveller=$('#txtTravellersMob').val();
+	            changeSpinnerValue($('#txtTravellersBtm'), 0);
 	        
-	    		document.getElementById("divPersonsMob").style.visibility = "visible";
-	    		$('#lblCountMob').show();
-	    		$('#lblCountMob').html(2);
-	    		$('#lblPeopleMob').html('' + 2);
-	    		$('#family_mob_count').val(2);
+	            $('#lblCountDesk').html(2);
+	            $('#lblCountMob').html(2);
+	            $('#lblCountBtm').html(2);
+	            $('#lblCountDesk').show();
+	            
+	            $('#family_desk_count').val(2);
+	            $('#family_mob_count').val(2);
+	            $('#family_btm_count').val(2);
 	    	}else{
+	    		$("#personal_plan_desk").attr("checked", true);
+	        	$("#personal_plan_mob").attr("checked", true);
+	        	$("#personal_plan_btm").attr("checked", true);
+	    		
+	    		$('.plan_spinner_desk').hide();
+	        	$('.plan_spinner_mob').hide();
+	        	$('.plan_spinner_btm').hide();
+	            $("#personal_plan_desk_spinner").show();
+	            $("#personal_plan_mob_spinner").show();
+	            $("#personal_plan_btm_spinner").show();
+	    		
 	    		$("#totalAdultTraveller").val(0);
 	        	$("#totalChildTraveller").val(0);
 	        	$("#totalOtherTraveller").val(0);
 	    		
-	    		var parent = $('.plan_spinner_' + parent_id);
-	    		changeSpinnerValue(parent.find(' #txtAdultsMob'), 0);
-	    		changeSpinnerValue(parent.find(' #txtChildMob'), 0);
-	    		changeSpinnerValue(parent.find(' #txtOtherMob'), 0);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
+	    		
+	    		changeSpinnerValue($('#txtTravellersDesk'), 1);
+	            changeSpinnerValue($('#txtTravellersMob'), 1);
+	            personalTraveller=$('#txtTravellersMob').val();
+	            changeSpinnerValue($('#txtTravellersBtm'), 1);
 	          
-	    		$('#lblCountMob').show();
-	    		$('#lblCountMob').html('');
-	    		$('#lblPeopleMob').html('');
-	    		$('#family_mob_count').val('');
-	          
-	    		document.getElementById("divPersonsMob").style.visibility = "visible";
-	          
-	          
-	    		changeSpinnerValue($('#txtTravellersMob'), 1);          
-	    		personalTraveller= $('#txtTravellersMob').val();
-	    		$('#lblCountMob').html(1);
-	    		$('#lblPeopleMob').html('' + 1);
+	    		$('#lblCountDesk').html(1);
+	            $('#lblCountMob').html(1);
+	            $('#lblCountBtm').html(1);
+	            $('#lblCountDesk').show();
+	            
+	            $('#family_desk_count').val(0);
+	            $('#family_mob_count').val(0);
+	            $('#family_btm_count').val(0);
 	    	}
 	    }else if(parent_id =='btm')  // Bottom plan selector
 	    {
 	    	$('#lblCountBtm').html('');      
 	    	if(id  == 'family_plan_btm') 
 	    	{
+	    		$("#family_plan_desk").attr("checked", true);
+	        	$("#family_plan_mob").attr("checked", true);
+	        	$("#family_plan_btm").attr("checked", true);
+	    		
+	    		$('.plan_spinner_desk').hide();
+	        	$('.plan_spinner_mob').hide();
+	        	$('.plan_spinner_btm').hide();
+	            $("#family_plan_desk_spinner").show();
+	            $("#family_plan_mob_spinner").show();
+	            $("#family_plan_btm_spinner").show();
+	    		
 	    		$("#totalPersonalTraveller").val(0);
 	    		
-	    		var parent = $('.plan_spinner_' + parent_id);
-	    		changeSpinnerValue(parent.find(' #txtAdultsBtm'), 1);
-	    		changeSpinnerValue(parent.find(' #txtChildBtm'), 1);
-	    		changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	        	changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
+	    		
+	    		changeSpinnerValue($('#txtTravellersDesk'), 0);
+	        	changeSpinnerValue($('#txtTravellersMob'), 0);
+	            changeSpinnerValue($('#txtTravellersBtm'), 0);
+	            personalTraveller=$('#txtTravellersBtm').val();
 	        
-	    		document.getElementById("divPersonsBtm").style.visibility = "visible";
-	    		$('#lblCountBtm').show();
-	    		$('#lblCountBtm').html(2);
-	    		$('#lblPeopleBtm').html('' + 2);
-	          	$('#family_btm_count').val(2);
-	 
+	            $('#lblCountDesk').html(2);
+	            $('#lblCountMob').html(2);
+	            $('#lblCountBtm').html(2);
+	            $('#lblCountDesk').show();
+	            
+	            $('#family_desk_count').val(2);
+	            $('#family_mob_count').val(2);
+	            $('#family_btm_count').val(2);
 	    	}else{
+	    		$("#personal_plan_desk").attr("checked", true);
+	        	$("#personal_plan_mob").attr("checked", true);
+	        	$("#personal_plan_btm").attr("checked", true);
+	    		
+	    		$('.plan_spinner_desk').hide();
+	        	$('.plan_spinner_mob').hide();
+	        	$('.plan_spinner_btm').hide();
+	            $("#personal_plan_desk_spinner").show();
+	            $("#personal_plan_mob_spinner").show();
+	            $("#personal_plan_btm_spinner").show();
+	    		
 	    		$("#totalAdultTraveller").val(0);
 	        	$("#totalChildTraveller").val(0);
 	        	$("#totalOtherTraveller").val(0);
 	    		
-	    		var parent = $('.plan_spinner_' + parent_id);
-	    		changeSpinnerValue(parent.find(' #txtAdultsBtm'), 0);
-	    		changeSpinnerValue(parent.find(' #txtChildBtm'), 0);
-	    		changeSpinnerValue(parent.find(' #txtOtherBtm'), 0);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	            changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
+	    		
+	    		changeSpinnerValue($('#txtTravellersDesk'), 1);
+	            changeSpinnerValue($('#txtTravellersMob'), 1);
+	            changeSpinnerValue($('#txtTravellersBtm'), 1);
+	            personalTraveller=$('#txtTravellersBtm').val();
 	        
-	    		$('#lblCountBtm').show();
-	    		$('#lblCountBtm').html('');
-	    		$('#lblPeopleBtm').html('');
-	    		$('#family_btm_count').val('');
-	                   
-	    		changeSpinnerValue($('#txtTravellersBtm'), 1);          
-	    		personalTraveller=$('#txtTravellersBtm').val();
-	    		$('#lblCountBtm').html(1);
-	    		$('#lblPeopleBtm').html('' + 1);
+	            $('#lblCountDesk').html(1);
+	            $('#lblCountMob').html(1);
+	            $('#lblCountBtm').html(1);
+	            $('#lblCountDesk').show();
+	            
+	            $('#family_desk_count').val(0);
+	            $('#family_mob_count').val(0);
+	            $('#family_btm_count').val(0);
 	    	}
 		}
     }
@@ -272,17 +395,58 @@ $('.btn-number').click(function(e){
                         if(plan  == 'family')
                         {   
                               var family_btm_count =  parseInt($('#family_btm_count').val());
-                              var total_people_btm =  family_btm_count - 1;
-                              $('#family_btm_count').val(total_people_btm);
-                              //document.getElementById("lblCountBtm").innerHTML = total_people_btm + " Traveller(s)";
-                              document.getElementById("lblCountBtm").innerHTML = total_people_btm;
-                              document.getElementById("lblPeopleBtm").innerHTML = total_people_btm;
+                              var total_people =  family_btm_count - 1;
+                              
+                              $('#family_desk_count').val(total_people);
+                              $('#family_mob_count').val(total_people);
+                              $('#family_btm_count').val(total_people);
+                              
+                              document.getElementById("lblCountDesk").innerHTML = total_people;
+                              document.getElementById("lblCountMob").innerHTML = total_people;
+                              document.getElementById("lblCountBtm").innerHTML = total_people;
+                              
+                              if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
+                            	  $("input[id='txtAdultsDesk']").val(currentVal - 1).change();
+                                  $("input[id='txtAdultsMob']").val(currentVal - 1).change();
+                                  $("input[id='txtAdultsBtm']").val(currentVal - 1).change();
+                                  
+                                  $("button[data-field='txtAdultsDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtAdultsMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtAdultsBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              }else if(fieldName == 'txtChildDesk' || fieldName == 'txtChildMob' || fieldName == 'txtChildBtm'){
+                            	  $("input[id='txtChildDesk']").val(currentVal - 1).change();
+                                  $("input[id='txtChildMob']").val(currentVal - 1).change();
+                                  $("input[id='txtChildBtm']").val(currentVal - 1).change();
+                                  
+                                  $("button[data-field='txtChildDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtChildMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtChildBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              }else if(fieldName == 'txtOtherDesk' || fieldName == 'txtOtherMob' || fieldName == 'txtOtherBtm'){
+                            	  $("input[id='txtOtherDesk']").val(currentVal - 1).change();
+                                  $("input[id='txtOtherMob']").val(currentVal - 1).change();
+                                  $("input[id='txtOtherBtm']").val(currentVal - 1).change();
+                                  
+                                  $("button[data-field='txtOtherDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtOtherMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtOtherBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              }
+                              
+                              
                               label.html(input.val());
                         }else
                         {
-                               //document.getElementById("lblCountBtm").innerHTML = input.val() + " Traveller(s)";
-                               document.getElementById("lblCountBtm").innerHTML = input.val();
-                               document.getElementById("lblPeopleBtm").innerHTML = input.val();
+                        	document.getElementById("lblCountDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountMob").innerHTML = input.val();
+                        	document.getElementById("lblCountBtm").innerHTML = input.val();
+                               
+                               $("input[id='txtTravellersDesk']").val(currentVal - 1).change();
+                               $("input[id='txtTravellersMob']").val(currentVal - 1).change();
+                               $("input[id='txtTravellersBtm']").val(currentVal - 1).change();
+                               
+                               $("button[data-field='txtTravellersDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               $("button[data-field='txtTravellersMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               $("button[data-field='txtTravellersBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               
                                label.html(input.val());
                         }
 
@@ -297,17 +461,57 @@ $('.btn-number').click(function(e){
                         if(plan  == 'family')
                         {   
                               var family_mob_count =  parseInt($('#family_mob_count').val());
-                              var total_people_mob =  family_mob_count - 1;
-                              $('#family_mob_count').val(total_people_mob);
-                              document.getElementById("lblCountMob").innerHTML = total_people_mob;
-                              //document.getElementById("lblCountMob").innerHTML = total_people_mob + " Traveller(s)";
-                              document.getElementById("lblPeopleMob").innerHTML = total_people_mob;
+                              var total_people =  family_mob_count - 1;
+                              
+                              $('#family_desk_count').val(total_people);
+                              $('#family_mob_count').val(total_people);
+                              $('#family_btm_count').val(total_people);
+                              
+                              document.getElementById("lblCountDesk").innerHTML = total_people;
+                              document.getElementById("lblCountMob").innerHTML = total_people;
+                              document.getElementById("lblCountBtm").innerHTML = total_people;
+                              
+                              if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
+                            	  $("input[id='txtAdultsDesk']").val(currentVal - 1).change();
+                                  $("input[id='txtAdultsMob']").val(currentVal - 1).change();
+                                  $("input[id='txtAdultsBtm']").val(currentVal - 1).change();
+                                  
+                                  $("button[data-field='txtAdultsDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtAdultsMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtAdultsBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              }else if(fieldName == 'txtChildDesk' || fieldName == 'txtChildMob' || fieldName == 'txtChildBtm'){
+                            	  $("input[id='txtChildDesk']").val(currentVal - 1).change();
+                                  $("input[id='txtChildMob']").val(currentVal - 1).change();
+                                  $("input[id='txtChildBtm']").val(currentVal - 1).change();
+                                  
+                                  $("button[data-field='txtChildDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtChildMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtChildBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              }else if(fieldName == 'txtOtherDesk' || fieldName == 'txtOtherMob' || fieldName == 'txtOtherBtm'){
+                            	  $("input[id='txtOtherDesk']").val(currentVal - 1).change();
+                                  $("input[id='txtOtherMob']").val(currentVal - 1).change();
+                                  $("input[id='txtOtherBtm']").val(currentVal - 1).change();
+                                  
+                                  $("button[data-field='txtOtherDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtOtherMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                  $("button[data-field='txtOtherBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              }
+                              
                               label.html(input.val());
                         }else
                         {
-                            //document.getElementById("lblCountMob").innerHTML = input.val() + " Traveller(s)";
-                            document.getElementById("lblCountMob").innerHTML = input.val();
-                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                        	document.getElementById("lblCountDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountMob").innerHTML = input.val();
+                        	document.getElementById("lblCountBtm").innerHTML = input.val();
+                            
+                            $("input[id='txtTravellersDesk']").val(currentVal - 1).change();
+                            $("input[id='txtTravellersMob']").val(currentVal - 1).change();
+                            $("input[id='txtTravellersBtm']").val(currentVal - 1).change();
+                            
+                            $("button[data-field='txtTravellersDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            $("button[data-field='txtTravellersMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            $("button[data-field='txtTravellersBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            
                             label.html(input.val());
                         }
 
@@ -325,15 +529,54 @@ $('.btn-number').click(function(e){
                             var total_people =  family_desk_count - 1;
                             
                             $('#family_desk_count').val(total_people);
-                            //document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
+                            $('#family_mob_count').val(total_people);
+                            $('#family_btm_count').val(total_people);
+                            
                             document.getElementById("lblCountDesk").innerHTML = total_people;
-//                            document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                            document.getElementById("lblCountMob").innerHTML = total_people;
+                            document.getElementById("lblCountBtm").innerHTML = total_people;
+                            
+                            if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
+                          	  $("input[id='txtAdultsDesk']").val(currentVal - 1).change();
+                                $("input[id='txtAdultsMob']").val(currentVal - 1).change();
+                                $("input[id='txtAdultsBtm']").val(currentVal - 1).change();
+                                
+                                $("button[data-field='txtAdultsDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                $("button[data-field='txtAdultsMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                $("button[data-field='txtAdultsBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            }else if(fieldName == 'txtChildDesk' || fieldName == 'txtChildMob' || fieldName == 'txtChildBtm'){
+                          	  $("input[id='txtChildDesk']").val(currentVal - 1).change();
+                                $("input[id='txtChildMob']").val(currentVal - 1).change();
+                                $("input[id='txtChildBtm']").val(currentVal - 1).change();
+                                
+                                $("button[data-field='txtChildDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                $("button[data-field='txtChildMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                $("button[data-field='txtChildBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            }else if(fieldName == 'txtOtherDesk' || fieldName == 'txtOtherMob' || fieldName == 'txtOtherBtm'){
+                          	  $("input[id='txtOtherDesk']").val(currentVal - 1).change();
+                                $("input[id='txtOtherMob']").val(currentVal - 1).change();
+                                $("input[id='txtOtherBtm']").val(currentVal - 1).change();
+                                
+                                $("button[data-field='txtOtherDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                $("button[data-field='txtOtherMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                                $("button[data-field='txtOtherBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            }
+                            
                             label.html(input.val());
                         }else
                         {
-                            //document.getElementById("lblCountDesk").innerHTML = input.val() + " Traveller(s)";
-                            document.getElementById("lblCountDesk").innerHTML = input.val();
-//                            document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountMob").innerHTML = input.val();
+                        	document.getElementById("lblCountBtm").innerHTML = input.val();
+                            
+                            $("input[id='txtTravellersDesk']").val(currentVal - 1).change();
+                            $("input[id='txtTravellersMob']").val(currentVal - 1).change();
+                            $("input[id='txtTravellersBtm']").val(currentVal - 1).change();
+                            
+                            $("button[data-field='txtTravellersDesk'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            $("button[data-field='txtTravellersMob'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            $("button[data-field='txtTravellersBtm'][data-type='minus']").closest(".number-spinner").find(".input-number").html(input.val());
+                            
                             label.html(input.val());
                         }
 
@@ -355,9 +598,11 @@ $('.btn-number').click(function(e){
               
               var inc = true;
               if(plan == 'family'){
-                if (fieldName == 'txtTravellersBtm' || fieldName == 'txtAdultsBtm' || fieldName == 'txtChildBtm' || fieldName == 'txtOtherBtm') {
+	        	  if (fieldName == 'txtTravellersInline' || fieldName == 'txtAdultsInline' || fieldName == 'txtChildInline' || fieldName == 'txtOtherInline') {
+	                  inc = parseInt($("input[id='txtAdultsInline']").val()) + parseInt($("input[id='txtChildInline']").val()) + parseInt($("input[id='txtOtherInline']").val()) > 14 ? false :true;
+	                }
+	                else if (fieldName == 'txtTravellersBtm' || fieldName == 'txtAdultsBtm' || fieldName == 'txtChildBtm' || fieldName == 'txtOtherBtm') {
                   inc = parseInt($("input[id='txtAdultsBtm']").val()) + parseInt($("input[id='txtChildBtm']").val()) + parseInt($("input[id='txtOtherBtm']").val()) > 14 ? false :true;
-                    console.log("bottoms "+parseInt($("input[id='txtAdultsBtm']").val()) + parseInt($("input[id='txtChildBtm']").val()) + parseInt($("input[id='txtOtherBtm']").val()))
                 }
                 else if (fieldName == "txtTravellersMob" || fieldName == 'txtAdultsMob' || fieldName == 'txtChildMob' || fieldName == 'txtOtherMob') {
                   inc = parseInt($("input[id='txtAdultsMob']").val()) + parseInt($("input[id='txtChildMob']").val()) + parseInt($("input[id='txtOtherMob']").val()) > 14 ? false :true;
@@ -409,18 +654,57 @@ $('.btn-number').click(function(e){
                         if(plan  == 'family')
                         {   
                               var family_btm_count =  parseInt($('#family_btm_count').val());
-                              var total_people_btm =  family_btm_count + 1;
-                              $('#family_btm_count').val(total_people_btm);
-
-                               //document.getElementById("lblCountBtm").innerHTML = total_people_btm + " Traveller(s)";
-                               document.getElementById("lblCountBtm").innerHTML = total_people_btm;
-                               document.getElementById("lblPeopleBtm").innerHTML = total_people_btm;
+                              var total_people =  family_btm_count + 1;
+                              
+                              $('#family_desk_count').val(total_people);
+                              $('#family_mob_count').val(total_people);
+                              $('#family_btm_count').val(total_people);
+                              
+                              document.getElementById("lblCountDesk").innerHTML = total_people;
+                              document.getElementById("lblCountMob").innerHTML = total_people;
+                              document.getElementById("lblCountBtm").innerHTML = total_people;
+                               
+                                 if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
+									 $("input[id='txtAdultsDesk']").val(currentVal + 1).change();
+									 $("input[id='txtAdultsMob']").val(currentVal + 1).change();
+									 $("input[id='txtAdultsBtm']").val(currentVal + 1).change();
+									 
+									 $("button[data-field='txtAdultsDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtAdultsMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtAdultsBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 }else if(fieldName == 'txtChildDesk' || fieldName == 'txtChildMob' || fieldName == 'txtChildBtm'){
+									 $("input[id='txtChildDesk']").val(currentVal + 1).change();
+									 $("input[id='txtChildMob']").val(currentVal + 1).change();
+									 $("input[id='txtChildBtm']").val(currentVal + 1).change();
+									 
+									 $("button[data-field='txtChildDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtChildMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtChildBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 }else if(fieldName == 'txtOtherDesk' || fieldName == 'txtOtherMob' || fieldName == 'txtOtherBtm'){
+									 $("input[id='txtOtherDesk']").val(currentVal + 1).change();
+									 $("input[id='txtOtherMob']").val(currentVal + 1).change();
+									 $("input[id='txtOtherBtm']").val(currentVal + 1).change();
+									 
+									 $("button[data-field='txtOtherDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtOtherMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtOtherBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 }
+                               
                                label.html(input.val());
                         }else
                         {
-                              // document.getElementById("lblCountBtm").innerHTML = input.val() + " Traveller(s)";
-                               document.getElementById("lblCountBtm").innerHTML = input.val();
-                               document.getElementById("lblPeopleBtm").innerHTML = input.val();
+                        	document.getElementById("lblCountDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountMob").innerHTML = input.val();
+                        	document.getElementById("lblCountBtm").innerHTML = input.val();
+                               
+                               $("input[id='txtTravellersDesk']").val(currentVal + 1).change();
+                               $("input[id='txtTravellersMob']").val(currentVal + 1).change();
+                               $("input[id='txtTravellersBtm']").val(currentVal + 1).change();
+                               
+                               $("button[data-field='txtTravellersDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               $("button[data-field='txtTravellersMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               $("button[data-field='txtTravellersBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               
                                label.html(input.val());
                         }
 
@@ -434,17 +718,57 @@ $('.btn-number').click(function(e){
                         if(plan  == 'family')
                         {   
                               var family_mob_count =  parseInt($('#family_mob_count').val());
-                              var total_people_mob =  family_mob_count + 1;
-                              $('#family_mob_count').val(total_people_mob);
-                              //document.getElementById("lblCountMob").innerHTML = total_people_mob + " Traveller(s)";
-                              document.getElementById("lblCountMob").innerHTML = total_people_mob;
-                              document.getElementById("lblPeopleMob").innerHTML = total_people_mob;
+                              var total_people =  family_mob_count + 1;
+                              
+                              $('#family_desk_count').val(total_people);
+                              $('#family_mob_count').val(total_people);
+                              $('#family_btm_count').val(total_people);
+                              
+                              document.getElementById("lblCountDesk").innerHTML = total_people;
+                              document.getElementById("lblCountMob").innerHTML = total_people;
+                              document.getElementById("lblCountBtm").innerHTML = total_people;
+                              
+                              if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
+									 $("input[id='txtAdultsDesk']").val(currentVal + 1).change();
+									 $("input[id='txtAdultsMob']").val(currentVal + 1).change();
+									 $("input[id='txtAdultsBtm']").val(currentVal + 1).change();
+									 
+									 $("button[data-field='txtAdultsDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtAdultsMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtAdultsBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 }else if(fieldName == 'txtChildDesk' || fieldName == 'txtChildMob' || fieldName == 'txtChildBtm'){
+									 $("input[id='txtChildDesk']").val(currentVal + 1).change();
+									 $("input[id='txtChildMob']").val(currentVal + 1).change();
+									 $("input[id='txtChildBtm']").val(currentVal + 1).change();
+									 
+									 $("button[data-field='txtChildDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtChildMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtChildBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 }else if(fieldName == 'txtOtherDesk' || fieldName == 'txtOtherMob' || fieldName == 'txtOtherBtm'){
+									 $("input[id='txtOtherDesk']").val(currentVal + 1).change();
+									 $("input[id='txtOtherMob']").val(currentVal + 1).change();
+									 $("input[id='txtOtherBtm']").val(currentVal + 1).change();
+									 
+									 $("button[data-field='txtOtherDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtOtherMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+									 $("button[data-field='txtOtherBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 }
+                              
                               label.html(input.val());
                         }else
                         {
-                        	//document.getElementById("lblCountMob").innerHTML = input.val() + " Traveller(s)";
-                               document.getElementById("lblCountMob").innerHTML = input.val();
-                               document.getElementById("lblPeopleMob").innerHTML = input.val();
+                        	document.getElementById("lblCountDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountMob").innerHTML = input.val();
+                        	document.getElementById("lblCountBtm").innerHTML = input.val();
+                               
+                               $("input[id='txtTravellersDesk']").val(currentVal + 1).change();
+                               $("input[id='txtTravellersMob']").val(currentVal + 1).change();
+                               $("input[id='txtTravellersBtm']").val(currentVal + 1).change();
+                               
+                               $("button[data-field='txtTravellersDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               $("button[data-field='txtTravellersMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               $("button[data-field='txtTravellersBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                               
                                label.html(input.val());
                         }
 
@@ -463,17 +787,57 @@ $('.btn-number').click(function(e){
                               //GET VALUE OF 
                           var family_desk_count =  parseInt($('#family_desk_count').val());
                            var total_people =  family_desk_count + 1;
+                           
                            $('#family_desk_count').val(total_people);
-                           //document.getElementById("lblCountDesk").innerHTML = total_people + " Traveller(s)";
+                           $('#family_mob_count').val(total_people);
+                           $('#family_btm_count').val(total_people);
+                           
                            document.getElementById("lblCountDesk").innerHTML = total_people;
-//                           document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                           document.getElementById("lblCountMob").innerHTML = total_people;
+                           document.getElementById("lblCountBtm").innerHTML = total_people;
+                           
+                           if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
+								 $("input[id='txtAdultsDesk']").val(currentVal + 1).change();
+								 $("input[id='txtAdultsMob']").val(currentVal + 1).change();
+								 $("input[id='txtAdultsBtm']").val(currentVal + 1).change();
+								 
+								 $("button[data-field='txtAdultsDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 $("button[data-field='txtAdultsMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 $("button[data-field='txtAdultsBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+							 }else if(fieldName == 'txtChildDesk' || fieldName == 'txtChildMob' || fieldName == 'txtChildBtm'){
+								 $("input[id='txtChildDesk']").val(currentVal + 1).change();
+								 $("input[id='txtChildMob']").val(currentVal + 1).change();
+								 $("input[id='txtChildBtm']").val(currentVal + 1).change();
+								 
+								 $("button[data-field='txtChildDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 $("button[data-field='txtChildMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 $("button[data-field='txtChildBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+							 }else if(fieldName == 'txtOtherDesk' || fieldName == 'txtOtherMob' || fieldName == 'txtOtherBtm'){
+								 $("input[id='txtOtherDesk']").val(currentVal + 1).change();
+								 $("input[id='txtOtherMob']").val(currentVal + 1).change();
+								 $("input[id='txtOtherBtm']").val(currentVal + 1).change();
+								 
+								 $("button[data-field='txtOtherDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 $("button[data-field='txtOtherMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+								 $("button[data-field='txtOtherBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+							 }
+                           
                            label.html(input.val());
 
                         }else
                         {
-                              //document.getElementById("lblCountDesk").innerHTML = input.val() + " Traveller(s)";
-                              document.getElementById("lblCountDesk").innerHTML = input.val();
-//                              document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountDesk").innerHTML = input.val();
+                        	document.getElementById("lblCountMob").innerHTML = input.val();
+                        	document.getElementById("lblCountBtm").innerHTML = input.val();
+                              
+                              $("input[id='txtTravellersDesk']").val(currentVal + 1).change();
+                              $("input[id='txtTravellersMob']").val(currentVal + 1).change();
+                              $("input[id='txtTravellersBtm']").val(currentVal + 1).change();
+                              
+                              $("button[data-field='txtTravellersDesk'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              $("button[data-field='txtTravellersMob'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              $("button[data-field='txtTravellersBtm'][data-type='plus']").closest(".number-spinner").find(".input-number").html(input.val());
+                              
                               label.html(input.val());
                         }
 

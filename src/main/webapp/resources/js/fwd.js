@@ -510,8 +510,13 @@ $(function () {
 		
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
+			
+			$('#dp3').datepicker('update', newDate);
+			$('#dp5').datepicker('update', newDate);
 			if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
 				checkout.datepicker("update", newDate);
+				checkout2.datepicker("update", newDate);
+				checkout3.datepicker("update", newDate);
 			}
 			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
@@ -526,7 +531,9 @@ $(function () {
 			document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);*/
 	    
 		
-		
+			
+			
+			$('#dp2-detail-page').datepicker('update', newDate);
 		
 		
 				
@@ -612,7 +619,8 @@ $(function () {
 		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);*/
 
 		
-		
+		$('#dp4').datepicker('update', startDate);
+		$('#dp6').datepicker('update', startDate);
 		
 		
 		//-------------------------------------------------------------------------------ajax		
@@ -701,8 +709,14 @@ $(function () {
 		//if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
+			
+			$('#dp1').datepicker('update', newDate);
+			$('#dp5').datepicker('update', newDate);
+			
 			if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
+				checkout.datepicker("update", newDate);
 				checkout2.datepicker("update", newDate);
+				checkout3.datepicker("update", newDate);
 			}
 		//}
 		$('#dp4')[0].focus();
@@ -712,6 +726,7 @@ $(function () {
 		document.getElementById("divPersonsMob").style.visibility = "visible";
 		document.getElementById("lblDaysMob").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
+		
 	});
 	var checkout2 = $('#dp4').datepicker({
 		beforeShowDay: function (date) {
@@ -738,6 +753,9 @@ $(function () {
 		document.getElementById("divPersonsMob").style.visibility = "visible";
 		document.getElementById("lblDaysMob").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
+		
+		$('#dp2').datepicker('update', startDate);
+		$('#dp6').datepicker('update', startDate);
 	});
 
 
@@ -756,6 +774,12 @@ $(function () {
 		//if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
+			
+			$('#dp2').datepicker('update', newDate);
+			$('#dp4').datepicker('update', newDate);
+			
+			checkout.datepicker("update", newDate);
+			checkout2.datepicker("update", newDate);
 			checkout3.datepicker("update", newDate);
 		//}
 		$('#dp6')[0].focus();
@@ -764,6 +788,7 @@ $(function () {
 		document.getElementById("divPersonsBtm").style.visibility = "visible";
 		document.getElementById("lblDaysBtm").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
+		
 	});
 	var checkout3 = $('#dp6').datepicker({
 		beforeShowDay: function (date) {
@@ -791,6 +816,8 @@ $(function () {
 		document.getElementById("divPersonsBtm").style.visibility = "visible";
 		document.getElementById("lblDaysBtm").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
+		$('#dp1').datepicker('update', startDate);
+		$('#dp3').datepicker('update', startDate);
 	});
 
 });//]]>  
