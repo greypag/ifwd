@@ -736,7 +736,7 @@ $(document).ready(function() {
         <table class="table activation-form3">
           <tbody>
           <tr>
-            <%-- <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+            <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
             <td><div id="divPersonsBtm" style="visibility:hidden;">
@@ -751,12 +751,12 @@ $(document).ready(function() {
             <tr>
               <td class="col-md-3  ">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${workingholidayQuote.getTrLeavingDate()}" readonly>
+                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="" readonly>
                 </div>
                 </td>
               <td class="col-md-3 ">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${workingholidayQuote.getTrBackDate()}" readonly>
+                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="" readonly>
                 </div>
                 </td>
               <td class="col-md-3 ">
@@ -767,21 +767,21 @@ $(document).ready(function() {
                     <div class="drop-content">
                       <div class="col-lg-6">
                          <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> > <label for="personal_plan_btm"><fmt:message key="workingholiday.main.quote.plan1" bundle="${msg}" /></label></label>
+                          <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  > <label for="personal_plan_btm"><fmt:message key="workingholiday.main.quote.plan1" bundle="${msg}" /></label></label>
 
 
                       </div>
                       <div class="col-lg-6">
                           <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="workingholiday.main.quote.plan2" bundle="${msg}" /></label></label>
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family"> <label for="family_plan_btm"><fmt:message key="workingholiday.main.quote.plan2" bundle="${msg}" /></label></label>
 
 
                       </div>
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan bottom spinner-->
-                      <input type="hidden" name="" id="family_btm_count" value="${workingholidayQuote.getTotalWorkingHolidayer()}">
-                      <div class="plan_spinner_btm" id="personal_plan_btm_spinner" <%=personalSpinnerStyle%>>
+                      <input type="hidden" name="" id="family_btm_count" value="">
+                      <div class="plan_spinner_btm" id="personal_plan_btm_spinner">
                         <div class="col-lg-6">
                           <h4><fmt:message key="workingholiday.main.quote.plan1.type" bundle="${msg}" /></h4>
 
@@ -790,8 +790,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtworkingholidayersBtm" disabled="disabled" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalPersonalWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalPersonalWorkingHolidayer" id="txtworkingholidayersBtm" data-min="1" data-max="15" value="${workingholidayQuote.getTotalPersonalWorkingHolidayer()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number"></div>
+                            <input type="hidden" name="totalPersonalWorkingHolidayer" id="txtworkingholidayersBtm" data-min="1" data-max="15" value=""/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtworkingholidayersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -801,7 +801,7 @@ $(document).ready(function() {
                       <div class="clearfix"></div>
                       
                       <!-- start of family plan bottom spinner-->
-                      <div class="plan_spinner_btm" id="family_plan_btm_spinner" <%=familySpinnerStyle%>>
+                      <div class="plan_spinner_btm" id="family_plan_btm_spinner">
                         <div class="col-lg-6">
                           <h4><fmt:message key="workingholiday.main.quote.plan2.type1" bundle="${msg}" /></h4>
 
@@ -810,8 +810,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalAdultWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalAdultWorkingHolidayer" id="txtAdultsBtm" data-min="1" data-max="2" value="${workingholidayQuote.getTotalAdultWorkingHolidayer()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number"></div>
+                            <input type="hidden" name="totalAdultWorkingHolidayer" id="txtAdultsBtm" data-min="1" data-max="2" value=""/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -825,8 +825,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalChildWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalChildWorkingHolidayer" id="txtChildBtm" data-min="1" data-max="15" value="${workingholidayQuote.getTotalChildWorkingHolidayer()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number"></div>
+                            <input type="hidden" name="totalChildWorkingHolidayer" id="txtChildBtm" data-min="1" data-max="15" value=""/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -840,8 +840,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" disabled="disabled" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${workingholidayQuote.getTotalOtherWorkingHolidayer()}</div>
-                            <input type="hidden" name="totalOtherWorkingHolidayer" id="txtOtherBtm" data-min="0" data-max="15" value="${workingholidayQuote.getTotalOtherWorkingHolidayer()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number"></div>
+                            <input type="hidden" name="totalOtherWorkingHolidayer" id="txtOtherBtm" data-min="0" data-max="15" value=""/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -856,21 +856,21 @@ $(document).ready(function() {
                   <div class="clearfix"></div>
                 </div>
                 
-        </td> --%>
+        </td>
         	  <td></td>	
               <td class="col-md-2 ">
                   <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
               </td>
               <td></td>	   
             </tr>
-            <%-- <tr>
+            <tr>
               <td><span id="startDateBtmIn" style="color:red"> </span></td>
               <td><span id="endDateBtmIn" style="color:red"> </span></td>
               <td><span id="workingholidayCountBtmIn" style="display: none;">
                 <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                 </span></td>
               <td></td>
-            </tr> --%>
+            </tr>
           </tbody>
         </table>
       </div>

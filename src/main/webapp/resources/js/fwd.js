@@ -2914,6 +2914,7 @@ function flightValidateDeskWorkingHoliday()
 
 
 function flightValidateBtmWorkingHoliday() {
+	return true;
 	var flag = true;
 
 	document.getElementById("startDateBtmIn").innerHTML = "";
