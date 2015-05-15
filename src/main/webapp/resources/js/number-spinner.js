@@ -142,6 +142,10 @@ $('.plan').change(function () {
 	            $('#lblCountBtm').html(1);
 	            $('#lblCountDesk').show();
 	            
+	            $('#lblPeopleDesk').html(1);
+	            $('#lblPeopleMob').html(1);
+	            $('#lblPeopleBtm').html(1);
+	            
 	            $('#family_desk_count').val(0);
 	            $('#family_mob_count').val(0);
 	            $('#family_btm_count').val(0);
@@ -178,6 +182,10 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(2);
 	            $('#lblCountBtm').html(2);
 	            $('#lblCountDesk').show();
+	            
+	            $('#lblPeopleDesk').html(2);
+	            $('#lblPeopleMob').html(2);
+	            $('#lblPeopleBtm').html(2);
 	            
 	            $('#family_desk_count').val(2);
 	            $('#family_mob_count').val(2);
@@ -220,6 +228,10 @@ $('.plan').change(function () {
 	            $('#lblCountBtm').html(2);
 	            $('#lblCountDesk').show();
 	            
+	            $('#lblPeopleDesk').html(2);
+	            $('#lblPeopleMob').html(2);
+	            $('#lblPeopleBtm').html(2);
+	            
 	            $('#family_desk_count').val(2);
 	            $('#family_mob_count').val(2);
 	            $('#family_btm_count').val(2);
@@ -258,6 +270,10 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(1);
 	            $('#lblCountBtm').html(1);
 	            $('#lblCountDesk').show();
+	            
+	            $('#lblPeopleDesk').html(1);
+	            $('#lblPeopleMob').html(1);
+	            $('#lblPeopleBtm').html(1);
 	            
 	            $('#family_desk_count').val(0);
 	            $('#family_mob_count').val(0);
@@ -301,6 +317,10 @@ $('.plan').change(function () {
 	            $('#lblCountBtm').html(2);
 	            $('#lblCountDesk').show();
 	            
+	            $('#lblPeopleDesk').html(2);
+	            $('#lblPeopleMob').html(2);
+	            $('#lblPeopleBtm').html(2);
+	            
 	            $('#family_desk_count').val(2);
 	            $('#family_mob_count').val(2);
 	            $('#family_btm_count').val(2);
@@ -339,6 +359,10 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(1);
 	            $('#lblCountBtm').html(1);
 	            $('#lblCountDesk').show();
+	            
+	            $('#lblPeopleDesk').html(1);
+	            $('#lblPeopleMob').html(1);
+	            $('#lblPeopleBtm').html(1);
 	            
 	            $('#family_desk_count').val(0);
 	            $('#family_mob_count').val(0);
@@ -405,6 +429,10 @@ $('.btn-number').click(function(e){
                               document.getElementById("lblCountMob").innerHTML = total_people;
                               document.getElementById("lblCountBtm").innerHTML = total_people;
                               
+                              document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                              document.getElementById("lblPeopleMob").innerHTML = total_people;
+                              document.getElementById("lblPeopleBtm").innerHTML = total_people;
+                              
                               if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
                             	  $("input[id='txtAdultsDesk']").val(currentVal - 1).change();
                                   $("input[id='txtAdultsMob']").val(currentVal - 1).change();
@@ -438,6 +466,10 @@ $('.btn-number').click(function(e){
                         	document.getElementById("lblCountDesk").innerHTML = input.val();
                         	document.getElementById("lblCountMob").innerHTML = input.val();
                         	document.getElementById("lblCountBtm").innerHTML = input.val();
+                        	
+                        	document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            document.getElementById("lblPeopleBtm").innerHTML = input.val();
                                
                                $("input[id='txtTravellersDesk']").val(currentVal - 1).change();
                                $("input[id='txtTravellersMob']").val(currentVal - 1).change();
@@ -471,6 +503,10 @@ $('.btn-number').click(function(e){
                               document.getElementById("lblCountMob").innerHTML = total_people;
                               document.getElementById("lblCountBtm").innerHTML = total_people;
                               
+                              document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                              document.getElementById("lblPeopleMob").innerHTML = total_people;
+                              document.getElementById("lblPeopleBtm").innerHTML = total_people;
+                              
                               if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
                             	  $("input[id='txtAdultsDesk']").val(currentVal - 1).change();
                                   $("input[id='txtAdultsMob']").val(currentVal - 1).change();
@@ -503,6 +539,10 @@ $('.btn-number').click(function(e){
                         	document.getElementById("lblCountDesk").innerHTML = input.val();
                         	document.getElementById("lblCountMob").innerHTML = input.val();
                         	document.getElementById("lblCountBtm").innerHTML = input.val();
+                        	
+                        	document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            document.getElementById("lblPeopleBtm").innerHTML = input.val();
                             
                             $("input[id='txtTravellersDesk']").val(currentVal - 1).change();
                             $("input[id='txtTravellersMob']").val(currentVal - 1).change();
@@ -536,6 +576,10 @@ $('.btn-number').click(function(e){
                             document.getElementById("lblCountMob").innerHTML = total_people;
                             document.getElementById("lblCountBtm").innerHTML = total_people;
                             
+                            document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                            document.getElementById("lblPeopleMob").innerHTML = total_people;
+                            document.getElementById("lblPeopleBtm").innerHTML = total_people;
+                            
                             if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
                           	  $("input[id='txtAdultsDesk']").val(currentVal - 1).change();
                                 $("input[id='txtAdultsMob']").val(currentVal - 1).change();
@@ -568,6 +612,10 @@ $('.btn-number').click(function(e){
                         	document.getElementById("lblCountDesk").innerHTML = input.val();
                         	document.getElementById("lblCountMob").innerHTML = input.val();
                         	document.getElementById("lblCountBtm").innerHTML = input.val();
+                        	
+                        	document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            document.getElementById("lblPeopleBtm").innerHTML = input.val();
                             
                             $("input[id='txtTravellersDesk']").val(currentVal - 1).change();
                             $("input[id='txtTravellersMob']").val(currentVal - 1).change();
@@ -663,6 +711,10 @@ $('.btn-number').click(function(e){
                               document.getElementById("lblCountDesk").innerHTML = total_people;
                               document.getElementById("lblCountMob").innerHTML = total_people;
                               document.getElementById("lblCountBtm").innerHTML = total_people;
+                              
+                              document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                              document.getElementById("lblPeopleMob").innerHTML = total_people;
+                              document.getElementById("lblPeopleBtm").innerHTML = total_people;
                                
                                  if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
 									 $("input[id='txtAdultsDesk']").val(currentVal + 1).change();
@@ -696,6 +748,10 @@ $('.btn-number').click(function(e){
                         	document.getElementById("lblCountDesk").innerHTML = input.val();
                         	document.getElementById("lblCountMob").innerHTML = input.val();
                         	document.getElementById("lblCountBtm").innerHTML = input.val();
+                        	
+                        	document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            document.getElementById("lblPeopleBtm").innerHTML = input.val();
                                
                                $("input[id='txtTravellersDesk']").val(currentVal + 1).change();
                                $("input[id='txtTravellersMob']").val(currentVal + 1).change();
@@ -727,6 +783,10 @@ $('.btn-number').click(function(e){
                               document.getElementById("lblCountDesk").innerHTML = total_people;
                               document.getElementById("lblCountMob").innerHTML = total_people;
                               document.getElementById("lblCountBtm").innerHTML = total_people;
+                              
+                              document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                              document.getElementById("lblPeopleMob").innerHTML = total_people;
+                              document.getElementById("lblPeopleBtm").innerHTML = total_people;
                               
                               if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
 									 $("input[id='txtAdultsDesk']").val(currentVal + 1).change();
@@ -760,6 +820,10 @@ $('.btn-number').click(function(e){
                         	document.getElementById("lblCountDesk").innerHTML = input.val();
                         	document.getElementById("lblCountMob").innerHTML = input.val();
                         	document.getElementById("lblCountBtm").innerHTML = input.val();
+                        	
+                        	document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            document.getElementById("lblPeopleBtm").innerHTML = input.val();
                                
                                $("input[id='txtTravellersDesk']").val(currentVal + 1).change();
                                $("input[id='txtTravellersMob']").val(currentVal + 1).change();
@@ -796,6 +860,10 @@ $('.btn-number').click(function(e){
                            document.getElementById("lblCountMob").innerHTML = total_people;
                            document.getElementById("lblCountBtm").innerHTML = total_people;
                            
+                           document.getElementById("lblPeopleDesk").innerHTML = total_people;
+                           document.getElementById("lblPeopleMob").innerHTML = total_people;
+                           document.getElementById("lblPeopleBtm").innerHTML = total_people;
+                           
                            if(fieldName == 'txtAdultsDesk' || fieldName == 'txtAdultsMob' || fieldName == 'txtAdultsBtm'){
 								 $("input[id='txtAdultsDesk']").val(currentVal + 1).change();
 								 $("input[id='txtAdultsMob']").val(currentVal + 1).change();
@@ -829,6 +897,10 @@ $('.btn-number').click(function(e){
                         	document.getElementById("lblCountDesk").innerHTML = input.val();
                         	document.getElementById("lblCountMob").innerHTML = input.val();
                         	document.getElementById("lblCountBtm").innerHTML = input.val();
+                        	
+                        	document.getElementById("lblPeopleDesk").innerHTML = input.val();
+                            document.getElementById("lblPeopleMob").innerHTML = input.val();
+                            document.getElementById("lblPeopleBtm").innerHTML = input.val();
                               
                               $("input[id='txtTravellersDesk']").val(currentVal + 1).change();
                               $("input[id='txtTravellersMob']").val(currentVal + 1).change();
