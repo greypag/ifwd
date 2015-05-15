@@ -15,15 +15,26 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	private String whInsAgeRange;
 	private String whInsBeneficary;
 	private String whInsWorkingCty;
+	
 	private String whInsRoom;
 	private String whInsFloor;
+	private String whInsBlock;
 	private String whInsBuilding;
 	private String whInsEstate;
 	private String whInsStreetNo;
 	private String whInsStreetName;
 	private String whInsDistrict;
 	private String whInsArea;
+	
 	private String whInseffectiveDate;
+	
+	public String getWhInsBlock() {
+		return whInsBlock;
+	}
+
+	public void setWhInsBlock(String whInsBlock) {
+		this.whInsBlock = whInsBlock;
+	}
 
 	public String getWhAppFullName() {
 		return whAppFullName;

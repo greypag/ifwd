@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.model.CountryBean;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
@@ -338,6 +340,11 @@ public class WorkingHolidayController {
 			model.addAttribute("planName", planName);
 			model.addAttribute("selectPlanName", selectPlanName);
 			QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
+			
+			if (quoteDetails == null) {
+				model.addAttribute("errMsgs", "Session Expired");
+				return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+			}
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
@@ -420,6 +427,21 @@ public class WorkingHolidayController {
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("planPremium", selectPlanPremium);
+			
+			//get country
+			String getCountryUrl = UserRestURIConstants.GET_COUNTRY + "?itemTable=WorkingHolidayCountry";
+			JSONObject jsonCountry = restService.consumeApi(HttpMethod.GET, getCountryUrl, header, null);
+			if (jsonCountry.get("errMsgs") == null) {
+				JSONArray jsonRelationshipCode = (JSONArray) jsonCountry.get("optionItemDesc");
+				
+				Map<String, String> countryInfo = new HashMap<String, String>();
+				for (int i = 0; i < jsonRelationshipCode.size(); i++) {
+					JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
+					countryInfo.put(checkJsonObjNull(obj, "itemCode"),
+							WebServiceUtils.getPageTitle("workingholiday.country." + checkJsonObjNull(obj, "itemCode"), UserRestURIConstants.getLanaguage(request)));
+				}
+				model.addAttribute("countryInfo", countryInfo);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -445,6 +467,9 @@ public class WorkingHolidayController {
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		HomeCareService homecareService = new HomeCareServiceImpl();
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
 		List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
 		request.setAttribute("districtList", districtList);
 		model.addAttribute("districtList", districtList);
@@ -513,9 +538,9 @@ public class WorkingHolidayController {
 		parameters.put("workingHolidayCountry", workingHolidayCountry);
 		
 		JSONObject insured = new JSONObject();
-		insured.put("name", "");
+		insured.put("name", applicantFullName);
 		insured.put("ageRange", "");
-		insured.put("hkId", "");
+		insured.put("hkId", applicantHKID);
 		insured.put("passport", "");
 		insured.put("relationship", "");
 		JSONObject beneficiary = new JSONObject();
