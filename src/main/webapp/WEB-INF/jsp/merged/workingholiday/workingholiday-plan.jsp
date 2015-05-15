@@ -950,17 +950,17 @@ var promoData = '';
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="col-xs-12 hidden-sm hidden-xs">
 							<div class="wd2">
-								<div class="pull-left">
+								<div class="pull-left" style="width:250px;">
 									<h2 class="h2-3-choose"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4 id="seletedplanname"></h4>
+									<h4 style="margin-top:-5px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
 										
 								</div>
 								<div class="pull-right">
-									<div class="text-left pad-right1 h2-2 h2">
-										<div class="hk">
+									<div class="text-right pad-right1 h2-2 h2">
+										<div class="hk" style="margin-top:40px;">
 											<fmt:message key="workingholiday.dollar" bundle="${msg}" />
 											<div style="font-weight: bold;" class="flightcare-hk" id="plansummary">0</div>
 											<input type="hidden" name="txtgrossPremiumAmt"
@@ -979,6 +979,7 @@ var promoData = '';
 						
 							<span class="text-red" id="errPromoCode"></span>
 							
+							
 							<div id="promo-wrap" class="form-group">
                                 <div class="input-group" style="border: 0;">
                                     <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
@@ -988,19 +989,21 @@ var promoData = '';
                                         onclick="applyWorkingHolidayPromoCode()"><span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span></span>
                                 </div>
                             </div>
+							 
 							
-							
-							<!-- this is the old one
+							<!-- this is new
 							<div class="form-group">
 								<div class="input-group">
 									<input type="text" id="promoCode" name="promoCode"
 										class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+										
+									<span style="font-weight: bold; font-size:20px;" class="pointer" onclick="applyworkingholidayPromoCode()">
+	                                  <span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span>
+	                                </span>	
 								</div>
-								<span style="color:black;  font-weight: bold; font-size:20px;" class="pointer" onclick="applyworkingholidayPromoCode()">
-                                  <span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span>
-                                </span>
+								
 							</div>
-							 -->
+							-->
 							
 							
 							<div class="working-italic">

@@ -4311,6 +4311,7 @@ a.h4-4 {
 }
 .plan-box3:hover, .plan-box3:hover h3, .plan-box3:hover .fwdpanel h4.benefits a{color:#fff !important;}
 .plan-box5, .plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
+.plan-box5 .fwdpanel h4.benefits a{color:white !important;}
 .plan-box3 h2 {
 	
 	margin-left: 25px;
