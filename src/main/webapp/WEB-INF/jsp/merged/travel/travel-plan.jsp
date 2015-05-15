@@ -1332,7 +1332,7 @@ if(personalTraveller>familyTraveller){
                                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtOtherInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
-                             <div class="col-lg-12 text-red child-notes">
+                             <div class="col-lg-12 child-notes">
                                <h4><fmt:message key="travel.main.quote.childnotes" bundle="${msg}" /></h4>
                              </div>
                            </div>
