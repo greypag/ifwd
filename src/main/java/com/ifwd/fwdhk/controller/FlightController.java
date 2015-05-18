@@ -4,12 +4,17 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -565,7 +570,15 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			//@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) {
-
+		
+		HttpSession session = request.getSession();
+		//FOLOWING IS TO HANDLE CHANGE LANGUAGE AS THE planDetails WILL BE NULL
+		if (planDetails.getReturnDate() == null) {
+			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
+		} else {
+			session.setAttribute("flightPlanDetails", planDetails);
+		}
+			
 		System.out.println("/flight-insurance/user-details");
 		System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
 		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
@@ -577,7 +590,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		HttpSession session = request.getSession();
+		
 
 		if (session.getAttribute("token") == null) {
 			return flight(request, model);
@@ -673,7 +686,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			System.out.println(" jsonRelationShipArray ====>>>>>>"
 					+ jsonRelationshipCode);
 
-			Map<String, String> mapRelationshipCode = new HashMap<String, String>();
+			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 			for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 				JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
 				mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"),
@@ -1208,7 +1221,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 										.toString(), inx));
 			}
 		}
-
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 		
@@ -1216,12 +1228,19 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		String hkid 		= StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
 		String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
 		String mobileNo     = request.getParameter("mobileNo");
-
+		
+		
+		String dob = request.getParameter("applicantDob");
+		Calendar dateDob = Calendar.getInstance();
+		dateDob.setTime(new Date(dob));
+		Format f = new SimpleDateFormat("yyyy-MM-dd");
+		dob = f.format(dateDob.getTime());
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
 		applicantJsonObj.put("hkId", hkid);
-		applicantJsonObj.put("dob", "");
+		applicantJsonObj.put("dob", dob);
+//		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
 		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox3());
@@ -1231,11 +1250,10 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("email", emailAddress);
 
-		request.setAttribute("fullName",     name);
-		request.setAttribute("hkid",         hkid);
-		request.setAttribute("mobileNo",     mobileNo);
+		request.setAttribute("fullName", name);
+		request.setAttribute("hkid", hkid);
+		request.setAttribute("mobileNo", mobileNo);
 		request.setAttribute("emailAddress", emailAddress);
-
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
@@ -1502,6 +1520,13 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
+			for (int inx = 0; inx < plandetailsForm.getTotalPersonalTraveller(); inx++) {
+				plandetailsForm.setPersonalAgeRangeName(WebServiceUtils
+						.getAgeRangeNames(plandetailsForm.getPersonalAgeRange(),
+								UserRestURIConstants.getLanaguage(request)));
+			}
+			
+			
 			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
 				plandetailsForm.setAdultAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getAdultAgeRange(),
@@ -1586,7 +1611,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
 			session.setAttribute("transNo", createPolicy.getTransactionNo());
 			model.addAttribute("selectPlanName", selectPlanName);
-			/* System.out.println("Session Id" + request.getSession().getId()); */
 		} else {
 			return UserRestURIConstants.getSitePath(request) + "travel/travel";
 		}
@@ -1623,6 +1647,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				+ plandetailsForm.getTotalOtherTraveller());
 		model.addAttribute("dueAmount", dueAmount);
 		model.addAttribute("totalTravallingDays", totalTravallingDays);
+		model.addAttribute("totalTravellingDays", totalTravallingDays);
+		
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", plandetailsForm);
@@ -1638,12 +1664,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
-//		kdjfdkjfa
-//		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-//		String planSelected = (String) session.getAttribute("planSelected");
-//		
-		
 		return UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-summary-payment";
 	}

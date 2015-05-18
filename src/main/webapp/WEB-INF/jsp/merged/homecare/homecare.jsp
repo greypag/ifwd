@@ -278,9 +278,12 @@ $(document).ready(function() {
 						i++;
 				%>
 
-				<div class="btn-box">
-						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
-							onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
+				<div class="form-container">
+				    <h3 class="text-center">
+				        <button type="submit" class="bdr-curve-none btn btn-primary btn-lg btn-block"
+                            onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
+				    </h3>
+						
 				</div>
 
 			</div>

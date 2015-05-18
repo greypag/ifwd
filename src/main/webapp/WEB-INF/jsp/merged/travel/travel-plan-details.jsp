@@ -36,12 +36,58 @@
 
 
 <!--/#main-Content-->
+
+
+
+<script>
+
+
+
+function activateUserAccountJoinUs() {
+    
+    alert("init");
+    name = document.getElementById("Username").value;
+    password = document.getElementById("Password").value;
+    password2 = document.getElementById("Confirm-Password").value;
+    
+    
+    if(name == "" && password == "" && password2 == ""){
+    	$('#frmYourDetails').submit()
+    }else{
+       $.ajax({
+                   type : 'POST',
+                   url : '<%=request.getContextPath()%>/joinus',
+                    data : $('#frmYourDetails').serialize(),
+                    async : false,
+                    success : function(data) {
+                        
+                        if (data == 'success') {                            
+                             $('#frmYourDetails').submit()
+                            return;                            
+                        } else {
+                            alert("Something Wrong with user input, please check");
+                            return;
+                        } 
+                    },
+                    error : function(xhr, status, error) {
+
+                    }
+                });
+    }
+       alert("done");
+       return;
+       
+}
+</script>
+
+
+
+<!-- action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post" onsubmit="return tPlanValid();"-->
 <section>
     <div id="cn" class="container">
         <div class="row">
         
-            <form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"
-                onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
+            <form:form name="frmYourDetails" id="frmYourDetails" modelAttribute="frmYourDetails" method="post" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" >
                 <ol class="breadcrumb pad-none">
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -101,12 +147,16 @@
                         %>
                         <h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.details.login" bundle="${msg}" /></h3>
 
-                        <a href="#"
+                        <!-- <a href="#"
                             class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-                            data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>
+                            data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a> -->
+                        <a href="#"
+                            class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4 login-btn"
+                            data-toggle="modal" data-target="#loginpopup"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>    
+                        
                         <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
                             <h3 class="text-left or-continue">
-                                <fmt:message key="travel.details.login.other.part1" bundle="${msg}" />
+                                <span><fmt:message key="travel.details.login.other.part1" bundle="${msg}" /></span>
                                 <fmt:message key="travel.details.login.other.part2" bundle="${msg}" />
                             </h3>
                         </div>
@@ -131,12 +181,12 @@
                                             class="black-bold"><fmt:message key="travel.details.applicant.heading" bundle="${msg}" /></h3></td>
                                 </tr>
                                 <tr>
-                                    <td valign="middle" class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
+                                    <td valign="middle" class="col-lg-5 col-md-5 col-sm-5 col-xs-4"><label
                                         for="inputFullName" class="bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label></td>
                                     <td><input type="text" name="fullName"
                                         class="form-control full-control" id="inputFullName"
                                         value="${userDetails.getFullName()}"
-                                        placeholder="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this);"
+                                        placeholder="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="100" />
                                     <span id="fullnameinvalid" class="text-red">
                                     </span></td>
@@ -160,10 +210,22 @@
 
                                     </td>
                                     <td>
-                                       <input type="text" name="hkid" class="form-control numberinput textUpper full-control" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
+                                       <input type="text" name="hkid" class="form-control numberinput textUpper full-control" id="inputTxtAppHkid" placeholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" onblur="validateHkid('inputTxtAppHkid','selectHkidPass','errAppHkid',true,'applicant');"/>
                                        <span id="errAppHkid" class="text-red" ></span>
                                     </td>
                                 </tr>
+                                <!-- Birthday starts -->
+                                <tr>
+                                    <td valign="middle"><label for="inputApplicantDob"
+                                        class="bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label></td>
+                                    <td>
+                                        <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+                                            <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                        </div>
+                                        <span id="dobInvalid" class="text-red"></span>           
+                                    </td>
+                                </tr>
+                                <!-- Birthday ends -->
                                 <tr>
                                     <td valign="middle"><label for="inputMobileNo"
                                         class="bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label></td>
@@ -171,7 +233,7 @@
                                         class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
                                         id="inputMobileNo" placeholder="<fmt:message key="travel.details.applicant.mobile.placeholder" bundle="${msg}" />"
                                         onkeypress="return isNumeric(event)"
-                                        onblur="replaceNumeric(this);" maxlength="8" /> 
+                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
                                     <span id="errMobileNo" class="text-red">
                                     </span></td>
                                 </tr>
@@ -180,7 +242,7 @@
                                         class="bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label></td>
                                     <td><input class="form-control full-control" name="emailAddress"
                                         value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
-                                        placeholder="<fmt:message key="travel.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50"> <span id="emailid" class="text-red"></span></td>
+                                        placeholder="<fmt:message key="travel.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50" onblur="validateEmail('inputEmailId','emailid');"> <span id="emailid" class="text-red"></span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -203,7 +265,7 @@
                                         <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
                                             class="bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
                                         <td><input type="text"
-                                            name="username" class="form-control full-control"
+                                            name="userName" class="form-control full-control"
                                             id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
                                             id="UsernameError" class="text-red"> </span></td>
                                     </tr>
@@ -244,6 +306,14 @@
 
 
                         <div class="col-xs-12 col-sm-12 col-md-12 pad-none insure-travel">
+                        	<h3 class="black-bold pad-none margin-left-28">
+	                           <fmt:message key="flight.details.insured.heading" bundle="${msg}" />
+	                           <br>
+	                       </h3>
+                        
+                        
+                        
+                        
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
                                 value="${corrTravelQuote.getTotalPersonalTraveller()}">
@@ -258,22 +328,22 @@
                                     <table class="table activation-form margin-left-2 vert-middle">
                                         <tbody>
                                             <tr>
-                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-4">
                                                      <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                                 </td>
                                                 <td>
                                                      <c:if test="${inx == 1}">
                                                     <input type="text"
-                                                        id="txtPersonalFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
+                                                        id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     </c:if>
                                                     <c:if test="${inx > 1}">
                                                     <input type="text"
-                                                        id="txtPersonalFullName${inx}" name="personalName" value=""
+                                                        id="txtInsuFullName${inx}" name="personalName" value=""
                                                         class="form-control full-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     </c:if>
                                                     <span id="errtxtPersonalFullName${inx}" class="text-red"></span>
@@ -289,7 +359,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="">
-                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onkeyup="hkidValid(this)"/> 
+                                                     <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInvalidInsuHkid${inx}',false,'insured');"/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
                                                     <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -380,7 +450,7 @@
                                                         name="personalBenificiaryFullName"
                                                         id="personalBenefitiaryId${inx}" value=""
                                                         class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errpersonalBenefitiaryId${inx}" class="text-red">
                                                     </span>
@@ -399,7 +469,7 @@
                                                      <input
                                                     id="personalBenefitiaryHKId${inx}" name="personalBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)"/> <span id="errpersonalBenefitiaryHKId${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('personalBenefitiaryHKId${inx}','selectPersonalBenefitiaryHkidPass${inx}','errpersonalBenefitiaryHKId${inx}',false,'beneficiary');"/> <span id="errpersonalBenefitiaryHKId${inx}"
                                                     class="text-red"> </span><span id="errInvalidpersonalBenefitiaryHKId${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -429,16 +499,16 @@
                                                 <td>
                                                      <c:if test="${inx == 1}">
                                                     <input type="text"
-                                                        id="txtAdFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
+                                                        id="txtInsuFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     </c:if>
                                                     <c:if test="${inx > 1}">
                                                     <input type="text"
-                                                        id="txtAdFullName${inx}" name="adultName" value=""
+                                                        id="txtInsuFullName${inx}" name="adultName" value=""
                                                         class="form-control full-control" placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"></span>
@@ -454,7 +524,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="">
-                                                     <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onkeyup="hkidValid(this)"/> 
+                                                     <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInvalidInsuHkid${inx}',false,'insured');"/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
                                                     <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -545,7 +615,7 @@
                                                         name="adultBenificiaryFullName"
                                                         id="adultBenefitiaryId${inx}" value=""
                                                         class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="erradultBenefitiaryId${inx}" class="text-red">
                                                     </span>
@@ -564,7 +634,7 @@
                                                      <input
                                                     id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)"/> <span id="erradultBenefitiaryHKId${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('adultBenefitiaryHKId${inx}','selectAdBenefitiaryHkidPass${inx}','erradultBenefitiaryHKId${inx}',false,'beneficiary');"/> <span id="erradultBenefitiaryHKId${inx}"
                                                     class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -597,7 +667,7 @@
                                                     <input type="text"
                                                         name="childName" id="txtChldFullName${inx}" value=""
                                                         class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtChldFullName${inx}" class="text-red"></span>
                                                 </td>
@@ -605,7 +675,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="styled-select custom-select-label">
-                                                        <select id="selectChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass">
+                                                        <select id="selectedChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
@@ -615,7 +685,7 @@
                                                     <input
                                                     id="txtChldInsuHkid${inx}" name="childHKID"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtChldInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtChldInsuHkid${inx}','selectedChildHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
                                                     class="text-red"> </span><span
                                                     id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -673,7 +743,7 @@
                                                         name="childBenificiaryFullName"
                                                         id="childBenefitiaryName${inx}" value=""
                                                         class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
                                                 </td>
@@ -681,7 +751,7 @@
                                             <tr id="childbenificiaryId${inx}b" class="hide">
                                                 <td>
                                                     <div class="styled-select custom-select-label">
-                                                        <select id="selectChildBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
+                                                        <select id="selectedChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass">
                                                             <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                             <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                         </select>
@@ -691,7 +761,7 @@
                                                     <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtchildInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtchildInsuHkid${inx}','selectedChldBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
                                                     class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
                                                     class="text-red"> </span>
                                                 </td>
@@ -723,7 +793,7 @@
                                                     <input type="text"
                                                         name="otherName" id="txtOtherFullName${inx}" value=""
                                                         class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
                                                 </td>
@@ -741,7 +811,7 @@
                                                     <input
                                                     id="txtOtherInsuHkid${inx}" name="otherHKID"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtOtherInsuHkid${inx}','selectOtHkidPass${inx}','errtxtOtherInsuHkid${inx}',false,'insured');"/> <span id="errtxtOtherInsuHkid${inx}"
                                                     class="text-red"> </span><span
                                                     id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
                                                 </td>
@@ -795,7 +865,7 @@
                                                         name="otherBenificiaryFullName"
                                                         id="otherBenefitiaryName${inx}" value=""
                                                         class="form-control full-control " placeholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
-                                                        onblur="replaceAlpha(this);"
+                                                        onblur="replaceAlpha(this); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
                                                 </td>
@@ -813,7 +883,7 @@
                                                     <input
                                                         id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
                                                         class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                        value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherBenInsuHkid${inx}"
+                                                        value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtOtherBenInsuHkid${inx}','selectOtherBenefitiaryHkidPass${inx}','errtxtOtherBenInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtOtherBenInsuHkid${inx}"
                                                         class="text-red"> </span>
                                                         <span id="errtxtOtherInvalidBenInsuHkid${inx}"
                                                         class="text-red"> </span>
@@ -990,7 +1060,10 @@
                                     <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
                                 </h3>
                                 <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
-                                <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                                <c:if test="${referralCode!=''}">
+                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                                    <h4>${referralCode}</h4>
+                                </c:if>
             </div>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planPremium}</h3>
@@ -1009,7 +1082,8 @@
      <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
-    <input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+    <!-- submit -->
+    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 </div>
 <div class="clearfix"></div>
 <br>
@@ -1019,7 +1093,7 @@
 <p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
 <a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
 <fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
-<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" />
+<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" /><br>
 <fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
 </form:form>
 </div>
@@ -1094,7 +1168,6 @@
         if (id.indexOf('other') > -1) {
             activeDeactive(selectedValue, id);
         }
-
     }
     function activeDeactive(selectedValue, id) {
         if (selectedValue == "SE") {

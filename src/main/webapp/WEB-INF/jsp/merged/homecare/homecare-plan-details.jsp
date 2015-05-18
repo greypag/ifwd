@@ -350,7 +350,7 @@
 
 	<!--/#main-Content-->
 	<section>
-		<div class="container">
+		<div id="cn" class="container">
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
 					action="${pageContext.request.contextPath}/${language}/home-insurance/home-summary" method="post"
@@ -412,11 +412,11 @@
 							%>
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
 							<a href="#"
-								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-								data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
+								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4 login-btn"
+								data-toggle="modal" data-target="#loginpopup"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
 							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
 								<h3 class="text-left or-continue">
-									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span><fmt:message key="home.details.login.other.part2" bundle="${msg}" />
+									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span> <fmt:message key="home.details.login.other.part2" bundle="${msg}" />
 								</h3>
 							</div>
 							<%
@@ -430,8 +430,9 @@
 							%>
 
 							<div class="clearfix"></div>
+							<br/>
 							<div class="gray-bdr"></div>
-							<table class="table activation-form margin-left-2 vert-middle-small">
+							<table class="table activation-form margin-left-2 vert-middle">
 								<tbody>
 									<tr>
 										<td colspan="2"><h3
@@ -439,7 +440,7 @@
 									</tr>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label></td>
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputFullName" name="applicantName"
 											value="${userDetails.getFullName().trim()}"
@@ -468,15 +469,27 @@
 											</div>
 										</td>
 										<td class=""><input type="text" name="hkId"
-											class="form-control numberinput textUppe full-control" id="txtAppHkid"
+											class="form-control numberinput textUpper full-control" id="txtAppHkid"
 											placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
 											onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> <span id="errAppHkid"
 											class="text-red"> </span></td>
 
 									</tr>
+									<!-- Birthday starts -->
+	                                <tr>
+	                                    <td valign="middle"><label for="inputApplicantDob"
+	                                        class="bold-500"><fmt:message key="home.details.applicant.birthday" bundle="${msg}" /></label></td>
+	                                    <td>
+	                                        <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+	                                            <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+	                                        </div>
+	                                        <span id="dobInvalid" class="text-red"> </span></td>
+	                                    </td>
+	                                </tr>
+	                                <!-- Birthday ends -->
 									<tr>
 										<td class=""><label
-											class="control-label bold-500"><fmt:message key="home.details.applicant.mobile" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.applicant.mobile" bundle="${msg}" /></label></td>
 										<td class=""><input type="text"
 											class="form-control full-control" id="inputMobileNo" name="mobileNo"
 											value="${userDetails.getMobileNo().trim()}"
@@ -487,7 +500,7 @@
 									</tr>
 									<tr>
 										<td class=""><label
-											class="control-label bold-500"><fmt:message key="home.details.applicant.email" bundle="${msg}" /></label></td>
+											class="bold-500"><fmt:message key="home.details.applicant.email" bundle="${msg}" /></label></td>
 										<td class=""><input class="form-control full-control"
 											id="inputEmailId" name="emailAddress"
 											value="${userDetails.getEmailAddress().trim()}"
@@ -519,7 +532,7 @@
 										</tr>
 										<tr>
 											<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-												class="control-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
+												class="bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label></td>
 											<td class=""><input type="text"
 												class="form-control marginbt full-control" id="Username"
 												placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />" name="userName"> <span id="UsernameError"
@@ -527,7 +540,7 @@
 										</tr>
 										<tr>
 											<td class=""><label
-												class="control-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
+												class="bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Password" autocomplete="off" name="password"
 												placeholder="<fmt:message key="home.details.registration.password.placeholder" bundle="${msg}" />"> <span id="PasswordError"
@@ -535,7 +548,7 @@
 										</tr>
 										<tr>
 											<td class=""><label
-												class="control-label bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
+												class="bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label></td>
 											<td class=""><input type="password"
 												class="form-control marginbt full-control" id="Confirm-Password" autocomplete="off"
 												placeholder="<fmt:message key="home.details.registration.confirmPassword.placeholder" bundle="${msg}" />"> <span
@@ -560,8 +573,8 @@
 									<tr>
 										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
-										<td><input type="text" class="form-control wd2"
+											class="bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
+										<td><input type="text" class="form-control full-control"
 											id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
@@ -667,8 +680,8 @@
 								<tbody>
 									<tr>
 										<td rowspan="5"
-											class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none"><label
-											class="control-label bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label></td>
+											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
+											class="bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label></td>
 										<td colspan="2"><input type="text"
 											class="form-control wd2 full-control" id="inputARoom" name="aRoom"
 											placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
@@ -780,7 +793,7 @@
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 "><label
-											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
+											class="bold-500"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
 										</label></td>
 										<td class="">
 
@@ -809,7 +822,7 @@
 									</tr>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
+											class="bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /><br> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
 										</label></td>
 										<td class=""><div class="form-group">
 												<div class="input-group date" id="homecareDp">
@@ -920,6 +933,14 @@
 									</div>
 
 								</div>
+								
+								<c:if test="${referralCode!=''}">
+								    <div class="form-container">
+	                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                                        <h4>${referralCode}</h4>
+	                                </div>
+                                </c:if>
+								
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%>
@@ -949,7 +970,7 @@
 									<a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-									<input type="submit" class="bdr-curve-none btn btn-primary btn-next " value="<fmt:message key="home.action.next" bundle="${msg}" />" />
+									<input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
 								</div>
 
 

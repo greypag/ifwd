@@ -6,7 +6,7 @@
 
 
 
-	<script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
 	<script>
 		function forgotUserPassword() {
 

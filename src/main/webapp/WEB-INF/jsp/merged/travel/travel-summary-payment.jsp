@@ -31,7 +31,8 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								console.log("fail to process payment " + data);
+ 								//console.log("fail to process payment " + data);
+ 								$('#paymentErrorPopup').modal('show');
  							}
  						}
  					});
@@ -109,6 +110,24 @@
 							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
 							<table class="table activation-form margin-left-2 vert-middle travel-summary">
 								<tbody>
+								    <tr>
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></td>
+                                        <td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
+                                    </tr>
+								
 									<tr>
 										<td class="col-lg-4 col-xs-4 col-sm-4 col-md-4 h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
 										<td class="pad-none h4-5 ">${createPolicy.getReferenceNo()}</td>
@@ -251,23 +270,6 @@
 									</tr>
 
 									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
-									</tr>
-									<tr>
-
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
-									</tr>
-									<tr>
 										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />
 										</span></td>
 										<td class="pad-none "><span
@@ -305,7 +307,7 @@
 
                                 <tbody>
                                     <tr class="">
-                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
+                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" /> <%=i + 1%></span></td>
                                         <% if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) { %>
                                         <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.personal.beneficiary" bundle="${msg}" /></span></td>
                                         <% } %>
@@ -509,16 +511,8 @@
 	                                    <tr class="hidden-sm hidden-xs">
 	                                        <td class="pad-none" data-title="Personal <%=i + 1%>">
 	                                        <span class="h2-1-td">
-	                                        <c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
 	                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
 	                                                <%=i + 1%>
-	                                        </c:if>
-	                                        
-	                                        <c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
-	                                            <fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
-	                                                <%=i + 1%>
-	                                        </c:if>
-	                                        
 	                                        </span>
 	                                        </td>
 	                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
@@ -554,16 +548,8 @@
 									<tr class="hidden-sm hidden-xs">
 										<td class="pad-none" data-title="Adult <%=i + 1%>">
 										<span class="h2-1-td">
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()==0}">
-											<fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-												<%=i + 1%>
-										</c:if>
-										
-										<c:if test="${planDetailsForm.getTotalOtherTraveller()!=0}">
 											<fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
 												<%=i + 1%>
-										</c:if>
-										
 										</span>
 										</td>
 										<td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
@@ -867,6 +853,18 @@
 						<!-- vincent add a button for paymnet confirmation (mobile) -->	
 						
 						
+						<div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn">
+                                    <fmt:message key="travel.action.back" bundle="${msg}" /> 
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+                                <input type="submit"
+                                    class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="travel.action.payment" bundle="${msg}" />" />
+                            </div>
+                        </div>
+						
 						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 								<a href="#" onclick="BackMe()"
 									class="bdr-curve btn btn-primary bck-btn">返� </a>
@@ -878,7 +876,7 @@
 								
 
 							</div> -->
-							
+							<!-- 
 							<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
@@ -886,7 +884,8 @@
 								class="bdr-curve btn btn-primary nxt-btn margin-left" 
 								value="<fmt:message key="travel.action.payment" bundle="${msg}" />">
 								
-						</div>
+						      </div>
+						      
 						<br> <br>
 						<div class="row hidden-md hidden-lg">
 							<div class="clearfix"></div>
@@ -905,14 +904,22 @@
 							</div>
 							<div class="clearfix"></div>
 						</div>
-							
+							 -->
 							
 							
 													
 							<div class="clearfix"></div>
 						</div>
 						<br>
-						<img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+						<div id="paydoller-wrap" class="declaration-content margin-left-small float">
+						  <div id="paydollar-icon" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pull-left">
+                            <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+                           </div>
+                           <div id="paydollar-desc" class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pull-left">
+	                          <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+	                       </div>
+						</div>
+						
 						<br>
 					</div>
 				</div>

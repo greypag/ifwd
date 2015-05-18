@@ -266,7 +266,15 @@ public class HomeCareController {
 			List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
 			Map<String, String> mapNetFloorArea = homecareService.getNetFloorArea(userName, token, lang);
 			request.setAttribute("districtList", districtList);
-			
+			try {
+				if (homeQuoteDetails == null) {
+					homeQuoteDetails = new HomeQuoteBean();
+					homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
+				}
+			} catch (Exception e) {
+				homeQuoteDetails = new HomeQuoteBean();
+				homeQuoteDetails = (HomeQuoteBean) session.getAttribute("homeQuoteDetails");
+			}
 			if (homeQuoteDetails.getTotalDue() != null) 
 			{
 				session.setAttribute("homeQuoteDetails", homeQuoteDetails);
@@ -360,15 +368,26 @@ public class HomeCareController {
 		UserDetails userDetails = new UserDetails();
 
 		String passportORhkid = WebServiceUtils.getParameterValue("apphkidandpassport", session, request);
-		String hkId = WebServiceUtils.getParameterValue("hkId", session, request);
+		String hkId = StringHelper.emptyIfNull(WebServiceUtils.getParameterValue("hkId", session, request));
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
-		
+		String dob = "";
+		Format f = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			dob = request.getParameter("applicantDob");
+			Calendar dateDob = Calendar.getInstance();
+			dateDob.setTime(new Date(dob));
+			f = new SimpleDateFormat("yyyy-MM-dd");
+			dob = f.format(dateDob.getTime());
+		} catch (Exception e) {
+			
+		}
 		boolean optIn1;
 		boolean optIn2;
 		if (optIn1Value == null) {
@@ -415,12 +434,16 @@ public class HomeCareController {
 		System.out.println("***************passportORhkid********************");
 		if (passportORhkid.equalsIgnoreCase("appHkid")) {
 			userDetails.setHkid(hkId);
+			userDetails.setPassport("");
 		} else {
+			userDetails.setHkid("");
 			userDetails.setPassport(hkId);
 		}
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
+//		userDetails.setDob("");
+		userDetails.setDob(dob);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		
@@ -451,7 +474,9 @@ public class HomeCareController {
 			model.addAttribute("confirm", confirm);
 		} else {
 			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
-			return "/home-insurance/user-details";
+			//return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return prepareYoursDetails(null, model, request); 
+			
 //			return UserRestURIConstants.getSitePath(request)
 //					+ "home-insurance/user-details";
 		}
@@ -467,8 +492,9 @@ public class HomeCareController {
 		model.addAttribute("userDetails", userDetails);
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date(homeCareDetails.getEffectiveDate()));
-		Format f = new SimpleDateFormat("dd MMMM yyyy");
+		f = new SimpleDateFormat("dd MMMM yyyy");
 		date.add(Calendar.YEAR, 1);
+		date.add(Calendar.DATE, -1);
 		String endDate = f.format(date.getTime());
 			
 		// get netFloorArea desc

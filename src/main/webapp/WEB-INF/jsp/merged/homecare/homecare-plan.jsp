@@ -88,6 +88,11 @@
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <script>
+
+//bmg inline variable
+var promoCodeInsertFlag = true;
+//bmg inline variable
+
 	function chkPromoCode() {
 		var flag = false;
 		var promoCode = document.getElementById("referralCode").value;
@@ -101,23 +106,33 @@
 		return flag;
 	}
 	function applyHomePromoCode() {
+		if(promoCodeInsertFlag){
+            $("#loadingPromo").show();
+            
+            promoCodeInsertFlag = false;
+            
+			$("#errPromoCode").html("");
+			
+			if(chkPromoCode()) {
+				$.ajax({
+					type : 'POST',
+					url : '<%=request.getContextPath()%>/applyHomePromoCode',
+					data : $('#frmHomeCarePlan input').serialize(),
+					success : function(data) {
+						$("#loadingPromo").hide();
+	                    promoCodeInsertFlag = true;
 		
-		$("#errPromoCode").html("");
+						var json = JSON.parse(data);
 		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyHomePromoCode',
-			data : $('#frmHomeCarePlan input').serialize(),
-			success : function(data) {
-
-				var json = JSON.parse(data);
-
-				//console.log("json " + json);
-				setValue(json);
+						//console.log("json " + json);
+						setValue(json);
+					}
+		
+				});
+			} else {
+				promoCodeInsertFlag = true;
 			}
-
-		});
+		}
 	}
 
 	function setValue(result) {
@@ -173,7 +188,7 @@
 
 	<!--/#main-Content-->
 	<section>
-		<div class="container">
+		<div id="cn" class="container">
 			<div class="row">
 
 				<ol class="breadcrumb pad-none">
@@ -226,7 +241,7 @@
 				
 				<%
 							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
-				<div id="quote-wrap" class="container pad-none bdr ur-opt-content">
+				<div id="quote-wrap" class="container pad-none bdr">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
 							<!-- Choose a plan -->
@@ -240,7 +255,6 @@
 								</h2>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-								<br>
 								<div class="h4">
 									HK$ <br>
 									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
@@ -312,7 +326,7 @@
 
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-1" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -343,7 +357,7 @@
                                         <!--  Summary of Coverage  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-2" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.summary.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -355,7 +369,7 @@
 											            <span aria-hidden="true" style="font-size:30px;">×</span>
 											            </a>
 											            <div class="fwdpanel-heading">
-											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
+											                <h4 class="fwdpanel-title h4-4-full"><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
 											            </div>
 											            <div class="fwdpanel-body">
                                                             <h4 class="h4-2">
@@ -523,7 +537,7 @@
                                         <!--   Major Exclusions  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-3" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
                                                 </h4>
@@ -573,7 +587,7 @@
                                         <!--   Age limit  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-4" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -610,7 +624,7 @@
                                         <!--   Premium table (HK$)  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-5" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.excess.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -711,6 +725,8 @@
 								</div>
 								<div class="clearfix"></div>
 								
+								<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+								
 								<span class="text-red" id="errPromoCode"></span>
 								<div id="promo-wrap" class="form-group">
 									<div class="input-group" style="border: 0;">
@@ -766,7 +782,7 @@
 							<input type="hidden" name="answer2" value="${answer2}">
 
 							
-
+                            <!-- 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
 								<a href="<%=request.getContextPath()%>/${language}/home-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
@@ -776,7 +792,18 @@
 								<button type="submit" class="bdr-curve btn btn-primary btn-next">
 									<fmt:message key="home.action.next" bundle="${msg}" />
 								</button>
-							</div>
+							</div> -->
+							
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance"
+	                                class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> 
+	                            </a>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn">
+	                                <fmt:message key="home.action.next" bundle="${msg}" /></button>
+	                        </div>
+							
 
 							<div class="clearfix"></div>
 							<br>
@@ -869,6 +896,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
+							<input type="hidden" name="planCode" id="planCode" value="HOMECARE">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">
