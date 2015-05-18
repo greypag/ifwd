@@ -4134,19 +4134,27 @@ border: 1px solid #f68a1d;
 
 
 
-.plan-box4 {
+.plan-box5 {
 	background-color: #f68a1d;
 	padding: 10px;
 	border: 1px solid #f68a1d;
 }
-.plan-box4 h2 {
+
+
+.plan-box4 {
+    background-color: #f68a1d;
+    padding: 10px;
+    border: 1px solid #f68a1d;
+}
+
+.plan-box4, .plan-box5 h2 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 50px;
 	font-size: 30px;
 	line-height: 42px;
 }
-.plan-box4 h3 {
+.plan-box4, .plan-box5 h3 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 50px;
@@ -4155,7 +4163,7 @@ border: 1px solid #f68a1d;
 	font-family: 'Foco-Regular' !important;
 	font-family: 'Foco_Lt'!important;
 }
-.plan-box4 h4 {
+.plan-box4, .plan-box5 h4 {
 	color: #fff;
 	margin-left: 50px;
 	font-size: 24px;
@@ -4163,21 +4171,21 @@ border: 1px solid #f68a1d;
 	font-family: 'Foco-Regular';
 	font-family: 'Foco_Lt';
 }
-.plan-box4 h5 {
+.plan-box4, .plan-box5 h5 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 50px;
 	font-size: 30px;
 	font-family: 'Foco-bold';
 }
-.plan-box4 p del {
+.plan-box4, .plan-box5 p del {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 50px;
 	font-size: 36px;
 	font-family: 'Foco-Regular';
 }
-.plan-box4 h6 {
+.plan-box4,.plan-box5 h6 {
 	color: #fff;
 	line-height: 42px;
 	margin-left: 50px;

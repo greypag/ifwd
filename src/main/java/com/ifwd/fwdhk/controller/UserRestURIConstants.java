@@ -50,6 +50,14 @@ public class UserRestURIConstants {
 	public static final String TRAVEL_FINALIZE_POLICY = SERVICE_URL
 			+ "/gi/travel/policies";
 	
+	/* WorkingHoliday URL */
+	public static final String WORKINGHOLIDAY_GET_QUOTE = SERVICE_URL
+			+ "/gi/workingHoliday/quote";
+	public static final String WORKINGHOLIDAY_CONFIRM_POLICY = SERVICE_URL
+			+ "/gi/workingHoliday/payments/make";
+	public static final String GET_COUNTRY = SERVICE_URL + "/option/itemDesc";
+	public static final String WORKINGHOLIDAY_CREATE_POLICY = SERVICE_URL
+			+ "/gi/workingHoliday/policies";
 	
 	/*API For Home Care Modules
 	*/

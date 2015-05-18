@@ -4,9 +4,6 @@
 //	System.out.println("uatAuth " + uatAuth);
 //	if (uatAuth == null)
 //		response.sendRedirect(request.getContextPath() + "/uatAuth");
-	
-// 	if (!uatAuth.equals("ifwdUser"))
-// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
 %>
 
 

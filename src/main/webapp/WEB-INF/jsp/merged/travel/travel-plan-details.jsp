@@ -36,12 +36,64 @@
 
 
 <!--/#main-Content-->
+
+
+<script type="text/javascript">
+
+
+
+ function userCreate(){
+     alert("init");
+     
+     
+     
+     $.ajax({
+         type : 'POST',
+         url : '<%=request.getContextPath()%>/joinus',
+         data : $('#frmYourDetails').serialize(),
+         async : false,
+         success : function(data) {
+             
+             if (data == 'success') {
+                  
+//               setTimeout(function() {document.joinus_form.action= "useraccount";                              
+//               }, 3000);
+                 //window.location.href = '<%=request.getContextPath()%>/getAccByUsernaneAndPassword';
+//               setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;                              
+//               }, 3000);
+                 
+                 alert("good la");
+                 alert(data);
+             } else {
+                 
+                 alert("no la");
+                 alert(data);
+             } 
+         },
+         error : function(xhr, status, error) {
+
+         }
+     });
+     
+     
+     
+     alert("done");
+     
+ }
+ 
+ 
+ </script>
+ 
+<!-- 
+
+action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"  
+-->
+
 <section>
     <div id="cn" class="container">
         <div class="row">
         
-            <form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"
-                onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
+            <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="userCreate()" modelAttribute="frmYourDetails">
                 <ol class="breadcrumb pad-none">
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>

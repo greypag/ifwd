@@ -272,6 +272,11 @@ public class UserController {
 			@ModelAttribute("userDetails") UserDetails userDetails,
 			HttpServletRequest servletRequest, Model model) {
 		HttpSession session = servletRequest.getSession(false);
+		
+		
+		
+		
+		
 		boolean optIn1 = false;
 		boolean optIn2 = false;
 		if (userDetails.getCheckbox3() == null) { 
@@ -302,6 +307,16 @@ public class UserController {
 			params.put("name", userDetails.getFullName());
 			params.put("optIn1", optIn1);
 			params.put("optIn2", optIn2);
+			
+			if(servletRequest.getParameter("userName") != null && servletRequest.getParameter("password") != null){
+				params.put("userName", servletRequest.getParameter("userName"));
+				params.put("password", servletRequest.getParameter("password"));
+				params.put("email", servletRequest.getParameter("email"));
+				params.put("mobile", servletRequest.getParameter("mobile"));
+				params.put("name", servletRequest.getParameter("name"));
+				params.put("optIn1", servletRequest.getParameter("optIn1"));
+				params.put("optIn2", servletRequest.getParameter("optIn2"));
+			}
 			
 			
 			

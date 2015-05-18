@@ -3093,6 +3093,115 @@ function flightValidateBtmTravel() {
 
 }
 
+function flightValidateDeskWorkingHoliday()
+{
+	return true;
+	var flag = true;
+
+	document.getElementById("startDateDeskIn").innerHTML = "";
+	document.getElementById("endDateDeskIn").innerHTML = "";
+	document.getElementById("workingholidayCountDeskIn").style.display = "none";
+	var startDate = document.getElementById("txtStartDateDesk").value;    
+	var endDate = document.getElementById("txtEndDateDesk").value;
+	var workingholidayers = document.getElementById("txtworkingholidayersDesk").value;
+	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
+
+	var nowTemp = new Date();
+	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+	var new_start = new Date(startDate);
+	var new_end = new Date(endDate);
+	var startdays = dateDiffInDays(now, new_start);
+	var enddays = dateDiffInDays(new_start, new_end);
+	if(startDate.trim()=="")
+	{
+		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
+		flag = false;
+	}
+	else {
+		if (startdays > 30) {
+			$('#startDateDeskIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
+			flag = false;
+		}
+	}
+	if(endDate.trim()=="")
+	{
+		$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+		flag = false;
+	}
+	else {
+		if (enddays > 180) {
+			$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+			flag = false;
+		}
+	}
+	if(workingholidayers.trim()=="")
+	{
+		document.getElementById("workingholidayCountDeskIn").style.display = "block";
+		flag = false;
+	}
+	if(peopleCount.trim()==""||peopleCount=="0")
+	{
+		document.getElementById("workingholidayCountDeskIn").style.display = "block";
+		flag = false;
+	}
+	return flag;
+
+}
+
+
+function flightValidateBtmWorkingHoliday() {
+	return true;
+	var flag = true;
+
+	document.getElementById("startDateBtmIn").innerHTML = "";
+	document.getElementById("endDateBtmIn").innerHTML = "";
+	$("#workingholidayCountBtmIn").hide();
+	var startDate = document.getElementById("txtStartDateBtm").value;
+	var endDate = document.getElementById("txtEndDateBtm").value;
+	var workingholidayers = document.getElementById("txtworkingholidayersBtm").value;
+	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
+	var nowTemp = new Date();
+	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+	var new_start = new Date(startDate);
+	var new_end = new Date(endDate);
+	var startdays = dateDiffInDays(now, new_start);
+	var enddays = dateDiffInDays(new_start, new_end);
+
+	if (startDate.trim() == "") {
+		$('#startDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
+		flag = false;
+	}
+	else
+	{
+		if(startdays>30)
+		{
+			$('#startDateBtmIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
+			flag = false;
+		}
+	}
+	if (endDate.trim() == "") {
+		$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+		flag = false;
+	}
+	else
+	{
+		if (enddays > 180) {
+			$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+			flag = false;
+		}
+	}
+	if (workingholidayers.trim() == "") {
+		$("#workingholidayCountBtmIn").show();
+		flag = false;
+	}
+	if(peopleCount.trim()==""||peopleCount=="0")
+	{
+		$("#workingholidayCountBtmIn").show();
+		flag = false;
+	}
+	return flag;
+
+}
 
 
 /* join us page validation */

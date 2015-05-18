@@ -82,6 +82,15 @@ a.active {
 
 /**End**/
 
+.topten{
+    margin-top:-10px;	
+}
+
+.top35{
+	margin-top:35px;
+}
+
+
 body {
 	background: #fff;
 	font-family: Calibri, sans-serif !important;
@@ -637,6 +646,7 @@ vertical-align:middle;
 	display: inline-block;
 	margin-left: 15px;
 }
+
 
 
 /*Ganesh 15march*/
@@ -3440,6 +3450,17 @@ del {
 	border: 1px solid #f68a1d;
 	width: 100%;
 }
+.btn-next3{
+	padding: 25px 72px;
+    font-size: 28px;
+    line-height: 31.5px;
+    font-weight: normal;
+    
+    border: 1px solid #f68a1d;
+    
+    
+}
+
 .bck-btn {
 	display: block;
 	width: 100%;
@@ -3469,7 +3490,21 @@ del {
 	
 }
 
-.bck-btn2:hover {
+.bck-btn3 {
+    padding: 25px 72px;
+    font-size: 28px;
+    line-height: 31.5px;
+    font-weight: normal;
+    
+    background-color: #fff ;
+    border: 1px solid #f68a1d;
+    color: #f68a1d;
+    
+    
+    
+}
+
+.bck-btn2:hover, .bck-btn3:hover {
 	color: #fff;
 	background-color: #f68a1d;
 	border: 1px solid #f68a1d;
@@ -3675,7 +3710,6 @@ margin-bottom: 10px;}
 .margin-left-28 {
     margin-left: 28px !important;
 }
-
 .margin-left-3 {
 	margin-left: 25%;
 }
@@ -4305,7 +4339,8 @@ a.h4-4 {
 	color: #061d2a;
 }
 .plan-box3:hover, .plan-box3:hover h3, .plan-box3:hover .fwdpanel h4.benefits a{color:#fff !important;}
-.plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
+.plan-box5, .plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
+.plan-box5 .fwdpanel h4.benefits a{color:white !important;}
 .plan-box3 h2 {
 	
 	margin-left: 25px;
@@ -4355,19 +4390,26 @@ a.h4-4 {
 	font-size: 40px;
 	font-weight: bold;
 }
+
+.plan-box5 {
+    background-color: #f68a1d;
+    padding: 10px;
+    border: 1px solid #f68a1d;
+}
+
 .plan-box4 {
 	background-color: #f6871e;
 	padding: 10px;
 	border: 1px solid #f6871e;
 }
-.plan-box4 h2 {
+.plan-box4 h2, .plan-box5 h2 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 25sspx;
 	font-size: 30px;
 	line-height: 42px;
 }
-.plan-box4 h3 {
+.plan-box4 h3, .plan-box5 h3 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 30px;
@@ -4375,38 +4417,43 @@ a.h4-4 {
 	line-height: 42px;
 	
 }
+
+.plan-box3.workingholidaybox h3,
+.plan-box3.workingholidaybox h6,
+.plan-box5.workingholidaybox h3,
+.plan-box5.workingholidaybox h6,
 .plan-box3.travelproductbox h3,
 .plan-box3.travelproductbox h6,
 .plan-box4.travelproductbox h3,
 .plan-box4.travelproductbox h6 {
 	margin-left: 0;
 }
-.plan-box4 h4 {
+.plan-box4 h4, .plan-box5 h4 {
 	color: #fff;
 	margin-left: 25px;
 	font-size: 24px;
 	line-height: 42px;
 	
 }
-.plan-box4 h5 {
+.plan-box4 h5, .plan-box5 h5 {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 50px;
 	font-size: 30px;
 	font-weight: bold;
 }
-.plan-box4 span.del del {
+.plan-box4 span.del del, .plan-box5 span.del del {
 	color: #fff;
 	line-height: 32px;
 	margin-left: 30px;
 	font-size: 36px;
 	
 }
-.plan-box4 span.actualPrice del {
+.plan-box4 span.actualPrice del, .plan-box5 span.actualPrice del {
     margin-left: 0px;
 }
 
-.plan-box4 h6 {
+.plan-box4 h6, .plan-box5 h6 {
 	color: #fff;
 	line-height: 42px;
 	margin-left: 30px;
@@ -4451,6 +4498,15 @@ table.purchase-history tr td {
 	color: #f68a1d !important;
 	padding-left: 20px;
 }
+
+.h4-4-orange {
+    font-size: 24px;
+    
+    line-height: 30px;
+    color: #f68a1d !important;
+    padding-left: 20px;
+}
+
 #promo-wrap .input-group-addon {
     background: #f6871e !important;
     color: #fff !important;
@@ -4944,6 +5000,40 @@ h2.from-control {
 .or {
 	font-size: 16px !important;;
 }
+
+
+select.soflow-s {
+    /*-webkit-appearance: button;*/
+        /*-webkit-appearance: none;
+        -moz-appearance:none;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image: url(../images/down-arrow.png);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    padding: 5px 10px;*/
+    
+       
+    border: none  ! important;    
+    outline : medium none !important;
+    display: inline-flex !important;   
+    -webkit-appearance: none;   
+    background-image: url("../images/down-arrow.png");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+background-color: rgb(245, 245, 245);
+    height: 60px;
+    line-height: 31.5px;
+/*    padding: 6px 12px;*/
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    vertical-align: middle;
+-moz-appearance:none;
+padding-left: 10px;
+}
+
 
 select.soflow, select.soflow-color {
 	/*-webkit-appearance: button;*/
@@ -6081,6 +6171,8 @@ p.mute{
 .text-right-imp{
 	text-align: right !important;
 }
+.plan-box5.double-dot h2,
+.plan-box5.double-dot h4,
 .plan-box4.double-dot h2,
 .plan-box4.double-dot h4{
 	margin-left: 0;
@@ -6337,6 +6429,14 @@ tr.product-landing-error-wrap {
 
 .modal-content{
 	border-radius:0px !important;
+}
+
+.padleft28{
+    padding-left:29px;
+}
+
+.right28{
+    margin-right:28px;
 }
 
 .btn-confirm-inline-change{
