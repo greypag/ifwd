@@ -90,10 +90,10 @@
 						<%
 							if (authenticate.equals("false") || authenticate.equals("direct")) {
 						%>
-						<h3 class="margin-left1 h2-3-existing-fwd-head"><fmt:message key="workingholiday.details.login" bundle="${msg}" /></h3>
+						<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="workingholiday.details.login" bundle="${msg}" /></h3>
 
-						<a style="width:120px;" href="#"
-							class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left1 color4"
+						<a href="#"
+							class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
 							data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="workingholiday.details.login.action" bundle="${msg}" /></a>
 						<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
 							<h3 class="text-left or-continue">
@@ -114,8 +114,8 @@
 						%>
 
 
-						<div style="margin-top:35px;" class="gray-bdr"></div>
-						<table class="table activation-form margin-left1">
+						<div class="gray-bdr"></div>
+						<table class="table activation-form margin-left-2">
 							<tbody>
 								<tr>
 									<td colspan="2" class="pad-none"><h3
@@ -154,11 +154,11 @@
 									<span id="whAppHKID" class="text-red" ></span></td>
 								</tr>
 								<tr>
-									<td class="pad-none"><label for="inputMobileNo"
+									<td class="pad-none"><label for="inputWhAppMobileNO"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="whAppMobileNO" type="text"
 										class="form-control" value="${userDetails.getMobileNo().trim()}"
-										id="inputMobileNo" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
+										id="inputWhAppMobileNO" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" />
 										<span id="whAppMobileNO" class="text-red">
@@ -176,16 +176,30 @@
 								<!-- new -->
 								<tr>
 									<td class="pad-none"><label for="whInsAgeRange"
-										class="control-label bold-500">Date of birth</label></td>
+										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.age" bundle="${msg}" /></label></td>
 									<td class="pad-none">
-									   <div class="input-group date" id="dpEffectiveDate"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                          <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${workingholidayQuote.getTrLeavingDate()}" readonly>
-                                        </div>
-                                        <span id="whInseffectiveDate" class="text-red"></span>
+										<select name="whInsAgeRange" class="soflow" id="selectWhInsAgeRange">
+											<c:forEach
+												var="ageList" items="${mapSelfType}">
+												<c:choose>
+													<c:when
+														test="${ageList.key == '2'}">
+														<option
+															value="${ageList.key}" selected>
+													</c:when>
+													<c:otherwise>
+														<option
+															value="${ageList.key}">
+													</c:otherwise>
+												</c:choose>
+												<c:out
+													value="${ageList.value}" />
+												</option>
+											</c:forEach>
+										</select>
+										<span id="selectWhInsAgeRange" class="text-red"></span>
 									</td>
 								</tr>
-								
-								
 								<tr>
 									<td class="pad-none"><label for="selectWhInsBeneficary"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></label></td>
@@ -202,18 +216,16 @@
 										<span id="whInsBeneficary" class="text-red"></span>
 									</td>
 								</tr>
-								
 								<tr>
-								    <td class="pad-none"><label
-                                        class="control-label bold-500">&nbsp;</label></td>
-                                        
+									<td colspan="2" class="pad-none">
+										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
+									</td>
+								</tr>
+								<tr>
+									<td class="pad-none"><label for="inputWhInsFullName"
+										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label></td>
 									<td class="pad-none">
-									
-									    <label style="margin-top:-10px; width:120px; float:left;" for="inputWhInsFullName"
-										class="control-label bold-500">
-										<fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label>
-										
-										<input style="width:300px;" type="text"
+										<input type="text"
 										id="inputWhInsFullName" name="whInsFullName" value="${userDetails.getFullName()}"
 										class="form-control" placeholder="<fmt:message key="workingholiday.details.insured.name.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
@@ -221,18 +233,11 @@
 										<span id="whInsFullName" class="text-red"></span>
 									</td>
 								</tr>
-								
 								<tr>
-								
-								    <td class="pad-none"><label
-                                        class="control-label bold-500">&nbsp;</label></td>
-                                        
+									<td class="pad-none"><label for="inputWhInsHKID"
+										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label></td>
 									<td class="pad-none">
-									
-									   <label style="margin-top:-3px; width:120px; float:left;" for="inputWhInsHKID"
-										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label>
-						            
-										<select style="width:300px;" id="selectWhInsHKID" name="selectWhInsHKID" class="soflow-s">
+										<select id="selectWhInsHKID" name="selectWhInsHKID" class="soflow">
 											<c:forEach var="hkidList" items="${mapHkId}">
 												<option value="${hkidList.key}">
 													<c:out value="${hkidList.value}" />
@@ -244,14 +249,8 @@
 								<tr>
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
-								    
 									<td class="pad-none">
-									
-									    <label style="margin-top:-3px; width:120px; float:left;"
-                                        class="control-label bold-500">&nbsp;</label>
-                                        
-                                        
-										<input style="width:300px; margin-top:10px;" id="inputWhInsHKID" name="whInsHKID" class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+										<input id="inputWhInsHKID" name="whInsHKID" class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
 										<span id="whInsHKID" class="text-red"> </span> 
 									</td>
 								</tr>
@@ -270,10 +269,10 @@
 								</tr>
 							</tbody>
 							<!-- addr -->
-							<table class="table activation-form margin-left1 autofillForm">
+							<table class="table activation-form margin-left-2 autofillForm">
 								<tbody>
 									<tr>
-										<td class="pad-none" rowspan="5"
+										<td rowspan="5"
 											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
 											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
 										<td><input type="text" class="form-control wd2"
@@ -290,47 +289,30 @@
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
 									</tr>
 									<tr>
-									   
-										<td colspan="3"><input type="text" class="form-control full-control"
+										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputWhInsBuilding" name="whInsBuilding"
 											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="errCABuilding" class="text-red"> </span></td>
-										
+										<td><input type="text" class="form-control full-control"
+											id="inputWhInsEstate" name="whInsEstate"
+											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
+											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+											<span id="errCAEstate" class="text-red"> </span></td>
 									</tr>
-									
 									<tr>
-									   <td colspan="3" ><input type="text" class="form-control full-control"
-                                            id="inputWhInsEstate" name="whInsEstate"
-                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
-                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
-                                            <span id="errCAEstate" class="text-red"> </span></td>
-									</tr>
-									
-									
-									<tr>
-										<td colspan="3"><input type="text" class="form-control full-control"
+										<td colspan="1"><input type="text" class="form-control full-control"
 											id="inputWhInsStreetNo" name="whInsStreetNo"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
+										<td colspan="2"><input type="text" class="form-control full-control"
+											id="inputWhInsStreetName" name="whInsStreetName"
+											placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
-										
 									</tr>
-									
-									
-									<tr>
-									
-									   <td colspan="3"><input type="text" class="form-control full-control"
-                                            id="inputWhInsStreetName" name="whInsStreetName"
-                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
-                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
-									
-									</tr>
-									
-									
 									<tr>
 										<td colspan="3">
-										
-										<select name="whInsDistrict"
+										<div class="styled-select"><select name="whInsDistrict"
 											class="form-control soflow full-control" id="selectWhInsDistrict"
 											onchange="setDropArea(this.value)">
 												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
@@ -345,20 +327,13 @@
 												<%
 													}
 												%>
-										</select>
+										</select></div>
 										<span id="whInsDistrict" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="3">
-										
-										<label style="margin-top:-3px; width:120px; float:left;"
-                                        class="control-label bold-500">&nbsp;</label>
-										
-										<label class="radio-inline homecare-lb">
+										<td colspan="3"><label class="radio-inline homecare-lb">
 												<input type="radio" name="whInsArea" id="inlineCARadio3"
-												value="HK" checked="" class="home-input1"> 
-										    <span>
-										      <fmt:message key="home.details.registration.hk" bundle="${msg}" />
+												value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
 											</span>
 										</label> <label class="radio-inline homecare-lb"> <input
 												type="radio" name="whInsArea" id="inlineCARadio4"
@@ -370,7 +345,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<table class="table activation-form margin-left1">
+							<table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
@@ -639,14 +614,14 @@
 						<div class="hidden-sm hidden-xs">
 
 							<div class="wd2">
-								<div class="pull-left" style="width:250px;">
+								<div class="pull-left">
 									<h2 class="h2-3-choose"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4 style="margin-top:-5px;"><fmt:message key="workingholiday.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="workingholiday.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
+									<h4><fmt:message key="workingholiday.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="workingholiday.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
 									<input type="hidden" name="selectedPlanName" value="${planName }">
 								</div>
 								<div class="pull-right">
 									<div class="text-left pad-right1 h2-2 h2">
-										<div class="hk" style="margin-top:40px;">
+										<div class="hk">
 											<fmt:message key="workingholiday.dollar" bundle="${msg}" />
 											<div class="flightcare-hk">${planPremium}</div>
 										</div>
@@ -654,7 +629,7 @@
 								</div>
 							</div>
 							<div class="clearfix"></div>
-							<div style="margin-top:70px;" class="orange-bdr"></div>
+							<div class="orange-bdr"></div>
 							<div class="form-container">
 								
 								
@@ -699,7 +674,7 @@
             
             <!--mob-->
 			<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-				 <a href="<%=request.getContextPath()%>/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+				 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 			</div>
 			<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
 				<input type="submit" class="bdr-curve-none btn btn-primary btn-next" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
