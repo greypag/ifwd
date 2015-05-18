@@ -432,7 +432,110 @@
 							<div class="clearfix"></div>
 							<br/>
 							<div class="gray-bdr"></div>
-							<table class="table activation-form margin-left-2 vert-middle">
+							<!-- updated responsive design start -->
+	                        <div class="form-wrap">
+	                            <div class="big-title black-bold">
+	                                <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
+	                            </div>
+	                            <!-- english name start -->
+	                           <div class="form-group float">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                  <label
+                                            class="bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                   <input type="text"
+                                            class="form-control full-control" id="inputFullName" name="applicantName"
+                                            value="${userDetails.getFullName().trim()}"
+                                            placeholder="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
+                                            onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
+                                            id="appfullname" class="text-red"></span>
+	                               </div>
+	                           </div>
+	                           <!-- english name end -->
+	                           <!-- id card starts -->
+	                           <div class="form-group float">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                            key="home.details.applicant.hkid"
+                                                            bundle="${msg}" /></label>
+	                                   <div class="styled-select">
+                                           <select
+                                               name="apphkidandpassport" id="selectHkidPass"
+                                               class="form-control soflow select-label">
+                                               <option
+                                                   value="appHkid" selected="selected">
+                                                   <fmt:message
+                                                       key="home.details.applicant.hkid" bundle="${msg}" />
+                                               </option>
+                                               <option
+                                                   value="appPassport">
+                                                   <fmt:message
+                                                       key="home.details.applicant.passport" bundle="${msg}" />
+                                               </option>
+                                           </select>
+                                       </div>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                    <input type="text" name="hkId"
+                                            class="form-control numberinput textUpper full-control" id="txtAppHkid"
+                                            placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
+                                            onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> <span id="errAppHkid"
+                                            class="text-red"> </span>
+	                               </div>
+	                           </div>
+	                           <!-- id card ends -->
+	                           <!-- birthday starts -->
+	                           <div class="form-group float">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label for="inputApplicantDob"
+                                            class="bold-500"><fmt:message key="home.details.applicant.birthday" bundle="${msg}" /></label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                    <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+	                                          <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+	                                      </div>
+	                                      <span id="dobInvalid" class="text-red"> </span></td>
+	                               </div>
+	                           </div>
+	                           <!-- birthday ends -->
+	                           <!-- mobile starts -->
+	                           <div class="form-group float">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label for="inputFullName" class="bold-500">
+	                                       <fmt:message key="home.details.applicant.mobile" bundle="${msg}" />
+	                                   </label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                   <input type="text"
+                                            class="form-control full-control" id="inputMobileNo" name="mobileNo"
+                                            value="${userDetails.getMobileNo().trim()}"
+                                            placeholder="<fmt:message key="home.details.applicant.mobile.placeholder" bundle="${msg}" />"
+                                            onkeypress="return isNumeric(event)"
+                                            onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
+                                            id="errMobileNo" class="text-red"> </span>
+	                               </div>
+	                           </div>
+	                           <!-- mobile ends -->
+	                           <!-- email address starts -->
+	                           <div class="form-group float">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label for="inputFullName" class="bold-500">
+	                                       <fmt:message key="home.details.applicant.email" bundle="${msg}" />
+	                                   </label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                   <input class="form-control full-control"
+                                            id="inputEmailId" name="emailAddress"
+                                            value="${userDetails.getEmailAddress().trim()}"
+                                            placeholder="<fmt:message key="home.details.applicant.email.placeholder" bundle="${msg}" />" 
+                                            onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
+                                            id="errEmailid" class="text-red"> </span>
+	                               </div>
+	                           </div>
+	                           <!-- email address ends -->
+	                        </div>
+							<%-- <table class="table activation-form margin-left-2 vert-middle">
 								<tbody>
 									<tr>
 										<td colspan="2"><h3
@@ -509,15 +612,55 @@
 											id="errEmailid" class="text-red"> </span></td>
 									</tr>
 								</tbody>
-							</table>
+							</table> --%>
 							<%
 								if (authenticate.equals("false")
 											|| "direct".equalsIgnoreCase(request.getSession()
 													.getAttribute("authenticate").toString())) {
 							%>
 
-
-							<div class="gray-bg3-wid">
+                            <div class="gray-bg3-wid container membership-wrap">
+	                            <div class="membership-header">
+	                                <h3><fmt:message key="home.details.registration.heading" bundle="${msg}" /></h3>
+	                                <i class="text-grey"><fmt:message key="home.details.registration.desc" bundle="${msg}" /></i>
+	                            </div>
+	                            <div class="form-group float row">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label class="bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                   <input type="text"
+                                                class="form-control marginbt full-control input-white" id="Username"
+                                                placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />" name="userName"> <span id="UsernameError"
+                                                class="text-red"> </span>
+	                               </div>
+	                            </div>
+	                            <div class="form-group float row">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label
+                                                class="bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                   <input type="password"
+                                                class="form-control marginbt full-control input-white" id="Password" autocomplete="off" name="password"
+                                                placeholder="<fmt:message key="home.details.registration.password.placeholder" bundle="${msg}" />"> <span id="PasswordError"
+                                                class="text-red"> </span>
+	                               </div>
+	                            </div>
+	                            <div class="form-group float row">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label
+	                                            class="bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                  <input type="password"
+                                                class="form-control marginbt full-control input-white" id="Confirm-Password" autocomplete="off"
+                                                placeholder="<fmt:message key="home.details.registration.confirmPassword.placeholder" bundle="${msg}" />"> <span
+                                                id="Confirm-PasswordError" class="text-red"> </span>
+	                               </div>
+	                            </div>
+	                        </div>
+							<%-- <div class="gray-bg3-wid">
 								<table class="table plandetail-form margin-left-2 vert-middle"
 									id="input-white">
 									<tbody>
@@ -556,7 +699,7 @@
 										</tr>
 									</tbody>
 								</table>
-							</div>
+							</div> --%>
 							<input type="hidden" id="isLogin" value="false">
 							<%
 								}
@@ -567,8 +710,145 @@
 							<%
 								}
 							%>
-						
-							<table class="table activation-form margin-left-2 autofillForm">
+						    <div class="form-wrap">
+                                <div class="big-title black-bold">
+                                    <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
+                                </div>
+                                 
+	                           <div class="form-group float">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                                   <label
+	                                        for="inputFullName" class="bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label>
+	                               </div>
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                                   <!-- room, floor, block start -->
+	                                   <div class="row form-group">
+	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	                                           <input type="text" class="form-control full-control"
+	                                            id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
+	                                       </div>
+	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	                                            <input type="text" class="form-control full-control"
+	                                            id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
+	                                       </div>
+	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	                                            <input type="text" class="form-control full-control"
+	                                            id="inputCABlock" name="applicantBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+	                                       </div>
+	                                   </div>
+	                                   <!--  room, floor, block end -->
+		                               <!-- building, estate start -->
+		                               <div class="row form-group">
+                                           <div class="col-xs-12">
+                                               <input type="text" class="form-control full-control"
+	                                            id="inputCABuilding" name="applicantBuilding"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
+	                                            onkeypress="return isAlphaNumeric(event);" maxlength="50" />
+	                                            <span id="errCABuilding" class="text-red"> </span>
+                                           </div>
+                                        </div>
+                                        <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <input type="text" class="form-control full-control"
+	                                            id="inputCAEstate" name="applicantEstate"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+	                                            <span id="errCAEstate" class="text-red"> </span>
+                                           </div>
+                                       </div>
+		                               <!-- building, estate end -->
+		                               <!-- street no., street name start -->
+		                               <div class="row form-group">
+                                           <div class="col-xs-12">
+                                               <input type="text" class="form-control full-control"
+                                            id="inputCAStreetNo" name="applicantStreetNo"
+                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                           </div>
+                                        </div>
+                                        <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <input type="text" class="form-control full-control"
+	                                            id="inputCAStreetName" name="applicantStreetName"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+                                           </div>
+                                       </div>
+		                               <!-- street no., street name end -->
+		                               <!-- district start -->
+		                               <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <div class="styled-select"><select name="applicantDistrict"
+                                            class="form-control soflow full-control" id="selectCADist"
+                                            onchange="setDropArea(this.value)">
+                                                <option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
+                                                <%
+                                                    List lst = (List) request.getAttribute("districtList");
+                                                        Iterator itr = lst.iterator();
+                                                        int i = 1;
+                                                        while (itr.hasNext()) {
+                                                            DistrictBean districtList = (DistrictBean) itr.next();
+                                                %>
+                                                <option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+                                                <%
+                                                    }
+                                                %>
+                                        </select></div>
+                                            <div class="hidden">
+                                                <select name="applicantDistrictHid"
+                                                    class="form-control soflow full-control" id="selectCADistHid">
+                                                    <option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
+                                                    <%
+                                                        List lst1 = (List) request.getAttribute("districtList");
+                                                            Iterator itr1 = lst1.iterator();
+                                                            while (itr1.hasNext()) {
+                                                                DistrictBean districtList = (DistrictBean) itr1.next();
+                                                    %>
+                                                    <option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
+                                            </div> <span id="errCADist" class="text-red"> </span>
+                                           </div>
+                                       </div>
+		                               <!-- district end -->
+		                               <!-- location start -->
+		                               <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <div class="col-xs-4">
+                                                    <label class="radio-inline homecare-lb">
+                                                        <input type="radio" name="applicantArea" id="inlineCARadio3"
+                                                        value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
+                                                    </span>
+                                                </label> 
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label class="radio-inline homecare-lb"> <input
+	                                                        type="radio" name="applicantArea" id="inlineCARadio4"
+	                                                        value="KL" class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
+	                                                </label>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label class="radio-inline"> <input type="radio"
+                                                        name="applicantArea" id="inlineCARadio5" value="NT"
+                                                        class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
+                                                     </label>
+                                                </div>
+                                           </div>
+                                       </div>
+		                               <!-- location start -->
+	                               </div>
+	                           </div>
+	                           
+                             </div>
+							<%-- <table class="table activation-form margin-left-2 autofillForm">
 								<tbody>
 									<tr>
 										<td rowspan="5"
@@ -658,9 +938,10 @@
 										</label></td>
 									</tr>
 								</tbody>
-							</table>
+							</table> --%>
 							<div class="clearfix"></div>
-							<table class="table activation-form margin-left-2">
+							
+							<%-- <table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
 										<td class="pad-none"><h3 class="black-bold pad-none">
@@ -675,8 +956,232 @@
 											</div></td>
 									</tr>
 								</tbody>
-							</table>
-							<table class="table activation-form margin-left-2">
+							</table> --%>
+							<div class="form-wrap">
+                                <div class="big-title black-bold">
+                                    <fmt:message key="home.details.registration.addressdetails" bundle="${msg}" />
+                                </div>
+                                <div class="form-group float">
+                                   <div class="form-label col-xs-12">
+	                                   <div class="checkbox btm-pad-10">
+	                                        <input id="checkbox3" type="checkbox"
+	                                            onclick="autofillFields()"> <label for="checkbox3">
+	                                            <fmt:message key="home.details.registration.addressdetails.msg" bundle="${msg}" /><br>
+	                                        </label>
+	                                    </div>
+                                   </div>
+                                </div>
+                            </div>
+							<div class="form-wrap">
+                                <%-- <div class="big-title black-bold">
+                                    <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
+                                </div>
+                                  --%>
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                       <label
+                                            for="inputFullName" class="bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                       <!-- room, floor, block start -->
+                                       <div class="row form-group">
+                                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                               <input type="text"
+	                                            class="form-control wd2 full-control" id="inputARoom" name="aRoom"
+	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
+                                           </div>
+                                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <input type="text" class="form-control  full-control"
+	                                            id="inputAFloor" name="aFloor" placeholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                           </div>
+                                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <input type="text" class="form-control  full-control"
+	                                            id="inputABlock" name="aBlock" placeholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                           </div>
+                                       </div>
+                                       <!--  room, floor, block end -->
+                                       <!-- building, estate start -->
+                                       <div class="row form-group">
+                                           <div class="col-xs-12">
+                                              <input type="text" class="form-control full-control"
+	                                            id="inputABuilding" name="aBuilding" placeholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />"
+	                                            
+	                                            onChange="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
+	                                            onkeypress="    return isAlphaNumeric(event);"
+	                                            maxlength="100" /> <span id="errABuilding" class="text-red">
+	                                        </span>
+                                           </div>
+                                        </div>
+                                        <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <input type="text" class="form-control full-control"
+	                                            id="inputAEstate" name="aEstate" placeholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+	                                            <span id="errAEstate" class="text-red"> </span>
+                                           </div>
+                                       </div>
+                                       <!-- building, estate end -->
+                                       <!-- street no., street name start -->
+                                       <div class="row form-group">
+                                           <div class="col-xs-12">
+                                               <input type="text" class="form-control full-control"
+	                                            id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
+	                                            onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);"
+	                                            maxlength="100" />
+                                        </div>
+                                        </div>
+                                        <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <input type="text" class="form-control full-control"
+	                                            id="inputAStreetName" name="aStreetName"
+	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+	                                            onkeypress="    return isAlphaNumeric(event);"
+	                                            maxlength="100" />
+                                           </div>
+                                       </div>
+                                       <!-- street no., street name end -->
+                                       <!-- district start -->
+                                       <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <div class="styled-select">
+                                            <select name="aDistrict"
+                                                class="form-control soflow full-control" id="selectADist"
+                                                onchange="setDropArea2(this.value)">
+                                                <option value="">
+                                                    <fmt:message
+                                                        key="home.details.registration.district" bundle="${msg}" />
+                                                </option>
+                                                <%
+                                                    List list = (List)
+                                                    request.getAttribute("districtList");
+                                                    Iterator itrr =
+                                                    list.iterator();
+                                                    while
+                                                    (itrr.hasNext()) {
+                                                    DistrictBean
+                                                    districtList =
+                                                    (DistrictBean)
+                                                    itrr.next();
+                                                %>
+                                                <option
+                                                    value="<%=districtList.getCode()%>">
+                                                    <%=
+                                                        districtList.getDescription()
+                                                    %>
+                                                </option>
+                                                <%}%>
+                                            </select>
+                                        </div>
+
+
+                                            <div class="hidden">
+                                                <select name="applicantDistrictHid"
+                                                    class="form-control soflow" id="selectADistHid">
+                                                    <option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
+                                                    <%
+                                                        List list1 = (List) request.getAttribute("districtList");
+                                                            Iterator itrr1 = list1.iterator();
+                                                            while (itrr1.hasNext()) {
+                                                                DistrictBean districtList = (DistrictBean) itrr1.next();
+                                                    %>
+                                                    <option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
+                                            </div><span id="errADist" class="text-red"> </span>
+                                           </div>
+                                       </div>
+                                       <!-- district end -->
+                                       <!-- location start -->
+                                       <div class="row form-group">
+                                           <div class="col-xs-12">
+                                                <div class="col-xs-4">
+                                                    <label class="radio-inline homecare-lb">
+		                                                <input type="radio" name="aArea" id="inlineDeskRadio31"
+		                                                value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
+		                                                  </span>
+		                                          </label>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label class="radio-inline homecare-lb"> <input
+			                                                type="radio" name="aArea" id="inlineDeskRadio41" value="KL"
+			                                                class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
+			                                        </label>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label class="radio-inline"> <input type="radio"
+			                                                name="aArea" id="inlineDeskRadio51" value="NT"
+			                                                class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
+			                                        </label>
+                                                </div>
+                                           </div>
+                                       </div>
+                                       <!-- location start -->
+                                       <br/><br/>
+                                   </div>
+                               </div>
+                               <!-- place start -->
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                      <label
+                                        class="bold-500"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
+                                       </label>                                        
+                                    </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                       <div class="styled-select">
+                                        <select
+                                            name="netFloorArea"
+                                            class="form-control soflow full-control" id="selectNFA"
+                                            onChange="chkNotNullIANetFloorArea(this, 'errNFA');">
+                                            <option value="">
+                                                <fmt:message
+                                                    key="home.details.registration.select" bundle="${msg}" />
+                                            </option>
+                                            <c:forEach
+                                                var="floorAreaList" items="${mapNetFloorArea}">
+                                                <option
+                                                    value="${floorAreaList.key}">
+                                                    <c:out
+                                                        value="${floorAreaList.value}" />
+                                                </option>
+                                            </c:forEach>
+
+                                        </select>
+                                    </div>
+                                    <span id="errNFA" class="text-red"> </span>
+                                   </div>
+                               </div>
+                               <!-- place end -->
+                               <!-- start date  -->
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                      <label
+                                        class="bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
+                                    </label>
+                                    </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                       <div class="form-group">
+                                        <div class="input-group date" id="homecareDp">
+                                            <span class="input-group-addon bg-img in"><span><img
+                                                    src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="" /></span></span> <input
+                                                name="effectiveDate" type="text"
+                                                class="datepicker form-control full-control" id="txtEffDate"
+                                                readonly />
+                                        </div>
+                                    </div> <span id="errEffDate" class="text-red"></span>
+                                   </div>
+                               </div>
+                               <!-- start date  -->
+                             </div>
+							<%-- <table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
 										<td rowspan="5"
@@ -785,11 +1290,11 @@
 										</label></td>
 									</tr>
 								</tbody>
-							</table>
+							</table> --%>
 							
 							<div class="clearfix"></div>
 							
-							<table class="table activation-form margin-left-2">
+							<%-- <table class="table activation-form margin-left-2">
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 "><label
@@ -835,7 +1340,7 @@
 											</div> <span id="errEffDate" class="text-red"></span></td>
 									</tr>
 								</tbody>
-							</table>
+							</table> --%>
 							<div class="clearfix"></div>
 							<h4 class="h4-2 padding3"><fmt:message key="home.details.declarations.heading" bundle="${msg}" /></h4>
 							<div class="declaration-content">
