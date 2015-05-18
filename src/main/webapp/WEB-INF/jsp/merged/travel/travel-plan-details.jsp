@@ -49,7 +49,7 @@ function activateUserAccountJoinUs() {
     name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;
-    
+     
     
     if(name == "" && password == "" && password2 == ""){
     	$('#frmYourDetails').submit()
