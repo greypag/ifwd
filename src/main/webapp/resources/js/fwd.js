@@ -618,9 +618,14 @@ $(function () {
 		/*document.getElementById("divPersonsDesk").style.visibility = "visible";
 		document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);*/
 
+		if (ev.date.valueOf() < checkin.datepicker("getDate").valueOf() || !checkin.datepicker("getDate").valueOf()) {
+			checkin.datepicker("update", endDate);
+			checkin2.datepicker("update", endDate);
+			checkin3.datepicker("update", endDate);
+		}
 		
-		$('#dp4').datepicker('update', startDate);
-		$('#dp6').datepicker('update', startDate);
+		$('#dp4').datepicker('update', endDate);
+		$('#dp6').datepicker('update', endDate);
 		
 		
 		//-------------------------------------------------------------------------------ajax		
@@ -753,9 +758,14 @@ $(function () {
 		document.getElementById("divPersonsMob").style.visibility = "visible";
 		document.getElementById("lblDaysMob").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
+		if (ev.date.valueOf() < checkin2.datepicker("getDate").valueOf() || !checkin2.datepicker("getDate").valueOf()) {
+			checkin.datepicker("update", endDate);
+			checkin2.datepicker("update", endDate);
+			checkin3.datepicker("update", endDate);
+		}
 		
-		$('#dp2').datepicker('update', startDate);
-		$('#dp6').datepicker('update', startDate);
+		$('#dp2').datepicker('update', endDate);
+		$('#dp6').datepicker('update', endDate);
 	});
 
 
@@ -775,8 +785,8 @@ $(function () {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
-			$('#dp2').datepicker('update', newDate);
-			$('#dp4').datepicker('update', newDate);
+			$('#dp1').datepicker('update', newDate);
+			$('#dp3').datepicker('update', newDate);
 			
 			checkout.datepicker("update", newDate);
 			checkout2.datepicker("update", newDate);
@@ -816,8 +826,14 @@ $(function () {
 		document.getElementById("divPersonsBtm").style.visibility = "visible";
 		document.getElementById("lblDaysBtm").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
 
-		$('#dp1').datepicker('update', startDate);
-		$('#dp3').datepicker('update', startDate);
+		if (ev.date.valueOf() < checkin3.datepicker("getDate").valueOf() || !checkin3.datepicker("getDate").valueOf()) {
+			checkin.datepicker("update", endDate);
+			checkin2.datepicker("update", endDate);
+			checkin3.datepicker("update", endDate);
+		}
+		
+		$('#dp2').datepicker('update', endDate);
+		$('#dp4').datepicker('update', endDate);
 	});
 
 });//]]>  
