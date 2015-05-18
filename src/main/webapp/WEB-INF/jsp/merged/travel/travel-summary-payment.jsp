@@ -911,7 +911,7 @@
                             </div>
                           </div>
                           <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left pa3method-icon">
+                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-visa.jpg" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
