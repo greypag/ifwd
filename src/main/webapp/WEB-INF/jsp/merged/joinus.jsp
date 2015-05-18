@@ -125,7 +125,7 @@
 										value="${userDetails.getMobileNo() }" name="mobileNo"
 										placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />" onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8"> <span
-										id="errorEmptyMob" class="text-red"></span></td>
+										id="errorEmptyMobJoinUs" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -136,7 +136,7 @@
 										class="form-control" id="txtEmailId"
 										value="${userDetails.getEmailAddress() }" placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"
 										name="EmailAddress" maxlength="50"> <span
-										id="errorEmptyEmailId" class="text-red"></span></td>
+										id="errorEmptyEmailIdJoinUs" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -154,7 +154,7 @@
 
 										
 											
-										 <span id="errorEmptyUName" class="text-red"></span>
+										 <span id="errorEmptyUNameJoinUs" class="text-red"></span>
 									</td>
 									<td><a href="#"
 												class="tool-tip show-inline-md"
@@ -214,9 +214,13 @@
 							<input id="checkbox1" type="checkbox"> <label
 								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /> <a
 								href="<fmt:message key="member.PICS.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								<p><span id="errorDeclaration" class="text-red"></span>
 								<hr />
+								
+									
 								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
 							</label>
+							
 						</div>
 						<span id="chk2" style="display: none"> <label
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>

@@ -434,20 +434,36 @@ $(document).ready(function() {
 	      
 	      </div>
 	      
-	      <div align="middle;" style="border: 1px solid black; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
+	      <div align="middle;" style="border: 1px solid #D1D1D1; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
           
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	          Flexibility <br />
-	          of Refund
+	          Unforeseeable <br />
+	          Lost if Income
 	          </h3>
 	          
 	          <div style="margin-top:25px;">
                    <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon2.png" />
               </div>
+              
+              <div style="margin-top:15px; ">
+                   Get case allowance for<br /> accidental injury
+              </div>
+              
+              <hr width="50%">
+              
+              <div style="margin-top:10px;">
+                   Get refunded for <br /> unused coverage<span style="color:#f68a1d;">*</span>
+              </div>
+              
+              
+              <div style="margin-top:15px; font-size:10px; color:#f68a1d;">
+                    *Service fee of $500HK applies
+              </div>
+              
           
           </div>
           
-          <div align="middle;" style="border: 1px solid black; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
+          <div align="middle;" style="border: 1px solid #D1D1D1; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
           
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 	          Flexibility <br />

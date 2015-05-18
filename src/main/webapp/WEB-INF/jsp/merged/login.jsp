@@ -213,7 +213,7 @@
                                     
                                     <!-- 忘記使用者END -->
                                     
-                                    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
     <script>
         function getForgotUserName() {
             var validationFormVal = forgotUserName();
@@ -423,7 +423,7 @@
                                 
                                 
                         
-    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
     <script>
         function forgotUserPassword() {
             
@@ -522,52 +522,29 @@
                         });
             }
         }
-    </script>       
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                    
-                                    
+    </script>               
                                     
             </div>
         </div>
-        
-        
-    
-        
-        
-        
-        
-        
-        
-    
-    
-        
     </div>
-    
-    
+    <!-- payment error popup  -->
+    <!-- Modal -->
+	<div class="modal fade bs-example-modal-lg  in" id="paymentErrorPopup" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content plan-modal">
+            <div class="modal-body">
+                <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
+                <div class="form-container" style="padding-top: 10px;">
+                    <br/>
+                    Payment error, please contact customer service hot-line 3123 3123.
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
     
 
     

@@ -140,14 +140,14 @@ $(document).ready(function(){
   
 });
 /// Auto fill inputbox on   plan details
-$("#inputFullName").keyup(function() {
-   document.getElementById("txtAdFullName1").value = this.value;
-});
+//$("#inputFullName").keyup(function() {
+//   document.getElementById("txtAdFullName1").value = this.value;
+//});
 
-$("#inputTxtAppHkid").keyup(function() {
-   //document.getElementById("txtInsuHkid1").value = this.value;
-	$("#txtInsuHkid1").val(this.value).css("color", "#000000");
-});
+//$("#inputTxtAppHkid").keyup(function() {
+//   //document.getElementById("txtInsuHkid1").value = this.value;
+//	$("#txtInsuHkid1").val(this.value).css("color", "#000000");
+//});
 
 jQuery('ul.maintabs li').hover(function () {
 	jQuery("a", this).addClass('maintabs-hover');

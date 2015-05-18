@@ -142,7 +142,7 @@ function submitLoginForm(formID) {
 							%>
 						
 							<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
                             </a>
 							<!--  </a> -->
 							
@@ -203,7 +203,7 @@ function submitLoginForm(formID) {
 									.getAttribute("authenticate").toString())){
 								%>
 								<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
 							</a>
 								<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform">
@@ -260,7 +260,7 @@ function submitLoginForm(formID) {
 								<%
 								}else{%>
 									<li class="dropdown logout-btn margin-left1" id="myDropdown">
-								<a href="#" class="dropdown-toggle" id="fwd-login"
+								<a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%> <i
 									class="fa fa-caret-right"></i>
 							</a>
@@ -497,7 +497,9 @@ $('.navmenu').on('show.bs.offcanvas', function(){
 	$('#test').show();
 });
 $('.navmenu').on('hidden.bs.offcanvas', function(){
-	$('#test').hide();
+	$('#test').hide(function(){
+		$( "#main-slider" ).trigger( "click" );
+	});
 });
 $('#test').click(function(){
 	$('.navmenu').offcanvas('hide');

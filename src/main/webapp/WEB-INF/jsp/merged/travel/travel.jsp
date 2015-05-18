@@ -47,22 +47,54 @@
   var t1 = "${corrTravelQuote.getTotalAdultTraveller()}";
   var t2 = "${corrTravelQuote.getTotalChildTraveller()}";
   var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";  
-
-    function reset_submit()
+    
+    function reset_desktop_submit()
     {        
-      if(document.getElementById("family_plan_desk").checked)
-      {
-    	  $('#txtTravellersDesk').val(0);
-      }
-      else if (document.getElementById("personal_plan_desk").checked)
-      {
-        $('#txtAdultsDesk').val(0);
-        $('#txtOtherDesk').val(0);
-        $('#txtChildDesk').val(0);
-      }
-      
-      var frm = document.getElementById("frmTravelGetQuote");
-    }   
+     if(document.getElementById("family_plan_desk").checked)
+     {
+         $('#txtTravellersDesk').val(0);
+     }
+     else if (document.getElementById("personal_plan_desk").checked)
+     {
+         $('#txtAdultsDesk').val(0);
+         $('#txtOtherDesk').val(0);
+         $('#txtChildDesk').val(0);
+     }
+     
+     var frm = document.getElementById("frmTravelGetQuote");
+    }  
+ 
+ function reset_mobile_submit()
+ {        
+  if(document.getElementById("family_plan_mob").checked)
+  {
+      $('#txtTravellersMob').val(0);
+  }
+  else if (document.getElementById("personal_plan_mob").checked)
+  {
+      $('#txtAdultsMob').val(0);
+      $('#txtOtherMob').val(0);
+      $('#txtChildMob').val(0);
+  }
+  
+  var frm = document.getElementById("frmTravelGetQuote");
+ }  
+ 
+ function reset_bottom_submit()
+ {        
+  if(document.getElementById("family_plan_btm").checked)
+  {
+      $('#txtTravellersBtm').val(0);
+  }
+  else if (document.getElementById("personal_plan_btm").checked)
+  {
+      $('#txtAdultsBtm').val(0);
+      $('#txtOtherBtm').val(0);
+      $('#txtChildBtm').val(0);
+  }
+  
+  var frm = document.getElementById("frmTravelGetQuote");
+ }
     
 </script>
 <!-- Start fixed header -->
@@ -247,7 +279,7 @@ $(document).ready(function() {
 	                 </div>
 	                 </td>
 	               <td class="col-md-2 pad-none">
-	                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="travel.main.quote.top.action" bundle="${msg}" /></button>
+	                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_desktop_submit()"><fmt:message key="travel.main.quote.top.action" bundle="${msg}" /></button>
 	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
 	              </td>
 	             </tr>
@@ -422,10 +454,10 @@ $(document).ready(function() {
     </div>
   </div>
   
-  <div class="btn-box text-center">
+  <div class="form-container">
     <h3 class="text-center"> 
       <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()">立即申請免費保障! </a>  -->
-      <button type="submit" class="bdr-curve-none btn btn-primary btn-lg ">
+      <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve-none btn btn-primary btn-lg btn-block">
               <fmt:message key="travel.main.quote.top.action" bundle="${msg}" /> 
              </button>
     </h3>
@@ -890,7 +922,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
-                        <div class="col-lg-12 text-red child-notes">
+                        <div class="col-lg-12 child-notes">
                             <h4><fmt:message key="travel.main.quote.childnotes" bundle="${msg}" /></h4>
                         </div>
                       </div>
@@ -905,7 +937,7 @@ $(document).ready(function() {
                 
         </td>
               <td class="col-md-2 pad-none">
-                  <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
+                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">

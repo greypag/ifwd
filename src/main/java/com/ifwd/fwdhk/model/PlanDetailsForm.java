@@ -71,6 +71,7 @@ public class PlanDetailsForm {
 	private String[] selectedAdBenefitiaryHkidPass;
 	private String[] selectedChldHkidPass;
 	private String[] selectedChldBenefitiaryHkidPass;
+
 	private String[] selectedOtHkidPass;
 	private String[] selectedOtherBenefitiaryHkidPass;
 

@@ -3,9 +3,14 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -810,7 +815,7 @@ public class TravelController {
 					System.out.println(" jsonRelationShipArray ====>>>>>>"
 							+ jsonRelationshipCode);
 
-					Map<String, String> mapRelationshipCode = new HashMap<String, String>();
+					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 						JSONObject obj = (JSONObject) jsonRelationshipCode
 								.get(i);
@@ -931,8 +936,29 @@ public class TravelController {
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		
-		
+		String selectedHkidPassApplicant = WebServiceUtils.getParameterValue("selectedHkidPassApplicant",	session, request);
+		Enumeration<String> parameterNames = request.getParameterNames();
+		while (parameterNames.hasMoreElements()) {
+			String paramName = parameterNames.nextElement();
+			
+			String[] paramValues = request.getParameterValues(paramName);
+			for (int i = 0; i < paramValues.length; i++) {
+				String paramValue = paramValues[i];
+				System.out.println(paramName + " t " + paramValue);
+				
+			}
+		}
+		String dob = "";
+		//String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
+		try {
+			dob = request.getParameter("applicantDob");
+			Calendar dateDob = Calendar.getInstance();
+			dateDob.setTime(new Date(dob));
+			Format f = new SimpleDateFormat("yyyy-MM-dd");
+			dob = f.format(dateDob.getTime());
+		} catch (Exception e) {
+			
+		}
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 		System.out.println("totalTravellingDays " + totalTravellingDays);
@@ -974,7 +1000,8 @@ public class TravelController {
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
-		
+		userDetails.setDob(dob);
+//		userDetails.setDob("");
 		final String INSURED_RELATIONSHIP_SELF = "SE";
 		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -1017,16 +1044,23 @@ public class TravelController {
 		}
 		
 		// personal
-		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
+ 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
 			JSONObject personal = new JSONObject();
 		
 			personal.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase() );
 			personal.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getPersonalAgeRange()[inx] ).toUpperCase() );
 			
-			personal.put(hkId, applicantHKID);
-			personal.put(passId, "");
 			
+			personal.put(hkId,	checkPasswortAndHkid(hkId,
+					planDetailsForm.getSelectedPersonalHkidPass()[inx],
+					planDetailsForm.getPersonalHKID()[inx])
+			 );
+			personal.put(passId, checkPasswortAndHkid(passId,
+					planDetailsForm.getSelectedPersonalHkidPass()[inx],
+					planDetailsForm.getPersonalHKID()[inx])
+			 );
+
 			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
 							planDetailsForm.getSelectedPersonalHkidPass()[inx],
@@ -1050,12 +1084,12 @@ public class TravelController {
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPsBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", StringHelper.emptyIfNull( planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase());
 						personal.put("beneficiary", beneficiary);
@@ -1085,13 +1119,13 @@ public class TravelController {
 					beneficiary
 							.put(hkId,
 									checkPasswortAndHkid(hkId, 
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
+											planDetailsForm.getSelectedPersonalHkidPass()[inx],
+											planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary
 							.put(passId,
 									checkPasswortAndHkid(
 											passId,
-											planDetailsForm.getSelectedAdHkidPass()[inx],
+											planDetailsForm.getSelectedPersonalHkidPass()[inx],
 											planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary.put("relationship", "SE");
 					personal.put("beneficiary", beneficiary);				
@@ -1106,34 +1140,29 @@ public class TravelController {
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedPsBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPsBenefitiaryHkidPass()[inx],
+												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary()[inx]);
 						personal.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-						beneficiary.put(hkId, applicantHKID);
-						beneficiary.put(passId, "");
-						/*
 						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getPersonalHKID()[inx]));
+						.put(hkId,
+								checkPasswortAndHkid(hkId, 
+										planDetailsForm.getSelectedPersonalHkidPass()[inx],
+										planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getPersonalHKID()[inx]));
-						 */
+						.put(passId,
+								checkPasswortAndHkid(
+										passId,
+										planDetailsForm.getSelectedPersonalHkidPass()[inx],
+										planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						personal.put("beneficiary", beneficiary);
 						
@@ -1185,7 +1214,7 @@ public class TravelController {
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		// personal
-System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller());		
+		System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller());		
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -1535,12 +1564,24 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 			
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
-		applicantJsonObj.put(hkId, applicantHKID);
-		applicantJsonObj.put("dob", "");
+		
+		if (selectedHkidPassApplicant.toUpperCase().equals("HKID")) {
+			applicantJsonObj.put("hkId", applicantHKID);
+			applicantJsonObj.put("passport", "");	
+		} else {
+			applicantJsonObj.put("hkId", "");
+			applicantJsonObj.put("passport", applicantHKID);
+		}
+			
+		
+		
+		
+		
+		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", applicantMobNo);
 		
-		System.out.println("Travel optIn1 " + planDetailsForm.getCheckbox1());
-		System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox2());
+		System.out.println("Travel optIn1 " + planDetailsForm.getCheckbox3());
+		System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox4());
 		
 		
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
@@ -1550,9 +1591,6 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
-		addressJsonObj.put("room", "");
-		addressJsonObj.put("floor", "");
-
 		parameters.put("address", addressJsonObj);
 
 		/* System.out.println(parameters); */
@@ -1860,7 +1898,8 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 
 		boolean mailed = false;
 		HttpSession session = request.getSession();
-
+		String planCode = request
+				.getParameter("planCode");
 		String usernameInSession = null;
 		String tokenInSession = null;
 		String emailToSendPromoCode = request
@@ -1879,8 +1918,14 @@ System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller(
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		if (planCode == null)
+			planCode = "TRAVELCARE";
+		if (planCode.toUpperCase().equals("HOMECARE"))
+		
 		// String referalCOde = session.getAttribute("referralCode").toString();
-		mailed = sendEmail.sendEmail(emailToSendPromoCode, "", header);
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
+		else
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
 		if (mailed) {
 			return "success";
 		} else {

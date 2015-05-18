@@ -7,7 +7,7 @@
 <body class="homepage">
 
 	<!--/#main-Content-->
-	<script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+	
 	<script>
 		function getForgotUserName() {
 			var validationFormVal = forgotUserName();
