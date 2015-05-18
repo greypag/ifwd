@@ -45,7 +45,7 @@
 
 function activateUserAccountJoinUs() {
     
-    alert("init");
+    
     name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;
@@ -74,7 +74,7 @@ function activateUserAccountJoinUs() {
                     }
                 });
     }
-       alert("done");
+       
        return;
        
 }
