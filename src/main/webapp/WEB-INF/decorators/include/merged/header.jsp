@@ -311,10 +311,10 @@ function submitLoginForm(formID) {
 			<div class="col-lg-6 col-md-6 pull-right">
 				
 				<ul class="maintabs">
+	  <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> </li>			
        <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
       <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
       <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
-	  <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> </li>			
       </ul>
 				
 			</div>
@@ -483,11 +483,11 @@ function submitLoginForm(formID) {
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
 		<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("WorkingHoliday")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span> <a
 			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("WorkingHoliday")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->

@@ -38,62 +38,63 @@
 <!--/#main-Content-->
 
 
-<script type="text/javascript">
-
-
-
- function userCreate(){
-     alert("init");
-     
-     
-     
-     $.ajax({
-         type : 'POST',
-         url : '<%=request.getContextPath()%>/joinus',
-         data : $('#frmYourDetails').serialize(),
-         async : false,
-         success : function(data) {
-             
-             if (data == 'success') {
-                  
-//               setTimeout(function() {document.joinus_form.action= "useraccount";                              
-//               }, 3000);
-                 //window.location.href = '<%=request.getContextPath()%>/getAccByUsernaneAndPassword';
-//               setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;                              
-//               }, 3000);
-                 
-                 alert("good la");
-                 alert(data);
-             } else {
-                 
-                 alert("no la");
-                 alert(data);
-             } 
-         },
-         error : function(xhr, status, error) {
-
-         }
-     });
-     
-     
-     
-     alert("done");
-     
- }
- 
- 
- </script>
  
 <!-- 
 
 action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"  
 -->
 
+
+<script>
+
+
+
+function activateUserAccountJoinUs() {
+    
+    alert("init");
+    name = document.getElementById("Username").value;
+    password = document.getElementById("Password").value;
+    password2 = document.getElementById("Confirm-Password").value;
+     
+    
+    if(name == "" && password == "" && password2 == ""){
+    	$('#frmYourDetails').submit()
+    }else{
+       $.ajax({
+                   type : 'POST',
+                   url : '<%=request.getContextPath()%>/joinus',
+                    data : $('#frmYourDetails').serialize(),
+                    async : false,
+                    success : function(data) {
+                        
+                        if (data == 'success') {                            
+                             $('#frmYourDetails').submit()
+                            return;                            
+                        } else {
+                            alert("Something Wrong with user input, please check");
+                            return;
+                        } 
+                    },
+                    error : function(xhr, status, error) {
+
+                    }
+                });
+    }
+       alert("done");
+       return;
+       
+}
+</script>
+
+
+
+<!-- action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post" onsubmit="return tPlanValid();"-->
 <section>
     <div id="cn" class="container">
         <div class="row">
         
-            <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="userCreate()" modelAttribute="frmYourDetails">
+
+            <form:form name="frmYourDetails" id="frmYourDetails" modelAttribute="frmYourDetails" method="post" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" >
                 <ol class="breadcrumb pad-none">
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -407,7 +408,7 @@ action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-s
                                         <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
                                             class="bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
                                         <td><input type="text"
-                                            name="username" class="form-control full-control"
+                                            name="userName" class="form-control full-control"
                                             id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
                                             id="UsernameError" class="text-red"> </span></td>
                                     </tr>
@@ -1832,7 +1833,8 @@ action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-s
      <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
-    <input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+    <!-- submit -->
+    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 </div>
 <div class="clearfix"></div>
 <br>

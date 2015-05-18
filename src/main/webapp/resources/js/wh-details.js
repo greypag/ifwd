@@ -168,95 +168,121 @@ function dateFormate(thisDate) {
 
 //Travel plan details page validation
 var wh_click = false;
-function whDetailsValid()
-{
-
+function whDetailsValid(){
 	var flag=true;
 	document.getElementById("whAppFullName").innerHTML = "";
-	/*document.getElementById("whInsHKID").innerHTML = "";
-	document.getElementById("emailid").innerHTML = "";    
-	document.getElementById("mobileNo").innerHTML = "";*/
+	document.getElementById("whAppHKID").innerHTML = "";
+	document.getElementById("whAppMobileNO").innerHTML = "";    
+	document.getElementById("whAppEmailAdd").innerHTML = "";
+	document.getElementById("whInsAgeRange").innerHTML = "";
+	document.getElementById("whInsBeneficary").innerHTML = "";
+	document.getElementById("whInsFullName").innerHTML = "";
+	document.getElementById("whInsHKID").innerHTML = "";
+	document.getElementById("whInsWorkingCty").innerHTML = "";
+	document.getElementById("whAppEmailAdd").innerHTML = "";
+	
+	document.getElementById("whInsRoom").innerHTML = "";
+	document.getElementById("whInsFloor").innerHTML = "";
+	document.getElementById("whInsBuilding").innerHTML = "";
+	document.getElementById("whInsEstate").innerHTML = "";
 
-	var fullname = document.getElementById("inputWhAppFullName").value;
-	/*var emailId = document.getElementById("inputEmailId").value;
-	var mobileNo = document.getElementById("inputMobileNo").value;
-	var appHkid = document.getElementById("inputWhAppHKID").value;*/
+	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
+	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
+	var WhAppMobileNO = document.getElementById("inputWhAppMobileNO").value;
+	var WhAppEmailAdd = document.getElementById("inputWhAppEmailAdd").value;
+	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
+	
+	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
+	var WhInsFloor = document.getElementById("inputWhInsFloor").value;
+	var WhInsBuilding = document.getElementById("inputWhInsBuilding").value;
+	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
 
-
-	/*if (document.getElementById("checkbox1").checked == false) {
+	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"); //"Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		flag = false;
 	}
 	if (document.getElementById("checkbox2").checked == false) {
 		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");;//"Please read and accept the Personal Information Collection Statement before submitting the application";
 		flag = false;
-	}*/
-
-	if (fullname.trim() == "") {
+	}
+	
+	if (WhAppFullName.trim() == "") {
 		document.getElementById("whAppFullName").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");//"Please enter your Name in English.";
 		flag = false;
 	}
 
-	if (emailId.trim() == "") {
-		$('#emailid').html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
+	if($('#selectWhAppHKID').length > 0 && ($('#selectWhAppHKID').val().toLowerCase() == 'passport' || $('#selectWhAppHKID').val().toLowerCase() == 'apppassport')){
+
+		if (WhAppHKID.trim() == "") {
+			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
+			flag = false;
+		}else{
+			var tr = chkTravelHKPass(WhAppHKID.trim());
+            var tr1 = chkTravelHKPassLen(WhAppHKID.trim());
+            
+			if (tr == false) {
+				$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValid.message"));
+				flag = false;
+			}	
+			if (tr1 == false) {
+				$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+				flag = false;
+			}
+		}
+		
+	}else{ 
+		if (WhAppHKID.trim() == "") {
+			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));
+			flag = false;
+		}
+		var tr=IsHKID(WhAppHKID.trim());
+		if(tr==false){
+			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
+			flag = false;
+		}
+	}
+	
+		
+	if (WhAppMobileNO.trim() == "") {
+		$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
+		flag = false;
+	}else {        
+		if (mobile_pattern.test(WhAppMobileNO) == false) {
+			$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message"));
+			flag = false;
+		}
+	}
+	
+	if (WhAppEmailAdd.trim() == "") {
+		$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
 		flag = false;
 	} else {
-		if (emailreg.test(emailId) == false) {
-			$('#emailid').html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
+		if (WhAppEmailAdd.test(emailId) == false) {
+			$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
 			flag = false;
 		}
 	}
-
-
-	/**** VAlidation for HKID and Passport ***/
-	var selectHkidPass = document.getElementById("selectHkidPass").value;
-	if (appHkid.trim() == "") {
-		if (selectHkidPass == "HKID") {
-			$('#whInsHKID').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
-			flag = false;
-		}
-		else {
-			$('#whInsHKID').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
-			flag = false;
-		}
+	
+	if (WhInsRoom.trim() == "") {
+		$("#whInsRoom").html(getBundle(getBundleLanguage, "workinghoilday.room.message"));
+		flag = false;
 	}
-	else {
-		if (selectHkidPass == "HKID") {
-			var tr = IsHKID(appHkid.trim());
-			if (tr == false) {
-				$('#whInsHKID').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
-				flag = false;
-			}
-		}
-		else {
-			var tr = chkTravelHKPass(appHkid.trim());
-			var tr1 = chkTravelHKPassLen(appHkid.trim());
-			if (tr == false) {
-				$('#whInsHKID').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
-				
-				flag = false;
-			}
-			if (tr1 == false) {
-				$('#whInsHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
-				
-				flag = false;
-			}			
-		}
+	if (WhInsFloor.trim() == "") {
+		$("#whInsFloor").html(getBundle(getBundleLanguage, "workinghoilday.floor.message"));
+		flag = false;
 	}
-
-	 if (mobileNo.trim() == "") 
-	 {
-		 	$('#errMobileNo').html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
-	        flag = false;
-	 }
-	 else 
-	 {        
-	        if (mobile_pattern.test(mobileNo) == false) 
-	        {
-	            $('#errMobileNo').html(getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message"));
-	            flag = false;
-	        }
-	 }
+	if (WhInsBuilding.trim() == "") {
+		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
+		flag = false;
+	}
+	if (WhInsEstate.trim() == "") {
+		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+		flag = false;
+	}
+	if (WhInseffectiveDate.trim() == "") {
+		$("#whInseffectiveDate").html(getBundle(getBundleLanguage, "workinghoilday.effectivedate.message"));
+		flag = false;
+	}
 
     if(wh_click)
     	return false
