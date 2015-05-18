@@ -104,189 +104,179 @@
 					</div>
 				</div>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
-					<div
-						class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1">
-						<div class="col-xs-12 col-md-10  pad-none">
-							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
-							<table class="table activation-form margin-left-2 vert-middle travel-summary">
-								<tbody>
-								    <tr>
-                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></td>
-                                        <td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
-                                    </tr>
-                                    <tr>
-
-                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></td>
-                                        <td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></td>
-                                        <td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="h2-1 pad-none "><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></td>
-                                        <td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
-                                    </tr>
-								
-									<tr>
-										<td class="col-lg-4 col-xs-4 col-sm-4 col-md-4 h2-1 pad-none"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${createPolicy.getReferenceNo()}</td>
-									</tr>
-
-									<tr>
-									<td></td>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /> ${selectPlanName}</td>
-									</tr>
-									<tr>
-                                        <td></td>
-                                        <td class="h2-1 pad-none">
-                                            <!-- Plan benefits -->
-				                            <div class="fwdpanel">
-				                                <c:if test="${selectPlanName=='A'}">
-				                            
-				                                <div class="fwdpanel-heading">
-				                                    <h4 class=" benefits">
-				                                        <span><i
-				                                                class="fa fa-plus"></i> <a href="#"
-				                                            class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a> </span>
-				                                    </h4>
-				                                </div>
-				                                <div class="fwdpanel-body" style="display: none;">
-				                                        <div class="col-xs-11 col-xs-offset-1">
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="travel.quote.plan1.benefits.desc1.price" bundle="${msg}" />
-				                                            </div>
-				                                        </div>
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc2" bundle="${msg}" />
-				                                            </div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="travel.quote.plan1.benefits.desc2.price" bundle="${msg}" />
-				                                            </div>
-				                                        </div> 
-				                                        
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="travel.quote.plan1.benefits.desc3.price" bundle="${msg}" />
-				                                            </div>
-				                                        </div>
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="travel.quote.plan1.benefits.desc4.price" bundle="${msg}" />
-				                                            </div>
-				                                            </div>
-				                                        </div>
-				                                </div>
-				                                </c:if>
-				                                <c:if test="${selectPlanName=='B'}">
-                                            
-                                                <div class="fwdpanel-heading">
-                                                    <h4 class=" benefits">
-                                                        <span><i
-                                                                class="fa fa-plus"></i> <a href="#"
-                                                            class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan2.benefits" bundle="${msg}" /></a> </span>
-                                                    </h4>
-                                                </div>
-                                                <div class="fwdpanel-body" style="display: none;">
-                                                        <div class="col-xs-11 col-xs-offset-1">
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="travel.quote.plan2.benefits.desc1.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="travel.quote.plan2.benefits.desc2.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div> 
-                                                        
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="travel.quote.plan2.benefits.desc3.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="travel.quote.plan2.benefits.desc4.price" bundle="${msg}" />
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                </c:if>
-				                                
-				                                
-				                                <div class="clearfix"></div>
-				                            </div>
-				                            <!-- / Plan benefits -->
-                                        </td>
-                                    </tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br>
-										</td>
-										<td class="pad-none h4-5 ">
-										<%
-											if (planDetailsForm != null) 
-											{
-												if (planDetailsForm.getPlanSelected().equals("personal"))
-												{
-													out.println( planDetailsForm.getTotalPersonalTraveller() );
-												}
-												else
-												{
-													out.println( planDetailsForm.getTotalAdultTraveller() +
-															 	 planDetailsForm.getTotalChildTraveller() +
-															 	 planDetailsForm.getTotalOtherTraveller()   );
-												}
-											}				
-										%>
-										</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.period" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 "><fmt:message key="travel.summary.period.from" bundle="${msg}" />
-											${travelBean.getTrLeavingDate()} <fmt:message key="travel.summary.period.to" bundle="${msg}" />
-											${travelBean.getTrBackDate()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="travel.summary.days" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${totalTravellingDays}</td>
-									</tr>
-
-									<tr>
-										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" />
-										</span></td>
-										<td class="pad-none "><span
-											class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></td>
-									</tr>
-								</tbody>
-							</table>
+					<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
+					   <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
+                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
+                            </div>
+                            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
+	                            <h4 class="h4-trav-full">
+	                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+	                            </h4>
+	                        </div>
+                        </div>
+                        <div class="row">
+							<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
+								<div class="table activation-form vert-middle travel-summary">
+								    <div class="margin-15">
+										<div class="row summary-row">
+										    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></div>
+										    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName() }</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getHkid()}</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress() }</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo() }</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.getReferenceNo()}</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /> ${selectPlanName}</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+											<%
+											    if (planDetailsForm != null) 
+											    {
+											        if (planDetailsForm.getPlanSelected().equals("personal"))
+											        {
+											            out.println( planDetailsForm.getTotalPersonalTraveller() );
+											        }
+											        else
+											        {
+											            out.println( planDetailsForm.getTotalAdultTraveller() +
+											                         planDetailsForm.getTotalChildTraveller() +
+											                         planDetailsForm.getTotalOtherTraveller()   );
+											        }
+											    }               
+											%>
+											</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.period" bundle="${msg}" /></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" />${travelBean.getTrLeavingDate()} <fmt:message key="travel.summary.period.to" bundle="${msg}" />${travelBean.getTrBackDate()}</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${totalTravellingDays}</div>
+										</div>
+										<div class="row summary-row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" /></span></div>
+											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div> 
+										</div>
+										<div class="row summary-row">
+										    <div class="hidden-xs hidden-sm col-md-12 col-lg-12 pad-none">
+											<!-- Plan benefits -->
+												<div class="fwdpanel summary-fwdpanel">
+												    <c:if test="${selectPlanName=='A'}">
+														<div class="fwdpanel-heading">
+														    <h4 class="benefits">
+														        <span>
+														            <a href="#" class="fwdpanel-minimize uline">+ <fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a>
+														        </span>
+														    </h4>
+														</div>
+														<div class="fwdpanel-body" style="display: none;">
+														<div class="col-xs-11 col-xs-offset-1">
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan1.benefits.desc1.price" bundle="${msg}" />
+														    </div>
+														</div>
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc2" bundle="${msg}" />
+														</div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan1.benefits.desc2.price" bundle="${msg}" />
+														    </div>
+														</div> 
+														
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan1.benefits.desc3.price" bundle="${msg}" />
+														    </div>
+														</div>
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan1.benefits.desc4.price" bundle="${msg}" />
+														            </div>
+														            </div>
+														        </div>
+														</div>
+													</c:if>
+													<c:if test="${selectPlanName=='B'}">
+														<div class="fwdpanel-heading">
+														    <h4 class=" benefits">
+														        <span><i
+														                class="fa fa-plus"></i> <a href="#"
+														            class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan2.benefits" bundle="${msg}" /></a> </span>
+														    </h4>
+														</div>
+														<div class="fwdpanel-body" style="display: none;">
+														<div class="col-xs-11 col-xs-offset-1">
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan2.benefits.desc1.price" bundle="${msg}" />
+														    </div>
+														</div>
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
+														</div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan2.benefits.desc2.price" bundle="${msg}" />
+														    </div>
+														</div> 
+														
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan2.benefits.desc3.price" bundle="${msg}" />
+														    </div>
+														</div>
+														<div class="row">
+														    <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+														    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
+														<div class="col-lg-4 col-md-4 col-xs-5">
+														    <fmt:message key="travel.quote.plan2.benefits.desc4.price" bundle="${msg}" />
+														            </div>
+														            </div>
+														        </div>
+														</div>
+													</c:if>
+												    
+												    
+												    <div class="clearfix"></div>
+												</div>
+											<!-- / Plan benefits -->
+											</div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
 						</div>
-						
-						<div
-							class="col-md-2 pad-none pull-right hidden-sm hidden-xs">
-							<h4 class="h4-trav-full col-xs-offset-1">
-								<a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
-							</h4>
-							
-						</div> 
-						
 						<div class="clearfix"></div>
 						
 						<div id="no-more-tables2">
@@ -915,15 +905,33 @@
 													
 							<div class="clearfix"></div>
 						</div>
-						<br>
+						<hr class="summary-hr"/>
 						<div id="paydoller-wrap" class="declaration-content margin-left-small float">
-						  <div id="paydollar-icon" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pull-left">
-                            <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
-                           </div>
-                           <div id="paydollar-desc" class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pull-left">
-	                          <fmt:message key="travel.action.paydollar" bundle="${msg}" />
-	                       </div>
-						</div>
+                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.jpg" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+                            </div>
+                          </div>
+                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.jpg" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.visa" bundle="${msg}" />
+                            </div>
+                          </div>
+                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.jpg" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.master" bundle="${msg}" />
+                            </div>
+                          </div>
+                        </div>
 						
 						<br>
 					</div>

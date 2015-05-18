@@ -79,185 +79,146 @@
 					</div>
 				</div>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
-					<div
-						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
-
-						<div class="row home-summary-heading-row">
-							<div class="col-xs-6 col-md-7">
-								<h3
-									class="margin-left-2 h2-3-existing-fwd-head home-summary-heading"><fmt:message key="home.summary.plansummary.heading" bundle="${msg}" /></h3>
-							</div>
-							<div class="col-xs-6 col-md-5">
-								<h4 class="h4-trav-full text-right home-summary-change">
-									<a href="" onclick="BackMe()"><fmt:message key="home.summary.changedetail.heading" bundle="${msg}" /></a>
-								</h4>
-							</div>
-						</div>
-
-                        <div
-                            class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
-
-                            <table class="table activation-form margin-left-2">
-                                <tbody>
-                                    <tr>
-                                        <td class=""><span
-                                            class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message
-                                                    key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
-                                        <td class=" h4-5 "></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 h2-1"><fmt:message
-                                                key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
-                                        <td class=" h4-5 ">${userDetails.getFullName()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="h2-1"><fmt:message
-                                                key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
-                                        <td class="h4-5 ">
-                                        <c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="h2-1"><fmt:message
-                                                key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
-                                        <td class="h4-5 ">${userDetails.getEmailAddress()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="h2-1"><fmt:message
-                                                key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
-                                        <td class="h4-5 ">${userDetails.getMobileNo()}</td>
-                                    </tr>
-									<tr>
-										<td class="h2-1"><fmt:message
-												key="home.summary.plansummary.desc1" bundle="${msg}" /></td>
-										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
-											type="hidden" name="referenceNo"
-											value="${createdPolicy.getReferenceNo()}"></td>
-									</tr>
-									<tr>
-										<td class="h2-1"><fmt:message
-												key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
-										<td class="h4-5 "><fmt:message
-												key="home.summary.plansummary.desc3" bundle="${msg}" /><br>
-											<!--<fmt:message key="home.summary.plansummary.desc4"
-												bundle="${msg}" /> <br>-->
-											<h4 class="h4-4-full">
-												<!-- + Full coverage details -->
-											</h4></td>
-									</tr>
-									<tr>
-										<td class="h2-1"><fmt:message
-												key="home.summary.plansummary.desc5.part1" bundle="${msg}" />
-											<br>
-										<fmt:message key="home.summary.plansummary.desc5.part2"
-												bundle="${msg}" /></td>
-										<td class=" h4-5 ">
-											<c:if test="${homeCareDetails.getApplicantRoom() != ''}">
-                                                Room/Flat ${homeCareDetails.getApplicantRoom()}, 
-											</c:if>
-											<c:if test="${homeCareDetails.getApplicantFloor() != ''}">
-                                                Floor ${homeCareDetails.getApplicantFloor()}, 
-                                            </c:if>
-                                            <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
-                                                Block ${homeCareDetails.getApplicantBlock()}, 
-                                            </c:if>
-                                            <c:if test="${homeCareDetails.getApplicantBuilding() != ''}">
-                                            	${homeCareDetails.getApplicantBuilding() },
-                                            </c:if>
-											
-											
-											<c:if test="${homeCareDetails.getApplicantEstate() != ''}">
-                                            	${homeCareDetails.getApplicantEstate() },
-                                            </c:if>
-											<c:if test="${homeCareDetails.getApplicantStreetNo() != ''}">
-                                            	${homeCareDetails.getApplicantStreetNo() },
-                                            </c:if>
-											 <c:if test="${homeCareDetails.getApplicantStreetName() != ''}">
-                                            	${homeCareDetails.getApplicantStreetName() },
-                                            </c:if>
-                                            
-                                            <c:if test="${homeCareDetails.getApplicantDistrictDesc() != ''}">
-                                            	${homeCareDetails.getApplicantDistrictDesc() },
-                                            </c:if>
-                                            
-											<c:if test="${homeCareDetails.getApplicantAreaDesc() != ''}">
-                                            	${homeCareDetails.getApplicantAreaDesc() }
-                                            </c:if>
-
-										</td>
-									</tr>
-									<tr>
-										<td class="h2-1"><fmt:message
-												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
-										<td class=" h4-5 ">
-										    <c:if test="${homeCareDetails.getaRoom() != ''}">
-                                                Room/Flat ${homeCareDetails.getaRoom()}, 
-                                            </c:if>
-                                            <c:if test="${homeCareDetails.getaFloor() != ''}">
-                                                Floor ${homeCareDetails.getaFloor()}, 
-                                            </c:if>
-                                            <c:if test="${homeCareDetails.getaBlock() != ''}">
-                                                Block ${homeCareDetails.getaBlock()}, 
-                                            </c:if>
-                                            
-                                            <c:if test="${homeCareDetails.getaBuilding() != ''}">
-												${homeCareDetails.getaBuilding()},
-											</c:if>
-											<c:if test="${homeCareDetails.getaEstate() != ''}">
-												${homeCareDetails.getaEstate()},
-											</c:if>
-											<c:if test="${homeCareDetails.getaStreetNo() != ''}">
-												${homeCareDetails.getaStreetNo()},
-											</c:if>
-											<c:if test="${homeCareDetails.getaStreetName() != ''}">
-												${homeCareDetails.getaStreetName()},
-											</c:if>
-											<c:if test="${homeCareDetails.getaDistrictDesc() != ''}">
-												${homeCareDetails.getaDistrictDesc()},
-											</c:if>
-											<c:if test="${homeCareDetails.getaAreaDesc() != ''}">
-												${homeCareDetails.getaAreaDesc()}
-											</c:if>
-										</td>
-									</tr>
-									<tr>
-										<td class="h2-1"><fmt:message
-												key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br>
-										<fmt:message key="home.summary.plansummary.desc7.part2"
-												bundle="${msg}" /></td>
-										<td class=" h4-5 ">${homeCareDetails.getNetFloorAreaDesc()}</td>
-										<%-- 										${homeCareDetails.getNetFloorArea()} --%>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
-										<td class=" h4-5 "><fmt:message
-												key="home.summary.plansummary.yearly" bundle="${msg}" /></td>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br>
-										<fmt:message key="home.summary.plansummary.desc9.part2"
-												bundle="${msg}" /></td>
-										<td class=" h4-5 "><fmt:message key="home.summary.plansummary.from"
-												bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to"
-												bundle="${msg}" />
-											${effectiveEndDate}</td>
-									</tr>
-									<tr>
-										<td class="td-vert-middle"><span
-											class="h4-4-orange-b pad-none"><fmt:message
-													key="home.summary.plansummary.desc10" bundle="${msg}" /></span></td>
-										<%
-											HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request
-													.getAttribute("homeCareDetails");
-										%>
-										<td class=" "><span class="h4-4-orange-b pad-none">HK$
-												<%=String.format("%.2f",
-					Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
-									</tr>
-								</tbody>
-							</table>
+				    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
+                       <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
+                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
+                            </div>
+                            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
+                                <h4 class="h4-trav-full">
+                                    <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <table class="table activation-form margin-left-2"> -->
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
+                                <div class="table activation-form vert-middle travel-summary">
+                                    <div class="margin-15">
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h2-1 pad-none"><span class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message key="home.summary.changedetail.desc1" bundle="${msg}" /></span></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc3" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" /></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc4" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc5" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc1" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createdPolicy.getReferenceNo() }<input type="hidden" name="referenceNo" value="${createdPolicy.getReferenceNo()}"></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.desc3" bundle="${msg}" /><br/><h4 class="h4-4-full"></h4></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc5.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc5.part2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                                <c:if test="${homeCareDetails.getApplicantRoom() != ''}">
+	                                                Room/Flat ${homeCareDetails.getApplicantRoom()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getApplicantFloor() != ''}">
+	                                                Floor ${homeCareDetails.getApplicantFloor()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
+	                                                Block ${homeCareDetails.getApplicantBlock()}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getApplicantBuilding() != ''}">
+	                                                ${homeCareDetails.getApplicantBuilding() },
+	                                            </c:if>
+	                                            <br/>
+	                                            <c:if test="${homeCareDetails.getApplicantEstate() != ''}">
+	                                                ${homeCareDetails.getApplicantEstate() },
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getApplicantStreetNo() != ''}">
+	                                                ${homeCareDetails.getApplicantStreetNo() },
+	                                            </c:if>
+	                                             <c:if test="${homeCareDetails.getApplicantStreetName() != ''}">
+	                                                ${homeCareDetails.getApplicantStreetName() },
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getApplicantDistrictDesc() != ''}">
+	                                                ${homeCareDetails.getApplicantDistrictDesc() },
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getApplicantAreaDesc() != ''}">
+	                                                ${homeCareDetails.getApplicantAreaDesc() }
+	                                            </c:if>
+                                            </div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc6" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                                <c:if test="${homeCareDetails.getaRoom() != ''}">
+	                                                Room/Flat ${homeCareDetails.getaRoom()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaFloor() != ''}">
+	                                                Floor ${homeCareDetails.getaFloor()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaBlock() != ''}">
+	                                                Block ${homeCareDetails.getaBlock()}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getaBuilding() != ''}">
+	                                                ${homeCareDetails.getaBuilding()},
+	                                            </c:if>
+	                                            <br/>
+	                                            <c:if test="${homeCareDetails.getaEstate() != ''}">
+	                                                ${homeCareDetails.getaEstate()},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getaStreetNo() != ''}">
+	                                                ${homeCareDetails.getaStreetNo()},
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaStreetName() != ''}">
+	                                                ${homeCareDetails.getaStreetName()},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getaDistrictDesc() != ''}">
+	                                                ${homeCareDetails.getaDistrictDesc()},
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaAreaDesc() != ''}">
+	                                                ${homeCareDetails.getaAreaDesc()}
+	                                            </c:if>
+                                            </div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc7.part2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${homeCareDetails.getNetFloorAreaDesc()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc8" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.yearly" bundle="${msg}" /></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.from" bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to" bundle="${msg}" />${effectiveEndDate}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <%
+	                                            HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
+	                                        %>
+                                                <span class="h4-4-orange-b pad-none">HK$<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span>
+                                            </div>
+                                        </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+                                </div>
+				            </div>
 						</div>
 						
 
@@ -543,13 +504,34 @@
                               <fmt:message key="travel.action.paydollar" bundle="${msg}" />
                             </div>
                         </div>-->
+                        
+                        
+                        <hr class="summary-hr"/>
                         <div id="paydoller-wrap" class="declaration-content margin-left-small float">
-                          <div id="paydollar-icon" class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pull-left">
-                            <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
-                           </div>
-                           <div id="paydollar-desc" class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pull-left">
-                              <fmt:message key="travel.action.paydollar" bundle="${msg}" />
-                           </div>
+                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.jpg" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+                            </div>
+                          </div>
+                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.jpg" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.visa" bundle="${msg}" />
+                            </div>
+                          </div>
+                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.jpg" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.master" bundle="${msg}" />
+                            </div>
+                          </div>
                         </div>
 
 					</div>

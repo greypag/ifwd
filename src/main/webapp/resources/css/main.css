@@ -6322,3 +6322,176 @@ tr.product-landing-error-wrap {
     }
 }
 
+/** bmg summary css **/
+.summary-header{
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.summary-detail-head{
+    font-weight: bold;
+    font-size: 18px;
+    color: #000 !important;
+}
+
+.summary-header-margin .h4-trav-full{
+   margin-top:0px;
+   font-size: 18px !important;
+}
+
+.summary-fwdpanel{
+  margin-top:20px !important;
+}
+
+.summary-fwdpanel h4.benefits a{
+  color: #f68a1d !important;
+}
+
+.summary-fwdpanel h4.benefits a:hover{
+  color: #f68a1d !important;
+}
+
+.summary-fwdpanel .fwdpanel-body{
+  color: #f68a1d !important;
+}
+
+.summary-hr{
+	border-top: 3px solid #e5e5e5;
+	margin-top:50px;
+    margin-bottom:50px;
+}
+
+.paymethod-icon{
+	text-align: center;
+}
+
+@media (min-width: 1200px) {
+	.summary-container{
+       border: none !important;
+    }
+    
+    .summary-header-margin{
+        margin-top:40px;
+        margin-bottom:40px;
+    }
+    
+    .summary-header{
+        color: #000 !important;
+    }
+    
+    .summary-detail-head{
+        height:32px;
+    }
+    
+    .summary-row{
+        margin-bottom:0px !important;
+    }
+    
+    .summary-fwdpanel h4.benefits a{
+      font-size: 18px !important;
+      line-height: 0px !important;
+    }
+    
+    .summary-fwdpanel h4.benefits a:hover{
+      font-size: 18px !important;
+      line-height: 0px !important;
+    }
+    
+    .paymethod-icon{
+	    margin-bottom: 15px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	.summary-container{
+       border: none !important;
+    }
+	
+	.summary-header-margin{
+        margin-top:40px;
+        margin-bottom:40px;
+    }
+    
+    .summary-header{
+        color: #000 !important;
+    }
+    
+    .summary-detail-head{
+        height:32px;
+    }
+    
+    .summary-row{
+        margin-bottom:0px !important;
+    }
+    
+    .summary-fwdpanel h4.benefits a{
+      font-size: 18px !important;
+      line-height: 0px !important;
+    }
+    
+    .summary-fwdpanel h4.benefits a:hover{
+      font-size: 18px !important;
+      line-height: 0px !important;
+    }
+    
+    .paymethod-icon{
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.summary-container{
+       border-top: 1px solid #bbbbbb;
+    }
+	
+	.margin-15{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .summary-header-margin{
+        margin-top:30px;
+        margin-bottom:30px;
+    }
+	
+    .summary-header{
+	    color: #f68a1d;
+	}
+	
+    .summary-row{
+        margin-bottom:15px;
+    }
+    
+    .paymethod-container{
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+	.summary-container{
+	   border-top: 1px solid #bbbbbb;
+	}
+	
+    .margin-15{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .summary-header{
+	    color: #f68a1d;
+	}
+	
+	.summary-header-margin{
+        margin-top:30px;
+        margin-bottom:30px;
+    }
+    
+    .summary-row{
+        margin-bottom:15px;
+    }
+    
+    .paymethod-container{
+        margin-bottom: 40px;
+    }
+}
+/** bmg summary css **/
