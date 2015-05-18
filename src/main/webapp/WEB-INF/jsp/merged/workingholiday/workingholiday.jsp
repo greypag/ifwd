@@ -83,7 +83,7 @@ $(document).ready(function() {
   <!--/.carousel--> 
 </section>
 <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();">
-<section id="middle" class="hidden-sm hidden-xs">
+<section id="middle" class="hidden-sm hidden-xs" style="background:none;">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none slide-form">
@@ -203,8 +203,8 @@ $(document).ready(function() {
                  </div>
                  </td> --%>
                <td></td>  
-               <td class="col-md-2 pad-none">
-                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+               <td align="middle" class="col-md-2 pad-none">
+                <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
                  <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskWorkingHoliday()">立即報價</a> -->
               </td>
               <td></td>
@@ -398,6 +398,65 @@ $(document).ready(function() {
   <div class="container pad-none">
     <div class="center wow fadeInDown"> 
       <!--desktop-->
+      
+      <div name="after-banner" style="width:100%; margin:0 auto; overflow:hidden;">
+      
+	      <div align="middle;" style="border: 1px solid #D1D1D1; width:30%; height:450px; float:left; margin-left: 20px; min-height: 150px;">
+	      
+		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
+		      Flexibility <br />
+		      of Refund
+		      </h3>
+	           
+	          <div style="margin-top:25px;">
+	               <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon1.png" />
+	          </div>
+	          
+	          <div style="margin-top:15px; ">
+	               Pay only for what <br /> you use
+	          </div>
+	          
+	          <hr width="50%">
+	          
+	          <div style="margin-top:10px;">
+                   Get refunded for <br /> unused coverage<span style="color:#f68a1d;">*</span>
+              </div>
+              
+              
+              <div style="margin-top:15px; font-size:10px; color:#f68a1d;">
+                    *Service fee of $500HK applies
+              </div>
+	      
+	      </div>
+	      
+	      <div align="middle;" style="border: 1px solid black; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
+          
+	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
+	          Flexibility <br />
+	          of Refund
+	          </h3>
+	          
+	          <div style="margin-top:25px;">
+                   <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon2.png" />
+              </div>
+          
+          </div>
+          
+          <div align="middle;" style="border: 1px solid black; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
+          
+	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
+	          Flexibility <br />
+	          of Refund
+	          </h3>
+	          
+	          <div style="margin-top:25px;">
+                   <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon3.png" />
+              </div>
+          
+          </div>
+      </div>
+      
+      
 <h2 class="hidden-sm hidden-xs"><fmt:message key="workingholiday.main.desc1" bundle="${msg}" /></h2>
 <!--end desktop--> 
 
