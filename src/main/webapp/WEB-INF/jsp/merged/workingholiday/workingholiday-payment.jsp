@@ -9,22 +9,30 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
-	function confirmPayment() {
-		var geteWayUrl = $('#gateway').val();
-		$.ajax({
-			type : "POST",
-			url : "<%=request.getContextPath()%>/processTravePayment",
-			data : $("#paymentForm").serialize(),
-			async : false,
-			success : function(data) {
-				if (data == 'success') {
-					document.paymentForm.action = geteWayUrl;
-				} else {
-					console.log("fail to process payment " + data);
-				}
-				
-			}
-		});
+	function confirmHomeCarePayment() {
+		if (payValid() && clicked === false) {
+ 			clicked = true;
+ 			$("#PaymentingDiv").show();
+ 			var gatewayUrlId = '#' + gatewayUrlId;
+ 			var paymentFormId = '#' + paymentFormId;
+ 			var method = "<%=request.getContextPath()%>/processTravePayment";
+ 			
+ 			var geteWayUrl = $(gatewayUrlId).val();
+ 			$.ajax({
+ 						type : "POST",
+ 						url : method,
+ 						data : $(paymentFormId).serialize(),
+ 						async : false,
+ 						success : function(data) {
+ 							if (data == 'success') {
+ 								form.action = geteWayUrl;
+ 							} else {
+ 								console.log("fail to process payment " + data);
+ 							}
+ 						}
+ 					});
+ 			return true;
+ 		}else return false;
 	}
 	
 </script>
@@ -285,7 +293,6 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						//if (payLang.equals("t"))
 						
 					%>
-					<input type="hidden" name="lang" value="<%=payLang%>">
 					<input type="hidden" name="lang" value="C">
 					<input type="hidden" name="secureHash" value="${createPolicy.getSecureHash() }">
 					<input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.getEmailAddress()}">
@@ -472,9 +479,9 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 							<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
-							<button onclick="confirmPayment();"
-								class="bdr-curve btn btn-primary nxt-btn margin-left">
-								<fmt:message key="workingholiday.action.payment" bundle="${msg}" /></button>
+							<input type="submit"
+								class="bdr-curve btn btn-primary nxt-btn margin-left" 
+								value="<fmt:message key="workingholiday.action.payment" bundle="${msg}" />">
 						</div>
 						<br> <br>
 						<div class="row hidden-md hidden-lg">
