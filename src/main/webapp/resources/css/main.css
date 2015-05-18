@@ -166,9 +166,10 @@ hr {
 	font-size: 14px;
 	line-height: 24px;
 }
+/*
 .form-group {
     margin-bottom: 25px;
-}
+}*/
 .big-title {
 	margin-bottom: 15px;
 	margin-top: 15px;
@@ -5688,12 +5689,13 @@ select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
 	/*border-bottom: 2px solid #f5f5f5;*/
 	border-bottom: 2px solid #f68a1d;
 }
+/*
 @media (min-width: 992px){
 	.form-wrap label, .membership-wrap label {
 	    line-height: 50px;
 	}
 }
-
+*/
 /*
 #freeFlightForm #personaltraveller, #freeFlightForm #adulttraveller, #freeFlightForm #childtraveller {
 	margin-bottom: 30px;

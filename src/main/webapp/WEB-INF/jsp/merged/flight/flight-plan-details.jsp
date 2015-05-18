@@ -237,7 +237,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                            </div>
 	                       <!-- email address ends -->
                        </div>
-                       <!-- updated responsive design start -->
+                       <!-- updated responsive design end -->
                         <%-- <table class="table activation-form margin-left-2 vert-middle">
                             <tbody>
                                 <tr>
