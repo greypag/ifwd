@@ -184,9 +184,9 @@ function whDetailsValid()
 	document.getElementById("whAppEmailAdd").innerHTML = "";
 
 	var fullname = document.getElementById("inputWhAppFullName").value;
-	/*var emailId = document.getElementById("inputEmailId").value;
-	var mobileNo = document.getElementById("inputMobileNo").value;
-	var appHkid = document.getElementById("inputWhAppHKID").value;*/
+	var emailId = document.getElementById("inputWhAppHKID").value;
+	var mobileNo = document.getElementById("inputWhAppMobileNO").value;
+	var appHkid = document.getElementById("inputWhAppEmailAdd").value;
 
 
 	/*if (document.getElementById("checkbox1").checked == false) {

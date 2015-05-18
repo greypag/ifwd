@@ -205,7 +205,7 @@
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></label></td>
 									<td class="pad-none">
 										<select name="whInsBeneficary" id="selectWhInsBeneficary" 
-										 		onChange="activeDiv('adultsbenificiaryId','adultsselectBenificiary')"
+										 		onChange="activeTr(this)"
 										 	class="soflow" >
 											<option value="SE"><fmt:message key="workingholiday.details.insured.beneficiary.default" bundle="${msg}" /></option>
 											<c:forEach var="relationshipList" items="${mapRelationshipCode}">
@@ -216,12 +216,12 @@
 										<span id="whInsBeneficary" class="text-red"></span>
 									</td>
 								</tr>
-								<tr>
+								<tr id="trBenificiary0" class="hide">
 									<td colspan="2" class="pad-none">
 										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
 									</td>
 								</tr>
-								<tr>
+								<tr id="trBenificiary1" class="hide">
 									<td class="pad-none"><label for="inputWhInsFullName"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label></td>
 									<td class="pad-none">
@@ -233,7 +233,7 @@
 										<span id="whInsFullName" class="text-red"></span>
 									</td>
 								</tr>
-								<tr>
+								<tr id="trBenificiary2" class="hide">
 									<td class="pad-none"><label for="inputWhInsHKID"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label></td>
 									<td class="pad-none">
@@ -246,7 +246,7 @@
 										</select>
 									</td>
 								</tr>
-								<tr>
+								<tr id="trBenificiary3" class="hide">
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
 									<td class="pad-none">
@@ -622,29 +622,22 @@
 <!--/ Get promotion code popup-->
 
 <script>
-	function activeDiv(id, selected) {
-		var selectedValue = $('#' + selected).val();
-		if (id.indexOf('adult') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('child') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-		if (id.indexOf('other') > -1) {
-			activeDeactive(selectedValue, id);
-		}
-
-	}
-	function activeDeactive(selectedValue, id) {
-		if (selectedValue == "SE") {
-			$('#' + id).addClass('hide');
+	function activeTr(tr) {
+		if ($(tr).val() == "SE") {
+			$('#trBenificiary0').addClass('hide');
+			$('#trBenificiary1').addClass('hide');
+			$('#trBenificiary2').addClass('hide');
+			$('#trBenificiary3').addClass('hide');
 		} else {
-			$('#' + id).removeClass('hide');
+			$('#trBenificiary0').removeClass('hide');
+			$('#trBenificiary1').removeClass('hide');
+			$('#trBenificiary2').removeClass('hide');
+			$('#trBenificiary3').removeClass('hide');
 		}
 	}
 
 	function selected(id){
-		$('#selectedAdHkidPass1').val(id.value);
+		$('#selectWhInsHKID').val(id.value);
 	}
 </script>
 
