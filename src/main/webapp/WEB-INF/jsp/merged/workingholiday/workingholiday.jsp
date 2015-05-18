@@ -91,7 +91,7 @@ $(document).ready(function() {
                 <table class="table activation-form3">
               <tbody>
                 <tr>
-                  <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+                  <%-- <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
                   <td><div id="divPersonsDesk" style="visibility:hidden;">
@@ -203,24 +203,24 @@ $(document).ready(function() {
                  </div>
 
                  </td>
-               <td></td>  
+               <td></td> --%>  
                <td align="middle" class="col-md-2 pad-none">
                 <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 
                </td>
-               <td class="col-md-2 pad-none">
+               <%-- <td class="col-md-2 pad-none">
                 <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 
                  <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskWorkingHoliday()">立即報價</a> -->
-              </td>
+              </td> --%>
              </tr>
-             <tr>
+             <%-- <tr>
               <td><span id="startDateDeskIn" class="text-red"> </span></td>
               <td><span id="endDateDeskIn" class="text-red"> </span></td>
               <td><span id="workingholidayCountDeskIn"  style="display:none">
                  <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                  </span></td>
-              <td></td>
+              <td></td> --%>
              </tr>
            </tbody>
          </table>
@@ -802,7 +802,7 @@ $(document).ready(function() {
         <table class="table activation-form3">
           <tbody>
           <tr>
-            <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+            <%-- <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
             <td><div id="divPersonsBtm" style="visibility:hidden;">
@@ -923,8 +923,12 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-        	  <td></td>	
-              <td class="col-md-2 ">
+        	  <td></td> --%>
+        	  <td align="middle" class="col-md-2 pad-none">
+                <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+
+               </td>	
+              <%-- <td class="col-md-2 ">
                   <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
               </td>
               <td></td>	   
@@ -935,7 +939,7 @@ $(document).ready(function() {
               <td><span id="workingholidayCountBtmIn" style="display: none;">
                 <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                 </span></td>
-              <td></td>
+              <td></td> --%>
             </tr>
           </tbody>
         </table>
