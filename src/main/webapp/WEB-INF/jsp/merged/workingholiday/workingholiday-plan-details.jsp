@@ -113,7 +113,7 @@
 							}
 						%>
 
-
+						<br/>
 						<div class="gray-bdr"></div>
 						<table class="table activation-form margin-left-2">
 							<tbody>
@@ -569,21 +569,6 @@
 <!--/.container-->
 
 </section>
-<!-- 
-
-	
-		
-		
-			<form name="popUploginform" id="popUploginform" class="">
-				<div class="login-form">
-
- -->
-
-<!--Plan-login-popup-->
-	<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
-
-
-
 
 <!--Get promotion code popup-->
  <div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;">

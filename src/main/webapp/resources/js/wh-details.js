@@ -170,6 +170,7 @@ function dateFormate(thisDate) {
 var wh_click = false;
 function whDetailsValid(){
 	var flag=true;
+	
 	document.getElementById("whAppFullName").innerHTML = "";
 	document.getElementById("whAppHKID").innerHTML = "";
 	document.getElementById("whAppMobileNO").innerHTML = "";    
@@ -257,7 +258,7 @@ function whDetailsValid(){
 		$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
 		flag = false;
 	} else {
-		if (WhAppEmailAdd.test(emailId) == false) {
+		if (emailreg.test(WhAppEmailAdd) == false) {
 			$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
 			flag = false;
 		}
@@ -283,7 +284,6 @@ function whDetailsValid(){
 		$("#whInseffectiveDate").html(getBundle(getBundleLanguage, "workinghoilday.effectivedate.message"));
 		flag = false;
 	}
-
     if(wh_click)
     	return false
     else{
