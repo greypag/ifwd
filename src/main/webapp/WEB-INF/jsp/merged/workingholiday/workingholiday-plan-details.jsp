@@ -272,34 +272,36 @@
 							<table class="table activation-form margin-left-2 autofillForm">
 								<tbody>
 									<tr>
-										<td rowspan="5"
-											class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label
-											class="control-label bold-500 lhnormal"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label></td>
-										<td><input type="text" class="form-control wd2"
-											id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
+										<td rowspan="5" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+										    <label class="control-label bold-500 lhnormal">
+										        <fmt:message key="home.details.registration.corraddress" bundle="${msg}" />
+										    </label>
+										</td>
+										<td>
+										    <input type="text" class="form-control wd2" id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
 											<span id="whInsRoom" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputWhInsFloor" name="whInsFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="5"/></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
 											<span id="whInsFloor" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputWhInsBlock" name="whInsBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 											<span id="whInsBlock" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputWhInsBuilding" name="whInsBuilding"
-											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
+											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="whInsBuilding" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputWhInsEstate" name="whInsEstate"
-											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
+											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="whInsEstate" class="text-red"> </span></td>
 									</tr>
