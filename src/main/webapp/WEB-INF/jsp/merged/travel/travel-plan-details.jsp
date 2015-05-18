@@ -50,25 +50,32 @@
      $.ajax({
          type : 'POST',
          url : '<%=request.getContextPath()%>/joinus',
-         data :  { userName: "John123", password: "Qqwe1234", optIn2: "true", optIn1: "true", mobile: "12341234", name: "tewt", email: "sad@sad.com" },
+         data : $('#frmYourDetails').serialize(),
+         async : false,
          success : function(data) {
-             alert("call good");
-             alert(data);
-             /*
-             $("#loadingPromo").hide();
-             promoCodeInsertFlag = true;
              
-             var json = JSON.parse(data);
-             promoData = json;
-             setValue(json);
-             */
+             if (data == 'success') {
+                  
+//               setTimeout(function() {document.joinus_form.action= "useraccount";                              
+//               }, 3000);
+                 //window.location.href = '<%=request.getContextPath()%>/getAccByUsernaneAndPassword';
+//               setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;                              
+//               }, 3000);
+                 
+                 alert("good la");
+                 alert(data);
+             } else {
+                 
+                 alert("no la");
+                 alert(data);
+             } 
          },
-         error: function(data){
-             alert('request failed');
-             alert(data);
-         }
+         error : function(xhr, status, error) {
 
+         }
      });
+     
+     
      
      alert("done");
      
