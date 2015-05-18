@@ -270,10 +270,10 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 <!-- 										<option value="2018">2018</option> -->
 <!-- 										<option value="2019">2019</option> -->
 <!-- 										<option value="2020">2020</option> -->
-									<%-- <c:forEach begin="0" end="5" varStatus="loop">
+									<c:forEach begin="0" end="5" varStatus="loop">
 										<c:set var="currentYear" value="${year + loop.index}" />
 										<option value="${currentYear}">${currentYear}</option>
-									</c:forEach> --%>
+									</c:forEach>
 								</select></div></td>
 							</tr>
 							<tr>
