@@ -197,7 +197,7 @@
 												</option>
 											</c:forEach>
 										</select>
-										<span id="selectWhInsAgeRange" class="text-red"></span>
+										<span id="whInsAgeRange" class="text-red"></span>
 									</td>
 								</tr>
 								<tr>
@@ -279,36 +279,41 @@
 											id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" /></td>
+											<span id="whInsRoom" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputWhInsFloor" name="whInsFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5"/></td>
+											<span id="whInsFloor" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputWhInsBlock" name="whInsBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
+											<span id="whInsBlock" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputWhInsBuilding" name="whInsBuilding"
 											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
-											<span id="errCABuilding" class="text-red"> </span></td>
+											<span id="whInsBuilding" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
 											id="inputWhInsEstate" name="whInsEstate"
 											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
-											<span id="errCAEstate" class="text-red"> </span></td>
+											<span id="whInsEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="1"><input type="text" class="form-control full-control"
 											id="inputWhInsStreetNo" name="whInsStreetNo"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="5" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+											<span id="whInsStreetNo" class="text-red"> </span></td></td>
 										<td colspan="2"><input type="text" class="form-control full-control"
 											id="inputWhInsStreetName" name="whInsStreetName"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
-											onkeypress="    return isAlphaNumeric(event);" maxlength="50" /></td>
+											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+											<span id="whInsStreetName" class="text-red"> </span></td></td>
 									</tr>
 									<tr>
 										<td colspan="3">
@@ -360,139 +365,6 @@
 								</tbody>
 							</table>
 						</table>
-						
-
-						
-
-
-<%-- 						<div class="col-xs-12 col-sm-12 col-md-12 pad-15 insure-travel">
-								<div id="adulttraveller">
-									<div class="row ">
-										<div class="col-xs-6 col-md-6">
-											<label class="bold-500"><fmt:message key="workingholiday.details.insured.name" bundle="${msg}" /></label> 
-											<input type="text"
-												id="txtAdFullName" name="adultName" value="${userDetails.getFullName()}"
-												class="form-control" placeholder="<fmt:message key="workingholiday.details.insured.name.placeholder" bundle="${msg}" />"
-												onblur="replaceAlpha(this);"
-												onkeypress="    return alphaOnly(event);" maxlength="100" />
-											<span id="errtxtAdFullName" class="text-red"></span>
-										</div>
-										<div class="col-xs-6 col-md-6">
-											
-											<div class="styled-select">
-												<select
-													id="selectedAdHkidPass" name="selectedAdHkidPass"
-													class="soflow">
-													<c:forEach
-														var="hkidList" items="${mapHkId}">
-														<option
-															value="${hkidList.key}">
-															<c:out
-																value="${hkidList.value}" />
-														</option>
-													</c:forEach>
-												</select>
-											</div>
-											
-										
-											<input id="txtInsuHkid" name="adultHKID" class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
-											<span id="errtxtInsuHkid" class="text-red"> </span> 
-											<span id="errtxtInvalidInsuHkid" class="text-red"> </span>
-										</div>
-									</div>
-									
-									
-									<div class="row top-mrg-10">
-										<div class="col-xs-6 col-md-6">
-											<label class="bold-500"><fmt:message key="workingholiday.details.insured.age" bundle="${msg}" /></label>
-											<div class="styled-select">
-												<select
-													name="adultAgeRange" class="soflow"
-													id="selectAgeRange">
-
-													<c:forEach
-														var="ageList" items="${mapSelfType}">
-														<c:choose>
-															<c:when
-																test="${ageList.key == '2'}">
-																<option
-																	value="${ageList.key}" selected>
-															</c:when>
-															<c:otherwise>
-																<option
-																	value="${ageList.key}">
-															</c:otherwise>
-														</c:choose>
-														<c:out
-															value="${ageList.value}" />
-														</option>
-													</c:forEach>
-												</select>
-											</div>
-											<span id="errselectAgeRange" class="text-red">
-											</span>
-										</div>
-																			
-										
-										<div class="col-xs-6 col-md-6">
-											<label class="pad-left1 bold-500"><fmt:message key="workingholiday.details.insured.beneficiary" bundle="${msg}" /></label> 
-											 <div class="styled-select">
-											 <select name="adultBeneficiary" id="adultsselectBenificiary" 
-											 		onChange="activeDiv('adultsbenificiaryId','adultsselectBenificiary')"
-											 	class="soflow" >
-												<option value="SE"><fmt:message key="workingholiday.details.insured.beneficiary.default" bundle="${msg}" /></option>
-												<c:forEach var="relationshipList" items="${mapRelationshipCode}">
-													<option value="${relationshipList.key}"><c:out
-															value="${relationshipList.value}" /></option>
-												</c:forEach>
-											</select>
-											</div>
-											<span id="erradultsselectBenificiary" class="text-red"></span>
-										</div>
-										<!-- Adult hide box -->
-										<div id="adultsbenificiaryId" class="hide">
-											<div class="col-xs-6 col-md-6">
-												<label class="bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label> <input type="text"
-													name="adultBenificiaryFullName"
-													id="adultBenefitiaryId" value=""
-													class="form-control " placeholder="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
-													onblur="replaceAlpha(this);"
-													onkeypress="    return alphaOnly(event);" maxlength="100" />
-												<span id="erradultBenefitiaryId" class="text-red">
-												</span>
-											</div>
-											<div class="col-xs-6 col-md-6">
-												<!-- <label class="pad-left1 bold-500">HKID</label> -->
-	                                            <div class="styled-select ">
-	                                            <select id="selectAdBenefitiaryHkidPass" name="selectedAdBenefitiaryHkidPass" class="soflow">
-												<c:forEach var="hkidList" items="${mapHkId}">
-													<option value="${hkidList.key}"><c:out
-															value="${hkidList.value}" /></option>
-												</c:forEach>
-											</select>
-	                                            </div>
-												
-												<input
-													id="adultBenefitiaryHKId" name="adultBenificiaryHkid"
-													class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-													value="" /> <span id="erradultBenefitiaryHKId"
-													class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId"
-													class="text-red"> </span>
-											</div>
-										</div>
-
-										<!-- end Adult hide box -->
-
-									</div>
-								</div>
-
-							
-
-							
-
-
-               </div>
- --%>
 
                        <div class="clearfix"></div>
                        

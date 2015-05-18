@@ -173,9 +173,15 @@ function whDetailsValid()
 
 	var flag=true;
 	document.getElementById("whAppFullName").innerHTML = "";
-	/*document.getElementById("whInsHKID").innerHTML = "";
-	document.getElementById("emailid").innerHTML = "";    
-	document.getElementById("mobileNo").innerHTML = "";*/
+	document.getElementById("whAppHKID").innerHTML = "";
+	document.getElementById("whAppMobileNO").innerHTML = "";    
+	document.getElementById("whAppEmailAdd").innerHTML = "";
+	document.getElementById("whInsAgeRange").innerHTML = "";
+	document.getElementById("whInsBeneficary").innerHTML = "";
+	document.getElementById("whInsFullName").innerHTML = "";
+	document.getElementById("whInsHKID").innerHTML = "";
+	document.getElementById("whInsWorkingCty").innerHTML = "";
+	document.getElementById("whAppEmailAdd").innerHTML = "";
 
 	var fullname = document.getElementById("inputWhAppFullName").value;
 	/*var emailId = document.getElementById("inputEmailId").value;
