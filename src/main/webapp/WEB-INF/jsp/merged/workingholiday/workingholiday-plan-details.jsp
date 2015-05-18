@@ -32,7 +32,7 @@
 		<div class="row">
 		
 			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/workingholiday-insurance/workingholiday-summary" method="post"
-				onsubmit="return tPlanValid();" modelAttribute="frmYourDetails">
+				onsubmit="return whDetailsValid();" modelAttribute="frmYourDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -354,10 +354,10 @@
 								<tbody>
 									<tr>
 										<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
-											for="inputFullName" class="control-label bold-500 lhnormal"><fmt:message key="workingholiday.details.insured.beneficiary.effective" bundle="${msg}" /></label></td>
+											for="inputWhInseffectiveDate" class="control-label bold-500 lhnormal"><fmt:message key="workingholiday.details.insured.beneficiary.effective" bundle="${msg}" /></label></td>
 										<td class="pad-none">
 											<div class="input-group date" id="dpEffectiveDate"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-						                      <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${workingholidayQuote.getTrLeavingDate()}" readonly>
+						                      <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="inputWhInseffectiveDate" value="${workingholidayQuote.getTrLeavingDate()}" readonly>
 						                    </div>
 											<span id="whInseffectiveDate" class="text-red"></span>
 										</td>

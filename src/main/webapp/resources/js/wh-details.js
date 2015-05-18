@@ -182,11 +182,22 @@ function whDetailsValid()
 	document.getElementById("whInsHKID").innerHTML = "";
 	document.getElementById("whInsWorkingCty").innerHTML = "";
 	document.getElementById("whAppEmailAdd").innerHTML = "";
+	
+	document.getElementById("whInsRoom").innerHTML = "";
+	document.getElementById("whInsFloor").innerHTML = "";
+	document.getElementById("whInsBuilding").innerHTML = "";
+	document.getElementById("whInsEstate").innerHTML = "";
 
-	var fullname = document.getElementById("inputWhAppFullName").value;
-	var emailId = document.getElementById("inputWhAppHKID").value;
-	var mobileNo = document.getElementById("inputWhAppMobileNO").value;
-	var appHkid = document.getElementById("inputWhAppEmailAdd").value;
+	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
+	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
+	var WhAppMobileNO = document.getElementById("inputWhAppMobileNO").value;
+	var WhAppEmailAdd = document.getElementById("inputWhAppEmailAdd").value;
+	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
+	
+	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
+	var inputWhInsFloor = document.getElementById("inputWhInsFloor").value;
+	var WhInsBuilding = document.getElementById("inputWhInsBuilding").value;
+	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
 
 
 	/*if (document.getElementById("checkbox1").checked == false) {
