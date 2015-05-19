@@ -58,6 +58,8 @@ public class UserRestURIConstants {
 	public static final String GET_COUNTRY = SERVICE_URL + "/option/itemDesc";
 	public static final String WORKINGHOLIDAY_CREATE_POLICY = SERVICE_URL
 			+ "/gi/workingHoliday/policies";
+	public static final String WORKINGHOLIDAY_FINALIZE_POLICY = SERVICE_URL
+			+ "/gi/workingHoliday/policies";
 	
 	/*API For Home Care Modules
 	*/

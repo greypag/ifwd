@@ -625,7 +625,6 @@ public class WorkingHolidayController {
 					
 					session.setAttribute("creditCardNo", encryptedCreditCard);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					session.setAttribute("creditCardNo", "");
 					e.printStackTrace();
 				}
@@ -651,8 +650,7 @@ public class WorkingHolidayController {
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
 			model.addAttribute("errormsg", "Session Expired");
-			return UserRestURIConstants.getSitePath(request)
-					+ "workingholiday/workingholiday-confirmation";
+			return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-confirmation";
 		}
 		
 		UserRestURIConstants.setController("WorkingHoliday");
@@ -663,49 +661,36 @@ public class WorkingHolidayController {
 
 		try {
 			JSONObject parameters = new JSONObject();
-			parameters.put("referenceNo",
-					session.getAttribute("finalizeReferenceNo"));
-			parameters
-					.put("transactionNumber", session.getAttribute("transNo"));
-			parameters.put("transactionDate",
-					session.getAttribute("transactionDate"));
+			parameters.put("referenceNo",session.getAttribute("finalizeReferenceNo"));
+			parameters.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate",session.getAttribute("transactionDate"));
 			
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
 			if (creditCardNo !=null) { 
-				parameters
-						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				return UserRestURIConstants.getSitePath(request)
-						+ "workingholiday/workingholiday-confirmation";
+				return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-confirmation";
 			}
 				
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
-			System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
-					+ parameters);
-			System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
-			responsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
-					parameters);
+			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+			System.out.println("WORKINGHOLIDAY_FINALIZE_POLICY parameters-" + parameters);
+			System.out.println("WORKINGHOLIDAY_FINALIZE_POLICY Header-" + header);
+			responsObject = restService.consumeApi(HttpMethod.POST,UserRestURIConstants.WORKINGHOLIDAY_FINALIZE_POLICY, header,parameters);
 			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
@@ -714,10 +699,8 @@ public class WorkingHolidayController {
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				
@@ -743,10 +726,8 @@ public class WorkingHolidayController {
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 				}
 				
-				System.out.println("workingholiday confirmation" + UserRestURIConstants.getSitePath(request)
-						+ "error");
-				return UserRestURIConstants.getSitePath(request)
-						+ "error";
+				System.out.println("workingholiday confirmation" + UserRestURIConstants.getSitePath(request) + "error");
+				return UserRestURIConstants.getSitePath(request) + "error";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -891,7 +872,7 @@ public class WorkingHolidayController {
 	}
 	
 	
-	/*
+/*	
 	 * if("hkId".equalsIgnoreCase(planDetailsForm.getSelectedAdHkidPass()[inx])){
 	 * adult.put("hkId", planDetailsForm.getAdultHKID()[inx]); }else{
 	 * adult.put("hkId", ""); }
@@ -899,7 +880,7 @@ public class WorkingHolidayController {
 	 * if("Passport".equalsIgnoreCase(planDetailsForm.getSelectedAdHkidPass()[inx
 	 * ])){ adult.put("passport", planDetailsForm.getAdultHKID()[inx]); }else{
 	 * adult.put("passport", ""); }
-	 */
+	 
 
 	private String checkPasswortAndHkid(String check, String selected,
 			String selectedHkidOrPassport) {
@@ -920,7 +901,7 @@ public class WorkingHolidayController {
 		}
 
 		return response;
-	}
+	}*/
 	
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/{lang}/applyWHQuote", method = RequestMethod.POST)
