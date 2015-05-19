@@ -16,7 +16,6 @@ var clicked = false;
  			$("#PaymentingDiv").show();
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
- 			alert(paymentFormId)
  			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
