@@ -43,7 +43,7 @@
 
 action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post"  
 -->
-
+<% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
 
 <script>
 
@@ -121,8 +121,14 @@ function activateUserAccountJoinUs() {
        
 }
 </script>
+<% }else{ %>
 
-
+<script>
+function activateUserAccountJoinUs() {
+	$('#frmYourDetails').submit()
+}
+</script>
+<% } %> 
 
 <!-- action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post" onsubmit="return tPlanValid();"-->
 <section>

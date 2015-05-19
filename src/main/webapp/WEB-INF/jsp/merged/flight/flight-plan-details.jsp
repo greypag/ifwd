@@ -43,7 +43,7 @@ Others   : ${planDetailsForm.getTotalOtherTraveller()} 		<br>
 
 
 
-
+<% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
 
 <script>
 
@@ -84,7 +84,12 @@ function activateUserAccountJoinUs() {
         name = document.getElementById("inputFullName").value;
         userName = document.getElementById("Username").value;
         email = document.getElementById("inputEmailId").value;
-    
+
+        $('#loading-overlay').modal({
+           backdrop: 'static',
+           keyboard: false
+        })
+        
        $.ajax({
                    type : 'POST',
                     url : '<%=request.getContextPath()%>/joinus',
@@ -108,22 +113,31 @@ function activateUserAccountJoinUs() {
                             
                             $("#link-error").click();
                             $(".error-hide").css("display", "block");
+                            $('#loading-overlay').modal('hide');
                             //alert("Something Wrong with user input, please check");
                             return;
                         } 
                     },
                     error : function(xhr, status, error) {
-
+                    	$('#loading-overlay').modal('hide');
                     }
-                });
+        });
     }
+    
+    $('#loading-overlay').modal('hide');
     
        return;
        
 }
 </script>
 
-
+<% }else{%>
+<script>
+function activateUserAccountJoinUs() {
+	$('#freeFlightForm').submit()
+}
+</script>
+<% } %> %>
 
 
 
