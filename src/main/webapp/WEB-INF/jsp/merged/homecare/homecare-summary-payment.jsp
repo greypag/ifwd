@@ -510,7 +510,7 @@
                         <div id="paydoller-wrap" class="declaration-content margin-left-small float">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
-                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.jpg" alt="">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
                              <fmt:message key="travel.action.paydollar" bundle="${msg}" />
@@ -518,7 +518,7 @@
                           </div>
                           <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
-                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.jpg" alt="">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
                              <fmt:message key="travel.action.visa" bundle="${msg}" />
@@ -526,7 +526,7 @@
                           </div>
                           <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
-                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.jpg" alt="">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
                              <fmt:message key="travel.action.master" bundle="${msg}" />

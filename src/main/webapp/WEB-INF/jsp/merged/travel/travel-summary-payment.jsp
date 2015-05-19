@@ -724,7 +724,7 @@
 							<tr class="control-group">
 								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label></td>
 								<td class="col-lg-4"><div class="styled-select payment-select"><select class="pay-details-select"
-									id="month" name="epMonth">
+									id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
 										<option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
 										<option value="1">01</option>
 										<option value="2">02</option>
@@ -740,7 +740,7 @@
 										<option value="12">12</option>
 								</select></div></td>
 								<td><div class="styled-select payment-select"><select class="pay-details-select" id="year"
-									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
 										<option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
 <!-- 										<option value="2015">2015</option> -->
 <!-- 										<option value="2016">2016</option> -->
@@ -904,7 +904,7 @@
 						<div id="paydoller-wrap" class="declaration-content margin-left-small float">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
-                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.jpg" alt="">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
                              <fmt:message key="travel.action.paydollar" bundle="${msg}" />
@@ -912,7 +912,7 @@
                           </div>
                           <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
-                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.jpg" alt="">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
                              <fmt:message key="travel.action.visa" bundle="${msg}" />
@@ -920,7 +920,7 @@
                           </div>
                           <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
-                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.jpg" alt="">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
                             <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
                              <fmt:message key="travel.action.master" bundle="${msg}" />

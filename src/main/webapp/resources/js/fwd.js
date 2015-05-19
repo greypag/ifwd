@@ -3602,11 +3602,18 @@ function payValid()
 	document.getElementById('errchk1').innerHTML="";
 	/*document.getElementById('errchk2').innerHTML="";*/
 
-	if(cardno.length<16 || !isCreditCard(cardno))
+	if(cardno.length<16)
 	{
 		flag=false;
 		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
 	}
+	
+	if(!isCreditCard(cardno))
+	{
+		flag=false;
+		$('#errcardno').html(getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"));
+	}
+	
 	if(month=="" || month== 0)
 	{
 		flag=false;
@@ -4802,7 +4809,7 @@ function hkidValid(ths){
 
 
 $(function () {
-
+	
 	
 	
 	var nowTemp = new Date();
