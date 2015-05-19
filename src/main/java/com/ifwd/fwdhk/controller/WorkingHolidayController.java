@@ -481,7 +481,7 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
 	public ModelAndView prepareSummary(@ModelAttribute("frmYourDetails") WorkingHolidayDetailsBean planDetailsForm, BindingResult result, Model model,
 			HttpServletRequest request) {
@@ -653,11 +653,66 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked" })
-	@RequestMapping(value = {"/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/processWorkingHolidayPayment")
+	@ResponseBody
+	public String processPayment(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		
+		
+		String referenceNo = request.getParameter("referenceNo");
+		
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", (String) session.getAttribute("token"));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.POST,
+				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
+				submitPolicy);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				String month = request.getParameter("epMonth");
+				System.out.println("month " + month);
+				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
+				System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
+				session.setAttribute("transactionNo", request.getParameter("transNo"));
+				String encryptedCreditCard = request.getParameter("cardNo");
+				System.out.println("cardNo "+ encryptedCreditCard);
+				
+				try {
+					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
+					System.out.println("encryptedCreditCard "+ encryptedCreditCard);
+					
+					session.setAttribute("creditCardNo", encryptedCreditCard);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					session.setAttribute("creditCardNo", "");
+					e.printStackTrace();
+				}
+				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				return "success";
+			} else {
+				return checkJsonObjNull(jsonResponse, "policyNo");
+			}
+		} else {
+			checkJsonObjNull(jsonResponse, "errMsgs");
+		}
+		return "fail";
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam(required = false) String Ref ) {
 		HttpSession session = request.getSession();
+		System.out.print("emailAddress :" + session.getAttribute("emailAddress"));
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
 			model.addAttribute("errormsg", "Session Expired");
@@ -665,10 +720,10 @@ public class WorkingHolidayController {
 					+ "workingholiday/workingholiday-confirmation";
 		}
 		
-		UserRestURIConstants.setController("Travel");
+		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
-
+		
 		JSONObject responsObject = new JSONObject();
 
 		try {
