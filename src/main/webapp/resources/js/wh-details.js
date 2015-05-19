@@ -148,6 +148,41 @@ $(function () {
 		$("#whInsHKID").html('');
 	});
 	
+	$( "#inputWhInsEstate" ).on( "change blur", function() {
+	    var whInsEstate = $(this).val();
+	    var whInsBuilding = $("#inputWhInsBuilding").val();
+		if (whInsEstate.trim() == "" && whInsBuilding.trim() == "" ) {
+			$("#whInsEstate").html( getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+			return false;
+		}
+		$("#whInsEstate").html('');
+	});
+	
+	$( "#inputWhInsBuilding" ).on( "change blur", function() {
+	    var whInsBuilding = $(this).val();
+	    var whInsEstate = $("#inputWhInsEstate").val();
+		if (whInsBuilding.trim() == "" && whInsEstate.trim() == "" ) {
+			$("#whInsBuilding").html( getBundle(getBundleLanguage, "workinghoilday.building.message"));
+			return false;
+		}
+		$("#whInsBuilding").html('');
+	});
+	
+	//payment
+	$( "#seccode" ).on( "change blur", function() {
+	    var seccode = $(this).val();
+		if (seccode.trim() == "") {
+			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));//"Please enter your Name in English.";
+			return false;
+		}else{
+			if(seccode.length<3)
+			{
+				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
+				return false;
+			}
+		}
+		$("#errcode").html('');
+	});
 });
 
 function dateFormate(thisDate) {
@@ -264,7 +299,7 @@ function whDetailsValid(){
 		}
 	}
 	
-	if (WhInsRoom.trim() == "") {
+	/*if (WhInsRoom.trim() == "") {
 		$("#whInsRoom").html(getBundle(getBundleLanguage, "workinghoilday.room.message"));
 		flag = false;
 	}
@@ -279,6 +314,11 @@ function whDetailsValid(){
 	if (WhInsEstate.trim() == "") {
 		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
 		flag = false;
+	}*/
+	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
+		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
+		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+		flag = false;
 	}
 	if (WhInseffectiveDate.trim() == "") {
 		$("#whInseffectiveDate").html(getBundle(getBundleLanguage, "workinghoilday.effectivedate.message"));
@@ -291,4 +331,65 @@ function whDetailsValid(){
     		wh_click = true;
     	return flag;
     }	
+}
+
+function whPayValid()
+{
+
+	var flag=true;
+	var cardno=document.getElementById("cardnumber").value;
+
+	var month=document.getElementById("month").value;
+
+
+	var year=document.getElementById("year").value;
+	var seccode=document.getElementById("seccode").value;
+	var holdername=document.getElementById("holdername").value;
+
+	document.getElementById('errcardno').innerHTML="";
+	document.getElementById('errmonth').innerHTML="";
+	document.getElementById('erryear').innerHTML="";
+	document.getElementById('errname').innerHTML="";	
+	document.getElementById('errcode').innerHTML="";
+	document.getElementById('errchk1').innerHTML="";
+	/*document.getElementById('errchk2').innerHTML="";*/
+
+	if(cardno.length<16 || !isCreditCard(cardno))
+	{
+		flag=false;
+		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
+	}
+	if(month=="" || month== 0)
+	{
+		flag=false;
+		$('#errmonth').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.month.notValid.message"));
+	}
+	if(year=="" || year == 0)
+	{
+		flag=false;
+		$('#erryear').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.year.notValid.message"));
+	}
+	if(holdername.trim()=="")
+	{
+		flag=false;
+		$('#errname').html(getBundle(getBundleLanguage, "payment.creditCard.name.notValid.message"));
+	}
+	if(seccode.trim()=="")
+	{
+		flag=false;
+		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));
+	}else{
+		if(seccode.length<3)
+		{
+			flag=false;
+			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
+		}
+	}
+	if (document.getElementById("checkbox3").checked == false)
+	{
+		$('#errchk1').html(getBundle(getBundleLanguage, "payment.tnc.notChecked.message"));
+		flag = false;
+	}
+	
+	return flag;
 }
