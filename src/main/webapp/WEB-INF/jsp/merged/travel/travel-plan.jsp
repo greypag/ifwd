@@ -1470,7 +1470,7 @@ if(personalTraveller>familyTraveller){
                      <span aria-hidden="true" style="font-size:30px;">×</span>
                    </a>
                 </div>
-                    <form>
+                    
                     <div class="form-container">
                         <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
                         <div class="alert alert-success hide proSuccess"></div>
@@ -1483,8 +1483,7 @@ if(personalTraveller>familyTraveller){
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-                                    onclick="return sendEmail()" "><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="return sendEmail()" "><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
                             </div>
                             <div class="col-md-2">
                                 <br>
@@ -1498,7 +1497,6 @@ if(personalTraveller>familyTraveller){
                             </div>
                         </div>
                     </div>
-                </form>
                 </div>
                 
                 
