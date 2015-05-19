@@ -144,23 +144,6 @@ public class WorkingHolidayController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 		
-		/*System.out.println("PERSONAL " + workingholidayQuote.getTotalPersonalWorkingHolidayer());
-		System.out.println("ADULT " + workingholidayQuote.getTotalAdultWorkingHolidayer());
-		System.out.println("CHILD " + workingholidayQuote.getTotalChildWorkingHolidayer());
-		System.out.println("OTHER " + workingholidayQuote.getTotalOtherWorkingHolidayer());
-		
-		
-		System.out.println("LeavingDate " + workingholidayQuote.getTrLeavingDate());
-		System.out.println("BackDate " + workingholidayQuote.getTrBackDate());*/
-		
-		/*if (workingholidayQuote.getTrLeavingDate() != null) {
-			session.setAttribute("workingholidayQuote", workingholidayQuote);
-		} else {
-			workingholidayQuote = (WorkingHolidayQuoteBean) session.getAttribute("workingholidayQuote");
-			if(workingholidayQuote == null){
-				return getWorkingHolidayHomePage((String)session.getAttribute("referralCode"), request, model);		
-			}				
-		}*/
 		try {
 			String token = null, username = null;
 			if ((session.getAttribute("token") != null)
@@ -174,54 +157,6 @@ public class WorkingHolidayController {
 					username = session.getAttribute("username").toString();
 				}
 			}
-
-			//int days = 0;
-
-			/* Calculate total Days */
-			//Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
-			//Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
-			//LocalDate expiryDate = new LocalDate(dateD2);
-			//days = Days.daysBetween(commencementDate, expiryDate).getDays();
-			//workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
-
-			/*int otherCount = 0, childCount = 0, adultCount = 0;
-			boolean spouseCover = false, selfCover = false;
-			if (workingholidayQuote.getPlanSelected().equals("personal")) {
-				selfCover = true;
-				spouseCover = false;
-				otherCount = workingholidayQuote.getTotalPersonalWorkingHolidayer();
-				workingholidayQuote.setTotalChildWorkingHolidayer(0);
-				workingholidayQuote.setTotalAdultWorkingHolidayer(0);
-				workingholidayQuote.setTotalOtherWorkingHolidayer(otherCount - 1);
-				otherCount = workingholidayQuote.getTotalOtherWorkingHolidayer();
-
-			} else {
-				workingholidayQuote.setTotalPersonalWorkingHolidayer(0);
-				adultCount = workingholidayQuote.getTotalAdultWorkingHolidayer();
-				childCount = workingholidayQuote.getTotalChildWorkingHolidayer();
-				otherCount = workingholidayQuote.getTotalOtherWorkingHolidayer();
-				selfCover = true;
-				if (adultCount > 1) {
-					spouseCover = true;
-				} else {
-					spouseCover = false;
-				}
-			}
-			
-			WorkingHolidayQuoteBean workingholidayQuoteCount = new WorkingHolidayQuoteBean();
-			workingholidayQuoteCount.setSelfCover(selfCover);
-			workingholidayQuoteCount.setSpouseCover(spouseCover);
-			workingholidayQuoteCount.setTotalChildWorkingHolidayer(childCount);
-			workingholidayQuoteCount.setTotalOtherWorkingHolidayer(otherCount);
-			session.setAttribute("workingholidayQuoteCount", workingholidayQuoteCount);
-			
-			System.out.println("------------------------------------------------------------");
-			System.out.println("CALLING API");
-			System.out.println("SELF COVER " + selfCover);
-			System.out.println("SPOUSE COVER " + spouseCover);
-			System.out.println("CHILD COUNT " + childCount);
-			System.out.println("OTHER COUNT " + otherCount);		
-			System.out.print("------------------------------------------------------------");*/
 			
 			
 			LocalDate commencementDate = new LocalDate(new Date());
@@ -481,7 +416,7 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
 	public ModelAndView prepareSummary(@ModelAttribute("frmYourDetails") WorkingHolidayDetailsBean planDetailsForm, BindingResult result, Model model,
 			HttpServletRequest request) {
@@ -653,11 +588,66 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked" })
-	@RequestMapping(value = {"/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/processWorkingHolidayPayment")
+	@ResponseBody
+	public String processPayment(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		
+		
+		String referenceNo = request.getParameter("referenceNo");
+		
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", (String) session.getAttribute("token"));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.POST,
+				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
+				submitPolicy);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				String month = request.getParameter("epMonth");
+				System.out.println("month " + month);
+				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
+				System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
+				session.setAttribute("transactionNo", request.getParameter("transNo"));
+				String encryptedCreditCard = request.getParameter("cardNo");
+				System.out.println("cardNo "+ encryptedCreditCard);
+				
+				try {
+					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
+					System.out.println("encryptedCreditCard "+ encryptedCreditCard);
+					
+					session.setAttribute("creditCardNo", encryptedCreditCard);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					session.setAttribute("creditCardNo", "");
+					e.printStackTrace();
+				}
+				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				return "success";
+			} else {
+				return checkJsonObjNull(jsonResponse, "policyNo");
+			}
+		} else {
+			checkJsonObjNull(jsonResponse, "errMsgs");
+		}
+		return "fail";
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam(required = false) String Ref ) {
 		HttpSession session = request.getSession();
+		System.out.print("emailAddress :" + session.getAttribute("emailAddress"));
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
 			model.addAttribute("errormsg", "Session Expired");
@@ -665,10 +655,10 @@ public class WorkingHolidayController {
 					+ "workingholiday/workingholiday-confirmation";
 		}
 		
-		UserRestURIConstants.setController("Travel");
+		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
-
+		
 		JSONObject responsObject = new JSONObject();
 
 		try {

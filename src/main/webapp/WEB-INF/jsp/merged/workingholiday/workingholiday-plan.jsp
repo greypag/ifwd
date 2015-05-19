@@ -8,6 +8,8 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
+<%@page import="java.text.DecimalFormat"%>
+
 <script>
 var promoData = '';
 	function getuserDetails() {
@@ -190,10 +192,11 @@ var promoData = '';
 								
 								<h3><fmt:message key="workingholiday.dollar" bundle="${msg}" /></h3>
 								<%
+										DecimalFormat df = new DecimalFormat("#,###,###,##0");
 										if (Double.parseDouble(workingholidayQuote.getDiscountAmount()[i]) == 0) {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=workingholidayQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(workingholidayQuote.getGrossPremium()[i]))%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=workingholidayQuote.getPlanName()[i]%>"><%=df.format(Double.parseDouble(workingholidayQuote.getGrossPremium()[i]))%></span>
 									<span class="hide"><%=workingholidayQuote.getGrossPremium()[i]%></span>
 								</h6>
 								<span class="del actualPrice<%=workingholidayQuote.getPlanName()[i]%>"><del></del></span>
@@ -201,10 +204,10 @@ var promoData = '';
 										} else {
 									%>
 									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=workingholidayQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(workingholidayQuote.getToalDue()[i]))%></span>
+									<span id="grossPremium"<%=i%> class="totalPrice<%=workingholidayQuote.getPlanName()[i]%>"><%=df.format(Double.parseDouble(workingholidayQuote.getToalDue()[i]))%></span>
 									<span class="hide"><%=workingholidayQuote.getGrossPremium()[i]%></span>
 								</h6>
-								<span class="del actualPrice<%=workingholidayQuote.getPlanName()[i]%>"><del><%=String.format("%.2f",Double.parseDouble(workingholidayQuote.getGrossPremium()[i]))%></del></span>
+								<span class="del actualPrice<%=workingholidayQuote.getPlanName()[i]%>"><del><%=df.format(Double.parseDouble(workingholidayQuote.getGrossPremium()[i]))%></del></span>
 									<%
 										}
 									%>
