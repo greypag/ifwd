@@ -278,7 +278,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                        <!-- english name start -->
 	                       <div class="form-group float">
 	                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                               <label for="inputFullName" class="bold-500">
+	                               <label for="inputFullName" class="bold-500 field-label">
 	                                   <fmt:message key="flight.details.applicant.name" bundle="${msg}" />
 	                               </label>
 	                           </div>
@@ -296,7 +296,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                       <!-- id card starts -->
 	                       <div class="form-group float">
 	                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                               <label for="inputFullName" class="bold-500">
+	                               <label for="inputFullName" class="bold-500 field-label">
 	                                   <fmt:message key="flight.details.applicant.hkid" bundle="${msg}" />
 	                               </label>
 	                           </div>
@@ -310,7 +310,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                       <!-- birthday starts -->
 	                       <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label for="inputFullName" class="bold-500">
+                                   <label for="inputFullName" class="field-label bold-500">
                                        <fmt:message key="flight.details.applicant.birthday" bundle="${msg}" />
                                    </label>
                                </div>
@@ -325,7 +325,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                       <!-- mobile starts -->
 	                       <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label for="inputFullName" class="bold-500">
+                                   <label for="inputFullName" class="field-label bold-500">
                                        <fmt:message key="flight.details.applicant.mobile" bundle="${msg}" />
                                    </label>
                                </div>
@@ -343,7 +343,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                       <!-- email address starts -->
 	                       <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label for="inputFullName" class="bold-500">
+                                   <label for="inputFullName" class="field-label bold-500">
                                        <fmt:message key="flight.details.applicant.email" bundle="${msg}" />
                                    </label>
                                </div>
@@ -459,7 +459,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             </div>
                             <div class="form-group float row">
 							   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-							       <label for="inputFullName" class="bold-500">
+							       <label for="inputFullName" class="field-label bold-500">
 							           <fmt:message key="flight.details.registration.username" bundle="${msg}" />
 							       </label>
 							   </div>
@@ -473,7 +473,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							</div>
 							<div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label for="inputEmail3" class="bold-500">
+                                   <label for="inputEmail3" class="field-label bold-500">
                                         <fmt:message key="flight.details.registration.password" bundle="${msg}" />
                                    </label>
                                </div>
@@ -487,7 +487,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label for="inputEmail3" class="bold-500">
+                                   <label for="inputEmail3" class="field-label bold-500">
                                         <fmt:message
                                          key="flight.details.registration.confirmPassword"
                                          bundle="${msg}" />
@@ -590,7 +590,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- english name start -->
 			                           <div class="form-group float">
 			                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-			                                   <label for="inputFullName" class="bold-500">
+			                                   <label for="inputFullName" class="field-label bold-500">
 			                                       <fmt:message key="flight.details.insured.name" bundle="${msg}" />
 			                                   </label>
 			                               </div>
@@ -618,7 +618,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 			                           <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500">
+                                               <label class="field-label bold-500">
                                                    <fmt:message key="flight.details.applicant.hkid" bundle="${msg}" />
                                                </label>
                                            </div>
@@ -636,7 +636,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -663,7 +663,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -685,7 +685,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- personalbenificiaryId start -->
 									   <div class="form-group float hide" id="personalbenificiaryId${inx}">
 									       <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-									           <label class="bold-500"><fmt:message
+									           <label class="field-label bold-500"><fmt:message
                                                 key="flight.details.insured.beneficiary.name"
                                                 bundle="${msg}" /></label>
 									       </div>
@@ -703,7 +703,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									   <!-- personalbenificiaryId b start -->
                                        <div class="form-group float hide" id="personalbenificiaryId${inx}b">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                              <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                             key="flight.details.insured.beneficiary.hkid"
                                                             bundle="${msg}" /></label>
                                                     <div class="styled-select">
@@ -878,7 +878,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -905,7 +905,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                             key="flight.details.applicant.hkid"
                                                             bundle="${msg}" /></label>
                                            </div>
@@ -923,7 +923,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -950,7 +950,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -972,7 +972,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- adult beneficiary start -->
                                        <div id="adultsbenificiaryId${inx}" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500"><fmt:message
+                                               <label class="field-label form-label bold-500"><fmt:message
                                                 key="flight.details.insured.beneficiary.name"
                                                 bundle="${msg}" /></label>
                                            </div>
@@ -990,7 +990,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- adult beneficiary 2 start -->
                                        <div id="adultsbenificiaryId${inx}b" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                               <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                             key="flight.details.insured.beneficiary.hkid"
                                                             bundle="${msg}" /></label>
                                                     <div class="styled-select">
@@ -1164,7 +1164,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1181,7 +1181,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                             key="flight.details.applicant.hkid"
                                                             bundle="${msg}" /></label>
                                            </div>
@@ -1197,7 +1197,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1225,7 +1225,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1249,7 +1249,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- child beneficiary start -->
                                        <div id="childbenificiaryId${inx}" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                 key="flight.details.insured.beneficiary.name"
                                                 bundle="${msg}" /></label>
                                            </div>
@@ -1443,7 +1443,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1460,7 +1460,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500">
+                                               <label class="field-label bold-500">
                                                <fmt:message
                                                             key="flight.details.applicant.hkid"
                                                             bundle="${msg}" /></label>
@@ -1478,7 +1478,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1505,7 +1505,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1531,7 +1531,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- other beneficiary start -->
                                        <div id="otherbenificiaryId${inx}" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message
+                                               <label class="field-label bold-500"><fmt:message
                                                     key="flight.details.insured.beneficiary.name"
                                                     bundle="${msg}" /></label>
                                            </div>
@@ -1550,7 +1550,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <!-- other beneficiary 2 start -->
                                        <div id="otherbenificiaryId${inx}b" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                               <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="flight.details.insured.beneficiary.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">

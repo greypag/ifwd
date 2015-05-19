@@ -265,7 +265,7 @@ function activateUserAccountJoinUs() {
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label
-                                        for="inputFullName" class="bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
+                                        for="inputFullName" class="field-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="text" name="fullName"
@@ -280,7 +280,7 @@ function activateUserAccountJoinUs() {
                            <!-- id card starts -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                <label class="form-label bold-500 hidden-lg hidden-md">
+                                <label class="field-label form-label bold-500 hidden-lg hidden-md">
                                     <fmt:message key="travel.details.insured.beneficiary.hkid" bundle="${msg}" />
                                 </label>
                                    <div class="styled-select ">
@@ -306,9 +306,9 @@ function activateUserAccountJoinUs() {
                            <!-- id card ends -->
                            <!-- birthday starts -->
                            <div class="form-group float">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                               <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label for="inputApplicantDob"
-                                        class="bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label>
+                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -320,9 +320,9 @@ function activateUserAccountJoinUs() {
                            <!-- birthday ends -->
                            <!-- mobile starts -->
                            <div class="form-group float">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                               <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label for="inputMobileNo"
-                                        class="bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
+                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                     <input name="mobileNo" type="text"
@@ -337,9 +337,9 @@ function activateUserAccountJoinUs() {
                            <!-- mobile ends -->
                            <!-- email address starts -->
                            <div class="form-group float">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                               <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label for="inputEmailId"
-                                        class="bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label>
+                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input class="form-control full-control" name="emailAddress"
@@ -443,7 +443,7 @@ function activateUserAccountJoinUs() {
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label class="bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label>
+                                   <label class="field-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="text"
@@ -455,7 +455,7 @@ function activateUserAccountJoinUs() {
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label
-                                            class="bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label>
+                                            class="field-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="password"
@@ -467,7 +467,7 @@ function activateUserAccountJoinUs() {
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label
-                                            class="bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label>
+                                            class="field-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                   <input type="password"
@@ -558,7 +558,7 @@ function activateUserAccountJoinUs() {
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <c:if test="${inx == 1}">
@@ -599,7 +599,7 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
@@ -659,7 +659,7 @@ function activateUserAccountJoinUs() {
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
@@ -680,7 +680,7 @@ function activateUserAccountJoinUs() {
                                        <!-- personalbenificiaryId start -->
                                        <div class="form-group float hide" id="personalbenificiaryId${inx}">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <input type="text"
@@ -697,7 +697,7 @@ function activateUserAccountJoinUs() {
                                        <!-- personalbenificiaryId b start -->
                                        <div class="form-group float hide" id="personalbenificiaryId${inx}b">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                              <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                             key="travel.details.insured.beneficiary.hkid"
                                                             bundle="${msg}" /></label>
                                               <div class="styled-select">
@@ -890,7 +890,7 @@ function activateUserAccountJoinUs() {
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <c:if test="${inx == 1}">
@@ -914,7 +914,7 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="travel.details.insured.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">
@@ -934,7 +934,7 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                               <div class="styled-select">
@@ -994,7 +994,7 @@ function activateUserAccountJoinUs() {
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                              <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
+                                              <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
@@ -1015,7 +1015,7 @@ function activateUserAccountJoinUs() {
                                         <!-- adult beneficiary start -->
                                        <div id="adultsbenificiaryId${inx}" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
+                                               <label class="field-label form-label bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                               <input type="text"
@@ -1032,7 +1032,7 @@ function activateUserAccountJoinUs() {
                                        <!-- adult beneficiary 2 start -->
                                        <div id="adultsbenificiaryId${inx}b" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                               <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="travel.details.insured.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">
@@ -1231,7 +1231,7 @@ function activateUserAccountJoinUs() {
                                          <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <input type="text"
@@ -1246,7 +1246,7 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="travel.details.insured.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">
@@ -1268,7 +1268,7 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
@@ -1294,7 +1294,7 @@ function activateUserAccountJoinUs() {
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
@@ -1316,7 +1316,7 @@ function activateUserAccountJoinUs() {
                                        <!-- child beneficiary start -->
                                        <div id="childbenificiaryId${inx}" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <input type="text"
@@ -1332,7 +1332,7 @@ function activateUserAccountJoinUs() {
                                        <!-- child beneficiary 2 start -->
                                        <div id="childbenificiaryId${inx}b" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                               <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="travel.details.insured.beneficiary.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">
@@ -1492,7 +1492,7 @@ function activateUserAccountJoinUs() {
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <input type="text"
@@ -1507,7 +1507,7 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="travel.details.insured.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">
@@ -1530,7 +1530,7 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select"><select
@@ -1554,7 +1554,7 @@ function activateUserAccountJoinUs() {
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>                                           </div>
+                                                <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>                                           </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                               <div class="styled-select"><select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
                                                         onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
@@ -1573,7 +1573,7 @@ function activateUserAccountJoinUs() {
                                        <!-- other beneficiary start -->
                                        <div id="otherbenificiaryId${inx}" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <input type="text"
@@ -1589,7 +1589,7 @@ function activateUserAccountJoinUs() {
                                        <!-- other beneficiary 2 start -->
                                        <div id="otherbenificiaryId${inx}b" class="form-group float hide">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                               <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                               <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                           key="travel.details.insured.beneficiary.hkid"
                                                           bundle="${msg}" /></label>
                                                <div class="styled-select">

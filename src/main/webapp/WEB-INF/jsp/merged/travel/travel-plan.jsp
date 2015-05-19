@@ -1250,7 +1250,14 @@ if(personalTraveller>familyTraveller){
                               
 								<!-- return date end  -->
 								<!-- traveller start -->
-								
+								<div id="numOfDays">
+                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
+                                        type="hidden" name="totalTravellingDays"
+                                        id="totalTravellingDays"
+                                        value="${travelQuoteBean.getTotalTravellingDays()}">
+                                    </span>
+                                    <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
+                                </div>
 								<!-- traveller end -->
 								
 								<h3><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
@@ -1380,13 +1387,7 @@ if(personalTraveller>familyTraveller){
 						%>
 						</div>
 					</div>
-								<h3>
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
-										type="hidden" name="totalTravellingDays"
-										id="totalTravellingDays"
-										value="${travelQuoteBean.getTotalTravellingDays()}">
-									</span>
-								</h3>
+								
 							</div>
 						</div>
 						<div class="col-xs-12">

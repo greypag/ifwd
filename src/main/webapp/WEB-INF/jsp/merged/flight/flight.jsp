@@ -440,6 +440,10 @@ $(document).ready(function() {
                 </span> </div>
             </div>
             <div class="clearfix"></div>
+            <div class="col-lg-12 child-notes">
+                <h4><fmt:message key="flight.main.quote.childnotes" bundle="${msg}" /></h4>
+            </div>
+            <div class="clearfix"></div>
           </div>
           <!-- End of family plan mobile spinner -->
           <div class="clearfix"></div>

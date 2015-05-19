@@ -551,7 +551,7 @@ function activateUserAccountJoinUs() {
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
 	                                  <label
-                                            class="bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label>
+                                            class="field-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <input type="text"
@@ -566,7 +566,7 @@ function activateUserAccountJoinUs() {
 	                           <!-- id card starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                                   <label class="form-label bold-500 hidden-lg hidden-md"><fmt:message
+	                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                             key="home.details.applicant.hkid"
                                                             bundle="${msg}" /></label>
 	                                   <div class="styled-select">
@@ -599,7 +599,7 @@ function activateUserAccountJoinUs() {
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
 	                                   <label for="inputApplicantDob"
-                                            class="bold-500"><fmt:message key="home.details.applicant.birthday" bundle="${msg}" /></label>
+                                            class="field-label bold-500"><fmt:message key="home.details.applicant.birthday" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                    <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -612,7 +612,7 @@ function activateUserAccountJoinUs() {
 	                           <!-- mobile starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                                   <label for="inputFullName" class="bold-500">
+	                                   <label for="inputFullName" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.mobile" bundle="${msg}" />
 	                                   </label>
 	                               </div>
@@ -630,7 +630,7 @@ function activateUserAccountJoinUs() {
 	                           <!-- email address starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                                   <label for="inputFullName" class="bold-500">
+	                                   <label for="inputFullName" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.email" bundle="${msg}" />
 	                                   </label>
 	                               </div>
@@ -745,7 +745,7 @@ function activateUserAccountJoinUs() {
 	                            </div>
 	                            <div class="form-group float row">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                                   <label class="bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label>
+	                                   <label class="field-label bold-500"><fmt:message key="home.details.registration.username" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <input type="text"
@@ -757,7 +757,7 @@ function activateUserAccountJoinUs() {
 	                            <div class="form-group float row">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
 	                                   <label
-                                                class="bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label>
+                                                class="field-label bold-500"><fmt:message key="home.details.registration.password" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <input type="password"
@@ -769,7 +769,7 @@ function activateUserAccountJoinUs() {
 	                            <div class="form-group float row">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
 	                                   <label
-	                                            class="bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label>
+	                                            class="field-label bold-500"><fmt:message key="home.details.registration.confirmPassword" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                  <input type="password"
@@ -837,7 +837,7 @@ function activateUserAccountJoinUs() {
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
 	                                   <label
-	                                        for="inputFullName" class="bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label>
+	                                        for="inputFullName" class="field-label bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <!-- room, floor, block start -->
@@ -1099,7 +1099,7 @@ function activateUserAccountJoinUs() {
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                        <label
-                                            for="inputFullName" class="bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label>
+                                            for="inputFullName" class="field-label bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                        <!-- room, floor, block start -->
@@ -1251,7 +1251,7 @@ function activateUserAccountJoinUs() {
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                       <label
-                                        class="bold-500"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
+                                        class="field-label bold-500"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
                                        </label>                                        
                                     </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -1283,7 +1283,7 @@ function activateUserAccountJoinUs() {
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                       <label
-                                        class="bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
+                                        class="field-label bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
                                     </label>
                                     </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
