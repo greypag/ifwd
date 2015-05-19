@@ -6522,6 +6522,7 @@ tr.product-landing-error-wrap {
     .summary-header-margin{
         margin-top:40px;
         margin-bottom:40px;
+        margin-left: -15px;
     }
     
     .summary-header{
@@ -6555,6 +6556,7 @@ tr.product-landing-error-wrap {
 	.summary-header-margin{
         margin-top:40px;
         margin-bottom:40px;
+        margin-left: -15px;
     }
     
     .summary-header{

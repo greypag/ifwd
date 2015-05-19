@@ -140,7 +140,7 @@
 											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.getReferenceNo()}</div>
 										</div>
 										<div class="row summary-row">
-											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"></div>
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.plan" bundle="${msg}" /></div>
 											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /> ${selectPlanName}</div>
 										</div>
 										<div class="row summary-row">
