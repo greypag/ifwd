@@ -84,6 +84,12 @@ function activateUserAccountJoinUs() {
     	userName = document.getElementById("Username").value;
     	email = document.getElementById("inputEmailId").value;
     
+    	$('#loading-overlay').modal({
+            backdrop: 'static',
+            keyboard: false
+         })
+    	
+    	
        $.ajax({
                    type : 'POST',
                     url : '<%=request.getContextPath()%>/joinus',
@@ -107,11 +113,13 @@ function activateUserAccountJoinUs() {
                             
                             $("#link-error").click();
                             $(".error-hide").css("display", "block");
+                            $('#loading-overlay').modal('hide');
                             //alert("Something Wrong with user input, please check");
                             return;
                         } 
                     },
                     error : function(xhr, status, error) {
+                    	$('#loading-overlay').modal('hide');
 
                     }
                 });
