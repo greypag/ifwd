@@ -1466,11 +1466,10 @@ if(personalTraveller>familyTraveller){
   <div class="modal-dialog modal-lg">
             <div class="modal-content plan-modal">
                 <div class="login-form" id="sendmailofpromocode">
-                <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
                      <span aria-hidden="true" style="font-size:30px;">×</span>
                    </a>
                 </div>
-                    
                     <div class="form-container">
                         <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
                         <div class="alert alert-success hide proSuccess"></div>
@@ -1483,7 +1482,7 @@ if(personalTraveller>familyTraveller){
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="return sendEmail()" "><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
                             </div>
                             <div class="col-md-2">
                                 <br>
@@ -1504,6 +1503,14 @@ if(personalTraveller>familyTraveller){
         </div>
 </div>
 <!--/ Get promotion code popup-->
+
+<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content plan-modal">
+		
+		</div>
+	</div>
+</div>
 
 <div class="scroll-to-top">
     <a title="Scroll to top" href="#">
@@ -1537,6 +1544,12 @@ if(personalTraveller>familyTraveller){
             $('#myFWDropdown').toggleClass('hide-html');
             $("#show-traveller").hide();
             
+        });
+        
+        $('#emailToSendPromoCode').keypress(function (e) {
+            if (e.which == '13') {
+            	sendEmail();
+            }
         });
 	});
 	
@@ -1603,14 +1616,14 @@ if(personalTraveller>familyTraveller){
 			$.ajax({
 				type : "POST",
 				url : "<%=request.getContextPath()%>/sendEmail",
-				data : $("#sendmailofpromocode form").serialize(),
+				data : "emailToSendPromoCode="+encodeURI($("#emailToSendPromoCode").val())+"&planCode=TRAVELCARE",
 				async : false,
 				success : function(data) {
 					
 					if (data == 'success') {
 						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+						$("#getPromotionClose").trigger("click");
 					} else {
-						
 						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
 
