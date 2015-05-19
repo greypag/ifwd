@@ -922,43 +922,4 @@ public class WorkingHolidayController {
 		return response;
 	}
 	
-	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/{lang}/applyWHQuote", method = RequestMethod.POST)
-	@ResponseBody
-	public String processWHQuote(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
-		HttpSession session = request.getSession();
-//		String trLeavingDate = request.getParameter("trLeavingDate");
-//		String trBackDate = request.getParameter("trBackDate");
-		String trLeavingDate = "11 May 2015";
-		String trBackDate = "11 May 2016";
-		
-		
-		String referralCode = request.getParameter("referralCode");
-		String selectedPlanName = request.getParameter("selectedPlanName");
-		LocalDate commencementDate = new LocalDate(new Date(trLeavingDate));
-  		LocalDate expiryDate = new LocalDate(new Date(trBackDate));
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		if (lang.equals("tc")) {
-			lang = "CN";
-		}
-		if (request.getSession().getAttribute("username") != null) {
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-		}
-  		StringBuffer sb = new StringBuffer("?commencementDate=").append(commencementDate).append("&expiryDate=").append(expiryDate)
- 				.append("&referralCode=").append(referralCode).append("&planCode=").append("WorkingHoliday");
- 		String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + sb.toString();
-		
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
-		
-		System.out.println("------------------------------------------------------------");
-		System.out.println(Url);
-		System.out.println(responseJsonObj);
-		return responseJsonObj.toJSONString();
-	}
-	
 }
