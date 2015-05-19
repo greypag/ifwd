@@ -50,8 +50,18 @@ action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-s
 
 
 function activateUserAccountJoinUs() {
-    
-    
+	//html change, change the submit input type to button, add a onclick function
+	//html change, added some error html note for user, so they know if the user name and email is not success
+	
+    //basic logic(how it works)    
+    /*
+    1. if no username or password is filled, direct submit the form
+    2. if username field is filled, call the create user ajax and post data
+    3. if the data has something wrong, return and show msg.
+    4. if the data is correct, user created and will continue to submit the form.
+    5, If user is created and the normal form data is missing, 
+       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
+    */
     name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;
@@ -60,18 +70,44 @@ function activateUserAccountJoinUs() {
     if(name == "" && password == "" && password2 == ""){
     	$('#frmYourDetails').submit()
     }else{
+    	optIn1 = "false"
+    	optIn2 = "false"
+        if($('#checkbox4').is(':checked')){
+        	optIn2 = "true";	
+        }
+    	if($('#checkbox3').is(':checked')){
+            optIn1 = "true";    
+        }
+    	password = document.getElementById("Password").value; 
+    	mobile = document.getElementById("inputMobileNo").value;
+    	name = document.getElementById("inputFullName").value;
+    	userName = document.getElementById("Username").value;
+    	email = document.getElementById("inputEmailId").value;
+    
        $.ajax({
                    type : 'POST',
-                   url : '<%=request.getContextPath()%>/joinus',
-                    data : $('#frmYourDetails').serialize(),
+                    url : '<%=request.getContextPath()%>/joinus',
+                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email },
                     async : false,
                     success : function(data) {
                         
-                        if (data == 'success') {                            
+                        if (data == 'success') {
+                        	$(".error-hide").css("display", "none");
+                        	
+                        	$(".membership-wrap").css("display", "none"); 
+                            document.getElementById("Username").value = "";
+                            document.getElementById("Password").value = "";
+                            document.getElementById("Confirm-Password").value = "";
+                            
+                            $("#link-error").click();
+                            
                              $('#frmYourDetails').submit()
                             return;                            
                         } else {
-                            alert("Something Wrong with user input, please check");
+                            
+                            $("#link-error").click();
+                            $(".error-hide").css("display", "block");
+                            //alert("Something Wrong with user input, please check");
                             return;
                         } 
                     },
@@ -80,7 +116,7 @@ function activateUserAccountJoinUs() {
                     }
                 });
     }
-       
+    
        return;
        
 }
@@ -94,7 +130,7 @@ function activateUserAccountJoinUs() {
         <div class="row">
         
 
-            <form:form name="frmYourDetails" id="frmYourDetails" modelAttribute="frmYourDetails" method="post" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" >
+            <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="return tPlanValid();" modelAttribute="frmYourDetails" method="post" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" >
                 <ol class="breadcrumb pad-none">
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -354,8 +390,14 @@ function activateUserAccountJoinUs() {
                         %>
                         <div class="gray-bg3-wid container membership-wrap">
                             <div class="membership-header">
+                                <a id="link-error" class="scroll-to-top" style="display:none;" href="#"></a>
                                 <h3><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
                                 <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i>
+                                
+                                <h3 class="error-hide" style='display:none; color:red; font-size:15px;'>
+                                    Your member account is not created. The Username may have already been in use.<br />您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
+                                </h3>
+                                
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">

@@ -308,6 +308,7 @@ public class UserController {
 			params.put("optIn1", optIn1);
 			params.put("optIn2", optIn2);
 			
+			//added this for ajax sign up for those forms
 			if(servletRequest.getParameter("userName") != null && servletRequest.getParameter("password") != null){
 				params.put("userName", servletRequest.getParameter("userName"));
 				params.put("password", servletRequest.getParameter("password"));
