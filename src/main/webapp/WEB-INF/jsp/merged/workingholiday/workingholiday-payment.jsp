@@ -9,6 +9,7 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
+var clicked = false;
 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
 		if (payValid() && clicked === false) {
  			clicked = true;
