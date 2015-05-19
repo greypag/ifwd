@@ -345,6 +345,7 @@
 	}
 </script>
 
+<% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
 <script>
 
 function activateUserAccountJoinUs() {
@@ -421,6 +422,13 @@ function activateUserAccountJoinUs() {
 }
 </script>
 
+<% }else{%>
+<script>
+function activateUserAccountJoinUs() {
+	$('#frmYourDetails').submit()
+}
+</script>
+<% } %> 
 </head>
 <body>
 	
