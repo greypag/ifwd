@@ -11,7 +11,7 @@
 <script>
 var clicked = false;
 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-		if (payValid() && clicked === false) {
+		if (whPayValid() && clicked === false) {
  			clicked = true;
  			$("#PaymentingDiv").show();
  			var gatewayUrlId = '#' + gatewayUrlId;
@@ -376,7 +376,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 <!-- 										<option value="2018">2018</option> -->
 <!-- 										<option value="2019">2019</option> -->
 <!-- 										<option value="2020">2020</option> -->
-									<c:forEach begin="0" end="5" varStatus="loop">
+									<c:forEach begin="0" end="10" varStatus="loop">
 										<c:set var="currentYear" value="${year + loop.index}" />
 										<option value="${currentYear}">${currentYear}</option>
 									</c:forEach>
@@ -523,3 +523,5 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 		style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%"
 		src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 </div>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>

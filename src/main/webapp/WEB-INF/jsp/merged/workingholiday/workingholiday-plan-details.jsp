@@ -125,7 +125,7 @@
 									<td class="col-lg-4 col-md-4 col-sm-4 col-xs-4  pad-none"><label
 										for="inputWhAppFullName" class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.name" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input type="text" name="whAppFullName"
-										class="form-control" id="inputWhAppFullName"
+										class="form-control full-control" id="inputWhAppFullName"
 										value="${userDetails.getFullName()}"
 										placeholder="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" />
@@ -150,14 +150,14 @@
 										</div>
 									</td>
 									<td class="pad-none">
-									<input type="text" name="whAppHKID" class="form-control numberinput btm-pad-10" id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
+									<input type="text" name="whAppHKID" class="form-control full-control" id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
 									<span id="whAppHKID" class="text-red" ></span></td>
 								</tr>
 								<tr>
 									<td class="pad-none"><label for="inputWhAppMobileNO"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="whAppMobileNO" type="text"
-										class="form-control" value="${userDetails.getMobileNo().trim()}"
+										class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
 										id="inputWhAppMobileNO" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" />
@@ -167,7 +167,7 @@
 								<tr>
 									<td class="pad-none"><label for="inputWhAppEmailAdd"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.email" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input class="form-control" name="whAppEmailAdd"
+									<td class="pad-none"><input class="form-control full-control" name="whAppEmailAdd"
 										value="${userDetails.getEmailAddress().trim()}" id="inputWhAppEmailAdd"
 										placeholder="<fmt:message key="workingholiday.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50">
 										<span id="whAppEmailAdd" class="text-red"></span></td>
@@ -227,7 +227,7 @@
 									<td class="pad-none">
 										<input type="text"
 										id="inputWhInsFullName" name="whInsFullName" value="${userDetails.getFullName()}"
-										class="form-control" placeholder="<fmt:message key="workingholiday.details.insured.name.placeholder" bundle="${msg}" />"
+										class="form-control full-control" placeholder="<fmt:message key="workingholiday.details.insured.name.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
 										onkeypress="    return alphaOnly(event);" maxlength="100" />
 										<span id="whInsFullName" class="text-red"></span>
@@ -250,7 +250,7 @@
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
 									<td class="pad-none">
-										<input id="inputWhInsHKID" name="whInsHKID" class="form-control textUpper" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+										<input id="inputWhInsHKID" name="whInsHKID" class="form-control full-control" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
 										<span id="whInsHKID" class="text-red"> </span> 
 									</td>
 								</tr>
