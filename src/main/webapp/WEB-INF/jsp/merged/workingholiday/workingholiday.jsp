@@ -87,11 +87,11 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none slide-form">
-        <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2> -->
+        <h2><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
                 <table class="table activation-form3">
               <tbody>
                 <tr>
-                  <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+                  <%-- <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
                   <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
                   <td><div id="divPersonsDesk" style="visibility:hidden;">
@@ -203,24 +203,24 @@ $(document).ready(function() {
                  </div>
 
                  </td>
-               <td></td>  
+               <td></td> --%>  
                <td align="middle" class="col-md-2 pad-none">
                 <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 
                </td>
-               <td class="col-md-2 pad-none">
+               <%-- <td class="col-md-2 pad-none">
                 <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 
                  <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskWorkingHoliday()">立即報價</a> -->
-              </td>
+              </td> --%>
              </tr>
-             <tr>
+             <%-- <tr>
               <td><span id="startDateDeskIn" class="text-red"> </span></td>
               <td><span id="endDateDeskIn" class="text-red"> </span></td>
               <td><span id="workingholidayCountDeskIn"  style="display:none">
                  <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                  </span></td>
-              <td></td>
+              <td></td> --%>
              </tr>
            </tbody>
          </table>
@@ -437,8 +437,9 @@ $(document).ready(function() {
 	      <div align="middle;" style="border: 1px solid #D1D1D1; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
           
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	          Unforeseeable <br />
-	          Lost if Income
+
+	          Unforeseable <br />
+	          Loss of Income
 	          </h3>
 	          
 	          <div style="margin-top:25px;">
@@ -446,12 +447,15 @@ $(document).ready(function() {
               </div>
               
               <div style="margin-top:15px; ">
+
                    Get case allowance for<br /> accidental injury
+
               </div>
               
               <hr width="50%">
               
               <div style="margin-top:10px;">
+
                    Get refunded for <br /> unused coverage<span style="color:#f68a1d;">*</span>
               </div>
               
@@ -459,6 +463,13 @@ $(document).ready(function() {
               <div style="margin-top:15px; font-size:10px; color:#f68a1d;">
                     *Service fee of $500HK applies
               </div>
+
+                   Get compensation for <br /> 
+                   employer's business <br />
+                   bankruptcy
+              </div>
+              
+             
               
           
           </div>
@@ -466,102 +477,46 @@ $(document).ready(function() {
           <div align="middle;" style="border: 1px solid #D1D1D1; width:30%; height:450px; float:left; margin-left: 13px; min-height: 150px;">
           
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	          Flexibility <br />
-	          of Refund
+	          Travel The World <br />
+	          Without Limits
 	          </h3>
 	          
 	          <div style="margin-top:25px;">
                    <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon3.png" />
               </div>
+              
+              <div style="margin-top:15px; ">
+                   Cover leisure trips within <br /> 
+                   coverage period
+              </div>
+              
+              <hr width="50%">
+              
+              <div style="margin-top:10px;">
+                   Extends to worldwide <br />
+                   locations
+              </div>
+              
+              
+
           
           </div>
       </div>
       
       
-<h2 class="hidden-sm hidden-xs"><fmt:message key="workingholiday.main.desc1" bundle="${msg}" /></h2>
+
 <!--end desktop--> 
 
-<!--Mobile-->
-<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
-<fmt:message key="workingholiday.main.mobile.desc1" bundle="${msg}" />
-<fmt:message key="workingholiday.main.mobile.desc2" bundle="${msg}" />
-<fmt:message key="workingholiday.main.mobile.desc3" bundle="${msg}" />
-</h2>
-<!--end Mobile-->
+
 </div>
 
-<!--desktop Features-->
-<div class="hidden-xs hidden-sm">
-    <div class="col-md-10 col-md-offset-1 home-features"  >
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home1.png" alt="" /> </div>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="workingholiday.main.feature1.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="workingholiday.main.feature1.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="workingholiday.main.feature1.paragraph" bundle="${msg}" /></p>
-        <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" ><fmt:message key="workingholiday.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="clearfix"></div>
-    <br>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="workingholiday.main.feature2.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="workingholiday.main.feature2.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="workingholiday.main.feature2.paragraph" bundle="${msg}" /></p>
-        <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"><fmt:message key="workingholiday.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/home2.png" alt=""  /> </div>
-    <div class="clearfix"></div>
-    <br>
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home3.png" alt=""  /> </div>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="workingholiday.main.feature3.paragraph" bundle="${msg}" /></p>
-        <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"><fmt:message key="workingholiday.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  
-  <!--mobile Features--> 
-  
-  <!--/.row--> 
-</div>
 
-<!--mob Features-->
-<div class="mob-features hidden-lg hidden-md">
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home1.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="workingholiday.main.feature1.heading1" bundle="${msg}" /><br/>
-                <fmt:message key="workingholiday.main.feature1.heading2" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="workingholiday.main.feature1.paragraph" bundle="${msg}" /></p>
-      <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"><fmt:message key="workingholiday.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-  <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home2.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="workingholiday.main.feature2.heading1" bundle="${msg}" /><br/>
-      <fmt:message key="workingholiday.main.feature2.heading2" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="workingholiday.main.feature2.paragraph" bundle="${msg}" /></p>
-      <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"><fmt:message key="workingholiday.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-  <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home3.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="workingholiday.main.feature3.paragraph" bundle="${msg}" /></p>
-      <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"><fmt:message key="workingholiday.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-</div>
+
+
+
 <div class="clearfix"></div>
 <div class="other-benefits col-lg-12">
-  <h3 class="h4-2"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h3>
+  <h2><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
     <li>
       <p class="h4-5"><fmt:message key="workingholiday.main.other.benefit.desc1" bundle="${msg}" /></p>
@@ -818,7 +773,7 @@ $(document).ready(function() {
         <table class="table activation-form3">
           <tbody>
           <tr>
-            <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
+            <%-- <td><h3><fmt:message key="workingholiday.main.quote.q1" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q2" bundle="${msg}" /></h3></td>
             <td><h3><fmt:message key="workingholiday.main.quote.q3" bundle="${msg}" /></h3></td>
             <td><div id="divPersonsBtm" style="visibility:hidden;">
@@ -939,8 +894,12 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-        	  <td></td>	
-              <td class="col-md-2 ">
+        	  <td></td> --%>
+        	  <td align="middle" class="col-md-2 pad-none">
+                <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+
+               </td>	
+              <%-- <td class="col-md-2 ">
                   <button type="submit" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
               </td>
               <td></td>	   
@@ -951,7 +910,7 @@ $(document).ready(function() {
               <td><span id="workingholidayCountBtmIn" style="display: none;">
                 <label class="text-red"><fmt:message key="workingholiday.main.quote.q3.error" bundle="${msg}" /></label>
                 </span></td>
-              <td></td>
+              <td></td> --%>
             </tr>
           </tbody>
         </table>
