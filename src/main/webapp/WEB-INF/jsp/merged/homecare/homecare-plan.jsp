@@ -107,8 +107,10 @@ var promoCodeInsertFlag = true;
 	}
 	function applyHomePromoCode() {
 		if(promoCodeInsertFlag){
-            $("#loadingPromo").show();
-            
+			$('#loading-overlay').modal({
+                backdrop: 'static',
+                keyboard: false
+            })
             promoCodeInsertFlag = false;
             
 			$("#errPromoCode").html("");
@@ -119,7 +121,7 @@ var promoCodeInsertFlag = true;
 					url : '<%=request.getContextPath()%>/applyHomePromoCode',
 					data : $('#frmHomeCarePlan input').serialize(),
 					success : function(data) {
-						$("#loadingPromo").hide();
+						$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
 		
 						var json = JSON.parse(data);

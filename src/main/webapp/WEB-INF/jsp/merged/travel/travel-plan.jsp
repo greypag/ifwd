@@ -86,8 +86,10 @@ if(personalTraveller>familyTraveller){
 	
 	function applyTravelPromoCode() {
 		if(promoCodeInsertFlag){
-			$("#loadingPromo").show();
-			
+			$('#loading-overlay').modal({
+			    backdrop: 'static',
+			    keyboard: false
+			})
 			promoCodeInsertFlag = false;
 			
 			$("#errPromoCode").html("");
@@ -98,7 +100,7 @@ if(personalTraveller>familyTraveller){
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
-	                	$("#loadingPromo").hide();
+	                	$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
 	                    
 	                    var json = JSON.parse(data);
@@ -112,7 +114,10 @@ if(personalTraveller>familyTraveller){
 	}
 	function updateTravelQuote() {
 		if(updateQuoteFlag){
-			$("#loadingUpdate").show();
+			$('#loading-overlay').modal({
+			    backdrop: 'static',
+			    keyboard: false
+			})
 			updateQuoteFlag = false;
 			
 			$('#lblCountDesk').html(tempTotalTraveller);
@@ -128,7 +133,7 @@ if(personalTraveller>familyTraveller){
 				url : '<%=request.getContextPath()%>/updateTravelQuote',
 				data : $('#frmTravelPlan input').serialize(),
 				success : function(data) {
-					$("#loadingUpdate").hide();
+					$('#loading-overlay').modal('hide');
 					updateQuoteFlag = true;
 					
 					var json = JSON.parse(data);
@@ -1504,14 +1509,6 @@ if(personalTraveller>familyTraveller){
 </div>
 <!--/ Get promotion code popup-->
 
-<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content plan-modal">
-		
-		</div>
-	</div>
-</div>
-
 <div class="scroll-to-top">
     <a title="Scroll to top" href="#">
         <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
@@ -1611,6 +1608,7 @@ if(personalTraveller>familyTraveller){
 	}
 
 	function sendEmail() {
+		
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
 			$.ajax({

@@ -6458,6 +6458,19 @@ tr.product-landing-error-wrap {
     }
 }
 
+.loading-dialog{
+	width: 200px !important;
+}
+
+.loading-modal {
+	background: transparent url(../images/loading.gif) no-repeat;
+	width: 200px !important;
+	height:200px !important;
+	border:0px !important;
+	-webkit-box-shadow: 0 0px 0px;
+	box-shadow: 0 0px 0px;
+}
+
 /** bmg summary css **/
 .summary-header{
     font-weight: bold;

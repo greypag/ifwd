@@ -67,7 +67,10 @@
   
   function updateFlightQuote() {
 	  if(updateQuoteFlag){
-		  $("#loadingUpdate").show();
+		  $('#loading-overlay').modal({
+              backdrop: 'static',
+              keyboard: false
+          })
           updateQuoteFlag = false;
           
           $('#lblCountDesk').html(tempTotalTraveller);
@@ -83,7 +86,7 @@
 	          url : '<%=request.getContextPath()%>/updateFlightQuote',
 	          data : $('#frmFlightPlan input').serialize(),
 	          success : function(data) {
-	        	  $("#loadingUpdate").hide();
+	        	  $('#loading-overlay').modal('hide');
 	        	  updateQuoteFlag = true;
 	        	  
 	              var json = JSON.parse(data);
