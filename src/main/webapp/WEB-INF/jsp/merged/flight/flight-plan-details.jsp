@@ -40,6 +40,95 @@ Child    : ${planDetailsForm.getTotalChildTraveller()} 		<br>
 Others   : ${planDetailsForm.getTotalOtherTraveller()} 		<br>
 -->
 
+
+
+
+
+
+<script>
+
+
+
+function activateUserAccountJoinUs() {
+	//html change, change the submit input type to button, add a onclick function
+    //html change, added some error html note for user, so they know if the user name and email is not success
+    
+    //basic logic(how it works)    
+    /*
+    1. if no username or password is filled, direct submit the form
+    2. if username field is filled, call the create user ajax and post data
+    3. if the data has something wrong, return and show msg.
+    4. if the data is correct, user created and will continue to submit the form.
+    5, If user is created and the normal form data is missing, 
+       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
+    */
+    
+    name = document.getElementById("Username").value;
+    password = document.getElementById("Password").value;
+    password2 = document.getElementById("Confirm-Password").value;
+     
+    
+    if(name == "" && password == "" && password2 == ""){
+        $('#freeFlightForm').submit()
+    }else{
+        optIn1 = "false"
+        optIn2 = "false"
+        if($('#checkbox4').is(':checked')){
+            optIn2 = "true";    
+        }
+        if($('#checkbox3').is(':checked')){
+            optIn1 = "true";    
+        }
+        password = document.getElementById("Password").value; 
+        mobile = document.getElementById("inputMobileNo").value;
+        name = document.getElementById("inputFullName").value;
+        userName = document.getElementById("Username").value;
+        email = document.getElementById("inputEmailId").value;
+    
+       $.ajax({
+                   type : 'POST',
+                    url : '<%=request.getContextPath()%>/joinus',
+                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email },
+                    async : false,
+                    success : function(data) {
+                        
+                        if (data == 'success') {                
+                        	 $(".error-hide").css("display", "none");
+                        	 
+                        	 $(".membership-wrap").css("display", "none"); 
+                             document.getElementById("Username").value = "";
+                             document.getElementById("Password").value = "";
+                             document.getElementById("Confirm-Password").value = "";
+                        	 
+                             $("#link-error").click();
+                        	 
+                             $('#freeFlightForm').submit()
+                            return;                            
+                        } else {
+                            
+                            $("#link-error").click();
+                            $(".error-hide").css("display", "block");
+                            //alert("Something Wrong with user input, please check");
+                            return;
+                        } 
+                    },
+                    error : function(xhr, status, error) {
+
+                    }
+                });
+    }
+    
+       return;
+       
+}
+</script>
+
+
+
+
+
+
+
 <!--/#main-Content-->
 <section>
     <div id="cn" class="container">
@@ -324,10 +413,14 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         %>
                         <div class="gray-bg3-wid container membership-wrap">
                             <div class="membership-header">
+                                <a id="link-error" class="scroll-to-top" style="display:none;" href="#"></a>
                                 <h3><fmt:message key="flight.details.registration.heading"
 	                                    bundle="${msg}" /></h3>
 	                            <i class="text-grey"><fmt:message key="flight.details.registration.desc"
 	                                    bundle="${msg}" /></i>
+	                            <h3 class="error-hide" style='display:none; color:red; font-size:15px;'>
+                                    Your member account is not created. The Username may have already been in use.<br />您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
+                                </h3>
                             </div>
                             <div class="form-group float row">
 							   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -1840,7 +1933,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 
-                            <input type="submit"
+                            <input type="button" onclick="return activateUserAccountJoinUs();"
                                 class="bdr-curve-none btn btn-primary nxt-btn"
                                 value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
                             <!-- <button class="bdr-curve-none btn btn-primary nxt-btn "

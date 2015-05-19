@@ -50,7 +50,18 @@ action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-s
 
 
 function activateUserAccountJoinUs() {
-    
+	//html change, change the submit input type to button, add a onclick function
+	//html change, added some error html note for user, so they know if the user name and email is not success
+	
+    //basic logic(how it works)    
+    /*
+    1. if no username or password is filled, direct submit the form
+    2. if username field is filled, call the create user ajax and post data
+    3. if the data has something wrong, return and show msg.
+    4. if the data is correct, user created and will continue to submit the form.
+    5, If user is created and the normal form data is missing, 
+       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
+    */
     name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;
@@ -80,7 +91,16 @@ function activateUserAccountJoinUs() {
                     async : false,
                     success : function(data) {
                         
-                        if (data == 'success') {                            
+                        if (data == 'success') {
+                        	$(".error-hide").css("display", "none");
+                        	
+                        	$(".membership-wrap").css("display", "none"); 
+                            document.getElementById("Username").value = "";
+                            document.getElementById("Password").value = "";
+                            document.getElementById("Confirm-Password").value = "";
+                            
+                            $("#link-error").click();
+                            
                              $('#frmYourDetails').submit()
                             return;                            
                         } else {
@@ -370,7 +390,7 @@ function activateUserAccountJoinUs() {
                         %>
                         <div class="gray-bg3-wid container membership-wrap">
                             <div class="membership-header">
-                                <a id="link-error" class="scroll-to-top" style="display:none;" href="#frmYourDetails"></a>
+                                <a id="link-error" class="scroll-to-top" style="display:none;" href="#"></a>
                                 <h3><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
                                 <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i>
                                 
