@@ -79,7 +79,9 @@
                                                     </h3>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                <p><fmt:message key="header.login.disclaimer" bundle="${msg}" /></p>
+                                                <p>
+                                                    <h6><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
+                                                </p>
                                             </div>
                                         </div>
                     </form>

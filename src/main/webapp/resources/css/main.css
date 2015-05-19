@@ -158,7 +158,9 @@ hr {
 .bold {
 	font-weight: bold;
 }
-
+.datepicker table tr td.today {
+	background-color: #e3e3e3 !important;
+}
 /*Topbar*/
 .navbar-brand img {
 	padding: 21px 0px;
@@ -170,6 +172,30 @@ hr {
 .form-label {
     margin-bottom: 5px;
 }
+.form-group {
+     margin-bottom: 20px;
+}
+/*
+.form-label label {
+	line-height: 50px;
+}*/
+@media (min-width: 992px) {
+	.form-label .field-label {
+	    line-height: 50px;
+	}
+	
+	
+}
+@media screen and (min-width: 768px){
+    .modal-dialog {
+          width: 800px;
+    }
+    #loginpopup .modal-dialog {
+          width: 600px;
+    }
+    
+}
+
 .top-menu .nav>li>a {
 	padding: 8px !important;
 	font-size: 14px;
@@ -255,6 +281,11 @@ ul.maintabs li a span.offer:hover{
   font-size: 14px;
 }
 
+#numOfDays {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
 
 
 .travel-and-home-tab{top:38px; position:relative;}
@@ -591,6 +622,24 @@ vertical-align:middle;
 .service-bx1{ padding-right:5px;}
 .service-bx2{ padding-right:2.5px; padding-left:2.5px;}
 .service-bx3{ padding-right:0px; padding-left:5px;}
+
+.bg-error-left {
+	background: url(../images/bg_bubble_left.png) no-repeat;
+	width: 14px;
+    height: 48px;
+}
+.bg-error-middle {
+    background: url(../images/bg_bubble_middle.png);
+    height: 48px;
+}
+.bg-error-right {
+    background: url(../images/bg_bubble_right.png) no-repeat;
+    width: 8px;
+    height: 48px;
+}
+#startDateDeskErrorWrap {
+	display: none;
+}
 
 
 /***********************
@@ -1092,7 +1141,7 @@ input.search-form:hover {
 **************************/
 .fixed-header {
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   width: 100%;
 }
 .no-margin {
@@ -1408,7 +1457,7 @@ h3.btn-box-3 span {
 .login-form .form-group {
 	border: 1px solid #bdc4c4;
 	border-radius: 6px;
-	border-bottom: 1px solid rgb(246, 138, 29);
+	/*border-bottom: 1px solid rgb(246, 138, 29);*/
 	margin-bottom: 0px;
 }
 .login-form .input-group-addon {
@@ -4228,6 +4277,11 @@ article h2 {
 	border-color: #f2f2f2;
 	box-shadow: none;
 }
+@media (max-width: 992px){
+	.form-group .form-control {
+	   font-size: 16px;
+	}
+}
 input[name=applicantDob] {
 	border: none;
 }
@@ -5058,7 +5112,8 @@ select.soflow, select.soflow-color {
     background-position: 97% center;
     background-repeat: no-repeat;
 background-color: rgb(245, 245, 245);
-    height: 60px;
+    /*height: 60px;*/
+    height: 50px;
     line-height: 31.5px;
 /*    padding: 6px 12px;*/
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;

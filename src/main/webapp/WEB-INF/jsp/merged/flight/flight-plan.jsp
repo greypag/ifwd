@@ -316,6 +316,12 @@
 								
 							</div>
 							-->
+							<!-- stay days starts -->
+							<div id="numOfDays">
+                                <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan">${days}</span> 
+                                <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
+                            </div>
+                            <!-- stay days ends -->
 							<!-- traveller start -->
 							<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" /> <span class="span2 uline">
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
@@ -439,10 +445,7 @@
                             <!-- traveller end -->
 							
 							
-							<h3>
-								<fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan">${days}</span> 
-								<fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
-							</h3>
+							
 						</div>
 						<div class="orange-bdr"></div>
 						<!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due </h3> -->
