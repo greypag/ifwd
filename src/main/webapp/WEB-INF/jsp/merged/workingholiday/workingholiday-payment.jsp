@@ -9,12 +9,13 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
-	function confirmHomeCarePayment() {
+	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
 		if (payValid() && clicked === false) {
  			clicked = true;
  			$("#PaymentingDiv").show();
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
+ 			alert(paymentFormId)
  			var method = "<%=request.getContextPath()%>/processTravePayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
