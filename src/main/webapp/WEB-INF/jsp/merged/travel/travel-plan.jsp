@@ -53,6 +53,8 @@ if(personalTraveller>familyTraveller){
 	tempTotalTraveller=familyTraveller;
 }
 //bmg inline variable
+
+
 	function getuserDetails() {
 
 		
