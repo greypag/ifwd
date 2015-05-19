@@ -273,17 +273,15 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 					<div class="clearfix"></div>
 					<h2 class="from-control"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
 					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
-					<input type="hidden" name="merchantId"
-						value="${createPolicy.getMerchantId()}"> <input
-						type="hidden" name="amount" value="${dueAmount.trim()}"> <input
-						type="hidden" name="orderRef"
-						value="${createPolicy.getTransactionNo() }"> <input
-						type="hidden" name="currCode"
-						value="${createPolicy.getCurrCode() }"> <input
-						type="hidden" name="successUrl" value="${path}"> <input
-						type="hidden" name="failUrl" value="${failurePath }"> <input
-						type="hidden" name="errorUrl" value="${failurePath }"> <input
-						type="hidden" name="payType" value="${createPolicy.getPaymentType()}">
+					<input type="hidden" name="merchantId" value="${createPolicy.getMerchantId()}">
+					<input type="hidden" name="amount" value="${dueAmount.trim()}">
+					<input type="hidden" name="orderRef" value="${createPolicy.getTransactionNo() }">
+					<input type="hidden" name="currCode" value="${createPolicy.getCurrCode() }">
+					<input type="hidden" name="successUrl" value="${path}">
+					<input type="hidden" name="failUrl" value="${failurePath }">
+					<input type="hidden" name="errorUrl" value="${failurePath }">
+					<input type="hidden" name="payType" value="${createPolicy.getPaymentType()}">
+					<input type="hidden" name="referenceNo" value="${createPolicy.getReferenceNo()}">
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
