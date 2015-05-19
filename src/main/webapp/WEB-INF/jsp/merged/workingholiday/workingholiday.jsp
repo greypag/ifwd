@@ -208,6 +208,82 @@ $(document).ready(function() {
 </div>
 </section>
 <!--/#feature-->
+
+
+
+
+<!--/#testiomonials-->
+<section id="testimonials" class="hidden-sm hidden-xs" style="background:#4E4E4E;">
+  <div class="container"> 
+    <!--desktop-testimonials-->
+    
+    
+    <div style="float:left; margin-right:10%;">
+        <img style="width:100%;" src="http://localhost:8080/FWDHKPH1A/resources/images/icon4.png" />
+    </div>
+    
+    <div style="color:white; float:left; width:60%;">
+        <div>
+	        <h2>Next Step</h2>        
+	        <hr style="width:120px; margin:0; margin-left:10px; margin-top:8px;">
+        </div>
+        
+        <div>
+            <h2>Made your decision</h2>        
+            <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
+        </div>
+        
+        <div style="margin-top:18px;">
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>
+        </div>
+    </div>
+    
+    
+    <!--/.row--> 
+    <!--/.desktop-testimonials--> 
+    
+  </div>
+  <!--/.container--> 
+</section>
+<!--/#testiomonials--> 
+
+<!--/#testiomonials mob-->
+<section id="testimonials-mob" class="hidden-lg hidden-md" style="background:#4E4E4E;">
+  <div class="container"> 
+    <!--desktop-testimonials-->
+    <div style="float:left; margin-right:150px;">
+        <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon4.png" />
+    </div>
+    
+    <div style="color:white; float:left; width:600px;">
+        <div>
+            <h2>Next Step</h2>        
+            <hr style="width:120px; margin:0; margin-left:10px; margin-top:8px;">
+        </div>
+        
+        <div>
+            <h2>Made your decision</h2>        
+            <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
+        </div>
+        
+        <div style="margin-top:18px;">
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>
+        </div>
+    </div>
+    
+    
+    <!--/.row--> 
+    <!--/.desktop-testimonials--> 
+    
+  </div>
+</section>
+<!--/#testiomonials mob-->
+
+
+
+
+
+
 <section id="recent-works" class="hidden-xs hidden-sm">
   <div class="container">
     <div class="row hidden-sm hidden-xs">
@@ -299,94 +375,7 @@ $(document).ready(function() {
   <!--/.carousel--> 
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
 
-<!--/#testiomonials-->
-<section id="testimonials" class="hidden-sm hidden-xs">
-  <div class="container"> 
-    <!--desktop-testimonials-->
-    <div class="row hidden-sm hidden-xs">
-      <div class="center">
-        <h2><fmt:message key="workingholiday.main.testimonial.heading" bundle="${msg}" /></h2>
-      </div>
-      <div class="col-lg-5 col-md-5 pad-none pull-left">
-        <div class="testimonials-wrap text-center">
-          <div class="testimonials-inner text-center">
-            <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-            <p><fmt:message key="workingholiday.main.testimonial.customer1.feedback" bundle="${msg}" /></p>
-            <div class="hr1"></div>
-            <h2><fmt:message key="workingholiday.main.testimonial.customer1.name" bundle="${msg}" /></h2>
-            <h4><fmt:message key="workingholiday.main.testimonial.customer1.age" bundle="${msg}" /></h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-5 col-md-5 pad-none pull-right">
-        <div class="testimonials-wrap text-center">
-          <div class="testimonials-inner text-center">
-            <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-            <p><fmt:message key="workingholiday.main.testimonial.customer2.feedback" bundle="${msg}" /></p>
-            <div class="hr1"></div>
-            <h2><fmt:message key="workingholiday.main.testimonial.customer2.name" bundle="${msg}" /> </h2>
-            <h4><fmt:message key="workingholiday.main.testimonial.customer2.age" bundle="${msg}" /></h4>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="clearfix"></div>
-      <p class="pad-none p1"><br>
-      <fmt:message key="workingholiday.main.testimonial.disclaimer" bundle="${msg}" /></p>
-    </div>
-    <!--/.row--> 
-    <!--/.desktop-testimonials--> 
-    
-  </div>
-  <!--/.container--> 
-</section>
-<!--/#testiomonials--> 
 
-<!--/#testiomonials mob-->
-<section id="testimonials-mob" class="hidden-lg hidden-md">
-  <div class="carousel slide">
-  <div class="center">
-        <h2><fmt:message key="workingholiday.main.testimonial.heading" bundle="${msg}" /></h2>
- </div>
-
-    <div class="carousel-inner">
-      <div class="item active">
-        <div class="container">
-          <div class="row slide-margin">
-            <div class="testimonials-wrap text-center">
-              <div class="testimonials-inner travel-testimonial text-center">
-                <blockquote class="testimonial"></blockquote>
-                <p><fmt:message key="workingholiday.main.testimonial.customer1.feedback" bundle="${msg}" /></p>
-                <div class="hr1"></div>
-                <h2><fmt:message key="workingholiday.main.testimonial.customer1.name" bundle="${msg}" /></h2>
-                <h4><fmt:message key="workingholiday.main.testimonial.customer1.age" bundle="${msg}" /></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--/.item-->
-      <div class="item" >
-        <div class="container">
-          <div class="row slide-margin">
-            <div class="testimonials-wrap text-center">
-              <div class="testimonials-inner travel-testimonial text-center">
-                <div class="h1-1"> <blockquote class="testimonial"></blockquote></div>
-                <p><fmt:message key="workingholiday.main.testimonial.customer2.feedback" bundle="${msg}" /></p>
-                <div class="hr1"></div>
-                <h2><fmt:message key="workingholiday.main.testimonial.customer2.name" bundle="${msg}" /></h2>
-                <h4><fmt:message key="workingholiday.main.testimonial.customer2.age" bundle="${msg}" /></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/.carousel-inner--> 
-  </div>
-  <!--/.carousel--> 
-  <a class="prev" href="#testimonials-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#testimonials-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
-<!--/#testiomonials mob-->
 
 <section class="blog-item hidden-sm hidden-xs">
   <div class="container">
@@ -426,6 +415,7 @@ $(document).ready(function() {
    
   </div>
 </section>
+<!-- 
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
@@ -446,4 +436,5 @@ $(document).ready(function() {
     </div> 
   </div> 
 </section>
+-->
 <!--/#middle-->
