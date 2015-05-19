@@ -124,7 +124,7 @@ function activateUserAccountJoinUs() {
         });
     }
     
-    $('#loading-overlay').modal('hide');
+    
     
        return;
        
@@ -137,7 +137,7 @@ function activateUserAccountJoinUs() {
 	$('#freeFlightForm').submit()
 }
 </script>
-<% } %> %>
+<% } %> 
 
 
 
