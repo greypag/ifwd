@@ -36,7 +36,25 @@
    $(function () { $("[data-toggle='tooltip']").tooltip(); });
 </script>-->
 
+<script>
 
+var getBundleLanguage = "";
+var lang = UILANGUAGE;
+
+if(lang === "EN"){
+    getBundleLanguage = "en";
+}else{
+    if(lang === "tc"){
+        getBundleLanguage = "zh";
+    } 
+    else{
+        getBundleLanguage = "en";
+    }
+}
+
+
+    
+</script>
 
 <!--VWO-->
 <!-- Start Visual Website Optimizer Asynchronous Code -->
@@ -399,7 +417,7 @@ function activateUserAccountJoinUs() {
                     success : function(data) {
                         
                         if (data == 'success') {                            
-                        	$(".error-hide").css("display", "none"); 
+                        	$(".error-hide-"+getBundleLanguage).css("display", "none"); 
                         	$(".membership-wrap").css("display", "none"); 
                         	document.getElementById("Username").value = "";
                        	    document.getElementById("Password").value = "";
@@ -412,7 +430,7 @@ function activateUserAccountJoinUs() {
                         } else {
                             
                             $("#link-error").click();
-                            $(".error-hide").css("display", "block");
+                            $(".error-hide-"+getBundleLanguage).css("display", "block");
                             $('#loading-overlay').modal('hide');
                             //alert("Something Wrong with user input, please check");
                             return;
@@ -717,9 +735,13 @@ function activateUserAccountJoinUs() {
 	                                <h3><fmt:message key="home.details.registration.heading" bundle="${msg}" /></h3>
 	                                <i class="text-grey"><fmt:message key="home.details.registration.desc" bundle="${msg}" /></i>
 	                                
-	                                <h3 class="error-hide" style='display:none; color:red; font-size:15px;'>
-	                                    Your member account is not created. The Username may have already been in use.<br />您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
+	                                <h3 class="error-hide-en" style='display:none; color:red; font-size:15px;'>
+	                                    Your member account is not created. The Username may have already been in use.
 	                                </h3>
+	                                
+	                                <h3 class="error-hide-zh" style='display:none; color:red; font-size:15px;'>
+                                                                                              您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
+                                    </h3>
 	                            </div>
 	                            <div class="form-group float row">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
