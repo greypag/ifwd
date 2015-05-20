@@ -19,7 +19,10 @@ var clicked = false;
  			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
- 			$.ajax({
+ 			alert(geteWayUrl)
+ 			form.action = geteWayUrl;
+ 			
+ 			/* $.ajax({
  						type : "POST",
  						url : method,
  						data : $(paymentFormId).serialize(),
@@ -31,7 +34,7 @@ var clicked = false;
  								console.log("fail to process payment " + data);
  							}
  						}
- 					});
+ 					}); */
  			return true;
  		}else return false;
 	}
