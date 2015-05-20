@@ -513,7 +513,7 @@ public class WorkingHolidayController {
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 
-		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("createPolicy");
+		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("whCreatePolicy");
 		JSONObject responsObject = new JSONObject();
 		if (createPolicy == null) {
 			System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
@@ -549,7 +549,7 @@ public class WorkingHolidayController {
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 				
 				model.addAttribute(createPolicy);
-				session.setAttribute("createPolicy", createPolicy);
+				session.setAttribute("whCreatePolicy", createPolicy);
 			}
 
 		}
