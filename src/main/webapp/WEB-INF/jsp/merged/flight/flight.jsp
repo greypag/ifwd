@@ -199,7 +199,7 @@ $(document).ready(function() {
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
               
              </td>
@@ -765,7 +765,7 @@ $(document).ready(function() {
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', '', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">

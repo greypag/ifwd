@@ -2867,12 +2867,10 @@ function replaceAlpha(id) {
 
 
 /* Apply for now Top */
-
 // flight
 function flightValidateDesk()
 {
 	var flag = true;
-
 	flag = flightValidateGetQuote("txtStartDateDesk", "startDateDeskIn", "txtEndDateDesk", "endDateDeskIn", "txtTravellersDesk", "lblPeopleDesk", "travelCountDeskIn");
 	return flag;
 }
@@ -2943,13 +2941,18 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 function flightValidateDeskTravel()
 {
 	var flag = true;
-
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
-	var startDate = document.getElementById("txtStartDateDesk").value;    
+	
+	/*var startDate = document.getElementById("txtStartDateDesk").value;    
 	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;
+	var travellers = document.getElementById("txtTravellersDesk").value;*/
+	
+	var startDate = $("#txtStartDateDesk").val();    
+	var endDate = $("#txtEndDateDesk").val();
+	var travellers = $("#txtTravellersDesk").val();
+	
 	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
 
 	var nowTemp = new Date();
@@ -2958,6 +2961,7 @@ function flightValidateDeskTravel()
 	var new_end = new Date(endDate);
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
+		
 	if(startDate.trim()=="")
 	{
 		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
@@ -3000,9 +3004,14 @@ function flightValidateMobTravel() {
 	document.getElementById("startDateMobIn").innerHTML = "";
 	document.getElementById("endDateMobIn").innerHTML = "";
 	document.getElementById("travelCountMobIn").style.display = "none";
-	var startDate = document.getElementById("txtStartDateMob").value;
+	
+	/*var startDate = document.getElementById("txtStartDateMob").value;
 	var endDate = document.getElementById("txtEndDateMob").value;
-	var travellers = document.getElementById("txtTravellersMob").value;
+	var travellers = document.getElementById("txtTravellersMob").value;*/
+	var startDate = $("#txtStartDateMob").val();
+	var endDate = $("#txtEndDateMob").val();
+	var travellers = $("#txtTravellersMob").val();
+	
 	var peopleCount = document.getElementById("lblPeopleMob").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
@@ -3048,9 +3057,14 @@ function flightValidateBtmTravel() {
 	document.getElementById("startDateBtmIn").innerHTML = "";
 	document.getElementById("endDateBtmIn").innerHTML = "";
 	$("#travelCountBtmIn").hide();
-	var startDate = document.getElementById("txtStartDateBtm").value;
+	/*var startDate = document.getElementById("txtStartDateBtm").value;
 	var endDate = document.getElementById("txtEndDateBtm").value;
-	var travellers = document.getElementById("txtTravellersBtm").value;
+	var travellers = document.getElementById("txtTravellersBtm").value;*/
+	
+	var startDate =$("#txtStartDateBtm").val();
+	var endDate = $("#txtEndDateBtm").val();
+	var travellers = $("#txtTravellersBtm").val();
+	
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
@@ -3103,9 +3117,13 @@ function flightValidateDeskWorkingHoliday()
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("workingholidayCountDeskIn").style.display = "none";
-	var startDate = document.getElementById("txtStartDateDesk").value;    
+	/*var startDate = document.getElementById("txtStartDateDesk").value;    
 	var endDate = document.getElementById("txtEndDateDesk").value;
-	var workingholidayers = document.getElementById("txtworkingholidayersDesk").value;
+	var workingholidayers = document.getElementById("txtworkingholidayersDesk").value;*/
+	
+	var startDate = $("#txtStartDateDesk").val();    
+	var endDate = $("#txtEndDateDesk").val();
+	var workingholidayers = $("#txtworkingholidayersDesk").val();
 	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
 
 	var nowTemp = new Date();
@@ -3158,9 +3176,13 @@ function flightValidateBtmWorkingHoliday() {
 	document.getElementById("startDateBtmIn").innerHTML = "";
 	document.getElementById("endDateBtmIn").innerHTML = "";
 	$("#workingholidayCountBtmIn").hide();
-	var startDate = document.getElementById("txtStartDateBtm").value;
+	/*var startDate = document.getElementById("txtStartDateBtm").value;
 	var endDate = document.getElementById("txtEndDateBtm").value;
-	var workingholidayers = document.getElementById("txtworkingholidayersBtm").value;
+	var workingholidayers = document.getElementById("txtworkingholidayersBtm").value;*/
+	var startDate = $("#txtStartDateBtm").val();
+	var endDate = $("#txtEndDateBtm").val();
+	var workingholidayers = $("#txtworkingholidayersBtm").val();
+	
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
@@ -4030,7 +4052,7 @@ function chkValidDate(element, errElementId, name){
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
 	}else{
-		resetErrElement(errElementId);
+		//resetErrElement(errElementId);
 		return true;		
 	}
 }
@@ -4039,7 +4061,8 @@ function chkValidDate(element, errElementId, name){
 function chkValidFlightDepartureDate(element, errElementId, name){
 	
 	if(chkValidDate(element, errElementId, name)){
-	    var departureDate = element.value;
+	    //var departureDate = element.value;
+		var departureDate = $(element).val();
 	    departureDate = new Date(departureDate);
 	    
 	    
@@ -4054,7 +4077,7 @@ function chkValidFlightDepartureDate(element, errElementId, name){
         	document.getElementById(errElementId).innerHTML = msg;
             return false;
         }else{
-        	resetErrElement(errElementId);
+        	//resetErrElement(errElementId);
         	return true;
         }        
 	}else{
@@ -4077,8 +4100,14 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 //		flag = false;
 //	}
 //	
-	var departureDate = document.getElementById(departureDateId).value; 
-	var returnDate = element.value;
+	/*var departureDate = document.getElementById(departureDateId).value; 
+	var returnDate = element.value;*/
+	
+	var departureDate = $("#"+departureDateId).val(); 
+	var returnDate = $(element).val();
+	
+
+	
 	
 	if (departureDate.trim() == "") {
 		document.getElementById(errDepartureDateId).innerHTML = departureDateName;
@@ -4101,6 +4130,7 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 		if(chkValidDate(element, errElementId, name)){
 		    var departureDate = elementDepartureDate.value;
 		    var returnDate = element.value;	    
+		    
 		    departureDate = new Date(departureDate);
 		    returnDate = new Date(returnDate);
 		    
@@ -4388,7 +4418,6 @@ function chkNotNullCreditCareName(element, errElementId)
 	else if (element.value.length < 7 && element.value.trim().indexOf(" ") > 0) {
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.noSpaces.message");
 		document.getElementById(errElementId).innerHTML = msg;
-		alert( "element.value [" + element.value + "]" );
 	}
 	else{
 		resetErrElement(errElementId);
