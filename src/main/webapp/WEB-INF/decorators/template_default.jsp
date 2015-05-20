@@ -71,7 +71,6 @@
 
 
 <dec:head />
-
 </head>
 	<%
 	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {

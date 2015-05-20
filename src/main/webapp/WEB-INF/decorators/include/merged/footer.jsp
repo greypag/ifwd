@@ -110,5 +110,3 @@
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 
-
-
