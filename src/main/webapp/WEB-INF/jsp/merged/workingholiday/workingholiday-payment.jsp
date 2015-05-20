@@ -19,7 +19,6 @@ var clicked = false;
  			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
- 			alert(geteWayUrl)
  			form.action = geteWayUrl;
  			
  			/* $.ajax({
