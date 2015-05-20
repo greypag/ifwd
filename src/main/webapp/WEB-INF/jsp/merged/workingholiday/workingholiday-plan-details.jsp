@@ -25,7 +25,20 @@
 
 %>
 
-
+<script>
+	function setDropArea(id) {
+		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
+		var skillsSelect = document.getElementById("selectCADistHid");
+		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+		
+		if (selectedText.trim() == "HK")
+			document.getElementById("inlineCARadio3").checked = true;
+		else if (selectedText.trim() == "KL")
+			document.getElementById("inlineCARadio4").checked = true;
+		else
+			document.getElementById("inlineCARadio5").checked = true;
+	}
+</script>
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
@@ -329,8 +342,9 @@
 									</tr>
 									<tr>
 										<td colspan="3">
-										<div class="styled-select"><select name="whInsDistrict"
-											class="form-control soflow full-control" id="selectWhInsDistrict">
+										<div class="styled-select">
+											<select name="whInsDistrict"
+												class="form-control soflow full-control" id="selectWhInsDistrict" onchange="setDropArea(this.value)" >
 												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 												<%
 													List lst = (List) request.getAttribute("districtList");
@@ -343,7 +357,23 @@
 												<%
 													}
 												%>
-										</select></div>
+											</select>
+										</div>
+										<div class="hidden">
+											<select name="applicantDistrictHid"
+												class="form-control soflow full-control" id="selectCADistHid">
+												<%
+													List lst1 = (List) request.getAttribute("districtList");
+														Iterator itr1 = lst1.iterator();
+														while (itr1.hasNext()) {
+															DistrictBean districtList = (DistrictBean) itr1.next();
+												%>
+												<option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+												<%
+													}
+												%>
+											</select>
+										</div>
 										<span id="whInsDistrict" class="text-red"> </span></td>
 									</tr>
 									<tr>
