@@ -845,19 +845,16 @@ function activateUserAccountJoinUs() {
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 	                                           <input type="text" class="form-control full-control"
 	                                            id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this);"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
 	                                       </div>
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 	                                            <input type="text" class="form-control full-control"
-	                                            id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this);"
+	                                            id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"       
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
 	                                       </div>
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 	                                            <input type="text" class="form-control full-control"
 	                                            id="inputCABlock" name="applicantBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this);"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 	                                       </div>
 	                                   </div>
@@ -867,7 +864,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control"
 	                                            id="inputCABuilding" name="applicantBuilding"
-	                                            placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCABuilding(this, 'errCABuilding');"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="chkNotNullCABuilding(this, 'errCABuilding');"
 	                                            onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 	                                            <span id="errCABuilding" class="text-red"> </span>
                                            </div>
@@ -876,7 +873,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control"
 	                                            id="inputCAEstate" name="applicantEstate"
-	                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this); chkNotNullCAEstate(this, 'errCAEstate');"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="chkNotNullCAEstate(this, 'errCAEstate');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 	                                            <span id="errCAEstate" class="text-red"> </span>
                                            </div>
@@ -887,7 +884,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control"
                                             id="inputCAStreetNo" name="applicantStreetNo"
-                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
                                         </div>
@@ -895,7 +892,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control"
 	                                            id="inputCAStreetName" name="applicantStreetName"
-	                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
                                            </div>
                                        </div>
@@ -1107,20 +1104,18 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text"
 	                                            class="form-control wd2 full-control" id="inputARoom" name="aRoom"
-	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control  full-control"
-	                                            id="inputAFloor" name="aFloor" placeholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this);"
+	                                            id="inputAFloor" name="aFloor" placeholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />""
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control  full-control"
-	                                            id="inputABlock" name="aBlock" placeholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this);"
-	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+	                                            id="inputABlock" name="aBlock" 
+	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" placeholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />"/>
                                            </div>
                                        </div>
                                        <!--  room, floor, block end -->
@@ -1140,7 +1135,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control"
 	                                            id="inputAEstate" name="aEstate" placeholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this); chkNotNullIAEstate(this, 'errAEstate');"
+	                                            onblur="chkNotNullIAEstate(this, 'errAEstate');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 	                                            <span id="errAEstate" class="text-red"> </span>
                                            </div>
@@ -1151,7 +1146,6 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control"
 	                                            id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
-	                                            onblur="replaceAlphaNumeric(this);"
 	                                            onkeypress="    return isAlphaNumeric(event);"
 	                                            maxlength="100" />
                                         </div>
@@ -1160,7 +1154,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control"
 	                                            id="inputAStreetName" name="aStreetName"
-	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
+	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />"
 	                                            onkeypress="    return isAlphaNumeric(event);"
 	                                            maxlength="100" />
                                            </div>
