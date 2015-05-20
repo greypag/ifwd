@@ -86,7 +86,7 @@
                             </div>
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
                                 <h4 class="h4-trav-full">
-                                    <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+                                    <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
                                 </h4>
                             </div>
                         </div>

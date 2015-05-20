@@ -1546,6 +1546,8 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 	
 	var appHkid = $('#'+inputId).val();
 	var mySelectId = $('#'+selectId).val();
+	console.log(selectId);
+	console.log($('#'+selectId).val().toLowerCase());
 	if($('#'+selectId).length > 0 && ($('#'+selectId).val().toLowerCase() == 'passport' || $('#'+selectId).val().toLowerCase() == 'apppassport')){
 		if (appHkid.trim() == "") {
 			if(inputType=="applicant"){
@@ -2727,10 +2729,10 @@ function tPlanValid()
 				}
 			}
 		}
-
+		var selectOtherBenefitiaryHkidPass = document.getElementById("selectOtherBenefitiaryHkidPass" + i).value;
 		if(selectedValue != "SE"){
 		if (hkid.trim() == "") {
-			if (selectOtHkidPass.toUpperCase() == 'HKID') {
+			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID') {
 				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message")
 				flag = false;	
 			} else {
@@ -2740,7 +2742,7 @@ function tPlanValid()
 		}
 		else
 		{
-			if (selectedOtHkidPass.toUpperCase() == 'HKID') {
+			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID') {
 				var tr=IsHKID(hkid.trim());
 				if(tr==false)
 				{

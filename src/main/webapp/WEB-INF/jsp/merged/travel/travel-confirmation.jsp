@@ -185,7 +185,7 @@
             
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div><fmt:message key="travel.confirmation.partnerDesc" bundle="${msg}" /></div>
-                <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" class="img-responsive">  
+                <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="" class="img-responsive">  
               </div>
               
               <div class="clearfix"></div><br>
@@ -200,7 +200,7 @@
                     <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
                         <fmt:message key="travel.referral.copy" bundle="${msg}" />
                     </div>
-    <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/  <%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
+
                     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/" data-title="iFWD"></div>
                 </div>
               </div> 

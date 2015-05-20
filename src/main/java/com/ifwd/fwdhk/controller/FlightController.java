@@ -67,11 +67,15 @@ public class FlightController {
 	// @Link(label="Flight", family="FlightController", parent = "" )
 	@RequestMapping(value = { "/{lang}/flight", "/{lang}/flight-insurance",
 			"/{lang}/flight-insurance/sharing/" })
-	public ModelAndView flight(HttpServletRequest request, Model model) {
-		UserRestURIConstants.setController("Flight");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-		// return UserRestURIConstants.getSitePath(request) + "flight/flight";
+	public ModelAndView flight(HttpServletRequest request, Model model,
+			@RequestParam(required = false) final String utm_source,
+			@RequestParam(required = false) final String utm_medium,
+			@RequestParam(required = false) final String utm_campaign,
+			@RequestParam(required = false) final String utm_content) {
 
+		UserRestURIConstants.setController("Flight");
+		
+		request.setAttribute("controller", UserRestURIConstants.getController());
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
@@ -79,6 +83,13 @@ public class FlightController {
 		PlanDetails planDetails = (PlanDetails) session
 				.getAttribute("flightPlanDetails");
 
+		model.addAttribute("utm_source", utm_source);
+		model.addAttribute("utm_medium", utm_medium);
+		model.addAttribute("utm_campaign", utm_campaign);
+		model.addAttribute("utm_content", utm_content);
+		
+		
+		
 		/*if (planDetails == null) {
 			planDetails = new PlanDetails();
 		}*/
@@ -111,6 +122,9 @@ public class FlightController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.flight", UserRestURIConstants.getLanaguage(request));
 
+		
+		
+		
 		String ogTitle = "";
 		String ogType = "";
 		String ogUrl = "";
@@ -220,7 +234,7 @@ public class FlightController {
 
 			if (planDetails == null) {
 				// return flight(request, model, "tc");
-				return flight(request, model);
+				return flight(request, model, "", "", "", "");
 			}
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
@@ -355,7 +369,7 @@ public class FlightController {
 
 		} else {
 			// return flight(request, model, "tc");
-			return flight(request, model);
+			return flight(request, model, "", "", "", "");
 		}
 	}
 
@@ -367,6 +381,7 @@ public class FlightController {
 	public String updateFlightQuote(
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
+		UserRestURIConstants.setController("Flight");
 		System.out.println("/updateFlightQuote");
 		System.out.println("PLAN SELECTED " + planDetails.getPlanSelected());
 		System.out.println("PERSONAL " + planDetails.getTotalPersonalTraveller());
@@ -570,7 +585,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			//@ModelAttribute("flightQuoteDetails") PlanDetails planDetails,
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) {
-		
+		UserRestURIConstants.setController("Flight");
 		HttpSession session = request.getSession();
 		//FOLOWING IS TO HANDLE CHANGE LANGUAGE AS THE planDetails WILL BE NULL
 		if (planDetails.getReturnDate() == null) {
@@ -593,7 +608,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 
 		if (session.getAttribute("token") == null) {
-			return flight(request, model);
+			return flight(request, model, "", "", "", "");
 			// return flight(request, model, "tc");
 
 		}
@@ -601,7 +616,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		//planDetails = (PlanDetails) session.getAttribute("flightPlanDetails"); // vincent this line overwritten the correct values
 		if (planDetails == null) {
 			// return flight(request, model, "tc");
-			return flight(request, model);
+			return flight(request, model, "", "", "", "");
 		}
 
 		planDetails.setTotalDue(request.getParameter("ToalDue"));
@@ -743,7 +758,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			HttpServletRequest request,
 			@ModelAttribute("confirmationData") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model) {
-
+		UserRestURIConstants.setController("Flight");
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
@@ -1339,7 +1354,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			Model model,
 			HttpServletRequest request,
 			@ModelAttribute("createFlightPolicy") CreateFlightPolicy createFlightPolicy) {
-
+		UserRestURIConstants.setController("Flight");
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
@@ -1381,7 +1396,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				// redirect to 1ST step when null
 				if (createFlightPolicy == null) {
 					// return flight(request, model, "tc");
-					return flight(request, model);
+					return flight(request, model, "", "", "", "");
 
 				}
 			}
@@ -1390,6 +1405,13 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 			Date dateD1 = new Date(createFlightPolicy.getDepartureDate());
 			Date dateD2 = new Date(createFlightPolicy.getReturnDate());
+			
+			
+			session.setAttribute("departureDate", createFlightPolicy.getDepartureDate());
+			session.setAttribute("returnDate", createFlightPolicy.getReturnDate());
+			
+			
+			
 			LocalDate commencementDate = new LocalDate(dateD1);
 			LocalDate expiryDate = new LocalDate(dateD2);
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
@@ -1467,6 +1489,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				quoteDetails.setPlanName(planeName);
 
 				request.setAttribute("quoteDetails", quoteDetails);
+				session.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("createFlightPolicy", createFlightPolicy);
 
@@ -1505,11 +1528,39 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 	public String flightToTravelUpgrade(Model model,
 			HttpServletRequest request,
 			@ModelAttribute("travelQuote") CreateFlightPolicy createFlightPolicy) {
-
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		HttpSession session = request.getSession();
+		
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
+		String dueAmount = WebServiceUtils.getParameterValue(
+				"selectedAmountDue", session, request);
+		
 		String selectPlanName = request.getParameter("planName");
-		HttpSession session = request.getSession();
+		session.setAttribute("selectPlanName", selectPlanName);
+		session.setAttribute("planName", selectPlanName);
+		session.setAttribute("planSelected", selectPlanName);
+		
+		
+		if (createFlightPolicy.getDepartureDate() == null) {
+			createFlightPolicy = (CreateFlightPolicy) session.getAttribute("upgradeCreateFlightPolicy");
+			selectPlanName = (String) session.getAttribute("upgradeSelectPlanName");
+			dueAmount = (String)session.getAttribute("upgradeDueAmount");
+		} else {
+			session.setAttribute("upgradeCreateFlightPolicy", createFlightPolicy);
+			session.setAttribute("upgradeSelectPlanName", selectPlanName);
+			session.setAttribute("upgradeDueAmount", dueAmount);
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+		
 		JSONObject parameters = new JSONObject();
 		if (session.getAttribute("FlightResponseFrTrvl") != null) {
 			parameters = (JSONObject) session
@@ -1525,8 +1576,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 						.getAgeRangeNames(plandetailsForm.getPersonalAgeRange(),
 								UserRestURIConstants.getLanaguage(request)));
 			}
-			
-			
 			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
 				plandetailsForm.setAdultAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getAdultAgeRange(),
@@ -1615,20 +1664,22 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			return UserRestURIConstants.getSitePath(request) + "travel/travel";
 		}
 
-		String dueAmount = request.getParameter("selectedAmountDue");
+		
 
 		String applicantFullName = request.getParameter("fullName");
 		String applicantHKID = request.getParameter("hkid");
 		String applicantMobNo = request.getParameter("mobileNo");
 		String emailAddress = request.getParameter("emailAddress");
 		String totalTravallingDays = request.getParameter("days");
-		System.out.println("inside Controller fro prepare Summa");
+		System.out.println("inside Controller fro flight upgrade Summary");
 
 		TravelQuoteBean travelBean = new TravelQuoteBean();
 		travelBean.setTrLeavingDate(parameters.get("commencementDate")
 				.toString());
 		travelBean.setTrBackDate(parameters.get("expiryDate").toString());
 		travelBean.setTotalTraveller(createFlightPolicy.getTravellerCount());
+		
+		
 		/*
 		 * System.out .println(
 		 * "===========>+>+>+>+>+>+.=...............>>>>>>+=====>>>>>>>>>>>>>>>>>>>>>+"
@@ -1646,6 +1697,24 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				+ plandetailsForm.getTotalOtherTraveller()
 				+ plandetailsForm.getTotalOtherTraveller());
 		model.addAttribute("dueAmount", dueAmount);
+		session.setAttribute("travelQuote", travelBean);
+		session.setAttribute("corrTravelQuote", travelBean);
+		
+		
+		
+		if (applicantFullName == null) {
+			totalTravallingDays = (String) session.getAttribute("upgradeTotalTravallingDays");
+			totalTravallingDays = (String) session.getAttribute("upgradeTotalTravallingDays");
+			userDetails = (UserDetails) session.getAttribute("upgradeUserDetails");
+			plandetailsForm = (PlanDetailsForm) session.getAttribute("upgradePlandetailsForm");
+		} else {
+			session.setAttribute("upgradeTotalTravallingDays", totalTravallingDays);
+			session.setAttribute("upgradeTotalTravallingDays", totalTravallingDays);
+			session.setAttribute("upgradeUserDetails", userDetails);
+			session.setAttribute("upgradePlandetailsForm", plandetailsForm);
+			
+		}
+			
 		model.addAttribute("totalTravallingDays", totalTravallingDays);
 		model.addAttribute("totalTravellingDays", totalTravallingDays);
 		
@@ -1654,8 +1723,15 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		model.addAttribute("planDetailsForm", plandetailsForm);
 		model.addAttribute("path", path.replace(
 				"flight-upgrade-travel-summary", "travel-confirmation"));
+		
 		model.addAttribute("failurePath",
-				path.replace("flight-upgrade-travel-summary", "failure"));
+				path.replace("flight-upgrade-travel-summary", "travel-summary?paymentGatewayFlag=true"));
+
+		model.addAttribute("failurePath",
+				path.replace("flight-upgrade-travel-summary", "flight-upgrade-travel-summary?paymentGatewayFlag=true"));
+
+		
+		
 		String pageTitle = WebServiceUtils.getPageTitle(
 				"page.travelPlanSummary",
 				UserRestURIConstants.getLanaguage(request));
@@ -1706,5 +1782,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 		return response;
 	}
+
+	
 	
 }

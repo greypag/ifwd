@@ -117,7 +117,7 @@ function activateUserAccountJoinUs() {
        $.ajax({
                    type : 'POST',
                     url : '<%=request.getContextPath()%>/joinus',
-                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email },
+                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
                     async : false,
                     success : function(data) {
                         
@@ -664,7 +664,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
                                                      <select name="personalBeneficiary" id="personalselectBenificiary${inx}" 
-                                                            onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}')"
+                                                            onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')"
                                                         class="soflow select-label" >
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
@@ -999,7 +999,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select">
                                                    <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
-                                                          onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
+                                                          onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')"
                                                       class="soflow select-label" >
                                                       <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                       <c:forEach var="relationshipList" items="${mapRelationshipCode}">
@@ -1260,7 +1260,7 @@ function activateUserAccountJoinUs() {
                                                <input
                                                     id="txtChldInsuHkid${inx}" name="childHKID"
                                                     class="form-control textUpper full-control" placeholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtChldInsuHkid${inx}','selectedChildHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
+                                                    value="" onkeyup="hkidValid(this)" onblur="validateHkid('txtChldInsuHkid${inx}','selectedChldHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
                                                     class="text-red"> </span><span
                                                     id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>                                           </div>
                                        </div>
@@ -1300,7 +1300,7 @@ function activateUserAccountJoinUs() {
                                                <div class="styled-select">
                                                     <select
                                                         id="childselectBenificiary${inx}" name="childBeneficiary"
-                                                        onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
+                                                        onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
                                                         class="soflow select-label">
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
@@ -1557,7 +1557,7 @@ function activateUserAccountJoinUs() {
                                                 <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>                                           </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                               <div class="styled-select"><select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
-                                                        onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
+                                                        onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
@@ -1989,28 +1989,37 @@ function activateUserAccountJoinUs() {
 </div>
 
 <script>
-    function activeDiv(id, selected) {
+    function activeDiv(id, selected, beneFullName, beneHkId) {
         var selectedValue = $('#' + selected).val();
         if (id.indexOf('personal') > -1) {
-            activeDeactive(selectedValue, id);
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
         }
         if (id.indexOf('adult') > -1) {
-            activeDeactive(selectedValue, id);
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
         }
         if (id.indexOf('child') > -1) {
-            activeDeactive(selectedValue, id);
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
         }
         if (id.indexOf('other') > -1) {
-            activeDeactive(selectedValue, id);
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
         }
     }
-    function activeDeactive(selectedValue, id) {
+    function activeDeactive(selectedValue, id, beneFullName, beneHkId) {
         if (selectedValue == "SE") {
+        	$('#' + beneFullName).text('');
+            $('#' + beneHkId).text('');
+            $('#' + beneFullName).val('');
+            $('#' + beneHkId).val('');
+            
             $('#' + id).addClass('hide');
             $('#' + id + 'b').addClass('hide');
+			
+            
         } else {
             $('#' + id).removeClass('hide');
             $('#' + id + 'b').removeClass('hide');
+            
+            
         }
     }
 

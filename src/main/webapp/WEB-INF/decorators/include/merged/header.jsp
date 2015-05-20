@@ -161,7 +161,7 @@ function submitLoginForm(formID) {
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4 class="margin-shift">
-													<fmt:message key="header.login.username" bundle="${msg}" />  <a href="forgotUserName"
+													<fmt:message key="header.login.username" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -171,7 +171,7 @@ function submitLoginForm(formID) {
 												</div>
 												<span id="errUserName" style="color: red"></span>
 												<h4 class="margin-shift">
-													<fmt:message key="header.login.password" bundle="${msg}" />  <a href="forgotPassword"
+													<fmt:message key="header.login.password" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
@@ -310,13 +310,7 @@ function submitLoginForm(formID) {
 			<div class="col-lg-6 col-md-6 pull-right">
 				
 				<ul class="maintabs">
-	  <!-- <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> </li>		
-       <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
-      <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
-      <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li> -->
-      
-      
-      <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+	  <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
       <li class="col-lg-4 col-md-4 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
@@ -388,7 +382,7 @@ function submitLoginForm(formID) {
 											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
-												<h4 class="margin-shift"><fmt:message key="header.login.username" bundle="${msg}" /> <a href="forgotUserName"
+												<h4 class="margin-shift"><fmt:message key="header.login.username" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -397,7 +391,7 @@ function submitLoginForm(formID) {
 														placeholder="" id="headerUserName">
 												</div>
 												<span id="errUserName" style="color: red"></span>
-												<h4 class="margin-shift"><fmt:message key="header.login.password" bundle="${msg}" /> <a href="forgotPassword"
+												<h4 class="margin-shift"><fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">

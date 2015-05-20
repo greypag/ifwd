@@ -58,12 +58,20 @@ public class HomeCareController {
 	SendEmailDao sendEmail;
 
 	@RequestMapping(value = {"/{lang}/homecare", "/{lang}/home-insurance", "/{lang}/home-insurance/sharing/"})
-	public String getHomeCarePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
+	public String getHomeCarePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
+			@RequestParam(required = false) final String utm_source,
+			@RequestParam(required = false) final String utm_medium,
+			@RequestParam(required = false) final String utm_campaign,
+			@RequestParam(required = false) final String utm_content) 
+	{
+		
+		UserRestURIConstants.setController("Homecare");
+		
 		
 		UserRestURIConstants urc = new UserRestURIConstants(); 
 		urc.updateLanguage(request);
 		
-		UserRestURIConstants.setController("Homecare");
+		
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
@@ -184,6 +192,9 @@ public class HomeCareController {
 	public String getHomeCarePlanage(Model model, HttpServletRequest request) {
 		System.out.println("/home-insurance/quote");
 		UserRestURIConstants.setController("Homecare");
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
@@ -192,7 +203,7 @@ public class HomeCareController {
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
 			System.out.println("session null");
-			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 
 		String token = session.getAttribute("token").toString();
@@ -209,7 +220,7 @@ public class HomeCareController {
 		}
 		// redirect to 1ST step when null
 		if (answer1 == null || answer2 == null) {
-			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 		
 		String userReferralCode = "";
@@ -237,7 +248,7 @@ public class HomeCareController {
 			System.out.println("errMsgs " + planQuote.getErrormsg());
 			model.addAttribute("errMsgs", planQuote.getErrormsg());
 			
-			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 	}
 
@@ -245,13 +256,16 @@ public class HomeCareController {
 	public String prepareYoursDetails(
 			@ModelAttribute("planQuoteDetails") HomeQuoteBean homeQuoteDetails,
 			Model model, HttpServletRequest request) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
-			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 
 		String token = session.getAttribute("token").toString();
@@ -284,7 +298,7 @@ public class HomeCareController {
 
 				// redirect to 1ST step when null
 				if (homeQuoteDetails == null) {
-					return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+					return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 				}
 			}
 
@@ -355,12 +369,16 @@ public class HomeCareController {
 	public String prepareSummary(
 			@ModelAttribute("frmYourDetails") HomeCareDetailsBean homeCareDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
+		UserRestURIConstants.setController("Homecare");
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		
 		System.out.println("home-insurance/home-summary called ");
 		HttpSession session = request.getSession();
 		
 		
 		if (session.getAttribute("token") == null) {
-			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 		
 		UserRestURIConstants.setController("Homecare");
@@ -428,7 +446,7 @@ public class HomeCareController {
 		} else {
 			homeCareDetails = (HomeCareDetailsBean) session.getAttribute("homeCareDetails");
 			if (homeCareDetails == null) {
-				return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
+				return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}
 		}
 		System.out.println("***************passportORhkid********************");
@@ -546,7 +564,9 @@ public class HomeCareController {
 	@ResponseBody
 	public String processHomeCarePayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
+		UserRestURIConstants.setController("Homecare");
 		HttpSession session = request.getSession();
+		
 		session.setAttribute("HomeCareTransactionNo", request.getParameter("orderRef"));
 		
 		String referenceNo = request.getParameter("referenceNo");
@@ -604,7 +624,8 @@ public class HomeCareController {
 
 	@RequestMapping(value = {"/{lang}/homecare-confirmation", "/{lang}/home-insurance/confirmation"})
 	public String processHomePayment(Model model, HttpServletRequest request) {
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		UserRestURIConstants.setController("Homecare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();	
