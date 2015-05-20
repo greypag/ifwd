@@ -48,10 +48,10 @@
 <!-- Open Graph data -->
 <meta property="og:title" content="${ogTitle}" />
 <meta property="og:type" content="${ogType}" />
-<%-- <meta property="og:url" content="${ogUrl}" /> --%>
+<meta property="og:url" content="${ogUrl}" />
 <meta property="og:image" content="${ogImage}" />
 <meta property="og:description" content="${ogDescription}"/>
-<meta property="og:site_name" content="Moz" />
+<meta property="og:site_name" content="${ogSiteName}" />
 
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />

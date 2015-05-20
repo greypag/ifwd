@@ -22,7 +22,7 @@
 <script>
 
 /* Commented because login is not compulsory */ 
-<%-- function flightPlanValidation() {
+<%-- function fligh	ation() {
  <%if (authenticate.equalsIgnoreCase("false")) {%>
 $('#loginpopup').modal('show');
 <%} else {%> 
@@ -669,7 +669,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select"><select name="personalBeneficiary" class="soflow select-label"
                                                         id="personalselectBenificiary${inx}"
-                                                        onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}')">
+                                                        onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
                                                         <option value="SE"><fmt:message
                                                                 key="flight.details.insured.beneficiary.default"
                                                                 bundle="${msg}" /></option>
@@ -956,7 +956,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                                <div class="styled-select"><select name="adultBeneficiary" class="soflow select-label"
                                                    id="adultsselectBenificiary${inx}"
-                                                   onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')">
+                                                   onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')">
                                                    <option value="SE"><fmt:message
                                                            key="flight.details.insured.beneficiary.default"
                                                            bundle="${msg}" /></option>
@@ -1232,7 +1232,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <div class="styled-select">
                                                    <select id="childselectBenificiary${inx}"
                                                        name="childBeneficiary"
-                                                       onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
+                                                       onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
                                                        class="soflow select-label">
                                                        <option value="SE"><fmt:message
                                                                key="flight.details.insured.beneficiary.default"
@@ -1512,7 +1512,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <div class="styled-select">
                                                     <select id="otherSelectBenificiary${inx}"
                                                         name="otherBeneficiary"
-                                                        onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}')"
+                                                        onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
                                                         <option value="SE"><fmt:message
                                                                 key="flight.details.insured.beneficiary.default"
@@ -2016,31 +2016,39 @@ onclick="return flightPlanValidation();">Next</button> -->
 
 
 /* For Benefitiary Div active and Inactive */
-function activeDiv(id, selected) {
-    var selectedValue = $('#' + selected).val();
-    if (id.indexOf('personal') > -1) {
-        activeDeactive(selectedValue, id);
+function activeDiv(id, selected, beneFullName, beneHkId) {
+        var selectedValue = $('#' + selected).val();
+        if (id.indexOf('personal') > -1) {
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
+        }
+        if (id.indexOf('adult') > -1) {
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
+        }
+        if (id.indexOf('child') > -1) {
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
+        }
+        if (id.indexOf('other') > -1) {
+            activeDeactive(selectedValue, id, beneFullName, beneHkId);
+        }
     }
-    if (id.indexOf('adult') > -1) {
-        activeDeactive(selectedValue, id);
+    function activeDeactive(selectedValue, id, beneFullName, beneHkId) {
+        if (selectedValue == "SE") {
+        	$('#' + beneFullName).text('');
+            $('#' + beneHkId).text('');
+            $('#' + beneFullName).val('');
+            $('#' + beneHkId).val('');
+            
+            $('#' + id).addClass('hide');
+            $('#' + id + 'b').addClass('hide');
+			
+            
+        } else {
+            $('#' + id).removeClass('hide');
+            $('#' + id + 'b').removeClass('hide');
+            
+            
+        }
     }
-    if (id.indexOf('child') > -1) {
-        activeDeactive(selectedValue, id);
-    }
-    if (id.indexOf('other') > -1) {
-        activeDeactive(selectedValue, id);
-    }
-}
-
-function activeDeactive(selectedValue, id) {
-    if (selectedValue == "" || selectedValue == "SE") {
-        $('#' + id).addClass('hide');
-        $('#' + id + 'b').addClass('hide');
-    } else {
-        $('#' + id).removeClass('hide');
-        $('#' + id + 'b').removeClass('hide');
-    }
-}
 /* END- For Benefitiary Dive active and Inactive */
 
 /* UserLogin ajax function */

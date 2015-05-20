@@ -60,9 +60,17 @@ public class TravelController {
 	private MessageSource messageSource;
 	
 	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance"})
-	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
+	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
+			@RequestParam(required = false) final String utm_source,
+			@RequestParam(required = false) final String utm_medium,
+			@RequestParam(required = false) final String utm_campaign,
+			@RequestParam(required = false) final String utm_content)  {
 
 		UserRestURIConstants.setController("Travel");
+		
+		UserRestURIConstants urc = new UserRestURIConstants(); 
+		urc.updateLanguage(request);
+		
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
 		
@@ -141,7 +149,8 @@ public class TravelController {
 	public ModelAndView prepareTravelPlan(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		System.out.println("/{lang}/travel-insurance/quote");
 		System.out.println("PLAN SELECTED " + travelQuote.getPlanSelected());
 		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
@@ -165,7 +174,7 @@ public class TravelController {
 			
 			if(travelQuote == null)
 			{
-				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
+				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 			}				
 		}
 		System.out.println("plan: " + travelQuote.getPlanSelected() );
@@ -338,6 +347,8 @@ public class TravelController {
 	public String updateTravelQuote(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
+		UserRestURIConstants.setController("Travel");
+		
 		System.out.println("/updateTravelQuote");
 		//System.out.println("PLAN SELECTED " + travelQuote.getPlanSelected());
 		System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
@@ -689,12 +700,15 @@ public class TravelController {
 	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
+		UserRestURIConstants.setController("Travel");
 		
+		HttpSession session = request.getSession();
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		if (session.getAttribute("token") == null) 
 		{
 			model.addAttribute("errMsgs", "Session Expired");
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
+			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		
 		UserRestURIConstants.setController("Travel");
@@ -704,7 +718,7 @@ public class TravelController {
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue(
-				"selectPlanPremium", session, request);
+				"selectedAmountDue", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectPlanName", session, request);
 		selectPlanName = planName;
@@ -716,7 +730,7 @@ public class TravelController {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 			if(travelQuote == null){
 				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
-				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);
+				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}				
 		}
 		try {
@@ -886,9 +900,13 @@ public class TravelController {
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
+		
+		UserRestURIConstants.setController("Travel");
+		
 		String hkId = "hkId", passId = "passport";
 		
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		HttpSession session = request.getSession();
 		
 		
@@ -900,11 +918,11 @@ public class TravelController {
 		String planSelected = (String) session.getAttribute("planSelected");
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
+			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		if(travelQuote == null || planSelected == null){
 			//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);				
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);		
+			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 		}
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -1219,7 +1237,7 @@ public class TravelController {
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
 			JSONObject adult = new JSONObject();
-			adult.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase() );
+ 
 			adult.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getAdultAgeRange()[inx] ).toUpperCase() );
 			adult.put(hkId,	checkPasswortAndHkid(hkId,
 							planDetailsForm.getSelectedAdHkidPass()[inx],
@@ -1687,9 +1705,19 @@ public class TravelController {
 		model.addAttribute("path",
 				path.replace("travel-summary", "confirmation"));
 		
-		System.out.println("modal path " + path.replace("travel-summary", "confirmation"));
-		//model.addAttribute("path", path + "/FWDHKPH1A/travel-insurance/confirmation");
-        model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
+        
+        
+        
+		model.addAttribute("path",
+				path.replace("travel-summary", "confirmation"));
+		
+		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+        
+        
+        
+        
+        
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
         if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
@@ -1764,6 +1792,8 @@ public class TravelController {
 	@RequestMapping(value = {"/{lang}/travel-confirmation", "/{lang}/travel-confirmation", "/{lang}/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam(required = false) String Ref ) {
+		UserRestURIConstants.setController("Travel");
+		
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
@@ -1771,7 +1801,8 @@ public class TravelController {
 			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-confirmation";
 		}
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
@@ -1827,6 +1858,14 @@ public class TravelController {
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
+				session.removeAttribute("upgradeTotalTravallingDays");
+				session.removeAttribute("upgradeTotalTravallingDays");
+				session.removeAttribute("upgradeUserDetails");
+				session.removeAttribute("upgradePlandetailsForm");
+				session.removeAttribute("upgradeCreateFlightPolicy");
+				session.removeAttribute("upgradeSelectPlanName");
+				session.removeAttribute("upgradeDueAmount");
+				session.removeAttribute("travelQuote");
 				
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));

@@ -345,7 +345,7 @@
 									<td><p>
 											<fmt:message key="member.account.promotionCode.share.message.header" bundle="${msg}" /><span class="h2-1">
 												${userDetails.getReferralCode()}</span><br> <fmt:message key="member.account.promotionCode.share.message.body" bundle="${msg}" />
-										</p> <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt=""
+										</p> <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt=""
 										class="text-center col-xs-offset-3" /></td>
 								</tr>
 								<tr>

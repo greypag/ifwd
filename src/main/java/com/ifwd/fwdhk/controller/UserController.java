@@ -43,7 +43,7 @@ public class UserController {
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	
 
-		String homeURL = "/changeLang?selectLang=EN&action=/home";
+		String homeURL = "/changeLang?selectLang=EN&action=/tc/home";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
 		
@@ -57,7 +57,9 @@ public class UserController {
 		if (lang != null)
 		{
 			if (lang.equals("tc"))
-				homeURL = "/changeLang?selectLang=tc&action=/home";
+				homeURL = "/changeLang?selectLang=tc&action=/en/home";
+			else
+				homeURL = "/changeLang?selectLang=tc&action=/tc/home";
 		}
 		System.out.println("redirect to home lang: " + lang);
 		return new ModelAndView("redirect:" + homeURL);
@@ -93,8 +95,8 @@ public class UserController {
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
-					session.setAttribute("referralCode",
-							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
+//					session.setAttribute("referralCode",
+//							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myHomeReferralCode",
@@ -140,9 +142,12 @@ public class UserController {
 	}
 
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "/getAccByUsernaneAndPassword", method = RequestMethod.GET)
+	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
 	public ModelAndView getAccountDetailsByUsernameAndPassoword(
 			HttpServletRequest servletRequest, Model model) {
+		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(servletRequest);
 		try {
 			HttpSession session = servletRequest.getSession(false);
 			String tokenInSession = session.getAttribute("token").toString();
@@ -425,7 +430,7 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(req) + "forgot-username";
 	}
 
-	@RequestMapping(value = {"/forgotUserPassword", "/forgot-password"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/forgotUserPassword", "/forgot-password", "/forgotPassword"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String forgotPassword(
 			@ModelAttribute("forgotUserName") UserDetails userDetails,
