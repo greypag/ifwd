@@ -124,7 +124,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 									</tr>
 									<tr>
 										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.requestNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5">${createPolicy.getReferenceNo()}</td>
+										<td class="pad-none h4-5">${whCreatePolicy.getReferenceNo()}</td>
 									</tr>
 
 									<tr>
@@ -277,15 +277,15 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 					<div class="clearfix"></div>
 					<h2 class="from-control"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
 					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
-					<input type="hidden" name="merchantId" value="${createPolicy.getMerchantId()}">
+					<input type="hidden" name="merchantId" value="${whCreatePolicy.getMerchantId()}">
 					<input type="hidden" name="amount" value="${dueAmount.trim()}">
-					<input type="hidden" name="orderRef" value="${createPolicy.getTransactionNo() }">
-					<input type="hidden" name="currCode" value="${createPolicy.getCurrCode() }">
+					<input type="hidden" name="orderRef" value="${whCreatePolicy.getTransactionNo() }">
+					<input type="hidden" name="currCode" value="${whCreatePolicy.getCurrCode() }">
 					<input type="hidden" name="successUrl" value="${path}">
 					<input type="hidden" name="failUrl" value="${failurePath }">
 					<input type="hidden" name="errorUrl" value="${failurePath }">
-					<input type="hidden" name="payType" value="${createPolicy.getPaymentType()}">
-					<input type="hidden" name="referenceNo" value="${createPolicy.getReferenceNo()}"> 
+					<input type="hidden" name="payType" value="${whCreatePolicy.getPaymentType()}">
+					<input type="hidden" name="referenceNo" value="${whCreatePolicy.getReferenceNo()}"> 
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
@@ -296,9 +296,9 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						
 					%>
 					<input type="hidden" name="lang" value="C">
-					<input type="hidden" name="secureHash" value="${createPolicy.getSecureHash() }">
+					<input type="hidden" name="secureHash" value="${whCreatePolicy.getSecureHash() }">
 					<input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.getEmailAddress()}">
-					<input type="hidden" id="gateway" name="gateway" value="${createPolicy.getPaymentGateway()}">
+					<input type="hidden" id="gateway" name="gateway" value="${whCreatePolicy.getPaymentGateway()}">
 
 
 
