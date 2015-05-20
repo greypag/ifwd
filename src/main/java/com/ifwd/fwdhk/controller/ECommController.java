@@ -26,7 +26,7 @@ public class ECommController {
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) {
-		if (!action.toLowerCase().contains("tc/") && !action.toLowerCase().contains("en/")) {
+		if (!action.toLowerCase().contains("tc/") && !action.toLowerCase().contains("en/") && !action.contains("join-us")) {
 			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
 			return null;
 		} else if (action.contains(".")) {
