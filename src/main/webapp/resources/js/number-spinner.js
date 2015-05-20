@@ -105,18 +105,46 @@ $('.plan').change(function () {
 	    if(parent_id =='desk')
 	    {
 	    	$('#lblCountDesk').html('');
-	        if(id == 'personal_plan_desk')
-	        {
-	        	$("#personal_plan_desk").attr("checked", true);
-	        	$("#personal_plan_mob").attr("checked", true);
-	        	$("#personal_plan_btm").attr("checked", true);
+	        if(id  == 'family_plan_desk'){  
+	        	$("#family_plan_desk").trigger('click');
+	        	$("#family_plan_mob").trigger('click');
+	        	$("#family_plan_btm").trigger('click');
 	        	
-	        	$('.plan_spinner_desk').hide();
-	        	$('.plan_spinner_mob').hide();
-	        	$('.plan_spinner_btm').hide();
-	            $("#personal_plan_desk_spinner").show();
-	            $("#personal_plan_mob_spinner").show();
-	            $("#personal_plan_btm_spinner").show();
+	        	$("#totalPersonalTraveller").val(0);
+	        	
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 1);
+	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
+	        	changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 1);
+	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 1);
+	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
+	          
+	        	changeSpinnerValue($('#txtTravellersDesk'), 0);
+	        	personalTraveller=$('#txtTravellersDesk').val();
+	        	changeSpinnerValue($('#txtTravellersMob'), 0);
+	            changeSpinnerValue($('#txtTravellersBtm'), 0);
+	      
+	            $('#lblCountDesk').html(2);
+	            $('#lblCountMob').html(2);
+	            $('#lblCountBtm').html(2);
+	            $('#lblCountDesk').show();
+	            $('#lblCountMob').show();
+	            $('#lblCountBtm').show();
+	            
+	            $('#lblPeopleDesk').html(2);
+	            $('#lblPeopleMob').html(2);
+	            $('#lblPeopleBtm').html(2);
+	            
+	            $('#family_desk_count').val(2);
+	            $('#family_mob_count').val(2);
+	            $('#family_btm_count').val(2);
+	        }else{
+	        	$("#personal_plan_desk").trigger('click');
+	        	$("#personal_plan_mob").trigger('click');
+	        	$("#personal_plan_btm").trigger('click');
 	        	
 	        	$("#totalAdultTraveller").val(0);
 	        	$("#totalChildTraveller").val(0);
@@ -141,6 +169,8 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(1);
 	            $('#lblCountBtm').html(1);
 	            $('#lblCountDesk').show();
+	            $('#lblCountMob').show();
+	            $('#lblCountBtm').show();
 	            
 	            $('#lblPeopleDesk').html(1);
 	            $('#lblPeopleMob').html(1);
@@ -149,62 +179,14 @@ $('.plan').change(function () {
 	            $('#family_desk_count').val(0);
 	            $('#family_mob_count').val(0);
 	            $('#family_btm_count').val(0);
-	        }else if(id  == 'family_plan_desk'){  
-	        	$("#family_plan_desk").attr("checked", true);
-	        	$("#family_plan_mob").attr("checked", true);
-	        	$("#family_plan_btm").attr("checked", true);
-	        	
-	        	$('.plan_spinner_desk').hide();
-	        	$('.plan_spinner_mob').hide();
-	        	$('.plan_spinner_btm').hide();
-	            $("#family_plan_desk_spinner").show();
-	            $("#family_plan_mob_spinner").show();
-	            $("#family_plan_btm_spinner").show();
-	        	
-	        	$("#totalPersonalTraveller").val(0);
-	        	
-	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtAdultsDesk'), 1);
-	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtChildDesk'), 1);
-	        	changeSpinnerValue($('.plan_spinner_desk').find(' #txtOtherDesk'), 0);
-	        	changeSpinnerValue($('.plan_spinner_mob').find(' #txtAdultsMob'), 1);
-	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtChildMob'), 1);
-	    		changeSpinnerValue($('.plan_spinner_mob').find(' #txtOtherMob'), 0);
-	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtAdultsBtm'), 1);
-	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtChildBtm'), 1);
-	    		changeSpinnerValue($('.plan_spinner_btm').find(' #txtOtherBtm'), 0);
-	          
-	        	changeSpinnerValue($('#txtTravellersDesk'), 0);
-	        	personalTraveller=$('#txtTravellersDesk').val();
-	        	changeSpinnerValue($('#txtTravellersMob'), 0);
-	            changeSpinnerValue($('#txtTravellersBtm'), 0);
-	      
-	            $('#lblCountDesk').html(2);
-	            $('#lblCountMob').html(2);
-	            $('#lblCountBtm').html(2);
-	            $('#lblCountDesk').show();
-	            
-	            $('#lblPeopleDesk').html(2);
-	            $('#lblPeopleMob').html(2);
-	            $('#lblPeopleBtm').html(2);
-	            
-	            $('#family_desk_count').val(2);
-	            $('#family_mob_count').val(2);
-	            $('#family_btm_count').val(2);
 	        }
 	    }else if(parent_id =='mob'){      
 	    	$('#lblCountMob').html('');      
 	    	if(id  == 'family_plan_mob') 
 	    	{
-	    		$("#family_plan_desk").attr("checked", true);
-	        	$("#family_plan_mob").attr("checked", true);
-	        	$("#family_plan_btm").attr("checked", true);
-	    		
-	    		$('.plan_spinner_desk').hide();
-	        	$('.plan_spinner_mob').hide();
-	        	$('.plan_spinner_btm').hide();
-	            $("#family_plan_desk_spinner").show();
-	            $("#family_plan_mob_spinner").show();
-	            $("#family_plan_btm_spinner").show();
+	    		$("#family_plan_desk").trigger('click');
+	        	$("#family_plan_mob").trigger('click');
+	        	$("#family_plan_btm").trigger('click');
 	    		
 	    		$("#totalPersonalTraveller").val(0);
 	    		
@@ -227,6 +209,8 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(2);
 	            $('#lblCountBtm').html(2);
 	            $('#lblCountDesk').show();
+	            $('#lblCountMob').show();
+	            $('#lblCountBtm').show();
 	            
 	            $('#lblPeopleDesk').html(2);
 	            $('#lblPeopleMob').html(2);
@@ -236,16 +220,9 @@ $('.plan').change(function () {
 	            $('#family_mob_count').val(2);
 	            $('#family_btm_count').val(2);
 	    	}else{
-	    		$("#personal_plan_desk").attr("checked", true);
-	        	$("#personal_plan_mob").attr("checked", true);
-	        	$("#personal_plan_btm").attr("checked", true);
-	    		
-	    		$('.plan_spinner_desk').hide();
-	        	$('.plan_spinner_mob').hide();
-	        	$('.plan_spinner_btm').hide();
-	            $("#personal_plan_desk_spinner").show();
-	            $("#personal_plan_mob_spinner").show();
-	            $("#personal_plan_btm_spinner").show();
+	    		$("#personal_plan_desk").trigger('click');
+	        	$("#personal_plan_mob").trigger('click');
+	        	$("#personal_plan_btm").trigger('click');
 	    		
 	    		$("#totalAdultTraveller").val(0);
 	        	$("#totalChildTraveller").val(0);
@@ -270,6 +247,8 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(1);
 	            $('#lblCountBtm').html(1);
 	            $('#lblCountDesk').show();
+	            $('#lblCountMob').show();
+	            $('#lblCountBtm').show();
 	            
 	            $('#lblPeopleDesk').html(1);
 	            $('#lblPeopleMob').html(1);
@@ -284,16 +263,16 @@ $('.plan').change(function () {
 	    	$('#lblCountBtm').html('');      
 	    	if(id  == 'family_plan_btm') 
 	    	{
-	    		$("#family_plan_desk").attr("checked", true);
-	        	$("#family_plan_mob").attr("checked", true);
-	        	$("#family_plan_btm").attr("checked", true);
+	    		$("#family_plan_desk").trigger('click');
+	        	$("#family_plan_mob").trigger('click');
+	        	$("#family_plan_btm").trigger('click');
 	    		
-	    		$('.plan_spinner_desk').hide();
-	        	$('.plan_spinner_mob').hide();
-	        	$('.plan_spinner_btm').hide();
-	            $("#family_plan_desk_spinner").show();
-	            $("#family_plan_mob_spinner").show();
-	            $("#family_plan_btm_spinner").show();
+//	    		$('.plan_spinner_desk').hide();
+//	        	$('.plan_spinner_mob').hide();
+//	        	$('.plan_spinner_btm').hide();
+//	            $("#family_plan_desk_spinner").show();
+//	            $("#family_plan_mob_spinner").show();
+//	            $("#family_plan_btm_spinner").show();
 	    		
 	    		$("#totalPersonalTraveller").val(0);
 	    		
@@ -316,6 +295,8 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(2);
 	            $('#lblCountBtm').html(2);
 	            $('#lblCountDesk').show();
+	            $('#lblCountMob').show();
+	            $('#lblCountBtm').show();
 	            
 	            $('#lblPeopleDesk').html(2);
 	            $('#lblPeopleMob').html(2);
@@ -325,16 +306,16 @@ $('.plan').change(function () {
 	            $('#family_mob_count').val(2);
 	            $('#family_btm_count').val(2);
 	    	}else{
-	    		$("#personal_plan_desk").attr("checked", true);
-	        	$("#personal_plan_mob").attr("checked", true);
-	        	$("#personal_plan_btm").attr("checked", true);
+	    		$("#personal_plan_desk").trigger('click');
+	        	$("#personal_plan_mob").trigger('click');
+	        	$("#personal_plan_btm").trigger('click');
 	    		
-	    		$('.plan_spinner_desk').hide();
-	        	$('.plan_spinner_mob').hide();
-	        	$('.plan_spinner_btm').hide();
-	            $("#personal_plan_desk_spinner").show();
-	            $("#personal_plan_mob_spinner").show();
-	            $("#personal_plan_btm_spinner").show();
+//	    		$('.plan_spinner_desk').hide();
+//	        	$('.plan_spinner_mob').hide();
+//	        	$('.plan_spinner_btm').hide();
+//	            $("#personal_plan_desk_spinner").show();
+//	            $("#personal_plan_mob_spinner").show();
+//	            $("#personal_plan_btm_spinner").show();
 	    		
 	    		$("#totalAdultTraveller").val(0);
 	        	$("#totalChildTraveller").val(0);
@@ -359,6 +340,8 @@ $('.plan').change(function () {
 	            $('#lblCountMob').html(1);
 	            $('#lblCountBtm').html(1);
 	            $('#lblCountDesk').show();
+	            $('#lblCountMob').show();
+	            $('#lblCountBtm').show();
 	            
 	            $('#lblPeopleDesk').html(1);
 	            $('#lblPeopleMob').html(1);
