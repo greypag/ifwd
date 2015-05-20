@@ -111,7 +111,7 @@ function activateUserAccountJoinUs() {
        $.ajax({
                    type : 'POST',
                     url : '<%=request.getContextPath()%>/joinus',
-                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email },
+                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
                     async : false,
                     success : function(data) {
                         

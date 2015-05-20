@@ -274,7 +274,7 @@ public class UserController {
 		HttpSession session = servletRequest.getSession(false);
 		
 		
-		
+		boolean ajax = false;
 		
 		
 		boolean optIn1 = false;
@@ -309,7 +309,7 @@ public class UserController {
 			params.put("optIn2", optIn2);
 			
 			//added this for ajax sign up for those forms
-			if(servletRequest.getParameter("userName") != null && servletRequest.getParameter("password") != null){
+			if(servletRequest.getParameter("ajax") != null){
 				params.put("userName", servletRequest.getParameter("userName"));
 				params.put("password", servletRequest.getParameter("password"));
 				params.put("email", servletRequest.getParameter("email"));
