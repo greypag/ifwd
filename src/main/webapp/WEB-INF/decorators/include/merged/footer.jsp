@@ -73,7 +73,11 @@
    <!-- <p class="text-center mob-bottom"><fmt:message key="footer.copyright" bundle="${msg}" /></p> -->
 </div>
 <!--/mob bottom--> 
-
+<script>
+$(function() {
+    $('input, textarea').placeholder();
+});
+</script>
 
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
@@ -102,7 +106,7 @@
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+  src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>  
 <script type="text/javascript"
