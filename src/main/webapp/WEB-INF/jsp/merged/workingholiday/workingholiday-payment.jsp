@@ -20,7 +20,7 @@ var clicked = false;
  			
  			var geteWayUrl = $(gatewayUrlId).val();
  			
- 			form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance//confirmation';
+ 			form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance/confirmation';
  			
  			/* $.ajax({
  						type : "POST",
