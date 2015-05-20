@@ -2042,7 +2042,8 @@ function userLoginFnc() {
         success : function(data) {
             $('#ajax-loading').hide();
             if (data == 'success') {
-                window.location.reload();
+            	//window.location.reload();
+            	window.location.href = window.location.href;
             } else if (data == 'fail') {
                 $('#ajax-loading').hide();
                 $('#login-err-msg').show();

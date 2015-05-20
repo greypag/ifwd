@@ -491,9 +491,6 @@ $(function () {
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
 
-	
-	
-	
 	var checkin = $('#dp1').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
@@ -595,7 +592,11 @@ $(function () {
 			
 			
 	
-	
+			if($(this).hasClass("bmg-flight-inline-dp1")){
+				updateFlightQuote();
+			}else if($(this).hasClass("bmg-travel-inline-dp1")){
+				updateTravelQuote();
+			}
 	});
 	
 	checkout = $('#dp2').datepicker({
@@ -695,7 +696,11 @@ $(function () {
 		//-------------------------------------------------------------------------------ajax			
 		//-------------------------------------------------------------------------------ajax			
 		
-		
+		if($(this).hasClass("bmg-flight-inline-dp2")){
+			updateFlightQuote();
+		}else if($(this).hasClass("bmg-travel-inline-dp2")){
+			updateTravelQuote();
+		}
 	});
 
 

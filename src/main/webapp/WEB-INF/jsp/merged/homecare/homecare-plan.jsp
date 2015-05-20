@@ -107,15 +107,15 @@ var promoCodeInsertFlag = true;
 	}
 	function applyHomePromoCode() {
 		if(promoCodeInsertFlag){
-			$('#loading-overlay').modal({
-                backdrop: 'static',
-                keyboard: false
-            })
             promoCodeInsertFlag = false;
             
 			$("#errPromoCode").html("");
 			
 			if(chkPromoCode()) {
+				$('#loading-overlay').modal({
+	                backdrop: 'static',
+	                keyboard: false
+	            })
 				$.ajax({
 					type : 'POST',
 					url : '<%=request.getContextPath()%>/applyHomePromoCode',

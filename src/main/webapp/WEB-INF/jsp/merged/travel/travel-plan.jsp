@@ -88,15 +88,15 @@ if(personalTraveller>familyTraveller){
 	
 	function applyTravelPromoCode() {
 		if(promoCodeInsertFlag){
-			$('#loading-overlay').modal({
-			    backdrop: 'static',
-			    keyboard: false
-			})
 			promoCodeInsertFlag = false;
 			
 			$("#errPromoCode").html("");
 	        
 	        if(chkPromoCode()){
+	        	$('#loading-overlay').modal({
+	                backdrop: 'static',
+	                keyboard: false
+	            })
 	        	$.ajax({
 	                type : 'POST',
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
@@ -1223,8 +1223,8 @@ if(personalTraveller>familyTraveller){
 								 <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 	                                <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 	                            </h3>
-	                            <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                              <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" onchange="updateTravelQuote();" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+	                            <div class="input-group date bmg-travel-inline-dp1" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+	                              <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
 	                            </div>
 	                             <!-- departure date end -->
 	                             
@@ -1242,8 +1242,8 @@ if(personalTraveller>familyTraveller){
 								<h3><fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <span class="span2 uline">
                                 <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
                           
-                              <div class="input-group date" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" id="txtEndDateMob" onchange="updateTravelQuote();" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                              <div class="input-group date bmg-travel-inline-dp2" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
+                                <input type="text" name="trBackDate" class="datepicker form-control" id="txtEndDateMob" value="${corrTravelQuote.getTrBackDate()}" readonly>
                               </div>
                               
 								<!-- return date end  -->
