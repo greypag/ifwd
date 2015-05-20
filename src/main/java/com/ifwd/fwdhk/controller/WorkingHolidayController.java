@@ -463,6 +463,9 @@ public class WorkingHolidayController {
 		calendar.add(Calendar.DAY_OF_YEAR, -1);
 		String expiryDate = df.format(calendar.getTime());
 		
+		calendar.setTime(new Date(planDetailsForm.getWhAppDob()));
+		String dob = df.format(calendar.getTime());
+		
 		parameters.put("commencementDate", commencementDate);
 		parameters.put("expiryDate", expiryDate);
 		parameters.put("workingHolidayCountry", planDetailsForm.getWhInsWorkingCty());
@@ -497,7 +500,7 @@ public class WorkingHolidayController {
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
-		applicantJsonObj.put("dob", "1970-01-01");
+		applicantJsonObj.put("dob", dob);
 		parameters.put("applicant", applicantJsonObj);
 		
 		JSONObject addressJsonObj = new JSONObject();
@@ -554,6 +557,7 @@ public class WorkingHolidayController {
 
 		}
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
 
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);

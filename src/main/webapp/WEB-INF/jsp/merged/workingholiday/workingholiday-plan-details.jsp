@@ -154,6 +154,16 @@
 									<span id="whAppHKID" class="text-red" ></span></td>
 								</tr>
 								<tr>
+									<td class="pad-none"><label for="inputWhAppDob"
+										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.dob" bundle="${msg}" /></label></td>
+									<td class="pad-none">
+											<div class="input-group date" id="dpWhAppDob"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+						                      <input name="whAppDob" type="text" class="datepicker form-control border-radius" id="inputWhAppDob" value="${userDetails.getDob()}" readonly>
+						                    </div>
+										<span id="whAppDob" class="text-red">
+									</span></td>
+								</tr>
+								<tr>
 									<td class="pad-none"><label for="inputWhAppMobileNO"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="whAppMobileNO" type="text"
@@ -320,8 +330,7 @@
 									<tr>
 										<td colspan="3">
 										<div class="styled-select"><select name="whInsDistrict"
-											class="form-control soflow full-control" id="selectWhInsDistrict"
-											onchange="setDropArea(this.value)">
+											class="form-control soflow full-control" id="selectWhInsDistrict">
 												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 												<%
 													List lst = (List) request.getAttribute("districtList");

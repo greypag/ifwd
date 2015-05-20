@@ -20,6 +20,18 @@ $(function () {
 			newDate.setFullYear(newDate.getFullYear() + 1);
 	});
 	
+	var checkin = $('#dpWhAppDob').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() < wh_now;
+		},
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd MM yyyy",
+
+
+	}).on('changeDate', function (ev) {
+	});
+	
 	/*$("#inputWhAppFullName").keyup(function() {
 		   document.getElementById("inputWhInsFullName").value = this.value;
 	});*/
@@ -208,6 +220,7 @@ function whDetailsValid(){
 	
 	document.getElementById("whAppFullName").innerHTML = "";
 	document.getElementById("whAppHKID").innerHTML = "";
+	document.getElementById("whAppDob").innerHTML = "";
 	document.getElementById("whAppMobileNO").innerHTML = "";    
 	document.getElementById("whAppEmailAdd").innerHTML = "";
 	document.getElementById("whInsAgeRange").innerHTML = "";
@@ -224,6 +237,7 @@ function whDetailsValid(){
 
 	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
+	var WhAppDob = document.getElementById("inputWhAppDob").value;
 	var WhAppMobileNO = document.getElementById("inputWhAppMobileNO").value;
 	var WhAppEmailAdd = document.getElementById("inputWhAppEmailAdd").value;
 	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
@@ -278,6 +292,10 @@ function whDetailsValid(){
 		}
 	}
 	
+	if (WhAppDob.trim() == "") {
+		$("#whAppDob").html(getBundle(getBundleLanguage, "workinghoilday.dob.message"));
+		flag = false;
+	}
 		
 	if (WhAppMobileNO.trim() == "") {
 		$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));

@@ -8,6 +8,7 @@ public class WorkingHolidayDetailsBean implements Serializable {
 
 	private String whAppFullName;
 	private String whAppHKID;
+	private String whAppDob;
 	private String whAppMobileNO;
 	private String whAppEmailAdd;
 	private String whInsFullName;
@@ -30,6 +31,14 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	private String selectWhAppHKID;
 	private String selectWhInsHKID;
 	
+	public String getWhAppDob() {
+		return whAppDob;
+	}
+
+	public void setWhAppDob(String whAppDob) {
+		this.whAppDob = whAppDob;
+	}
+
 	public String getSelectWhAppHKID() {
 		return selectWhAppHKID;
 	}
