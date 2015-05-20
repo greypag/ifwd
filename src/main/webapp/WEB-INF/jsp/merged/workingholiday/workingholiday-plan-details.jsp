@@ -8,7 +8,8 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%@page import="java.util.*"%>
-<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean,com.ifwd.fwdhk.model.WorkingHolidayDetailsBean"%>
+
 
 <%
 	String authenticate = "false";
@@ -139,7 +140,7 @@
 										for="inputWhAppFullName" class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.name" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input type="text" name="whAppFullName"
 										class="form-control full-control" id="inputWhAppFullName"
-										value="${userDetails.getFullName()}"
+										value="${workingHolidayPlanDetailsForm.getWhAppFullName()}"
 										placeholder="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this);"
 										onkeypress="return alphaOnly(event);" maxlength="100" />
 									<span id="whAppFullName" class="text-red">
@@ -151,19 +152,23 @@
 											<select id="selectWhAppHKID"
 												name="selectWhAppHKID" onchange="selected(this)"
 												class="soflow">
-												<c:forEach var="hkidList"
-													items="${mapHkId}">
-													<option
-														value="${hkidList.key}">
-														<c:out
-															value="${hkidList.value}" />
+												<c:forEach var="hkidList" items="${mapHkId}">
+													<c:choose>
+													<c:when test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhAppHKID()}">
+														<option value="${hkidList.key}" selected>
+													</c:when>
+													<c:otherwise>
+														<option value="${hkidList.key}">
+													</c:otherwise>
+													</c:choose>
+														<c:out value="${hkidList.value}" />
 													</option>
 												</c:forEach>
 											</select>
 										</div>
 									</td>
 									<td class="pad-none">
-									<input type="text" name="whAppHKID" class="form-control full-control" id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)">
+									<input type="text" name="whAppHKID" class="form-control full-control" id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)"  value="${workingHolidayPlanDetailsForm.getWhAppHKID()}">
 									<span id="whAppHKID" class="text-red" ></span></td>
 								</tr>
 								<tr>
@@ -171,7 +176,7 @@
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.dob" bundle="${msg}" /></label></td>
 									<td class="pad-none">
 											<div class="input-group date" id="dpWhAppDob"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-						                      <input name="whAppDob" type="text" class="datepicker form-control border-radius" id="inputWhAppDob" value="${userDetails.getDob()}" readonly>
+						                      <input name="whAppDob" type="text" class="datepicker form-control border-radius" id="inputWhAppDob" value="${workingHolidayPlanDetailsForm.getWhAppDob()}" readonly>
 						                    </div>
 										<span id="whAppDob" class="text-red">
 									</span></td>
@@ -180,7 +185,7 @@
 									<td class="pad-none"><label for="inputWhAppMobileNO"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="whAppMobileNO" type="text"
-										class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
+										class="form-control full-control" value="${workingHolidayPlanDetailsForm.getWhAppMobileNO().trim()}"
 										id="inputWhAppMobileNO" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" />
@@ -191,7 +196,7 @@
 									<td class="pad-none"><label for="inputWhAppEmailAdd"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.email" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input class="form-control full-control" name="whAppEmailAdd"
-										value="${userDetails.getEmailAddress().trim()}" id="inputWhAppEmailAdd"
+										value="${workingHolidayPlanDetailsForm.getWhAppEmailAdd().trim()}" id="inputWhAppEmailAdd"
 										placeholder="<fmt:message key="workingholiday.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50">
 										<span id="whAppEmailAdd" class="text-red"></span></td>
 								</tr>
@@ -206,7 +211,7 @@
 												var="ageList" items="${mapSelfType}">
 												<c:choose>
 													<c:when
-														test="${ageList.key == '2'}">
+														test="${(ageList.key == '2' && workingHolidayPlanDetailsForm.getWhInsAgeRange() == '') || workingHolidayPlanDetailsForm.getWhInsAgeRange() == ageList.key}">
 														<option
 															value="${ageList.key}" selected>
 													</c:when>
@@ -232,48 +237,63 @@
 										 	class="soflow" >
 											<option value="SE"><fmt:message key="workingholiday.details.insured.beneficiary.default" bundle="${msg}" /></option>
 											<c:forEach var="relationshipList" items="${mapRelationshipCode}">
-												<option value="${relationshipList.key}"><c:out
-														value="${relationshipList.value}" /></option>
+												<c:choose>
+													<c:when test="${relationshipList.key == workingHolidayPlanDetailsForm.getWhInsBeneficary()}">
+														<option value="${relationshipList.key}" selected>
+													</c:when>
+													<c:otherwise>
+														<option value="${relationshipList.key}">
+													</c:otherwise>
+												</c:choose>
+													<c:out value="${relationshipList.value}" />
+												</option>
 											</c:forEach>
 										</select>
 										<span id="whInsBeneficary" class="text-red"></span>
 									</td>
 								</tr>
-								<tr id="trBenificiary0" class="hide">
+								<tr id="trBenificiary0" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td colspan="2" class="pad-none">
 										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
 									</td>
 								</tr>
-								<tr id="trBenificiary1" class="hide">
+								<tr id="trBenificiary1" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td class="pad-none"><label for="inputWhInsFullName"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label></td>
 									<td class="pad-none">
 										<input type="text"
-										id="inputWhInsFullName" name="whInsFullName" value="${userDetails.getFullName()}"
+										id="inputWhInsFullName" name="whInsFullName" value="${workingHolidayPlanDetailsForm.getWhInsFullName()}"
 										class="form-control full-control" placeholder="<fmt:message key="workingholiday.details.insured.name.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
 										onkeypress="    return alphaOnly(event);" maxlength="100" />
 										<span id="whInsFullName" class="text-red"></span>
 									</td>
 								</tr>
-								<tr id="trBenificiary2" class="hide">
+								<tr id="trBenificiary2" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td class="pad-none"><label for="inputWhInsHKID"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label></td>
 									<td class="pad-none">
 										<select id="selectWhInsHKID" name="selectWhInsHKID" class="soflow">
 											<c:forEach var="hkidList" items="${mapHkId}">
-												<option value="${hkidList.key}">
+												<c:choose>
+													<c:when test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhInsHKID()}">
+														<option value="${hkidList.key}" selected>
+													</c:when>
+													<c:otherwise>
+														<option value="${hkidList.key}">
+													</c:otherwise>
+												</c:choose>
 													<c:out value="${hkidList.value}" />
 												</option>
 											</c:forEach>
 										</select>
 									</td>
 								</tr>
-								<tr id="trBenificiary3" class="hide">
+								<tr id="trBenificiary3" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
 									<td class="pad-none">
-										<input id="inputWhInsHKID" name="whInsHKID" class="form-control full-control" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="" /> 
+										<input id="inputWhInsHKID" name="whInsHKID" class="form-control full-control" placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" value="${workingHolidayPlanDetailsForm.getWhInsHKID()}" /> 
 										<span id="whInsHKID" class="text-red"> </span> 
 									</td>
 								</tr>
@@ -283,8 +303,9 @@
 									<td class="pad-none">
 										<select id="selectWhInsWorkingCty" name="whInsWorkingCty" class="soflow">
 											<c:forEach var="country" items="${countryInfo}">
-												<option value="${country.key}"><c:out
-														value="${country.value}" /></option>
+												<option value="${country.key}">
+													<c:out value="${country.value}" />
+												</option>
 											</c:forEach>
 										</select>
 										<span id="whInsWorkingCty" class="text-red"> </span>
@@ -302,15 +323,15 @@
 										</td>
 										<td>
 										    <input type="text" class="form-control wd2" id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
-											onblur="replaceAlphaNumeric(this);"
+											onblur="replaceAlphaNumeric(this);" value="${workingHolidayPlanDetailsForm.getWhInsRoom()}"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
 											<span id="whInsRoom" class="text-red"> </span></td>
-										<td><input type="text" class="form-control full-control"
+										<td><input type="text" class="form-control full-control" value="${workingHolidayPlanDetailsForm.getWhInsFloor()}"
 											id="inputWhInsFloor" name="whInsFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
 											<span id="whInsFloor" class="text-red"> </span></td>
-										<td><input type="text" class="form-control full-control"
+										<td><input type="text" class="form-control full-control" value="${workingHolidayPlanDetailsForm.getWhInsBlock()}"
 											id="inputWhInsBlock" name="whInsBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
@@ -318,24 +339,24 @@
 									</tr>
 									<tr>
 										<td colspan="2"><input type="text" class="form-control full-control"
-											id="inputWhInsBuilding" name="whInsBuilding"
+											id="inputWhInsBuilding" name="whInsBuilding" value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
 											placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 											<span id="whInsBuilding" class="text-red"> </span></td>
 										<td><input type="text" class="form-control full-control"
-											id="inputWhInsEstate" name="whInsEstate"
+											id="inputWhInsEstate" name="whInsEstate" value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
 											placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="whInsEstate" class="text-red"> </span></td>
 									</tr>
 									<tr>
 										<td colspan="1"><input type="text" class="form-control full-control"
-											id="inputWhInsStreetNo" name="whInsStreetNo"
+											id="inputWhInsStreetNo" name="whInsStreetNo" value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 											<span id="whInsStreetNo" class="text-red"> </span></td></td>
 										<td colspan="2"><input type="text" class="form-control full-control"
-											id="inputWhInsStreetName" name="whInsStreetName"
+											id="inputWhInsStreetName" name="whInsStreetName" value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
 											placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />" onblur="replaceAlphaNumeric(this);"
 											onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 											<span id="whInsStreetName" class="text-red"> </span></td></td>
@@ -343,19 +364,25 @@
 									<tr>
 										<td colspan="3">
 										<div class="styled-select">
-											<select name="whInsDistrict"
-												class="form-control soflow full-control" id="selectWhInsDistrict" onchange="setDropArea(this.value)" >
+											<select name="whInsDistrict" class="form-control soflow full-control" id="selectWhInsDistrict" onchange="setDropArea(this.value)" >
 												<option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
 												<%
 													List lst = (List) request.getAttribute("districtList");
 														Iterator itr = lst.iterator();
 														int i = 1;
+														String dis = request.getSession().getAttribute("workingHolidayPlanDetailsForm") != null ? ((WorkingHolidayDetailsBean)request.getSession().getAttribute("workingHolidayPlanDetailsForm")).getWhInsDistrict() : "";
 														while (itr.hasNext()) {
 															DistrictBean districtList = (DistrictBean) itr.next();
+															if(dis.equals(districtList.getCode())) {
+												%>
+												<option selected value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+												<%
+															}else {
 												%>
 												<option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
-												<%
-													}
+												<%				
+															}
+														}
 												%>
 											</select>
 										</div>
@@ -377,16 +404,18 @@
 										<span id="whInsDistrict" class="text-red"> </span></td>
 									</tr>
 									<tr>
-										<td colspan="3"><label class="radio-inline homecare-lb">
-												<input type="radio" name="whInsArea" id="inlineCARadio3"
-												value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
-											</span>
-										</label> <label class="radio-inline homecare-lb"> <input
-												type="radio" name="whInsArea" id="inlineCARadio4"
-												value="KL" class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
-										</label> <label class="radio-inline"> <input type="radio"
-												name="whInsArea" id="inlineCARadio5" value="NT"
-												class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
+										<td colspan="3">
+											<label class="radio-inline homecare-lb">
+												<input type="radio" name="whInsArea" id="inlineCARadio3" value="HK" checked="" class="home-input1">
+												<span><fmt:message key="home.details.registration.hk" bundle="${msg}" /></span>
+											</label>
+											<label class="radio-inline homecare-lb">
+												<input type="radio" name="whInsArea" id="inlineCARadio4" value="KL" class="home-input1">
+												<span><fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="whInsArea" id="inlineCARadio5" value="NT" class="home-input1">
+												<span><fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
 										</label></td>
 									</tr>
 								</tbody>
@@ -398,7 +427,7 @@
 											for="inputWhInseffectiveDate" class="control-label bold-500 lhnormal"><fmt:message key="workingholiday.details.insured.beneficiary.effective" bundle="${msg}" /></label></td>
 										<td class="pad-none">
 											<div class="input-group date" id="dpEffectiveDate"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-						                      <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="inputWhInseffectiveDate" value="${workingholidayQuote.getTrLeavingDate()}" readonly>
+						                      <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="inputWhInseffectiveDate" value="${workingHolidayPlanDetailsForm.getWhInseffectiveDate()}" readonly>
 						                    </div>
 											<span id="whInseffectiveDate" class="text-red"></span>
 										</td>
