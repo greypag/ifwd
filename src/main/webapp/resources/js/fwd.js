@@ -887,7 +887,6 @@ function fPlanValid()
 {
 	var flag=true;
 	$('#chk2').html('');
-	//console.log($('#selectCADist').val());
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
@@ -1546,8 +1545,6 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 	
 	var appHkid = $('#'+inputId).val();
 	var mySelectId = $('#'+selectId).val();
-	console.log(selectId);
-	console.log($('#'+selectId).val().toLowerCase());
 	if($('#'+selectId).length > 0 && ($('#'+selectId).val().toLowerCase() == 'passport' || $('#'+selectId).val().toLowerCase() == 'apppassport')){
 		if (appHkid.trim() == "") {
 			if(inputType=="applicant"){
@@ -2907,7 +2904,6 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	}
 	else{
 		if (travellers.trim() == "" || travellers =="0") {
-			console.log(travellers);
 			document.getElementById(errTravelCountId).style.display = "block";
 			
 			var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
@@ -2915,7 +2911,6 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 			flag = false;
 		}
 		if (peopleCount.trim()=="" || peopleCount=="0"){
-			console.log(peopleCount);
 			document.getElementById(errTravelCountId).style.display = "block";
 		
 			var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
@@ -4025,7 +4020,6 @@ function dateDiffInDaysFromNow(dat){
 // validation - date
 function chkValidDate(element, errElementId, name){
 	if(isNull(element)){
-		console.log($(element).val())
 		var msg = getBundle(getBundleLanguage, "date.notNull.message");
 		msg = String.format(msg, name);
 		document.getElementById(errElementId).innerHTML = msg;
@@ -4485,7 +4479,6 @@ function getBundle(lang, key) {
 }
 function loadBundles(lang, key, fn) {
 	//var u = window.location.origin+''+home+'/resources/bundle/';
-	//console.log("url : "+u)
    	$.i18n.properties({
         name: 'Messages',
         path: ''+home_url+'/resources/bundle/',

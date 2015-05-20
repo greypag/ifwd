@@ -400,9 +400,7 @@ if(personalTraveller>familyTraveller){
 										String planBenefitDesc3PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc3.price";
 										String planBenefitDesc4PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc4.price";
 									%>
-										<span><i
-												class="fa fa-plus"></i> <a href="#"
-											class="fwdpanel-minimize uline text-black"><fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
+										<span><a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
@@ -1554,7 +1552,6 @@ if(personalTraveller>familyTraveller){
 	});
 	
 	function enterKeyPress(e){
-		console.log("test");
 	    if (e.keyCode == 13) {
 	    	sendEmail();
 	        return false;

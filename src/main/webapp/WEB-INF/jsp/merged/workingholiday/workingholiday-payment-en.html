@@ -112,7 +112,6 @@ function submitLoginForm(formID) {
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
-				console.log(data);
 				$('#ajax-loading').hide();
 				if (data == 'success') {
 					//$('#ajax-loading').hide();
@@ -1058,7 +1057,6 @@ function BackMe() {
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								console.log("fail to process payment " + data);
  							}
  						}
  					});

@@ -112,7 +112,6 @@ function submitLoginForm(formID) {
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
-				console.log(data);
 				$('#ajax-loading').hide();
 				if (data == 'success') {
 					//$('#ajax-loading').hide();

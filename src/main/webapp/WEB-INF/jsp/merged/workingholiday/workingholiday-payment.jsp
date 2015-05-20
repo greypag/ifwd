@@ -20,7 +20,6 @@
 				if (data == 'success') {
 					document.paymentForm.action = geteWayUrl;
 				} else {
-					console.log("fail to process payment " + data);
 				}
 				
 			}

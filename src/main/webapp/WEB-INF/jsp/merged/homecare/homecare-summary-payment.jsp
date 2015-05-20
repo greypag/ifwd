@@ -570,7 +570,6 @@
 						form.action = geteWayUrl;
 						$('#PaymentingDiv').hide();
 					} else {
-						//console.log("process home payment fail " + data);
 						$('#paymentErrorPopup').modal('show');
 					}
 				}
@@ -598,7 +597,6 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								//console.log("fail to home process payment " + data);
  								$('#paymentErrorPopup').modal('show');
  								return false;
  	 						}

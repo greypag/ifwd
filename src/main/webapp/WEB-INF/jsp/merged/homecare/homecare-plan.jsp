@@ -126,7 +126,6 @@ var promoCodeInsertFlag = true;
 		
 						var json = JSON.parse(data);
 		
-						//console.log("json " + json);
 						setValue(json);
 					}
 		

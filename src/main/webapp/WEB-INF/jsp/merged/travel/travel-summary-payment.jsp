@@ -31,7 +31,6 @@
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
- 								//console.log("fail to process payment " + data);
  								$('#paymentErrorPopup').modal('show');
  							}
  						}
@@ -183,7 +182,7 @@
 														<div class="fwdpanel-heading">
 														    <h4 class="benefits">
 														        <span>
-														            <a href="#" class="fwdpanel-minimize uline">+ <fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a>
+														            <a href="#" class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a>
 														        </span>
 														    </h4>
 														</div>
@@ -225,9 +224,9 @@
 													<c:if test="${selectPlanName=='B'}">
 														<div class="fwdpanel-heading">
 														    <h4 class=" benefits">
-														        <span><i
-														                class="fa fa-plus"></i> <a href="#"
-														            class="fwdpanel-minimize uline text-black"><fmt:message key="travel.quote.plan2.benefits" bundle="${msg}" /></a> </span>
+														        <span>
+													              <a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits" bundle="${msg}" /></a>
+								                                </span>
 														    </h4>
 														</div>
 														<div class="fwdpanel-body" style="display: none;">

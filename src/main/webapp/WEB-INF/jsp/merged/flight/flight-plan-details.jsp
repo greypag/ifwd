@@ -2091,7 +2091,6 @@ function createFlightFnc(form)
     if (fPlanValid() && !flight_click )
     {
         flight_click = true;
-        //console.log("ajax called");
         $.ajax(
         {
             type : "POST",
