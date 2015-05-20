@@ -19,7 +19,8 @@ var clicked = false;
  			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
- 			form.action = geteWayUrl;
+ 			
+ 			form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance//confirmation';
  			
  			/* $.ajax({
  						type : "POST",
