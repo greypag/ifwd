@@ -86,68 +86,99 @@ function activateUserAccountJoinUs() {
     5, If user is created and the normal form data is missing, 
        the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
     */
-    name = document.getElementById("Username").value;
+    /*name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
-    password2 = document.getElementById("Confirm-Password").value;
+    password2 = document.getElementById("Confirm-Password").value;*/
+    
+    name = $("#Username").val();
+    password = $("#Password").val();
+    password2 = $("#Confirm-Password").val();
+    
+    $("#UsernameError").text("");
+    $("#PasswordError").text("");
+    $("#Confirm-PasswordError").text("");
+    
      
     
     if(name == "" && password == "" && password2 == ""){
     	$('#frmYourDetails').submit()
     }else{
-    	optIn1 = "false"
-    	optIn2 = "false"
-        if($('#checkbox4').is(':checked')){
-        	optIn2 = "true";	
-        }
-    	if($('#checkbox3').is(':checked')){
-            optIn1 = "true";    
-        }
-    	password = document.getElementById("Password").value; 
-    	mobile = document.getElementById("inputMobileNo").value;
-    	name = document.getElementById("inputFullName").value;
-    	userName = document.getElementById("Username").value;
-    	email = document.getElementById("inputEmailId").value;
-    
-    	$('#loading-overlay').modal({
-            backdrop: 'static',
-            keyboard: false
-         })
-    	
-    	
-       $.ajax({
-                   type : 'POST',
-                    url : '<%=request.getContextPath()%>/joinus',
-                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-                    async : false,
-                    success : function(data) {
-                        
-                        if (data == 'success') {
-                        	$(".error-hide-"+getBundleLanguage).css("display", "none");
-                        	
-                        	$(".membership-wrap").css("display", "none"); 
-                            document.getElementById("Username").value = "";
-                            document.getElementById("Password").value = "";
-                            document.getElementById("Confirm-Password").value = "";
-                            
-                            $("#link-error").click();
-                            
-                            perventRedirect=false;
-                             $('#frmYourDetails').submit();
-                            return;                            
-                        } else {
-                            
-                            $("#link-error").click();
-                            $(".error-hide-"+getBundleLanguage).css("display", "block");
-                            $('#loading-overlay').modal('hide');
-                            //alert("Something Wrong with user input, please check");
-                            return;
-                        } 
-                    },
-                    error : function(xhr, status, error) {
-                    	$('#loading-overlay').modal('hide');
+    	if(name != "" && password != "" && password2 != ""){
+    		optIn1 = "false"
+    	        optIn2 = "false"
+    	        if($('#checkbox4').is(':checked')){
+    	            optIn2 = "true";    
+    	        }
+    	        if($('#checkbox3').is(':checked')){
+    	            optIn1 = "true";    
+    	        }
+    	        password = document.getElementById("Password").value; 
+    	        mobile = document.getElementById("inputMobileNo").value;
+    	        name = document.getElementById("inputFullName").value;
+    	        userName = document.getElementById("Username").value;
+    	        email = document.getElementById("inputEmailId").value;
+    	    
+    	        $('#loading-overlay').modal({
+    	            backdrop: 'static',
+    	            keyboard: false
+    	         })
+    	        
+    	        
+    	       $.ajax({
+    	                   type : 'POST',
+    	                    url : '<%=request.getContextPath()%>/joinus',
+    	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+    	                    async : false,
+    	                    success : function(data) {
+    	                        
+    	                        if (data == 'success') {
+    	                            $(".error-hide-"+getBundleLanguage).css("display", "none");
+    	                            
+    	                            $(".membership-wrap").css("display", "none"); 
+    	                            document.getElementById("Username").value = "";
+    	                            document.getElementById("Password").value = "";
+    	                            document.getElementById("Confirm-Password").value = "";
+    	                            
+    	                            $("#link-error").click();
+    	                            perventRedirect=false;
+    	                             $('#frmYourDetails').submit()
+    	                            return;                            
+    	                        } else {
+    	                            
+    	                            $("#link-error").click();
+    	                            $(".error-hide-"+getBundleLanguage).css("display", "block");
+    	                            $('#loading-overlay').modal('hide');
+    	                            //alert("Something Wrong with user input, please check");
+    	                            return;
+    	                        } 
+    	                    },
+    	                    error : function(xhr, status, error) {
+    	                        $('#loading-overlay').modal('hide');
 
-                    }
-                });
+    	                    }
+    	                });
+    	}else{
+    		// not all the fields filled
+            if (name == ""){
+                $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+            }else{
+                checkMembership("Username");
+            }
+            
+            if (password == ""){
+                $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+            }else{
+                checkMembership("Password");
+            }
+            
+            
+            if (password2 == ""){
+                $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+            }else{
+                checkMembership("Confirm-Password");
+            }
+    	}
+    	
     }
     
        return;
@@ -453,7 +484,8 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="text"
                                             name="username" class="form-control full-control input-white"
-                                            id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
+                                            id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}"/>"
+                                            onfocus="emptyMembershipError();"><span
                                             id="UsernameError" class="text-red"> </span>
                                </div>
                             </div>
@@ -465,7 +497,8 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="password"
                                             name="password" class="form-control full-control input-white"
-                                            id="Password" placeholder="<fmt:message key="travel.details.registration.password.placeholder" bundle="${msg}" />" autocomplete="off"> <span
+                                            id="Password" placeholder="<fmt:message key="travel.details.registration.password.placeholder" bundle="${msg}" />" autocomplete="off"
+                                            onfocus="emptyMembershipError();"> <span
                                             id="PasswordError" class="text-red"> </span>
                                </div>
                             </div>
@@ -477,7 +510,8 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                   <input type="password"
                                             class="form-control full-control input-white" id="Confirm-Password"
-                                            placeholder="<fmt:message key="travel.details.registration.confirmPassword.placeholder" bundle="${msg}" />" autocomplete="off"> <span id="Confirm-PasswordError"
+                                            placeholder="<fmt:message key="travel.details.registration.confirmPassword.placeholder" bundle="${msg}" />" autocomplete="off"
+                                            onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError"
                                             class="text-red"> </span>
                                </div>
                             </div>

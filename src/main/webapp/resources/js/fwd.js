@@ -75,6 +75,11 @@ function IsHKID(str) {
 	return verify == checkDigit || (verify == 10 && checkDigit == 'A');
 }
 
+/* empty error message when*/
+function emptyMembershipError(){
+	 $(".error-hide-"+getBundleLanguage).hide();
+}
+
 $(function () {
 	
     /* scrolling code starts */
@@ -4733,12 +4738,10 @@ function verifyUserBookingRegistration()
 	}
 	return check;
 }
-$(function () {
-if($('#Username').length){
-	$cur = $('#Username');
-	$cur.on('blur', function(){
-		value = $(this).val().trim();
-		$(this).val(value);
+function checkMembership(field){
+	if (field == "Username"){
+		value = $("#Username").val().trim();
+		$("#Username").val(value);
 		if(value == ''){
 			$('#UsernameError').text('');
 		}
@@ -4746,34 +4749,44 @@ if($('#Username').length){
 			$('#UsernameError').text(isValidUsername(value));
 		}else
 			$('#UsernameError').text('');
-	})
-}
-if($('#Password').length){
-	$cur = $('#Password');
-	$cur.on('blur', function(){
-		value = $(this).val().trim();
-		$(this).val(value);
+	}else if (field == "Password"){
+		value = $("#Password").val().trim();
+		$("#Password").val(value);
 		if(value == ''){
 			$('#PasswordError').text('');
 		}
 		else if(isValidPassword(value) !== true){
 			$('#PasswordError').text(isValidPassword(value));
 		}else $('#PasswordError').text('');
-	})
-}
-if($('#Confirm-Password').length && $('#Password').length){
-	$cur = $('#Confirm-Password');
-	
-	$cur.on('blur', function(){
+	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
-		value = $(this).val().trim();
-		$(this).val(value);
+		value = $("#Confirm-Password").val().trim();
+		$("#Confirm-Password").val(value);
 		if(value == ''){
 			$('#Confirm-PasswordError').text('');
 		}
 		else if(passMatch(passwordToMatch, value) !== true){
 			$('#Confirm-PasswordError').text(passMatch(passwordToMatch, value));
 		} else $('#Confirm-PasswordError').text('');
+	}
+}
+$(function () {
+if($('#Username').length){
+	$cur = $('#Username');
+	$cur.on('blur', function(){
+		checkMembership("Username");
+	})
+}
+if($('#Password').length){
+	$cur = $('#Password');
+	$cur.on('blur', function(){
+		checkMembership("Password");
+	})
+}
+if($('#Confirm-Password').length && $('#Password').length){
+	$cur = $('#Confirm-Password');
+	$cur.on('blur', function(){
+		checkMembership("Confirm-Password");
 		
 	})
 }
