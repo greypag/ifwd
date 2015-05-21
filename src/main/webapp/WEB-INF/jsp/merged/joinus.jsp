@@ -49,7 +49,13 @@
 								$('#joinus-err-msg').show();
 								
 								window.location.hash = '#joinus-err-msg';
-								$('#joinus-err-msg').html(data);
+                                if (data == 'This username already in use, please try again') {
+                                    $('#joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+                                } else if (data == 'email address and mobile no. already registered') {
+                                    $('#joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+                                } else {
+                                    $('#joinus-err-msg').html(data);
+                                }
 
 							} 
 						},
