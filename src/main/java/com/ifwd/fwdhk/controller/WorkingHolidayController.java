@@ -134,6 +134,96 @@ public class WorkingHolidayController {
 	}
 	
 	
+	@RequestMapping(value = "/prepareWorkingHolidayPlan")
+	@ResponseBody
+	public String prepareWorkingHolidayPlan(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		
+		String token = null, username = null;
+		if ((session.getAttribute("token") != null)
+				&& (session.getAttribute("username") != null)) {
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		} else {
+			restService.consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
+		}
+		
+		LocalDate commencementDate = new LocalDate(new Date());
+		String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
+				+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
+
+		System.out.println("Working Holiday Quote user " + Url);
+
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", username);
+			header.put("token", token);
+		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+				Url, header, null);
+		System.out.println("Get Working Holiday Quotes API " + responseJsonObj);
+		
+		
+		if (responseJsonObj.get("errMsgs") == null) {
+			QuoteDetails quoteDetails = new QuoteDetails();
+			//quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
+			responseJsonObj.get("referralCode");
+			responseJsonObj.get("referralName");
+			responseJsonObj.get("priceInfoA");
+			responseJsonObj.get("priceInfoB");
+			JSONObject jsonPriceInfoA = new JSONObject();
+			jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
+			JSONObject jsonPriceInfoB = new JSONObject();
+			jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
+			String planeName[] = { "A", "B" };
+			String grossPrem[] = {
+					jsonPriceInfoA.get("grossPremium").toString(),
+					jsonPriceInfoB.get("grossPremium").toString() };
+
+			String discountPercentage[] = {
+					jsonPriceInfoA.get("discountPercentage").toString(),
+					jsonPriceInfoB.get("discountPercentage").toString() };
+
+			String discountAmount[] = {
+					jsonPriceInfoA.get("discountAmount").toString(),
+					jsonPriceInfoB.get("discountAmount").toString() };
+
+			String totalNetPremium[] = {
+					jsonPriceInfoA.get("totalNetPremium").toString(),
+					jsonPriceInfoB.get("totalNetPremium").toString() };
+
+			String totalDue[] = {
+					jsonPriceInfoA.get("totalDue").toString(),
+					jsonPriceInfoB.get("totalDue").toString() };
+
+			quoteDetails.setGrossPremium(grossPrem);
+			quoteDetails.setDiscountPercentage(discountPercentage);
+			quoteDetails.setDiscountAmount(discountAmount);
+			quoteDetails.setTotalNetPremium(totalNetPremium);
+			quoteDetails.setToalDue(totalDue);
+			quoteDetails.setPlanName(planeName);
+			session.setAttribute("quoteDetails", quoteDetails);
+			return "success";
+		}else{
+			session.setAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+			return "fail";
+		}
+
+		
+	}
+	
 	
 	@RequestMapping(value = {"/{lang}/getWorkingHolidayQuote", "/{lang}/workingholiday-insurance/quote"})
 	public ModelAndView prepareWorkingHolidayPlan(
@@ -145,94 +235,21 @@ public class WorkingHolidayController {
 		HttpSession session = request.getSession();
 		
 		try {
-			String token = null, username = null;
-			if ((session.getAttribute("token") != null)
-					&& (session.getAttribute("username") != null)) {
-				token = session.getAttribute("token").toString();
-				username = session.getAttribute("username").toString();
-			} else {
-				restService.consumeLoginApi(request);
-				if ((session.getAttribute("token") != null)) {
-					token = session.getAttribute("token").toString();
-					username = session.getAttribute("username").toString();
-				}
-			}
 			
-			
-			LocalDate commencementDate = new LocalDate(new Date());
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
-			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
-					+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
-
-			System.out.println("Working Holiday Quote user " + Url);
-
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			if (request.getSession().getAttribute("username") != null) {
-				header.put("userName", username);
-				header.put("token", token);
-			}
 			
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
-				lang = "CN";
-			
-			header.put("language", WebServiceUtils.transformLanaguage(lang));
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-					Url, header, null);
-
-			System.out.println("Get Working Holiday Quotes API " + responseJsonObj);
-			if (responseJsonObj.get("errMsgs") == null) {
-				QuoteDetails quoteDetails = new QuoteDetails();
-				//quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
-				responseJsonObj.get("referralCode");
-				responseJsonObj.get("referralName");
-				responseJsonObj.get("priceInfoA");
-				responseJsonObj.get("priceInfoB");
-				JSONObject jsonPriceInfoA = new JSONObject();
-				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
-				JSONObject jsonPriceInfoB = new JSONObject();
-				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-				String planeName[] = { "A", "B" };
-				String grossPrem[] = {
-						jsonPriceInfoA.get("grossPremium").toString(),
-						jsonPriceInfoB.get("grossPremium").toString() };
-
-				String discountPercentage[] = {
-						jsonPriceInfoA.get("discountPercentage").toString(),
-						jsonPriceInfoB.get("discountPercentage").toString() };
-
-				String discountAmount[] = {
-						jsonPriceInfoA.get("discountAmount").toString(),
-						jsonPriceInfoB.get("discountAmount").toString() };
-
-				String totalNetPremium[] = {
-						jsonPriceInfoA.get("totalNetPremium").toString(),
-						jsonPriceInfoB.get("totalNetPremium").toString() };
-
-				String totalDue[] = {
-						jsonPriceInfoA.get("totalDue").toString(),
-						jsonPriceInfoB.get("totalDue").toString() };
-
-				quoteDetails.setGrossPremium(grossPrem);
-				quoteDetails.setDiscountPercentage(discountPercentage);
-				quoteDetails.setDiscountAmount(discountAmount);
-				quoteDetails.setTotalNetPremium(totalNetPremium);
-				quoteDetails.setToalDue(totalDue);
-				quoteDetails.setPlanName(planeName);
-
+			QuoteDetails quoteDetails;
+			if (session.getAttribute("quoteDetails") != null) {
+				quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+				
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
-				session.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("workingholidayQuoteBean", workingholidayQuote);
 			} else {
-				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "workingholiday/workingholiday");
 			}
-				
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

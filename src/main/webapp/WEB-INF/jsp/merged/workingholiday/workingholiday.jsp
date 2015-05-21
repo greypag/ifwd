@@ -18,6 +18,28 @@
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
+function checkWHQuoteApi(form, paymentFormId){
+	var paymentFormId = '#' + paymentFormId;
+	var method = "<%=request.getContextPath()%>/prepareWorkingHolidayPlan";
+	$.ajax({
+		type : "POST",
+		url : method,
+		data : $(paymentFormId).serialize(),
+		async : false,
+		success : function(data) {
+			if (data == 'success') {
+				//alert(data+" " + method + " " + $(paymentFormId).serialize());
+				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
+			} else {
+				console.log("fail to process payment " + data);
+			}
+		}
+	}); 
+}
+
+
+
+
 </script>
 <section id="main-slider" class="no-margin"> 
 <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
@@ -32,7 +54,8 @@ $(document).ready(function() {
   </div>
 
 </section>
-<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();">
+<%-- <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();"> --%>
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="checkWHQuoteApi(this,'frmWorkingHolidayGetQuote');">
 <section id="middle" class="hidden-sm hidden-xs" style="background:none;">
   <div class="container">
     <div class="row">
