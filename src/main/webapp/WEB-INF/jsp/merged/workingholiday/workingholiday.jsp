@@ -18,7 +18,7 @@
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
-function checkWHQuoteApi(form, paymentFormId){
+function prepareWorkingHolidayPlan(form, paymentFormId){
 	var paymentFormId = '#' + paymentFormId;
 	var method = "<%=request.getContextPath()%>/prepareWorkingHolidayPlan";
 	$.ajax({
@@ -55,7 +55,7 @@ function checkWHQuoteApi(form, paymentFormId){
 
 </section>
 <%-- <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();"> --%>
-<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="checkWHQuoteApi(this,'frmWorkingHolidayGetQuote');">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
 <section id="middle" class="hidden-sm hidden-xs" style="background:none;">
   <div class="container">
     <div class="row">
