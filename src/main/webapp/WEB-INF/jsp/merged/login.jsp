@@ -231,10 +231,10 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#success-message')
-                                            .html(
-                                                    'Provided User Account Details Does Not Exist');
-                                    $('#success-message').show();
+                                    $('#forgotusername-err-msg')
+		                                    .html(
+		                                            'Provided User Account Details Does Not Exist');
+		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
                                 } else if (data.indexOf('~~~') > -1) {
@@ -430,6 +430,7 @@
         function forgotUserPassword() {
             
             var valid = true;
+            var userNameReg = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
              
             var mobileNo = $('#mobileNo-forgotpassowrd').val();
             var emailId = $('#emailAddress-forgotpassowrd').val();
@@ -476,11 +477,10 @@
                 valid = false;
 
             } else {
-                if (reg.test(userName) == false) {
+                if (userNameReg.test(userName) == false) {
                     $("#errorInvalidUName").show();
                     valid = false;
-                } 
-            
+                }            
             }
             
             
