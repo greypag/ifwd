@@ -718,7 +718,7 @@ public class TravelController {
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue(
-				"selectedAmountDue", session, request);
+				"selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectPlanName", session, request);
 		selectPlanName = planName;
