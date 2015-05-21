@@ -11,7 +11,9 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
-
+<script>
+perventRedirect=true;
+</script>
 
 <section>
 	<div id="cn" class="container">
@@ -86,7 +88,7 @@
                             </div>
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
                                 <h4 class="h4-trav-full">
-                                    <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+                                    <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
                                 </h4>
                             </div>
                         </div>
@@ -457,12 +459,12 @@
 						-->
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn">
+	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
 	                                <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
 	                            </a>
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <input type="submit"
+	                            <input type="submit" onclick="perventRedirect=false;"
 	                                class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />" />
 	                        </div>
                         </div>

@@ -11,6 +11,10 @@
 
 </style>
 
+<script>
+perventRedirect=true;
+</script>
+
 <!--/#main-Content-->
 <section>
 <div class="container">
@@ -250,7 +254,7 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 </div>
 
 </div>
-<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="perventRedirect=false;setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
 </div>
 </div>
 

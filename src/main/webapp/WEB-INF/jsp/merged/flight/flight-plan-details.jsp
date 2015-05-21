@@ -57,7 +57,7 @@ if(lang === "EN"){
 }
 
 
-	
+perventRedirect=true;
 </script>
 
 
@@ -124,8 +124,8 @@ function activateUserAccountJoinUs() {
                              document.getElementById("Confirm-Password").value = "";
                         	 
                              $("#link-error").click();
-                        	 
-                             $('#freeFlightForm').submit()
+                             perventRedirect=false;
+                             $('#freeFlightForm').submit();
                             return;                            
                         } else {
                             
@@ -152,7 +152,8 @@ function activateUserAccountJoinUs() {
 <% }else{%>
 <script>
 function activateUserAccountJoinUs() {
-	$('#freeFlightForm').submit()
+	perventRedirect=false;
+	$('#freeFlightForm').submit();
 }
 </script>
 <% } %> 
@@ -1979,7 +1980,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         <br>
                         <br>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                            <a href="<%=request.getContextPath()%>/${language}/flight-insurance/quote"
+                            <a href="<%=request.getContextPath()%>/${language}/flight-insurance/quote" onclick="perventRedirect=false;"
                                 class="bdr-curve btn btn-primary bck-btn"> <fmt:message
                                     key="flight.details.action.back" bundle="${msg}" /></a>
                         </div>

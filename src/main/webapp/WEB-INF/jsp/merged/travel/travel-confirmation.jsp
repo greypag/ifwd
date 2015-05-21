@@ -45,6 +45,10 @@
   String key_disclaimer2Part2 = "travel.referral.benefits." + userType + ".disclaimer2.part2";
   String key_disclaimer2Part3 = "travel.referral.benefits." + userType + ".disclaimer2.part3";
 %>
+
+<script>
+perventRedirect=true;
+</script>
 <!--/#main-Content-->
 <section>
    <div id="cn" class="container">

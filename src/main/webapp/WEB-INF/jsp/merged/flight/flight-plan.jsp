@@ -36,6 +36,8 @@
   }
   //bmg inline variable
   
+  perventRedirect=true;
+  
   $(document).ready(function() {
 		 // update quote area to show headcounts
 	    if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
@@ -458,13 +460,13 @@
 						</h3> --%>
 						<br> <br>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="${pageContext.request.contextPath}/${language}/flight-insurance" class="bdr-curve btn btn-primary bck-btn">
+							<a href="${pageContext.request.contextPath}/${language}/flight-insurance" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn">
 								<fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 							</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+								class="bdr-curve-none btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 						</div>
 
 

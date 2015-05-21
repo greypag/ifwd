@@ -23,6 +23,8 @@
     }
 %>
 <script>
+perventRedirect=true;
+
 // personal or family
 var traveller;  
 // personal
@@ -1442,10 +1444,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 							<a href="<%=request.getContextPath()%>/${language}/travel-insurance"
-								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+								class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
+							<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
 								<fmt:message key="travel.action.next" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>

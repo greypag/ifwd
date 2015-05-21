@@ -28,6 +28,8 @@ function submitLoginForm(formID) {
 					//$('#ajax-loading').hide();
 					//var Backlen = history.length;
 					//history.go(-Backlen);
+					
+					perventRedirect=false;
 					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 					location.reload();
 				} else if (data == 'fail') {
@@ -126,11 +128,11 @@ function submitLoginForm(formID) {
 							System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
 							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
 							<%
 							} else {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">EN</a>
 							<%
 							}
 							

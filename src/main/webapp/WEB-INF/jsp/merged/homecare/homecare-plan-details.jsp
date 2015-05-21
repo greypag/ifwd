@@ -52,6 +52,8 @@ if(lang === "EN"){
     }
 }
 
+perventRedirect=true;
+
 var hkidPlaceholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />";
 
 var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
@@ -469,7 +471,8 @@ function activateUserAccountJoinUs() {
                        	    
                        	    $("#link-error").click();
                        	    
-                        	$('#frmYourDetails').submit()
+                       	    perventRedirect=false;
+                        	$('#frmYourDetails').submit();
                             return;                            
                         } else {
                             
@@ -494,7 +497,8 @@ function activateUserAccountJoinUs() {
 <% }else{%>
 <script>
 function activateUserAccountJoinUs() {
-	$('#frmYourDetails').submit()
+	perventRedirect=false;
+	$('#frmYourDetails').submit();
 }
 </script>
 <% } %> 
@@ -1650,7 +1654,7 @@ function activateUserAccountJoinUs() {
 							<!--mob-->
 							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+									<a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve-none btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />

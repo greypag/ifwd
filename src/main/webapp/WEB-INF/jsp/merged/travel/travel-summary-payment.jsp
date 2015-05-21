@@ -11,6 +11,7 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
+perventRedirect=true;
 
  	var clicked = false;
  	function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
@@ -110,7 +111,7 @@
                             </div>
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
 	                            <h4 class="h4-trav-full">
-	                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+	                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 	                            </h4>
 	                        </div>
                         </div>
@@ -844,12 +845,12 @@
 						
 						<div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn">
+                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
                                     <fmt:message key="travel.action.back" bundle="${msg}" /> 
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <input type="submit"
+                                <input type="submit" onclick="perventRedirect=false;"
                                     class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="travel.action.payment" bundle="${msg}" />" />
                             </div>
                         </div>

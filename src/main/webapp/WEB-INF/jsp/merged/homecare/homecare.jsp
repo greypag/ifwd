@@ -832,7 +832,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" 
 	aria-hidden="true" style="display: none;">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content plan-modal">
+		<div id="homecareLandingModal" class="modal-content plan-modal">
 		   <div class="modal-body">
 		   <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
                  <span aria-hidden="true" style="font-size:30px;">×</span>

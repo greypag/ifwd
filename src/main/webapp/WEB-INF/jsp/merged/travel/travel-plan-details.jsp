@@ -60,7 +60,7 @@ if(lang === "EN"){
     }
 }
 
-
+perventRedirect=true;
     
 </script>
 
@@ -131,7 +131,8 @@ function activateUserAccountJoinUs() {
                             
                             $("#link-error").click();
                             
-                             $('#frmYourDetails').submit()
+                            perventRedirect=false;
+                             $('#frmYourDetails').submit();
                             return;                            
                         } else {
                             
@@ -157,7 +158,8 @@ function activateUserAccountJoinUs() {
 
 <script>
 function activateUserAccountJoinUs() {
-	$('#frmYourDetails').submit()
+	perventRedirect=false;
+	$('#frmYourDetails').submit();
 }
 </script>
 <% } %> 
@@ -1941,7 +1943,7 @@ function activateUserAccountJoinUs() {
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-     <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+     <a href="<%=request.getContextPath()%>/${language}/travel-insurance/quote" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
     <!-- submit -->

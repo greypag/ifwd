@@ -95,6 +95,8 @@ var promoCodePlaceholder="<fmt:message key="home.sidebar.summary.promocode.place
 var promoCodeInsertFlag = true;
 //bmg inline variable
 
+perventRedirect=true;
+
 function checkPromoCodePlaceholder(){
 	if ($("#referralCode").val()==promoCodePlaceholder) {
         $("#referralCode").val('');
@@ -808,11 +810,11 @@ function checkPromoCodePlaceholder(){
 							
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance"
-	                                class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> 
+	                                class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.back" bundle="${msg}" /> 
 	                            </a>
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn">
+	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
 	                                <fmt:message key="home.action.next" bundle="${msg}" /></button>
 	                        </div>
 							
