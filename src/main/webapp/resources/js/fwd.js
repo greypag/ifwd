@@ -4110,10 +4110,8 @@ function msgAlertDesk(formID) {
     if (flag == false) {
     	$('#oldHome').modal('show');
     	$('#oldHome').on('shown.bs.modal', function (e) {
-    		if(formID=="getHomeQuoteMob"){
-    			var newHeight=($( window ).height()/2)-($('#homecareLandingModal').height()/2);
-        		$('#homecareLandingModal').css({'top':newHeight+"px"});
-    		}
+			var newHeight=($( window ).height()/2)-($('#homecareLandingModal').height()/2);
+    		$('#homecareLandingModal').css({'top':newHeight+"px"});
         })
     	
 	}
