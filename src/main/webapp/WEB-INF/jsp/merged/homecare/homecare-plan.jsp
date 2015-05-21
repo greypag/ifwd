@@ -89,15 +89,23 @@
 <!--End VWO-->
 <script>
 
+var promoCodePlaceholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
+
 //bmg inline variable
 var promoCodeInsertFlag = true;
 //bmg inline variable
+
+function checkPromoCodePlaceholder(){
+	if ($("#referralCode").val()==promoCodePlaceholder) {
+        $("#referralCode").val('');
+    }
+}
 
 	function chkPromoCode() {
 		var flag = false;
 		var promoCode = document.getElementById("referralCode").value;
 	
-		if (promoCode.trim() == "") {
+		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
 		} else
@@ -693,7 +701,7 @@ var promoCodeInsertFlag = true;
 					<div
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
 						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
-							action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post"
+							action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post" onsubmit="return checkPromoCodePlaceholder();"
 							modelAttribute="planQuoteDetails">
 							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
@@ -733,7 +741,10 @@ var promoCodeInsertFlag = true;
 									<div class="input-group" style="border: 0;">
 										<span class="text-red" id="errPromoCode"></span>
 										<input type="text" id="referralCode" name="referralCode" style="border: 1px solid #e3e3e3"
-											class="form-control" placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
+											class="form-control bmg_custom_placeholder" 
+											onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+											placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
 											class="input-group-addon in black-bold"> 
 											<span class="input-group-addon in black-bold pointer" onclick="applyHomePromoCode()">
 											 <fmt:message key="home.action.apply" bundle="${msg}" />

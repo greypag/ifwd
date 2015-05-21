@@ -52,8 +52,15 @@ if(lang === "EN"){
     }
 }
 
+var hkidPlaceholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />";
 
-    
+var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
+var floorPlaceholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />";
+var blockPlaceholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />";
+var buildingPlaceholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />";
+var estatePlaceholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />";
+var streetNoPlaceholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />";
+var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />";
 </script>
 
 <!--VWO-->
@@ -183,6 +190,43 @@ if(lang === "EN"){
 			var applicantStreetNo = $('#inputCAStreetNo').val();
 			var applicantStreetName = $('#inputCAStreetName').val();
 			var selectCADist = $('#selectCADist').val();
+			
+			if(applicantRoom==roomPlaceholder){
+				applicantRoom='';
+		    }else{
+		    	$('#inputARoom').removeClass("bmg_custom_placeholder");
+		    }
+		    if(applicantFloor==floorPlaceholder){
+		    	applicantFloor='';
+		    }else{
+                $('#inputAFloor').removeClass("bmg_custom_placeholder");
+            }
+		    if(applicantBlock==blockPlaceholder){
+		    	applicantBlock='';
+		    }else{
+                $('#inputABlock').removeClass("bmg_custom_placeholder");
+            }
+		    if(applicantBuilding==buildingPlaceholder){
+		    	applicantBuilding='';
+		    }else{
+                $('#inputABuilding').removeClass("bmg_custom_placeholder");
+            }
+		    if(applicantEstate==estatePlaceholder){
+		    	applicantEstate='';
+		    }else{
+                $('#inputAEstate').removeClass("bmg_custom_placeholder");
+            }
+		    if(applicantStreetNo==streetNoPlaceholder){
+		    	applicantStreetNo='';
+		    }else{
+                $('#inputAStreetNo').removeClass("bmg_custom_placeholder");
+            }
+		    if(applicantStreetName==streetNamePlaceholder){
+		    	applicantStreetName='';
+		    }else{
+                $('#inputAStreetName').removeClass("bmg_custom_placeholder");
+            }
+		    
 			/* var applicantAreaCode = $('#applicantArea').checked */
 
 			//alert(applicantAreaCode);
@@ -587,11 +631,9 @@ function activateUserAccountJoinUs() {
                                        </div>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-	                                    <input type="text" name="hkId"
-                                            class="form-control numberinput textUpper full-control" id="txtAppHkid"
-                                            placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />"
-                                            onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> <span id="errAppHkid"
-                                            class="text-red"> </span>
+	                                    <!-- <input type="text" name="hkId" class="form-control numberinput textUpper full-control" id="txtAppHkid" placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> -->
+                                        <input type="text" name="hkId" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="txtAppHkid" placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />'); chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)">
+                                        <span id="errAppHkid" class="text-red"> </span>
 	                               </div>
 	                           </div>
 	                           <!-- id card ends -->
@@ -843,18 +885,21 @@ function activateUserAccountJoinUs() {
 	                                   <!-- room, floor, block start -->
 	                                   <div class="row form-group">
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-	                                           <input type="text" class="form-control full-control"
+	                                           <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
 	                                       </div>
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-	                                            <input type="text" class="form-control full-control"
-	                                            id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"       
+	                                            <input type="text" class="form-control full-control bmg_custom_placeholder"
+	                                            id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"     
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
 	                                       </div>
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-	                                            <input type="text" class="form-control full-control"
+	                                            <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputCABlock" name="applicantBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 	                                       </div>
 	                                   </div>
@@ -862,18 +907,22 @@ function activateUserAccountJoinUs() {
 		                               <!-- building, estate start -->
 		                               <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control"
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputCABuilding" name="applicantBuilding"
-	                                            placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />" onblur="chkNotNullCABuilding(this, 'errCABuilding');"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'errCABuilding');"
 	                                            onkeypress="return isAlphaNumeric(event);" maxlength="50" />
 	                                            <span id="errCABuilding" class="text-red"> </span>
                                            </div>
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control"
+                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputCAEstate" name="applicantEstate"
-	                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />" onblur="chkNotNullCAEstate(this, 'errCAEstate');"
+	                                            placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'errCAEstate');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 	                                            <span id="errCAEstate" class="text-red"> </span>
                                            </div>
@@ -882,17 +931,21 @@ function activateUserAccountJoinUs() {
 		                               <!-- street no., street name start -->
 		                               <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control"
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
                                             id="inputCAStreetNo" name="applicantStreetNo"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
+                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
                                             onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control"
+                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputCAStreetName" name="applicantStreetName"
 	                                            placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
                                            </div>
                                        </div>
@@ -1103,18 +1156,24 @@ function activateUserAccountJoinUs() {
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text"
-	                                            class="form-control wd2 full-control" id="inputARoom" name="aRoom"
+	                                            class="form-control wd2 full-control bmg_custom_placeholder" id="inputARoom" name="aRoom"
 	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="text" class="form-control  full-control"
-	                                            id="inputAFloor" name="aFloor" placeholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />""
+                                                <input type="text" class="form-control  full-control bmg_custom_placeholder"
+	                                            id="inputAFloor" name="aFloor" placeholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="text" class="form-control  full-control"
-	                                            id="inputABlock" name="aBlock" 
+                                                <input type="text" class="form-control  full-control bmg_custom_placeholder"
+	                                            id="inputABlock" name="aBlock"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" placeholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />"/>
                                            </div>
                                        </div>
@@ -1122,9 +1181,10 @@ function activateUserAccountJoinUs() {
                                        <!-- building, estate start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                              <input type="text" class="form-control full-control"
+                                              <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputABuilding" name="aBuilding" placeholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />"
-	                                            
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />');"
 	                                            onChange="replaceAlphaNumeric(this); chkNotNullIABuilding(this, 'errABuilding');"
 	                                            onkeypress="    return isAlphaNumeric(event);"
 	                                            maxlength="100" /> <span id="errABuilding" class="text-red">
@@ -1133,9 +1193,10 @@ function activateUserAccountJoinUs() {
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control"
+                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputAEstate" name="aEstate" placeholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />"
-	                                            onblur="chkNotNullIAEstate(this, 'errAEstate');"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />'); chkNotNullIAEstate(this, 'errAEstate');"
 	                                            onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
 	                                            <span id="errAEstate" class="text-red"> </span>
                                            </div>
@@ -1144,17 +1205,21 @@ function activateUserAccountJoinUs() {
                                        <!-- street no., street name start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control"
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);"
 	                                            maxlength="100" />
                                         </div>
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control"
+                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
 	                                            id="inputAStreetName" name="aStreetName"
 	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />"
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />');"
+	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);"
 	                                            maxlength="100" />
                                            </div>

@@ -1605,6 +1605,7 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 	}
 	if(insureBoolean){
 		$("#txtInsuHkid1").val(appHkid);
+		$("#txtInsuHkid1").removeClass("bmg_custom_placeholder");
 	}
 	$('#'+errorId).html('');
 }
@@ -3752,26 +3753,139 @@ function chkTravelHKPass(value) {
     return flag;
 }
 
+//ie9 placeholder solution
+function placeholderOnFocus(element, placeholderVal){
+	$(element).removeClass("bmg_custom_placeholder");
+	if($(element).val()==placeholderVal){
+		$(element).val('');
+	}
+}
+
+function placeholderOnBlur(element, placeholderVal){
+	if($(element).val()==''){
+		$(element).addClass("bmg_custom_placeholder");
+		$(element).val(placeholderVal);
+	}
+}
+
+
 //HOME CARE VALIDATION
 var home_click = false;
 function hc_planValid() {
     var flag = true;
     
+//    document.getElementById("appfullname").innerHTML = "";
+//    var appFullName = document.getElementById("inputFullName").value;
+//    
+//    document.getElementById("errAppHkid").innerHTML = "";
+//    var appHkid = document.getElementById("txtAppHkid").value;
+//    
+//    document.getElementById("errMobileNo").innerHTML = "";
+//    var mobileNo = document.getElementById("inputMobileNo").value;
+//    
+//    document.getElementById("errEmailid").innerHTML = "";
+//    
+//    document.getElementById("dobInvalid").innerHTML = "";
+//    
+//    
+//    var EmailId = document.getElementById("inputEmailId").value;
+    
+    /*document.getElementById("errRegUser").innerHTML = "";
+    var RegUserName = document.getElementById("inputRegUserName").value;
+    alert('jdj');
+    document.getElementById("errRegPass").innerHTML = "";
+    var RegPass = document.getElementById("inputRegPass").value;
+    document.getElementById("errRegCPass").innerHTML = "";
+    var RegCPass = document.getElementById("inputRegCPass").value;*/
+    // corrosponding address
+//    document.getElementById("errCABuilding").innerHTML = "";
+//    var CABuilding = document.getElementById("inputCABuilding").value;
+//    document.getElementById("errCAEstate").innerHTML = "";
+//    var CAEstate = document.getElementById("inputCAEstate").value;
+//    // address details
+//    document.getElementById("errABuilding").innerHTML = "";
+//    var ABuilding = document.getElementById("inputABuilding").value;
+//    document.getElementById("errAEstate").innerHTML = "";
+//    var AEstate = document.getElementById("inputAEstate").value;
+//    document.getElementById("errNFA").innerHTML = "";
+//    var NFA = document.getElementById("selectNFA").value;
+//    document.getElementById("errEffDate").innerHTML = "";
+//    var EffDate = document.getElementById("txtEffDate").value;
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var new_start = new Date(EffDate);
+    var startdays = dateDiffInDays(now, new_start);
+    
+    
+    
+    
+    //bmg edit
+    
+    if($("#txtAppHkid").val()==hkidPlaceholder){
+    	$("#txtAppHkid").val('');
+    }
+    
+    
+    if($("#inputCARoom").val()==roomPlaceholder){
+    	$("#inputCARoom").val('');
+    }
+    if($("#inputCAFloor").val()==floorPlaceholder){
+    	$("#inputCAFloor").val('');
+    }
+    if($("#inputCABlock").val()==blockPlaceholder){
+    	$("#inputCABlock").val('');
+    }
+    if($("#inputCABuilding").val()==buildingPlaceholder){
+    	$("#inputCABuilding").val('');
+    }
+    if($("#inputCAEstate").val()==estatePlaceholder){
+    	$("#inputCAEstate").val('');
+    }
+    if($("#inputCAStreetNo").val()==streetNoPlaceholder){
+    	$("#inputCAStreetNo").val('');
+    }
+    if($("#inputCAStreetName").val()==streetNamePlaceholder){
+    	$("#inputCAStreetName").val('');
+    }
+    
+    
+    if($("#inputARoom").val()==roomPlaceholder){
+    	$("#inputARoom").val('');
+    }
+    if($("#inputAFloor").val()==floorPlaceholder){
+    	$("#inputAFloor").val('');
+    }
+    if($("#inputABlock").val()==blockPlaceholder){
+    	$("#inputABlock").val('');
+    }
+    if($("#inputABuilding").val()==buildingPlaceholder){
+    	$("#inputABuilding").val('');
+    }
+    if($("#inputAEstate").val()==estatePlaceholder){
+    	$("#inputAEstate").val('');
+    }
+    if($("#inputAStreetNo").val()==streetNoPlaceholder){
+    	$("#inputAStreetNo").val('');
+    }
+    if($("#inputAStreetName").val()==streetNamePlaceholder){
+    	$("#inputAStreetName").val('');
+    }
+    
     document.getElementById("appfullname").innerHTML = "";
-    var appFullName = document.getElementById("inputFullName").value;
+    var appFullName = $("#inputFullName").val();
     
     document.getElementById("errAppHkid").innerHTML = "";
-    var appHkid = document.getElementById("txtAppHkid").value;
+    var appHkid = $("#txtAppHkid").val();
     
     document.getElementById("errMobileNo").innerHTML = "";
-    var mobileNo = document.getElementById("inputMobileNo").value;
+    var mobileNo = $("#inputMobileNo").val();
     
     document.getElementById("errEmailid").innerHTML = "";
     
     document.getElementById("dobInvalid").innerHTML = "";
     
     
-    var EmailId = document.getElementById("inputEmailId").value;
+    var EmailId = $("#inputEmailId").val();
     
     /*document.getElementById("errRegUser").innerHTML = "";
     var RegUserName = document.getElementById("inputRegUserName").value;
@@ -3782,22 +3896,24 @@ function hc_planValid() {
     var RegCPass = document.getElementById("inputRegCPass").value;*/
     // corrosponding address
     document.getElementById("errCABuilding").innerHTML = "";
-    var CABuilding = document.getElementById("inputCABuilding").value;
+    var CABuilding = $("#inputCABuilding").val();
     document.getElementById("errCAEstate").innerHTML = "";
-    var CAEstate = document.getElementById("inputCAEstate").value;
+    var CAEstate = $("#inputCAEstate").val();
     // address details
     document.getElementById("errABuilding").innerHTML = "";
-    var ABuilding = document.getElementById("inputABuilding").value;
+    var ABuilding = $("#inputABuilding").val();
     document.getElementById("errAEstate").innerHTML = "";
-    var AEstate = document.getElementById("inputAEstate").value;
+    var AEstate = $("#inputAEstate").val();
     document.getElementById("errNFA").innerHTML = "";
-    var NFA = document.getElementById("selectNFA").value;
+    var NFA = $("#selectNFA").val();
     document.getElementById("errEffDate").innerHTML = "";
-    var EffDate = document.getElementById("txtEffDate").value;
+    var EffDate = $("#txtEffDate").val();
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
     var new_start = new Date(EffDate);
     var startdays = dateDiffInDays(now, new_start);
+    
+    //bmg edit
     
     document.getElementById("chk1").innerHTML = "";
     document.getElementById("chk2").innerHTML = "";
@@ -3807,7 +3923,8 @@ function hc_planValid() {
     
     /**** VAlidation for HKID and Passport ***/
 	 
-    var selectHkidPass = document.getElementById("selectHkidPass").value;
+//    var selectHkidPass = document.getElementById("selectHkidPass").value;
+    var selectHkidPass = $("#selectHkidPass").val();
 	if (appHkid.trim() == "") {
 		if (selectHkidPass == "appHkid") {
 			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
@@ -3837,7 +3954,8 @@ function hc_planValid() {
 			
 		}
 	}
-	var applicantDob = document.getElementById("applicantDob").value;
+//	var applicantDob = document.getElementById("applicantDob").value;
+	var applicantDob = $("#applicantDob").val();
 	if (applicantDob.trim() == "") {
 		document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
         flag = false;

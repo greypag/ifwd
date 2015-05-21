@@ -6527,6 +6527,11 @@ tr.product-landing-error-wrap {
 }
 
 /** bmg summary css **/
+.bmg_custom_placeholder{
+	color: #ccc;
+	font-size: 24px;
+}
+
 .summary-header{
     font-weight: bold;
     font-size: 28px;

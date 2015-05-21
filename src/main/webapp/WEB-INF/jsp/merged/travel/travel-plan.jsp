@@ -54,6 +54,8 @@ if(personalTraveller>familyTraveller){
 }
 //bmg inline variable
 
+var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
+
 
 	function getuserDetails() {
 
@@ -63,7 +65,7 @@ if(personalTraveller>familyTraveller){
 		var flag = false;
 		var promoCode = document.getElementById("promoCode").value;
 
-		if (promoCode.trim() == "") {
+		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#loadingPromo").hide();
 			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
@@ -73,15 +75,19 @@ if(personalTraveller>familyTraveller){
 
 		return flag;
 	}
-	function chkDueAmount() {
+	function chkDueAmount() {		
 		var flag = false;
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
 			document.getElementById("errDue").innerHTML = "<fmt:message key="travel.plan.empty" bundle="${msg}" />";
 			flag = false;
-		} else
+		} else {
+			if ($("#promoCode").val()==promoCodePlaceholder) {
+	            $("#promoCode").val('');
+	        }
 			flag = true;
+		}
 
 		return flag;
 	}
@@ -1398,7 +1404,10 @@ if(personalTraveller>familyTraveller){
                             <div id="promo-wrap" class="form-group">
                                 <div class="input-group" style="border: 0;">
                                     <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
-                                        class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+                                        class="form-control bmg_custom_placeholder" 
+                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+                                        placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
                                         <span
                                         class="input-group-addon in black-bold pointer"
                                         onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
