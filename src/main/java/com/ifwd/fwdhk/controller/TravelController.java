@@ -76,6 +76,7 @@ public class TravelController {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+		System.out.println("travel promo " + (String)session.getAttribute("referralCode"));
 		TravelQuoteBean travelQuote;
 		
 		//travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
@@ -879,6 +880,8 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		session.removeAttribute("travelCreatePolicy");
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-plan-details");		
 	}
@@ -900,18 +903,18 @@ public class TravelController {
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) {
-		
+		HttpSession session = request.getSession();
 		UserRestURIConstants.setController("Travel");
+		if (planDetailsForm.getDepartureDate() != null) {
+			session.removeAttribute("travelCreatePolicy");
+		}
 		
+		
+		System.out.println("planDetaisForm " + planDetailsForm.toString() );
 		String hkId = "hkId", passId = "passport";
 		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		HttpSession session = request.getSession();
-		
-		
-		
-		
 		
 		
 		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
@@ -955,6 +958,9 @@ public class TravelController {
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
 		String selectedHkidPassApplicant = WebServiceUtils.getParameterValue("selectedHkidPassApplicant",	session, request);
+		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
+		
+		
 		Enumeration<String> parameterNames = request.getParameterNames();
 		while (parameterNames.hasMoreElements()) {
 			String paramName = parameterNames.nextElement();
@@ -966,10 +972,9 @@ public class TravelController {
 				
 			}
 		}
-		String dob = "";
+		
 		//String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
 		try {
-			dob = request.getParameter("applicantDob");
 			Calendar dateDob = Calendar.getInstance();
 			dateDob.setTime(new Date(dob));
 			Format f = new SimpleDateFormat("yyyy-MM-dd");
@@ -1237,7 +1242,7 @@ public class TravelController {
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
 			JSONObject adult = new JSONObject();
- 
+			adult.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase() );
 			adult.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getAdultAgeRange()[inx] ).toUpperCase() );
 			adult.put(hkId,	checkPasswortAndHkid(hkId,
 							planDetailsForm.getSelectedAdHkidPass()[inx],
@@ -1575,7 +1580,7 @@ public class TravelController {
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 
 		String name     = StringHelper.emptyIfNull( applicantFullName ).toUpperCase();
-		emailAddress 	= StringHelper.emptyIfNull( request.getParameter("emailAddress") ).toUpperCase();
+		emailAddress 	= StringHelper.emptyIfNull( emailAddress ).toUpperCase();
 		applicantHKID   = StringHelper.emptyIfNull( applicantHKID ).toUpperCase();
 		
 		JSONObject applicantJsonObj = new JSONObject();
@@ -1624,8 +1629,10 @@ public class TravelController {
 		// Comment for to avoid over load Data
 
 		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
-		CreatePolicy createPolicy = (CreatePolicy) session
-				.getAttribute("createPolicy");
+		//TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER IS NOT REUSED
+		
+		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
+		
 		JSONObject responsObject = new JSONObject();
 		if (createPolicy == null) {
 
@@ -1671,6 +1678,7 @@ public class TravelController {
 						"transactionNumber"));
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
 						"transactionDate"));
+				session.setAttribute("travelCreatePolicy", createPolicy);
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
 			} else {
@@ -1866,7 +1874,7 @@ public class TravelController {
 				session.removeAttribute("upgradeSelectPlanName");
 				session.removeAttribute("upgradeDueAmount");
 				session.removeAttribute("travelQuote");
-				
+				session.removeAttribute("travelCreatePolicy");
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));

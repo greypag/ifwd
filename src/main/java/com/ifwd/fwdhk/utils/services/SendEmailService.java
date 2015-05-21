@@ -38,7 +38,7 @@ public class SendEmailService implements SendEmailDao {
 		email_params.put("message", message);
 		email_params.put("subject", "FWD Promotion Code");
 		email_params.put("attachment", null);
-		email_params.put("from", "ecommerce.hk@fwd.com");
+		email_params.put("from", "i-noreply.hk@fwd.com");
 		email_params.put("isHtml", true);
 
 		

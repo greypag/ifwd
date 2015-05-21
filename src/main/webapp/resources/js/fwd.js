@@ -897,6 +897,7 @@ function fPlanValid()
 {
 	var flag=true;
 	$('#chk2').html('');
+
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
@@ -1552,7 +1553,7 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 }
 
 function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
-	
+	$('#'+inputId).val($('#'+inputId).val().toUpperCase());
 	var appHkid = $('#'+inputId).val();
 	var mySelectId = $('#'+selectId).val();
 	if($('#'+selectId).length > 0 && ($('#'+selectId).val().toLowerCase() == 'passport' || $('#'+selectId).val().toLowerCase() == 'apppassport')){
@@ -2913,6 +2914,7 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	}
 	else{
 		if (travellers.trim() == "" || travellers =="0") {
+
 			document.getElementById(errTravelCountId).style.display = "block";
 			
 			var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
@@ -2920,6 +2922,7 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 			flag = false;
 		}
 		if (peopleCount.trim()=="" || peopleCount=="0"){
+
 			document.getElementById(errTravelCountId).style.display = "block";
 		
 			var msg = getBundle(getBundleLanguage, "flight.traveller.notNull.message");
@@ -4175,6 +4178,7 @@ function dateDiffInDaysFromNow(dat){
 // validation - date
 function chkValidDate(element, errElementId, name){
 	if(isNull(element)){
+
 		var msg = getBundle(getBundleLanguage, "date.notNull.message");
 		msg = String.format(msg, name);
 		document.getElementById(errElementId).innerHTML = msg;
@@ -4300,6 +4304,9 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 	if(type == ""){
 		type="HKID";
 	}
+	
+
+	element.value = element.value.toUpperCase();
 	
 	if(isNull(element) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");

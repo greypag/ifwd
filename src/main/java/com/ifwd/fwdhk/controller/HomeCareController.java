@@ -3,7 +3,9 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.Format;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -77,6 +79,8 @@ public class HomeCareController {
 		HttpSession session = request.getSession();
 		String token = null, username = null;
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+		System.out.println("homecare promo " + (String)session.getAttribute("referralCode"));
+		
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());
 		Format f = new SimpleDateFormat("dd-MMMM-yyyy");
@@ -223,14 +227,14 @@ public class HomeCareController {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 		
-		String userReferralCode = "";
+		
 
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
 		
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
-				userReferralCode, answer1, answer2,	lang);
+				(String)session.getAttribute("referralCode"), answer1, answer2,	lang);
 		if (planQuote.getErrormsg().equals("null")) {
 		
 			model.addAttribute("planQuote", planQuote);
@@ -324,7 +328,7 @@ public class HomeCareController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCareUserDetails", lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-
+		session.removeAttribute("homeCreatedPolicy");
 		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-plan-details";
 	}
@@ -376,6 +380,7 @@ public class HomeCareController {
 		System.out.println("home-insurance/home-summary called ");
 		HttpSession session = request.getSession();
 		
+		System.out.println("homeCareDetails " + homeCareDetails.toString());
 		
 		if (session.getAttribute("token") == null) {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
@@ -390,15 +395,20 @@ public class HomeCareController {
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
+		NumberFormat formatter = new DecimalFormat("#0.00");  
+		
 		
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
+		float itotalDue = Float.parseFloat(totalDue);
+		totalDue = formatter.format(itotalDue);
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
-		String dob = "";
+		
 		Format f = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			dob = request.getParameter("applicantDob");
+			
 			Calendar dateDob = Calendar.getInstance();
 			dateDob.setTime(new Date(dob));
 			f = new SimpleDateFormat("yyyy-MM-dd");
@@ -471,11 +481,18 @@ public class HomeCareController {
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy createdPolicy = (CreatePolicy) session
-				.getAttribute("createdPolicy");
+				.getAttribute("homeCreatedPolicy");
+		
+		
+		
 		if (createdPolicy == null) {
 			createdPolicy = homecareService.createHomeCarePolicy(userName,
 					token, homeCareDetails, userDetails,
 					lang, (String)session.getAttribute("referralCode"));
+			
+			
+			session.setAttribute("homeCreatedPolicy", createdPolicy);
+			
 		}
 		
 		model.addAttribute("createdPolicy", createdPolicy);
@@ -687,6 +704,7 @@ public class HomeCareController {
 					COMMON_HEADERS);
 			session.removeAttribute("HomeCareCreditCardNo");
 			session.removeAttribute("HomeCareCardexpiryDate");
+			session.removeAttribute("homeCreatedPolicy");
 			session.removeAttribute("home-temp-save");
 			header.put("userName", userName);
 			header.put("token", token);

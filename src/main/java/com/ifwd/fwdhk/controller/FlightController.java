@@ -215,10 +215,27 @@ public class FlightController {
 		
 		System.out.println("PlanSelected   : " + planDetails.getPlanSelected());
 		
+		
+		TravelQuoteBean travelQuote = new TravelQuoteBean();
+		HttpSession session = request.getSession();
+		//travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		//travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+		
+		travelQuote.setTotalPersonalTraveller(planDetails.getTotalPersonalTraveller());
+		travelQuote.setTotalAdultTraveller(planDetails.getTotalAdultTraveller());
+		travelQuote.setTotalChildTraveller(planDetails.getTotalChildTraveller());
+		travelQuote.setTotalOtherTraveller(planDetails.getTotalOtherTraveller());
+		travelQuote.setPlanSelected(planDetails.getPlanSelected());
+		travelQuote.setTrLeavingDate(planDetails.getDepartureDate());
+		travelQuote.setTrBackDate(planDetails.getReturnDate());
+		
+		session.setAttribute("travelQuote", travelQuote);
+		session.setAttribute("corrTravelQuote", travelQuote);
+		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
-		HttpSession session = request.getSession();
+		
 
 		// removeSessionAttribute(request); // vincent, fix flight-plan-details
 		// back btn to flight plan
@@ -247,6 +264,7 @@ public class FlightController {
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		planDetails.setDays(days + 1);
+		travelQuote.setTotalTravellingDays(days + 1);
 		if (session != null) {
 //			System.out.println(planDetails.getDepartureDate() + " "
 //					+ planDetails.getReturnDate() + " "
@@ -1433,6 +1451,9 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + upgradeReferralCode;
+			
+			
+			
 			System.out.println("Travel Quote user " + Url);
 
 			HashMap<String, String> header = new HashMap<String, String>(
@@ -1677,7 +1698,15 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		travelBean.setTrLeavingDate(parameters.get("commencementDate")
 				.toString());
 		travelBean.setTrBackDate(parameters.get("expiryDate").toString());
+		
+		
+		
+		
 		travelBean.setTotalTraveller(createFlightPolicy.getTravellerCount());
+		travelBean.setPlanSelected(createFlightPolicy.getPlanSelected());
+		
+		
+		
 		
 		
 		/*
@@ -1697,8 +1726,6 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				+ plandetailsForm.getTotalOtherTraveller()
 				+ plandetailsForm.getTotalOtherTraveller());
 		model.addAttribute("dueAmount", dueAmount);
-		session.setAttribute("travelQuote", travelBean);
-		session.setAttribute("corrTravelQuote", travelBean);
 		
 		
 		
