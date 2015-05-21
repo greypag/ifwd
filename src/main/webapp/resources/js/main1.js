@@ -153,6 +153,7 @@ $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
     var winh = $(window).height();
     var diff = $('.carousel').height() + 40 + 115 + 282- winh;
+
     // Do something
     if (scroll > diff) {
 	    jQuery('#middle').removeClass("fixed-content");

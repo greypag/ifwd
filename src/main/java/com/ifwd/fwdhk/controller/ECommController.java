@@ -105,6 +105,7 @@ public class ECommController {
 			urc.updateLanguage(req);
 			HttpSession session = req.getSession(true);
 			session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+			System.out.println("index promo " + (String)session.getAttribute("referralCode"));
 			String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
 			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
 			

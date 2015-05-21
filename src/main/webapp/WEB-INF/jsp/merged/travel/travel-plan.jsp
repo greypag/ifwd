@@ -1561,6 +1561,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	});
 	
 	function enterKeyPress(e){
+
 	    if (e.keyCode == 13) {
 	    	sendEmail();
 	        return false;
