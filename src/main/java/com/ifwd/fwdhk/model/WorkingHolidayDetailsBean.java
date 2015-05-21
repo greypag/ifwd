@@ -206,5 +206,8 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	public void setWhInseffectiveDate(String whInseffectiveDate) {
 		this.whInseffectiveDate = whInseffectiveDate;
 	}
+	
+	public WorkingHolidayDetailsBean() {  
+    }  
 
 }

@@ -39,14 +39,97 @@
 		else
 			document.getElementById("inlineCARadio5").checked = true;
 	}
+	
+	var details_clicked = false;
+	function confirmDetails(form){
+		if (whDetailsValid() && details_clicked === false) {
+		//if (details_clicked === false) {
+			details_clicked=true;
+			var inputWhAppFullName = $("#inputWhAppFullName").val();
+			var selectWhAppHKID = $("#selectWhAppHKID").val();
+			var inputWhAppHKID = $("#inputWhAppHKID").val();
+			var inputWhAppDob = $("#inputWhAppDob").val();
+			var inputWhAppMobileNO = $("#inputWhAppMobileNO").val();
+			var inputWhAppEmailAdd = $("#inputWhAppEmailAdd").val();
+			var selectWhInsAgeRange = $("#selectWhInsAgeRange").val();
+			var selectWhInsBeneficary = $("#selectWhInsBeneficary").val();
+			var inputWhInsFullName = $("#inputWhInsFullName").val();
+			var selectWhInsHKID = $("#selectWhInsHKID").val();
+			var inputWhInsHKID = $("#inputWhInsHKID").val();
+			var selectWhInsWorkingCty = $("#selectWhInsWorkingCty").val();
+			var inputWhInsRoom = $("#inputWhInsRoom").val();
+			var inputWhInsFloor = $("#inputWhInsFloor").val();
+			var inputWhInsBlock = $("#inputWhInsBlock").val();
+			var inputWhInsBuilding = $("#inputWhInsBuilding").val();
+			var inputWhInsEstate = $("#inputWhInsEstate").val();
+			var inputWhInsStreetNo = $("#inputWhInsStreetNo").val();
+			var inputWhInsStreetName = $("#inputWhInsStreetName").val();
+			var selectWhInsDistrict = $("#selectWhInsDistrict").val();
+			
+			var radioWhInsArea = "";
+			if(document.getElementById("inlineCARadio5").checked){
+				radioWhInsArea="NT";
+			}else if(document.getElementById("inlineCARadio4").checked){
+				radioWhInsArea="KL";
+			}else {
+				radioWhInsArea="HK";
+			}
+			
+			var inputWhInseffectiveDate = $("#inputWhInseffectiveDate").val();
+			
+			var planDetailsForm = { 'whAppFullName': inputWhAppFullName,
+				  	'selectWhAppHKID': selectWhAppHKID,
+				  	'whAppHKID':inputWhAppHKID,
+				  	'whAppDob':inputWhAppDob,					  	  
+				  	'whAppMobileNO':inputWhAppMobileNO,
+				  	'whAppEmailAdd':inputWhAppEmailAdd,
+				  	'whInsAgeRange':selectWhInsAgeRange,
+				  	'whInsBeneficary':selectWhInsBeneficary,
+				  	'whInsFullName':inputWhInsFullName,
+				  	'selectWhInsHKID':selectWhInsHKID,
+				  	'whInsHKID':inputWhInsHKID,
+				  	'whInsWorkingCty':selectWhInsWorkingCty,
+				  	'whInsRoom':inputWhInsRoom,
+				  	'whInsFloor':inputWhInsFloor,
+				  	'whInsBlock':inputWhInsBlock,
+				  	'whInsBuilding':inputWhInsBuilding,
+				  	'whInsEstate':inputWhInsEstate,
+				  	'whInsStreetNo':inputWhInsStreetNo,
+				  	'whInsStreetName':inputWhInsStreetName,
+				  	'whInsDistrict':selectWhInsDistrict,
+				  	'whInsArea':radioWhInsArea,
+				  	'whInseffectiveDate':inputWhInseffectiveDate
+			    };
+			var method = "<%=request.getContextPath()%>/wh-summary";
+			$.ajaxSetup({  
+		        contentType : 'application/json'  
+		    });
+			
+			$.ajax({
+				type : "POST",
+				url : method,
+				data : JSON.stringify(planDetailsForm),
+				async : false,
+				success : function(data) {
+					if (data == 'success') {
+						form.action='<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance/workingholiday-summary';
+					} else {
+						console.log("fail to process payment " + data);
+					}
+				}
+			});
+			return true;
+		}else {
+			return false;
+		}
+	}
 </script>
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
 		<div class="row">
 		
-			<form:form name="frmYourDetails" id="frmYourDetails" action="${pageContext.request.contextPath}/${language}/workingholiday-insurance/workingholiday-summary" method="post"
-				onsubmit="return whDetailsValid();" modelAttribute="frmYourDetails">
+			<form:form name="frmYourDetails" id="frmYourDetails" method="post" onsubmit="return confirmDetails(this);">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -252,12 +335,12 @@
 										<span id="whInsBeneficary" class="text-red"></span>
 									</td>
 								</tr>
-								<tr id="trBenificiary0" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary0" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td colspan="2" class="pad-none">
 										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
 									</td>
 								</tr>
-								<tr id="trBenificiary1" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary1" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td class="pad-none"><label for="inputWhInsFullName"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label></td>
 									<td class="pad-none">
@@ -269,7 +352,7 @@
 										<span id="whInsFullName" class="text-red"></span>
 									</td>
 								</tr>
-								<tr id="trBenificiary2" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary2" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td class="pad-none"><label for="inputWhInsHKID"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label></td>
 									<td class="pad-none">
@@ -289,7 +372,7 @@
 										</select>
 									</td>
 								</tr>
-								<tr id="trBenificiary3" <c:if test="${workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary3" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
 									<td class="pad-none">

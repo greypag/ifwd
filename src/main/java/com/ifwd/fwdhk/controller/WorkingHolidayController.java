@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -432,31 +434,22 @@ public class WorkingHolidayController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan-details");
 	}
 	
-	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
-	public ModelAndView prepareSummary(@ModelAttribute("frmYourDetails") WorkingHolidayDetailsBean planDetailsForm, BindingResult result, Model model,
-			HttpServletRequest request) {
+	@RequestMapping(value = "/wh-summary", method=RequestMethod.POST)
+	@ResponseBody
+	public String prepareSummary(@RequestBody  WorkingHolidayDetailsBean planDetailsForm, HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		 
 		HttpSession session = request.getSession();
-		//TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
-		
 		String planSelected = (String) session.getAttribute("planSelected");
+		
 		if (session.getAttribute("token") == null) {
-			model.addAttribute("errMsgs", "Session Expired");
-			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+			return "fail";
 		}
 		if (quoteDetails == null || planSelected == null) {
-			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+			return "fail";
 		}
-		UserRestURIConstants.setController("WorkingHoliday");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
-
-		System.out.println("inside Controller fro prepare Summary" + selectPlanName);
-
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
 		} else {
@@ -527,7 +520,6 @@ public class WorkingHolidayController {
 		addressJsonObj.put("estate", planDetailsForm.getWhInsEstate());
 		parameters.put("address", addressJsonObj);
 
-
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
@@ -562,19 +554,61 @@ public class WorkingHolidayController {
 				JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.WORKINGHOLIDAY_CONFIRM_POLICY, header,
 						confirmPolicyParameter);
 
-				System.out.println("Response From Confirm WorkingHoliday Policy " + jsonResponse);
-
 				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
 				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 				
-				model.addAttribute(createPolicy);
 				session.setAttribute("whCreatePolicy", createPolicy);
 			}
-
 		}
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
 		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
+		
+		return "success";
+	}
+	
+	@SuppressWarnings({ "deprecation" })
+	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
+	public ModelAndView prepareSummary(HttpServletRequest request, HttpServletResponse response, Model model) {
+		HttpSession session = request.getSession();
+		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
+		
+		String planSelected = (String) session.getAttribute("planSelected");
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+		}
+		if (quoteDetails == null || planSelected == null) {
+			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+		}
+		UserRestURIConstants.setController("WorkingHoliday");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+
+		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
+
+		System.out.println("inside Controller fro prepare Summary" + selectPlanName);
+
+		WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
+
+		UserDetails userDetails = new UserDetails();
+		userDetails.setFullName(planDetailsForm.getWhAppFullName());
+		userDetails.setHkid(planDetailsForm.getWhAppHKID());
+		userDetails.setMobileNo(planDetailsForm.getWhAppMobileNO());
+		userDetails.setEmailAddress(planDetailsForm.getWhAppEmailAdd());
+		
+		Calendar calendar=Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		calendar.setTime(new Date(planDetailsForm.getWhInseffectiveDate()));
+		String commencementDate = df.format(calendar.getTime());
+		calendar.add(Calendar.YEAR, 1);
+		calendar.add(Calendar.DAY_OF_YEAR, -1);
+		String expiryDate = df.format(calendar.getTime());
+		
+		calendar.setTime(new Date(planDetailsForm.getWhAppDob()));
+		
+		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("whCreatePolicy");
+		model.addAttribute(createPolicy);
 
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
@@ -588,21 +622,17 @@ public class WorkingHolidayController {
 		LocalDate dateL2 = new LocalDate(expiryDate);
 		int days = Days.daysBetween(dateL1, dateL2).getDays();
 		model.addAttribute("totalDays", days + " days");
-		
-		System.out.println("path " + path);
-
 		model.addAttribute("path", path.replace("workingholiday-summary", "confirmation"));
-
-		System.out.println("modal path " + path.replace("workingholiday-summary", "confirmation"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
 		String paymentGatewayFlag = request.getParameter("paymentGatewayFlag");
 		String errorMsg = request.getParameter("errorMsg");
 		if (paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null) {
 			errorMsg = "Payment failure";
 		}
-		model.addAttribute("errormsg", errorMsg);
 		String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanSummary", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("errormsg", errorMsg);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-payment");
@@ -924,4 +954,19 @@ public class WorkingHolidayController {
 		return response;
 	}*/
 	
+	private String att;
+	@RequestMapping(value = "/setAtt")
+	public String setDetailsFrom(HttpServletRequest request) {
+		
+		Object obj = request.getSession().getAttribute("");
+		Method method;
+		try {
+			method = obj.getClass().getMethod("set" + att, String.class);
+			method.invoke(obj, "value");
+			request.getSession().setAttribute("", obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
 }

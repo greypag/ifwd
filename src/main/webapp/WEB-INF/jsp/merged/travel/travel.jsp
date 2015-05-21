@@ -252,7 +252,7 @@ $(document).ready(function() {
 	              </td>
 	             </tr>
 	             <tr class="product-landing-error-wrap">
-	              <td><span id="startDateDeskIn" class="text-red"> </span></td>
+	              <td><span id="startDateDeskIn" class="text-red"></span></td>
 	              <td><span id="endDateDeskIn" class="text-red"> </span></td>
 	              <td><span id="travelCountDeskIn"  style="display:none">
 	                 <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
