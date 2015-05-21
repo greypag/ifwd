@@ -444,9 +444,9 @@ public class UserController {
 					UserRestURIConstants.USER_FORGOT_PASSWORD,
 					COMMON_HEADERS, params);
 			/* {"errMsgs":null,"userName":"eCommUser89"} */
-			if (jsonResponse.get("errMsgs") == null) {
-				return "success";
-			}
+            if (!(jsonResponse.get("errMsgs") != null && jsonResponse.get("errMsgs").toString().length() > 0)) {
+                return jsonResponse.get("userName").toString();
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
