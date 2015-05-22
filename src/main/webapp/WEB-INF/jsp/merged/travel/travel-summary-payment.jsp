@@ -668,6 +668,7 @@ perventRedirect=true;
 					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
 					<input type="hidden" name="merchantId" value="${createPolicy.getMerchantId()}">
 					<input type="hidden" name="amount" value="${dueAmount.trim()}">
+					<input type="hidden" name="remark" value="${referralCode.trim()}">
 					<input type="hidden" name="orderRef" value="${createPolicy.getTransactionNo() }">
 					<input type="hidden" name="currCode" value="${createPolicy.getCurrCode() }">
 					<input type="hidden" name="successUrl" value="${path}">
@@ -678,9 +679,9 @@ perventRedirect=true;
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
-						System.out.println("getLanguage" + session.getAttribute("language"));
+						
 						payLang = "C";
-						System.out.println("payLang" + payLang);
+						
 						//if (payLang.equals("t"))
 						
 					%>

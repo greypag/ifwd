@@ -21,7 +21,7 @@ import com.ifwd.fwdhk.model.LocaleKeyEnum;
 
 public class WebServiceUtils {
 	public static String transformLanaguage(String language) {
-		if (language.equals("CN"))
+		if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC"))
 			return "ZH";
 		else
 			return "EN";

@@ -1879,6 +1879,7 @@ function activateUserAccountJoinUs() {
                                     <h4><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
                                     <input type="hidden" name="selectedPlanName" value="${planName }">
                                 </div>
+                                
                                 <div class="pull-right">
                                     <div class="text-left pad-right1 h2-2 h2">
                                         <div class="hk">

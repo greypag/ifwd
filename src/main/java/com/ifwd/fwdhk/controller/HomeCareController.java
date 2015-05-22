@@ -493,6 +493,29 @@ public class HomeCareController {
 			
 			session.setAttribute("homeCreatedPolicy", createdPolicy);
 			
+		} else {
+			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
+			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+			String paymentFail = "1";
+			
+			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+			
+			if (creditCardNo !=null) {
+				try {
+					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
+			String emailId = (String) session.getAttribute("emailAddress");
+			CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
+					userName, token, referenceNo, transactionNumber,
+					transactionDate, creditCardNo, expiryDate, emailId,
+					lang, paymentFail);
 		}
 		
 		model.addAttribute("createdPolicy", createdPolicy);
@@ -525,6 +548,7 @@ public class HomeCareController {
 		model.addAttribute("planCode", planCode);
 		model.addAttribute("createdPolicy", createdPolicy);
 		model.addAttribute("userDetails", userDetails);
+		model.addAttribute("referralCode", session.getAttribute("referralCode"));
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date(homeCareDetails.getEffectiveDate()));
 		f = new SimpleDateFormat("dd MMMM yyyy");
@@ -650,7 +674,7 @@ public class HomeCareController {
 		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
 		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
-		
+		String paymentFail = "0";
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
@@ -684,20 +708,13 @@ public class HomeCareController {
 		String userName = (String) session.getAttribute("username");
 		String token = (String) session.getAttribute("token");
 		String emailId = (String) session.getAttribute("emailAddress");
-		System.out.println("********************Inside Confirmation*****************");
-		System.out.println("referenceNo=" + referenceNo);
-		System.out.println("Transaction Number==>" + transactionNumber);
-		System.out.println("Transaction Date==>" + transactionDate);
-		System.out.println("creditCardNo==>>" + creditCardNo);
-		System.out.println("expiryDate==>>" + expiryDate);
-		System.out.println("userName==>>" + userName);
-		System.out.println("token==>>" + token);
+		
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
 				userName, token, referenceNo, transactionNumber,
 				transactionDate, creditCardNo, expiryDate, emailId,
-				lang);
+				lang, paymentFail);
 		if (finalizePolicy.getErrMsgs() == null) 
 		{
 			HashMap<String, String> header = new HashMap<String, String>(

@@ -36,7 +36,7 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="robots" content="NOODP">
+<!-- <meta name="robots" content="NOODP"> -->
 <meta name='keywords' content="meta keywords here"/>
 
 

@@ -93,7 +93,7 @@ public class FlightController {
 		/*if (planDetails == null) {
 			planDetails = new PlanDetails();
 		}*/
-		if(planDetails == null){
+		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
 			planDetails.setTotalPersonalTraveller(1);
 			planDetails.setTotalAdultTraveller(1);
@@ -130,6 +130,8 @@ public class FlightController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
+		String ogSiteName = "";
+		
 		System.out.println("flight path " + request.getRequestURI().toString());
 		if (request
 				.getRequestURI()
@@ -149,6 +151,9 @@ public class FlightController {
 			ogDescription = WebServiceUtils.getPageTitle(
 					"flight.sharing.og.description",
 					UserRestURIConstants.getLanaguage(request));
+			ogSiteName = WebServiceUtils.getPageTitle(
+					"flight.sharing.og.siteName",
+					UserRestURIConstants.getLanaguage(request));
 		} else {
 			ogTitle = WebServiceUtils.getPageTitle("flight.og.title",
 					UserRestURIConstants.getLanaguage(request));
@@ -161,6 +166,9 @@ public class FlightController {
 			ogDescription = WebServiceUtils.getPageTitle(
 					"flight.og.description",
 					UserRestURIConstants.getLanaguage(request));
+			ogSiteName = WebServiceUtils.getPageTitle(
+					"flight.og.siteName",
+					UserRestURIConstants.getLanaguage(request));			
 		}
 		System.out.println("request URL " + request.getRequestURL().toString());
 
@@ -172,6 +180,9 @@ public class FlightController {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("ogSiteName", ogDescription);
+		
+		
 
 		model.addAttribute(planDetails);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -1569,12 +1580,17 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		String dueAmount = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue(
+				"selectPlanPremium", session, request);
 		
 		String selectPlanName = request.getParameter("planName");
+		TravelQuoteBean travelQuote = (TravelQuoteBean)session.getAttribute("corrTravelQuote");
+		PlanDetails planDetails = (PlanDetails)session.getAttribute("flightPlanDetails");
 		session.setAttribute("selectPlanName", selectPlanName);
 		session.setAttribute("planName", selectPlanName);
 		session.setAttribute("planSelected", selectPlanName);
 				
+		
 		if (createFlightPolicy.getDepartureDate() == null) {
 			createFlightPolicy = (CreateFlightPolicy) session.getAttribute("upgradeCreateFlightPolicy");
 			selectPlanName = (String) session.getAttribute("upgradeSelectPlanName");
@@ -1592,6 +1608,11 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			parameters.put("planCode", selectPlanName);
 		}
 		PlanDetailsForm plandetailsForm = new PlanDetailsForm();
+		plandetailsForm.setTotalAdultTraveller(createFlightPolicy.getTotalAdultTraveller());
+		plandetailsForm.setTotalChildTraveller(createFlightPolicy.getTotalChildTraveller());
+		plandetailsForm.setTotalOtherTraveller(createFlightPolicy.getTotalOtherTraveller());
+		plandetailsForm.setTotalPersonalTraveller(createFlightPolicy.getTotalPersonalTraveller());
+		
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
@@ -1617,7 +1638,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			}
 
 		}
-
+		plandetailsForm.setPlanSelected(travelQuote.getPlanSelected());
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
@@ -1746,7 +1767,12 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		model.addAttribute("failurePath",
 				path.replace("flight-upgrade-travel-summary", "flight-upgrade-travel-summary?paymentGatewayFlag=true"));
 
-		
+        String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
+        String errorMsg =request.getParameter("errorMsg");
+        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
+            errorMsg = "Payment failure";     
+        }        
+        model.addAttribute("errormsg", errorMsg);  
 		
 		String pageTitle = WebServiceUtils.getPageTitle(
 				"page.travelPlanSummary",

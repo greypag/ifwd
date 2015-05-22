@@ -269,7 +269,7 @@ function submitLoginForm(formID) {
 									<ul>
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
-										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
+										<li><a href="<%=request.getContextPath()%>/${language}/account" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
 										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1">
@@ -433,7 +433,7 @@ function submitLoginForm(formID) {
 									<ul>
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
-										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
+										<li><a href="<%=request.getContextPath()%>/${language}/account" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
 										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
