@@ -113,4 +113,3 @@ $(function() {
   src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-

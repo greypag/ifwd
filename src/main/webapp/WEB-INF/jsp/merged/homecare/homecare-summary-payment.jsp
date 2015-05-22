@@ -86,11 +86,13 @@ perventRedirect=true;
                             <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
                                 <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
                             </div>
+                            <!-- 
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
                                 <h4 class="h4-trav-full">
                                     <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
                                 </h4>
                             </div>
+                             -->
                         </div>
                         <div class="row">
                             <!-- <table class="table activation-form margin-left-2"> -->
