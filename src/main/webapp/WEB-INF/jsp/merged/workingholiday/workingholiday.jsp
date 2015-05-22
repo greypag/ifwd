@@ -32,6 +32,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
 			} else {
 				console.log("fail to process payment " + data);
+				return false;
 			}
 		}
 	}); 
@@ -55,7 +56,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 </section>
 <%-- <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();"> --%>
-<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
 <section id="middle" class="hidden-sm hidden-xs" style="background:none;">
   <div class="container">
     <div class="row">

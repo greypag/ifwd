@@ -95,6 +95,31 @@ var promoData = '';
 			$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 		}
 	}
+	
+	
+	function prepareWorkingHolidayUserDetails(form,formId){
+		var formId = '#' + formId;
+		var method = "<%=request.getContextPath()%>/wh-details";
+		if(chkDueAmount()){
+			$.ajax({
+				type : "POST",
+				url : method,
+				data : $(formId).serialize(),
+				async : false,
+				success : function(data) {
+					if (data == 'success') {
+						//alert(data+" " + method + " " + $(paymentFormId).serialize());
+						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
+					} else {
+						console.log("fail to process payment " + data);
+					}
+				}
+			}); 
+		}else{
+			return false;
+		}
+	}
+	
 </script>
 <style>
 .workingholidaybox:hover {
@@ -111,7 +136,7 @@ var promoData = '';
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmWorkingHolidayPlan" id="frmWorkingHolidayPlan" action='${pageContext.request.contextPath}/${language}/workingholiday-insurance/user-details' method="post" modelAttribute="workingholidayQuote" onsubmit="return chkDueAmount();" >
+			<form:form name="frmWorkingHolidayPlan" id="frmWorkingHolidayPlan" method="post" modelAttribute="workingholidayQuote" onsubmit="return prepareWorkingHolidayUserDetails(this,'frmWorkingHolidayPlan');" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a></li>
