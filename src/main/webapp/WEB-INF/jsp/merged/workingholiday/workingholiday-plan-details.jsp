@@ -305,7 +305,14 @@
 									<td class="pad-none">
 										<select id="selectWhInsWorkingCty" name="whInsWorkingCty" class="soflow">
 											<c:forEach var="country" items="${countryInfo}">
-												<option value="${country.key}">
+												<c:choose>
+													<c:when test="${country.key == workingHolidayPlanDetailsForm.getWhInsWorkingCty()}">
+														<option value="${country.key}" selected>
+													</c:when>
+													<c:otherwise>
+														<option value="${country.key}">
+													</c:otherwise>
+												</c:choose>
 													<c:out value="${country.value}" />
 												</option>
 											</c:forEach>
