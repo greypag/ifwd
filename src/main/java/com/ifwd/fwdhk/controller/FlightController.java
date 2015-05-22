@@ -406,12 +406,12 @@ public class FlightController {
 		System.out.println("ADULT " + planDetails.getTotalAdultTraveller());
 		System.out.println("CHILD " + planDetails.getTotalChildTraveller());
 		System.out.println("OTHER " + planDetails.getTotalOtherTraveller());
-		
-System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
-System.out.println("getReturnDate : "+planDetails.getReturnDate());
-		
-System.out.println("departureDate : "+request.getParameter("departureDate"));
-System.out.println("returnDate : "+request.getParameter("returnDate"));
+				
+		System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
+		System.out.println("getReturnDate : "+planDetails.getReturnDate());
+				
+		System.out.println("departureDate : "+request.getParameter("departureDate"));
+		System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 		// test planselected
 		if( planDetails.getTotalPersonalTraveller() > 0 ) {
@@ -1257,12 +1257,13 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 		
-		String name 		= StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
-		String hkid 		= StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
+		String name = StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
+		String hkid = StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
 		String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
-		String mobileNo     = request.getParameter("mobileNo");
-		
-		
+		String mobileNo = request.getParameter("mobileNo");
+		String optIn1 = String.valueOf(planDetailsForm.getCheckbox3());
+		String optIn2 = String.valueOf(planDetailsForm.getCheckbox4());
+				
 		String dob = request.getParameter("applicantDob");
 		Calendar dateDob = Calendar.getInstance();
 		dateDob.setTime(new Date(dob));
@@ -1270,23 +1271,24 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		dob = f.format(dateDob.getTime());
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
-		applicantJsonObj.put("gender", "M");
+		applicantJsonObj.put("gender", "M"); // default value
 		applicantJsonObj.put("hkId", hkid);
 		applicantJsonObj.put("dob", dob);
-//		applicantJsonObj.put("dob", "");
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
-		System.out.println("Flight optIn1 " + planDetailsForm.getCheckbox3());
-		System.out.println("Flight optIn2 " + planDetailsForm.getCheckbox4());
+		System.out.println("debug: Flight optIn1 " + optIn1);
+		System.out.println("debug: Flight optIn2 " + optIn2);
 		
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
+		applicantJsonObj.put("optIn1", optIn1);
+		applicantJsonObj.put("optIn2", optIn2);
 		applicantJsonObj.put("email", emailAddress);
 
 		request.setAttribute("fullName", name);
 		request.setAttribute("hkid", hkid);
 		request.setAttribute("mobileNo", mobileNo);
 		request.setAttribute("emailAddress", emailAddress);
+		request.setAttribute("optIn1", optIn1);
+		request.setAttribute("optIn2", optIn2);
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
@@ -1521,6 +1523,16 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 						request.getParameter("mobileNo"));
 				request.setAttribute("emailAddress",
 						request.getParameter("emailAddress"));
+				if (request.getParameter("checkbox3")!=null && request.getParameter("checkbox3").length()>0) {
+					request.setAttribute("optIn1", "true");
+				} else {
+					request.setAttribute("optIn1", "false");					
+				}
+				if (request.getParameter("checkbox4")!=null && request.getParameter("checkbox4").length()>0) {
+					request.setAttribute("optIn2", "true");
+				} else {
+					request.setAttribute("optIn2", "false");					
+				}
 
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
@@ -1562,8 +1574,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		session.setAttribute("selectPlanName", selectPlanName);
 		session.setAttribute("planName", selectPlanName);
 		session.setAttribute("planSelected", selectPlanName);
-		
-		
+				
 		if (createFlightPolicy.getDepartureDate() == null) {
 			createFlightPolicy = (CreateFlightPolicy) session.getAttribute("upgradeCreateFlightPolicy");
 			selectPlanName = (String) session.getAttribute("upgradeSelectPlanName");
@@ -1572,15 +1583,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			session.setAttribute("upgradeCreateFlightPolicy", createFlightPolicy);
 			session.setAttribute("upgradeSelectPlanName", selectPlanName);
 			session.setAttribute("upgradeDueAmount", dueAmount);
-			
-			
-			
-			
 		}
-		
-		
-		
-		
 		
 		JSONObject parameters = new JSONObject();
 		if (session.getAttribute("FlightResponseFrTrvl") != null) {
@@ -1683,14 +1686,14 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			model.addAttribute("selectPlanName", selectPlanName);
 		} else {
 			return UserRestURIConstants.getSitePath(request) + "travel/travel";
-		}
-
-		
+		}	
 
 		String applicantFullName = request.getParameter("fullName");
 		String applicantHKID = request.getParameter("hkid");
 		String applicantMobNo = request.getParameter("mobileNo");
 		String emailAddress = request.getParameter("emailAddress");
+		String optIn1 = request.getParameter("optIn1");
+		String optIn2 = request.getParameter("optIn2");
 		String totalTravallingDays = request.getParameter("days");
 		System.out.println("inside Controller fro flight upgrade Summary");
 
@@ -1698,22 +1701,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		travelBean.setTrLeavingDate(parameters.get("commencementDate")
 				.toString());
 		travelBean.setTrBackDate(parameters.get("expiryDate").toString());
-		
-		
-		
-		
 		travelBean.setTotalTraveller(createFlightPolicy.getTravellerCount());
 		travelBean.setPlanSelected(createFlightPolicy.getPlanSelected());
-		
-		
-		
-		
-		
-		/*
-		 * System.out .println(
-		 * "===========>+>+>+>+>+>+.=...............>>>>>>+=====>>>>>>>>>>>>>>>>>>>>>+"
-		 * + dueAmount);
-		 */
 
 		String path = request.getRequestURL().toString();
 		UserDetails userDetails = new UserDetails();
@@ -1721,13 +1710,13 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
+		userDetails.setOptIn1(optIn1);
+		userDetails.setOptIn2(optIn2);
 		travelBean.setTotalTraveller(plandetailsForm.getTotalAdultTraveller()
 				+ plandetailsForm.getTotalChildTraveller()
 				+ plandetailsForm.getTotalOtherTraveller()
 				+ plandetailsForm.getTotalOtherTraveller());
 		model.addAttribute("dueAmount", dueAmount);
-		
-		
 		
 		if (applicantFullName == null) {
 			totalTravallingDays = (String) session.getAttribute("upgradeTotalTravallingDays");

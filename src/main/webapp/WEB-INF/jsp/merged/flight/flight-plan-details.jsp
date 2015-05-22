@@ -174,8 +174,6 @@ function activateUserAccountJoinUs() {
     	
     }
     
-    
-    
        return;
        
 }
@@ -1802,14 +1800,14 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     bundle="${msg}" />
                             </div>
                             <div class="checkbox">
-                                <input id="checkbox3" type="checkbox"> <label
+                                <input id="checkbox3" type="checkbox" name="checkbox3" value="true"> <label
                                     for="checkbox3"> <fmt:message
                                         key="flight.details.declarations.PDPO.option1" bundle="${msg}" /><br>
                                 </label>
                             </div>
 
                             <div class="checkbox">
-                                <input id="checkbox4" type="checkbox"> <label
+                                <input id="checkbox4" type="checkbox" name="checkbox4" value="true"> <label
                                     for="checkbox4"> <fmt:message
                                         key="flight.details.declarations.PDPO.option2" bundle="${msg}" /><br>
                                     <br>

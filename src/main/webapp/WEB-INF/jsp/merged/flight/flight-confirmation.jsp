@@ -290,10 +290,8 @@ value="${createFlightPolicy.getTravellerCount()}">
 <input type="hidden" name="hkid" value="${hkid}">
 <input type="hidden" name="mobileNo" value="${mobileNo}">
 <input type="hidden" name="emailAddress" value="${emailAddress}">
-
-
-
-
+<input type="hidden" name="optIn1" value="${optIn1}">
+<input type="hidden" name="optIn2" value="${optIn2}">
 <input type="hidden" name="upgradeStatus" value="true">
 <!-- End Travel Create Travel Plan Attribute -->
 <input type="hidden" name="planName" id="inputseletedplanname"
