@@ -706,10 +706,10 @@ function BackMe() {
 }
 
 var perventRedirect=false;
-window.onbeforeunload = function() {
-	if(perventRedirect){
+//window.onbeforeunload = function() {
+//	if(perventRedirect){
 //		return "<fmt:message key="index.leavePage.desc" bundle="${msg}" />";
-	}
-}
+//	}
+//}
 </script>
     

@@ -31,10 +31,12 @@ perventRedirect=true;
  						success : function(data) {
  							$("#PaymentingDiv").hide();
  							if (data == 'success') {
- 								form.action = geteWayUrl;
- 							} else {
- 								$('#paymentErrorPopup').modal('show');
- 							}
+ 								$("#"+form).attr('action', geteWayUrl);
+ 	                            $("#"+form).submit();
+                            } else {
+                                $('#paymentErrorPopup').modal('show');
+                                return false;
+                            }
  						}
  					});
  			return true;
@@ -52,7 +54,7 @@ perventRedirect=true;
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return false;">
+			<form name="paymentForm" id="paymentForm" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -513,12 +515,17 @@ perventRedirect=true;
 	                                            if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) 
 	                                            {
 	                                    %>
-	                                    <tr>
+	                                    <tr class="<%=planDetailsForm.getPersonalBenificiaryFullName().length%>">
 	                                        <td data-title="Personal1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-	                                        <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+	                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){ %>
+	                                        <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
 	                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-	                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
-	                                        
+	                                        <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+	                                        <% }else{ %>
+	                                        <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
+                                            <% } %>
 	                                        <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
 	<!--                                        <td data-title="Relationship" class="travel-tb-h3"></td> -->
 	                                    </tr>
@@ -552,10 +559,15 @@ perventRedirect=true;
 									%>
 									<tr>
 										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-										
+										<% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+                                            <% }else{ %>
+                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
+                                            <% } %>
 										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
 <!-- 										<td data-title="Relationship" class="travel-tb-h3"></td> -->
 									</tr>
@@ -582,9 +594,16 @@ perventRedirect=true;
 								%>
 								<tr>
 									<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-									<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-									<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-									<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+									
+									<% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+                                            <% }else{ %>
+                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+                                            <% } %>
 									
 									<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
 								</tr>
@@ -617,9 +636,15 @@ perventRedirect=true;
 									%>
 									<tr>
 										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>										
+										<% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+                                            <% }else{ %>
+                                            <td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>          
+                                            <% } %>								
 										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
@@ -709,7 +734,7 @@ perventRedirect=true;
 											
 											<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="<fmt:message key="travel.payment.card.no.placeholder" bundle="${msg}" />"
+											title=""
 											onkeyup="" onkeypress="return isNumeric(event)" 
 											onBlur="validatecardnumber(this.value)"
 											 />
@@ -773,7 +798,7 @@ perventRedirect=true;
 								<td colspan="2">
 									<div class="controls">
 										<input id="holdername" name="cardHolder" type="text"
-											class="input-block-level" placeholder="<fmt:message key="travel.payment.card.holderName.placeholder" bundle="${msg}" />"
+											class="input-block-level"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -786,7 +811,7 @@ perventRedirect=true;
 									<div class="controls">
 										<input id="seccode" type="password" name="securityCode"
 											class="input-block-level" autocomplete="off" maxlength="3"
-											title="" placeholder="<fmt:message key="travel.payment.card.cvv.placeholder" bundle="${msg}" />"
+											title=""
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);" >
 
@@ -844,13 +869,15 @@ perventRedirect=true;
 						
 						<div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
+                                <!-- <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
                                     <fmt:message key="travel.action.back" bundle="${msg}" /> 
-                                </a>
+                                </a> -->
+                                
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <input type="submit" onclick="perventRedirect=false;confirmTravelPayment(this, 'gateway', 'paymentForm');"
-                                    class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="travel.action.payment" bundle="${msg}" />" />
+                                <a onclick="perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve-none btn btn-primary nxt-btn"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
                             </div>
                         </div>
 						

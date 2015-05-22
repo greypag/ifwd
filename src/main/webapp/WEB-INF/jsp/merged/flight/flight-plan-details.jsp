@@ -1981,9 +1981,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         <br>
                         <br>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                            <a href="<%=request.getContextPath()%>/${language}/flight-insurance/quote" onclick="perventRedirect=false;"
+                            <!-- <a href="<%=request.getContextPath()%>/${language}/flight-insurance/quote" onclick="perventRedirect=false;"
                                 class="bdr-curve btn btn-primary bck-btn"> <fmt:message
-                                    key="flight.details.action.back" bundle="${msg}" /></a>
+                                    key="flight.details.action.back" bundle="${msg}" /></a> -->
+                            
+                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
