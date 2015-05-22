@@ -809,9 +809,11 @@ function checkPromoCodePlaceholder(){
 							</div> -->
 							
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance"
+	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance"
 	                                class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.back" bundle="${msg}" /> 
-	                            </a>
+	                            </a> -->
+	                            
+	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">

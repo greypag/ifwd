@@ -313,8 +313,6 @@ perventRedirect=true;
 										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
 											title=""
-											placeholder="<fmt:message
-											key="home.summary.pmtdetail.desc2.placeholder" bundle="${msg}" />"
 											onkeyup="" onkeypress="return isNumeric(event)"
 											onBlur="validatecardnumber(this.value)" /> <span
 											id="errcardno" class="error-msg"></span>
@@ -382,8 +380,6 @@ perventRedirect=true;
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder"
 											class="input-block-level" title=""
-											placeholder="<fmt:message
-											key="home.summary.pmtdetail.desc4.placeholder" bundle="${msg}" />"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -397,8 +393,6 @@ perventRedirect=true;
 										<input id="seccode" name="securityCode" type="password"
 											class="input-block-level" autocomplete="off" maxlength="3"
 											title=""
-											placeholder="<fmt:message
-											key="home.summary.pmtdetail.desc5.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);">
 
@@ -459,9 +453,11 @@ perventRedirect=true;
 						-->
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
+	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
 	                                <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
-	                            </a>
+	                            </a> -->
+	                            
+	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 	                            <a onclick="perventRedirect=false; confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"

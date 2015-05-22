@@ -605,7 +605,7 @@ function activateUserAccountJoinUs() {
 	                                   <input type="text"
                                             class="form-control full-control" id="inputFullName" name="applicantName"
                                             value="${userDetails.getFullName().trim()}"
-                                            placeholder="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />" onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
+                                            onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
                                             onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
                                             id="appfullname" class="text-red"></span>
 	                               </div>
@@ -636,7 +636,7 @@ function activateUserAccountJoinUs() {
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                    <!-- <input type="text" name="hkId" class="form-control numberinput textUpper full-control" id="txtAppHkid" placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> -->
-                                        <input type="text" name="hkId" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="txtAppHkid" placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />'); chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)">
+                                        <input type="text" name="hkId" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="txtAppHkid" value="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />'); chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)">
                                         <span id="errAppHkid" class="text-red"> </span>
 	                               </div>
 	                           </div>
@@ -666,7 +666,6 @@ function activateUserAccountJoinUs() {
 	                                   <input type="text"
                                             class="form-control full-control" id="inputMobileNo" name="mobileNo"
                                             value="${userDetails.getMobileNo().trim()}"
-                                            placeholder="<fmt:message key="home.details.applicant.mobile.placeholder" bundle="${msg}" />"
                                             onkeypress="return isNumeric(event)"
                                             onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
                                             id="errMobileNo" class="text-red"> </span>
@@ -684,7 +683,6 @@ function activateUserAccountJoinUs() {
 	                                   <input class="form-control full-control"
                                             id="inputEmailId" name="emailAddress"
                                             value="${userDetails.getEmailAddress().trim()}"
-                                            placeholder="<fmt:message key="home.details.applicant.email.placeholder" bundle="${msg}" />" 
                                             onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
                                             id="errEmailid" class="text-red"> </span>
 	                               </div>
@@ -796,7 +794,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <input type="text"
                                                 class="form-control marginbt full-control input-white" id="Username"
-                                                placeholder="<fmt:message key="home.details.registration.username.placeholder" bundle="${msg}" />" name="userName"> <span id="UsernameError"
+                                                name="userName"> <span id="UsernameError"
                                                 class="text-red"> </span>
 	                               </div>
 	                            </div>
@@ -1654,7 +1652,9 @@ function activateUserAccountJoinUs() {
 							<!--mob-->
 							
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+									<!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a> -->
+									
+									<a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 									<input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve-none btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
