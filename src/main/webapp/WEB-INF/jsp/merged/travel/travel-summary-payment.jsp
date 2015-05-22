@@ -515,12 +515,17 @@ perventRedirect=true;
 	                                            if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) 
 	                                            {
 	                                    %>
-	                                    <tr>
+	                                    <tr class="<%=planDetailsForm.getPersonalBenificiaryFullName().length%>">
 	                                        <td data-title="Personal1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-	                                        <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+	                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){ %>
+	                                        <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
 	                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-	                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
-	                                        
+	                                        <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+	                                        <% }else{ %>
+	                                        <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
+                                            <% } %>
 	                                        <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
 	<!--                                        <td data-title="Relationship" class="travel-tb-h3"></td> -->
 	                                    </tr>
@@ -554,10 +559,15 @@ perventRedirect=true;
 									%>
 									<tr>
 										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-										<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-										
+										<% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+                                            <% }else{ %>
+                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
+                                            <% } %>
 										<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
 <!-- 										<td data-title="Relationship" class="travel-tb-h3"></td> -->
 									</tr>
@@ -584,9 +594,16 @@ perventRedirect=true;
 								%>
 								<tr>
 									<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-									<td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-									<td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-									<td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+									
+									<% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+                                            <% }else{ %>
+                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+                                            <% } %>
 									
 									<td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
 								</tr>
@@ -619,9 +636,15 @@ perventRedirect=true;
 									%>
 									<tr>
 										<td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-										<td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-										<td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-										<td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>										
+										<% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
+                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
+                                            <% }else{ %>
+                                            <td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>          
+                                            <% } %>								
 										<td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
 									</tr>
 									<%
