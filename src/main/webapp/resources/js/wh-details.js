@@ -143,7 +143,7 @@ $(function () {
 	});
 	
 	
-	$( "#inputWhInsFullName" ).on( "change blur", function() {
+	$( "#inputWhInsFullName" ).on( "blur", function() {
 	    var fullname = $(this).val();
 		if (fullname.trim() == "") {
 			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));//"Please enter your Name in English.";
@@ -153,7 +153,7 @@ $(function () {
 		setAtt("WhInsFullName", $(this).val());
 	});
 	
-	$( "#inputWhInsHKID" ).on( "change blur", function() {
+	$( "#inputWhInsHKID" ).on( "blur", function() {
 		var appHkid = $(this).val();
 		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
 			if (appHkid.trim() == "") {
@@ -198,7 +198,7 @@ $(function () {
 		setAtt("WhInsBlock", $(this).val());
 	});
 	
-	$( "#inputWhInsEstate" ).on( "change blur", function() {
+	$( "#inputWhInsEstate" ).on( "blur", function() {
 	    var whInsEstate = $(this).val();
 	    var whInsBuilding = $("#inputWhInsBuilding").val();
 		if (whInsEstate.trim() == "" && whInsBuilding.trim() == "" ) {
@@ -209,7 +209,7 @@ $(function () {
 		setAtt("WhInsEstate", $(this).val());
 	});
 	
-	$( "#inputWhInsBuilding" ).on( "change blur", function() {
+	$( "#inputWhInsBuilding" ).on( "blur", function() {
 	    var whInsBuilding = $(this).val();
 	    var whInsEstate = $("#inputWhInsEstate").val();
 		if (whInsBuilding.trim() == "" && whInsEstate.trim() == "" ) {
