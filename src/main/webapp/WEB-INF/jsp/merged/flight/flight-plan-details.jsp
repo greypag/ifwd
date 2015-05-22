@@ -711,9 +711,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <div class="styled-select"><select name="personalBeneficiary" class="soflow select-label"
                                                         id="personalselectBenificiary${inx}"
                                                         onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
-                                                        <option value="SE"><fmt:message
-                                                                key="flight.details.insured.beneficiary.default"
-                                                                bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipList"
                                                             items="${mapRelationshipCode}">
                                                             <option value="${relationshipList.key}"><c:out
