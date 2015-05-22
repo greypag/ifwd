@@ -564,6 +564,7 @@ perventRedirect=true;
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
+					$('#PaymentingDiv').hide();
 					if (data == 'success') {
 						form.action = geteWayUrl;
 						$('#PaymentingDiv').hide();
