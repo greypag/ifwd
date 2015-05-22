@@ -18,9 +18,7 @@ perventRedirect=true;
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm"
-				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');"
-				method="post">
+			<form name="paymentForm" id="paymentForm" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item1"
 								bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -466,8 +464,8 @@ perventRedirect=true;
 	                            </a>
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <input type="submit" onclick="perventRedirect=false;"
-	                                class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />" />
+	                            <a onclick="perventRedirect=false; confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+	                                class="bdr-curve-none btn btn-primary nxt-btn"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
 	                        </div>
                         </div>
 						
@@ -599,11 +597,12 @@ perventRedirect=true;
  						async : false,
  						success : function(data) {
  							if (data == 'success') {
- 								form.action = geteWayUrl;
- 							} else {
- 								$('#paymentErrorPopup').modal('show');
- 								return false;
- 	 						}
+                                $("#"+form).attr('action', geteWayUrl);
+                                $("#"+form).submit();
+                            } else {
+                                $('#paymentErrorPopup').modal('show');
+                                return false;
+                            }
  	 							
  						}
  					});

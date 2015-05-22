@@ -31,10 +31,12 @@ perventRedirect=true;
  						success : function(data) {
  							$("#PaymentingDiv").hide();
  							if (data == 'success') {
- 								form.action = geteWayUrl;
- 							} else {
- 								$('#paymentErrorPopup').modal('show');
- 							}
+ 								$("#"+form).attr('action', geteWayUrl);
+ 	                            $("#"+form).submit();
+                            } else {
+                                $('#paymentErrorPopup').modal('show');
+                                return false;
+                            }
  						}
  					});
  			return true;
@@ -52,7 +54,7 @@ perventRedirect=true;
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return false;">
+			<form name="paymentForm" id="paymentForm" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -709,7 +711,7 @@ perventRedirect=true;
 											
 											<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="<fmt:message key="travel.payment.card.no.placeholder" bundle="${msg}" />"
+											title=""
 											onkeyup="" onkeypress="return isNumeric(event)" 
 											onBlur="validatecardnumber(this.value)"
 											 />
@@ -773,7 +775,7 @@ perventRedirect=true;
 								<td colspan="2">
 									<div class="controls">
 										<input id="holdername" name="cardHolder" type="text"
-											class="input-block-level" placeholder="<fmt:message key="travel.payment.card.holderName.placeholder" bundle="${msg}" />"
+											class="input-block-level"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -786,7 +788,7 @@ perventRedirect=true;
 									<div class="controls">
 										<input id="seccode" type="password" name="securityCode"
 											class="input-block-level" autocomplete="off" maxlength="3"
-											title="" placeholder="<fmt:message key="travel.payment.card.cvv.placeholder" bundle="${msg}" />"
+											title=""
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);" >
 
@@ -849,8 +851,8 @@ perventRedirect=true;
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <input type="submit" onclick="perventRedirect=false;confirmTravelPayment(this, 'gateway', 'paymentForm');"
-                                    class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="travel.action.payment" bundle="${msg}" />" />
+                                <a onclick="perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve-none btn btn-primary nxt-btn"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
                             </div>
                         </div>
 						
