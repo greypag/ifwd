@@ -28,10 +28,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		async : false,
 		success : function(data) {
 			if (data == 'success') {
-				//alert(data+" " + method + " " + $(paymentFormId).serialize());
 				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
 			} else {
-				console.log("fail to process payment " + data);
+				console.log("fail to process prepareWorkingHolidayPlan " + data);
 				return false;
 			}
 		}

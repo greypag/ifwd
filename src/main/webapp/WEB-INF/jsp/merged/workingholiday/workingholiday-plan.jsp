@@ -108,10 +108,9 @@ var promoData = '';
 				async : false,
 				success : function(data) {
 					if (data == 'success') {
-						//alert(data+" " + method + " " + $(paymentFormId).serialize());
 						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
 					} else {
-						console.log("fail to process payment " + data);
+						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
 					}
 				}
 			}); 
