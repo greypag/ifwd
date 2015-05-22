@@ -538,7 +538,7 @@
                 <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
                 <div class="form-container" style="padding-top: 10px;">
                     <br/>
-                    Payment error, please contact customer service hot-line 3123 3123.
+                    <fmt:message key="payment.duplicate.error" bundle="${msg}" />
                     <br/>
                     <br/>
                     <br/>
@@ -708,7 +708,7 @@ function BackMe() {
 var perventRedirect=false;
 window.onbeforeunload = function() {
 	if(perventRedirect){
-		return "<fmt:message key="index.leavePage.desc" bundle="${msg}" />";
+//		return "<fmt:message key="index.leavePage.desc" bundle="${msg}" />";
 	}
 }
 </script>

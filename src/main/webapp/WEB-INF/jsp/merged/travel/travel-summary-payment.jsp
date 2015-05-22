@@ -29,6 +29,7 @@ perventRedirect=true;
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
+ 							$("#PaymentingDiv").hide();
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
@@ -51,7 +52,7 @@ perventRedirect=true;
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmTravelPayment(this, 'gateway', 'paymentForm');">
+			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return false;">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -78,23 +79,19 @@ perventRedirect=true;
 										<div class="order-status-timeline-completion dots-active"></div>
 										<div class="order-status-timeline-completion dots-inactive"></div>
 									</div>
-									<div
-										class="image-order-status image-order-status-new active img-circle first">
+									<div class="image-order-status image-order-status-new active img-circle first">
 										<span class="status color3"> <fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
 										<div class="icon">1</div>
 									</div>
-									<div
-										class="image-order-status image-order-status-intransit  img-circle second">
+									<div class="image-order-status image-order-status-intransit  img-circle second">
 										<span class="status color3"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
-									<div
-										class="image-order-status image-order-status-delivered  img-circle act third">
+									<div class="image-order-status image-order-status-delivered  img-circle act third">
 										<span class="status color2"> <fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
-									<div
-										class="image-order-status image-order-status-completed  img-circle disabled fourth">
+									<div class="image-order-status image-order-status-completed  img-circle disabled fourth">
 										<span class="status lst-status"> <fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
@@ -109,11 +106,13 @@ perventRedirect=true;
                             <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
                                 <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
                             </div>
+                            <!-- 
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
 	                            <h4 class="h4-trav-full">
 	                                <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
 	                            </h4>
 	                        </div>
+	                         -->
                         </div>
                         <div class="row">
 							<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
@@ -850,7 +849,7 @@ perventRedirect=true;
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <input type="submit" onclick="perventRedirect=false;"
+                                <input type="submit" onclick="perventRedirect=false;confirmTravelPayment(this, 'gateway', 'paymentForm');"
                                     class="bdr-curve-none btn btn-primary nxt-btn" Value="<fmt:message key="travel.action.payment" bundle="${msg}" />" />
                             </div>
                         </div>
