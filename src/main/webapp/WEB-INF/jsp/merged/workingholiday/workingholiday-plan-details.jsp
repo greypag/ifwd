@@ -27,6 +27,9 @@
 %>
 
 <script>
+	this.rootUrl="<%=request.getContextPath()%>";
+	this.rootLang="/<%=session.getAttribute("language").toString()%>";
+	
 	function setDropArea(id) {
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
 		var skillsSelect = document.getElementById("selectCADistHid");
@@ -38,90 +41,6 @@
 			document.getElementById("inlineCARadio4").checked = true;
 		else
 			document.getElementById("inlineCARadio5").checked = true;
-	}
-	
-	var details_clicked = false;
-	function confirmDetails(form){
-		if (whDetailsValid() && details_clicked === false) {
-		//if (details_clicked === false) {
-			details_clicked=true;
-			var inputWhAppFullName = $("#inputWhAppFullName").val();
-			var selectWhAppHKID = $("#selectWhAppHKID").val();
-			var inputWhAppHKID = $("#inputWhAppHKID").val();
-			var inputWhAppDob = $("#inputWhAppDob").val();
-			var inputWhAppMobileNO = $("#inputWhAppMobileNO").val();
-			var inputWhAppEmailAdd = $("#inputWhAppEmailAdd").val();
-			var selectWhInsAgeRange = $("#selectWhInsAgeRange").val();
-			var selectWhInsBeneficary = $("#selectWhInsBeneficary").val();
-			var inputWhInsFullName = $("#inputWhInsFullName").val();
-			var selectWhInsHKID = $("#selectWhInsHKID").val();
-			var inputWhInsHKID = $("#inputWhInsHKID").val();
-			var selectWhInsWorkingCty = $("#selectWhInsWorkingCty").val();
-			var inputWhInsRoom = $("#inputWhInsRoom").val();
-			var inputWhInsFloor = $("#inputWhInsFloor").val();
-			var inputWhInsBlock = $("#inputWhInsBlock").val();
-			var inputWhInsBuilding = $("#inputWhInsBuilding").val();
-			var inputWhInsEstate = $("#inputWhInsEstate").val();
-			var inputWhInsStreetNo = $("#inputWhInsStreetNo").val();
-			var inputWhInsStreetName = $("#inputWhInsStreetName").val();
-			var selectWhInsDistrict = $("#selectWhInsDistrict").val();
-			
-			var radioWhInsArea = "";
-			if(document.getElementById("inlineCARadio5").checked){
-				radioWhInsArea="NT";
-			}else if(document.getElementById("inlineCARadio4").checked){
-				radioWhInsArea="KL";
-			}else {
-				radioWhInsArea="HK";
-			}
-			
-			var inputWhInseffectiveDate = $("#inputWhInseffectiveDate").val();
-			
-			var planDetailsForm = { 'whAppFullName': inputWhAppFullName,
-				  	'selectWhAppHKID': selectWhAppHKID,
-				  	'whAppHKID':inputWhAppHKID,
-				  	'whAppDob':inputWhAppDob,					  	  
-				  	'whAppMobileNO':inputWhAppMobileNO,
-				  	'whAppEmailAdd':inputWhAppEmailAdd,
-				  	'whInsAgeRange':selectWhInsAgeRange,
-				  	'whInsBeneficary':selectWhInsBeneficary,
-				  	'whInsFullName':inputWhInsFullName,
-				  	'selectWhInsHKID':selectWhInsHKID,
-				  	'whInsHKID':inputWhInsHKID,
-				  	'whInsWorkingCty':selectWhInsWorkingCty,
-				  	'whInsRoom':inputWhInsRoom,
-				  	'whInsFloor':inputWhInsFloor,
-				  	'whInsBlock':inputWhInsBlock,
-				  	'whInsBuilding':inputWhInsBuilding,
-				  	'whInsEstate':inputWhInsEstate,
-				  	'whInsStreetNo':inputWhInsStreetNo,
-				  	'whInsStreetName':inputWhInsStreetName,
-				  	'whInsDistrict':selectWhInsDistrict,
-				  	'whInsArea':radioWhInsArea,
-				  	'whInseffectiveDate':inputWhInseffectiveDate
-			    };
-			var method = "<%=request.getContextPath()%>/wh-summary";
-			$.ajaxSetup({  
-		        contentType : 'application/json'  
-		    });
-			
-			$.ajax({
-				type : "POST",
-				url : method,
-				data : JSON.stringify(planDetailsForm),
-				async : false,
-				success : function(data) {
-					if (data == 'success') {
-						form.action='<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance/workingholiday-summary';
-					} else {
-						console.log("fail to process payment " + data);
-					}
-				}
-			});
-			return true;
-		}else {
-			return false;
-		}
 	}
 </script>
 <!--/#main-Content-->
@@ -268,7 +187,7 @@
 									<td class="pad-none"><label for="inputWhAppMobileNO"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input name="whAppMobileNO" type="text"
-										class="form-control full-control" value="${workingHolidayPlanDetailsForm.getWhAppMobileNO().trim()}"
+										class="form-control full-control" value="${workingHolidayPlanDetailsForm.getWhAppMobileNO()}"
 										id="inputWhAppMobileNO" placeholder="<fmt:message key="workingholiday.details.applicant.mobile.placeholder" bundle="${msg}" />"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8" />
@@ -279,7 +198,7 @@
 									<td class="pad-none"><label for="inputWhAppEmailAdd"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.applicant.email" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input class="form-control full-control" name="whAppEmailAdd"
-										value="${workingHolidayPlanDetailsForm.getWhAppEmailAdd().trim()}" id="inputWhAppEmailAdd"
+										value="${workingHolidayPlanDetailsForm.getWhAppEmailAdd()}" id="inputWhAppEmailAdd"
 										placeholder="<fmt:message key="workingholiday.details.applicant.email.placeholder" bundle="${msg}" />" maxlength="50">
 										<span id="whAppEmailAdd" class="text-red"></span></td>
 								</tr>
@@ -335,12 +254,12 @@
 										<span id="whInsBeneficary" class="text-red"></span>
 									</td>
 								</tr>
-								<tr id="trBenificiary0" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary0" <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}"> class="hide"</c:if>>
 									<td colspan="2" class="pad-none">
 										<h3 class="black-bold pad-none"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></h3>
 									</td>
 								</tr>
-								<tr id="trBenificiary1" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary1" <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}"> class="hide"</c:if>>
 									<td class="pad-none"><label for="inputWhInsFullName"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" /></label></td>
 									<td class="pad-none">
@@ -352,7 +271,7 @@
 										<span id="whInsFullName" class="text-red"></span>
 									</td>
 								</tr>
-								<tr id="trBenificiary2" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary2" <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}"> class="hide"</c:if>>
 									<td class="pad-none"><label for="inputWhInsHKID"
 										class="control-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" /></label></td>
 									<td class="pad-none">
@@ -372,7 +291,7 @@
 										</select>
 									</td>
 								</tr>
-								<tr id="trBenificiary3" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}"> class="hide"</c:if>>
+								<tr id="trBenificiary3" <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}"> class="hide"</c:if>>
 									<td class="pad-none"><label
 										class="control-label bold-500">&nbsp;</label></td>
 									<td class="pad-none">
@@ -456,7 +375,7 @@
 														String dis = request.getSession().getAttribute("workingHolidayPlanDetailsForm") != null ? ((WorkingHolidayDetailsBean)request.getSession().getAttribute("workingHolidayPlanDetailsForm")).getWhInsDistrict() : "";
 														while (itr.hasNext()) {
 															DistrictBean districtList = (DistrictBean) itr.next();
-															if(dis.equals(districtList.getCode())) {
+															if(dis != null && dis.equals(districtList.getCode())) {
 												%>
 												<option selected value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
 												<%
@@ -489,15 +408,15 @@
 									<tr>
 										<td colspan="3">
 											<label class="radio-inline homecare-lb">
-												<input type="radio" name="whInsArea" id="inlineCARadio3" value="HK" checked="" class="home-input1">
+												<input type="radio" name="whInsArea" id="inlineCARadio3" value="HK" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'HK'}"> checked="checked"</c:if> class="home-input1">
 												<span><fmt:message key="home.details.registration.hk" bundle="${msg}" /></span>
 											</label>
 											<label class="radio-inline homecare-lb">
-												<input type="radio" name="whInsArea" id="inlineCARadio4" value="KL" class="home-input1">
+												<input type="radio" name="whInsArea" id="inlineCARadio4" value="KL" <c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsArea() == 'KL'}"> checked="checked"</c:if> class="home-input1">
 												<span><fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
 											</label>
 											<label class="radio-inline">
-												<input type="radio" name="whInsArea" id="inlineCARadio5" value="NT" class="home-input1">
+												<input type="radio" name="whInsArea" id="inlineCARadio5" value="NT" <c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsArea() == 'NT'}"> checked="checked"</c:if> class="home-input1">
 												<span><fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
 										</label></td>
 									</tr>

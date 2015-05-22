@@ -15,9 +15,7 @@ $(function () {
 
 
 	}).on('changeDate', function (ev) {
-			var newDate = new Date(ev.date);
-			newDate.setDate(newDate.getDate());
-			newDate.setFullYear(newDate.getFullYear() + 1);
+		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
 	});
 	
 	var checkin = $('#dpWhAppDob').datepicker({
@@ -30,6 +28,7 @@ $(function () {
 
 
 	}).on('changeDate', function (ev) {
+		setAtt("WhAppDob", $('#inputWhAppDob').val())
 	});
 	
 	/*$("#inputWhAppFullName").keyup(function() {
@@ -47,9 +46,15 @@ $(function () {
 			$("#whAppFullName").html(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
 			return false;
 		}
-			
+		
 		$("#inputWhInsFullName").val($(this).val());
 		$("#whAppFullName").html('');
+		
+		setAtt("WhAppFullName", $(this).val());
+	});
+	
+	$("#selectWhAppHKID").change(function() {
+		setAtt("SelectWhAppHKID", $(this).val());
 	});
 	
 	$("#inputWhAppHKID").blur(function() {
@@ -89,6 +94,7 @@ $(function () {
 		
 		//$("#txtInsuHkid1").val($(this).val());
 		$('#whAppHKID').html('');
+		setAtt("WhAppHKID", $(this).val());
 	});
 	
 	$("#inputWhAppMobileNO").blur(function() {
@@ -104,6 +110,7 @@ $(function () {
 			}
 		}
 		$("#whAppMobileNO").html("");
+		setAtt("WhAppMobileNO", $(this).val());
 	});
 	
 	$("#inputWhAppEmailAdd").blur(function() {
@@ -120,8 +127,21 @@ $(function () {
 			}
 		}
 		$("#whAppEmailAdd").html("");
-		
+		setAtt("WhAppEmailAdd", $(this).val());
 	});
+	
+	$("#selectWhInsAgeRange").change(function() {
+		setAtt("WhInsAgeRange", $(this).val());
+	});
+	
+	$("#selectWhInsBeneficary").change(function() {
+		setAtt("WhInsBeneficary", $(this).val());
+	});
+	
+	$("#selectWhInsHKID").change(function() {
+		setAtt("SelectWhInsHKID", $(this).val());
+	});
+	
 	
 	$( "#inputWhInsFullName" ).on( "change blur", function() {
 	    var fullname = $(this).val();
@@ -130,6 +150,7 @@ $(function () {
 			return false;
 		}
 		$("#whInsFullName").html('');
+		setAtt("WhInsFullName", $(this).val());
 	});
 	
 	$( "#inputWhInsHKID" ).on( "change blur", function() {
@@ -158,6 +179,23 @@ $(function () {
 			}
 		}
 		$("#whInsHKID").html('');
+		setAtt("WhInsHKID", $(this).val());
+	});
+	
+	$("#selectWhInsWorkingCty").change(function() {
+		setAtt("WhInsWorkingCty", $(this).val());
+	});
+	
+	$( "#inputWhInsRoom" ).on( "blur", function() {
+		setAtt("WhInsRoom", $(this).val());
+	});
+	
+	$( "#inputWhInsFloor" ).on( "blur", function() {
+		setAtt("WhInsFloor", $(this).val());
+	});
+	
+	$( "#inputWhInsBlock" ).on( "blur", function() {
+		setAtt("WhInsBlock", $(this).val());
 	});
 	
 	$( "#inputWhInsEstate" ).on( "change blur", function() {
@@ -168,6 +206,7 @@ $(function () {
 			return false;
 		}
 		$("#whInsEstate").html('');
+		setAtt("WhInsEstate", $(this).val());
 	});
 	
 	$( "#inputWhInsBuilding" ).on( "change blur", function() {
@@ -178,6 +217,31 @@ $(function () {
 			return false;
 		}
 		$("#whInsBuilding").html('');
+		setAtt("WhInsBuilding", $(this).val());
+	});
+	
+	$( "#inputWhInsStreetNo" ).on( "blur", function() {
+		setAtt("WhInsStreetNo", $(this).val());
+	});
+	
+	$( "#inputWhInsStreetName" ).on( "blur", function() {
+		setAtt("WhInsStreetName", $(this).val());
+	});
+	
+	$("#selectWhInsDistrict").change(function() {
+		setAtt("WhInsDistrict", $(this).val());
+	});
+	
+	$("#inlineCARadio3").change(function() {
+		setAtt("WhInsArea", $(this).val());
+	});
+	
+	$("#inlineCARadio4").change(function() {
+		setAtt("WhInsArea", $(this).val());
+	});
+	
+	$("#inlineCARadio5").change(function() {
+		setAtt("WhInsArea", $(this).val());
 	});
 	
 	//payment
@@ -410,4 +474,102 @@ function whPayValid()
 	}
 	
 	return flag;
+}
+
+var details_clicked = false;
+function confirmDetails(form){
+	if (whDetailsValid() && details_clicked === false) {
+	//if (details_clicked === false) {
+		details_clicked=true;
+		var inputWhAppFullName = $("#inputWhAppFullName").val();
+		var selectWhAppHKID = $("#selectWhAppHKID").val();
+		var inputWhAppHKID = $("#inputWhAppHKID").val();
+		var inputWhAppDob = $("#inputWhAppDob").val();
+		var inputWhAppMobileNO = $("#inputWhAppMobileNO").val();
+		var inputWhAppEmailAdd = $("#inputWhAppEmailAdd").val();
+		var selectWhInsAgeRange = $("#selectWhInsAgeRange").val();
+		var selectWhInsBeneficary = $("#selectWhInsBeneficary").val();
+		var inputWhInsFullName = $("#inputWhInsFullName").val();
+		var selectWhInsHKID = $("#selectWhInsHKID").val();
+		var inputWhInsHKID = $("#inputWhInsHKID").val();
+		var selectWhInsWorkingCty = $("#selectWhInsWorkingCty").val();
+		var inputWhInsRoom = $("#inputWhInsRoom").val();
+		var inputWhInsFloor = $("#inputWhInsFloor").val();
+		var inputWhInsBlock = $("#inputWhInsBlock").val();
+		var inputWhInsBuilding = $("#inputWhInsBuilding").val();
+		var inputWhInsEstate = $("#inputWhInsEstate").val();
+		var inputWhInsStreetNo = $("#inputWhInsStreetNo").val();
+		var inputWhInsStreetName = $("#inputWhInsStreetName").val();
+		var selectWhInsDistrict = $("#selectWhInsDistrict").val();
+		
+		var radioWhInsArea = "";
+		if(document.getElementById("inlineCARadio5").checked){
+			radioWhInsArea="NT";
+		}else if(document.getElementById("inlineCARadio4").checked){
+			radioWhInsArea="KL";
+		}else {
+			radioWhInsArea="HK";
+		}
+		
+		var inputWhInseffectiveDate = $("#inputWhInseffectiveDate").val();
+		
+		var planDetailsForm = { 'whAppFullName': inputWhAppFullName,
+			  	'selectWhAppHKID': selectWhAppHKID,
+			  	'whAppHKID':inputWhAppHKID,
+			  	'whAppDob':inputWhAppDob,					  	  
+			  	'whAppMobileNO':inputWhAppMobileNO,
+			  	'whAppEmailAdd':inputWhAppEmailAdd,
+			  	'whInsAgeRange':selectWhInsAgeRange,
+			  	'whInsBeneficary':selectWhInsBeneficary,
+			  	'whInsFullName':inputWhInsFullName,
+			  	'selectWhInsHKID':selectWhInsHKID,
+			  	'whInsHKID':inputWhInsHKID,
+			  	'whInsWorkingCty':selectWhInsWorkingCty,
+			  	'whInsRoom':inputWhInsRoom,
+			  	'whInsFloor':inputWhInsFloor,
+			  	'whInsBlock':inputWhInsBlock,
+			  	'whInsBuilding':inputWhInsBuilding,
+			  	'whInsEstate':inputWhInsEstate,
+			  	'whInsStreetNo':inputWhInsStreetNo,
+			  	'whInsStreetName':inputWhInsStreetName,
+			  	'whInsDistrict':selectWhInsDistrict,
+			  	'whInsArea':radioWhInsArea,
+			  	'whInseffectiveDate':inputWhInseffectiveDate
+		    };
+		var method = this.rootUrl + "/wh-summary";
+		var rePage = this.rootUrl + this.rootLang + '/workingholiday-insurance/workingholiday-summary';
+		$.ajaxSetup({  
+	        contentType : 'application/json'  
+	    });
+		
+		$.ajax({
+			type : "POST",
+			url : method,
+			data : JSON.stringify(planDetailsForm),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					form.action=rePage;
+				} else {
+					console.log("fail to process payment " + data);
+				}
+			}
+		});
+		return true;
+	}else {
+		return false;
+	}
+}
+
+function setAtt(att, value) {
+	var method = this.rootUrl + "/setAtt";
+	var data = {"att":att , "value": value};
+	$.ajax({
+		type : "POST",
+		url : method,
+		data : data,
+		async : false,
+		success : function(data) {
+		}
+	});
 }

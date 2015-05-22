@@ -981,13 +981,10 @@ public class WorkingHolidayController {
 	
 	@RequestMapping(value = "/setAtt")
 	@ResponseBody
-	public String setDetailsFrom(HttpServletRequest request) {
+	public String setDetailsFrom(String att, String value, HttpServletRequest request) {
 		Method method;
-		String att = request.getParameter("att");
-		String value = request.getParameter("value");
 		try {
-			WorkingHolidayDetailsBean wh = WorkingHolidayDetailsBean.class.newInstance();
-			Object obj = request.getSession().getAttribute("workingHolidayPlanDetailsForm") == null ? 
+			Object obj = request.getSession().getAttribute("workingHolidayPlanDetailsForm") != null ? 
 					request.getSession().getAttribute("workingHolidayPlanDetailsForm") : WorkingHolidayDetailsBean.class.newInstance();
 			method = obj.getClass().getMethod("set" + att, String.class);
 			method.invoke(obj, value);
