@@ -118,7 +118,7 @@ $(document).ready(function() {
 <!-- End fixed header -->
 <%
 
-	System.out.println("travel.jsp");
+	
 
     String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";

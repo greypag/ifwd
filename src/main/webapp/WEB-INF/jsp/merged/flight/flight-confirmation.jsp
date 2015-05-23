@@ -138,7 +138,8 @@ value="">
 <!-- Set total dues after click on plan -->
 <input type="hidden" name="selectedAmountDue"
 id="inputseletedDueAmount" value="">
-
+<input type="hidden" name="selectPlanPremium"
+id="inputselectPlanPremium" value="">
 </form:form>
 </div>
 <!--/.row-->
@@ -157,7 +158,7 @@ $(".travelproductbox").animate({
 
 });
 
-function setPriceAndColor(id, planName, selectedPrice) {
+function setPriceAndColor(id, planName, selectedPrice, selectPlanPremium) {
 	var selected_div;
 	var idArray = [];
 
@@ -173,7 +174,7 @@ function setPriceAndColor(id, planName, selectedPrice) {
 
 	$('#inputseletedplanname').val(planName);
 	$('#inputseletedDueAmount').val(selectedPrice);
-
+	$('#inputselectPlanPremium').val(selectPlanPremium);
 	
 
 	$('#frmTravelPlan').submit();
