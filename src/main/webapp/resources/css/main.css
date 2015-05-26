@@ -6374,10 +6374,45 @@ tr.product-landing-error-wrap {
 	padding-bottom:20px;
 }
 
+#other-benefits-mob{
+	margin-top: 30px;
+}
+
+#other-benefits-mob .prev, #other-benefits-mob .next {
+	position: absolute;
+	top: 73%;
+	color: #495d66;
+	display: inline-block;
+	margin-top: -25px;
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 4px;
+	z-index: 5;
+}
+
+#other-benefits-mob .prev {
+  left: 10px;
+}
+
+#other-benefits-mob .next {
+  right: 10px;
+}
+
 .workingholiday-testimonials-mob{
 	background:#4E4E4E;
 	color: #fff;
     text-align: center;
+}
+
+@media (max-width: 991px){
+    .recent-work-wrap .recent-work-inner{
+        padding: 20px 85px !important;
+    }
+    .other-benefits-wrap .other-benefits-inner{
+        padding: 20px 85px !important;
+    }
 }
 
 .workingholidaybox{
@@ -6396,5 +6431,26 @@ tr.product-landing-error-wrap {
 .workingholidaybox:hover .fwdpanel .fwdpanel-heading a,
 .workingholidaybox:hover h3{
     color: #fff ;
+}
+
+.input-group{
+	background-color: #fff;
+	width: 80%;
+	margin-left: 10%;
+}
+
+#promoCode{
+	border: 0;
+    background-color: #fff;
+    padding-left: 20px;
+}
+
+#promo-wrap .input-group-addon{
+	background-color: #fff !important;
+	color: #f6871e !important;
+	font-size: 24px;
+	font-weight: bold;
+	padding-right: 20px;
+	border-radius: 0;
 }
 /** bmg working holiday end **/

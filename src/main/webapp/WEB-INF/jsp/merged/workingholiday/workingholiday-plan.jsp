@@ -1008,15 +1008,11 @@ var promoData = '';
 							
 							
 							<div id="promo-wrap" class="form-group">
-                                <div class="input-group" style="border: 0;">
-                                    <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
-                                        class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-                                        <span
-                                        class="input-group-addon in black-bold pointer"
-                                        onclick="applyWorkingHolidayPromoCode()"><span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span></span>
+                                <div class="input-group">
+                                    <input type="text" id="promoCode" name="promoCode" class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />"/>
+                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
                                 </div>
                             </div>
-							 
 							
 							<!-- this is new
 							<div class="form-group">

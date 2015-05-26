@@ -93,7 +93,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <!--desktop-->
       
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
             <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 		      Flexibility <br />
@@ -114,7 +114,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               </div>
               </div>
 	      </div>
-	      <div class="col-xs-12 col-sm-4">
+	      <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 	          Unforeseable <br />
@@ -135,7 +135,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               </div>
               </div>
           </div>
-          <div class="col-xs-12 col-sm-4">
+          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 	              Travel The World <br />
@@ -169,7 +169,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 
 <div class="clearfix"></div>
-<div class="other-benefits col-lg-12" style="margin-left:20px;">
+<div id="other-benefits" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
   <h2><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
     <li>
@@ -193,6 +193,87 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
+
+<div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+  <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
+  <div class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active">
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc1" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc2" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc3" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc4" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc5" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+    </div>
+    <!--/.carousel-inner--> 
+  </div>
+  <!--/.carousel--> 
+  <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+  <div class="clearfix"></div>
 <!--/.container-->
 </div>
 </section>
@@ -207,11 +288,11 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     <!--desktop-testimonials-->
     
     
-    <div style="float:left; margin-right:10%;">
+    <div style="float:left;margin-right:20%;">
         <img style="width:100%;" src="<%=request.getContextPath()%>/resources/images/icon4.png" />
     </div>
     
-    <div style="color:white; float:left; width:60%;">
+    <div style="color:white; float:left; width:50%;">
         <div>
 	        <h2>Next Step</h2>        
 	        <hr style="width:120px; margin:0; margin-left:10px; margin-top:8px;">
@@ -303,7 +384,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <div class="carousel slide">
     <div class="carousel-inner">
       <div class="item active">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="workingholiday.main.highlight1.heading.line1" bundle="${msg}" /><br/>
@@ -315,7 +396,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       </div>
       <!--/.item-->
       <div class="item" >
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
               <h2><fmt:message key="workingholiday.main.highlight2.heading.line1" bundle="${msg}" /> <fmt:message key="workingholiday.main.highlight2.heading.line2" bundle="${msg}" /></h2>
@@ -326,7 +407,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       </div>
       <!--/.item-->
       <div class="item">
-          <div class="row slide-margin">
+          <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
               <h2><fmt:message key="workingholiday.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="workingholiday.main.highlight3.heading.line2" bundle="${msg}" /></h2>
