@@ -234,8 +234,9 @@ perventRedirect=true;
 					type="hidden" name="orderRef"
 					value="${confirm.getTransactionNo() }"> <input
 					type="hidden" name="currCode"
-					value="${createdPolicy.getCurrCode() }"> <input
-					type="hidden" name="successUrl" value="${path}"> <input
+					value="${createdPolicy.getCurrCode() }"> 
+					<input type="hidden" name="remark" value="${referralCode.trim()}">
+					<input type="hidden" name="successUrl" value="${path}"> <input
 					type="hidden" name="failUrl" value="${failurePath}"> <input
 					type="hidden" name="errorUrl" value="${failurePath}"> <input
 					type="hidden" name="payType"

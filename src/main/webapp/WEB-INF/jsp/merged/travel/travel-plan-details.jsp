@@ -144,12 +144,17 @@ function activateUserAccountJoinUs() {
     	                             $('#frmYourDetails').submit()
     	                            return;                            
     	                        } else {
-    	                            
-    	                            $("#link-error").click();
-    	                            $(".error-hide-"+getBundleLanguage).css("display", "block");
-    	                            $('#loading-overlay').modal('hide');
-    	                            //alert("Something Wrong with user input, please check");
-    	                            return;
+       	                            $("#link-error").click();
+       	                            $(".error-hide").css("display", "block");
+       	                            $('#loading-overlay').modal('hide');
+    								if (data == 'This username already in use, please try again') {
+    								    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+    								} else if (data == 'email address and mobile no. already registered') {
+    								    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+    								} else {
+    								    $('.error-hide').html(data);
+    								}
+       	                            return;
     	                        } 
     	                    },
     	                    error : function(xhr, status, error) {
@@ -476,7 +481,7 @@ function activateUserAccountJoinUs() {
                                 <h3 class="error-hide-zh" style='display:none; color:red; font-size:15px;'>
                                                                                           您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
                                 </h3>
-                                
+                                <h3 class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -1048,7 +1053,6 @@ function activateUserAccountJoinUs() {
                                                    <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
                                                           onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')"
                                                       class="soflow select-label" >
-                                                      <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                       <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                           <option value="${relationshipList.key}"><c:out
                                                                   value="${relationshipList.value}" /></option>
@@ -1353,7 +1357,6 @@ function activateUserAccountJoinUs() {
                                                         id="childselectBenificiary${inx}" name="childBeneficiary"
                                                         onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
                                                         class="soflow select-label">
-                                                        <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
@@ -1614,7 +1617,6 @@ function activateUserAccountJoinUs() {
                                               <div class="styled-select"><select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
                                                         onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
-                                                        <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
@@ -1882,6 +1884,7 @@ function activateUserAccountJoinUs() {
                                     <h4><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
                                     <input type="hidden" name="selectedPlanName" value="${planName }">
                                 </div>
+                                
                                 <div class="pull-right">
                                     <div class="text-left pad-right1 h2-2 h2">
                                         <div class="hk">

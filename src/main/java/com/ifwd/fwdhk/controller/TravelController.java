@@ -3,7 +3,9 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.Format;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -744,14 +746,40 @@ public class TravelController {
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
+				
+				NumberFormat formatter = new DecimalFormat("#0.00");  
+				
+				String splanSummary = quoteDetails.getToalDue()[0];
+				float fplanSummary = Float.parseFloat(splanSummary);
+				quoteDetails.getToalDue()[0] = formatter.format(fplanSummary);
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[0]);
-				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[0]);
+				
+ 
+				String sgrossPremium = quoteDetails.getGrossPremium()[0];
+				float grossPremium = Float.parseFloat(sgrossPremium);
+				quoteDetails.getGrossPremium()[0] = formatter.format(grossPremium);
+				
+				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[0]);
 				
 			} else {
 				session.setAttribute("planSelected", "B");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
+				
+				
+				NumberFormat formatter = new DecimalFormat("#0.00");  
+				
+				String splanSummary = quoteDetails.getToalDue()[1];
+				float fplanSummary = Float.parseFloat(splanSummary);
+				quoteDetails.getToalDue()[1] = formatter.format(fplanSummary);
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
-				model.addAttribute("planPremium", quoteDetails.getTotalNetPremium()[1]);
+				
+				
+				String sgrossPremium = quoteDetails.getGrossPremium()[1];
+				
+				float grossPremium = Float.parseFloat(sgrossPremium);
+				quoteDetails.getGrossPremium()[1] = formatter.format(grossPremium);
+				
+				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[1]);
 			}
 			//travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller()	+ travelQuote.getTotalPersonalTraveller());
 			request.getSession().setAttribute("departureDate",
@@ -850,7 +878,7 @@ public class TravelController {
 
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
-			model.addAttribute("planPremium", selectPlanPremium);
+//			model.addAttribute("planPremium", selectPlanPremium);
 			
 			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
 			model.addAttribute("travelQuote", travelQuote);
@@ -907,6 +935,41 @@ public class TravelController {
 		UserRestURIConstants.setController("Travel");
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
+			
+		} else {
+			JSONObject parameters = new JSONObject();
+			JSONObject responsObject = new JSONObject();
+			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			System.out.println(WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			
+			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
+			parameters.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate", session.getAttribute("transactionDate"));
+			parameters.put("paymentFail", "1");
+			
+			if (creditCardNo !=null) { 
+				try {
+					parameters
+							.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header, parameters);
+			
+			
 		}
 		
 		
@@ -1584,7 +1647,6 @@ public class TravelController {
 		applicantHKID   = StringHelper.emptyIfNull( applicantHKID ).toUpperCase();
 		
 		JSONObject applicantJsonObj = new JSONObject();
-			
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M");
 		
@@ -1634,7 +1696,7 @@ public class TravelController {
 		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
 		
 		JSONObject responsObject = new JSONObject();
-		if (createPolicy == null) {
+ 		if (createPolicy == null) {
 
 			responsObject = restService.consumeApi(HttpMethod.PUT,
 					UserRestURIConstants.TRAVEL_CREATE_POLICY, header,
@@ -1703,7 +1765,7 @@ public class TravelController {
 				+ planDetailsForm.getTravellerCount());
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
-		model.addAttribute("dueAmount", dueAmount);
+		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
 		model.addAttribute("totalTravellingDays", totalTravellingDays);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
@@ -1712,26 +1774,18 @@ public class TravelController {
 		
 		model.addAttribute("path",
 				path.replace("travel-summary", "confirmation"));
-		
-		
-        
-        
-        
 		model.addAttribute("path",
 				path.replace("travel-summary", "confirmation"));
 		
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
-        
-        
-        
-        
-        
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
         if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
             errorMsg = "Payment failure";     
         }        
         model.addAttribute("errormsg", errorMsg);        
+        model.addAttribute("referralCode", session.getAttribute("referralCode"));        
+        
         String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
@@ -1740,8 +1794,6 @@ public class TravelController {
 				+ "/travel/travel-summary-payment");				
 	}
 	
-
-
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/processTravePayment")
 	@ResponseBody
@@ -1825,7 +1877,7 @@ public class TravelController {
 					.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",
 					session.getAttribute("transactionDate"));
-			
+			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
@@ -1853,6 +1905,9 @@ public class TravelController {
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
+			System.out.println(WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));

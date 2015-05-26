@@ -443,9 +443,10 @@ public class UserController {
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.USER_FORGOT_PASSWORD,
 					COMMON_HEADERS, params);
-			/* {"errMsgs":null,"userName":"eCommUser89"} */
-            if (!(jsonResponse.get("errMsgs") != null && jsonResponse.get("errMsgs").toString().length() > 0)) {
-                return jsonResponse.get("userName").toString();
+			/* {"errMsgs":null} */
+			System.out.println("Error "+jsonResponse.toString());
+            if (jsonResponse.get("errMsgs") == null) {
+                return "success";
             }
 		} catch (Exception e) {
 			e.printStackTrace();

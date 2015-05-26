@@ -432,7 +432,7 @@
 	                            </table>
 	                            <p><fmt:message key="member.account.referral.benefits.disclaimer1" bundle="${msg}" /></p>
 	                    		<p>
-	          						<fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" />
+	          						<fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" />
 	                			</p>
                         	</div>
 						</div>

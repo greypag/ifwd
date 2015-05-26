@@ -34,6 +34,6 @@ public interface  HomeCareService {
 	public CreatePolicy confirmHomeCarePolicy(String userName, String token,
 			String referenceNo, String language);
 	/*public List<String>confirmHomeCare(String userName, String token, String referenceNo, String transactionNumber,String transactionDate, String creditCardNo, String expiryDate);*/ 
-	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId, String language);
+	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,String referenceNo, String transactionNumber,String transactionDate,String creditCardNo, String expiryDate, String emailId, String language, String paymentFail);
 
 }
