@@ -65,7 +65,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               <tbody>
              <tr>  
                <td align="middle" class="col-md-2 pad-none">
-                <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+                <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
                </td>
              </tr>
              
@@ -257,7 +257,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>
         </div>
     </div>
     
@@ -290,7 +290,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>
         </div>
     </div>
     

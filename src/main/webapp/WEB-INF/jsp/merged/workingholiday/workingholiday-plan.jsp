@@ -119,6 +119,8 @@ var promoData = '';
 		}
 	}
 	
+	
+	
 </script>
 <style>
 .workingholidaybox:hover {
@@ -1143,6 +1145,15 @@ var promoData = '';
 		$(".workingholidaybox").animate({
 			"background-color" : "#000"
 		}, 3000);
+		
+		
+		$("#anchor-lang").click(function(){
+			var selValue = document.getElementById("inputseletedplanname").value;
+			//alert(selValue);
+			
+		});
+		
+		
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		document.getElementById("errDue").innerHTML = "";
