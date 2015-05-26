@@ -52,7 +52,7 @@
 </div>
 <!--/#bottom--> 
 <!--mob bottom-->
-<div id="mob-footer" class="hidden-lg hidden-md mob-bottom">
+<div id="mob-footer" class="hidden-lg hidden-md mob-bottom" style="margin:0px;">
     <div>
         <a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a> |
         <a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a> |

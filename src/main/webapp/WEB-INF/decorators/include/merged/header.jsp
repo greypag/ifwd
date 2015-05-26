@@ -308,7 +308,7 @@ function submitLoginForm(formID) {
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}/home"><img
 					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
 			</div>
-			<div class="col-lg-8 col-md-6 pull-right">
+			<div class="col-lg-8 col-md-7 pull-right">
 				
 				<ul class="maintabs">
 	  <li class="col-lg-13 col-md-13 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> </li>			
