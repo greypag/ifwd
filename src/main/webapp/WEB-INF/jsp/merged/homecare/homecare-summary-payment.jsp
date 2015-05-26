@@ -593,6 +593,8 @@ perventRedirect=true;
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
+ 							clicked = false;
+ 							$("#PaymentingDiv").hide();
  							if (data == 'success') {
                                 $("#"+form).attr('action', geteWayUrl);
                                 $("#"+form).submit();
