@@ -2902,8 +2902,10 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	
 	
 	//default
-	document.getElementById(errTravelCountId).style.display = "none";
-		
+	if( document.getElementById(errTravelCountId) ){
+		document.getElementById(errTravelCountId).style.display = "none";
+	}
+	
 	var travellers = document.getElementById(travellersId).value;
 	var peopleCount = document.getElementById(peopleCountId).innerHTML;
 	
