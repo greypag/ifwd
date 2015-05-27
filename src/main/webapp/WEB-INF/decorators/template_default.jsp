@@ -50,6 +50,7 @@
 <meta property="og:type" content="${ogType}" />
 <meta property="og:url" content="${ogUrl}" />
 <meta property="og:image" content="${ogImage}" />
+<meta property="og:image:secure_url" content="${ogImage}" />
 <meta property="og:description" content="${ogDescription}"/>
 <meta property="og:site_name" content="${ogSiteName}" />
 
