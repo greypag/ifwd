@@ -351,7 +351,7 @@ public class HomeCareController {
 		String referralCode = request.getParameter("referralCode");
 		String planQuote = homecareService.getHomePlanToString(token, username,
 				referralCode, "NO", "NO", lang);
-		if (!planQuote.contains("Promotion Code is not valid")) {
+		if (!planQuote.contains("Promotion code is not valid")) {
 			session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
 		} else {
 			session.setAttribute("referralCode", "");
@@ -633,13 +633,7 @@ public class HomeCareController {
 				}
 
 				session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
-
 				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
-				System.out.println("cardNo : ");
-				System.out.println(request.getParameter("cardNo"));
-				System.out.println("emailAddress : ");
-				System.out.println(request.getParameter("emailAddress"));
-				System.out.println("********************************* Inside Process Payment **********************************************");
 				return "success";
 				
 			} else {
@@ -649,9 +643,6 @@ public class HomeCareController {
 			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
 		return "fail";
-		
-		
-		
 		
 	}
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {

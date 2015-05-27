@@ -353,8 +353,8 @@ public class UserController {
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
-					session.setAttribute("referralCode",
-							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
+//					session.setAttribute("referralCode",
+//							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myHomeReferralCode",

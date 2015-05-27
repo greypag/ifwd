@@ -4305,9 +4305,10 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		var e = document.getElementById(typeId);  
 		var type = e.options[e.selectedIndex].text;
 	}
-	if(type == ""){
+	if(type == "" || type == "香港身份證"){
 		type="HKID";
 	}
+	
 	
 
 	element.value = element.value.toUpperCase();
