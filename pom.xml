@@ -141,7 +141,12 @@
 			<version>2.1.7</version>
 		</dependency>		
 		<!-- iReport JasperReports End-->
-		
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
 	</dependencies>
 
 
