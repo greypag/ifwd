@@ -97,6 +97,26 @@ function activateUserAccountJoinUs() {
         $('#freeFlightForm').submit()
     }else{
     	if(name != "" && password != "" && password2 != ""){
+    		validateForm = true;
+    		if (!checkMembership("Username")){
+    			validateForm = false;	
+    		}
+    		if (!checkMembership("Password")){
+    			validateForm = false;	
+    		}
+    		if (!checkMembership("Confirm-Password")){
+    			validateForm = false;	
+    		}
+    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
+    			validateForm = false;	
+    		}    		
+    		if (!validateEmail('inputEmailId','emailid')){
+    			validateForm = false;	
+    		}    		
+        	if (!validateForm){
+        		return;
+        	}
+        	
     		optIn1 = "false"
    	        optIn2 = "false"
    	        if($('#checkbox4').is(':checked')){
@@ -124,7 +144,6 @@ function activateUserAccountJoinUs() {
    	                    success : function(data) {
    	                        
    	                        if (data == 'success') {                
-   	                             $(".error-hide-"+getBundleLanguage).css("display", "none");
    	                             $(".error-hide").css("display", "none");
    	                             $(".membership-wrap").css("display", "none"); 
    	                             document.getElementById("Username").value = "";
@@ -487,12 +506,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                    bundle="${msg}" /></h3>
 	                            <i class="text-grey"><fmt:message key="flight.details.registration.desc"
 	                                    bundle="${msg}" /></i>
-	                            <h3 class="error-hide-en" style='display:none; color:red; font-size:15px;'>
-                                    Your member account is not created. The Username may have already been in use.
-                                </h3>
-                                <h3 class="error-hide-zh" style='display:none; color:red; font-size:15px;'>
-                                                                                    您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
-                                </h3>
                                 <h3 class="error-hide" style='display:none; color:red; font-size:15px;'></h3>
                             </div>
                             <div class="form-group float row">
