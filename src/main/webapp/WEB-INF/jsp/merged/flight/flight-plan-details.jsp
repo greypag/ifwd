@@ -2136,6 +2136,13 @@ function createFlightFnc(form)
     	flight_click = false;
     	flag = false;
     }
+    
+    if(flag){
+    	$('#loading-overlay').modal({
+            backdrop: 'static',
+            keyboard: false
+         })
+    }
     return flag;
 }
 </script>

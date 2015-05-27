@@ -2821,8 +2821,14 @@ function tPlanValid()
     if(travelp_click)
     	return false
     else{
-    	if(flag)
+    	if(flag){
     		travelp_click = true;
+    		$('#loading-overlay').modal({
+	           backdrop: 'static',
+	           keyboard: false
+	        })
+    	}
+    	
     	return flag;
     }	
 	
@@ -4080,8 +4086,13 @@ function hc_planValid() {
     if(home_click)
     	return false;
     else{
-    	if(flag)
-    		home_click = true;
+    	if(flag){
+    		$('#loading-overlay').modal({
+                backdrop: 'static',
+                keyboard: false
+             })
+             home_click = true;
+    	}
     	return flag;
     }	
     
