@@ -107,11 +107,11 @@ var promoData = '';
 				data : $(formId).serialize(),
 				async : false,
 				success : function(data) {
-					if (data == 'success') {
+					//if (data == 'success') {
 						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
-					} else {
-						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
-					}
+					//} else {
+						//console.log("fail to process prepareWorkingHolidayUserDetails " + data);
+					//}
 				}
 			}); 
 		}else{
@@ -147,7 +147,7 @@ var promoData = '';
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated"
 							style="visibility: visible;">
-							<h2><fmt:message key="workingholiday.quote.jumbo" bundle="${msg}" /></h2>
+							<h2 class="workingholiday-plan-jumbo-header"><fmt:message key="workingholiday.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
 						<div class="col-lg-12 col-md-12">
@@ -972,9 +972,9 @@ var promoData = '';
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 gray-bg pad-none workingholiday-plan-right-grey-zone">
 						<div class="col-md-12 hidden-sm hidden-xs pad-none">
 							<div class="wd2">
-								<div class="pull-left" style="width:170px;">
-									<h2 class="h2-3-choose" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4 style="padding-left:0px;line-height: 0px;font-size: 20px;" id="seletedplanname"></h4>
+								<div class="pull-left" style="width:150px;">
+									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
+									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
@@ -982,9 +982,9 @@ var promoData = '';
 								</div>
 								<div class="pull-right" style="padding-top: 45px;">
 									<div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
-										<div class="hk" style="font-size: 20px;">
+										<div class="hk" style="font-size: 18px;">
 											<fmt:message key="workingholiday.dollar" bundle="${msg}" />
-											<div style="font-weight: bold;font-size: 35px;" class="flightcare-hk" id="plansummary">0</div>
+											<div style="font-weight: bold;font-size: 28px;" class="flightcare-hk" id="plansummary">0</div>
 											<input type="hidden" name="txtgrossPremiumAmt" id="txtgrossPremiumAmt" value="">
 										</div>
 									</div>
@@ -997,7 +997,7 @@ var promoData = '';
 						</div>
 						<div class="col-xs-12 pad-none">
 						  <div style="width: 80%;margin-left: 10%;">
-								<h3><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
+								<h3 style="font-size:18px;"><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
 							
 								<span class="text-red" id="errPromoCode"></span>
 								
@@ -1024,7 +1024,7 @@ var promoData = '';
 								-->
 								
 								
-								<div class="working-italic workingholiday-getpromocode">
+								<div class="working-italic workingholiday-getpromocode" style="font-size:14px;">
 									<a href="" class="sub-link" data-toggle="modal"
 											data-target=".bs-promo-modal-lg"><i><fmt:message key="workingholiday.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 								</div>
@@ -1032,21 +1032,19 @@ var promoData = '';
 					   </div>
                         <div class="col-md-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;"></h3>
-							<input type="hidden" name="subTotal" id="subTotal" value="540">
-							<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.discount" bundle="${msg}" /></h3>
-							<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;">-</h3>
-							<input type="hidden" name="selectedDiscountAmt"
-								id="selectedDiscountAmt" value="">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;font-size: 18px;"></h3>
+							<input type="hidden" name="subTotal" id="subTotal" value="">
+							<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="workingholiday.sidebar.summary.discount" bundle="${msg}" /></h3>
+							<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;font-size: 18px;">-</h3>
+							<input type="hidden" name="selectedDiscountAmt" id="selectedDiscountAmt" value="">
 							<div class="clearfix"></div>
 						</div>
 						<div class="orange-bdr"></div>
 						<div style="width:80%;margin-left:10%">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.amountDue" bundle="${msg}" /></h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;">0</h3>
-							<input type="hidden" name="selectedAmountDue"
-								id="selectedAmountDue" value="">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="workingholiday.sidebar.summary.amountDue" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;font-size: 18px;">0</h3>
+							<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="">
 							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
 							<div class="clearfix"></div>
 							</div>
