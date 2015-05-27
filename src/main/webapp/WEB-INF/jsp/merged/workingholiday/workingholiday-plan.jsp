@@ -107,11 +107,11 @@ var promoData = '';
 				data : $(formId).serialize(),
 				async : false,
 				success : function(data) {
-					//if (data == 'success') {
+					if (data == 'success') {
 						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
-					//} else {
-						//console.log("fail to process prepareWorkingHolidayUserDetails " + data);
-					//}
+					} else {
+						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
+					}
 				}
 			}); 
 		}else{
