@@ -1627,6 +1627,7 @@ function validateEmail(inputId, errorId, inputType){
 		return false;
 	}
 	$("#"+errorId).html("");
+	return true;
 }
 
 function validateMobile(inputId, errorId, inputType){
@@ -1640,6 +1641,7 @@ function validateMobile(inputId, errorId, inputType){
 		return false;
 	}
 	$("#"+errorId).html("");
+	return true;
 }
 
 
@@ -4314,9 +4316,10 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		var e = document.getElementById(typeId);  
 		var type = e.options[e.selectedIndex].text;
 	}
-	if(type == ""){
+	if(type == "" || type == "香港身份證"){
 		type="HKID";
 	}
+	
 	
 
 	element.value = element.value.toUpperCase();
@@ -4757,6 +4760,7 @@ function verifyUserBookingRegistration()
 	return check;
 }
 function checkMembership(field){
+	result = true;
 	if (field == "Username"){
 		value = $("#Username").val().trim();
 		$("#Username").val(value);
@@ -4765,6 +4769,7 @@ function checkMembership(field){
 		}
 		else if(isValidUsername(value) !== true){
 			$('#UsernameError').text(isValidUsername(value));
+			result = false;
 		}else
 			$('#UsernameError').text('');
 	}else if (field == "Password"){
@@ -4775,6 +4780,7 @@ function checkMembership(field){
 		}
 		else if(isValidPassword(value) !== true){
 			$('#PasswordError').text(isValidPassword(value));
+			result = false;
 		}else $('#PasswordError').text('');
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
@@ -4785,8 +4791,10 @@ function checkMembership(field){
 		}
 		else if(passMatch(passwordToMatch, value) !== true){
 			$('#Confirm-PasswordError').text(passMatch(passwordToMatch, value));
+			result = false;
 		} else $('#Confirm-PasswordError').text('');
 	}
+	return result;
 }
 $(function () {
 if($('#Username').length){

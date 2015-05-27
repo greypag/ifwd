@@ -1824,7 +1824,7 @@ public class TravelController {
 				System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
 				session.setAttribute("transactionNo", request.getParameter("transNo"));
 				String encryptedCreditCard = request.getParameter("cardNo");
-				System.out.println("cardNo "+ encryptedCreditCard);
+				
 				
 				try {
 					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));

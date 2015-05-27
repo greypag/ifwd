@@ -435,66 +435,107 @@ function activateUserAccountJoinUs() {
     if(name == "" && password == "" && password2 == ""){
         $('#frmYourDetails').submit()
     }else{
-        optIn1 = "false"
-        optIn2 = "false"
-        if($('#checkbox34').is(':checked')){
-            optIn2 = "true";    
-        }
-        if($('#checkbox33').is(':checked')){
-            optIn1 = "true";    
-        }
-        password = document.getElementById("Password").value; 
-        mobile = document.getElementById("inputMobileNo").value;
-        name = document.getElementById("inputFullName").value;
-        userName = document.getElementById("Username").value;
-        email = document.getElementById("inputEmailId").value;
-        
-        $('#loading-overlay').modal({
-            backdrop: 'static',
-            keyboard: false
-         })
-        
-        
-       $.ajax({
-                   type : 'POST',
-                    url : '<%=request.getContextPath()%>/joinus',
-                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-                    async : false,
-                    success : function(data) {
-                        
-                        if (data == 'success') {                            
-                        	$(".error-hide-"+getBundleLanguage).css("display", "none"); 
-                        	$(".membership-wrap").css("display", "none"); 
-                        	document.getElementById("Username").value = "";
-                       	    document.getElementById("Password").value = "";
-                       	    document.getElementById("Confirm-Password").value = "";
-                       	    
-                       	    $("#link-error").click();
-                       	    
-                       	    perventRedirect=false;
-                        	$('#frmYourDetails').submit();
-                            return;                            
-                        } else {
-                            $("#link-error").click();
+    	if(name != "" && password != "" && password2 != ""){
+    		validateForm = true;
+    		if (!checkMembership("Username")){
+    			validateForm = false;	
+    		}
+    		if (!checkMembership("Password")){
+    			validateForm = false;	
+    		}
+    		if (!checkMembership("Confirm-Password")){
+    			validateForm = false;	
+    		}
+    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
+    			validateForm = false;	
+    		}    		
+    		if (!validateEmail('inputEmailId','emailid')){
+    			validateForm = false;	
+    		}    		    		
+        	if (!validateForm){
+        		return;
+        	}
+
+	       	optIn1 = "false"
+	        optIn2 = "false"
+	        if($('#checkbox34').is(':checked')){
+	            optIn2 = "true";    
+	        }
+	        if($('#checkbox33').is(':checked')){
+	            optIn1 = "true";    
+	        }
+	        password = document.getElementById("Password").value; 
+	        mobile = document.getElementById("inputMobileNo").value;
+	        name = document.getElementById("inputFullName").value;
+	        userName = document.getElementById("Username").value;
+	        email = document.getElementById("inputEmailId").value;
+	        
+	        $('#loading-overlay').modal({
+	            backdrop: 'static',
+	            keyboard: false
+	         })
+	        
+	        
+	       $.ajax({
+	                   type : 'POST',
+	                    url : '<%=request.getContextPath()%>/joinus',
+	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+	                    async : false,
+	                    success : function(data) {
+	                        
+	                        if (data == 'success') {
+   	                            $(".error-hide").css("display", "none");
+	                        	$(".membership-wrap").css("display", "none"); 
+	                        	document.getElementById("Username").value = "";
+	                       	    document.getElementById("Password").value = "";
+	                       	    document.getElementById("Confirm-Password").value = "";
+	                       	    
+	                       	    $("#link-error").click();	                       	    
+	                       	    perventRedirect=false;
+	                        	$('#frmYourDetails').submit();
+	                            return;                            
+	                        } else {
+	                            $("#link-error").click();
   	                            $(".error-hide").css("display", "block");
   	                            $('#loading-overlay').modal('hide');
-							if (data == 'This username already in use, please try again') {
-							    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
-							} else if (data == 'email address and mobile no. already registered') {
-							    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
-							} else {
-							    $('.error-hide').html(data);
-							}
-                            return;
-                        } 
-                    },
-                    error : function(xhr, status, error) {
-                    	$('#loading-overlay').modal('hide');
-                    }
-                });
+								if (data == 'This username already in use, please try again') {
+								    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+								} else if (data == 'email address and mobile no. already registered') {
+								    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+								} else {
+								    $('.error-hide').html(data);
+								}
+	                            return;
+	                        } 
+	                    },
+	                    error : function(xhr, status, error) {
+	                    	$('#loading-overlay').modal('hide');
+	                    }
+	                });
+    	}
+    	else{
+    		// not all the fields filled
+    		if (name == ""){
+    			$('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+    		}else{
+    			checkMembership("Username");
+    		}
+    		
+    		if (password == ""){
+    			$('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+    		}else{
+    			checkMembership("Password");
+    		}
+    		    		
+    		if (password2 == ""){
+    			$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+    		}else{
+    			checkMembership("Confirm-Password");
+    		}    		
+    	}
     }
     
-       return;
+    return;
        
 }
 </script>
@@ -782,15 +823,7 @@ function activateUserAccountJoinUs() {
 	                            <div class="membership-header">
 	                               <a id="link-error" class="scroll-to-top" style="display:none;" href="#"></a>
 	                                <h3><fmt:message key="home.details.registration.heading" bundle="${msg}" /></h3>
-	                                <i class="text-grey"><fmt:message key="home.details.registration.desc" bundle="${msg}" /></i>
-	                                
-	                                <h3 class="error-hide-en" style='display:none; color:red; font-size:15px;'>
-	                                    Your member account is not created. The Username may have already been in use.
-	                                </h3>
-	                                
-	                                <h3 class="error-hide-zh" style='display:none; color:red; font-size:15px;'>
-                                                                                              您的會員帳戶無法建立。您所填寫的用戶名稱可能已被使用。
-                                    </h3>
+	                                <i class="text-grey"><fmt:message key="home.details.registration.desc" bundle="${msg}" /></i>                                
 	                                <h3 class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                    
 	                            </div>
 	                            <div class="form-group float row">
