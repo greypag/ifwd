@@ -119,6 +119,8 @@ var promoData = '';
 		}
 	}
 	
+	
+	
 </script>
 <style>
 .workingholidaybox:hover {
@@ -185,7 +187,8 @@ var promoData = '';
 					</div>
 				</div>
 				<div class="container pad-none bdr">
-					<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 col-lg-offset-1 col-md-offset-1">
+					<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 col-lg-offset-1 col-md-offset-1 pad-none">
+					   <div class="workingholiday-plan-margin">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="workingholiday.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails workingholidayQuote = (QuoteDetails) request.getAttribute("quoteDetails");
@@ -260,9 +263,7 @@ var promoData = '';
 										String planBenefitDesc3PriceKey = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc3.price";
 										String planBenefitDesc4PriceKey = "workingholiday.quote.plan" + (i+1)+ ".benefits.desc4.price";
 									%>
-										<span><i
-												class="fa fa-plus"></i> <a href="#"
-											class="fwdpanel-minimize uline text-black"><fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
+										<span><a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
@@ -328,8 +329,7 @@ var promoData = '';
 						<div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
-									<span><i
-											class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.heading" bundle="${msg}" /></a> </span>
+									<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.heading" bundle="${msg}" /></a> </span>
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
@@ -339,8 +339,7 @@ var promoData = '';
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full ">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.keyFeature1" bundle="${msg}" /></a> </span>
+													<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.keyFeature1" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -379,8 +378,7 @@ var promoData = '';
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
+													<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -569,8 +567,7 @@ var promoData = '';
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.majorExclusion" bundle="${msg}" /></a> </span>
+													<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.majorExclusion" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -593,8 +590,7 @@ var promoData = '';
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i>  <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
+													<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -608,8 +604,7 @@ var promoData = '';
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" class="fwdpanel-minimize"><fmt:message key="workingholiday.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
+													<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
@@ -971,27 +966,26 @@ var promoData = '';
 									target="_blank"><fmt:message key="workingholiday.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
 						</div>
+				      </div>
 					</div>
 
-					<div
-						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 gray-bg pad-none">
-						<div class="col-xs-12 hidden-sm hidden-xs">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 gray-bg pad-none workingholiday-plan-right-grey-zone">
+						<div class="col-md-12 hidden-sm hidden-xs pad-none">
 							<div class="wd2">
-								<div class="pull-left" style="width:250px;">
-									<h2 class="h2-3-choose"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4 style="margin-top:-5px;" id="seletedplanname"></h4>
+								<div class="pull-left" style="width:170px;">
+									<h2 class="h2-3-choose" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.product" bundle="${msg}" /></h2>
+									<h4 style="padding-left:0px;line-height: 0px;font-size: 20px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
 										
 								</div>
-								<div class="pull-right">
-									<div class="text-right pad-right1 h2-2 h2">
-										<div class="hk" style="margin-top:40px;">
+								<div class="pull-right" style="padding-top: 45px;">
+									<div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+										<div class="hk" style="font-size: 20px;">
 											<fmt:message key="workingholiday.dollar" bundle="${msg}" />
-											<div style="font-weight: bold;" class="flightcare-hk" id="plansummary">0</div>
-											<input type="hidden" name="txtgrossPremiumAmt"
-												id="txtgrossPremiumAmt" value="">
+											<div style="font-weight: bold;font-size: 35px;" class="flightcare-hk" id="plansummary">0</div>
+											<input type="hidden" name="txtgrossPremiumAmt" id="txtgrossPremiumAmt" value="">
 										</div>
 									</div>
 								</div>
@@ -1001,82 +995,103 @@ var promoData = '';
 							
 							<!--  //removed the leaving day and return day  -->
 						</div>
-						<div class="col-xs-12">
-							<h3><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
-						
-							<span class="text-red" id="errPromoCode"></span>
+						<div class="col-xs-12 pad-none">
+						  <div style="width: 80%;margin-left: 10%;">
+								<h3><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
 							
-							
-							<div id="promo-wrap" class="form-group">
-                                <div class="input-group">
-                                    <input type="text" id="promoCode" name="promoCode" class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />"/>
-                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
-                                </div>
-                            </div>
-							
-							<!-- this is new
-							<div class="form-group">
-								<div class="input-group">
-									<input type="text" id="promoCode" name="promoCode"
-										class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-										
-									<span style="font-weight: bold; font-size:20px;" class="pointer" onclick="applyworkingholidayPromoCode()">
-	                                  <span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span>
-	                                </span>	
-								</div>
+								<span class="text-red" id="errPromoCode"></span>
 								
+								
+								<div id="promo-wrap" class="form-group">
+	                                <div class="input-group">
+	                                    <input type="text" id="promoCode" name="promoCode" class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />"/>
+	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
+	                                </div>
+	                            </div>
+								
+								<!-- this is new
+								<div class="form-group">
+									<div class="input-group">
+										<input type="text" id="promoCode" name="promoCode"
+											class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+											
+										<span style="font-weight: bold; font-size:20px;" class="pointer" onclick="applyworkingholidayPromoCode()">
+		                                  <span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span>
+		                                </span>	
+									</div>
+									
+								</div>
+								-->
+								
+								
+								<div class="working-italic workingholiday-getpromocode">
+									<a href="" class="sub-link" data-toggle="modal"
+											data-target=".bs-promo-modal-lg"><i><fmt:message key="workingholiday.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
+								</div>
 							</div>
-							-->
-							
-							
-							<div class="working-italic">
-								<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i><fmt:message key="workingholiday.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
-							</div>
-						
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
-							id="subtotal"></h3>
-						<input type="hidden" name="subTotal" id="subTotal" value="540">
-						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="workingholiday.sidebar.summary.discount" bundle="${msg}" /></h3>
-						<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
-							id="discountAmt">-</h3>
-						<input type="hidden" name="selectedDiscountAmt"
-							id="selectedDiscountAmt" value="">
-						<div class="clearfix"></div>
+					   </div>
+                        <div class="col-md-12 hidden-sm hidden-xs pad-none">
+                          <div style="width: 80%;margin-left: 10%;">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;"></h3>
+							<input type="hidden" name="subTotal" id="subTotal" value="540">
+							<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.discount" bundle="${msg}" /></h3>
+							<h3 class="topten h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;">-</h3>
+							<input type="hidden" name="selectedDiscountAmt"
+								id="selectedDiscountAmt" value="">
+							<div class="clearfix"></div>
+						</div>
 						<div class="orange-bdr"></div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="workingholiday.sidebar.summary.amountDue" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
-							id="amountdue">0</h3>
-						<input type="hidden" name="selectedAmountDue"
-							id="selectedAmountDue" value="">
-						<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
-							
+						<div style="width:80%;margin-left:10%">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;"><fmt:message key="workingholiday.sidebar.summary.amountDue" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;">0</h3>
+							<input type="hidden" name="selectedAmountDue"
+								id="selectedAmountDue" value="">
+							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
+							<div class="clearfix"></div>
 							</div>
-							
-						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
-								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+                       </div>
+                        <div class="col-xs-12 hidden-sm hidden-xs pad-none">
+                          <div style="width: 80%;margin-left: 10%;">
+							<div class="top35 pull-left pad-none" style="width:47%">
+								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
+									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+							</div>
+							<div class="top35 pull-right pad-none" style="width:47%">
+								<button type="submit" class="bdr-curve btn btn-primary btn-next">
+									<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
+							</div>
+							<div class="clearfix"></div>
+							<br> <span class="text-red" id="errDue"></span> <br>
 						</div>
-						<div class="top35 col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary btn-next">
-								<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
-						</div>
-						<div class="clearfix"></div>
-						<br> <span class="text-red" id="errDue"></span> <br>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=workingholidayQuote.getPlanSelected()%>">
-		<p class="padding1 hidden-sm hidden-xs">
+		<p class="padding1 workingholiday-plan-disclaimer">
 			<fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
+		
+		<div class="col-xs-12 hidden-md hidden-lg pad-none">
+           <div style="width: 80%;margin-left: 10%;">
+                <div class="top35 pull-left pad-none" style="width:47%">
+                    <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
+                        class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+                </div>
+                <div class="top35 pull-right pad-none" style="width:47%">
+                    <button type="submit" class="bdr-curve btn btn-primary btn-next">
+                        <fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
+                </div>
+                <div class="clearfix"></div>
+                <br> <span class="text-red" id="errDue"></span> <br>
+            </div>
+        </div>
 
 		</form:form>
 		
@@ -1145,6 +1160,15 @@ var promoData = '';
 		$(".workingholidaybox").animate({
 			"background-color" : "#000"
 		}, 3000);
+		
+		
+		$("#anchor-lang").click(function(){
+			var selValue = document.getElementById("inputseletedplanname").value;
+			//alert(selValue);
+			
+		});
+		
+		
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		document.getElementById("errDue").innerHTML = "";

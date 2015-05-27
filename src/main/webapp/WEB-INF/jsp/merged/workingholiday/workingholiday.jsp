@@ -304,7 +304,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>
         </div>
     </div>
     
@@ -326,6 +326,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     <h2>Made your decision</h2>        
     <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
     <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>    
+
     
     <!--/.row--> 
     <!--/.desktop-testimonials--> 

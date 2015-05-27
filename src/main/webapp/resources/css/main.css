@@ -6413,6 +6413,35 @@ tr.product-landing-error-wrap {
     .other-benefits-wrap .other-benefits-inner{
         padding: 20px 85px !important;
     }
+    .workingholiday-getpromocode{
+        position:absolute;
+        top:4px;
+        right:10%;
+    }
+    
+    #promo-wrap{
+    margin-bottom:50px;
+    }
+    
+    .workingholiday-plan-margin{
+        width: 80%;
+        margin-left: 10%;
+    }
+    
+    .workingholiday-plan-disclaimer{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media (min-width: 992px){
+    .workingholiday-plan-right-grey-zone{
+	    height:815px;
+	}
+}
+
+.workingholiday-plan-margin{
+    margin-top: 40px;
 }
 
 .workingholidaybox{
@@ -6433,10 +6462,15 @@ tr.product-landing-error-wrap {
     color: #fff ;
 }
 
+.wd2{
+	width: 80%;
+    margin-left: 10%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
 .input-group{
 	background-color: #fff;
-	width: 80%;
-	margin-left: 10%;
 }
 
 #promoCode{
