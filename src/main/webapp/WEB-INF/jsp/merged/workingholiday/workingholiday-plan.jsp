@@ -185,7 +185,7 @@ var promoData = '';
 					</div>
 				</div>
 				<div class="container pad-none bdr">
-					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
+					<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 col-lg-offset-1 col-md-offset-1">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="workingholiday.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails workingholidayQuote = (QuoteDetails) request.getAttribute("quoteDetails");
@@ -974,7 +974,7 @@ var promoData = '';
 					</div>
 
 					<div
-						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none">
+						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 gray-bg pad-none">
 						<div class="col-xs-12 hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="width:250px;">
