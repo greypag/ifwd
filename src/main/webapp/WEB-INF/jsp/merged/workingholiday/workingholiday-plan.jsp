@@ -186,9 +186,9 @@ var promoData = '';
 						</div>
 					</div>
 				</div>
-				<div class="container pad-none bdr">
-					<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 col-lg-offset-1 col-md-offset-1 pad-none">
-					   <div class="workingholiday-plan-margin">
+				<div class="container pad-none bdr gray-bg3">
+					<div class="col-lg-8 col-md-8 col-xs-12 col-sm-12 pad-none white-bg1">
+					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="workingholiday.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails workingholidayQuote = (QuoteDetails) request.getAttribute("quoteDetails");
@@ -969,7 +969,7 @@ var promoData = '';
 				      </div>
 					</div>
 
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 gray-bg pad-none workingholiday-plan-right-grey-zone">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="col-md-12 hidden-sm hidden-xs pad-none">
 							<div class="wd2">
 								<div class="pull-left" style="width:150px;">
@@ -1056,7 +1056,7 @@ var promoData = '';
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 							</div>
 							<div class="top35 pull-right pad-none" style="width:47%">
-								<button type="submit" class="bdr-curve btn btn-primary btn-next">
+								<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
 									<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
 							</div>
 							<div class="clearfix"></div>
@@ -1083,7 +1083,7 @@ var promoData = '';
                         class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%">
-                    <button type="submit" class="bdr-curve btn btn-primary btn-next">
+                    <button type="submit" class="bdr-curve btn btn-primary nxt-btn">
                         <fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
                 </div>
                 <div class="clearfix"></div>
