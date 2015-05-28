@@ -168,7 +168,11 @@ $(document).ready(function() {
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="index.highlight1.heading" bundle="${msg}" /></h2>
-                <p><fmt:message key="index.highlight1.paragraph" bundle="${msg}" /></p>
+                <p>
+                <fmt:message key="index.highlight1.desc.part1" bundle="${msg}" /> <a
+                  href="<fmt:message key="app.download.link" bundle="${msg}" />"
+                  target="_blank"><fmt:message key="index.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="index.highlight1.desc.part3" bundle="${msg}" />
+              </p>
               </div>
             </div>
           </div>
@@ -267,7 +271,7 @@ $(document).ready(function() {
                 <p><fmt:message key="index.customer1.paragraph" bundle="${msg}" /></p>
                 <div class="hr1"></div>
                 <h2><fmt:message key="index.customer1.name.part1" bundle="${msg}" /></h2>
-                <h4><fmt:message key="index.customer1.name.part3" bundle="${msg}" /></h4>
+                <h4><fmt:message key="index.customer1.name.part2" bundle="${msg}" /></h4>
               </div>
             </div>
           </div>
@@ -283,7 +287,7 @@ $(document).ready(function() {
                 <p><fmt:message key="index.customer2.paragraph" bundle="${msg}" /></p>
                 <div class="hr1"></div>
                 <h2><fmt:message key="index.customer2.name.part1" bundle="${msg}" /></h2>
-                <h4><fmt:message key="index.customer2.name.part3" bundle="${msg}" /></h4>
+                <h4><fmt:message key="index.customer2.name.part2" bundle="${msg}" /></h4>
               </div>
             </div>
           </div>
