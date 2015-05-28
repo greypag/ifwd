@@ -6698,3 +6698,35 @@ tr.product-landing-error-wrap {
     }
 }
 /** bmg summary css **/
+
+
+#other-benefits-mob{
+    margin-top: 30px;
+}
+
+#other-benefits-mob .other-benefits-inner{
+    margin-left:10%;
+    width:80%;
+}
+
+#other-benefits-mob .prev, #other-benefits-mob .next {
+    position: absolute;
+    top: 73%;
+    color: #495d66;
+    display: inline-block;
+    margin-top: -25px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+#other-benefits-mob .prev {
+  left: 10px;
+}
+
+#other-benefits-mob .next {
+  right: 10px;
+}
