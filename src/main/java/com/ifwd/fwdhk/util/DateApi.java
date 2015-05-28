@@ -6,8 +6,6 @@ import java.util.Locale;
 
 public class DateApi {
 	
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-	
 	public String pickDate(String pickDate){
 		
 		String getDate[] = pickDate.split(" ");
@@ -85,6 +83,7 @@ public class DateApi {
 	}
 	
 	public static Date formatDate(String date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 		try {
 			return dateFormat.parse(date);
 		} catch (Exception e) {

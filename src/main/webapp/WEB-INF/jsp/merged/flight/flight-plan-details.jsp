@@ -777,7 +777,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                                id="txtOtherInsuHkid${inx}" name="otherHKID"
 	                                                class="form-control textUpper full-control"
 	                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-	                                                value="" onkeyup="hkidValid(this)"/> select-labelrtxtOtherInsuHkid${inx}"
+	                                                value="" onkeyup="hkidValid(this)"/> <span id="errtxtOtherInsuHkid${inx}"
 	                                                class="text-red"> </span>
                                                 </td>
                                             </tr>
