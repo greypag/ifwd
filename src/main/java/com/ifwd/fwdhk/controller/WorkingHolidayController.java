@@ -44,6 +44,7 @@ import com.ifwd.fwdhk.model.WorkingHolidayDetailsBean;
 import com.ifwd.fwdhk.model.WorkingHolidayQuoteBean;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -574,13 +575,13 @@ public class WorkingHolidayController {
 		
 		Calendar calendar=Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		calendar.setTime(new Date(planDetailsForm.getWhInseffectiveDate()));
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhInseffectiveDate()));
 		String commencementDate = df.format(calendar.getTime());
 		calendar.add(Calendar.YEAR, 1);
 		calendar.add(Calendar.DAY_OF_YEAR, -1);
 		String expiryDate = df.format(calendar.getTime());
 		
-		calendar.setTime(new Date(planDetailsForm.getWhAppDob()));
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhAppDob()));
 		String dob = df.format(calendar.getTime());
 		
 		parameters.put("commencementDate", commencementDate);
@@ -706,13 +707,13 @@ public class WorkingHolidayController {
 		
 		Calendar calendar=Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		calendar.setTime(new Date(planDetailsForm.getWhInseffectiveDate()));
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhInseffectiveDate()));
 		String commencementDate = df.format(calendar.getTime());
 		calendar.add(Calendar.YEAR, 1);
 		calendar.add(Calendar.DAY_OF_YEAR, -1);
 		String expiryDate = df.format(calendar.getTime());
 		
-		calendar.setTime(new Date(planDetailsForm.getWhAppDob()));
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhAppDob()));
 		
 		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("whCreatePolicy");
 		model.addAttribute(createPolicy);

@@ -1,6 +1,13 @@
 package com.ifwd.fwdhk.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class DateApi {
+	
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+	
 	public String pickDate(String pickDate){
 		
 		String getDate[] = pickDate.split(" ");
@@ -68,4 +75,21 @@ public class DateApi {
 		return formatedDate;
 		
 		}
+	
+	public String pickDate1(String pickDate){
+		String getDate[] = pickDate.split(" ");
+		String formatedDate=getDate[2]+"-"+getDate[1]+"-"+getDate[0];
+		System.out.println(formatedDate +" formatedDate");
+		return formatedDate;
+		
+	}
+	
+	public static Date formatDate(String date){
+		try {
+			return dateFormat.parse(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
