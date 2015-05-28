@@ -6753,7 +6753,7 @@ tr.product-landing-error-wrap {
     }
     
     .workingholiday-plan-jumbo-header{
-        font-size:48px !important;
+        font-size:38px !important;
     }
     
     .workingholiday-getpromocode{
@@ -6775,12 +6775,11 @@ tr.product-landing-error-wrap {
         width: 80%;
         margin-left: 10%;
     }
-}
-
-@media (min-width: 992px){
-    .workingholiday-plan-right-grey-zone{
-        height:815px;
-    }
+    
+    .bmg-detail-exist-member-head{
+	    font-size: 24px !important;
+	    color: #f68a1d;
+	}
 }
 
 .workingholiday-plan-margin{
@@ -6835,4 +6834,10 @@ tr.product-landing-error-wrap {
     width: 80%;
     margin-left: 10%;
 }
+
+.bmg-detail-exist-member-head{
+    font-size: 30px;
+    font-weight: bold;
+}
+
 /** bmg working holiday end **/

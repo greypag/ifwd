@@ -118,9 +118,9 @@
                                 if (authenticate.equals("false") || authenticate.equals("direct")) 
                                 {
                             %>
-                            <h3 class="h2-3-existing-fwd-head"><fmt:message key="workingholiday.details.login" bundle="${msg}" /></h3>
-                            <a href="#" class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="workingholiday.details.login.action" bundle="${msg}" /></a>
-                            <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
+                            <h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head"><fmt:message key="workingholiday.details.login" bundle="${msg}" /></h3>
+                            <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="workingholiday.details.login.action" bundle="${msg}" /></a>
+                            <div class="col-lg-9 col-md-9 col-xs-9 col-sm-9 text-left">
                                 <h3 class="text-left or-continue">
                                     <fmt:message key="workingholiday.details.login.other.part1" bundle="${msg}" />
                                     <fmt:message key="workingholiday.details.login.other.part2" bundle="${msg}" />
@@ -594,7 +594,7 @@
                             
                             <div class="form-wrap">
                             <h4 class="h4-2"><fmt:message key="workingholiday.details.declarations.heading" bundle="${msg}" /></h4>
-                            <div class="declaration-content" style="margin-left: 0px;">
+                            <div class="declaration-content" style="margin-left: 0px;margin-right: 0px;">
                                 <div class="checkbox">
                                     <input id="checkbox1" name="declarration" type="checkbox">
                                     <label for="checkbox1">
@@ -689,7 +689,7 @@
 
 
 
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  gray-bg wht-bg3 pad-none floatingbox">
+					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs gray-bg wht-bg3 pad-none floatingbox">
 
 						<div class="hidden-sm hidden-xs">
 
