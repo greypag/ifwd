@@ -5736,7 +5736,8 @@ font-family: 'Foco-bold';
 }
 
 #summary tbody tr:first-child td, #summary tbody tr:nth-child(2) td,
-#Premium tbody tr:first-child td, #Premium tbody tr:nth-child(2) td,
+#Premium tbody tr:first-child td:first-child,
+#Premium tbody tr:nth-child(3) td:first-child,
 #userBenefits tbody tr:first-child td, .table-type-1 tbody tr:first-child td,
 #homecarePremium tbody tr:first-child th { color:#fff; background-color: #f68a1d;}
 .fixed-content{ position: fixed;}
