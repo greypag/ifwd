@@ -246,7 +246,7 @@
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                       <select name="whInsAgeRange" class="soflow" id="selectWhInsAgeRange">
+                                       <select name="whInsAgeRange" class="form-control soflow select-label" id="selectWhInsAgeRange">
                                             <c:forEach
                                                 var="ageList" items="${mapSelfType}">
                                                 <c:choose>
@@ -268,30 +268,149 @@
                                         <span id="whInsAgeRange" class="text-red"></span>
                                    </div>
                                </div>
+                               
+                               <!-- beneficiary start -->
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                       <label for="selectWhInsBeneficary" class="field-label bold-500"><fmt:message key="workingholiday.details.insured.beneficiary.beneficiary" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                       <div class="styled-select">
+                                             <select name="whInsBeneficary" id="selectWhInsBeneficary" 
+                                                    onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary', 'inputWhInsFullName', 'inputWhInsHKID')"
+                                                class="soflow select-label" >
+                                                <option value="SE"><fmt:message key="workingholiday.details.insured.beneficiary.default" bundle="${msg}" /></option>
+	                                            <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+	                                                <c:choose>
+	                                                    <c:when test="${relationshipList.key == workingHolidayPlanDetailsForm.getWhInsBeneficary()}">
+	                                                        <option value="${relationshipList.key}" selected>
+	                                                    </c:when>
+	                                                    <c:otherwise>
+	                                                        <option value="${relationshipList.key}">
+	                                                    </c:otherwise>
+	                                                </c:choose>
+	                                                    <c:out value="${relationshipList.value}" />
+	                                                </option>
+	                                            </c:forEach>
+                                            </select>
+                                            </div>
+                                            <span id="whInsBeneficary" class="text-red"></span>
+                                   </div>
+                               </div>
+                               <!-- beneficiary end -->
+                               <!-- personalbenificiaryId start -->
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryId">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                       <label for="inputWhInsFullName" class="field-label bold-500">
+                                        <fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" />
+                                        </label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                       <input type="text"
+                                                name="whInsFullName"
+                                                id="inputWhInsFullName" value=""
+                                                class="form-control full-control " 
+                                                onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
+                                                onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                            <span id="whInsFullName" class="text-red">
+                                            </span>
+                                   </div>
+                               </div>
+                               <!-- personalbenificiaryId end -->
+                               <!-- personalbenificiaryId b start -->
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryIdb">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                      <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md">
+                                        <fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" />
+                                        </label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                      <div class="styled-select">
+                                        <select id="selectWhInsHKID" name="selectWhInsHKID" class="form-control soflow select-label">
+                                            <c:forEach var="hkidList" items="${mapHkId}">
+                                                <c:choose>
+                                                    <c:when test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhInsHKID()}">
+                                                        <option value="${hkidList.key}" selected>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <option value="${hkidList.key}">
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                    <c:out value="${hkidList.value}" />
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                      </div>
+                                   </div>
+                               </div>
+                               <!-- personalbenificiaryId b end -->
+                               <!-- personalbenificiaryId c start -->
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryIdc">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                      <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                      <input id="inputWhInsHKID" name="whInsHKID"
+                                            class="form-control textUpper full-control bmg_custom_placeholder" 
+                                            value="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
+                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                          onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
+                                          <span id="whInsHKID" class="text-red"> </span>
+                                   </div>
+                               </div>
+                               <!-- personalbenificiaryId end -->
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                       <label for="selectWhInsWorkingCty" class="field-label bold-500">
+                                           <fmt:message key="workingholiday.details.insured.beneficiary.country" bundle="${msg}" />
+                                       </label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                       <select id="selectWhInsWorkingCty" name="whInsWorkingCty" class="form-control soflow select-label">
+                                            <c:forEach var="country" items="${countryInfo}">
+                                                <c:choose>
+                                                    <c:when test="${country.key == workingHolidayPlanDetailsForm.getWhInsWorkingCty()}">
+                                                        <option value="${country.key}" selected>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <option value="${country.key}">
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                    <c:out value="${country.value}" />
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                        <span id="whInsWorkingCty" class="text-red"> </span>
+                                   </div>
+                               </div>
+                               
+                               
+                               
+                               
                                                             
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                       <label
-                                            for="inputFullName" class="field-label bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label>
+                                       <label class="field-label bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                        <!-- room, floor, block start -->
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputCARoom" name="applicantRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
+                                                id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputCAFloor" name="applicantFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
+                                                id="inputWhInsFloor" name="whInsFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"     
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputCABlock" name="applicantBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
+                                                id="inputWhInsBlock" name="whInsBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
@@ -301,23 +420,23 @@
                                        <div class="row form-group">
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputCABuilding" name="applicantBuilding"
+                                                id="inputWhInsBuilding" name="whInsBuilding"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
-                                                onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'errCABuilding');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'whInsBuilding');"
                                                 onkeypress="return isAlphaNumeric(event);" maxlength="50" />
-                                                <span id="errCABuilding" class="text-red"> </span>
+                                                <span id="whInsBuilding" class="text-red"> </span>
                                            </div>
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputCAEstate" name="applicantEstate"
+                                                id="inputWhInsEstate" name="whInsEstate"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
-                                                onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'errCAEstate');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'whInsEstate');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
-                                                <span id="errCAEstate" class="text-red"> </span>
+                                                <span id="whInsEstate" class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- building, estate end -->
@@ -325,7 +444,7 @@
                                        <div class="row form-group">
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                            id="inputCAStreetNo" name="applicantStreetNo"
+                                            id="inputWhInsStreetNo" name="whInsStreetNo"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -335,7 +454,7 @@
                                         <div class="row form-group">
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputCAStreetName" name="applicantStreetName"
+                                                id="inputWhInsStreetName" name="whInsStreetName"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
@@ -346,8 +465,8 @@
                                        <!-- district start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <div class="styled-select"><select name="applicantDistrict"
-                                            class="form-control soflow full-control" id="selectCADist"
+                                                <div class="styled-select"><select name="whInsDistrict"
+                                            class="form-control soflow full-control" id="selectWhInsDistrict"
                                             onchange="setDropArea(this.value)">
                                                 <option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
                                                 <%
@@ -377,7 +496,7 @@
                                                         }
                                                     %>
                                                 </select>
-                                            </div> <span id="errCADist" class="text-red"> </span>
+                                            </div> <span id="whInsDistrict" class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- district end -->
@@ -386,21 +505,21 @@
                                            <div class="col-xs-12">
                                                 <div class="col-xs-4">
                                                     <label class="radio-inline homecare-lb">
-                                                        <input type="radio" name="applicantArea" id="inlineCARadio3"
-                                                        value="HK" checked="" class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
+                                                        <input type="radio" name="whInsArea" id="inlineCARadio3"
+                                                        value="HK" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'HK'}"> checked="checked"</c:if> class="home-input1"> <span><fmt:message key="home.details.registration.hk" bundle="${msg}" />
                                                     </span>
                                                 </label> 
                                                 </div>
                                                 <div class="col-xs-4">
-                                                    <label class="radio-inline homecare-lb"> <input
-                                                            type="radio" name="applicantArea" id="inlineCARadio4"
-                                                            value="KL" class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
+                                                    <label class="radio-inline homecare-lb">
+                                                        <input type="radio" name="whInsArea" id="inlineCARadio4"
+                                                        value="KL" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'KL'}"> checked="checked"</c:if> class="home-input1"> <span> <fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
                                                     </label>
                                                 </div>
                                                 <div class="col-xs-4">
-                                                    <label class="radio-inline"> <input type="radio"
-                                                        name="applicantArea" id="inlineCARadio5" value="NT"
-                                                        class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
+                                                    <label class="radio-inline">
+                                                        <input type="radio"name="whInsArea" id="inlineCARadio5"
+                                                        value="NT" <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'NT'}"> checked="checked"</c:if> class="home-input1"> <span> <fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
                                                      </label>
                                                 </div>
                                            </div>
