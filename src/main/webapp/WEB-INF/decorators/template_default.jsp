@@ -12,7 +12,6 @@
 %> --%>
 <!DOCTYPE HTML>
 <html>
-<%@ include file="include/merged/browser.jsp"%>
 <head>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
