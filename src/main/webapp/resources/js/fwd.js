@@ -1032,7 +1032,6 @@ function fPlanValid()
 		}
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
 		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-		document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		if (hkid.trim() == "") {
 			document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
 			flag = false;
@@ -2233,7 +2232,7 @@ function tPlanValid()
 
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365)); 
+		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26)); 
 		 if (age == 1) {
 			 if ( difference > 18) {
 				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
@@ -2281,7 +2280,6 @@ function tPlanValid()
 		}
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
 		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-		document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		
 		
 		var selectedPersonalHkidPass = document.getElementById("selectedPersonalHkidPass" + i).value;
@@ -2820,15 +2818,18 @@ function tPlanValid()
 	}
 	
 	
-    if(travelp_click)
-    	return false
-    else{
+    if(travelp_click){
+    	$('#loading-overlay').modal('hide');
+    	return false;
+    }else{
     	if(flag){
     		travelp_click = true;
     		$('#loading-overlay').modal({
 	           backdrop: 'static',
 	           keyboard: false
 	        })
+    	}else{
+    		$('#loading-overlay').modal('hide');
     	}
     	
     	return flag;
@@ -3306,6 +3307,7 @@ function validateJoinUsForm() {
 		}
 	}
 	var reg_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
+	
 	// UserName Validation
 	if (userName.trim() == "") {
 		document.getElementById("errorEmptyUName").innerHTML = getBundle(getBundleLanguage, "memeber.username.notNull.message"); // "Please enter your Username.";
@@ -3317,6 +3319,7 @@ function validateJoinUsForm() {
 			document.getElementById("errorEmptyUName").innerHTML= getBundle(getBundleLanguage, "memeber.username.notValidLength.message"); // "Username must be between 6 and 50 characters.";
 			valid = false;
 		}
+		
 	}
 
 	// validation for Passsword
@@ -4085,15 +4088,20 @@ function hc_planValid() {
     	$('#inlineDeskRadio41').removeAttr('disabled');
     	$('#inlineDeskRadio51').removeAttr('disabled');
     }
-    if(home_click)
+    
+    
+    if(home_click){
+    	$('#loading-overlay').modal('hide');
     	return false;
-    else{
+    }else{
     	if(flag){
     		$('#loading-overlay').modal({
                 backdrop: 'static',
                 keyboard: false
              })
              home_click = true;
+    	}else{
+    		$('#loading-overlay').modal('hide');
     	}
     	return flag;
     }	
@@ -4682,8 +4690,13 @@ function loadBundles(lang, key, fn) {
 
 ///////////////
 
+function isAccountNumeric(num){
+    return !isNaN(num)
+}
+
 function isValidUsername(el){
 	var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
+	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
 		return getBundle(getBundleLanguage, "user.username.notValid.message");
 		
@@ -4691,7 +4704,9 @@ function isValidUsername(el){
 
 	} else if (!plan_user.test(el)) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
-	}
+	} else if (isAccountNumeric(el)) {
+		return getBundle(getBundleLanguage, "user.username.length.message");
+	} 
 	else{
 		return true;
 	}

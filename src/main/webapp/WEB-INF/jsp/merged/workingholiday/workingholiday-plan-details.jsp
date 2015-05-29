@@ -637,13 +637,13 @@
                                 </div>
                                 
                                 <div class="checkbox">
-                                    <input id="checkbox33" type="checkbox"
+                                    <input id="checkbox3" type="checkbox"
                                         name="donotWishDirectMarketing"> <label
                                         for="checkbox33"> <fmt:message key="workingholiday.details.declarations.PDPO.option1" bundle="${msg}" /> <br> <br>
                                     </label>
                                 </div>
                                 <div class="checkbox">
-                                    <input id="checkbox34" type="checkbox"
+                                    <input id="checkbox4" type="checkbox"
                                         name="donotDisclose"> <label
                                         for="checkbox34"> <fmt:message key="workingholiday.details.declarations.PDPO.option2" bundle="${msg}" /><br>
                                     </label>
@@ -655,18 +655,18 @@
                                 
                                 <script type="text/javascript">
                                 function showBubble(){
-                                    if($("#checkbox33").prop('checked') || $("#checkbox34").prop("checked")) {
+                                    if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
                                         $(".checkboxBubble").fadeIn();
                                     }else{
                                         $(".checkboxBubble").fadeOut();
                                     }
                                 }
                                 
-                                $("#checkbox33").change(function() {
+                                $("#checkbox3").change(function() {
                                     showBubble();
                                 });
                                 
-                                $("#checkbox34").change(function() {
+                                $("#checkbox4").change(function() {
                                     showBubble();
                                 });
                                 </script>
@@ -752,7 +752,7 @@
 									 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width:47%"> 
-									<input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
+									<input type="submit" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
 								</div>
 							</div>
 			            </div>
@@ -776,7 +776,7 @@
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
            <div style="width: 80%;margin-left: 10%;  margin-bottom: 60px;">
                 <div class="top35 pull-left pad-none" style="width:47%">
-                     <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+                     <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%"> 
                     <input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
