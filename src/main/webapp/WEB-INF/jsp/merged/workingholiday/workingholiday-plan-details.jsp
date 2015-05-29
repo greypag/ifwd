@@ -142,7 +142,7 @@
                             <div class="gray-bdr"></div>
                             <!-- updated responsive design start -->
                             <div class="form-wrap">
-                                <div class="big-title black-bold pad-none">
+                                <div class="big-title black-bold pad-none bmg-big-title">
                                     <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
                                 </div>
                                 <!-- english name start -->
@@ -165,7 +165,7 @@
                                <!-- id card starts -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <div class="styled-select">
+                                       <div class="bmg-label-styled-select styled-select">
                                            <select name="selectWhAppHKID" id="selectWhAppHKID" class="form-control soflow select-label" onchange="selected(this)">
                                                <c:forEach var="hkidList" items="${mapHkId}">
                                                     <c:choose>
@@ -248,6 +248,7 @@
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                        <div class="styled-select">
                                        <select name="whInsAgeRange" class="form-control soflow select-label" id="selectWhInsAgeRange">
                                             <c:forEach
                                                 var="ageList" items="${mapSelfType}">
@@ -267,6 +268,7 @@
                                                 </option>
                                             </c:forEach>
                                         </select>
+                                        </div>
                                         <span id="whInsAgeRange" class="text-red"></span>
                                    </div>
                                </div>
@@ -301,48 +303,59 @@
                                </div>
                                <!-- beneficiary end -->
                                <!-- personalbenificiaryId start -->
-                               <div class="form-group float hide" id="whbenificiaryId">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryId">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputWhInsFullName" class="field-label bold-500">
-                                        <fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" />
-                                        </label>
+                                       <label for="inputWhInsFullName" class="field-label bold-500"></label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                       <input type="text"
-                                                name="whInsFullName"
-                                                id="inputWhInsFullName" value=""
-                                                class="form-control full-control " 
-                                                onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
-                                                onkeypress="    return alphaOnly(event);" maxlength="100" />
-                                            <span id="whInsFullName" class="text-red">
-                                            </span>
+                                       <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+	                                       <label for="inputWhInsFullName" class="field-label bold-500">
+	                                        <fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" />
+	                                        </label>
+	                                   </div>
+	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+	                                       <input type="text"
+	                                                name="whInsFullName"
+	                                                id="inputWhInsFullName" value=""
+	                                                class="form-control full-control " 
+	                                                onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
+	                                                onkeypress="    return alphaOnly(event);" maxlength="100" />
+	                                            <span id="whInsFullName" class="text-red">
+	                                            </span>
+	                                   </div>
+	                                   <div class="clearfix"></div>
                                    </div>
                                </div>
                                <!-- personalbenificiaryId end -->
                                <!-- personalbenificiaryId b start -->
-                               <div class="form-group float hide" id="whbenificiaryIdb">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryIdb">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                      <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md">
-                                        <fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" />
-                                        </label>
+                                      <label for="inputWhInsHKID" class="field-label form-label bold-500"></label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                      <div class="styled-select">
-                                        <select id="selectWhInsHKID" name="selectWhInsHKID" class="form-control soflow select-label">
-                                            <c:forEach var="hkidList" items="${mapHkId}">
-                                                <c:choose>
-                                                    <c:when test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhInsHKID()}">
-                                                        <option value="${hkidList.key}" selected>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <option value="${hkidList.key}">
-                                                    </c:otherwise>
-                                                </c:choose>
-                                                    <c:out value="${hkidList.value}" />
-                                                </option>
-                                            </c:forEach>
-                                        </select>
-                                      </div>
+                                      <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+	                                      <label for="inputWhInsHKID" class="field-label form-label bold-500">
+	                                        <fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" />
+	                                        </label>
+	                                   </div>
+	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+	                                      <div class="styled-select">
+	                                        <select id="selectWhInsHKID" name="selectWhInsHKID" class="form-control soflow select-label">
+	                                            <c:forEach var="hkidList" items="${mapHkId}">
+	                                                <c:choose>
+	                                                    <c:when test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhInsHKID()}">
+	                                                        <option value="${hkidList.key}" selected>
+	                                                    </c:when>
+	                                                    <c:otherwise>
+	                                                        <option value="${hkidList.key}">
+	                                                    </c:otherwise>
+	                                                </c:choose>
+	                                                    <c:out value="${hkidList.value}" />
+	                                                </option>
+	                                            </c:forEach>
+	                                        </select>
+	                                      </div>
+	                                   </div>
                                    </div>
                                </div>
                                <!-- personalbenificiaryId b end -->
@@ -352,12 +365,17 @@
                                       <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                      <input id="inputWhInsHKID" name="whInsHKID"
-                                            class="form-control textUpper full-control bmg_custom_placeholder" 
-                                            value="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
-                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                          onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
-                                          <span id="whInsHKID" class="text-red"> </span>
+                                      <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+	                                      <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+	                                   </div>
+	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+	                                      <input id="inputWhInsHKID" name="whInsHKID"
+	                                            class="form-control textUpper full-control bmg_custom_placeholder" 
+	                                            value="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
+	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+	                                          onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
+	                                          <span id="whInsHKID" class="text-red"> </span>
+	                                   </div>
                                    </div>
                                </div>
                                <!-- personalbenificiaryId end -->
@@ -369,6 +387,7 @@
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                        <div class="styled-select">
                                        <select id="selectWhInsWorkingCty" name="whInsWorkingCty" class="form-control soflow select-label">
                                             <c:forEach var="country" items="${countryInfo}">
                                                 <c:choose>
@@ -383,6 +402,7 @@
                                                 </option>
                                             </c:forEach>
                                         </select>
+                                        </div>
                                         <span id="whInsWorkingCty" class="text-red"> </span>
                                    </div>
                                </div>
@@ -554,7 +574,7 @@
                             <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
                                 <div class="form-wrap">
                                 <div class="membership-header">
-                                    <h3><fmt:message key="workingholiday.details.registration.heading" bundle="${msg}" /></h3>
+                                    <h3 class="bmg-membership-header"><fmt:message key="workingholiday.details.registration.heading" bundle="${msg}" /></h3>
                                     <i class="text-grey"><fmt:message key="workingholiday.details.registration.desc" bundle="${msg}" /></i>                                
                                     <h3 class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                    
                                 </div>
@@ -607,7 +627,7 @@
                             <div class="clearfix"></div>
                             
                             <div class="form-wrap">
-                            <h4 class="h4-2"><fmt:message key="workingholiday.details.declarations.heading" bundle="${msg}" /></h4>
+                            <h4 class="h4-2 bmg-disclaimer-header"><fmt:message key="workingholiday.details.declarations.heading" bundle="${msg}" /></h4>
                             <div class="declaration-content" style="margin-left: 0px;margin-right: 0px;">
                                 <div class="checkbox">
                                     <input id="checkbox1" name="declarration" type="checkbox">
@@ -750,7 +770,7 @@
 				            </div>
 							<div style="width: 80%;margin-left: 10%;">
 								<div class="top35 pull-left pad-none" style="width:47%">
-									 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+									 <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width:47%"> 
 									<input type="submit" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
@@ -780,7 +800,7 @@
                      <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%"> 
-                    <input type="submit" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
+                    <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
                 </div>
                 <div class="clearfix"></div>
             </div>

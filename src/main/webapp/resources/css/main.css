@@ -6352,7 +6352,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 117% !important;
+   width: 100% !important;
 }
 .styled-select {
 /*    width: 240px;
@@ -6780,6 +6780,32 @@ tr.product-landing-error-wrap {
 	    font-size: 24px !important;
 	    color: #f68a1d;
 	}
+	
+	.bmg-big-title{
+	   color: #f68a1d !important;
+	}
+	
+	.bmg-membership-header{
+	   color: #f68a1d !important;
+	}
+	
+	.bmg-disclaimer-header{
+	   color: #f68a1d !important;
+	}
+}
+
+@media (min-width: 992px){
+    .bmg-label-styled-select{
+        width: 90%;
+    }
+}
+
+.bmg-disclaimer-header{
+   font-size: 20px !important;
+}
+
+.bmg-membership-header{
+   font-weight:bold;
 }
 
 .workingholiday-plan-margin{

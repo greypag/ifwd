@@ -306,10 +306,10 @@ function whDetailsValid(){
 	document.getElementById("whInsWorkingCty").innerHTML = "";
 	document.getElementById("whAppEmailAdd").innerHTML = "";
 	
-	document.getElementById("whInsRoom").innerHTML = "";
-	document.getElementById("whInsFloor").innerHTML = "";
-	document.getElementById("whInsBuilding").innerHTML = "";
-	document.getElementById("whInsEstate").innerHTML = "";
+//	document.getElementById("whInsRoom").innerHTML = "";
+//	document.getElementById("whInsFloor").innerHTML = "";
+//	document.getElementById("whInsBuilding").innerHTML = "";
+//	document.getElementById("whInsEstate").innerHTML = "";
 
 	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
