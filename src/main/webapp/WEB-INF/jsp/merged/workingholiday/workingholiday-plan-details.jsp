@@ -301,7 +301,7 @@
                                </div>
                                <!-- beneficiary end -->
                                <!-- personalbenificiaryId start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryId">
+                               <div class="form-group float hide" id="whbenificiaryId">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                        <label for="inputWhInsFullName" class="field-label bold-500">
                                         <fmt:message key="workingholiday.details.insured.beneficiary.name" bundle="${msg}" />
@@ -320,7 +320,7 @@
                                </div>
                                <!-- personalbenificiaryId end -->
                                <!-- personalbenificiaryId b start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryIdb">
+                               <div class="form-group float hide" id="whbenificiaryIdb">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md">
                                         <fmt:message key="workingholiday.details.insured.beneficiary.type" bundle="${msg}" />
@@ -527,6 +527,19 @@
                                            </div>
                                        </div>
                                        <!-- location start -->
+                                   </div>
+                               </div>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                       <label
+                                            for="inputWhInseffectiveDate" class="control-label bold-500 lhnormal"><fmt:message key="workingholiday.details.insured.beneficiary.effective" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                       <div class="input-group date" id="dpEffectiveDate"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                         <input name="whInseffectiveDate" type="text" class="datepicker form-control border-radius" id="inputWhInseffectiveDate" value="${workingHolidayPlanDetailsForm.getWhInseffectiveDate()}" readonly>
+                                       </div>
+                                       <span id="whInseffectiveDate" class="text-red"></span>
                                    </div>
                                </div>
                                

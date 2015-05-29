@@ -18,13 +18,25 @@ $(function () {
 		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
 	});
 	
+	// 18 year ago date
+	var dob_end_date = new Date();
+	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+	
+	// 86 year ago date
+	var dob_start_date = new Date();
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+	dob_start_date.setDate(dob_start_date.getDate()+1);
+	
 	var checkin = $('#dpWhAppDob').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() < wh_now;
 		},
-		autoclose: true,
 		todayHighlight: true,
+		startView: "decade",
+		autoclose: true,
 		format: "dd MM yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
 
 
 	}).on('changeDate', function (ev) {
