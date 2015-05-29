@@ -119,7 +119,14 @@ function activateUserAccountJoinUs() {
     		}    		
     		if (!validateEmail('inputEmailId','emailid')){
     			validateForm = false;	
-    		}    		
+    		}    
+    		var applicantDob = $("#applicantDob").val();
+    		if (applicantDob.trim() == "") {
+    			
+    			document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+    	        validateForm = false;	
+    	    
+    		}
         	if (!validateForm){
         		return;
         	}    		

@@ -81,6 +81,7 @@ class="image-order-status image-order-status-active  img-circle">
 <div class="gray-bg1-content">
 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
 
+
 <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>
 </div>
 <div class="col-lg-6 col-md-6">
@@ -335,6 +336,6 @@ data : $('#frmTravelPlan').serialize()
 }
 </script>
 
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
-<!--End of addthis -->

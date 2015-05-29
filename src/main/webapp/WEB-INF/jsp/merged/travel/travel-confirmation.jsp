@@ -205,7 +205,7 @@ perventRedirect=true;
                         <fmt:message key="travel.referral.copy" bundle="${msg}" />
                     </div>
 
-                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/" data-title="iFWD"></div>
+                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
                 </div>
               </div> 
               

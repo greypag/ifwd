@@ -151,6 +151,7 @@ public class WebServiceUtils {
 				desc = "Fiance";
 			else if (relationship.equals("FF"))
 				desc = "Fiancee";
+			
 			else if (relationship.equals("GP"))
 				desc = "Grand Parent";
 			else if (relationship.equals("GR"))
@@ -170,8 +171,6 @@ public class WebServiceUtils {
 				desc = "姊妹";
 			else if (relationship.equals("SP"))
 				desc = "配偶";
-			else if (relationship.equals("FM"))
-				desc = "未婚夫";			
 			else if (relationship.equals("GP"))
 				desc = "祖父母";
 			else if (relationship.equals("GR"))
@@ -179,9 +178,9 @@ public class WebServiceUtils {
 			else if (relationship.equals("SE"))
 				desc = "個人遺產";			
 			else if (relationship.equals("FM"))
-				desc = "未婚妻";
-			else if (relationship.equals("FF"))
 				desc = "未婚夫";
+			else if (relationship.equals("FF"))
+				desc = "未婚妻";
 			else
 				desc = relationship;
 		}
