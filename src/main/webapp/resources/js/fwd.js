@@ -2818,15 +2818,18 @@ function tPlanValid()
 	}
 	
 	
-    if(travelp_click)
-    	return false
-    else{
+    if(travelp_click){
+    	$('#loading-overlay').modal('hide');
+    	return false;
+    }else{
     	if(flag){
     		travelp_click = true;
     		$('#loading-overlay').modal({
 	           backdrop: 'static',
 	           keyboard: false
 	        })
+    	}else{
+    		$('#loading-overlay').modal('hide');
     	}
     	
     	return flag;
@@ -4085,15 +4088,20 @@ function hc_planValid() {
     	$('#inlineDeskRadio41').removeAttr('disabled');
     	$('#inlineDeskRadio51').removeAttr('disabled');
     }
-    if(home_click)
+    
+    
+    if(home_click){
+    	$('#loading-overlay').modal('hide');
     	return false;
-    else{
+    }else{
     	if(flag){
     		$('#loading-overlay').modal({
                 backdrop: 'static',
                 keyboard: false
              })
              home_click = true;
+    	}else{
+    		$('#loading-overlay').modal('hide');
     	}
     	return flag;
     }	

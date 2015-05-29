@@ -490,7 +490,6 @@ function activateUserAccountJoinUs() {
 	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
 	                    async : false,
 	                    success : function(data) {
-	                        
 	                        if (data == 'success') {
    	                            $(".error-hide").css("display", "none");
 	                        	$(".membership-wrap").css("display", "none"); 
@@ -503,6 +502,8 @@ function activateUserAccountJoinUs() {
 	                        	$('#frmYourDetails').submit();
 	                            return;                            
 	                        } else {
+	                        	$('#loading-overlay').modal('hide');
+	                        	
 	                            $("#link-error").click();
   	                            $(".error-hide").css("display", "block");
   	                            $('#loading-overlay').modal('hide');

@@ -2179,6 +2179,8 @@ function createFlightFnc(form)
             backdrop: 'static',
             keyboard: false
          })
+    }else{
+    	$('#loading-overlay').modal('hide');
     }
     return flag;
 }

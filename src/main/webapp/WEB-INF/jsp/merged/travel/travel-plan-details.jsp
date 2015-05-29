@@ -145,11 +145,10 @@ function activateUserAccountJoinUs() {
   	        userName = document.getElementById("Username").value;
   	        email = document.getElementById("inputEmailId").value;
   	    
-  	        $('#loading-overlay').modal({
-  	            backdrop: 'static',
-  	            keyboard: false
-  	         })
-  	        
+  	      $('#loading-overlay').modal({
+              backdrop: 'static',
+              keyboard: false
+           })
   	        
   	       $.ajax({
   	                   type : 'POST',
@@ -159,6 +158,7 @@ function activateUserAccountJoinUs() {
   	                    success : function(data) {
   	                        
   	                        if (data == 'success') {
+  	                        	
   	                            $(".membership-wrap").css("display", "none"); 
   	                            document.getElementById("Username").value = "";
   	                            document.getElementById("Password").value = "";
@@ -166,9 +166,11 @@ function activateUserAccountJoinUs() {
   	                            
   	                            $("#link-error").click();
   	                            perventRedirect=false;
-  	                             $('#frmYourDetails').submit()
+  	                             $('#frmYourDetails').submit();
   	                            return;                            
   	                        } else {
+  	                        	$('#loading-overlay').modal('hide');
+  	                        	
      	                            $("#link-error").click();
      	                            $(".error-hide").css("display", "block");
      	                            $('#loading-overlay').modal('hide');
