@@ -505,6 +505,25 @@
 						target="_blank"><fmt:message key="flight.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.quote.other.disclaimer.part3" bundle="${msg}" /> <br>
                         <fmt:message key="flight.quote.other.disclaimer.part4" bundle="${msg}" />
 					</p>
+					
+					<!--mob-#bottom-->					
+					<div class="col-xs-12 hidden-md hidden-lg pad-none">
+					   <div style="margin-bottom: 40px;">
+					        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <!-- <a href="${pageContext.request.contextPath}/${language}/flight-insurance" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn">
+	                                <fmt:message key="flight.details.action.back" bundle="${msg}" /> 
+	                            </a> -->
+	                            
+	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+	                            <input type="submit"
+	                                class="bdr-curve-none btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	                        </div>
+					        <div class="clearfix"></div>
+					    </div>
+					</div>
+					<!--/mob-#bottom-->
 			</form>
 		</div>
 		<!--/.row-->
@@ -513,18 +532,6 @@
 </section>
 
 <!--/end- Main Content-->
-
-
-<!--mob-#bottom-->
-<div class="hidden-lg hidden-md text-center">
-	<div class="form-container">
-		<h3 class="text-center marg-t">
-			<a href="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" class="bdr-curve-none btn btn-primary btn-lg btn-block"><fmt:message key="flight.quote.action.next" bundle="${msg}" /></a>
-		</h3>
-	</div>
-
-</div>
-<!--/mob-#bottom-->
 
 
 <!--Get promotion code popup-->

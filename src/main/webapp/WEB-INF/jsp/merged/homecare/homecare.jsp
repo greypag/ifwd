@@ -692,6 +692,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 		</a> <a class="next" href="#testimonials-mob" data-slide="next"> <i
 			class="fa fa-chevron-right"></i>
 		</a>
+		<P class="p1" style="padding:20px;">
+                    <br> <fmt:message key="home.main.testimonial.disclaimer" bundle="${msg}" />
+                </P>
 	</section>
 	<!--/#testiomonials mob-->
 

@@ -763,7 +763,10 @@ $(document).ready(function() {
     <!--/.carousel-inner--> 
   </div>
   <!--/.carousel--> 
-  <a class="prev" href="#testimonials-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#testimonials-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
+  <a class="prev" href="#testimonials-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#testimonials-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+  <p class="p1" style="padding:20px;"><br>
+      <fmt:message key="travel.main.testimonial.disclaimer" bundle="${msg}" /></p>
+  </section>
 <!--/#testiomonials mob-->
 
 <section class="blog-item hidden-sm hidden-xs">

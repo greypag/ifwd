@@ -571,6 +571,89 @@ $(document).ready(function() {
           <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
       </div>
       <div class="clearfix"></div>
+      
+      <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+          <h2 style="text-align: center;"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
+          <div class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc1" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc2" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc3" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc4" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc5" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+            </div>
+            <!--/.carousel-inner--> 
+          </div>
+          <!--/.carousel--> 
+          <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+          <div class="clearfix"></div>
+        <!--/.container-->
+        </div>
     </div>
     
     <!--/.row--> 
