@@ -351,6 +351,29 @@
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
 <!--End of addthis -->
 
+<script type=text/javascript>
+   var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
+   document.write('<scr'+'ipt src="', hostProtocol+
+   '://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
+</script>
+<script type=text/javascript>
+   var params = new Array();
+   params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
+   params[1]='type=Registration';
+   params[2]='val=0.0';
+   params[3]='orderId=';
+   params[4]='promoCode=';
+   params[5]='valueCurrency=HKD';
+   params[6]='GCID='; //For Live Tracking only
+   params[7]='kw='; //For Live Tracking only
+   params[8]='product='; //For Live Tracking only
+   k_trackevent(params,'5198');
+</script>
+
+<noscript>
+   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+</noscript>
+
 </body>
 
 </html>
