@@ -1978,7 +1978,7 @@ function activateUserAccountJoinUs() {
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planSummary}</h3>
                     <input type="hidden" name="finalDueAmount" value="${planSummary}">
             
-            </div>
+            
             
             <!--mob-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
@@ -1992,13 +1992,27 @@ function activateUserAccountJoinUs() {
 <div class="clearfix"></div>
 <br>
 </div>
+</div>
 <div class="clearfix"></div>
 </div>
-<p class="padding1 hidden-sm hidden-xs"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
+<p class="padding1 "><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
 <a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
 <fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
 <fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" /><br>
 <fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
+
+<div class="col-xs-12 hidden-md hidden-lg pad-none">
+   <div style="width: 80%;margin-left: 10%;  margin-bottom: 50px;">
+        <div class="top35 pull-left pad-none" style="width:47%">
+            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+        </div>
+        <div class="top35 pull-right pad-none" style="width:47%">
+            <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
 </form:form>
 </div>
 <!--/.row-->

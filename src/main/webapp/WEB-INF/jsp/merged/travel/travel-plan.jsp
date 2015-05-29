@@ -77,12 +77,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		return flag;
 	}
-	function chkDueAmount() {		
+	function chkDueAmount() {	
+		$(".errDue").html('');
 		var flag = false;
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
-			document.getElementById("errDue").innerHTML = "<fmt:message key="travel.plan.empty" bundle="${msg}" />";
+			$(".errDue").html("<fmt:message key="travel.plan.empty" bundle="${msg}" />") ;
 			flag = false;
 		} else {
 			if ($("#promoCode").val()==promoCodePlaceholder) {
@@ -1193,7 +1194,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 					<div
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
-						<div class="col-xs-12 hidden-sm hidden-xs">
+						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left">
 									<h2 class="h2-3-choose"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
@@ -1439,35 +1440,50 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="">
 						<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
 					</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<!-- <a href="<%=request.getContextPath()%>/${language}/travel-insurance"
-								class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="travel.action.back" bundle="${msg}" /> </a> -->
-								
-							<a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-								<fmt:message key="travel.action.next" bundle="${msg}" /></button>
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-xs-12"><span class="text-red" id="errDue"></span></div>
-						<br>
-					</div>
-					<div class="clearfix"></div>
-					<span id="divPersonsDesk"></span>
-                    <span id="lblDaysDesk" style="display: none"></span>
-                    <div id="quote-wrap" class="clearfix"></div>
+						<div class="hidden-sm hidden-xs">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+								<!-- <a href="<%=request.getContextPath()%>/${language}/travel-insurance"
+									class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="travel.action.back" bundle="${msg}" /> </a> -->
+									
+								<a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+								<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+									<fmt:message key="travel.action.next" bundle="${msg}" /></button>
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-xs-12"><span class="text-red errDue"></span></div>
+							<br>
+							<div class="clearfix"></div>
+							<span id="divPersonsDesk"></span>
+		                    <span id="lblDaysDesk" style="display: none"></span>
+		                    <div id="quote-wrap" class="clearfix"></div>
+	                    </div>
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
-		<p class="padding1 hidden-sm hidden-xs">
+		<p class="padding1">
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /> <fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
+		
+		<div class="col-xs-12 hidden-md hidden-lg pad-none">
+		   <div style="width: 80%;margin-left: 10%; margin-bottom: 50px;">
+		        <div class="top35 pull-left pad-none" style="width:47%">
+		            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+		        </div>
+		        <div class="top35 pull-right pad-none" style="width:47%">
+		            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+                                <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+		        </div>
+		        <div class="clearfix"></div>
+		        <br> <span class="text-red errDue"></span> <br>
+		    </div>
+		</div>
 
 		</form:form>
 		

@@ -201,7 +201,7 @@ function checkPromoCodePlaceholder(){
 	<section>
 		<div id="cn" class="container">
 			<div class="row">
-
+                <form:form name="frmHomeCarePlan" id="frmHomeCarePlan" action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post" onsubmit="return checkPromoCodePlaceholder();" modelAttribute="planQuoteDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -700,11 +700,9 @@ function checkPromoCodePlaceholder(){
 
 
 					</div>
-					<div
-						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
-						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
-							action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post" onsubmit="return checkPromoCodePlaceholder();"
-							modelAttribute="planQuoteDetails">
+					
+					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
+						
 							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
 									<h2 class="h2-3-choose pad-none"><fmt:message key="home.sidebar.summary.product" bundle="${msg}" />
@@ -807,7 +805,7 @@ function checkPromoCodePlaceholder(){
 									<fmt:message key="home.action.next" bundle="${msg}" />
 								</button>
 							</div> -->
-							
+							<div class="hidden-sm hidden-xs">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance"
 	                                class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.back" bundle="${msg}" /> 
@@ -824,11 +822,11 @@ function checkPromoCodePlaceholder(){
 							<div class="clearfix"></div>
 							<br>
 							<br>
-						</form:form>
+							</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<p class="padding1 hidden-sm hidden-xs">
+				<p class="padding1">
 					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" /> <a
 						class="sub-link"
 						href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
@@ -837,7 +835,20 @@ function checkPromoCodePlaceholder(){
 						<fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
 						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
 				</p>
-
+				
+				<div class="col-xs-12 hidden-md hidden-lg pad-none">
+		           <div style="width: 80%;margin-left: 10%; margin-bottom: 50px;">
+		                <div class="top35 pull-left pad-none" style="width:47%">
+		                    <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+		                </div>
+		                <div class="top35 pull-right pad-none" style="width:47%">
+		                    <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+                                    <fmt:message key="home.action.next" bundle="${msg}" /></button>
+		                </div>
+		                <div class="clearfix"></div>
+		            </div>
+		        </div>
+                </form:form>
 			</div>
 			<!--/.row-->
 		</div>

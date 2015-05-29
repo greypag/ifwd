@@ -1680,7 +1680,6 @@ function activateUserAccountJoinUs() {
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
 									</h3>
-							</div>
 							<input type="hidden" name="totalDue"
 								value="${ homeQuoteDetails.getTotalDue()}"> <input
 								type="hidden" name="planCode"
@@ -1702,6 +1701,7 @@ function activateUserAccountJoinUs() {
 
 							<div class="clearfix"></div>
 							<br>
+							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -1713,6 +1713,20 @@ function activateUserAccountJoinUs() {
 							<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> 
 							<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 					</p>
+					
+					<div class="col-xs-12 hidden-md hidden-lg pad-none">
+	                   <div style="width: 80%;margin-left: 10%;  margin-bottom: 50px;">
+	                        <div class="top35 pull-left pad-none" style="width:47%">
+	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+	                        </div>
+	                        <div class="top35 pull-right pad-none" style="width:47%">
+	                            <input type="button" onclick="return activateUserAccountJoinUs();"
+	                                class="bdr-curve btn btn-primary nxt-btn"
+	                                value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	                        </div>
+	                        <div class="clearfix"></div>
+	                    </div>
+	                </div>
 				</form:form>
 			</div>
 			<!--/.row-->

@@ -499,7 +499,7 @@
 					<div id="quote-wrap" class="clearfix"></div>
 				</div>
 				
-				<p class="padding1 hidden-sm hidden-xs">
+				<p class="padding1">
 				<fmt:message key="flight.quote.other.disclaimer.part1" bundle="${msg}" /> <a class="sub-link"
 						href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
 						target="_blank"><fmt:message key="flight.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.quote.other.disclaimer.part3" bundle="${msg}" /> <br>
@@ -518,7 +518,7 @@
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 	                            <input type="submit"
-	                                class="bdr-curve-none btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	                                class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 	                        </div>
 					        <div class="clearfix"></div>
 					    </div>
