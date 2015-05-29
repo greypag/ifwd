@@ -359,7 +359,7 @@
 										<input type="hidden" value="${userDetails.getReferralLink()}"
 										name="box-content" id="box-content"> --%>
 										
-										<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home?promo=<%=session.getAttribute("myReferralCode")%>
+										<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home?promo=<%=session.getAttribute("myReferralCode")%>
 										
 										
 									</td>

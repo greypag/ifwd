@@ -61,7 +61,7 @@ public class TravelController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance"})
+	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance", "/{lang}/travel-insurance/sharing/"})
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
 			@RequestParam(required = false) final String utm_source,
 			@RequestParam(required = false) final String utm_medium,
@@ -77,6 +77,11 @@ public class TravelController {
 		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
 		
 		HttpSession session = request.getSession();
+//		if (promo != null) {
+//			if (!promo.equals("")) {
+//				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+//			}	
+//		}
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		System.out.println("travel promo " + (String)session.getAttribute("referralCode"));
 		TravelQuoteBean travelQuote;
@@ -247,12 +252,17 @@ public class TravelController {
 			travelQuoteCount.setTotalOtherTraveller(otherCount);
 			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
+			
+			String promoCode = (String) session.getAttribute("referralCode");
+			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
+			
+			
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput="
 					+ otherCount + "&commencementDate="
 					+ commencementDate + "&expiryDate=" + expiryDate
-					+ "&referralCode=" + (String) session.getAttribute("referralCode");
+					+ "&referralCode=" + promoCode;
 
 			System.out.println("Travel Quote user " + Url);
 
@@ -472,12 +482,16 @@ public class TravelController {
 			travelQuoteCount.setTotalOtherTraveller(otherCount);
 			session.setAttribute("travelQuoteCount", travelQuoteCount);
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
+			
+			
+			String promoCode = (String) session.getAttribute("referralCode");
+			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput="
 					+ otherCount + "&commencementDate="
 					+ commencementDate + "&expiryDate=" + expiryDate
-					+ "&referralCode=" + (String) session.getAttribute("referralCode");
+					+ "&referralCode=" + promoCode;
 
 			System.out.println("Travel Quote user " + Url);
 
@@ -614,11 +628,13 @@ public class TravelController {
 		
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
+			String promoCode = request.getParameter("promoCode");
+			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
 			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&referralCode=" + request.getParameter("promoCode");
+					+ expiryDate + "&referralCode=" + promoCode;
 
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc"))

@@ -78,9 +78,12 @@ public class HomeCareController {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
 		String token = null, username = null;
+//		if (promo != null) {
+//			if (!promo.equals("")) {
+//				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+//			}
+//		}
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-		System.out.println("homecare promo " + (String)session.getAttribute("referralCode"));
-		
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());
 		Format f = new SimpleDateFormat("dd-MMMM-yyyy");

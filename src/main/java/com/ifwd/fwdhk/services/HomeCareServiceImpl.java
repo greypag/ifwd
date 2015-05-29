@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.services;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -118,6 +119,17 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
 		RestServiceDao restService = new RestServiceImpl();
+		
+		try {
+			userReferralCode = java.net.URLEncoder.encode(userReferralCode, "UTF-8").replace("+", "%20");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			userReferralCode = "";
+			e.printStackTrace();
+		}
+		
+		
+		
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="
@@ -198,6 +210,15 @@ public class HomeCareServiceImpl implements HomeCareService {
 			ans2 = "N";
 		}
 		RestServiceDao restService = new RestServiceImpl();
+		try {
+			userReferralCode = java.net.URLEncoder.encode(userReferralCode, "UTF-8").replace("+", "%20");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			userReferralCode = "";
+			e.printStackTrace();
+		}
+		
+		
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="

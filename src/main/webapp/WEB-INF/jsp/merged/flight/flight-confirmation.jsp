@@ -81,6 +81,7 @@ class="image-order-status image-order-status-active  img-circle">
 <div class="gray-bg1-content">
 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
 
+
 <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>
 </div>
 <div class="col-lg-6 col-md-6">
@@ -335,8 +336,10 @@ data : $('#frmTravelPlan').serialize()
 }
 </script>
 
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+
 <!--End of addthis -->
 
 <script type=text/javascript>
@@ -361,3 +364,4 @@ data : $('#frmTravelPlan').serialize()
 <noscript>
    <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
 </noscript>
+

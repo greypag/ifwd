@@ -2232,7 +2232,7 @@ function tPlanValid()
 
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365)); 
+		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26)); 
 		 if (age == 1) {
 			 if ( difference > 18) {
 				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
@@ -3304,6 +3304,7 @@ function validateJoinUsForm() {
 		}
 	}
 	var reg_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
+	
 	// UserName Validation
 	if (userName.trim() == "") {
 		document.getElementById("errorEmptyUName").innerHTML = getBundle(getBundleLanguage, "memeber.username.notNull.message"); // "Please enter your Username.";
@@ -3315,6 +3316,7 @@ function validateJoinUsForm() {
 			document.getElementById("errorEmptyUName").innerHTML= getBundle(getBundleLanguage, "memeber.username.notValidLength.message"); // "Username must be between 6 and 50 characters.";
 			valid = false;
 		}
+		
 	}
 
 	// validation for Passsword
@@ -4680,8 +4682,13 @@ function loadBundles(lang, key, fn) {
 
 ///////////////
 
+function isAccountNumeric(num){
+    return !isNaN(num)
+}
+
 function isValidUsername(el){
 	var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
+	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
 		return getBundle(getBundleLanguage, "user.username.notValid.message");
 		
@@ -4689,7 +4696,9 @@ function isValidUsername(el){
 
 	} else if (!plan_user.test(el)) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
-	}
+	} else if (isAccountNumeric(el)) {
+		return getBundle(getBundleLanguage, "user.username.length.message");
+	} 
 	else{
 		return true;
 	}
