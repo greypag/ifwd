@@ -648,9 +648,8 @@ function activateUserAccountJoinUs() {
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInvalidInsuHkid${inx}',false,'insured');"/> 
-                                                    <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
-                                                    <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"/> 
+                                                    <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- id card end -->
@@ -987,9 +986,8 @@ function activateUserAccountJoinUs() {
                                                <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInvalidInsuHkid${inx}',false,'insured');"/> 
-                                                    <span id="errtxtInsuHkid${inx}" class="text-red"> </span> 
-                                                    <span id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"/> 
+                                                    <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- id card end -->

@@ -959,10 +959,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     id="txtInsuHkid${inx}" name="adultHKID"
                                                     class="form-control textUpper full-control bmg_custom_placeholder"
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');"
-													onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdultHkidPass${inx}','errtxtInvalidInsuHkid${inx}',false,'insured');"
+													onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdultHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')"/> <span id="errtxtInsuHkid${inx}"
-                                                    class="text-red"> </span> <span
-                                                    id="errtxtInvalidInsuHkid${inx}" class="text-red"> </span>
+                                                    class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- id card end -->

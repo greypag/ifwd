@@ -1032,7 +1032,6 @@ function fPlanValid()
 		}
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
 		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-		document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		if (hkid.trim() == "") {
 			document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
 			flag = false;
@@ -2281,7 +2280,6 @@ function tPlanValid()
 		}
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
 		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
-		document.getElementById("errtxtInvalidInsuHkid" + i).innerHTML = "";
 		
 		
 		var selectedPersonalHkidPass = document.getElementById("selectedPersonalHkidPass" + i).value;

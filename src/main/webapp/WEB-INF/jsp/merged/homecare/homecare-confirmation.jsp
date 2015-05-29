@@ -276,7 +276,7 @@
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div><fmt:message key="home.confirmation.partnerDesc" bundle="${msg}" /></div>
-								<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="">
+								<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="">
 							</div>
 							<div class="clearfix"></div>
 							<br>
