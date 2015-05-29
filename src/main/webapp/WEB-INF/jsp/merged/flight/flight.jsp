@@ -630,7 +630,7 @@ $(document).ready(function() {
                   <div class="slide-margin">
                     <div class="other-benefits-wrap text-center">
                       <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /></p>
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
                       </div>
                     </div>
                   </div>

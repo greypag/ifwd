@@ -1714,7 +1714,7 @@ function activateUserAccountJoinUs() {
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<p class="padding1 hidden-sm hidden-xs">
+					<p class="padding1">
 						<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a
 							class="sub-link"
 							href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
