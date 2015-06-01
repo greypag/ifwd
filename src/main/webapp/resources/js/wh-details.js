@@ -24,7 +24,7 @@ $(function () {
 	
 	// 86 year ago date
 	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-31);
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
 	var checkin = $('#dpWhAppDob').datepicker({
