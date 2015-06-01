@@ -169,10 +169,106 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                             </div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.amountDue" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head" style="color: #f68a1d !important;"><fmt:message key="workingholiday.summary.amountDue" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
-                                                <span
-                                            class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.dollar" bundle="${msg}" /> ${dueAmount} </span>
+                                                <span class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.dollar" bundle="${msg}" /> ${dueAmount} </span>
+                                            </div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="hidden-xs hidden-sm col-md-12 col-lg-12 pad-none">
+                                            <!-- Plan benefits -->
+                                                <div class="fwdpanel summary-fwdpanel">
+                                                    <c:if test="${selectPlanName=='A'}">
+                                                        <div class="fwdpanel-heading">
+                                                            <h4 class="benefits">
+                                                                <span>
+                                                                    <a href="#" class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.plan1.benefits" bundle="${msg}" /></a>
+                                                                </span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="fwdpanel-body" style="display: none;">
+                                                        <div class="col-xs-11 col-xs-offset-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan1.benefits.desc1.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc2" bundle="${msg}" />
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan1.benefits.desc2.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div> 
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan1.benefits.desc3.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan1.benefits.desc4.price" bundle="${msg}" />
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </c:if>
+                                                    <c:if test="${selectPlanName=='B'}">
+                                                        <div class="fwdpanel-heading">
+                                                            <h4 class=" benefits">
+                                                                <span>
+                                                                  <a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.plan2.benefits" bundle="${msg}" /></a>
+                                                                </span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="fwdpanel-body" style="display: none;">
+                                                        <div class="col-xs-11 col-xs-offset-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan2.benefits.desc1.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc2" bundle="${msg}" />
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan2.benefits.desc2.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div> 
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan2.benefits.desc3.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
+                                                        <div class="col-lg-4 col-md-4 col-xs-5">
+                                                            <fmt:message key="workingholiday.quote.plan2.benefits.desc4.price" bundle="${msg}" />
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </c:if>
+                                                    
+                                                    
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            <!-- / Plan benefits -->
                                             </div>
                                         </div>
                                     </div>
@@ -570,12 +666,12 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                     <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
                                 </a> -->
                                 
-                                <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
+                                <a href="#" onclick="BackMe();"
                                     class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" />  </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
                                 <input type="submit"
-                                    class="bdr-curve-none btn btn-primary nxt-btn"
+                                    class="bdr-curve btn btn-primary nxt-btn"
                                     value="<fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
                             </div>
                         </div>

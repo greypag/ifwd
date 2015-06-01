@@ -6866,4 +6866,30 @@ tr.product-landing-error-wrap {
     font-weight: bold;
 }
 
+.bmg-confirmation-h3{
+	color: #061d2a;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 1.4;
+	margin-bottom: 0;
+}
+
+.bmg-confirmation-h4{
+	color: #f6871e;
+	padding-top: 15px;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 24px;
+}
+
+.bmg-confirmation-h5{
+	color: #f6871e;
+	padding-top: 15px;
+	padding-bottom: 0px;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 24px;
+}
 /** bmg working holiday end **/
