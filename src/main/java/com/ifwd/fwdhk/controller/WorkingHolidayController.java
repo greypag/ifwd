@@ -542,7 +542,7 @@ public class WorkingHolidayController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan-details");
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	@RequestMapping(value = "/wh-summary", method=RequestMethod.POST)
 	@ResponseBody
 	public String prepareSummary(@RequestBody  WorkingHolidayDetailsBean planDetailsForm, HttpServletRequest request,
@@ -668,12 +668,12 @@ public class WorkingHolidayController {
 			session.setAttribute("whCreatePolicy", createPolicy);
 		}
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+		session.setAttribute("policyNo", createPolicy.getPolicyNo());
 		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
 		
 		return "success";
 	}
 	
-	@SuppressWarnings({ "deprecation" })
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
 	public ModelAndView prepareSummary(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
