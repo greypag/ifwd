@@ -182,7 +182,8 @@
                                         class="form-control numberinput textUpper full-control bmg_custom_placeholder" 
                                         id="inputWhAppHKID" value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" 
                                         onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
-                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)">
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
+                                        chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)" value="${workingHolidayPlanDetailsForm.getWhAppHKID()}">
                                         <span id="whAppHKID" class="text-red"></span>
                                    </div>
                                </div>
@@ -310,7 +311,7 @@
 	                                   </div>
 	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 	                                       <input type="text"
-	                                                name="whInsFullName"
+	                                                name="whInsFullName" value="${workingHolidayPlanDetailsForm.getWhInsFullName()}"
 	                                                id="inputWhInsFullName" value=""
 	                                                class="form-control full-control " 
 	                                                onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
@@ -415,19 +416,22 @@
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
+                                                id="inputWhInsRoom" name="whInsRoom" value="${workingHolidayPlanDetailsForm.getWhInsRoom()" 
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsFloor" name="whInsFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
+                                                id="inputWhInsFloor" name="whInsFloor" value="${workingHolidayPlanDetailsForm.getWhInsFloor()}" 
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"     
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsBlock" name="whInsBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
+                                                id="inputWhInsBlock" name="whInsBlock" value="${workingHolidayPlanDetailsForm.getWhInsBlock()}" 
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
@@ -437,7 +441,7 @@
                                        <div class="row form-group">
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsBuilding" name="whInsBuilding"
+                                                id="inputWhInsBuilding" name="whInsBuilding" value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'whInsBuilding');"
@@ -448,7 +452,7 @@
                                         <div class="row form-group">
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsEstate" name="whInsEstate"
+                                                id="inputWhInsEstate" name="whInsEstate" value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'whInsEstate');"
@@ -461,7 +465,7 @@
                                        <div class="row form-group">
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                            id="inputWhInsStreetNo" name="whInsStreetNo"
+                                            id="inputWhInsStreetNo" name="whInsStreetNo" value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -471,7 +475,7 @@
                                         <div class="row form-group">
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsStreetName" name="whInsStreetName"
+                                                id="inputWhInsStreetName" name="whInsStreetName" value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
@@ -490,13 +494,20 @@
                                                     List lst = (List) request.getAttribute("districtList");
                                                         Iterator itr = lst.iterator();
                                                         int i = 1;
+                                                        String dis = request.getSession().getAttribute("workingHolidayPlanDetailsForm") != null ? ((WorkingHolidayDetailsBean)request.getSession().getAttribute("workingHolidayPlanDetailsForm")).getWhInsDistrict() : "";
                                                         while (itr.hasNext()) {
                                                             DistrictBean districtList = (DistrictBean) itr.next();
-                                                %>
-                                                <option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
-                                                <%
-                                                    }
-                                                %>
+                                                if(dis != null && dis.equals(districtList.getCode())) {
+												%>
+												<option selected value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+												<%
+															}else {
+												%>
+												<option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+												<%				
+															}
+														}
+												%>
                                         </select></div>
                                             <div class="hidden">
                                                 <select name="applicantDistrictHid"
