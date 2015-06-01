@@ -104,6 +104,11 @@ function activateUserAccountJoinUs() {
     	$('#frmYourDetails').submit()
     }else{
     	if(name != "" && password != "" && password2 != ""){
+    		$('#chk1').html('');
+    	    $('#chk2').html('');
+    	    
+    	    $('#dobInvalid').html('');
+    	    
     		validateForm = true;
     		if (!checkMembership("Username")){
     			validateForm = false;	

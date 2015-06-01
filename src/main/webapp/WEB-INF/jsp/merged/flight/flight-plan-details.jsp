@@ -92,11 +92,18 @@ function activateUserAccountJoinUs() {
     $("#UsernameError").text("");
     $("#PasswordError").text("");
     $("#Confirm-PasswordError").text("");
+    
             
     if(name == "" && password == "" && password2 == ""){
         $('#freeFlightForm').submit()
     }else{
+    	
     	if(name != "" && password != "" && password2 != ""){
+    		$('#chk1').html('');
+            $('#chk2').html('');
+            
+            $('#dobInvalid').html('');
+    		
     		validateForm = true;
     		if (!checkMembership("Username")){
     			validateForm = false;	
@@ -126,6 +133,7 @@ function activateUserAccountJoinUs() {
         	if (!validateForm){
         		return;
         	}
+        	
         	
     		optIn1 = "false"
    	        optIn2 = "false"
@@ -2142,7 +2150,7 @@ return false;
 var flight_click = false;
 
 function createFlightFnc(form) 
-{   
+{   	
     var flag = false;
     
     if (fPlanValid() && !flight_click )
