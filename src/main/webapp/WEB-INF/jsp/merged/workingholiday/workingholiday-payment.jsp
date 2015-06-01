@@ -20,21 +20,22 @@ var clicked = false;
  			
  			var geteWayUrl = $(gatewayUrlId).val();
  			
- 			form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance/confirmation';
+ 			<%-- form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance/confirmation'; --%>
  			
- 			/* $.ajax({
+ 			$.ajax({
  						type : "POST",
  						url : method,
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
+ 							data = 'success';
  							if (data == 'success') {
  								form.action = geteWayUrl;
  							} else {
  								console.log("fail to process payment " + data);
  							}
  						}
- 					}); */
+ 					});
  			return true;
  		}else return false;
 	}
