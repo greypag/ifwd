@@ -17,6 +17,7 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		$(".hidden-sm .form-container .topten").html($('#inputWhInseffectiveDate').val())
 		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
+		$('#whInseffectiveDate').html('');
 	});
 	
 	// 18 year ago date
@@ -27,7 +28,7 @@ $(function () {
 	var dob_start_date = new Date();
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
-	
+		
 	var checkin = $('#dpWhAppDob').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() < wh_now;
@@ -42,6 +43,7 @@ $(function () {
 
 	}).on('changeDate', function (ev) {
 		setAtt("WhAppDob", $('#inputWhAppDob').val())
+		$('#whAppDob').html('');
 	});
 	
 	/*$("#inputWhAppFullName").keyup(function() {
