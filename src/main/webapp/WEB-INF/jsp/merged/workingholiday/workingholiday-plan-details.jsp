@@ -18,11 +18,6 @@
 				.getAttribute("authenticate").toString();
 	}
 		
-	QuoteDetails travelQuote = null;
-		if (travelQuote == null) {
-			//System.out.println("travelQuote is null 2");
-			travelQuote = (QuoteDetails) session.getAttribute("tq");
-		}
 
 %>
 
@@ -316,15 +311,15 @@ function activateUserAccountJoinUs() {
                                 <!-- english name start -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                      <label for="inputWhAppFullName" class="field-label bold-500">
+                                      <label for="inputFullName" class="field-label bold-500">
                                         <fmt:message key="workingholiday.details.applicant.name" bundle="${msg}" />
                                         </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input type="text"
-                                            class="form-control full-control" id="inputWhAppFullName" name="whAppFullName"
-                                            value="${workingHolidayPlanDetailsForm.getWhAppFullName()}"
-                                            onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputWhAppFullName');"
+                                            class="form-control full-control" id="inputFullName" name="whAppFullName"
+                                            value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppFullName() != '') ? workingHolidayPlanDetailsForm.getWhAppFullName() : userDetails.getFullName()}"
+                                            onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
                                             onkeypress=" return alphaOnly(event);" maxlength="100" />
                                             <span id="whAppFullName" class="text-red"></span>
                                    </div>
@@ -355,7 +350,8 @@ function activateUserAccountJoinUs() {
                                         class="form-control numberinput textUpper full-control bmg_custom_placeholder" 
                                         id="inputWhAppHKID" value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" 
                                         onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
-                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)">
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
+                                        chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)" value="${workingHolidayPlanDetailsForm.getWhAppHKID()}">
                                         <span id="whAppHKID" class="text-red"></span>
                                    </div>
                                </div>
@@ -378,14 +374,14 @@ function activateUserAccountJoinUs() {
                                <!-- mobile starts -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputWhAppMobileNO" class="field-label bold-500">
+                                       <label for="inputMobileNo" class="field-label bold-500">
                                            <fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" />
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input type="text"
-                                            class="form-control full-control" id="inputWhAppMobileNO" name="whAppMobileNO"
-                                            value="${workingHolidayPlanDetailsForm.getWhAppMobileNO()}"
+                                            class="form-control full-control" id="inputMobileNo" name="whAppMobileNO"
+                                            value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppMobileNO() != '') ? workingHolidayPlanDetailsForm.getWhAppMobileNO() : userDetails.getMobileNo()}"
                                             onkeypress="return isNumeric(event)"
                                             onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');" maxlength="8" /> <span
                                             id="whAppMobileNO" class="text-red"></span>
@@ -395,21 +391,21 @@ function activateUserAccountJoinUs() {
                                <!-- email address starts -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputWhAppEmailAdd" class="field-label bold-500">
+                                       <label for="inputEmailId" class="field-label bold-500">
                                            <fmt:message key="workingholiday.details.applicant.email" bundle="${msg}" />
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input class="form-control full-control"
-                                            id="inputWhAppEmailAdd" name="whAppEmailAdd"
-                                            value="${workingHolidayPlanDetailsForm.getWhAppEmailAdd()}"
+                                            id="inputEmailId" name="whAppEmailAdd"
+                                            value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppEmailAdd() != '') ? workingHolidayPlanDetailsForm.getWhAppEmailAdd() : userDetails.getEmailAddress()}"
                                             onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');" maxlength="50"> <span
                                             id="whAppEmailAdd" class="text-red"> </span>
                                    </div>
                                </div>
                                <!-- email address ends -->
                                
-                               <div class="form-group float">
+                               <%-- <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                        <label for="whInsAgeRange" class="field-label bold-500">
                                            <fmt:message key="workingholiday.details.insured.beneficiary.age" bundle="${msg}" />
@@ -439,7 +435,7 @@ function activateUserAccountJoinUs() {
                                         </div>
                                         <span id="whInsAgeRange" class="text-red"></span>
                                    </div>
-                               </div>
+                               </div> --%>
                                
                                <!-- beneficiary start -->
                                <div class="form-group float">
@@ -483,7 +479,7 @@ function activateUserAccountJoinUs() {
 	                                   </div>
 	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 	                                       <input type="text"
-	                                                name="whInsFullName"
+	                                                name="whInsFullName" value="${workingHolidayPlanDetailsForm.getWhInsFullName()}"
 	                                                id="inputWhInsFullName" value=""
 	                                                class="form-control full-control " 
 	                                                onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
@@ -588,19 +584,22 @@ function activateUserAccountJoinUs() {
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsRoom" name="whInsRoom" placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
+                                                id="inputWhInsRoom" name="whInsRoom" value="${workingHolidayPlanDetailsForm.getWhInsRoom()}" 
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsFloor" name="whInsFloor" placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
+                                                id="inputWhInsFloor" name="whInsFloor" value="${workingHolidayPlanDetailsForm.getWhInsFloor()}" 
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"     
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsBlock" name="whInsBlock" placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
+                                                id="inputWhInsBlock" name="whInsBlock" value="${workingHolidayPlanDetailsForm.getWhInsBlock()}" 
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
@@ -610,7 +609,7 @@ function activateUserAccountJoinUs() {
                                        <div class="row form-group">
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsBuilding" name="whInsBuilding"
+                                                id="inputWhInsBuilding" name="whInsBuilding" value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'whInsBuilding');"
@@ -621,7 +620,7 @@ function activateUserAccountJoinUs() {
                                         <div class="row form-group">
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsEstate" name="whInsEstate"
+                                                id="inputWhInsEstate" name="whInsEstate" value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'whInsEstate');"
@@ -634,7 +633,7 @@ function activateUserAccountJoinUs() {
                                        <div class="row form-group">
                                            <div class="col-xs-12">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                            id="inputWhInsStreetNo" name="whInsStreetNo"
+                                            id="inputWhInsStreetNo" name="whInsStreetNo" value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -644,7 +643,7 @@ function activateUserAccountJoinUs() {
                                         <div class="row form-group">
                                            <div class="col-xs-12">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsStreetName" name="whInsStreetName"
+                                                id="inputWhInsStreetName" name="whInsStreetName" value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
@@ -663,13 +662,20 @@ function activateUserAccountJoinUs() {
                                                     List lst = (List) request.getAttribute("districtList");
                                                         Iterator itr = lst.iterator();
                                                         int i = 1;
+                                                        String dis = request.getSession().getAttribute("workingHolidayPlanDetailsForm") != null ? ((WorkingHolidayDetailsBean)request.getSession().getAttribute("workingHolidayPlanDetailsForm")).getWhInsDistrict() : "";
                                                         while (itr.hasNext()) {
                                                             DistrictBean districtList = (DistrictBean) itr.next();
-                                                %>
-                                                <option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
-                                                <%
-                                                    }
-                                                %>
+                                                if(dis != null && dis.equals(districtList.getCode())) {
+												%>
+												<option selected value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+												<%
+															}else {
+												%>
+												<option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+												<%				
+															}
+														}
+												%>
                                         </select></div>
                                             <div class="hidden">
                                                 <select name="applicantDistrictHid"
@@ -915,12 +921,10 @@ function activateUserAccountJoinUs() {
 							
 							<div style="width: 80%;margin-left: 10%;">
 								<div class="form-container" style="padding:0px;">
-									<input type="hidden" name="departureDate" id="departureDate" value="01-01-2015">
 									<h3 class="txt-bold">
-										<fmt:message key="workingholiday.sidebar.summary.option2" bundle="${msg}" />
+										<fmt:message key="workingholiday.details.insured.beneficiary.effective" bundle="${msg}" />
 									</h3>
-									<h4 class="topten">${travelQuote.getTrBackDate()}</h4>
-									<input type="hidden" name="backDate" id="backDate" value="${travelQuote.getTrBackDate()}">
+									<h4 class="topten">${workingHolidayPlanDetailsForm.getWhInseffectiveDate()}</h4>
 	                            </div>
 					            <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
 					            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium}</h3>
@@ -938,7 +942,7 @@ function activateUserAccountJoinUs() {
 				            </div>
 							<div style="width: 80%;margin-left: 10%;">
 								<div class="top35 pull-left pad-none" style="width:47%">
-									 <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+									 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width:47%"> 
 									<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="activateUserAccountJoinUs();"/>
@@ -965,7 +969,7 @@ function activateUserAccountJoinUs() {
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
            <div style="width: 80%;margin-left: 10%;  margin-bottom: 60px;">
                 <div class="top35 pull-left pad-none" style="width:47%">
-                     <a href="#" onclick="BackMe();" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+                     <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%"> 
                     <input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="activateUserAccountJoinUs();"/>
@@ -1098,13 +1102,6 @@ function userLoginFnc() {
 	});
 	/* } */
 	return false;
-}
-function BackMe() {
-
-
-
-
-	window.history.back();
 }
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>

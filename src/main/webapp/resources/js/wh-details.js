@@ -15,7 +15,9 @@ $(function () {
 
 
 	}).on('changeDate', function (ev) {
+		$(".hidden-sm .form-container .topten").html($('#inputWhInseffectiveDate').val())
 		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
+		$('#whInseffectiveDate').html('');
 	});
 	
 	// 18 year ago date
@@ -24,9 +26,9 @@ $(function () {
 	
 	// 86 year ago date
 	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-31);
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
-	
+		
 	var checkin = $('#dpWhAppDob').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() < wh_now;
@@ -41,14 +43,15 @@ $(function () {
 
 	}).on('changeDate', function (ev) {
 		setAtt("WhAppDob", $('#inputWhAppDob').val())
+		$('#whAppDob').html('');
 	});
 	
 	/*$("#inputWhAppFullName").keyup(function() {
 		   document.getElementById("inputWhInsFullName").value = this.value;
 	});*/
 	
-	$("#inputWhAppFullName").blur(function() {
-		var fullname = document.getElementById("inputWhAppFullName").value;
+	$("#inputFullName").blur(function() {
+		var fullname = document.getElementById("inputFullName").value;
 		
 		if (fullname.trim() == "") {
 			$("#whAppFullName").html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));//"Please enter your Name in English.";
@@ -59,7 +62,6 @@ $(function () {
 			return false;
 		}
 		
-		$("#inputWhInsFullName").val($(this).val());
 		$("#whAppFullName").html('');
 		
 		setAtt("WhAppFullName", $(this).val());
@@ -109,7 +111,7 @@ $(function () {
 		setAtt("WhAppHKID", $(this).val());
 	});
 	
-	$("#inputWhAppMobileNO").blur(function() {
+	$("#inputMobileNo").blur(function() {
 		var mobileNo = $(this).val();
 		
 		if (mobileNo.trim() == "") {
@@ -125,7 +127,7 @@ $(function () {
 		setAtt("WhAppMobileNO", $(this).val());
 	});
 	
-	$("#inputWhAppEmailAdd").blur(function() {
+	$("#inputEmailId").blur(function() {
 		var emailId = $(this).val();
 		
 		if (emailId.trim() == "") {
@@ -142,12 +144,19 @@ $(function () {
 		setAtt("WhAppEmailAdd", $(this).val());
 	});
 	
-	$("#selectWhInsAgeRange").change(function() {
+	/*$("#selectWhInsAgeRange").change(function() {
 		setAtt("WhInsAgeRange", $(this).val());
-	});
+	});*/
 	
 	$("#selectWhInsBeneficary").change(function() {
+		$("#inputWhInsFullName").val("");
+		$("#selectWhInsHKID").val("HKID");
+		$("#inputWhInsHKID").val("");
+		
 		setAtt("WhInsBeneficary", $(this).val());
+		setAtt("SelectWhInsHKID", "");
+		setAtt("WhInsFullName", "");
+		setAtt("WhInsHKID", "");
 	});
 	
 	$("#selectWhInsHKID").change(function() {
@@ -299,7 +308,7 @@ function whDetailsValid(){
 	document.getElementById("whAppDob").innerHTML = "";
 	document.getElementById("whAppMobileNO").innerHTML = "";    
 	document.getElementById("whAppEmailAdd").innerHTML = "";
-	document.getElementById("whInsAgeRange").innerHTML = "";
+	//document.getElementById("whInsAgeRange").innerHTML = "";
 	document.getElementById("whInsBeneficary").innerHTML = "";
 	document.getElementById("whInsFullName").innerHTML = "";
 	document.getElementById("whInsHKID").innerHTML = "";
@@ -313,11 +322,11 @@ function whDetailsValid(){
 //	document.getElementById("whInsBuilding").innerHTML = "";
 //	document.getElementById("whInsEstate").innerHTML = "";
 
-	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
+	var WhAppFullName = document.getElementById("inputFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
 	var WhAppDob = document.getElementById("inputWhAppDob").value;
-	var WhAppMobileNO = document.getElementById("inputWhAppMobileNO").value;
-	var WhAppEmailAdd = document.getElementById("inputWhAppEmailAdd").value;
+	var WhAppMobileNO = document.getElementById("inputMobileNo").value;
+	var WhAppEmailAdd = document.getElementById("inputEmailId").value;
 	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
 	
 	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
@@ -495,12 +504,12 @@ function confirmDetails(form){
 	if (whDetailsValid() && details_clicked === false) {
 	//if (details_clicked === false) {
 		details_clicked=true;
-		var inputWhAppFullName = $("#inputWhAppFullName").val();
+		var inputWhAppFullName = $("#inputFullName").val();
 		var selectWhAppHKID = $("#selectWhAppHKID").val();
 		var inputWhAppHKID = $("#inputWhAppHKID").val();
 		var inputWhAppDob = $("#inputWhAppDob").val();
-		var inputWhAppMobileNO = $("#inputWhAppMobileNO").val();
-		var inputWhAppEmailAdd = $("#inputWhAppEmailAdd").val();
+		var inputWhAppMobileNO = $("#inputMobileNo").val();
+		var inputWhAppEmailAdd = $("#inputEmailId").val();
 		var selectWhInsAgeRange = $("#selectWhInsAgeRange").val();
 		var selectWhInsBeneficary = $("#selectWhInsBeneficary").val();
 		var inputWhInsFullName = $("#inputWhInsFullName").val();
@@ -533,7 +542,7 @@ function confirmDetails(form){
 			  	'whAppDob':inputWhAppDob,					  	  
 			  	'whAppMobileNO':inputWhAppMobileNO,
 			  	'whAppEmailAdd':inputWhAppEmailAdd,
-			  	'whInsAgeRange':selectWhInsAgeRange,
+			  	'whInsAgeRange':'',
 			  	'whInsBeneficary':selectWhInsBeneficary,
 			  	'whInsFullName':inputWhInsFullName,
 			  	'selectWhInsHKID':selectWhInsHKID,
@@ -576,7 +585,7 @@ function confirmDetails(form){
 }
 
 function setAtt(att, value) {
-	var method = this.rootUrl + "/setAtt";
+	/*var method = this.rootUrl + "/setAtt";
 	var data = {"att":att , "value": value};
 	$.ajax({
 		type : "POST",
@@ -585,5 +594,5 @@ function setAtt(att, value) {
 		async : false,
 		success : function(data) {
 		}
-	});
+	});*/
 }

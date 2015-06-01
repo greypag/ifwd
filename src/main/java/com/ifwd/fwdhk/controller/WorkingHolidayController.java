@@ -264,7 +264,7 @@ public class WorkingHolidayController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayQuote", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
+		session.removeAttribute("workingHolidayPlanDetailsForm");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "workingholiday/workingholiday-plan");
@@ -542,7 +542,7 @@ public class WorkingHolidayController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan-details");
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	@RequestMapping(value = "/wh-summary", method=RequestMethod.POST)
 	@ResponseBody
 	public String prepareSummary(@RequestBody  WorkingHolidayDetailsBean planDetailsForm, HttpServletRequest request,
@@ -633,49 +633,47 @@ public class WorkingHolidayController {
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 
-		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("whCreatePolicy");
+		CreatePolicy createPolicy = new CreatePolicy();
 		JSONObject responsObject = new JSONObject();
-		if (createPolicy == null) {
-			System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
-			responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
-			createPolicy = new CreatePolicy();
-			String finalizeReferenceNo = "";
-			System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
+			
+		System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
+		responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
+		String finalizeReferenceNo = "";
+		System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
 
-			if (responsObject.get("errMsgs") == null) {
-				finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
-				createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
-				createPolicy.setPolicyNo(checkJsonObjNull(responsObject, "policyNo"));
-				createPolicy.setReferralCode(checkJsonObjNull(responsObject, "referralCode"));
-				createPolicy.setPlanCode(checkJsonObjNull(responsObject, "planCode"));
-				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
-				createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
-				createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
-				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
-				createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
+		if (responsObject.get("errMsgs") == null) {
+			finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
+			createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
+			createPolicy.setPolicyNo(checkJsonObjNull(responsObject, "policyNo"));
+			createPolicy.setReferralCode(checkJsonObjNull(responsObject, "referralCode"));
+			createPolicy.setPlanCode(checkJsonObjNull(responsObject, "planCode"));
+			createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
+			createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
+			createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
+			createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
+			createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
 
-				// Calling Api of Confirm WorkingHoliday Care Policy
-				JSONObject confirmPolicyParameter = new JSONObject();
-				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				System.out.println("Header Object for Confirm" + confirmPolicyParameter);
-				JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.WORKINGHOLIDAY_CONFIRM_POLICY, header,
-						confirmPolicyParameter);
+			// Calling Api of Confirm WorkingHoliday Care Policy
+			JSONObject confirmPolicyParameter = new JSONObject();
+			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
+			session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
+			System.out.println("Header Object for Confirm" + confirmPolicyParameter);
+			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.WORKINGHOLIDAY_CONFIRM_POLICY, header,
+					confirmPolicyParameter);
 
-				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
-				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
-				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
-				
-				session.setAttribute("whCreatePolicy", createPolicy);
-			}
+			createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
+			createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
+			createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
+			
+			session.setAttribute("whCreatePolicy", createPolicy);
 		}
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+		session.setAttribute("policyNo", createPolicy.getPolicyNo());
 		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
 		
 		return "success";
 	}
 	
-	@SuppressWarnings({ "deprecation" })
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
 	public ModelAndView prepareSummary(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
