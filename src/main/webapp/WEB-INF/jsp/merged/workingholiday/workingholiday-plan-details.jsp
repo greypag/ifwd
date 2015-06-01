@@ -82,6 +82,11 @@ function activateUserAccountJoinUs() {
         $('#frmYourDetails').submit()
     }else{
         if(name != "" && password != "" && password2 != ""){
+        	$('#chk1').html('');
+            $('#chk2').html('');
+            
+            $('#dobInvalid').html('');
+        	
             validateForm = true;
             if (!checkMembership("Username")){
                 validateForm = false;   
@@ -92,16 +97,16 @@ function activateUserAccountJoinUs() {
             if (!checkMembership("Confirm-Password")){
                 validateForm = false;   
             }
-            if (!validateMobile('inputMobileNo','mobileNoInvalid')){
+            if (!validateMobile('inputWhAppMobileNO','whAppMobileNO')){
                 validateForm = false;   
             }           
-            if (!validateEmail('inputEmailId','emailid')){
+            if (!validateEmail('inputWhAppEmailAdd','whAppEmailAdd')){
                 validateForm = false;   
             }    
-            var applicantDob = $("#applicantDob").val();
+            var applicantDob = $("#inputWhAppDob").val();
             if (applicantDob.trim() == "") {
                 
-                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+                document.getElementById("whAppDob").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
                 validateForm = false;   
             
             }
@@ -118,10 +123,10 @@ function activateUserAccountJoinUs() {
                 optIn1 = "true";    
             }
             password = document.getElementById("Password").value; 
-            mobile = document.getElementById("inputMobileNo").value;
-            name = document.getElementById("inputFullName").value;
+            mobile = document.getElementById("inputWhAppMobileNO").value;
+            name = document.getElementById("inputWhAppFullName").value;
             userName = document.getElementById("Username").value;
-            email = document.getElementById("inputEmailId").value;
+            email = document.getElementById("inputWhAppEmailAdd").value;
         
           $('#loading-overlay').modal({
               backdrop: 'static',
