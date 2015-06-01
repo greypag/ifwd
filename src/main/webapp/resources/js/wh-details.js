@@ -110,7 +110,7 @@ $(function () {
 		setAtt("WhAppHKID", $(this).val());
 	});
 	
-	$("#inputWhAppMobileNO").blur(function() {
+	$("#inputMobileNo").blur(function() {
 		var mobileNo = $(this).val();
 		
 		if (mobileNo.trim() == "") {
@@ -126,7 +126,7 @@ $(function () {
 		setAtt("WhAppMobileNO", $(this).val());
 	});
 	
-	$("#inputWhAppEmailAdd").blur(function() {
+	$("#inputEmailId").blur(function() {
 		var emailId = $(this).val();
 		
 		if (emailId.trim() == "") {
@@ -322,8 +322,8 @@ function whDetailsValid(){
 	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
 	var WhAppDob = document.getElementById("inputWhAppDob").value;
-	var WhAppMobileNO = document.getElementById("inputWhAppMobileNO").value;
-	var WhAppEmailAdd = document.getElementById("inputWhAppEmailAdd").value;
+	var WhAppMobileNO = document.getElementById("inputMobileNo").value;
+	var WhAppEmailAdd = document.getElementById("inputEmailId").value;
 	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
 	
 	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
@@ -505,8 +505,8 @@ function confirmDetails(form){
 		var selectWhAppHKID = $("#selectWhAppHKID").val();
 		var inputWhAppHKID = $("#inputWhAppHKID").val();
 		var inputWhAppDob = $("#inputWhAppDob").val();
-		var inputWhAppMobileNO = $("#inputWhAppMobileNO").val();
-		var inputWhAppEmailAdd = $("#inputWhAppEmailAdd").val();
+		var inputWhAppMobileNO = $("#inputMobileNo").val();
+		var inputWhAppEmailAdd = $("#inputEmailId").val();
 		var selectWhInsAgeRange = $("#selectWhInsAgeRange").val();
 		var selectWhInsBeneficary = $("#selectWhInsBeneficary").val();
 		var inputWhInsFullName = $("#inputWhInsFullName").val();

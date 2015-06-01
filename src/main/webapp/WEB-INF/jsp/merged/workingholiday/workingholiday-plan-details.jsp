@@ -206,13 +206,13 @@
                                <!-- mobile starts -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputWhAppMobileNO" class="field-label bold-500">
+                                       <label for="inputMobileNo" class="field-label bold-500">
                                            <fmt:message key="workingholiday.details.applicant.mobile" bundle="${msg}" />
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input type="text"
-                                            class="form-control full-control" id="inputWhAppMobileNO" name="whAppMobileNO"
+                                            class="form-control full-control" id="inputMobileNo" name="whAppMobileNO"
                                             value="${workingHolidayPlanDetailsForm.getWhAppMobileNO()}"
                                             onkeypress="return isNumeric(event)"
                                             onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');" maxlength="8" /> <span
@@ -223,13 +223,13 @@
                                <!-- email address starts -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputWhAppEmailAdd" class="field-label bold-500">
+                                       <label for="inputEmailId" class="field-label bold-500">
                                            <fmt:message key="workingholiday.details.applicant.email" bundle="${msg}" />
                                        </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input class="form-control full-control"
-                                            id="inputWhAppEmailAdd" name="whAppEmailAdd"
+                                            id="inputEmailId" name="whAppEmailAdd"
                                             value="${workingHolidayPlanDetailsForm.getWhAppEmailAdd()}"
                                             onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');" maxlength="50"> <span
                                             id="whAppEmailAdd" class="text-red"> </span>
@@ -416,7 +416,7 @@
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
-                                                id="inputWhInsRoom" name="whInsRoom" value="${workingHolidayPlanDetailsForm.getWhInsRoom()" 
+                                                id="inputWhInsRoom" name="whInsRoom" value="${workingHolidayPlanDetailsForm.getWhInsRoom()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
