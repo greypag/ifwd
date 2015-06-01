@@ -143,15 +143,15 @@
                                 <!-- english name start -->
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                      <label for="inputWhAppFullName" class="field-label bold-500">
+                                      <label for="inputFullName" class="field-label bold-500">
                                         <fmt:message key="workingholiday.details.applicant.name" bundle="${msg}" />
                                         </label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input type="text"
-                                            class="form-control full-control" id="inputWhAppFullName" name="whAppFullName"
-                                            value="${workingHolidayPlanDetailsForm.getWhAppFullName()}"
-                                            onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputWhAppFullName');"
+                                            class="form-control full-control" id="inputFullName" name="whAppFullName"
+                                            value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppFullName() != '') ? workingHolidayPlanDetailsForm.getWhAppFullName() : userDetails.getFullName()}"
+                                            onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
                                             onkeypress=" return alphaOnly(event);" maxlength="100" />
                                             <span id="whAppFullName" class="text-red"></span>
                                    </div>
@@ -213,7 +213,7 @@
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input type="text"
                                             class="form-control full-control" id="inputMobileNo" name="whAppMobileNO"
-                                            value="${workingHolidayPlanDetailsForm.getWhAppMobileNO()}"
+                                            value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppMobileNO() != '') ? workingHolidayPlanDetailsForm.getWhAppMobileNO() : userDetails.getMobileNo()}"
                                             onkeypress="return isNumeric(event)"
                                             onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');" maxlength="8" /> <span
                                             id="whAppMobileNO" class="text-red"></span>
@@ -230,7 +230,7 @@
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input class="form-control full-control"
                                             id="inputEmailId" name="whAppEmailAdd"
-                                            value="${workingHolidayPlanDetailsForm.getWhAppEmailAdd()}"
+                                            value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppEmailAdd() != '') ? workingHolidayPlanDetailsForm.getWhAppEmailAdd() : userDetails.getEmailAddress()}"
                                             onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');" maxlength="50"> <span
                                             id="whAppEmailAdd" class="text-red"> </span>
                                    </div>

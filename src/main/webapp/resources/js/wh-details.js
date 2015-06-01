@@ -48,8 +48,8 @@ $(function () {
 		   document.getElementById("inputWhInsFullName").value = this.value;
 	});*/
 	
-	$("#inputWhAppFullName").blur(function() {
-		var fullname = document.getElementById("inputWhAppFullName").value;
+	$("#inputFullName").blur(function() {
+		var fullname = document.getElementById("inputFullName").value;
 		
 		if (fullname.trim() == "") {
 			$("#whAppFullName").html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));//"Please enter your Name in English.";
@@ -60,7 +60,6 @@ $(function () {
 			return false;
 		}
 		
-		$("#inputWhInsFullName").val($(this).val());
 		$("#whAppFullName").html('');
 		
 		setAtt("WhAppFullName", $(this).val());
@@ -319,7 +318,7 @@ function whDetailsValid(){
 //	document.getElementById("whInsBuilding").innerHTML = "";
 //	document.getElementById("whInsEstate").innerHTML = "";
 
-	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
+	var WhAppFullName = document.getElementById("inputFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
 	var WhAppDob = document.getElementById("inputWhAppDob").value;
 	var WhAppMobileNO = document.getElementById("inputMobileNo").value;
@@ -501,7 +500,7 @@ function confirmDetails(form){
 	if (whDetailsValid() && details_clicked === false) {
 	//if (details_clicked === false) {
 		details_clicked=true;
-		var inputWhAppFullName = $("#inputWhAppFullName").val();
+		var inputWhAppFullName = $("#inputFullName").val();
 		var selectWhAppHKID = $("#selectWhAppHKID").val();
 		var inputWhAppHKID = $("#inputWhAppHKID").val();
 		var inputWhAppDob = $("#inputWhAppDob").val();
