@@ -660,13 +660,13 @@
                                 <div class="checkbox">
                                     <input id="checkbox3" type="checkbox"
                                         name="donotWishDirectMarketing"> <label
-                                        for="checkbox33"> <fmt:message key="workingholiday.details.declarations.PDPO.option1" bundle="${msg}" /> <br> <br>
+                                        for="checkbox3"> <fmt:message key="workingholiday.details.declarations.PDPO.option1" bundle="${msg}" /> <br> <br>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <input id="checkbox4" type="checkbox"
                                         name="donotDisclose"> <label
-                                        for="checkbox34"> <fmt:message key="workingholiday.details.declarations.PDPO.option2" bundle="${msg}" /><br>
+                                        for="checkbox4"> <fmt:message key="workingholiday.details.declarations.PDPO.option2" bundle="${msg}" /><br>
                                     </label>
                                 </div>
 

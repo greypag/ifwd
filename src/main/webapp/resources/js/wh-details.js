@@ -305,6 +305,8 @@ function whDetailsValid(){
 	document.getElementById("whInsHKID").innerHTML = "";
 	document.getElementById("whInsWorkingCty").innerHTML = "";
 	document.getElementById("whAppEmailAdd").innerHTML = "";
+	document.getElementById("chk1").innerHTML = "";
+	document.getElementById("chk2").innerHTML = "";
 	
 //	document.getElementById("whInsRoom").innerHTML = "";
 //	document.getElementById("whInsFloor").innerHTML = "";
