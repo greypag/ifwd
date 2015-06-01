@@ -995,7 +995,7 @@ var promoData = '';
 							
 							<!--  //removed the leaving day and return day  -->
 						</div>
-						<div class="col-xs-12 pad-none">
+						<div id="promo-code-body" class="hide-html col-xs-12 pad-none">
 						  <div style="width: 80%;margin-left: 10%;">
 								<h3 style="font-size:18px;"><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
 							
@@ -1169,6 +1169,7 @@ var promoData = '';
 		
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
+		$("#promo-code-body").fadeIn();
 		document.getElementById("errDue").innerHTML = "";
 		
 		var selected_div;
