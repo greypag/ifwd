@@ -18,11 +18,6 @@
 				.getAttribute("authenticate").toString();
 	}
 		
-	QuoteDetails travelQuote = null;
-		if (travelQuote == null) {
-			//System.out.println("travelQuote is null 2");
-			travelQuote = (QuoteDetails) session.getAttribute("tq");
-		}
 
 %>
 
@@ -241,7 +236,7 @@
                                </div>
                                <!-- email address ends -->
                                
-                               <div class="form-group float">
+                               <%-- <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                        <label for="whInsAgeRange" class="field-label bold-500">
                                            <fmt:message key="workingholiday.details.insured.beneficiary.age" bundle="${msg}" />
@@ -271,7 +266,7 @@
                                         </div>
                                         <span id="whInsAgeRange" class="text-red"></span>
                                    </div>
-                               </div>
+                               </div> --%>
                                
                                <!-- beneficiary start -->
                                <div class="form-group float">
@@ -747,12 +742,10 @@
 							
 							<div style="width: 80%;margin-left: 10%;">
 								<div class="form-container" style="padding:0px;">
-									<input type="hidden" name="departureDate" id="departureDate" value="01-01-2015">
 									<h3 class="txt-bold">
-										<fmt:message key="workingholiday.sidebar.summary.option2" bundle="${msg}" />
+										<fmt:message key="workingholiday.details.insured.beneficiary.effective" bundle="${msg}" />
 									</h3>
-									<h4 class="topten">${travelQuote.getTrBackDate()}</h4>
-									<input type="hidden" name="backDate" id="backDate" value="${travelQuote.getTrBackDate()}">
+									<h4 class="topten">${workingHolidayPlanDetailsForm.getWhInseffectiveDate()}</h4>
 	                            </div>
 					            <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="workingholiday.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
 					            <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium}</h3>

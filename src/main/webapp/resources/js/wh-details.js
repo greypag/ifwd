@@ -15,6 +15,7 @@ $(function () {
 
 
 	}).on('changeDate', function (ev) {
+		$(".hidden-sm .form-container .topten").html($('#inputWhInseffectiveDate').val())
 		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
 	});
 	
@@ -142,12 +143,19 @@ $(function () {
 		setAtt("WhAppEmailAdd", $(this).val());
 	});
 	
-	$("#selectWhInsAgeRange").change(function() {
+	/*$("#selectWhInsAgeRange").change(function() {
 		setAtt("WhInsAgeRange", $(this).val());
-	});
+	});*/
 	
 	$("#selectWhInsBeneficary").change(function() {
+		$("#inputWhInsFullName").val("");
+		$("#selectWhInsHKID").val("HKID");
+		$("#inputWhInsHKID").val("");
+		
 		setAtt("WhInsBeneficary", $(this).val());
+		setAtt("SelectWhInsHKID", "");
+		setAtt("WhInsFullName", "");
+		setAtt("WhInsHKID", "");
 	});
 	
 	$("#selectWhInsHKID").change(function() {
@@ -299,7 +307,7 @@ function whDetailsValid(){
 	document.getElementById("whAppDob").innerHTML = "";
 	document.getElementById("whAppMobileNO").innerHTML = "";    
 	document.getElementById("whAppEmailAdd").innerHTML = "";
-	document.getElementById("whInsAgeRange").innerHTML = "";
+	//document.getElementById("whInsAgeRange").innerHTML = "";
 	document.getElementById("whInsBeneficary").innerHTML = "";
 	document.getElementById("whInsFullName").innerHTML = "";
 	document.getElementById("whInsHKID").innerHTML = "";
@@ -531,7 +539,7 @@ function confirmDetails(form){
 			  	'whAppDob':inputWhAppDob,					  	  
 			  	'whAppMobileNO':inputWhAppMobileNO,
 			  	'whAppEmailAdd':inputWhAppEmailAdd,
-			  	'whInsAgeRange':selectWhInsAgeRange,
+			  	'whInsAgeRange':'',
 			  	'whInsBeneficary':selectWhInsBeneficary,
 			  	'whInsFullName':inputWhInsFullName,
 			  	'selectWhInsHKID':selectWhInsHKID,
@@ -574,7 +582,7 @@ function confirmDetails(form){
 }
 
 function setAtt(att, value) {
-	var method = this.rootUrl + "/setAtt";
+	/*var method = this.rootUrl + "/setAtt";
 	var data = {"att":att , "value": value};
 	$.ajax({
 		type : "POST",
@@ -583,5 +591,5 @@ function setAtt(att, value) {
 		async : false,
 		success : function(data) {
 		}
-	});
+	});*/
 }
