@@ -121,7 +121,7 @@ $(function () {
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 89*24*60*60*1000);
-	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
+	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 179*24*60*60*1000 :29*24*60*60*1000;
 	
 	var checkout;
 	/* desktoip datepicker*/
@@ -514,10 +514,18 @@ $(function () {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
+			console(newDate.getDate());
+			
 			$('#dp3').datepicker('update', newDate);
 			$('#dp5').datepicker('update', newDate);
 			if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
 				checkout.datepicker("update", newDate);
+				checkout2.datepicker("update", newDate);
+				checkout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= checkout.datepicker("getDate").valueOf()){
+				
+				
+				checkout.datepicker("update", ev.date.valueOf()+duration-oneDay);
 				checkout2.datepicker("update", newDate);
 				checkout3.datepicker("update", newDate);
 			}
