@@ -119,6 +119,7 @@
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
+	                                    onfocus="$('#errorEmptyName').html('');"
 										onkeypress="    return alphaOnly(event);" maxlength="100">
 										<span id="errorEmptyName" class="text-red"></span></td>
 									<td></td>
@@ -129,6 +130,7 @@
 									<td><input type="text"
 										class="form-control" id="txtMobileNo"
 										value="${userDetails.getMobileNo() }" name="mobileNo"
+										onfocus="$('#errorEmptyMobJoinUs').html('');"
 										placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />" onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8"> <span
 										id="errorEmptyMobJoinUs" class="text-red"></span></td>
@@ -141,6 +143,7 @@
 									<td><input type="email"
 										class="form-control" id="txtEmailId"
 										value="${userDetails.getEmailAddress() }" placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"
+                                        onfocus="$('#errorEmptyEmailIdJoinUs').html('');"
 										name="EmailAddress" maxlength="50"> <span
 										id="errorEmptyEmailIdJoinUs" class="text-red"></span></td>
 									<td></td>
@@ -156,6 +159,7 @@
 										
 											<input type="text" class="form-control "
 												id="txtUserName1" value="${userDetails.getUserName() }"
+                                                onfocus="$('#errorEmptyUNameJoinUs').html('');"
 												placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />" name="userName">
 
 										
@@ -179,6 +183,7 @@
 											src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a></td>
 									<td>
 											<input type="password" class="form-control" autocomplete="off"
+                                                onfocus="$('#errorJoinUsPassword').html('');"
 												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
 
 										 <span id="errorJoinUsPassword" class="text-red"></span>
@@ -197,6 +202,7 @@
 										class="join-us-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /> </label></td>
 									<td><input type="password" autocomplete="off"
 										name="confirmPassword" class="form-control" id="txtConfPass"
+                                        onfocus="$('#errorEmptyConfPass').html('');"
 										placeholder="<fmt:message key="member.registration.details.label.confirmPassword.placeholder" bundle="${msg}" />"> <span
 										id="errorEmptyConfPass" class="text-red"></span></td>
 								</tr>
@@ -242,6 +248,27 @@
 								<br>
 							</label>
 						</div>
+						<div class="checkboxBubble">
+                            <fmt:message key="member.registration.declarations.PDPO.warning" bundle="${msg}" />
+                        </div>
+
+                        <script type="text/javascript">
+                        function showBubble(){
+                            if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+                                $(".checkboxBubble").fadeIn();
+                            }else{
+                                $(".checkboxBubble").fadeOut();
+                            }
+                        }
+                        
+                        $("#checkbox3").change(function() {
+                            showBubble();
+                        });
+                        
+                        $("#checkbox4").change(function() {
+                            showBubble();
+                        });
+                        </script>
 					</div>
 					<div class="container btm-pad-10">
 						<div class="row">

@@ -132,16 +132,15 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 	    }
 		
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
-		var skillsSelect = document.getElementById("selectCADistHid");
-		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		
 		/*if(selectedText.trim() == 'District'){
 			$('#errCADist').html(getBundle(getBundleLanguage, "insured.address.netFloorArea.notNull.message"));
 		}
 		else*/ 
-		if (selectedText.trim() == "HK")
+		
+		if ($("#selectCADistHid option[value='"+id+"']").text() == "HK")
 			document.getElementById("inlineCARadio3").checked = true;
-		else if (selectedText.trim() == "KL")
+		else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
 			document.getElementById("inlineCARadio4").checked = true;
 		else
 			document.getElementById("inlineCARadio5").checked = true;
@@ -1003,9 +1002,8 @@ function activateUserAccountJoinUs() {
 		                               <!-- district start -->
 		                               <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <div class="styled-select"><select name="applicantDistrict"
-                                            class="form-control soflow full-control" id="selectCADist"
-                                            onchange="setDropArea(this.value)">
+                                                <div class="styled-select">
+                                                <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
                                                 <option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
                                                 <%
                                                     List lst = (List) request.getAttribute("districtList");

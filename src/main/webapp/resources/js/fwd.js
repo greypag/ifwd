@@ -121,7 +121,8 @@ $(function () {
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 89*24*60*60*1000);
-	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 179*24*60*60*1000 :29*24*60*60*1000;
+	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
+	var oneDay=24*60*60*1000;
 	
 	var checkout;
 	/* desktoip datepicker*/
@@ -514,7 +515,6 @@ $(function () {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
-			console(newDate.getDate());
 			
 			$('#dp3').datepicker('update', newDate);
 			$('#dp5').datepicker('update', newDate);
@@ -523,11 +523,19 @@ $(function () {
 				checkout2.datepicker("update", newDate);
 				checkout3.datepicker("update", newDate);
 			}else if(ev.date.valueOf()+duration <= checkout.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
 				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(checkout.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
 				
-				checkout.datepicker("update", ev.date.valueOf()+duration-oneDay);
-				checkout2.datepicker("update", newDate);
-				checkout3.datepicker("update", newDate);
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
 			}
 			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
@@ -741,6 +749,20 @@ $(function () {
 				checkout.datepicker("update", newDate);
 				checkout2.datepicker("update", newDate);
 				checkout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= checkout2.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(checkout2.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
 			}
 		//}
 		$('#dp4')[0].focus();
@@ -804,12 +826,29 @@ $(function () {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
+			if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
+				checkout.datepicker("update", newDate);
+				checkout2.datepicker("update", newDate);
+				checkout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= checkout3.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(checkout3.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}
+			
 			$('#dp1').datepicker('update', newDate);
 			$('#dp3').datepicker('update', newDate);
 			
-			checkout.datepicker("update", newDate);
-			checkout2.datepicker("update", newDate);
-			checkout3.datepicker("update", newDate);
 		//}
 		$('#dp6')[0].focus();
 		var startDate = new Date($('#dp5').datepicker("getDate").valueOf());
@@ -4888,10 +4927,10 @@ if($('#txtMobileNo').length){
 	$('#txtMobileNo').on('blur', function(){
 		var value = $(this).val();
 		if(isMobileNo(value) != true){
-			$('#errorEmptyMob').text(isMobileNo(value));
+			$('#errorEmptyMobJoinUs').text(isMobileNo(value));
 		}
 		else{
-			$('#errorEmptyMob').text('');
+			$('#errorEmptyMobJoinUs').text('');
 		}
 	})
 }
@@ -4900,10 +4939,10 @@ if($('#txtEmailId').length){
 	$('#txtEmailId').on('blur', function(){
 		var value = $(this).val();
 		if(isEmail(value) != true){
-			$('#errorEmptyEmailId').text(isEmail(value));
+			$('#errorEmptyEmailIdJoinUs').text(isEmail(value));
 		}
 		else{
-			$('#errorEmptyEmailId').text('');
+			$('#errorEmptyEmailIdJoinUs').text('');
 		}
 	})
 }
@@ -4913,9 +4952,9 @@ if($('#txtUserName1').length){
 	$cur.on('blur', function(){
 		value = $(this).val();
 		if(isValidUsername(value) !== true){
-			$('#errorEmptyUName').text(isValidUsername(value));
+			$('#errorEmptyUNameJoinUs').text(isValidUsername(value));
 		}else
-			$('#errorEmptyUName').text('');
+			$('#errorEmptyUNameJoinUs').text('');
 	})
 }
 
