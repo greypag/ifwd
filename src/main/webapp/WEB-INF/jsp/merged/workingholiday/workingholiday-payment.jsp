@@ -663,11 +663,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						<br> <br>
 						<div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
-                                    <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
-                                </a> -->
-                                
-                                <a href="#" onclick="BackMe();"
+                                <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
                                     class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" />  </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
