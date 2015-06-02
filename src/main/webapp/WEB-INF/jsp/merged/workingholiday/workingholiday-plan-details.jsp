@@ -30,12 +30,16 @@
 		var skillsSelect = document.getElementById("selectCADistHid");
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		
-		if (selectedText.trim() == "HK")
+		if (selectedText.trim() == "HK"){
 			document.getElementById("inlineCARadio3").checked = true;
-		else if (selectedText.trim() == "KL")
+			setAtt("WhInsArea", "HK");
+		}else if (selectedText.trim() == "KL"){
 			document.getElementById("inlineCARadio4").checked = true;
-		else
+			setAtt("WhInsArea", "KL");
+		}else{
 			document.getElementById("inlineCARadio5").checked = true;
+			setAtt("WhInsArea", "NT");
+		}
 	}
 </script>
 
@@ -346,12 +350,12 @@ function activateUserAccountJoinUs() {
                                        </div>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                        <input type="text" name="whAppHKID" 
-                                        class="form-control numberinput textUpper full-control bmg_custom_placeholder" 
-                                        id="inputWhAppHKID" value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" 
+                                        <input type="text" name="whAppHKID" value="${workingHolidayPlanDetailsForm.getWhAppHKID()}"
+                                        class="form-control numberinput textUpper full-control" 
+                                        id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />"
                                         onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
                                         onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
-                                        chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)" value="${workingHolidayPlanDetailsForm.getWhAppHKID()}">
+                                        chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)" >
                                         <span id="whAppHKID" class="text-red"></span>
                                    </div>
                                </div>
@@ -533,9 +537,9 @@ function activateUserAccountJoinUs() {
 	                                      <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
 	                                   </div>
 	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-	                                      <input id="inputWhInsHKID" name="whInsHKID"
-	                                            class="form-control textUpper full-control bmg_custom_placeholder" 
-	                                            value="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
+	                                      <input id="inputWhInsHKID" name="whInsHKID" value="${workingHolidayPlanDetailsForm.getWhInsHKID()}"
+	                                            class="form-control textUpper full-control" 
+	                                            placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />');" 
 	                                          onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
 	                                          <span id="whInsHKID" class="text-red"> </span>
@@ -583,21 +587,21 @@ function activateUserAccountJoinUs() {
                                        <!-- room, floor, block start -->
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                               <input type="text" class="form-control full-control"
                                                 id="inputWhInsRoom" name="whInsRoom" value="${workingHolidayPlanDetailsForm.getWhInsRoom()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsFloor" name="whInsFloor" value="${workingHolidayPlanDetailsForm.getWhInsFloor()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"     
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsBlock" name="whInsBlock" value="${workingHolidayPlanDetailsForm.getWhInsBlock()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
@@ -608,7 +612,7 @@ function activateUserAccountJoinUs() {
                                        <!-- building, estate start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                               <input type="text" class="form-control full-control"
                                                 id="inputWhInsBuilding" name="whInsBuilding" value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
@@ -619,7 +623,7 @@ function activateUserAccountJoinUs() {
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsEstate" name="whInsEstate" value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
@@ -632,7 +636,7 @@ function activateUserAccountJoinUs() {
                                        <!-- street no., street name start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                               <input type="text" class="form-control full-control"
                                             id="inputWhInsStreetNo" name="whInsStreetNo" value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -642,7 +646,7 @@ function activateUserAccountJoinUs() {
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsStreetName" name="whInsStreetName" value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
