@@ -77,7 +77,7 @@ function IsHKID(str) {
 
 /* empty error message when*/
 function emptyMembershipError(){
-	 $(".error-hide-"+getBundleLanguage).hide();
+	$(".error-hide").hide();
 }
 
 $(function () {
@@ -896,8 +896,11 @@ function setDropDownValue(elm, val){
 function fPlanValid()
 {
 	var flag=true;
+	$('#chk1').html('');
 	$('#chk2').html('');
-
+	
+	$('#dobInvalid').html('');
+	
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
@@ -4695,19 +4698,20 @@ function isAccountNumeric(num){
 }
 
 function isValidUsername(el){
-	var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
+	var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
 	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
 		return getBundle(getBundleLanguage, "user.username.notValid.message");
 		
 		valid = false;
 
-	} else if (!plan_user.test(el)) {
-		return getBundle(getBundleLanguage, "user.username.length.message");
 	} else if (isAccountNumeric(el)) {
+		return getBundle(getBundleLanguage, "user.username.validate.message");
+	} else if (!plan_user.test(el)) {
+		return getBundle(getBundleLanguage, "user.username.validate.message");
+	} else if(el.length < 6 || el.length > 50) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
-	} 
-	else{
+	} else {
 		return true;
 	}
 }

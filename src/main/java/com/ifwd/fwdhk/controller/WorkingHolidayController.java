@@ -1060,7 +1060,7 @@ public class WorkingHolidayController {
 		return response;
 	}*/
 	
-	@RequestMapping(value = "/setAtt")
+	@RequestMapping(value = "/saveAtt")
 	@ResponseBody
 	public String setDetailsFrom(String att, String value, HttpServletRequest request) {
 		Method method;

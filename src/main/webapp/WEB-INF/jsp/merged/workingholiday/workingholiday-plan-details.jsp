@@ -30,14 +30,186 @@
 		var skillsSelect = document.getElementById("selectCADistHid");
 		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		
-		if (selectedText.trim() == "HK")
+		if (selectedText.trim() == "HK"){
 			document.getElementById("inlineCARadio3").checked = true;
-		else if (selectedText.trim() == "KL")
+			setAtt("WhInsArea", "HK");
+		}else if (selectedText.trim() == "KL"){
 			document.getElementById("inlineCARadio4").checked = true;
-		else
+			setAtt("WhInsArea", "KL");
+		}else{
 			document.getElementById("inlineCARadio5").checked = true;
+			setAtt("WhInsArea", "NT");
+		}
 	}
 </script>
+
+
+<% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
+
+<script>
+
+
+
+function activateUserAccountJoinUs() {
+    //html change, change the submit input type to button, add a onclick function
+    //html change, added some error html note for user, so they know if the user name and email is not success
+    
+    //basic logic(how it works)    
+    /*
+    1. if no username or password is filled, direct submit the form
+    2. if username field is filled, call the create user ajax and post data
+    3. if the data has something wrong, return and show msg.
+    4. if the data is correct, user created and will continue to submit the form.
+    5, If user is created and the normal form data is missing, 
+       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
+    */
+    /*name = document.getElementById("Username").value;
+    password = document.getElementById("Password").value;
+    password2 = document.getElementById("Confirm-Password").value;*/
+    
+    name = $("#Username").val();
+    password = $("#Password").val();
+    password2 = $("#Confirm-Password").val();
+    
+    $("#UsernameError").text("");
+    $("#PasswordError").text("");
+    $("#Confirm-PasswordError").text("");
+    
+     
+    
+    if(name == "" && password == "" && password2 == ""){
+        $('#frmYourDetails').submit()
+    }else{
+        if(name != "" && password != "" && password2 != ""){
+        	$('#chk1').html('');
+            $('#chk2').html('');
+            
+            $('#dobInvalid').html('');
+        	
+            validateForm = true;
+            if (!checkMembership("Username")){
+                validateForm = false;   
+            }
+            if (!checkMembership("Password")){
+                validateForm = false;   
+            }
+            if (!checkMembership("Confirm-Password")){
+                validateForm = false;   
+            }
+            if (!validateMobile('inputWhAppMobileNO','whAppMobileNO')){
+                validateForm = false;   
+            }           
+            if (!validateEmail('inputWhAppEmailAdd','whAppEmailAdd')){
+                validateForm = false;   
+            }    
+            var applicantDob = $("#inputWhAppDob").val();
+            if (applicantDob.trim() == "") {
+                
+                document.getElementById("whAppDob").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+                validateForm = false;   
+            
+            }
+            if (!validateForm){
+                return;
+            }           
+
+            optIn1 = "false"
+            optIn2 = "false"
+            if($('#checkbox4').is(':checked')){
+                optIn2 = "true";    
+            }
+            if($('#checkbox3').is(':checked')){
+                optIn1 = "true";    
+            }
+            password = document.getElementById("Password").value; 
+            mobile = document.getElementById("inputWhAppMobileNO").value;
+            name = document.getElementById("inputWhAppFullName").value;
+            userName = document.getElementById("Username").value;
+            email = document.getElementById("inputWhAppEmailAdd").value;
+        
+          $('#loading-overlay').modal({
+              backdrop: 'static',
+              keyboard: false
+           })
+            
+           $.ajax({
+                       type : 'POST',
+                        url : '<%=request.getContextPath()%>/joinus',
+                        data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+                        async : false,
+                        success : function(data) {
+                            
+                            if (data == 'success') {
+                                
+                                $(".membership-wrap").css("display", "none"); 
+                                document.getElementById("Username").value = "";
+                                document.getElementById("Password").value = "";
+                                document.getElementById("Confirm-Password").value = "";
+                                
+                                $("#link-error").click();
+                                perventRedirect=false;
+                                 $('#frmYourDetails').submit();
+                                return;                            
+                            } else {
+                                $('#loading-overlay').modal('hide');
+                                
+                                    $("#link-error").click();
+                                    $(".error-hide").css("display", "block");
+                                    $('#loading-overlay').modal('hide');
+                                if (data == 'This username already in use, please try again') {
+                                    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+                                } else if (data == 'email address and mobile no. already registered') {
+                                    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+                                } else {
+                                    $('.error-hide').html(data);
+                                }
+                                    return;
+                            } 
+                        },
+                        error : function(xhr, status, error) {
+                            $('#loading-overlay').modal('hide');
+
+                        }
+                    });
+        }else{
+            // not all the fields filled
+            if (name == ""){
+                $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+            }else{
+                checkMembership("Username");
+            }
+            
+            if (password == ""){
+                $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+            }else{
+                checkMembership("Password");
+            }
+            
+            
+            if (password2 == ""){
+                $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+            }else{
+                checkMembership("Confirm-Password");
+            }
+        }
+        
+    }
+    
+    return;
+       
+}
+</script>
+<% }else{ %>
+
+<script>
+function activateUserAccountJoinUs() {
+    perventRedirect=false;
+    $('#frmYourDetails').submit();
+}
+</script>
+<% } %> 
+
+
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
@@ -178,12 +350,12 @@
                                        </div>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                        <input type="text" name="whAppHKID" 
-                                        class="form-control numberinput textUpper full-control bmg_custom_placeholder" 
-                                        id="inputWhAppHKID" value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />" 
+                                        <input type="text" name="whAppHKID" value="${workingHolidayPlanDetailsForm.getWhAppHKID()}"
+                                        class="form-control numberinput textUpper full-control" 
+                                        id="inputWhAppHKID" placeholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />"
                                         onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
                                         onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
-                                        chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)" value="${workingHolidayPlanDetailsForm.getWhAppHKID()}">
+                                        chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');" onkeyup="hkidValid(this)" >
                                         <span id="whAppHKID" class="text-red"></span>
                                    </div>
                                </div>
@@ -365,9 +537,9 @@
 	                                      <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
 	                                   </div>
 	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-	                                      <input id="inputWhInsHKID" name="whInsHKID"
-	                                            class="form-control textUpper full-control bmg_custom_placeholder" 
-	                                            value="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
+	                                      <input id="inputWhInsHKID" name="whInsHKID" value="${workingHolidayPlanDetailsForm.getWhInsHKID()}"
+	                                            class="form-control textUpper full-control" 
+	                                            placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />');" 
 	                                          onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
 	                                          <span id="whInsHKID" class="text-red"> </span>
@@ -415,21 +587,21 @@
                                        <!-- room, floor, block start -->
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                               <input type="text" class="form-control full-control"
                                                 id="inputWhInsRoom" name="whInsRoom" value="${workingHolidayPlanDetailsForm.getWhInsRoom()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsFloor" name="whInsFloor" value="${workingHolidayPlanDetailsForm.getWhInsFloor()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"  
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"     
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsBlock" name="whInsBlock" value="${workingHolidayPlanDetailsForm.getWhInsBlock()}" 
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
@@ -440,7 +612,7 @@
                                        <!-- building, estate start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                               <input type="text" class="form-control full-control"
                                                 id="inputWhInsBuilding" name="whInsBuilding" value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
@@ -451,7 +623,7 @@
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsEstate" name="whInsEstate" value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
@@ -464,7 +636,7 @@
                                        <!-- street no., street name start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                               <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                               <input type="text" class="form-control full-control"
                                             id="inputWhInsStreetNo" name="whInsStreetNo" value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -474,7 +646,7 @@
                                         </div>
                                         <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control full-control bmg_custom_placeholder"
+                                                <input type="text" class="form-control full-control"
                                                 id="inputWhInsStreetName" name="whInsStreetName" value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
@@ -666,13 +838,13 @@
                                 <div class="checkbox">
                                     <input id="checkbox3" type="checkbox"
                                         name="donotWishDirectMarketing"> <label
-                                        for="checkbox33"> <fmt:message key="workingholiday.details.declarations.PDPO.option1" bundle="${msg}" /> <br> <br>
+                                        for="checkbox3"> <fmt:message key="workingholiday.details.declarations.PDPO.option1" bundle="${msg}" /> <br> <br>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <input id="checkbox4" type="checkbox"
                                         name="donotDisclose"> <label
-                                        for="checkbox34"> <fmt:message key="workingholiday.details.declarations.PDPO.option2" bundle="${msg}" /><br>
+                                        for="checkbox4"> <fmt:message key="workingholiday.details.declarations.PDPO.option2" bundle="${msg}" /><br>
                                     </label>
                                 </div>
 
@@ -777,7 +949,7 @@
 									 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width:47%"> 
-									<input type="submit" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
+									<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="activateUserAccountJoinUs();"/>
 								</div>
 							</div>
 			            </div>
@@ -804,7 +976,7 @@
                      <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%"> 
-                    <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" />
+                    <input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="activateUserAccountJoinUs();"/>
                 </div>
                 <div class="clearfix"></div>
             </div>

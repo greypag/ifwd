@@ -46,10 +46,6 @@ $(function () {
 		$('#whAppDob').html('');
 	});
 	
-	/*$("#inputWhAppFullName").keyup(function() {
-		   document.getElementById("inputWhInsFullName").value = this.value;
-	});*/
-	
 	$("#inputFullName").blur(function() {
 		var fullname = document.getElementById("inputFullName").value;
 		
@@ -314,6 +310,8 @@ function whDetailsValid(){
 	document.getElementById("whInsHKID").innerHTML = "";
 	document.getElementById("whInsWorkingCty").innerHTML = "";
 	document.getElementById("whAppEmailAdd").innerHTML = "";
+	document.getElementById("chk1").innerHTML = "";
+	document.getElementById("chk2").innerHTML = "";
 	
 //	document.getElementById("whInsRoom").innerHTML = "";
 //	document.getElementById("whInsFloor").innerHTML = "";
@@ -583,7 +581,7 @@ function confirmDetails(form){
 }
 
 function setAtt(att, value) {
-	/*var method = this.rootUrl + "/setAtt";
+	var method = this.rootUrl + "/saveAtt";
 	var data = {"att":att , "value": value};
 	$.ajax({
 		type : "POST",
@@ -592,5 +590,5 @@ function setAtt(att, value) {
 		async : false,
 		success : function(data) {
 		}
-	});*/
+	});
 }
