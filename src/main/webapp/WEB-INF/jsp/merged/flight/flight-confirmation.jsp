@@ -242,7 +242,16 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 	</div>
 </div>
 </div>
-<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="perventRedirect=false;setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+<h5>
+   
+	<a href="#" class="bdr-curve-none btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal">
+	   <fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" />
+	</a>
+</h5>
+<!--
+this is the old button 
+<h5><a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="perventRedirect=false;setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+-->
 </div>
 </div>
 <%
@@ -255,6 +264,147 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 </div>
 </div>
 
+<div class="modal fade details-popup" id="confirm-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal" style="top:30px;">
+            <a class="close" aria-label="Close" data-dismiss="modal">
+               <span aria-hidden="true" style="font-size:30px;">×</span>
+            </a>
+            
+            
+            <div class="declaration-content">
+                <h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
+                
+                <h3 class="error-hide1" style='display:none; color:red; font-size:15px;'>
+                     Please read and accept the Declaration, Terms & Conditions before submitting the application.
+                </h3>
+                
+                
+                
+                
+                <div class="checkbox">
+                    <input id="checkbox1" name="checkbox1" type="checkbox"> 
+                    <label for="checkbox1">
+                        <fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /> 
+                        <ol class="ol-disclaimer">
+                            <li><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+                        </ol>
+                        
+                    </label>
+                </div>  
+                <span id="chk1" class="text-red"></span>        
+                
+                
+                
+                <h3 class="error-hide2" style='display:none; color:red; font-size:15px;'>
+                    Please read and accept the Personal Information Collection Statement before submitting the application.
+                </h3>
+                
+                
+                <div class="checkbox">
+                    <input id="checkbox2" name="checkbox2" type="checkbox"> <label
+                        for="checkbox2">
+                        <fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
+                        href="<fmt:message key="PICS.link" bundle="${msg}" />"
+                        class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
+                        
+
+
+                        </label>
+                </div>
+                <span id="chk2" class="text-red"></span>
+                <hr/>
+                <div>
+                     <label>
+                    <fmt:message key="travel.details.declarations.PDPO" bundle="${msg}" /> <br>
+                    </label>
+                </div>
+                 <div class="checkbox">
+                    <input id="checkbox3" name="checkbox3" type="checkbox"> <label
+
+                        for="checkbox3"> <fmt:message key="travel.details.declarations.PDPO.option1" bundle="${msg}" /><br>
+                        
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <input id="checkbox4" name="checkbox4" type="checkbox"> <label
+                        for="checkbox4">
+
+                        <fmt:message key="travel.details.declarations.PDPO.option2" bundle="${msg}" /><br>
+                        
+                    </label>
+                </div>
+                
+                <div class="checkboxBubble">
+                    <fmt:message key="travel.details.declarations.PDPO.warning" bundle="${msg}" />
+                </div>
+
+                <script type="text/javascript">
+                function showBubble(){
+                    if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+                        $(".checkboxBubble").fadeIn();
+                    }else{
+                        $(".checkboxBubble").fadeOut();
+                    }
+                }
+                
+                $("#checkbox3").change(function() {
+                    showBubble();
+                });
+                
+                $("#checkbox4").change(function() {
+                    showBubble();
+                });
+                </script>
+                
+				<!-- submit -->
+				<input style="width:250px; margin-top:50px;" type="button" onclick="return checkbox();" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+				<script>
+				function checkbox() {
+					optIn1 = "false"
+		            optIn2 = "false"
+		            
+		            
+		            if($('#checkbox1').is(':checked')){
+		                optIn1 = "true";    
+		            }
+		            if($('#checkbox2').is(':checked')){
+		                optIn2 = "true";    
+		            }
+		            
+		            
+		            if(optIn1 == "true" && optIn2 == "true"){
+		            	$(".error-hide1").hide();
+		            	$(".error-hide2").hide();
+		            }
+		            
+		            
+		            
+	            	if(optIn1 == "false"){
+	            		$(".error-hide1").show();     	
+	            	}else{
+	            		$(".error-hide1").hide();
+	            	}
+	            	
+	                if(optIn2 == "false"){
+	                	$(".error-hide2").show();   
+                    }else{
+                    	$(".error-hide2").hide();
+                    }
+		            	
+		            
+		            
+		            
+				}
+				</script>
+            </div>
+        </div>
+     </div>
+</div>
 
 <input type="hidden" name="totalAdultTraveller"
 id="totalAdultTraveller"
