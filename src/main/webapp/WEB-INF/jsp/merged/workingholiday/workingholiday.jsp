@@ -6,14 +6,6 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<script type="text/javascript">
-
-    function reset_submit()
-    {
-      var frm = document.getElementById("frmWorkingHolidayGetQuote");
-
-    }   
-</script>
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
@@ -61,7 +53,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 						<tbody>
 							<tr>  
 								<td align="center" class="col-md-2 pad-none">
-								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 								</td>
 							</tr>
 						</tbody>
@@ -72,12 +64,10 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	</form>
 </div>
 </section>
-<%-- <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" method="post" onsubmit="return flightValidateDeskWorkingHoliday();"> --%>
 
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
-<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="getWorkingHolidayQuote" method="post" onsubmit="return flightValidateMobWorkingHoliday();">
-      <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobWorkingHoliday()">立即申請免費保障! </a>  -->
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
       <button type="submit" class="bdr-curve-none btn btn-primary btn-lg" style="width:100%">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
@@ -325,7 +315,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     <hr style="width:120px;">
     <h2>Made your decision</h2>        
     <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
-    <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()">Get Covered Now</button>    
+    <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>    
 
     
     <!--/.row--> 
@@ -463,26 +453,4 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
    
   </div>
 </section>
-<!-- 
-<section id="bottom-form" class="hidden-sm hidden-xs">
-  <div class="container">
-    <div class="row">
-    <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" action="<%=request.getContextPath()%>/${language}/getWorkingHolidayQuote" method="post" onsubmit="return flightValidateBtmWorkingHoliday();">
-      <div class="col-lg-12 col-md-12 pad-none">
-        <h2><fmt:message key="workingholiday.main.quote.bottom.heading" bundle="${msg}" /></h2>
-        <table class="table activation-form3">
-          <tbody>
-          <tr>
-        	  <td align="middle" class="col-md-2 pad-none">
-                <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn " onclick="reset_submit()"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      </form>
-    </div> 
-  </div> 
-</section>
--->
 <!--/#middle-->
