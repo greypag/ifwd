@@ -96,10 +96,10 @@ function activateUserAccountJoinUs() {
             if (!checkMembership("Confirm-Password")){
                 validateForm = false;   
             }
-            if (!validateMobile('inputWhAppMobileNO','whAppMobileNO')){
+            if (!validateMobile('inputMobileNo','whAppMobileNO')){
                 validateForm = false;   
             }           
-            if (!validateEmail('inputWhAppEmailAdd','whAppEmailAdd')){
+            if (!validateEmail('inputEmailId','whAppEmailAdd')){
                 validateForm = false;   
             }    
             var applicantDob = $("#inputWhAppDob").val();
@@ -115,17 +115,21 @@ function activateUserAccountJoinUs() {
 
             optIn1 = "false"
             optIn2 = "false"
+            checkbox3 = "";
+            checkbox4 = "";
             if($('#checkbox4').is(':checked')){
-                optIn2 = "true";    
+                optIn2 = "true";
+                checkbox4 = "ON";
             }
             if($('#checkbox3').is(':checked')){
-                optIn1 = "true";    
+                optIn1 = "true";
+                checkbox3 = "ON";
             }
             password = document.getElementById("Password").value; 
-            mobile = document.getElementById("inputWhAppMobileNO").value;
-            name = document.getElementById("inputWhAppFullName").value;
+            mobile = document.getElementById("inputMobileNo").value;
+            name = document.getElementById("inputFullName").value;
             userName = document.getElementById("Username").value;
-            email = document.getElementById("inputWhAppEmailAdd").value;
+            email = document.getElementById("inputEmailId").value;
         
           $('#loading-overlay').modal({
               backdrop: 'static',
@@ -135,7 +139,7 @@ function activateUserAccountJoinUs() {
            $.ajax({
                        type : 'POST',
                         url : '<%=request.getContextPath()%>/joinus',
-                        data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+                        data : { optIn1: optIn1, optIn2: optIn2, password: password, mobileNo: mobile, fullName: name, userName: userName, emailAddress: email, checkbox3: checkbox3, checkbox4: checkbox4, ajax: "true" },
                         async : false,
                         success : function(data) {
                             

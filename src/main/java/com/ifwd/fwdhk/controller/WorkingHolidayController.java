@@ -670,7 +670,7 @@ public class WorkingHolidayController {
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
 		session.setAttribute("policyNo", createPolicy.getPolicyNo());
 		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
-		
+
 		return "success";
 	}
 	
@@ -1060,7 +1060,7 @@ public class WorkingHolidayController {
 		return response;
 	}*/
 	
-	@RequestMapping(value = "/saveAtt")
+	@RequestMapping(value = "/saveAtt", method=RequestMethod.POST)
 	@ResponseBody
 	public String setDetailsFrom(String att, String value, HttpServletRequest request) {
 		Method method;

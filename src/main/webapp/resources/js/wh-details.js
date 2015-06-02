@@ -223,6 +223,7 @@ $(function () {
 			return false;
 		}
 		$("#whInsEstate").html('');
+		$("#whInsBuilding").html('');
 		setAtt("WhInsEstate", $(this).val());
 	});
 	
@@ -233,6 +234,7 @@ $(function () {
 			$("#whInsBuilding").html( getBundle(getBundleLanguage, "workinghoilday.building.message"));
 			return false;
 		}
+		$("#whInsEstate").html('');
 		$("#whInsBuilding").html('');
 		setAtt("WhInsBuilding", $(this).val());
 	});
@@ -313,10 +315,9 @@ function whDetailsValid(){
 	document.getElementById("chk1").innerHTML = "";
 	document.getElementById("chk2").innerHTML = "";
 	
-//	document.getElementById("whInsRoom").innerHTML = "";
-//	document.getElementById("whInsFloor").innerHTML = "";
-//	document.getElementById("whInsBuilding").innerHTML = "";
-//	document.getElementById("whInsEstate").innerHTML = "";
+	document.getElementById("UsernameError").innerHTML = "";
+	document.getElementById("PasswordError").innerHTML = "";
+	document.getElementById("Confirm-PasswordError").innerHTML = "";
 
 	var WhAppFullName = document.getElementById("inputFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
@@ -324,18 +325,21 @@ function whDetailsValid(){
 	var WhAppMobileNO = document.getElementById("inputMobileNo").value;
 	var WhAppEmailAdd = document.getElementById("inputEmailId").value;
 	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
-	
 	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
 	var WhInsFloor = document.getElementById("inputWhInsFloor").value;
 	var WhInsBuilding = document.getElementById("inputWhInsBuilding").value;
 	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
+	
+	var username = document.getElementById("Username").value;
+	var password = document.getElementById("Password").value;
+	var confirmPassword = document.getElementById("Confirm-Password").value;
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"); //"Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		flag = false;
 	}
 	if (document.getElementById("checkbox2").checked == false) {
-		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");;//"Please read and accept the Personal Information Collection Statement before submitting the application";
+		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");//"Please read and accept the Personal Information Collection Statement before submitting the application";
 		flag = false;
 	}
 	
@@ -400,22 +404,6 @@ function whDetailsValid(){
 		}
 	}
 	
-	/*if (WhInsRoom.trim() == "") {
-		$("#whInsRoom").html(getBundle(getBundleLanguage, "workinghoilday.room.message"));
-		flag = false;
-	}
-	if (WhInsFloor.trim() == "") {
-		$("#whInsFloor").html(getBundle(getBundleLanguage, "workinghoilday.floor.message"));
-		flag = false;
-	}
-	if (WhInsBuilding.trim() == "") {
-		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
-		flag = false;
-	}
-	if (WhInsEstate.trim() == "") {
-		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
-		flag = false;
-	}*/
 	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
 		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
 		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
