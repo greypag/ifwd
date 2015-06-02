@@ -2,6 +2,7 @@ var reg = /^[a-zA-Z]+$/;
 var emailreg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^1[0-9]{10}$|^[5689][0-9]{7}$/;   /* /^\d{8}$/; */
+var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
 
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
@@ -4698,7 +4699,6 @@ function isAccountNumeric(num){
 }
 
 function isValidUsername(el){
-	var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
 	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
 		return getBundle(getBundleLanguage, "user.username.notValid.message");
