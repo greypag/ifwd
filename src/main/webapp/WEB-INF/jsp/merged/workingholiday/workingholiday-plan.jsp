@@ -100,6 +100,7 @@ var promoData = '';
 	
 	
 	function prepareWorkingHolidayUserDetails(form,formId){
+		var result = false;
 		var formId = '#' + formId;
 		var method = "<%=request.getContextPath()%>/wh-details";
 		if(chkDueAmount()){
@@ -111,14 +112,18 @@ var promoData = '';
 				success : function(data) {
 					if (data == 'success') {
 						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
+						result = true;
 					} else {
 						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
+						result = false;
 					}
 				}
-			}); 
+			});
+			
 		}else{
-			return false;
+			result = false;
 		}
+		return result;
 	}
 	
 	
