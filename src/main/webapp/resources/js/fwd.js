@@ -45,9 +45,12 @@ function IsHKID(str) {
 	// regular expression to check pattern and split
 	var hkidPat = /^([A-Z]{1,2})([0-9]{6})([A0-9])$/;
 	var matchArray = str.match(hkidPat);
+	
+	var hkidPat2 = /^([A-Z]{1,2})([0-9]{6})([(])([A0-9])([)])$/;
+	var matchArray2 = str.match(hkidPat2);
 
 	// not match, return false
-	if (matchArray == null)
+	if (matchArray == null && matchArray2 == null)
 		return false;
 
 	// the character part, numeric part and check digit part
@@ -5053,7 +5056,7 @@ function hkidValid(ths){
 	var inputVal = $('#'+inputId).val();
 	var selectHkPass = document.getElementById(selectId).value;
 	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
-		inputVal = inputVal.replace(/[\W]/g,'');
+		inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789()]/g,'');
 		$('#'+inputId).val(inputVal);
 	}
 }
