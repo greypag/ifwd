@@ -11,6 +11,7 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
 function prepareWorkingHolidayPlan(form, paymentFormId){
+	var result = false;
 	var paymentFormId = '#' + paymentFormId;
 	var method = "<%=request.getContextPath()%>/prepareWorkingHolidayPlan";
 	$.ajax({
@@ -21,12 +22,14 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		success : function(data) {
 			if (data == 'success') {
 				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
+				result = true;
 			} else {
 				console.log("fail to process prepareWorkingHolidayPlan " + data);
-				return false;
+				result = false;
 			}
 		}
-	}); 
+	});
+	return result;
 }
 
 
