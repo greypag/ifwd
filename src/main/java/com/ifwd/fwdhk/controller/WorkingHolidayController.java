@@ -665,6 +665,9 @@ public class WorkingHolidayController {
 			createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
 			createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 			
+			session.setAttribute("transNo", createPolicy.getTransactionNo());
+			session.setAttribute("transactionDate", createPolicy.getTransactionDate());
+			
 			session.setAttribute("whCreatePolicy", createPolicy);
 		}
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
@@ -766,8 +769,8 @@ public class WorkingHolidayController {
 				HttpMethod.POST,
 				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
 				submitPolicy);
-		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
-			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+		//if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			//if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				String month = request.getParameter("epMonth");
 				System.out.println("month " + month);
 				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
@@ -788,13 +791,13 @@ public class WorkingHolidayController {
 				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
 				return "success";
-			} else {
+				/*} else {
 				return checkJsonObjNull(jsonResponse, "policyNo");
 			}
 		} else {
 			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
-		return "fail";
+		return "fail";*/
 	}
 	
 	

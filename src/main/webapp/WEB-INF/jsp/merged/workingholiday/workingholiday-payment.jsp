@@ -11,6 +11,7 @@
 <script>
 var clicked = false;
 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
+		var result=false;
 		if (whPayValid() && clicked === false) {
  			clicked = true;
  			$("#PaymentingDiv").show();
@@ -28,16 +29,20 @@ var clicked = false;
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
- 							data = 'success';
  							if (data == 'success') {
  								form.action = geteWayUrl;
+ 								result=true;
  							} else {
  								console.log("fail to process payment " + data);
+ 								result=false;
  							}
  						}
  					});
- 			return true;
- 		}else return false;
+
+ 		}else{
+ 			result=false;
+ 		}
+		return result;
 	}
 	
 </script>
