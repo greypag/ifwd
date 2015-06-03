@@ -121,7 +121,7 @@
 								<tr>
 									<td colspan="2">
 										<button type="button" onclick="getForgotUserName()"
-											class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>
+											class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>
 									</td>
 								</tr>
 							</tbody>

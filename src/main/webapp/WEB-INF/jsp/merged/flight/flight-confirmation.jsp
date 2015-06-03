@@ -244,7 +244,7 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 </div>
 <h5>
    
-	<a href="#" class="bdr-curve-none btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal">
+	<a href="#" class="bdr-curve btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal">
 	   <fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" />
 	</a>
 </h5>
@@ -362,7 +362,7 @@ this is the old button
                 </script>
                 
 				<!-- submit -->
-				<input style="width:250px; margin-top:50px;" type="button" onclick="return checkbox();" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+				<input style="width:250px; margin-top:50px;" type="button" onclick="return checkbox();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 				<script>
 				function checkbox() {
 					optIn1 = "false"

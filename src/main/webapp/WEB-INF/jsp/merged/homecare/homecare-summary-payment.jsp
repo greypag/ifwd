@@ -462,7 +462,7 @@ perventRedirect=true;
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 	                            <a onclick="perventRedirect=false; confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
-	                                class="bdr-curve-none btn btn-primary nxt-btn"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+	                                class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
 	                        </div>
                         </div>
 						

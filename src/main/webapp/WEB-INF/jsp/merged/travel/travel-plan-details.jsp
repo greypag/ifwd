@@ -2001,7 +2001,7 @@ function activateUserAccountJoinUs() {
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"> 
     <!-- submit -->
-    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve-none btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 </div>
 <div class="clearfix"></div>
 <br>

@@ -2019,7 +2019,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 
                             <input type="button" onclick="return activateUserAccountJoinUs();"
-                                class="bdr-curve-none btn btn-primary nxt-btn"
+                                class="bdr-curve btn btn-primary nxt-btn"
                                 value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
                             <!-- <button class="bdr-curve-none btn btn-primary nxt-btn "
 onclick="return flightPlanValidation();">Next</button> -->

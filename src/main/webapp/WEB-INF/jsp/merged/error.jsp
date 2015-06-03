@@ -75,7 +75,7 @@
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">
-					<a href="<%=request.getContextPath()%>/${language}/home" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+					<a href="<%=request.getContextPath()%>/${language}/home" class="bdr-curve btn btn-primary btn-next">Go Back to Home Page</a>
 	            </div>
             </div>
 		</div>

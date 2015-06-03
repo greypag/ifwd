@@ -133,7 +133,7 @@
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
 												<button type="button" onclick="forgotUserPassword()"
-													class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>
+													class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>
 
 											</td>
 										</tr>

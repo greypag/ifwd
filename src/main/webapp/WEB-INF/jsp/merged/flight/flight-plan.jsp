@@ -483,7 +483,7 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
 							<input type="submit"
-								class="bdr-curve-none btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+								class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 						</div>
 
 

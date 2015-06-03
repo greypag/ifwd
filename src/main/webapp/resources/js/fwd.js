@@ -506,8 +506,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy",
-
+		format: "dd MM yyyy"
 
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {

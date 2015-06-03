@@ -68,7 +68,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
 <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
-      <button type="submit" class="bdr-curve-none btn btn-primary btn-lg" style="width:100%">
+      <button type="submit" class="bdr-curve btn btn-primary btn-lg" style="width:100%">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
   </form>

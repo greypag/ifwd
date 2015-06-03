@@ -166,7 +166,7 @@
 						</div>
 
 						<input type="button"
-							class="bdr-curve-none btn btn-primary btn-lg "
+							class="bdr-curve btn btn-primary btn-lg "
 							value="Update User Account" onclick="updateUserAccount()"
 							tabindex="11" />
 						<BR>
