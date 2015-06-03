@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +44,7 @@ import com.ifwd.fwdhk.model.WorkingHolidayDetailsBean;
 import com.ifwd.fwdhk.model.WorkingHolidayQuoteBean;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -134,6 +137,96 @@ public class WorkingHolidayController {
 	}
 	
 	
+	@RequestMapping(value = "/prepareWorkingHolidayPlan")
+	@ResponseBody
+	public String prepareWorkingHolidayPlan(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		
+		String token = null, username = null;
+		if ((session.getAttribute("token") != null)
+				&& (session.getAttribute("username") != null)) {
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		} else {
+			restService.consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
+		}
+		
+		LocalDate commencementDate = new LocalDate(new Date());
+		String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
+				+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
+
+		System.out.println("Working Holiday Quote user " + Url);
+
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", username);
+			header.put("token", token);
+		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+				Url, header, null);
+		System.out.println("Get Working Holiday Quotes API " + responseJsonObj);
+		
+		
+		if (responseJsonObj.get("errMsgs") == null) {
+			QuoteDetails quoteDetails = new QuoteDetails();
+			//quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
+			responseJsonObj.get("referralCode");
+			responseJsonObj.get("referralName");
+			responseJsonObj.get("priceInfoA");
+			responseJsonObj.get("priceInfoB");
+			JSONObject jsonPriceInfoA = new JSONObject();
+			jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
+			JSONObject jsonPriceInfoB = new JSONObject();
+			jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
+			String planeName[] = { "A", "B" };
+			String grossPrem[] = {
+					jsonPriceInfoA.get("grossPremium").toString(),
+					jsonPriceInfoB.get("grossPremium").toString() };
+
+			String discountPercentage[] = {
+					jsonPriceInfoA.get("discountPercentage").toString(),
+					jsonPriceInfoB.get("discountPercentage").toString() };
+
+			String discountAmount[] = {
+					jsonPriceInfoA.get("discountAmount").toString(),
+					jsonPriceInfoB.get("discountAmount").toString() };
+
+			String totalNetPremium[] = {
+					jsonPriceInfoA.get("totalNetPremium").toString(),
+					jsonPriceInfoB.get("totalNetPremium").toString() };
+
+			String totalDue[] = {
+					jsonPriceInfoA.get("totalDue").toString(),
+					jsonPriceInfoB.get("totalDue").toString() };
+
+			quoteDetails.setGrossPremium(grossPrem);
+			quoteDetails.setDiscountPercentage(discountPercentage);
+			quoteDetails.setDiscountAmount(discountAmount);
+			quoteDetails.setTotalNetPremium(totalNetPremium);
+			quoteDetails.setToalDue(totalDue);
+			quoteDetails.setPlanName(planeName);
+			session.setAttribute("quoteDetails", quoteDetails);
+			return "success";
+		}else{
+			session.setAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+			return "fail";
+		}
+
+		
+	}
+	
 	
 	@RequestMapping(value = {"/{lang}/getWorkingHolidayQuote", "/{lang}/workingholiday-insurance/quote"})
 	public ModelAndView prepareWorkingHolidayPlan(
@@ -144,160 +237,22 @@ public class WorkingHolidayController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 		
-		/*System.out.println("PERSONAL " + workingholidayQuote.getTotalPersonalWorkingHolidayer());
-		System.out.println("ADULT " + workingholidayQuote.getTotalAdultWorkingHolidayer());
-		System.out.println("CHILD " + workingholidayQuote.getTotalChildWorkingHolidayer());
-		System.out.println("OTHER " + workingholidayQuote.getTotalOtherWorkingHolidayer());
-		
-		
-		System.out.println("LeavingDate " + workingholidayQuote.getTrLeavingDate());
-		System.out.println("BackDate " + workingholidayQuote.getTrBackDate());*/
-		
-		/*if (workingholidayQuote.getTrLeavingDate() != null) {
-			session.setAttribute("workingholidayQuote", workingholidayQuote);
-		} else {
-			workingholidayQuote = (WorkingHolidayQuoteBean) session.getAttribute("workingholidayQuote");
-			if(workingholidayQuote == null){
-				return getWorkingHolidayHomePage((String)session.getAttribute("referralCode"), request, model);		
-			}				
-		}*/
 		try {
-			String token = null, username = null;
-			if ((session.getAttribute("token") != null)
-					&& (session.getAttribute("username") != null)) {
-				token = session.getAttribute("token").toString();
-				username = session.getAttribute("username").toString();
-			} else {
-				restService.consumeLoginApi(request);
-				if ((session.getAttribute("token") != null)) {
-					token = session.getAttribute("token").toString();
-					username = session.getAttribute("username").toString();
-				}
-			}
-
-			//int days = 0;
-
-			/* Calculate total Days */
-			//Date dateD1 = new Date(workingholidayQuote.getTrLeavingDate());
-			//Date dateD2 = new Date(workingholidayQuote.getTrBackDate());
-			//LocalDate expiryDate = new LocalDate(dateD2);
-			//days = Days.daysBetween(commencementDate, expiryDate).getDays();
-			//workingholidayQuote.setTotalWorkingHolidayingDays(days + 1);
-
-			/*int otherCount = 0, childCount = 0, adultCount = 0;
-			boolean spouseCover = false, selfCover = false;
-			if (workingholidayQuote.getPlanSelected().equals("personal")) {
-				selfCover = true;
-				spouseCover = false;
-				otherCount = workingholidayQuote.getTotalPersonalWorkingHolidayer();
-				workingholidayQuote.setTotalChildWorkingHolidayer(0);
-				workingholidayQuote.setTotalAdultWorkingHolidayer(0);
-				workingholidayQuote.setTotalOtherWorkingHolidayer(otherCount - 1);
-				otherCount = workingholidayQuote.getTotalOtherWorkingHolidayer();
-
-			} else {
-				workingholidayQuote.setTotalPersonalWorkingHolidayer(0);
-				adultCount = workingholidayQuote.getTotalAdultWorkingHolidayer();
-				childCount = workingholidayQuote.getTotalChildWorkingHolidayer();
-				otherCount = workingholidayQuote.getTotalOtherWorkingHolidayer();
-				selfCover = true;
-				if (adultCount > 1) {
-					spouseCover = true;
-				} else {
-					spouseCover = false;
-				}
-			}
 			
-			WorkingHolidayQuoteBean workingholidayQuoteCount = new WorkingHolidayQuoteBean();
-			workingholidayQuoteCount.setSelfCover(selfCover);
-			workingholidayQuoteCount.setSpouseCover(spouseCover);
-			workingholidayQuoteCount.setTotalChildWorkingHolidayer(childCount);
-			workingholidayQuoteCount.setTotalOtherWorkingHolidayer(otherCount);
-			session.setAttribute("workingholidayQuoteCount", workingholidayQuoteCount);
-			
-			System.out.println("------------------------------------------------------------");
-			System.out.println("CALLING API");
-			System.out.println("SELF COVER " + selfCover);
-			System.out.println("SPOUSE COVER " + spouseCover);
-			System.out.println("CHILD COUNT " + childCount);
-			System.out.println("OTHER COUNT " + otherCount);		
-			System.out.print("------------------------------------------------------------");*/
-			
-			
-			LocalDate commencementDate = new LocalDate(new Date());
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
-			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
-					+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
-
-			System.out.println("Working Holiday Quote user " + Url);
-
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			if (request.getSession().getAttribute("username") != null) {
-				header.put("userName", username);
-				header.put("token", token);
-			}
 			
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
-				lang = "CN";
-			
-			header.put("language", WebServiceUtils.transformLanaguage(lang));
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-					Url, header, null);
-
-			System.out.println("Get Working Holiday Quotes API " + responseJsonObj);
-			if (responseJsonObj.get("errMsgs") == null) {
-				QuoteDetails quoteDetails = new QuoteDetails();
-				//quoteDetails.setPlanSelected(workingholidayQuote.getPlanSelected());
-				responseJsonObj.get("referralCode");
-				responseJsonObj.get("referralName");
-				responseJsonObj.get("priceInfoA");
-				responseJsonObj.get("priceInfoB");
-				JSONObject jsonPriceInfoA = new JSONObject();
-				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
-				JSONObject jsonPriceInfoB = new JSONObject();
-				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-				String planeName[] = { "A", "B" };
-				String grossPrem[] = {
-						jsonPriceInfoA.get("grossPremium").toString(),
-						jsonPriceInfoB.get("grossPremium").toString() };
-
-				String discountPercentage[] = {
-						jsonPriceInfoA.get("discountPercentage").toString(),
-						jsonPriceInfoB.get("discountPercentage").toString() };
-
-				String discountAmount[] = {
-						jsonPriceInfoA.get("discountAmount").toString(),
-						jsonPriceInfoB.get("discountAmount").toString() };
-
-				String totalNetPremium[] = {
-						jsonPriceInfoA.get("totalNetPremium").toString(),
-						jsonPriceInfoB.get("totalNetPremium").toString() };
-
-				String totalDue[] = {
-						jsonPriceInfoA.get("totalDue").toString(),
-						jsonPriceInfoB.get("totalDue").toString() };
-
-				quoteDetails.setGrossPremium(grossPrem);
-				quoteDetails.setDiscountPercentage(discountPercentage);
-				quoteDetails.setDiscountAmount(discountAmount);
-				quoteDetails.setTotalNetPremium(totalNetPremium);
-				quoteDetails.setToalDue(totalDue);
-				quoteDetails.setPlanName(planeName);
-
+			QuoteDetails quoteDetails;
+			if (session.getAttribute("quoteDetails") != null) {
+				quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+				
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
-				session.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("workingholidayQuoteBean", workingholidayQuote);
 			} else {
-				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "workingholiday/workingholiday");
 			}
-				
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -309,12 +264,119 @@ public class WorkingHolidayController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayQuote", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
+		session.removeAttribute("workingHolidayPlanDetailsForm");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "workingholiday/workingholiday-plan");
 	}
 	
+	@SuppressWarnings("rawtypes")
+	@RequestMapping(value = {"/wh-details" })
+	@ResponseBody
+	public String prepareYourDetails(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("token") == null) {
+			return "error";
+		}
+		try {
+			String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			String lang = UserRestURIConstants.getLanaguage(request);
+			
+			if (lang.equals("tc")){
+				lang = "CN";
+			}
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			if (request.getSession().getAttribute("username") != null) {
+				header.put("userName", session.getAttribute("username").toString());
+				header.put("token", session.getAttribute("token").toString());
+			}
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+
+			if (responseJsonObj.get("errMsgs") == null) {
+				JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj.get("optionItemDesc");
+				Map<String, String> mapAgeType = new HashMap<String, String>();
+				Map<String, String> mapSelfType = new HashMap<String, String>();
+				Map<String, String> mapChildType = new HashMap<String, String>();
+				for (int i = 0; i < jsonAgeTypeArray.size(); i++) {
+					JSONObject obj = (JSONObject) jsonAgeTypeArray.get(i);
+					mapAgeType.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
+				}
+				Iterator iterator = mapAgeType.entrySet().iterator();
+				while (iterator.hasNext()) {
+					Map.Entry mapEntry = (Map.Entry) iterator.next();
+					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3")) {
+						mapSelfType.put((String) mapEntry.getKey(), (String) mapEntry.getValue());
+					}
+
+				}
+				iterator = mapAgeType.entrySet().iterator();
+				while (iterator.hasNext()) {
+					Map.Entry mapEntry = (Map.Entry) iterator.next();
+					System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+					if (mapEntry.getKey().equals("1")) {
+						mapChildType.put((String) mapEntry.getKey(), (String) mapEntry.getValue());
+					}
+
+				}
+				//session.setAttribute("whMapAgeType", mapAgeType);
+				//session.setAttribute("whMapSelfType", mapSelfType);
+				//session.setAttribute("whMapChildType", mapChildType);
+
+				/*
+				 * API Call for get Benifitiary Relationship
+				 */
+				String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE + "?itemTable=BeneRelationshipCode";
+				JSONObject jsonRelationShipCode = restService.consumeApi(HttpMethod.GET, relationshipCode, header, null);
+
+				if (responseJsonObj.get("errMsgs") == null) {
+					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
+					System.out.println(" jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
+
+					Map<String, String> mapRelationshipCode = new HashMap<String, String>();
+					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
+						JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
+						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
+					}
+					//session.setAttribute("whMapRelationshipCode", mapRelationshipCode);
+
+				}
+			} else {
+				return "error";
+			}
+			//get country
+			String getCountryUrl = UserRestURIConstants.GET_COUNTRY + "?itemTable=WorkingHolidayCountry";
+			JSONObject jsonCountry = restService.consumeApi(HttpMethod.GET, getCountryUrl, header, null);
+			if (jsonCountry.get("errMsgs") == null) {
+				JSONArray jsonRelationshipCode = (JSONArray) jsonCountry.get("optionItemDesc");
+				
+				Map<String, String> countryInfo = new HashMap<String, String>();
+				for (int i = 0; i < jsonRelationshipCode.size(); i++) {
+					JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
+					countryInfo.put(checkJsonObjNull(obj, "itemCode"),
+							WebServiceUtils.getPageTitle("workingholiday.country." + checkJsonObjNull(obj, "itemCode"), UserRestURIConstants.getLanaguage(request)));
+				}
+				//session.setAttribute("whCountryInfo", countryInfo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
+		String lang = UserRestURIConstants.getLanaguage(request);
+		
+		//get District
+		String token = session.getAttribute("token").toString();
+		String userName = session.getAttribute("username").toString();
+		HomeCareService homecareService = new HomeCareServiceImpl();
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
+		//session.setAttribute("whDistrictList", districtList);
+		
+		return "success";
+	}
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/user-details" })
@@ -480,31 +542,22 @@ public class WorkingHolidayController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan-details");
 	}
 	
-	
 	@SuppressWarnings({ "unchecked" })
-	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
-	public ModelAndView prepareSummary(@ModelAttribute("frmYourDetails") WorkingHolidayDetailsBean planDetailsForm, BindingResult result, Model model,
-			HttpServletRequest request) {
+	@RequestMapping(value = "/wh-summary", method=RequestMethod.POST)
+	@ResponseBody
+	public String prepareSummary(@RequestBody  WorkingHolidayDetailsBean planDetailsForm, HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		 
 		HttpSession session = request.getSession();
-		//TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
-		
 		String planSelected = (String) session.getAttribute("planSelected");
+		
 		if (session.getAttribute("token") == null) {
-			model.addAttribute("errMsgs", "Session Expired");
-			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+			return "fail";
 		}
 		if (quoteDetails == null || planSelected == null) {
-			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+			return "fail";
 		}
-		UserRestURIConstants.setController("WorkingHoliday");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
-
-		System.out.println("inside Controller fro prepare Summary" + selectPlanName);
-
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
 		} else {
@@ -522,11 +575,14 @@ public class WorkingHolidayController {
 		
 		Calendar calendar=Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		calendar.setTime(new Date(planDetailsForm.getWhInseffectiveDate()));
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhInseffectiveDate()));
 		String commencementDate = df.format(calendar.getTime());
 		calendar.add(Calendar.YEAR, 1);
 		calendar.add(Calendar.DAY_OF_YEAR, -1);
 		String expiryDate = df.format(calendar.getTime());
+		
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhAppDob()));
+		String dob = df.format(calendar.getTime());
 		
 		parameters.put("commencementDate", commencementDate);
 		parameters.put("expiryDate", expiryDate);
@@ -562,7 +618,7 @@ public class WorkingHolidayController {
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
-		applicantJsonObj.put("dob", "1970-01-01");
+		applicantJsonObj.put("dob", dob);
 		parameters.put("applicant", applicantJsonObj);
 		
 		JSONObject addressJsonObj = new JSONObject();
@@ -572,53 +628,93 @@ public class WorkingHolidayController {
 		addressJsonObj.put("estate", planDetailsForm.getWhInsEstate());
 		parameters.put("address", addressJsonObj);
 
-
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 
-		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("createPolicy");
+		CreatePolicy createPolicy = new CreatePolicy();
 		JSONObject responsObject = new JSONObject();
-		if (createPolicy == null) {
-			System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
-			responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
-			createPolicy = new CreatePolicy();
-			String finalizeReferenceNo = "";
-			System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
+			
+		System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
+		responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
+		String finalizeReferenceNo = "";
+		System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
 
-			if (responsObject.get("errMsgs") == null) {
-				finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
-				createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
-				createPolicy.setPolicyNo(checkJsonObjNull(responsObject, "policyNo"));
-				createPolicy.setReferralCode(checkJsonObjNull(responsObject, "referralCode"));
-				createPolicy.setPlanCode(checkJsonObjNull(responsObject, "planCode"));
-				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
-				createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
-				createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
-				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
-				createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
+		if (responsObject.get("errMsgs") == null) {
+			finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
+			createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
+			createPolicy.setPolicyNo(checkJsonObjNull(responsObject, "policyNo"));
+			createPolicy.setReferralCode(checkJsonObjNull(responsObject, "referralCode"));
+			createPolicy.setPlanCode(checkJsonObjNull(responsObject, "planCode"));
+			createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
+			createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
+			createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
+			createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
+			createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
 
-				// Calling Api of Confirm WorkingHoliday Care Policy
-				JSONObject confirmPolicyParameter = new JSONObject();
-				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				System.out.println("Header Object for Confirm" + confirmPolicyParameter);
-				JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.WORKINGHOLIDAY_CONFIRM_POLICY, header,
-						confirmPolicyParameter);
+			// Calling Api of Confirm WorkingHoliday Care Policy
+			JSONObject confirmPolicyParameter = new JSONObject();
+			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
+			session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
+			System.out.println("Header Object for Confirm" + confirmPolicyParameter);
+			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.WORKINGHOLIDAY_CONFIRM_POLICY, header,
+					confirmPolicyParameter);
 
-				System.out.println("Response From Confirm WorkingHoliday Policy " + jsonResponse);
-
-				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
-				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
-				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
-				
-				model.addAttribute(createPolicy);
-				session.setAttribute("createPolicy", createPolicy);
-			}
-
+			createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
+			createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
+			createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
+			
+			session.setAttribute("whCreatePolicy", createPolicy);
 		}
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+		session.setAttribute("policyNo", createPolicy.getPolicyNo());
+		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
+
+		return "success";
+	}
+	
+	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
+	public ModelAndView prepareSummary(HttpServletRequest request, HttpServletResponse response, Model model) {
+		HttpSession session = request.getSession();
+		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
+		
+		String planSelected = (String) session.getAttribute("planSelected");
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+		}
+		if (quoteDetails == null || planSelected == null) {
+			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
+		}
+		UserRestURIConstants.setController("WorkingHoliday");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+
+		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
+
+		System.out.println("inside Controller fro prepare Summary" + selectPlanName);
+
+		WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
+
+		UserDetails userDetails = new UserDetails();
+		userDetails.setFullName(planDetailsForm.getWhAppFullName());
+		userDetails.setHkid(planDetailsForm.getWhAppHKID());
+		userDetails.setMobileNo(planDetailsForm.getWhAppMobileNO());
+		userDetails.setEmailAddress(planDetailsForm.getWhAppEmailAdd());
+		
+		Calendar calendar=Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhInseffectiveDate()));
+		String commencementDate = df.format(calendar.getTime());
+		calendar.add(Calendar.YEAR, 1);
+		calendar.add(Calendar.DAY_OF_YEAR, -1);
+		String expiryDate = df.format(calendar.getTime());
+		
+		calendar.setTime(DateApi.formatDate(planDetailsForm.getWhAppDob()));
+		
+		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("whCreatePolicy");
+		model.addAttribute(createPolicy);
 
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
@@ -632,90 +728,126 @@ public class WorkingHolidayController {
 		LocalDate dateL2 = new LocalDate(expiryDate);
 		int days = Days.daysBetween(dateL1, dateL2).getDays();
 		model.addAttribute("totalDays", days + " days");
-		
-		System.out.println("path " + path);
-
 		model.addAttribute("path", path.replace("workingholiday-summary", "confirmation"));
-
-		System.out.println("modal path " + path.replace("workingholiday-summary", "confirmation"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
 		String paymentGatewayFlag = request.getParameter("paymentGatewayFlag");
 		String errorMsg = request.getParameter("errorMsg");
 		if (paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null) {
 			errorMsg = "Payment failure";
 		}
-		model.addAttribute("errormsg", errorMsg);
 		String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanSummary", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("errormsg", errorMsg);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-payment");
 	}
 	
 	
-	@SuppressWarnings({ "unchecked" })
-	@RequestMapping(value = {"/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/processWorkingHolidayPayment")
+	@ResponseBody
+	public String processPayment(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		
+		
+		String referenceNo = request.getParameter("referenceNo");
+		
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", (String) session.getAttribute("token"));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.POST,
+				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
+				submitPolicy);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				String month = request.getParameter("epMonth");
+				System.out.println("month " + month);
+				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
+				System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
+				session.setAttribute("transactionNo", request.getParameter("transNo"));
+				String encryptedCreditCard = request.getParameter("cardNo");
+				System.out.println("cardNo "+ encryptedCreditCard);
+				
+				try {
+					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
+					System.out.println("encryptedCreditCard "+ encryptedCreditCard);
+					
+					session.setAttribute("creditCardNo", encryptedCreditCard);
+				} catch (Exception e) {
+					session.setAttribute("creditCardNo", "");
+					e.printStackTrace();
+				}
+				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				return "success";
+			} else {
+				return checkJsonObjNull(jsonResponse, "policyNo");
+			}
+		} else {
+			checkJsonObjNull(jsonResponse, "errMsgs");
+		}
+		return "fail";
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam(required = false) String Ref ) {
 		HttpSession session = request.getSession();
+		System.out.print("emailAddress :" + session.getAttribute("emailAddress"));
 		if (session.getAttribute("token") == null) {
 			System.out.println("Session Expired");
 			model.addAttribute("errormsg", "Session Expired");
-			return UserRestURIConstants.getSitePath(request)
-					+ "workingholiday/workingholiday-confirmation";
+			return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-confirmation";
 		}
 		
-		UserRestURIConstants.setController("Travel");
+		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
-
+		
 		JSONObject responsObject = new JSONObject();
 
 		try {
 			JSONObject parameters = new JSONObject();
-			parameters.put("referenceNo",
-					session.getAttribute("finalizeReferenceNo"));
-			parameters
-					.put("transactionNumber", session.getAttribute("transNo"));
-			parameters.put("transactionDate",
-					session.getAttribute("transactionDate"));
+			parameters.put("referenceNo",session.getAttribute("finalizeReferenceNo"));
+			parameters.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate",session.getAttribute("transactionDate"));
 			
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
 			if (creditCardNo !=null) { 
-				parameters
-						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				return UserRestURIConstants.getSitePath(request)
-						+ "workingholiday/workingholiday-confirmation";
+				return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-confirmation";
 			}
 				
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
-			System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
-					+ parameters);
-			System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
-			responsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
-					parameters);
+			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+			System.out.println("WORKINGHOLIDAY_FINALIZE_POLICY parameters-" + parameters);
+			System.out.println("WORKINGHOLIDAY_FINALIZE_POLICY Header-" + header);
+			responsObject = restService.consumeApi(HttpMethod.POST,UserRestURIConstants.WORKINGHOLIDAY_FINALIZE_POLICY, header,parameters);
 			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
@@ -724,10 +856,8 @@ public class WorkingHolidayController {
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				
@@ -753,10 +883,8 @@ public class WorkingHolidayController {
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 				}
 				
-				System.out.println("workingholiday confirmation" + UserRestURIConstants.getSitePath(request)
-						+ "error");
-				return UserRestURIConstants.getSitePath(request)
-						+ "error";
+				System.out.println("workingholiday confirmation" + UserRestURIConstants.getSitePath(request) + "error");
+				return UserRestURIConstants.getSitePath(request) + "error";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -901,7 +1029,7 @@ public class WorkingHolidayController {
 	}
 	
 	
-	/*
+/*	
 	 * if("hkId".equalsIgnoreCase(planDetailsForm.getSelectedAdHkidPass()[inx])){
 	 * adult.put("hkId", planDetailsForm.getAdultHKID()[inx]); }else{
 	 * adult.put("hkId", ""); }
@@ -909,7 +1037,7 @@ public class WorkingHolidayController {
 	 * if("Passport".equalsIgnoreCase(planDetailsForm.getSelectedAdHkidPass()[inx
 	 * ])){ adult.put("passport", planDetailsForm.getAdultHKID()[inx]); }else{
 	 * adult.put("passport", ""); }
-	 */
+	 
 
 	private String checkPasswortAndHkid(String check, String selected,
 			String selectedHkidOrPassport) {
@@ -930,45 +1058,22 @@ public class WorkingHolidayController {
 		}
 
 		return response;
-	}
+	}*/
 	
-	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/{lang}/applyWHQuote", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveAtt", method=RequestMethod.POST)
 	@ResponseBody
-	public String processWHQuote(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
-		HttpSession session = request.getSession();
-//		String trLeavingDate = request.getParameter("trLeavingDate");
-//		String trBackDate = request.getParameter("trBackDate");
-		String trLeavingDate = "11 May 2015";
-		String trBackDate = "11 May 2016";
-		
-		
-		String referralCode = request.getParameter("referralCode");
-		String selectedPlanName = request.getParameter("selectedPlanName");
-		LocalDate commencementDate = new LocalDate(new Date(trLeavingDate));
-  		LocalDate expiryDate = new LocalDate(new Date(trBackDate));
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		if (lang.equals("tc")) {
-			lang = "CN";
+	public String setDetailsFrom(String att, String value, HttpServletRequest request) {
+		Method method;
+		try {
+			Object obj = request.getSession().getAttribute("workingHolidayPlanDetailsForm") != null ? 
+					request.getSession().getAttribute("workingHolidayPlanDetailsForm") : WorkingHolidayDetailsBean.class.newInstance();
+			method = obj.getClass().getMethod("set" + att, String.class);
+			method.invoke(obj, value);
+			request.getSession().setAttribute("workingHolidayPlanDetailsForm", obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
 		}
-		if (request.getSession().getAttribute("username") != null) {
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-		}
-  		StringBuffer sb = new StringBuffer("?commencementDate=").append(commencementDate).append("&expiryDate=").append(expiryDate)
- 				.append("&referralCode=").append(referralCode).append("&planCode=").append("WorkingHoliday");
- 		String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + sb.toString();
-		
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
-		
-		System.out.println("------------------------------------------------------------");
-		System.out.println(Url);
-		System.out.println(responseJsonObj);
-		return responseJsonObj.toJSONString();
+		return "success";
 	}
-	
 }

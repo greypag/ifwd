@@ -1821,6 +1821,8 @@ public class TravelController {
 		
 		String referenceNo = request.getParameter("referenceNo");
 		
+		System.out.print("referenceNo : " + referenceNo);
+		
 		JSONObject submitPolicy = new JSONObject();
 		submitPolicy.put("referenceNo", referenceNo);
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
