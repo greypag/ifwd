@@ -5056,7 +5056,7 @@ function hkidValid(ths){
 	var inputVal = $('#'+inputId).val();
 	var selectHkPass = document.getElementById(selectId).value;
 	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
-		inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789()]/g,'');
+		inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()]/g,'');
 		$('#'+inputId).val(inputVal);
 	}
 }

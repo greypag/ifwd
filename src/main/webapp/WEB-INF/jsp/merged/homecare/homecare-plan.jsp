@@ -253,7 +253,9 @@ function checkPromoCodePlaceholder(){
 				<%
 							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
 				<div id="quote-wrap" class="container pad-none bdr">
-					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
+					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none">
+					   <div class="workingholiday-plan-margin form-wrap">
+					
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
 							<!-- Choose a plan -->
 						</h2>
@@ -265,9 +267,9 @@ function checkPromoCodePlaceholder(){
 								<!--  ${planQuote.getPlanCode() } -->
 								</h2>
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
 								<div class="h4">
-									HK$ <br>
+									<fmt:message key="workingholiday.dollar" bundle="${msg}" />
 									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
 									<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
 									<span class="del actualPrice"><del></del></span>
@@ -338,8 +340,7 @@ function checkPromoCodePlaceholder(){
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
                                                 <h4 class="fwdpanel-title h4-4-full">
-                                                    <span><a href="#" data-target="#details-popup-1" data-toggle="modal"><i
-                                                            class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
+                                                    <span><a href="#" data-target="#details-popup-1" data-toggle="modal"><i class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
                                             </div>
                                             <div class="modal fade details-popup" id="details-popup-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
@@ -698,84 +699,70 @@ function checkPromoCodePlaceholder(){
 
 
 
-
+                        </div>
 					</div>
 					
-					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
-						
-							<div class="wd2 hidden-sm hidden-xs">
-								<div class="col-xs-6">
-									<h2 class="h2-3-choose pad-none"><fmt:message key="home.sidebar.summary.product" bundle="${msg}" />
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
+						<div class="col-md-12 hidden-sm hidden-xs pad-none">
+                            <div class="wd2">
+								<div class="pull-left" style="width:150px;">
+									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="home.sidebar.summary.product" bundle="${msg}" />
 									</h2>
-									<h4 class="pad-none"><fmt:message key="home.sidebar.summary.desc" bundle="${msg}" /></h4>
+									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" class="pad-none"><fmt:message key="home.sidebar.summary.desc" bundle="${msg}" /></h4>
 								</div>
-								<div class="col-xs-6 pull-right">
-									<div class="text-left  h2-2 h2">
-										<div class="hk1 text-right">HK$</div>
-										<div class="hk1 top-mrg-10">
-											<div class="flightcare-hk text-right-imp"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%>
-												</div>
-										</div>
+								<div class="pull-right" style="padding-top: 45px;">
+									<div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+									   <div class="hk" style="font-size: 18px;">
+                                            <fmt:message key="workingholiday.dollar" bundle="${msg}" />
+                                            <div style="font-weight: bold;font-size: 28px;" class="flightcare-hk"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
+                                        </div>
 									</div>
 								</div>
 								<div class="clearfix"></div>
 							</div>
 							<div class="orange-bdr"></div>
-							<div class="form-container">
-								<h3 class="hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.planType" bundle="${msg}" /></h3>
-								<div class="form-group hidden-sm hidden-xs">
-									<p class="h4-5 pad-none"><fmt:message key="home.sidebar.summary.planType.desc" bundle="${msg}" /></p>
+						</div>
+						<div class="clearfix"></div>
+							<div class="form-container" style="padding: 0px !important;">
+						     <div style="width: 80%;margin-left: 10%;">
+								<h3 style="padding-left:0px;font-size: 24px;"><fmt:message key="home.sidebar.summary.planType" bundle="${msg}" /></h3>
+								<div>
+									<p style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="home.sidebar.summary.planType.desc" bundle="${msg}" /></p>
 								</div>
-
-								<h3 class="col-sm-6 col-xs-6 col-md-12"><fmt:message key="home.sidebar.summary.promocode" bundle="${msg}" /></h3>
-								<div class="travel-italic hidden-lg hidden-md col-sm-6 col-xs-6 padding7  text-right" >
-									<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 								</div>
-								<div class="clearfix"></div>
-								
-								<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
-								
-								<span class="text-red" id="errPromoCode"></span>
-								<div id="promo-wrap" class="form-group">
-									<div class="input-group" style="border: 0;">
-										<span class="text-red" id="errPromoCode"></span>
-										<input type="text" id="referralCode" name="referralCode" style="border: 1px solid #e3e3e3"
-											class="form-control bmg_custom_placeholder" 
-											onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
-                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
-											placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
-											class="input-group-addon in black-bold"> 
-											<span class="input-group-addon in black-bold pointer" onclick="applyHomePromoCode()">
-											 <fmt:message key="home.action.apply" bundle="${msg}" />
-											</span>
-											
-										</span>
-									</div>
-								</div>
-								<div class="travel-italic hidden-sm hidden-xs">
-									<a href="" class="sub-link" data-toggle="modal"
-										data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
-								</div>
+                            </div>
+                            <div id="promo-code-body" class="col-xs-12 pad-none">
+                                <div style="width: 80%;margin-left: 10%;">
+	                            <h3 style="font-size:18px;"><fmt:message key="home.sidebar.summary.promocode" bundle="${msg}" /></h3>
+	                            <span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+	                            <span class="text-red" id="errPromoCode"></span>
+	                            <div id="promo-wrap" class="form-group">
+	                                <div class="input-group">
+	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
+	                                </div>
+	                            </div>
+	                            <div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
+	                                <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
+	                            </div>
+	                            </div>
 							</div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-							<h3 id="subtotal"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right hidden-sm hidden-xs">
-								<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>
-								</h3>
-
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.discount" bundle="${msg}" />
-							</h3>
-							<h3 id="discountAmt"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t hidden-sm hidden-xs"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%>
-								
-							</h3>
-							<div class="clearfix"></div>
-							<div class="orange-bdr hidden-sm hidden-xs"></div>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 hidden-sm hidden-xs"><fmt:message key="home.sidebar.summary.amountDue" bundle="${msg}" /></h3>
-							<h3 id="amountdue"
-								class="h4-1-orange-b col-lg-6 col-md-6 text-right hidden-sm hidden-xs"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
-
+							<div class="col-md-12 hidden-sm hidden-xs pad-none">
+                               <div style="width: 80%;margin-left: 10%;">
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.subtotal" bundle="${msg}" /></h3>
+									<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
+		
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.discount" bundle="${msg}" /></h3>
+									<h3 id="discountAmt" class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%></h3>
+								    <div class="clearfix"></div>
+								</div>
+							     <div class="orange-bdr"></div>
+							     <div style="width: 80%;margin-left: 10%;">
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.amountDue" bundle="${msg}" /></h3>
+									<h3 id="amountdue" class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
+                                    <div class="clearfix"></div>
+                                </div>
+                               </div>
 							<input type="hidden" name="planCode" id="planCode"
 								value="${planQuote.getPlanCode() }">
 							<input type="hidden" name="grossPremium" id="grossPremium"
@@ -805,39 +792,36 @@ function checkPromoCodePlaceholder(){
 									<fmt:message key="home.action.next" bundle="${msg}" />
 								</button>
 							</div> -->
-							<div class="hidden-sm hidden-xs">
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance"
-	                                class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.back" bundle="${msg}" /> 
-	                            </a> -->
-	                            
-	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
-	                        </div>
-	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-	                                <fmt:message key="home.action.next" bundle="${msg}" /></button>
-	                        </div>
+							
+							
+							<div class="col-xs-12 hidden-sm hidden-xs pad-none">
+		                          <div style="width: 80%;margin-left: 10%;">
+		                            <div class="top35 pull-left pad-none" style="width:47%">
+		                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+		                            </div>
+		                            <div class="top35 pull-right pad-none" style="width:47%">
+		                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+		                            </div>
+		                            <div class="clearfix"></div>
+		                            <br> <span class="text-red" id="errDue"></span> <br>
+		                        </div>
+		                    </div>
 							
 
 							<div class="clearfix"></div>
-							<br>
-							<br>
-							</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<p class="padding1">
-					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" /> <a
-						class="sub-link"
-						href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
-						target="_blank">
-						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
+				<p class="padding1 workingholiday-plan-disclaimer">
+					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" />
+					<a class="sub-link" href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank">
+						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a>
 						<fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
 						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
-				</p>
+				</p>				
 				
 				<div class="col-xs-12 hidden-md hidden-lg pad-none">
-		           <div style="width: 80%;margin-left: 10%; margin-bottom: 50px;">
+		           <div style="width: 80%;margin-left: 10%; margin-bottom: 40px;">
 		                <div class="top35 pull-left pad-none" style="width:47%">
 		                    <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 		                </div>
