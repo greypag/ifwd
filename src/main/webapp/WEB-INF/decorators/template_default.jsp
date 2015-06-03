@@ -35,7 +35,7 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="robots" content="NOODP">
+<!-- <meta name="robots" content="NOODP"> -->
 <meta name='keywords' content="meta keywords here"/>
 
 
@@ -47,10 +47,11 @@
 <!-- Open Graph data -->
 <meta property="og:title" content="${ogTitle}" />
 <meta property="og:type" content="${ogType}" />
-<%-- <meta property="og:url" content="${ogUrl}" /> --%>
+<meta property="og:url" content="${ogUrl}" />
 <meta property="og:image" content="${ogImage}" />
+<meta property="og:image:secure_url" content="${ogImage}" />
 <meta property="og:description" content="${ogDescription}"/>
-<meta property="og:site_name" content="Moz" />
+<meta property="og:site_name" content="${ogSiteName}" />
 
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />
@@ -70,7 +71,6 @@
 
 
 <dec:head />
-
 </head>
 	<%
 	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {

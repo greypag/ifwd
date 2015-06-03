@@ -79,7 +79,9 @@
                                                     </h3>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                <p><fmt:message key="header.login.disclaimer" bundle="${msg}" /></p>
+                                                <p>
+                                                    <h6><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
+                                                </p>
                                             </div>
                                         </div>
                     </form>
@@ -197,10 +199,12 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                                                                              
-                                                                <button type="button" onclick="getForgotUserName()" class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>                                                    
-                                                    
+                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                                <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>
+                                                    </div>
+                                                
+                                                    <div class="col-lg-3 col-md-3">                                           
+                                                                <button type="button" onclick="getForgotUserName()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>                                                    
                                                     </div>
                                                     
                                                     <div class="clearfix"></div>
@@ -213,15 +217,17 @@
                                     
                                     <!-- 忘記使用者END -->
                                     
-                                    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
     <script>
         function getForgotUserName() {
+        	$('#forgotusername-err-msg').hide();
+        	$('#success-message').hide();
+        	
             var validationFormVal = forgotUserName();
             if (validationFormVal == true) {
                 $('#forgotusername-err-msg').hide();
                 $('#ajax-loading').show();
-                $
-                        .ajax({
+                $.ajax({
                             type : 'POST',
                             url : '<%=request.getContextPath()%>/forgotUser',
                             data : $('#forgotUserNameForm input').serialize(),
@@ -229,21 +235,17 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#success-message')
-                                            .html(
-                                                    'Provided User Account Details Does Not Exist');
-                                    $('#success-message').show();
+                                    $('#forgotusername-err-msg').html('Provided User Account Details Does Not Exist');
+		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
                                 } else if (data.indexOf('~~~') > -1) {
-                                    $('#success-message').html(
-                                            data.slice(5, 68));
+                                    $('#success-message').html(data.slice(5, 68));
                                     $('#success-message').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
                                 } else {
-                                    $('#success-message').html(
-                                            'Your Username is ' + data);
+                                    $('#success-message').html('Your Username is ' + data);
                                     $('#success-message').show();
                                 }
 
@@ -278,7 +280,7 @@
                             role="alert" style="display: none;">
                             <P id="error1"></P>
                         </div>
-                        <div id="success-message" class="alert alert-success" role="alert"
+                        <div id="success-message-password" class="alert alert-success" role="alert"
                             style="display: none;">
                             <P id="error1"></P>
                         </div>
@@ -400,10 +402,15 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
+                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
                                                                                                               
-                                                                                    <button type="button" onclick="forgotUserPassword()"
-                                                    class="bdr-curve-none btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>                                                    
+                                                       <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>                                                    
+                                                    
+                                                    </div>
+                                                
+                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                                                                              
+                                                       <button type="button" onclick="forgotUserPassword()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>                                                    
                                                     
                                                     </div>
                                                     
@@ -423,9 +430,12 @@
                                 
                                 
                         
-    <script src="<%=request.getContextPath()%>/resources/js/validation.js"></script>
+
     <script>
         function forgotUserPassword() {
+        	$('#forgotpassword-err-msg').hide();
+            $('#success-message-password').hide();
+        	
             
             var valid = true;
              
@@ -473,12 +483,17 @@
 
                 valid = false;
 
-            } else {
-                if (reg.test(userName) == false) {
-                    $("#errorInvalidUName").show();
+            } else {                
+                if (isAccountNumeric(userName)) {
+                	$("#errorInvalidUName").show();
                     valid = false;
-                } 
-            
+                } else if (!plan_user.test(userName)) {
+                	$("#errorInvalidUName").show();
+                    valid = false;
+                } else if(userName.length < 6 || userName.length > 50) {
+                	$("#errorInvalidUName").show();
+                    valid = false;
+                }
             }
             
             
@@ -486,8 +501,7 @@
 
    
                 $('#ajax-loading').show();
-                $
-                        .ajax({
+                $.ajax({
                             type : 'POST',
                             url : '<%=request.getContextPath()%>/forgotUserPassword',
                             data : {'emailAddress':$('#emailAddress-forgotpassowrd').val(),
@@ -499,19 +513,14 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg')
-                                            .html(
-                                                    'Provided User Account Details Does Not Exist');
+                                    $('#forgotpassword-err-msg').html('Provided User Account Details Does Not Exist');
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
-                                    $('#success-message')
-                                            .html(
-                                                    'Link Sent Successfully On Your Registered Mail ID');
-                                    $('#success-message').show();
+                                    $('#success-message-password').html('Link Sent Successfully On Your Registered Mail ID');
+                                    $('#success-message-password').show();
                                 } else {
-                                    $('#success-message').html(
-                                            'Internet Connection Error ');
-                                    $('#success-message').show();
+                                    $('#success-message-password').html('Internet Connection Error ');
+                                    $('#success-message-password').show();
                                     $('#user-details-main').hide();
                                 }
 
@@ -522,56 +531,49 @@
                         });
             }
         }
-    </script>       
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                    
-                                    
+    </script>               
                                     
             </div>
         </div>
-        
-        
-    
-        
-        
-        
-        
-        
-        
-    
-    
-        
     </div>
-    
-    
+    <!-- payment error popup  -->
+    <!-- Modal -->
+	<div class="modal fade bs-example-modal-lg  in" id="paymentErrorPopup" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content plan-modal">
+            <div class="modal-body">
+                <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
+                <div class="form-container" style="padding-top: 10px;">
+                    <br/>
+                    <fmt:message key="payment.duplicate.error" bundle="${msg}" />
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+	    <div class="modal-dialog modal-lg loading-dialog">
+	        <div class="modal-content plan-modal loading-modal">
+	        </div>
+	    </div>
+	</div>
     
 
     
     <script>
+    
+    function backToLogin(){
+    	$('#loginform-pop').fadeIn();
+        $('#forgotUserNameForm').hide();
+        $('#forgotPasswordForm').hide();
+        $('.empHide').hide();
+    }
+   
+    
        $(document).ready(function(){
 
            
@@ -644,6 +646,7 @@
                   $('#forgotPasswordForm').fadeIn();
                   $('.empHide').hide();    
            })
+          
                                          
        })
     </script>
@@ -715,5 +718,12 @@ function BackMe() {
 
     window.history.back();
 }
+
+var perventRedirect=false;
+//window.onbeforeunload = function() {
+//	if(perventRedirect){
+//		return "<fmt:message key="index.leavePage.desc" bundle="${msg}" />";
+//	}
+//}
 </script>
     

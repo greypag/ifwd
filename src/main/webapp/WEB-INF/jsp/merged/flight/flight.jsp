@@ -51,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     traveller = personalTraveller;
   }*/
 
-     function reset_submit()
+     function reset_desktop_submit()
      {        
       if(document.getElementById("family_plan_desk").checked)
       {
@@ -65,8 +65,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       
       var frm = document.getElementById("freeFlight");
-      //frm.submit();
      }  
+  
+  function reset_mobile_submit()
+  {        
+   if(document.getElementById("family_plan_mob").checked)
+   {
+       $('#txtTravellersMob').val(0);
+   }
+   else if (document.getElementById("personal_plan_mob").checked)
+   {
+       $('#txtAdultsMob').val(0);
+       $('#txtOtherMob').val(0);
+       $('#txtChildMob').val(0);
+   }
+   
+   var frm = document.getElementById("freeFlight");
+  }  
+  
+  function reset_bottom_submit()
+  {        
+   if(document.getElementById("family_plan_btm").checked)
+   {
+       $('#txtTravellersBtm').val(0);
+   }
+   else if (document.getElementById("personal_plan_btm").checked)
+   {
+       $('#txtAdultsBtm').val(0);
+       $('#txtOtherBtm').val(0);
+       $('#txtChildBtm').val(0);
+   }
+   
+   var frm = document.getElementById("freeFlight");
+  }  
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
@@ -168,7 +199,7 @@ $(document).ready(function() {
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', 'Return Date', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
               
              </td>
@@ -270,7 +301,7 @@ $(document).ready(function() {
                 
                 </td>
               <td class="col-md-2 pad-none">
-                <button  type="submit" class="bdr-curve-none btn btn-primary btn-lg marg-t2 pad-increase" onclick="reset_submit()">
+                <button  type="submit" class="bdr-curve btn btn-primary btn-lg marg-t2 pad-increase" onclick="reset_desktop_submit()">
               <fmt:message key="flight.main.quote.top.action" bundle="${msg}" />
              </button> 
               </td>
@@ -309,7 +340,7 @@ $(document).ready(function() {
 
 <!--Mobile-form-->
 <div class="slider-form hidden-lg hidden-md">
- <form name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
+ <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
   <div class="form-container">
     <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h4>
@@ -409,6 +440,10 @@ $(document).ready(function() {
                 </span> </div>
             </div>
             <div class="clearfix"></div>
+            <div class="col-lg-12 child-notes">
+                <h4><fmt:message key="flight.main.quote.childnotes" bundle="${msg}" /></h4>
+            </div>
+            <div class="clearfix"></div>
           </div>
           <!-- End of family plan mobile spinner -->
           <div class="clearfix"></div>
@@ -427,9 +462,9 @@ $(document).ready(function() {
        <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </small>
     </div>
   </div>
-  <div class="btn-box">
+  <div class="form-container">
     <h3 class="text-center"> 
-  <button type="submit"  class="bdr-curve-none btn btn-primary btn-lg btn-block "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
+  <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve btn btn-primary btn-lg btn-block "><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
   </h3> 
   </div>
   </form>
@@ -536,6 +571,89 @@ $(document).ready(function() {
           <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
       </div>
       <div class="clearfix"></div>
+      
+      <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+          <h2 style="text-align: center;"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
+          <div class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc1" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc2" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc3" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc4" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc5" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+            </div>
+            <!--/.carousel-inner--> 
+          </div>
+          <!--/.carousel--> 
+          <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+          <div class="clearfix"></div>
+        <!--/.container-->
+        </div>
     </div>
     
     <!--/.row--> 
@@ -696,7 +814,7 @@ $(document).ready(function() {
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container">
     <div class="row">
-     <form name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
+     <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <!-- <h2><fmt:message key="flight.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
         <table class="table activation-form3">
@@ -730,7 +848,7 @@ $(document).ready(function() {
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', 'Depature Date', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', '', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
@@ -816,7 +934,7 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
-                        <div class="col-lg-12 text-red child-notes">
+                        <div class="col-lg-12 child-notes">
                             <h4><fmt:message key="flight.main.quote.childnotes" bundle="${msg}" /></h4>
                         </div>
                       </div>
@@ -834,7 +952,7 @@ $(document).ready(function() {
                 </td>
               <td class="col-md-2 pad-none">
                 <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
-                 <button  type="submit" class="bdr-curve-none btn btn-primary marg-t2 btn-lg pad-increase">
+                 <button  type="submit" onclick="reset_bottom_submit()" class="bdr-curve btn btn-primary marg-t2 btn-lg pad-increase">
               <fmt:message key="flight.main.quote.bottom.action" bundle="${msg}" />
              </button> 
             </tr>
@@ -856,3 +974,37 @@ $(document).ready(function() {
   </div>
   <!--/.container--> 
 </section>
+
+<input type="hidden" id="refreshed" value="no">
+<script type="text/javascript">
+onload=function(){
+	var e=$("#refreshed");
+	if(e.val()=="no"){
+		e.val("yes");
+	}else{
+		e.val("no");
+		setGetParameter("refresh", "1")
+	}
+}
+
+function setGetParameter(paramName, paramValue)
+{
+    var url = window.location.href;
+    if (url.indexOf(paramName + "=") >= 0)
+    {
+        var prefix = url.substring(0, url.indexOf(paramName));
+        var suffix = url.substring(url.indexOf(paramName));
+        suffix = suffix.substring(suffix.indexOf("=") + 1);
+        suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
+        url = prefix + paramName + "=" + paramValue + suffix;
+    }
+    else
+    {
+    if (url.indexOf("?") < 0)
+        url += "?" + paramName + "=" + paramValue;
+    else
+        url += "&" + paramName + "=" + paramValue;
+    }
+    window.location.href = url;
+}
+</script>

@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.services;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -118,6 +119,17 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
 		RestServiceDao restService = new RestServiceImpl();
+		
+		try {
+			userReferralCode = java.net.URLEncoder.encode(userReferralCode, "UTF-8").replace("+", "%20");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			userReferralCode = "";
+			e.printStackTrace();
+		}
+		
+		
+		
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="
@@ -198,6 +210,15 @@ public class HomeCareServiceImpl implements HomeCareService {
 			ans2 = "N";
 		}
 		RestServiceDao restService = new RestServiceImpl();
+		try {
+			userReferralCode = java.net.URLEncoder.encode(userReferralCode, "UTF-8").replace("+", "%20");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			userReferralCode = "";
+			e.printStackTrace();
+		}
+		
+		
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
 				+ userReferralCode + "&room=&floor=&block="
@@ -404,7 +425,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("name", userDetails.getFullName());
 		applicant.put("gender", "M");
 
-		applicant.put("dob", "");
+		applicant.put("dob", userDetails.getDob());
 
 		applicant.put("hkId", userDetails.getHkid());
 		applicant.put("passport", userDetails.getPassport());
@@ -546,34 +567,60 @@ public class HomeCareServiceImpl implements HomeCareService {
 	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,
 			String referenceNo, String transactionNumber,
 			String transactionDate, String creditCardNo, String expiryDate,
-			String emailId, String language) {
+			String emailId, String language, String paymentFail) {
 
-		RestServiceDao restService = new RestServiceImpl();
-		CreatePolicy finalizeObject = new CreatePolicy();
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
-		header.put("userName", userName);
-		header.put("token", token);
-		JSONObject parameters = new JSONObject();
-		parameters.put("referenceNo", referenceNo);
-		parameters.put("transactionNumber", transactionNumber);
-		parameters.put("transactionDate", transactionDate);
-		parameters.put("creditCardNo", creditCardNo);
-		parameters.put("expiryDate", expiryDate);
-
-		JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
-				UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
-				parameters);
-		System.out.println("final homeCare Policy Response" + apiResponsObject);
-
-		if (apiResponsObject.get("errMsgs") == null) {
-			finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
-			System.out.println("POlicy Number in Impl after WS "
-					+ finalizeObject.getPolicyNo());
-			finalizeObject.setReferralCode(referenceNo);
+		
+		if (paymentFail.equals("1")) {
+			RestServiceDao restService = new RestServiceImpl();
+			CreatePolicy finalizeObject = new CreatePolicy();
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", userName);
+			header.put("token", token);
+			JSONObject parameters = new JSONObject();
+			parameters.put("referenceNo", referenceNo);
+			parameters.put("transactionNumber", transactionNumber);
+			parameters.put("transactionDate", transactionDate);
+			parameters.put("creditCardNo", creditCardNo);
+			parameters.put("expiryDate", expiryDate);
+			parameters.put("paymentFail", "1");
+	
+			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
+					parameters);
+			return null;
 		} else {
-			finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());
+		
+			RestServiceDao restService = new RestServiceImpl();
+			CreatePolicy finalizeObject = new CreatePolicy();
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", userName);
+			header.put("token", token);
+			JSONObject parameters = new JSONObject();
+			parameters.put("paymentFail", "0");
+			parameters.put("referenceNo", referenceNo);
+			parameters.put("transactionNumber", transactionNumber);
+			parameters.put("transactionDate", transactionDate);
+			parameters.put("creditCardNo", creditCardNo);
+			parameters.put("expiryDate", expiryDate);
+			
+			
+			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
+					parameters);
+			System.out.println("final homeCare Policy Response" + apiResponsObject);
+	
+			if (apiResponsObject.get("errMsgs") == null) {
+				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
+				System.out.println("Policy Number in Impl after WS "
+						+ finalizeObject.getPolicyNo());
+				finalizeObject.setReferralCode(referenceNo);
+			} else {
+				finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());
+			}
+			
+			return finalizeObject;
 		}
-		return finalizeObject;
 	}
 }

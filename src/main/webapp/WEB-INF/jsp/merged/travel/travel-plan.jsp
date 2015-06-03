@@ -23,20 +23,42 @@
     }
 %>
 <script>
+perventRedirect=true;
+
 // personal or family
 var traveller;  
 // personal
 var personalTraveller = parseInt("${corrTravelQuote.getTotalPersonalTraveller()}");
 // family
-var familyAdult = "${corrTravelQuote.getTotalAdultTraveller()}";
-var familyChild = "${corrTravelQuote.getTotalChildTraveller()}";
-var familyOther = "${corrTravelQuote.getTotalOtherTraveller()}";  
-var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
+var familyAdult = parseInt("${corrTravelQuote.getTotalAdultTraveller()}");
+var familyChild = parseInt("${corrTravelQuote.getTotalChildTraveller()}");
+var familyOther = parseInt("${corrTravelQuote.getTotalOtherTraveller()}");  
+var familyTraveller = familyAdult+familyChild+familyOther;
 
 var t1 = "${corrTravelQuote.getTotalAdultTraveller()}";
 var t2 = "${corrTravelQuote.getTotalChildTraveller()}";
-var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";  
+var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";
 var promoData = '';
+
+//bmg inline variable
+var promoCodeInsertFlag = true;
+var updateQuoteFlag = true;
+var tempPersonalTraveller = personalTraveller;
+var tempAdultTraveller = familyAdult;
+var tempChildTraveller = familyChild;
+var tempOtherTraveller = familyOther;
+
+var tempTotalTraveller = 0;
+if(personalTraveller>familyTraveller){
+	tempTotalTraveller=personalTraveller;
+}else{
+	tempTotalTraveller=familyTraveller;
+}
+//bmg inline variable
+
+var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
+
+
 	function getuserDetails() {
 
 		
@@ -45,7 +67,9 @@ var promoData = '';
 		var flag = false;
 		var promoCode = document.getElementById("promoCode").value;
 
-		if (promoCode.trim() == "") {
+		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
+			$("#loadingPromo").hide();
+			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
 		} else
@@ -53,51 +77,84 @@ var promoData = '';
 
 		return flag;
 	}
-	function chkDueAmount() {
+	function chkDueAmount() {	
+		$(".errDue").html('');
 		var flag = false;
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
-			document.getElementById("errDue").innerHTML = "<fmt:message key="travel.plan.empty" bundle="${msg}" />";
+			$(".errDue").html("<fmt:message key="travel.plan.empty" bundle="${msg}" />") ;
 			flag = false;
-		} else
+		} else {
+			if ($("#promoCode").val()==promoCodePlaceholder) {
+	            $("#promoCode").val('');
+	        }
 			flag = true;
+		}
 
 		return flag;
 	}
 	
 	function applyTravelPromoCode() {
-		
-		$("#errPromoCode").html("");
-		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyTravelPromoCode',
-			data : $('#frmTravelPlan input').serialize(),
-			success : function(data) {
-				
-				var json = JSON.parse(data);
-				promoData = json;
-				setValue(json);
-			}
+		if(promoCodeInsertFlag){
+			promoCodeInsertFlag = false;
+			
+			$("#errPromoCode").html("");
+	        
+	        if(chkPromoCode()){
+	        	$('#loading-overlay').modal({
+	                backdrop: 'static',
+	                keyboard: false
+	            })
+	        	$.ajax({
+	                type : 'POST',
+	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
+	                data : $('#frmTravelPlan input').serialize(),
+	                success : function(data) {
+	                	$('#loading-overlay').modal('hide');
+	                    promoCodeInsertFlag = true;
+	                    
+	                    var json = JSON.parse(data);
+	                    promoData = json;
+	                    setValue(json);
+	                }
 
-		});
+	            });
+	        }
+		}
 	}
 	function updateTravelQuote() {
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/updateTravelQuote',
-			data : $('#frmTravelPlan input').serialize(),
-			success : function(data) {
-				
-				var json = JSON.parse(data);
-				promoData = json;
-				setValue(json);
-				$("#totalTravellingDays").val(json.totalDays);
-				$("#totalTravellingDaysSpan").html(json.totalDays);
-			}
-		});
+		if(updateQuoteFlag){
+			$('#loading-overlay').modal({
+			    backdrop: 'static',
+			    keyboard: false
+			})
+			updateQuoteFlag = false;
+			
+			$('#lblCountDesk').html(tempTotalTraveller);
+			$("#totalPersonalTraveller").val(tempPersonalTraveller);
+			$("#totalAdultTraveller").val(tempAdultTraveller);
+            $("#totalChildTraveller").val(tempChildTraveller);
+            $("#totalOtherTraveller").val(tempOtherTraveller);
+			
+            $('#myFWDropdown').toggleClass('open');
+            
+			$.ajax({
+				type : 'POST',
+				url : '<%=request.getContextPath()%>/updateTravelQuote',
+				data : $('#frmTravelPlan input').serialize(),
+				success : function(data) {
+					$('#loading-overlay').modal('hide');
+					updateQuoteFlag = true;
+					
+					var json = JSON.parse(data);
+					promoData = json;
+					setValue(json);
+					$("#totalTravellingDays").val(json.totalDays);
+					$("#totalTravellingDaysSpan").html(json.totalDays);
+				}
+			});
+		}
 	}
 	
 	
@@ -129,7 +186,7 @@ var promoData = '';
                 $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
                 $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
 				
-			} else {
+			} else if (selValue == "A") {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 				//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 				$("#subtotal").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
@@ -352,9 +409,7 @@ var promoData = '';
 										String planBenefitDesc3PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc3.price";
 										String planBenefitDesc4PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc4.price";
 									%>
-										<span><i
-												class="fa fa-plus"></i> <a href="#"
-											class="fwdpanel-minimize uline text-black"><fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
+										<span><a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
 									</h4>
 								</div>
 								<div class="fwdpanel-body" style="display: none;">
@@ -1139,7 +1194,7 @@ var promoData = '';
 
 					<div
 						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
-						<div class="col-xs-12 hidden-sm hidden-xs">
+						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left">
 									<h2 class="h2-3-choose"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
@@ -1174,12 +1229,20 @@ var promoData = '';
 								</div>
 								
 								 -->
-								 <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <span class="span2 uline">
-	                                <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+								 <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> 
+								 
+								 <!-- <span class="span2 uline">
+	                                <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a>
+	                                </span> -->
 	                            </h3>
-	                            <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                              <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" onchange="updateTravelQuote();" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
-	                            </div>
+	                            
+	                            <!-- <div class="input-group date bmg-travel-inline-dp1" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                </div> -->
+	                            
+	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                </div>
 	                             <!-- departure date end -->
 	                             
 	                             
@@ -1193,71 +1256,86 @@ var promoData = '';
 											value="${travelQuoteBean.getTrBackDate() }" readonly>
 									</div>
 								</div> -->
-								<h3><fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <span class="span2 uline">
-                                <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span></h3>
+								<h3><fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" />
+								
+								<!-- <span class="span2 uline">
+                                <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
+                                
+                                </h3>
                           
-                              <div class="input-group date" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" id="txtEndDateMob" onchange="updateTravelQuote();" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                              <!-- <div class="input-group date bmg-travel-inline-dp2" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
+                                <input type="text" name="trBackDate" class="datepicker form-control" id="txtEndDateMob" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                              </div> -->
+                              
+                              <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
+                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.getTrBackDate()}" readonly>
                               </div>
                               
 								<!-- return date end  -->
 								<!-- traveller start -->
-								
+								<div id="numOfDays">
+                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
+                                        type="hidden" name="totalTravellingDays"
+                                        id="totalTravellingDays"
+                                        value="${travelQuoteBean.getTotalTravellingDays()}">
+                                    </span>
+                                    <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
+                                </div>
 								<!-- traveller end -->
 								
 								<h3><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
-								<span class="span2 uline">
-                                <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
+								
+								<!-- <span class="span2 uline">
+                                <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
+                                
 								</h3>
+								
+								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+								
+								<!-- bmg inline change 
 								<div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
                           <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk">${corrTravelQuote.getTotalPersonalTraveller()}</label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
                           <div class="dropdown-menu bdr1">
                             <div class="drop-content">
                               <div class="col-lg-6 col-md-6">
                                 <label class="radio radio-warning radio-inline">
-                                  <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan travel-inline-plan" value="personal"  <%=PersonalPlanChecked%> >
-                                  <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
+                                  <input type="radio" name="planSelected" id="personal_plan_inline" data-id="desk" class="plan travel-inline-plan" value="personal"  <%=PersonalPlanChecked%> >
+                                  <label for="personal_plan_inline"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
                               </div>
                               <div class="col-lg-6 col-md-6">
                                 <label class="radio radio-warning radio-inline">
-                                  <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan travel-inline-plan" value="family" <%=FamilyPlanChecked %>>
-                                <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+                                  <input type="radio" name="planSelected" id="family_plan_inline" data-id="desk" class="plan travel-inline-plan" value="family" <%=FamilyPlanChecked %>>
+                                <label for="family_plan_inline"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
                               </div>
                               <div class="clearfix"></div>
                               <hr>
-                              <!-- start of personal plan bottom spinner-->
-                           <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.getTotalFamilyTravellers()}">
-                           <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
+                           <div class="plan_spinner_desk" id="personal_plan_inline_spinner" <%=personalSpinnerStyle%>>
                              <div class="col-lg-6">
                                <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtTravellersInline"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                       <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalPersonalTraveller()}</div>
-                                 <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${corrTravelQuote.getTotalPersonalTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtTravellersInline" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                            </div>
-                           <!-- end of personal plan bottom spinner-->
                            <div class="clearfix"></div>
     
-                           <!-- start of family plan bottom spinner-->
-                           <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
+                           <div class="plan_spinner_desk" id="family_plan_inline_spinner" <%=familySpinnerStyle%>>
                              <div class="col-lg-6">
                                <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtAdultsInline" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalAdultTraveller()}</div>
-                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${corrTravelQuote.getTotalAdultTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtAdultsInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                              <div class="clearfix"></div>
@@ -1266,12 +1344,11 @@ var promoData = '';
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtChildInline" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalChildTraveller()}</div>
-                                 <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${corrTravelQuote.getTotalChildTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtChildInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
                              <div class="clearfix"></div>
@@ -1280,25 +1357,36 @@ var promoData = '';
                              </div>
                              <div class="col-lg-6">
                                <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number travel-inline-btn-number" data-type="minus" data-field="txtOtherInline" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                                  </span>
                                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.getTotalOtherTraveller()}</div>
-                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
                                  <span class="input-group-btn data-up ">
-                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number travel-inline-btn-number" data-type="plus" data-field="txtOtherInline" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                                  </span> </div>
                              </div>
-                             <div class="col-lg-12 text-red child-notes">
+                             <div class="col-lg-12 child-notes">
                                <h4><fmt:message key="travel.main.quote.childnotes" bundle="${msg}" /></h4>
                              </div>
                            </div>
+                           <div class="clearfix"></div>
                            
-                           <!-- start of family plan bottom spinner-->
+                           <hr>
+                           
+                           <div class="col-lg-5 col-md-5">
+                                <div class="btn-confirm-inline-change pointer" onclick="updateTravelQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
+                           </div>
                            <div class="clearfix"></div>
                          </div>
                        </div>
                        <div class="clearfix"></div>
                      </div>
+                      -->
+                      
+                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalPersonalTraveller()}"/>
+                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.getTotalFamilyTravellers()}">
+                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.getTotalAdultTraveller()}"/>
+                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalChildTraveller()}"/>
+                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
 								
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
             					<div class="input-group wd2 datepicker form-control" > 
@@ -1321,99 +1409,81 @@ var promoData = '';
 						%>
 						</div>
 					</div>
-								<input type="hidden" name="totalPersonalTraveller"
-									id="totalPersonalTraveller"
-									value="${travelQuoteBean.getTotalPersonalTraveller()}">
-									
-								<input type="hidden" name="totalAdultTraveller"
-									id="totalAdultTraveller"
-									value="${travelQuoteBean.getTotalAdultTraveller()}">
-									
-								<input type="hidden" name="totalChildTraveller"
-									id="totalChildTraveller"
-									value="${travelQuoteBean.getTotalChildTraveller()}">
-									 
-								<input
-									type="hidden" name="totalOtherTraveller"
-									id="totalOtherTraveller"
-									value="${travelQuoteBean.getTotalOtherTraveller()}">
-								<%-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${travelQuoteBean.getTotalPersonalTraveller()}"> --%>
-								<h3>
-									<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
-										type="hidden" name="totalTravellingDays"
-										id="totalTravellingDays"
-										value="${travelQuoteBean.getTotalTravellingDays()}">
-									</span>
-								</h3>
+								
 							</div>
 						</div>
-						<div class="col-xs-12">
-						  <div id="promo-code-body" class="hide-html">
-						     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-                            <span class="text-red" id="errPromoCode"></span>
-                            <div id="promo-wrap" class="form-group">
-                                <div class="input-group" style="border: 0;">
-                                    <input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;"
-                                        class="form-control" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-                                        <span
-                                        class="input-group-addon in black-bold pointer"
-                                        onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
-                                </div>
-                            </div>
-                            <div class="travel-italic">
-                                <a href="" class="sub-link" data-toggle="modal"
-                                        data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
-                            </div>
-						  </div>
-							
-							
-						
+					<div class="col-xs-12">
+						<div id="promo-code-body" class="hide-html">
+							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+							<span class="text-red" id="errPromoCode"></span>
+							<div id="promo-wrap" class="form-group">
+								<div class="input-group" style="border: 0;">
+									<input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+									<span class="input-group-addon in black-bold pointer" onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
+								</div>
+							</div>
+							<div class="travel-italic">
+					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
+							</div>
+						</div>
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
-							id="subtotal"></h3>
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal"></h3>
 						<input type="hidden" name="subTotal" id="subTotal" value="540">
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
-							id="discountAmt">-</h3>
-						<input type="hidden" name="selectedDiscountAmt"
-							id="selectedDiscountAmt" value="">
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt">-</h3>
+						<input type="hidden" name="selectedDiscountAmt"id="selectedDiscountAmt" value="">
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
 						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.amountDue" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"
-							id="amountdue">0</h3>
-						<input type="hidden" name="selectedAmountDue"
-							id="selectedAmountDue" value="">
+						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue">0</h3>
+						<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="">
 						<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
-							
-							</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<a href="<%=request.getContextPath()%>/${language}/travel-insurance"
-								class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<button type="submit" class="bdr-curve btn btn-primary btn-next">
-								<fmt:message key="travel.action.next" bundle="${msg}" /></button>
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-xs-12"><span class="text-red" id="errDue"></span></div>
-						<br>
 					</div>
-					<div class="clearfix"></div>
-					<span id="divPersonsDesk"></span>
-                    <span id="lblDaysDesk" style="display: none"></span>
-                    <div id="quote-wrap" class="clearfix"></div>
+						<div class="hidden-sm hidden-xs">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+								<!-- <a href="<%=request.getContextPath()%>/${language}/travel-insurance"
+									class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="travel.action.back" bundle="${msg}" /> </a> -->
+									
+								<a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+								<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+									<fmt:message key="travel.action.next" bundle="${msg}" /></button>
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-xs-12"><span class="text-red errDue"></span></div>
+							<br>
+							<div class="clearfix"></div>
+							<span id="divPersonsDesk"></span>
+		                    <span id="lblDaysDesk" style="display: none"></span>
+		                    <div id="quote-wrap" class="clearfix"></div>
+	                    </div>
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
-		<p class="padding1 hidden-sm hidden-xs">
+		<p class="padding1">
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /> <fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
+		
+		<div class="col-xs-12 hidden-md hidden-lg pad-none">
+		   <div style="width: 80%;margin-left: 10%; margin-bottom: 50px;">
+		        <div class="top35 pull-left pad-none" style="width:47%">
+		            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+		        </div>
+		        <div class="top35 pull-right pad-none" style="width:47%">
+		            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+                                <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+		        </div>
+		        <div class="clearfix"></div>
+		        <br> <span class="text-red errDue"></span> <br>
+		    </div>
+		</div>
 
 		</form:form>
 		
@@ -1428,11 +1498,10 @@ var promoData = '';
   <div class="modal-dialog modal-lg">
             <div class="modal-content plan-modal">
                 <div class="login-form" id="sendmailofpromocode">
-                <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
                      <span aria-hidden="true" style="font-size:30px;">×</span>
                    </a>
                 </div>
-                    <form>
                     <div class="form-container">
                         <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
                         <div class="alert alert-success hide proSuccess"></div>
@@ -1440,12 +1509,12 @@ var promoData = '';
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode">
+                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                         </div>
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#"
-                                    onclick="return sendEmail()" onkeypress="return enterKeyPress(e);"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
                             </div>
                             <div class="col-md-2">
                                 <br>
@@ -1459,7 +1528,6 @@ var promoData = '';
                             </div>
                         </div>
                     </div>
-                </form>
                 </div>
                 
                 
@@ -1501,10 +1569,16 @@ var promoData = '';
             $("#show-traveller").hide();
             
         });
+        
+        $('#emailToSendPromoCode').keypress(function (e) {
+            if (e.which == '13') {
+            	sendEmail();
+            }
+        });
 	});
 	
 	function enterKeyPress(e){
-		console.log("test");
+
 	    if (e.keyCode == 13) {
 	    	sendEmail();
 	        return false;
@@ -1561,19 +1635,20 @@ var promoData = '';
 	}
 
 	function sendEmail() {
+		
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
 				url : "<%=request.getContextPath()%>/sendEmail",
-				data : $("#sendmailofpromocode form").serialize(),
+				data : "emailToSendPromoCode="+encodeURI($("#emailToSendPromoCode").val())+"&planCode=TRAVELCARE",
 				async : false,
 				success : function(data) {
 					
 					if (data == 'success') {
 						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+						$("#getPromotionClose").trigger("click");
 					} else {
-						
 						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
 

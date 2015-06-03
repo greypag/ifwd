@@ -45,6 +45,10 @@
   String key_disclaimer2Part2 = "travel.referral.benefits." + userType + ".disclaimer2.part2";
   String key_disclaimer2Part3 = "travel.referral.benefits." + userType + ".disclaimer2.part3";
 %>
+
+<script>
+perventRedirect=true;
+</script>
 <!--/#main-Content-->
 <section>
    <div id="cn" class="container">
@@ -185,7 +189,7 @@
             
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div><fmt:message key="travel.confirmation.partnerDesc" bundle="${msg}" /></div>
-                <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" class="img-responsive">  
+                <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="" class="img-responsive">  
               </div>
               
               <div class="clearfix"></div><br>
@@ -200,8 +204,8 @@
                     <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
                         <fmt:message key="travel.referral.copy" bundle="${msg}" />
                     </div>
-    <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/  <%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
-                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/" data-title="iFWD"></div>
+
+                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
                 </div>
               </div> 
               
@@ -265,3 +269,26 @@
 <!--/end- Main Content-->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+
+<script type=text/javascript>
+   var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
+   document.write('<scr'+'ipt src="', hostProtocol+
+   '://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
+</script>
+<script type=text/javascript>
+   var params = new Array();
+   params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
+   params[1]='type=Registration';
+   params[2]='val=0.0';
+   params[3]='orderId=';
+   params[4]='promoCode=';
+   params[5]='valueCurrency=HKD';
+   params[6]='GCID='; //For Live Tracking only
+   params[7]='kw='; //For Live Tracking only
+   params[8]='product='; //For Live Tracking only
+   k_trackevent(params,'5198');
+</script>
+
+<noscript>
+   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+</noscript>

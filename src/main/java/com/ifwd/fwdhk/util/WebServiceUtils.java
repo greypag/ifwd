@@ -21,7 +21,7 @@ import com.ifwd.fwdhk.model.LocaleKeyEnum;
 
 public class WebServiceUtils {
 	public static String transformLanaguage(String language) {
-		if (language.equals("CN"))
+		if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC"))
 			return "ZH";
 		else
 			return "EN";
@@ -93,8 +93,7 @@ public class WebServiceUtils {
 				desc = "Others";	
 			else if (relationship.equals("RE"))
 				desc = "Relative";	
-			else if (relationship.equals("SE"))
-				desc = "Self";	
+			
 			else if (relationship.equals("ST"))
 				desc = "Student";				
 			else
@@ -149,13 +148,16 @@ public class WebServiceUtils {
 			else if (relationship.equals("SP"))
 				desc = "Spouse";
 			else if (relationship.equals("FM"))
-				desc = "Fiance";			
+				desc = "Fiance";
+			else if (relationship.equals("FF"))
+				desc = "Fiancee";
+			
 			else if (relationship.equals("GP"))
 				desc = "Grand Parent";
 			else if (relationship.equals("GR"))
 				desc = "Grand Child";
 			else if (relationship.equals("SE"))
-				desc = "Self";				
+				desc = "Own Estate";				
 			else
 				desc = relationship;
 		} else {
@@ -169,14 +171,16 @@ public class WebServiceUtils {
 				desc = "姊妹";
 			else if (relationship.equals("SP"))
 				desc = "配偶";
-			else if (relationship.equals("FM"))
-				desc = "未婚夫";			
 			else if (relationship.equals("GP"))
 				desc = "祖父母";
 			else if (relationship.equals("GR"))
 				desc = "孫兒";
 			else if (relationship.equals("SE"))
 				desc = "個人遺產";			
+			else if (relationship.equals("FM"))
+				desc = "未婚夫";
+			else if (relationship.equals("FF"))
+				desc = "未婚妻";
 			else
 				desc = relationship;
 		}

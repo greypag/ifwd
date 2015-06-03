@@ -39,7 +39,7 @@
 								$('#success-message').html("User succesfully Register"); 
 // 								setTimeout(function() {document.joinus_form.action= "useraccount";								
 // 								}, 3000);
-								window.location.href = '<%=request.getContextPath()%>/getAccByUsernaneAndPassword';
+								window.location.href = '<%=request.getContextPath()%>/${language}/account';
 // 								setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;								
 // 								}, 3000);
 								
@@ -49,7 +49,13 @@
 								$('#joinus-err-msg').show();
 								
 								window.location.hash = '#joinus-err-msg';
-								$('#joinus-err-msg').html(data);
+                                if (data == 'This username already in use, please try again') {
+                                    $('#joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+                                } else if (data == 'email address and mobile no. already registered') {
+                                    $('#joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+                                } else {
+                                    $('#joinus-err-msg').html(data);
+                                }
 
 							} 
 						},
@@ -113,6 +119,7 @@
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
+	                                    onfocus="$('#errorEmptyName').html('');"
 										onkeypress="    return alphaOnly(event);" maxlength="100">
 										<span id="errorEmptyName" class="text-red"></span></td>
 									<td></td>
@@ -123,9 +130,10 @@
 									<td><input type="text"
 										class="form-control" id="txtMobileNo"
 										value="${userDetails.getMobileNo() }" name="mobileNo"
+										onfocus="$('#errorEmptyMobJoinUs').html('');"
 										placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />" onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8"> <span
-										id="errorEmptyMob" class="text-red"></span></td>
+										id="errorEmptyMobJoinUs" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -135,8 +143,9 @@
 									<td><input type="email"
 										class="form-control" id="txtEmailId"
 										value="${userDetails.getEmailAddress() }" placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"
+                                        onfocus="$('#errorEmptyEmailIdJoinUs').html('');"
 										name="EmailAddress" maxlength="50"> <span
-										id="errorEmptyEmailId" class="text-red"></span></td>
+										id="errorEmptyEmailIdJoinUs" class="text-red"></span></td>
 									<td></td>
 								</tr>
 								<tr>
@@ -150,11 +159,12 @@
 										
 											<input type="text" class="form-control "
 												id="txtUserName1" value="${userDetails.getUserName() }"
+                                                onfocus="$('#errorEmptyUNameJoinUs').html('');"
 												placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />" name="userName">
 
 										
 											
-										 <span id="errorEmptyUName" class="text-red"></span>
+										 <span id="errorEmptyUNameJoinUs" class="text-red"></span>
 									</td>
 									<td><a href="#"
 												class="tool-tip show-inline-md"
@@ -173,6 +183,7 @@
 											src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a></td>
 									<td>
 											<input type="password" class="form-control" autocomplete="off"
+                                                onfocus="$('#errorJoinUsPassword').html('');"
 												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
 
 										 <span id="errorJoinUsPassword" class="text-red"></span>
@@ -191,6 +202,7 @@
 										class="join-us-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /> </label></td>
 									<td><input type="password" autocomplete="off"
 										name="confirmPassword" class="form-control" id="txtConfPass"
+                                        onfocus="$('#errorEmptyConfPass').html('');"
 										placeholder="<fmt:message key="member.registration.details.label.confirmPassword.placeholder" bundle="${msg}" />"> <span
 										id="errorEmptyConfPass" class="text-red"></span></td>
 								</tr>
@@ -214,9 +226,13 @@
 							<input id="checkbox1" type="checkbox"> <label
 								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /> <a
 								href="<fmt:message key="member.PICS.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								<p><span id="errorDeclaration" class="text-red"></span>
 								<hr />
+								
+									
 								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
 							</label>
+							
 						</div>
 						<span id="chk2" style="display: none"> <label
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
@@ -232,6 +248,27 @@
 								<br>
 							</label>
 						</div>
+						<div class="checkboxBubble">
+                            <fmt:message key="member.registration.declarations.PDPO.warning" bundle="${msg}" />
+                        </div>
+
+                        <script type="text/javascript">
+                        function showBubble(){
+                            if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+                                $(".checkboxBubble").fadeIn();
+                            }else{
+                                $(".checkboxBubble").fadeOut();
+                            }
+                        }
+                        
+                        $("#checkbox3").change(function() {
+                            showBubble();
+                        });
+                        
+                        $("#checkbox4").change(function() {
+                            showBubble();
+                        });
+                        </script>
 					</div>
 					<div class="container btm-pad-10">
 						<div class="row">

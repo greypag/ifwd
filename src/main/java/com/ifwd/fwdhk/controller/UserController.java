@@ -43,7 +43,7 @@ public class UserController {
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	
 
-		String homeURL = "/changeLang?selectLang=EN&action=/home";
+		String homeURL = "/changeLang?selectLang=EN&action=/tc/home";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
 		
@@ -57,7 +57,9 @@ public class UserController {
 		if (lang != null)
 		{
 			if (lang.equals("tc"))
-				homeURL = "/changeLang?selectLang=tc&action=/home";
+				homeURL = "/changeLang?selectLang=tc&action=/en/home";
+			else
+				homeURL = "/changeLang?selectLang=tc&action=/tc/home";
 		}
 		System.out.println("redirect to home lang: " + lang);
 		return new ModelAndView("redirect:" + homeURL);
@@ -93,8 +95,8 @@ public class UserController {
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
-					session.setAttribute("referralCode",
-							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
+//					session.setAttribute("referralCode",
+//							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myHomeReferralCode",
@@ -140,9 +142,12 @@ public class UserController {
 	}
 
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "/getAccByUsernaneAndPassword", method = RequestMethod.GET)
+	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
 	public ModelAndView getAccountDetailsByUsernameAndPassoword(
 			HttpServletRequest servletRequest, Model model) {
+		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(servletRequest);
 		try {
 			HttpSession session = servletRequest.getSession(false);
 			String tokenInSession = session.getAttribute("token").toString();
@@ -272,14 +277,28 @@ public class UserController {
 			@ModelAttribute("userDetails") UserDetails userDetails,
 			HttpServletRequest servletRequest, Model model) {
 		HttpSession session = servletRequest.getSession(false);
+		
+		
+		boolean ajax = false;
+		
+		
 		boolean optIn1 = false;
 		boolean optIn2 = false;
-		
-		if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
+		if (userDetails.getCheckbox3() == null) { 
+			optIn1 = false;
+		} else	if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
 			optIn1 = true;
+		} else {
+			optIn1 = false;
 		}
-		if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
+		
+		if (userDetails.getCheckbox4() == null) {
+			optIn2 = false;
+		}
+		else if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
 			optIn2 = true;
+		} else {
+			optIn2 = false;
 		}
 		
 		
@@ -293,6 +312,17 @@ public class UserController {
 			params.put("name", userDetails.getFullName());
 			params.put("optIn1", optIn1);
 			params.put("optIn2", optIn2);
+			
+			//added this for ajax sign up for those forms
+			if(servletRequest.getParameter("ajax") != null){
+				params.put("userName", servletRequest.getParameter("userName"));
+				params.put("password", servletRequest.getParameter("password"));
+				params.put("email", servletRequest.getParameter("email"));
+				params.put("mobile", servletRequest.getParameter("mobile"));
+				params.put("name", servletRequest.getParameter("name"));
+				params.put("optIn1", servletRequest.getParameter("optIn1"));
+				params.put("optIn2", servletRequest.getParameter("optIn2"));
+			}
 			
 			
 			
@@ -323,8 +353,8 @@ public class UserController {
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
-					session.setAttribute("referralCode",
-							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
+//					session.setAttribute("referralCode",
+//							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myHomeReferralCode",
@@ -400,7 +430,7 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(req) + "forgot-username";
 	}
 
-	@RequestMapping(value = {"/forgotUserPassword", "/forgot-password"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/forgotUserPassword", "/forgot-password", "/forgotPassword"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String forgotPassword(
 			@ModelAttribute("forgotUserName") UserDetails userDetails,
@@ -413,10 +443,11 @@ public class UserController {
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.USER_FORGOT_PASSWORD,
 					COMMON_HEADERS, params);
-			/* {"errMsgs":null,"userName":"eCommUser89"} */
-			if (jsonResponse.get("errMsgs") == null) {
-				return "success";
-			}
+			/* {"errMsgs":null} */
+			System.out.println("Error "+jsonResponse.toString());
+            if (jsonResponse.get("errMsgs") == null) {
+                return "success";
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

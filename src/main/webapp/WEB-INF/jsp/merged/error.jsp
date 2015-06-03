@@ -12,6 +12,7 @@
 <meta property="og:type" content="${ogType}" />
 <meta property="og:url" content="${ogUrl}" />
 <meta property="og:image" content="${ogImage}" />
+<meta property="og:image:secure_url" content="${ogImage}" />
 <meta property="og:description" content="${ogDescription}"/>
 
 
@@ -33,6 +34,7 @@
 <meta http-equiv="Cache-control" content="no-cache, no-store">
 <meta property="og:type" content="website" />
 <meta property="og:image" content="" />
+<meta property="og:image:secure_url" content="" />
 <meta property="og:title" content="" />
 <meta property="og:url" content="" />
 <meta property="og:site_name" content="FWD" />
@@ -73,7 +75,7 @@
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">
-					<a href="<%=request.getContextPath()%>/${language}/home" class="bdr-curve-none btn btn-primary btn-next">Go Back to Home Page</a>
+					<a href="<%=request.getContextPath()%>/${language}/home" class="bdr-curve btn btn-primary btn-next">Go Back to Home Page</a>
 	            </div>
             </div>
 		</div>

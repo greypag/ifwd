@@ -11,11 +11,15 @@
 
 </style>
 
+<script>
+perventRedirect=true;
+</script>
+
 <!--/#main-Content-->
 <section>
 <div class="container">
 <div class="row">
-<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/${language}/flight-upgrade-travel-summary">
+<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/${language}/travel?promo=FLTUGD">
 
 <ol class="breadcrumb pad-none">
 <li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -77,6 +81,7 @@ class="image-order-status image-order-status-active  img-circle">
 <div class="gray-bg1-content">
 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
 
+
 <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>
 </div>
 <div class="col-lg-6 col-md-6">
@@ -106,8 +111,6 @@ class="image-order-status image-order-status-active  img-circle">
 <h2>
 PLAN A<br> Superior Cover<br> HK$ 1,000,000 Medical
 </h2>
-
-
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 <br>
@@ -118,7 +121,6 @@ PLAN A<br> Superior Cover<br> HK$ 1,000,000 Medical
 </p>
 </div>
 <div class="clearfix"></div>
-
 <div class="fwdpanel">
 <div class="fwdpanel-heading">
 <h4 class="benefits">
@@ -128,7 +130,6 @@ class="fwdpanel-minimize uline color-wht">See All
 Benefits </button> </span>
 </h4>
 </div>
-
 <div class="fwdpanel-body" style="display: none;">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <p class="color-wht">
@@ -139,12 +140,9 @@ class="fa fa-plus"></i> Rental vehicle excess $5,000 <br>
 <i class="fa fa-plus"></i> Golfer Hole in one $3,000 <br>
 </p>
 </div>
-
 </div>
 <div class="clearfix"></div>
 </div>
-
-
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box2 ">
 <div class="plan-box2-inner">
@@ -169,7 +167,6 @@ PLAN B<br> Standard Cover<br> HK$ 500,000 Medical
 class="fwdpanel-minimize uline">See All Benefits </button> </span>
 </h4>
 </div>
-
 <div class="fwdpanel-body" style="display: none;">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <p>
@@ -183,11 +180,10 @@ class="fa fa-plus"></i> Rental vehicle excess $3,000<br>
 </div>
 <div class="clearfix"></div>
 </div>
-
 </div>
 </div> -->
-<!-- Commented code for upgrade plan to travel -->
 
+<!-- Commented code for upgrade plan to travel -->
 
 <%
 QuoteDetails travelQuote = (QuoteDetails) request
@@ -195,7 +191,6 @@ QuoteDetails travelQuote = (QuoteDetails) request
 if (travelQuote.getPlanName().length > 0) {
 for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 %>
-
 <div
 class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-box">
 <div class="plan-box2-inner travelproductbox"
@@ -214,7 +209,6 @@ id="box<%=i%>">
 								</h2>
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-
 <h3><fmt:message key="dollar.hkd" bundle="${msg}" /></h3>
 <span id="totalDue"></span>
 <h6><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></h6>
@@ -231,7 +225,6 @@ id="box<%=i%>">
 class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.plan1.benefits" bundle="${msg}" />  </a> </span>
 </h4>
 </div>
-
 <div class="fwdpanel-body clearfix" style="display: none;">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<ul>
@@ -248,22 +241,170 @@ class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.pl
 		</ul>
 	</div>
 </div>
-
 </div>
-<h5> <a href="javascript:void(0)" class="bdr-curve-none btn btn-primary btn-next" onclick="setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+<h5>
+   
+	<a href="#" class="bdr-curve btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal">
+	   <fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" />
+	</a>
+</h5>
+<!--
+this is the old button 
+<h5><a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="perventRedirect=false;setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+-->
 </div>
 </div>
-
-
 <%
 }
 }
 %>
+
 <!-- End Travel Plan -->
 
 </div>
 </div>
 
+<div class="modal fade details-popup" id="confirm-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal" style="top:30px;">
+            <a class="close" aria-label="Close" data-dismiss="modal">
+               <span aria-hidden="true" style="font-size:30px;">×</span>
+            </a>
+            
+            
+            <div class="declaration-content">
+                <h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
+                
+                <h3 class="error-hide1" style='display:none; color:red; font-size:15px;'>
+                     Please read and accept the Declaration, Terms & Conditions before submitting the application.
+                </h3>
+                
+                
+                
+                
+                <div class="checkbox">
+                    <input id="checkbox1" name="checkbox1" type="checkbox"> 
+                    <label for="checkbox1">
+                        <fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /> 
+                        <ol class="ol-disclaimer">
+                            <li><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+                            <li><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+                        </ol>
+                        
+                    </label>
+                </div>  
+                <span id="chk1" class="text-red"></span>        
+                
+                
+                
+                <h3 class="error-hide2" style='display:none; color:red; font-size:15px;'>
+                    Please read and accept the Personal Information Collection Statement before submitting the application.
+                </h3>
+                
+                
+                <div class="checkbox">
+                    <input id="checkbox2" name="checkbox2" type="checkbox"> <label
+                        for="checkbox2">
+                        <fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
+                        href="<fmt:message key="PICS.link" bundle="${msg}" />"
+                        class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
+                        
+
+
+                        </label>
+                </div>
+                <span id="chk2" class="text-red"></span>
+                <hr/>
+                <div>
+                     <label>
+                    <fmt:message key="travel.details.declarations.PDPO" bundle="${msg}" /> <br>
+                    </label>
+                </div>
+                 <div class="checkbox">
+                    <input id="checkbox3" name="checkbox3" type="checkbox"> <label
+
+                        for="checkbox3"> <fmt:message key="travel.details.declarations.PDPO.option1" bundle="${msg}" /><br>
+                        
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <input id="checkbox4" name="checkbox4" type="checkbox"> <label
+                        for="checkbox4">
+
+                        <fmt:message key="travel.details.declarations.PDPO.option2" bundle="${msg}" /><br>
+                        
+                    </label>
+                </div>
+                
+                <div class="checkboxBubble">
+                    <fmt:message key="travel.details.declarations.PDPO.warning" bundle="${msg}" />
+                </div>
+
+                <script type="text/javascript">
+                function showBubble(){
+                    if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+                        $(".checkboxBubble").fadeIn();
+                    }else{
+                        $(".checkboxBubble").fadeOut();
+                    }
+                }
+                
+                $("#checkbox3").change(function() {
+                    showBubble();
+                });
+                
+                $("#checkbox4").change(function() {
+                    showBubble();
+                });
+                </script>
+                
+				<!-- submit -->
+				<input style="width:250px; margin-top:50px;" type="button" onclick="return checkbox();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+				<script>
+				function checkbox() {
+					optIn1 = "false"
+		            optIn2 = "false"
+		            
+		            
+		            if($('#checkbox1').is(':checked')){
+		                optIn1 = "true";    
+		            }
+		            if($('#checkbox2').is(':checked')){
+		                optIn2 = "true";    
+		            }
+		            
+		            
+		            if(optIn1 == "true" && optIn2 == "true"){
+		            	$(".error-hide1").hide();
+		            	$(".error-hide2").hide();
+		            }
+		            
+		            
+		            
+	            	if(optIn1 == "false"){
+	            		$(".error-hide1").show();     	
+	            	}else{
+	            		$(".error-hide1").hide();
+	            	}
+	            	
+	                if(optIn2 == "false"){
+	                	$(".error-hide2").show();   
+                    }else{
+                    	$(".error-hide2").hide();
+                    }
+		            	
+		            
+		            
+		            
+				}
+				</script>
+            </div>
+        </div>
+     </div>
+</div>
 
 <input type="hidden" name="totalAdultTraveller"
 id="totalAdultTraveller"
@@ -286,10 +427,8 @@ value="${createFlightPolicy.getTravellerCount()}">
 <input type="hidden" name="hkid" value="${hkid}">
 <input type="hidden" name="mobileNo" value="${mobileNo}">
 <input type="hidden" name="emailAddress" value="${emailAddress}">
-
-
-
-
+<input type="hidden" name="optIn1" value="${optIn1}">
+<input type="hidden" name="optIn2" value="${optIn2}">
 <input type="hidden" name="upgradeStatus" value="true">
 <!-- End Travel Create Travel Plan Attribute -->
 <input type="hidden" name="planName" id="inputseletedplanname"
@@ -298,7 +437,8 @@ value="">
 <!-- Set total dues after click on plan -->
 <input type="hidden" name="selectedAmountDue"
 id="inputseletedDueAmount" value="">
-
+<input type="hidden" name="selectPlanPremium"
+id="inputselectPlanPremium" value="">
 </form:form>
 </div>
 <!--/.row-->
@@ -317,7 +457,7 @@ $(".travelproductbox").animate({
 
 });
 
-function setPriceAndColor(id, planName, selectedPrice) {
+function setPriceAndColor(id, planName, selectedPrice, selectPlanPremium) {
 	var selected_div;
 	var idArray = [];
 
@@ -333,7 +473,7 @@ function setPriceAndColor(id, planName, selectedPrice) {
 
 	$('#inputseletedplanname').val(planName);
 	$('#inputseletedDueAmount').val(selectedPrice);
-
+	$('#inputselectPlanPremium').val(selectPlanPremium);
 	
 
 	$('#frmTravelPlan').submit();
@@ -346,6 +486,32 @@ data : $('#frmTravelPlan').serialize()
 }
 </script>
 
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+
 <!--End of addthis -->
+
+<script type=text/javascript>
+   var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
+   document.write('<scr'+'ipt src="', hostProtocol+
+   '://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
+</script>
+<script type=text/javascript>
+   var params = new Array();
+   params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
+   params[1]='type=Registration';
+   params[2]='val=0.0';
+   params[3]='orderId=<%=request.getSession().getAttribute("policyNo")%>';
+   params[4]='promoCode=';
+   params[5]='valueCurrency=HKD';
+   params[6]='GCID='; //For Live Tracking only
+   params[7]='kw='; //For Live Tracking only
+   params[8]='product='; //For Live Tracking only
+   k_trackevent(params,'5198');
+</script>
+
+<noscript>
+   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+</noscript>
+

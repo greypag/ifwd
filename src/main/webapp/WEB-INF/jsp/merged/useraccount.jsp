@@ -166,7 +166,7 @@
 						</div>
 
 						<input type="button"
-							class="bdr-curve-none btn btn-primary btn-lg "
+							class="bdr-curve btn btn-primary btn-lg "
 							value="Update User Account" onclick="updateUserAccount()"
 							tabindex="11" />
 						<BR>
@@ -345,7 +345,7 @@
 									<td><p>
 											<fmt:message key="member.account.promotionCode.share.message.header" bundle="${msg}" /><span class="h2-1">
 												${userDetails.getReferralCode()}</span><br> <fmt:message key="member.account.promotionCode.share.message.body" bundle="${msg}" />
-										</p> <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt=""
+										</p> <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt=""
 										class="text-center col-xs-offset-3" /></td>
 								</tr>
 								<tr>
@@ -359,7 +359,7 @@
 										<input type="hidden" value="${userDetails.getReferralLink()}"
 										name="box-content" id="box-content"> --%>
 										
-										<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home?promo=<%=session.getAttribute("myReferralCode")%>
+										<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home?promo=<%=session.getAttribute("myReferralCode")%>
 										
 										
 									</td>
@@ -388,7 +388,7 @@
                   				<fmt:message key="member.account.referral.disclaimer.section2.header" bundle="${msg}" /><br>
                    				<fmt:message key="member.account.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
           						<fmt:message key="member.account.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
-          						<a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
+          						<a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link" target="_blank">
           							<fmt:message key="member.account.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
           						</a>
           						<fmt:message key="member.account.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
@@ -432,7 +432,7 @@
 	                            </table>
 	                            <p><fmt:message key="member.account.referral.benefits.disclaimer1" bundle="${msg}" /></p>
 	                    		<p>
-	          						<fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" />
+	          						<fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" />
 	                			</p>
                         	</div>
 						</div>

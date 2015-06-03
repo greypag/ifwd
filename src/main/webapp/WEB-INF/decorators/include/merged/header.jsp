@@ -330,8 +330,25 @@ function submitLoginForm(formID) {
 <!--Mobile-header-->
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
-		<span class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
-			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
+
+		<span class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> 
+		    <!-- 
+		    <a href="#" onClick="zopim_chat_start()">
+		      <span class="chat pull-right">
+		          <fmt:message key="header.menu.chatnow" bundle="${msg}" />
+		      </span>
+		    </a>
+		     -->
+		     
+		    <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />">
+		      <span class="chat pull-right">
+		          <fmt:message key="header.menu.chatnow" bundle="${msg}" />
+		      </span>
+		    </a>
+		    
+		    
+		     
+            
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
 			<%
 				if ("en".equals(session.getAttribute("language").toString())) {

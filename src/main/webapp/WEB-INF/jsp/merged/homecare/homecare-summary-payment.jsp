@@ -11,14 +11,14 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
-
+<script>
+perventRedirect=true;
+</script>
 
 <section>
-	<div class="container">
+	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm"
-				onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');"
-				method="post">
+			<form name="paymentForm" id="paymentForm" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item1"
 								bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -79,145 +79,150 @@
 					</div>
 				</div>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
-					<div
-						class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none white-bg1">
-
-						<div class="row home-summary-heading-row">
-							<div class="col-xs-6 col-md-7">
-								<h3
-									class="margin-left-2 h2-3-existing-fwd-head home-summary-heading"><fmt:message key="home.summary.plansummary.heading" bundle="${msg}" /></h3>
-							</div>
-							<div class="col-xs-6 col-md-5">
-								<h4 class="h4-trav-full text-right home-summary-change">
-									<a href="" onclick="BackMe()"><fmt:message key="home.summary.changedetail.heading" bundle="${msg}" /></a>
-								</h4>
-							</div>
+				    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
+                       <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
+                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
+                            </div>
+                            <!-- 
+                            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
+                                <h4 class="h4-trav-full">
+                                    <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+                                </h4>
+                            </div>
+                             -->
+                        </div>
+                        <div class="row">
+                            <!-- <table class="table activation-form margin-left-2"> -->
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
+                                <div class="table activation-form vert-middle travel-summary">
+                                    <div class="margin-15">
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h2-1 pad-none"><span class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message key="home.summary.changedetail.desc1" bundle="${msg}" /></span></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc3" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" /></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc4" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc5" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc1" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createdPolicy.getReferenceNo() }<input type="hidden" name="referenceNo" value="${createdPolicy.getReferenceNo()}"></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.desc3" bundle="${msg}" /><br/><h4 class="h4-4-full"></h4></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc5.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc5.part2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                                <c:if test="${homeCareDetails.getApplicantRoom() != ''}">
+	                                                Room/Flat ${homeCareDetails.getApplicantRoom()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getApplicantFloor() != ''}">
+	                                                Floor ${homeCareDetails.getApplicantFloor()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
+	                                                Block ${homeCareDetails.getApplicantBlock()}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getApplicantBuilding() != ''}">
+	                                                ${homeCareDetails.getApplicantBuilding() },
+	                                            </c:if>
+	                                            <br/>
+	                                            <c:if test="${homeCareDetails.getApplicantEstate() != ''}">
+	                                                ${homeCareDetails.getApplicantEstate() },
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getApplicantStreetNo() != ''}">
+	                                                ${homeCareDetails.getApplicantStreetNo() },
+	                                            </c:if>
+	                                             <c:if test="${homeCareDetails.getApplicantStreetName() != ''}">
+	                                                ${homeCareDetails.getApplicantStreetName() },
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getApplicantDistrictDesc() != ''}">
+	                                                ${homeCareDetails.getApplicantDistrictDesc() },
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getApplicantAreaDesc() != ''}">
+	                                                ${homeCareDetails.getApplicantAreaDesc() }
+	                                            </c:if>
+                                            </div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc6" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                                <c:if test="${homeCareDetails.getaRoom() != ''}">
+	                                                Room/Flat ${homeCareDetails.getaRoom()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaFloor() != ''}">
+	                                                Floor ${homeCareDetails.getaFloor()}, 
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaBlock() != ''}">
+	                                                Block ${homeCareDetails.getaBlock()}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getaBuilding() != ''}">
+	                                                ${homeCareDetails.getaBuilding()},
+	                                            </c:if>
+	                                            <br/>
+	                                            <c:if test="${homeCareDetails.getaEstate() != ''}">
+	                                                ${homeCareDetails.getaEstate()},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getaStreetNo() != ''}">
+	                                                ${homeCareDetails.getaStreetNo()},
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaStreetName() != ''}">
+	                                                ${homeCareDetails.getaStreetName()},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${homeCareDetails.getaDistrictDesc() != ''}">
+	                                                ${homeCareDetails.getaDistrictDesc()},
+	                                            </c:if>
+	                                            <c:if test="${homeCareDetails.getaAreaDesc() != ''}">
+	                                                ${homeCareDetails.getaAreaDesc()}
+	                                            </c:if>
+                                            </div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc7.part2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${homeCareDetails.getNetFloorAreaDesc()}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc8" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.yearly" bundle="${msg}" /></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.from" bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to" bundle="${msg}" />${effectiveEndDate}</div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <%
+	                                            HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
+	                                        %>
+                                                <span class="h4-4-orange-b pad-none">HK$<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span>
+                                            </div>
+                                        </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+                                </div>
+				            </div>
 						</div>
-
-
-						<div class="col-lg-6 col-xs-12 col-sm-12 col-md-6 pad-none">
-
-							<table class="table activation-form margin-left-2">
-								<tbody>
-									<tr>
-										<td class="h2-1 pad-left1 col-lg-5"><fmt:message
-												key="home.summary.plansummary.desc1" bundle="${msg}" /></td>
-										<td class=" h4-5">${createdPolicy.getReferenceNo() }<input
-											type="hidden" name="referenceNo"
-											value="${createdPolicy.getReferenceNo()}"></td>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc2" bundle="${msg}" /></td>
-										<td class="h4-5 "><fmt:message
-												key="home.summary.plansummary.desc3" bundle="${msg}" /><br>
-											<!--<fmt:message key="home.summary.plansummary.desc4"
-												bundle="${msg}" /> <br>-->
-											<h4 class="h4-4-full">
-												<!-- + Full coverage details -->
-											</h4></td>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc5.part1" bundle="${msg}" />
-											<br>
-										<fmt:message key="home.summary.plansummary.desc5.part2"
-												bundle="${msg}" /></td>
-										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getApplicantRoom()}, Floor ${homeCareDetails.getApplicantFloor()},
-											Block ${homeCareDetails.getApplicantBlock()}, <br>
-											${homeCareDetails.getApplicantBuilding() },
-											${homeCareDetails.getApplicantEstate() }, ${homeCareDetails.getApplicantStreetNo()}<br>
-											${homeCareDetails.getApplicantStreetName()}<br>
-											${homeCareDetails.getApplicantDistrictDesc()}, 
-											${homeCareDetails.getApplicantAreaDesc() }
-										</td>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc6" bundle="${msg}" /></td>
-										<td class=" h4-5 ">Room/Flat ${homeCareDetails.getaRoom()}, Floor ${homeCareDetails.getaFloor()},
-											Block ${homeCareDetails.getaBlock() },<br>
-											${homeCareDetails.getaBuilding()},
-											${homeCareDetails.getaEstate() }, ${homeCareDetails.getaStreetNo() }<br>
-											${homeCareDetails.getaStreetName() }<br>
-											${homeCareDetails.getaDistrictDesc()}, 
-											${homeCareDetails.getaAreaDesc() }</td>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br>
-										<fmt:message key="home.summary.plansummary.desc7.part2"
-												bundle="${msg}" /></td>
-										<td class=" h4-5 ">${homeCareDetails.getNetFloorAreaDesc()}</td>
-										<%-- 										${homeCareDetails.getNetFloorArea()} --%>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc8" bundle="${msg}" /></td>
-										<td class=" h4-5 "><fmt:message
-												key="home.summary.plansummary.yearly" bundle="${msg}" /></td>
-									</tr>
-									<tr>
-										<td class="h2-1 "><fmt:message
-												key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br>
-										<fmt:message key="home.summary.plansummary.desc9.part2"
-												bundle="${msg}" /></td>
-										<td class=" h4-5 "><fmt:message key="home.summary.plansummary.from"
-												bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to"
-												bundle="${msg}" />
-											${effectiveEndDate}</td>
-									</tr>
-									<tr>
-										<td class="td-vert-middle"><span
-											class="h4-4-orange-b pad-none"><fmt:message
-													key="home.summary.plansummary.desc10" bundle="${msg}" /></span></td>
-										<%
-											HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request
-													.getAttribute("homeCareDetails");
-										%>
-										<td class=" "><span class="h4-4-orange-b pad-none">HK$
-												<%=String.format("%.2f",
-					Double.parseDouble(homeCareDetails.getTotalDue()))%></span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div
-							class="col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-none hidden-sm hidden-xs">
-
-							<table class="table activation-form margin-left-2">
-								<tbody>
-									<tr>
-										<td class="pad-none "><span
-											class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message
-													key="home.summary.changedetail.desc1" bundle="${msg}" /></span></td>
-										<td class="pad-none h4-5 "></td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc2" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getFullName()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc3" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">
-										<c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc4" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getEmailAddress()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message
-												key="home.summary.changedetail.desc5" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getMobileNo()}</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						
 
 
 					</div>
@@ -229,8 +234,9 @@
 					type="hidden" name="orderRef"
 					value="${confirm.getTransactionNo() }"> <input
 					type="hidden" name="currCode"
-					value="${createdPolicy.getCurrCode() }"> <input
-					type="hidden" name="successUrl" value="${path}"> <input
+					value="${createdPolicy.getCurrCode() }"> 
+					<input type="hidden" name="remark" value="${referralCode.trim()}">
+					<input type="hidden" name="successUrl" value="${path}"> <input
 					type="hidden" name="failUrl" value="${failurePath}"> <input
 					type="hidden" name="errorUrl" value="${failurePath}"> <input
 					type="hidden" name="payType"
@@ -308,8 +314,6 @@
 										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
 											title=""
-											placeholder="<fmt:message
-											key="home.summary.pmtdetail.desc2.placeholder" bundle="${msg}" />"
 											onkeyup="" onkeypress="return isNumeric(event)"
 											onBlur="validatecardnumber(this.value)" /> <span
 											id="errcardno" class="error-msg"></span>
@@ -377,8 +381,6 @@
 									<div class="controls">
 										<input id="holdername" type="text" name="cardHolder"
 											class="input-block-level" title=""
-											placeholder="<fmt:message
-											key="home.summary.pmtdetail.desc4.placeholder" bundle="${msg}" />"
 											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
 											onkeypress="return alphaOnly(event);"> <span
 											id="errname" class="error-msg"></span>
@@ -392,8 +394,6 @@
 										<input id="seccode" name="securityCode" type="password"
 											class="input-block-level" autocomplete="off" maxlength="3"
 											title=""
-											placeholder="<fmt:message
-											key="home.summary.pmtdetail.desc5.placeholder" bundle="${msg}" />"
 											onblur="replaceAlphaNumeric(this);"
 											onkeypress="return isAlphaNumeric(event);">
 
@@ -442,6 +442,8 @@
 						</div>
 						<span id="errchk2" class="error-msg"></span>-->
 						<div class="clearfix"></div>
+						
+						<!-- old buttons
 						<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message
@@ -449,6 +451,26 @@
 							<input type="submit" class="bdr-curve btn btn-primary nxt-btn margin-left"
 								value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 						</div>
+						-->
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
+	                                <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
+	                            </a> -->
+	                            
+	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <a onclick="perventRedirect=false; confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+	                                class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+	                        </div>
+                        </div>
+						
+						
+						
+						<!-- 
+						
+						
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -468,9 +490,48 @@
 							<div class="clearfix"></div>
 
 						</div>
-						<br>
+						 -->
+						<!-- <br>
                             <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
-                        <br>
+                        <br>-->
+                        <br/>
+                        <!-- <div style="overflow: hidden;">
+                          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 row pull-left">
+                              <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
+                            </div>
+                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left" style="padding-left: 15px;line-height: 45px;">
+                              <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+                            </div>
+                        </div>-->
+                        
+                        
+                        <hr class="summary-hr"/>
+                        <div id="paydoller-wrap" class="declaration-content margin-left-small float">
+                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+                            </div>
+                          </div>
+                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.visa" bundle="${msg}" />
+                            </div>
+                          </div>
+                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
+                            </div>
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                             <fmt:message key="travel.action.master" bundle="${msg}" />
+                            </div>
+                          </div>
+                        </div>
 
 					</div>
 
@@ -504,11 +565,12 @@
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
+					$('#PaymentingDiv').hide();
 					if (data == 'success') {
 						form.action = geteWayUrl;
 						$('#PaymentingDiv').hide();
 					} else {
-						console.log("process home payment fail " + data);
+						$('#paymentErrorPopup').modal('show');
 					}
 				}
 			});
@@ -532,11 +594,15 @@
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
+ 							clicked = false;
+ 							$("#PaymentingDiv").hide();
  							if (data == 'success') {
- 								form.action = geteWayUrl;
- 							} else {
- 								console.log("fail to home process payment " + data);
- 	 						}
+                                $("#"+form).attr('action', geteWayUrl);
+                                $("#"+form).submit();
+                            } else {
+                                $('#paymentErrorPopup').modal('show');
+                                return false;
+                            }
  	 							
  						}
  					});

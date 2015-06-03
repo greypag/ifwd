@@ -278,9 +278,12 @@ $(document).ready(function() {
 						i++;
 				%>
 
-				<div class="btn-box">
-						<button type="submit" class="bdr-curve btn btn-primary nxt-btn"
-							onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
+				<div class="form-container">
+				    <h3 class="text-center">
+				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block"
+                            onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
+				    </h3>
+						
 				</div>
 
 			</div>
@@ -689,6 +692,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 		</a> <a class="next" href="#testimonials-mob" data-slide="next"> <i
 			class="fa fa-chevron-right"></i>
 		</a>
+		<P class="p1" style="padding:20px;">
+                    <br> <fmt:message key="home.main.testimonial.disclaimer" bundle="${msg}" />
+                </P>
 	</section>
 	<!--/#testiomonials mob-->
 
@@ -829,7 +835,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" 
 	aria-hidden="true" style="display: none;">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content plan-modal">
+		<div id="homecareLandingModal" class="modal-content plan-modal">
 		   <div class="modal-body">
 		   <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
                  <span aria-hidden="true" style="font-size:30px;">×</span>

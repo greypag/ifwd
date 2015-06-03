@@ -37,16 +37,7 @@
 
 
 
-<noscript>
-<iframe src="//www.googletagmanager.com/ns.html?id=GTMK7TX8B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTMK7TX8B')
-;</script>
+
 
 <!--END -Google Code for SEO-->
 
@@ -74,13 +65,7 @@ $(document).ready(function() {
 </head>
 <body>
 <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWPF25"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MWPF25');</script>
+
 <!-- End Google Tag Manager-->
 
 
@@ -184,7 +169,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="index.highlight1.heading" bundle="${msg}" /></h2>
-                <p><fmt:message key="index.highlight1.paragraph" bundle="${msg}" /></p>
+                <p>
+                <fmt:message key="index.highlight1.desc.part1" bundle="${msg}" /> <a
+                  href="<fmt:message key="app.download.link" bundle="${msg}" />"
+                  target="_blank"><fmt:message key="index.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="index.highlight1.desc.part3" bundle="${msg}" />
+              </p>
               </div>
             </div>
           </div>
@@ -283,7 +272,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p><fmt:message key="index.customer1.paragraph" bundle="${msg}" /></p>
                 <div class="hr1"></div>
                 <h2><fmt:message key="index.customer1.name.part1" bundle="${msg}" /></h2>
-                <h4><fmt:message key="index.customer1.name.part3" bundle="${msg}" /></h4>
+                <h4><fmt:message key="index.customer1.name.part2" bundle="${msg}" /></h4>
               </div>
             </div>
           </div>
@@ -299,7 +288,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p><fmt:message key="index.customer2.paragraph" bundle="${msg}" /></p>
                 <div class="hr1"></div>
                 <h2><fmt:message key="index.customer2.name.part1" bundle="${msg}" /></h2>
-                <h4><fmt:message key="index.customer2.name.part3" bundle="${msg}" /></h4>
+                <h4><fmt:message key="index.customer2.name.part2" bundle="${msg}" /></h4>
               </div>
             </div>
           </div>

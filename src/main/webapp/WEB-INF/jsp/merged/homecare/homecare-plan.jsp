@@ -88,11 +88,26 @@
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <script>
+
+var promoCodePlaceholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
+
+//bmg inline variable
+var promoCodeInsertFlag = true;
+//bmg inline variable
+
+perventRedirect=true;
+
+function checkPromoCodePlaceholder(){
+	if ($("#referralCode").val()==promoCodePlaceholder) {
+        $("#referralCode").val('');
+    }
+}
+
 	function chkPromoCode() {
 		var flag = false;
 		var promoCode = document.getElementById("referralCode").value;
 	
-		if (promoCode.trim() == "") {
+		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			flag = false;
 		} else
@@ -101,23 +116,34 @@
 		return flag;
 	}
 	function applyHomePromoCode() {
+		if(promoCodeInsertFlag){
+            promoCodeInsertFlag = false;
+            
+			$("#errPromoCode").html("");
+			
+			if(chkPromoCode()) {
+				$('#loading-overlay').modal({
+	                backdrop: 'static',
+	                keyboard: false
+	            })
+				$.ajax({
+					type : 'POST',
+					url : '<%=request.getContextPath()%>/applyHomePromoCode',
+					data : $('#frmHomeCarePlan input').serialize(),
+					success : function(data) {
+						$('#loading-overlay').modal('hide');
+	                    promoCodeInsertFlag = true;
 		
-		$("#errPromoCode").html("");
+						var json = JSON.parse(data);
 		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyHomePromoCode',
-			data : $('#frmHomeCarePlan input').serialize(),
-			success : function(data) {
-
-				var json = JSON.parse(data);
-
-				//console.log("json " + json);
-				setValue(json);
+						setValue(json);
+					}
+		
+				});
+			} else {
+				promoCodeInsertFlag = true;
 			}
-
-		});
+		}
 	}
 
 	function setValue(result) {
@@ -173,9 +199,9 @@
 
 	<!--/#main-Content-->
 	<section>
-		<div class="container">
+		<div id="cn" class="container">
 			<div class="row">
-
+                <form:form name="frmHomeCarePlan" id="frmHomeCarePlan" action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post" onsubmit="return checkPromoCodePlaceholder();" modelAttribute="planQuoteDetails">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -226,7 +252,7 @@
 				
 				<%
 							HomeQuoteBean planQuote = (HomeQuoteBean) request.getAttribute("planQuote");%>
-				<div id="quote-wrap" class="container pad-none bdr ur-opt-content">
+				<div id="quote-wrap" class="container pad-none bdr">
 					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
 						<h2 class="h2-3-choose hidden-sm hidden-xs">
 							<!-- Choose a plan -->
@@ -240,7 +266,6 @@
 								</h2>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-								<br>
 								<div class="h4">
 									HK$ <br>
 									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
@@ -312,7 +337,7 @@
 
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-1" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.highlight.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -343,7 +368,7 @@
                                         <!--  Summary of Coverage  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-2" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.summary.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -355,7 +380,7 @@
 											            <span aria-hidden="true" style="font-size:30px;">×</span>
 											            </a>
 											            <div class="fwdpanel-heading">
-											                <h4 class="fwdpanel-title h4-4-full "><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
+											                <h4 class="fwdpanel-title h4-4-full"><fmt:message key="home.quote.summary.heading" bundle="${msg}" /></h4>
 											            </div>
 											            <div class="fwdpanel-body">
                                                             <h4 class="h4-2">
@@ -523,7 +548,7 @@
                                         <!--   Major Exclusions  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-3" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
                                                 </h4>
@@ -573,7 +598,7 @@
                                         <!--   Age limit  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-4" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.exclusion.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -610,7 +635,7 @@
                                         <!--   Premium table (HK$)  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
-                                                <h4 class="fwdpanel-title h4-4-travel margin-left">
+                                                <h4 class="fwdpanel-title h4-4-full">
                                                     <span><a href="#" data-target="#details-popup-5" data-toggle="modal"><i
                                                             class="fa fa-plus"></i> <fmt:message key="home.quote.excess.heading" bundle="${msg}" /> </a> </span>
                                                 </h4>
@@ -675,11 +700,9 @@
 
 
 					</div>
-					<div
-						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
-						<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
-							action="${pageContext.request.contextPath}/${language}/home-insurance/user-details" method="post"
-							modelAttribute="planQuoteDetails">
+					
+					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
+						
 							<div class="wd2 hidden-sm hidden-xs">
 								<div class="col-xs-6">
 									<h2 class="h2-3-choose pad-none"><fmt:message key="home.sidebar.summary.product" bundle="${msg}" />
@@ -711,12 +734,17 @@
 								</div>
 								<div class="clearfix"></div>
 								
+								<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+								
 								<span class="text-red" id="errPromoCode"></span>
 								<div id="promo-wrap" class="form-group">
 									<div class="input-group" style="border: 0;">
 										<span class="text-red" id="errPromoCode"></span>
 										<input type="text" id="referralCode" name="referralCode" style="border: 1px solid #e3e3e3"
-											class="form-control" placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
+											class="form-control bmg_custom_placeholder" 
+											onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+											placeholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />"> <span
 											class="input-group-addon in black-bold"> 
 											<span class="input-group-addon in black-bold pointer" onclick="applyHomePromoCode()">
 											 <fmt:message key="home.action.apply" bundle="${msg}" />
@@ -766,7 +794,7 @@
 							<input type="hidden" name="answer2" value="${answer2}">
 
 							
-
+                            <!-- 
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
 								<a href="<%=request.getContextPath()%>/${language}/home-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
@@ -776,16 +804,29 @@
 								<button type="submit" class="bdr-curve btn btn-primary btn-next">
 									<fmt:message key="home.action.next" bundle="${msg}" />
 								</button>
-							</div>
+							</div> -->
+							<div class="hidden-sm hidden-xs">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance"
+	                                class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.back" bundle="${msg}" /> 
+	                            </a> -->
+	                            
+	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+	                            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+	                                <fmt:message key="home.action.next" bundle="${msg}" /></button>
+	                        </div>
+							
 
 							<div class="clearfix"></div>
 							<br>
 							<br>
-						</form:form>
+							</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<p class="padding1 hidden-sm hidden-xs">
+				<p class="padding1">
 					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" /> <a
 						class="sub-link"
 						href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
@@ -794,7 +835,20 @@
 						<fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
 						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
 				</p>
-
+				
+				<div class="col-xs-12 hidden-md hidden-lg pad-none">
+		           <div style="width: 80%;margin-left: 10%; margin-bottom: 50px;">
+		                <div class="top35 pull-left pad-none" style="width:47%">
+		                    <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+		                </div>
+		                <div class="top35 pull-right pad-none" style="width:47%">
+		                    <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+                                    <fmt:message key="home.action.next" bundle="${msg}" /></button>
+		                </div>
+		                <div class="clearfix"></div>
+		            </div>
+		        </div>
+                </form:form>
 			</div>
 			<!--/.row-->
 		</div>
@@ -869,6 +923,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
+							<input type="hidden" name="planCode" id="planCode" value="HOMECARE">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">

@@ -10,7 +10,8 @@
         <ul class="pull-left foot-links">
           <li class="divider margin-left-none"><a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a></li>
           <li  class="divider"><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a></li>
-          <li><a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a></li>
+          <li  class="divider"><a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a></li>
+          <li><a href="<fmt:message key="footer.menu.claim.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.claim" bundle="${msg}" /></a></li>
         </ul>
       </div>
       <div class="col-sm-5 col-lg-4 pull-right">
@@ -56,7 +57,8 @@
     <div>
         <a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a> |
         <a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a> |
-        <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>
+        <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a> |
+        <a href="<fmt:message key="footer.menu.claim.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.claim" bundle="${msg}" /></a>
     </div>
     <div>
         <fmt:message key="footer.hotline.part1" bundle="${msg}" /> <fmt:message key="footer.hotline.part2" bundle="${msg}" />
@@ -73,7 +75,11 @@
    <!-- <p class="text-center mob-bottom"><fmt:message key="footer.copyright" bundle="${msg}" /></p> -->
 </div>
 <!--/mob bottom--> 
-
+<script>
+$(function() {
+    $('input, textarea').placeholder();
+});
+</script>
 
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
@@ -92,8 +98,9 @@
 
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-<%-- <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/validation.js"></script> --%>
+<script type="text/javascript"
+  src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>  
+
 
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
@@ -101,13 +108,10 @@
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+  src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>  
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-
-
-
