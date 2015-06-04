@@ -350,7 +350,7 @@ var promoData = '';
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
-												<p><fmt:message key="workingholiday.quote.fullDetails.keyFeature1.subheading" bundle="${msg}" /></p>
+												<p><fmt:message key="workingholiday.quote.fullDetails.keyFeature1.subheading" bundle="${msg}" /></p>	
 												<br>
 												<p>
 													<ul class="text-justify">
@@ -374,6 +374,9 @@ var promoData = '';
 														</li>
 														<li>
 															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc7" bundle="${msg}" />
+														</li>
+														<li>
+															<fmt:message key="workingholiday.quote.fullDetails.keyFeature1.desc8" bundle="${msg}" />
 														</li>
 													</ul>
 												</p>
@@ -409,7 +412,7 @@ var promoData = '';
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row1.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.row2.col1" bundle="${msg}" /></td>
+															<td rowspan="8"><fmt:message key="workingholiday.quote.fullDetails.table.row2.col1" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc1" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc1" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc1" bundle="${msg}" /></td>
@@ -420,72 +423,58 @@ var promoData = '';
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td rowspan="9"><fmt:message key="workingholiday.quote.fullDetails.table.row3.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc3" bundle="${msg}" /></td>
+														</tr>
+														
+														<tr>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc4" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc4" bundle="${msg}" /></td>
+														</tr>
+														<tr>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc5" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc5" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc5" bundle="${msg}" /></td>
+														</tr>
+														<tr>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc6" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc6" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc6" bundle="${msg}" /></td>
+														</tr>
+														<tr>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc7" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc7" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc7" bundle="${msg}" /></td>
+														</tr>
+														<tr>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc8" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc8" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc8" bundle="${msg}" /></td>
+														</tr>
+
+														<tr>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.row3.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc1.subheading" bundle="${msg}" /><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc1.content" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc1" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc1" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc2.subheading" bundle="${msg}" /><br/>
+																<fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc2.content" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc2" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc2" bundle="${msg}" /></td>
 														</tr>
+														
 														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4" bundle="${msg}" /></td>
 														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc4" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc4" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc5" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc5" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc5" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc6" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc6" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc6" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc7" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc7" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc7" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc8" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc8" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc8" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col2.desc9" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc9" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc9" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td rowspan="3"><fmt:message key="workingholiday.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
-															</td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4.desc2" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/> 
-																<fmt:message key="workingholiday.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" />
-															</td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4.desc3" bundle="${msg}" /></td>
-														</tr>
+														
 														<tr>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col1" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col2" bundle="${msg}" /></td>
@@ -499,71 +488,19 @@ var promoData = '';
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row6.col4" bundle="${msg}" /></td>
 														</tr>
 														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col4" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.row7.col1" bundle="${msg}" /></td>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col2.desc1" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.row7.col3" bundle="${msg}" /></td>
+															<td rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.table.row7.col4" bundle="${msg}" /></td>
+														</tr>
+														<tr>
+															<td><fmt:message key="workingholiday.quote.fullDetails.table.row7.col2.desc2" bundle="${msg}" /></td>
 														</tr>
 														<tr>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col1" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col2" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col3" bundle="${msg}" /></td>
 															<td><fmt:message key="workingholiday.quote.fullDetails.table.row8.col4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td rowspan="3"><fmt:message key="workingholiday.quote.fullDetails.table.row9.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc1.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc1.content" bundle="${msg}" />
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col3.desc1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col4.desc1" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc2.subheading" bundle="${msg}" /><br/>
-																<fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc2.content" bundle="${msg}" />
-															</td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col3.desc2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col4.desc2" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col2.desc3.subheading" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col3.desc3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row9.col4.desc3" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row10.col4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row11.col4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row12.col4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row13.col4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row14.col4" bundle="${msg}" /></td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col1" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col2" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.table.row15.col4" bundle="${msg}" /></td>
 														</tr>
 													</tbody>
 												</table>
@@ -593,20 +530,6 @@ var promoData = '';
 											</div>
 										</div>
 										<!-- /  Major Exclusions -->
-										<!--   Age limit  -->
-										<div class="fwdpanel fwdpanel-primary">
-											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-full">
-													<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
-												</h4>
-											</div>
-											<div class="fwdpanel-body" style="display: none;">
-												<p><fmt:message key="workingholiday.quote.fullDetails.ageLimit.desc1" bundle="${msg}" /><br/>
-													<fmt:message key="workingholiday.quote.fullDetails.ageLimit.desc2" bundle="${msg}" />
-												</p>
-											</div>
-										</div>
-										<!-- / Age limit -->
 										<!--   Premium table (���)  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -615,350 +538,23 @@ var promoData = '';
 												</h4>
 											</div>
 											<div class="fwdpanel-body" style="display: none;">
-												<h4 class="h4-2">
-													<strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.heading" bundle="${msg}" /></strong>
-												</h4>
 												<table id="Premium" class="table table-bordred">
 													<tbody>
 														<tr>
-															<td rowspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></strong></td>
+															<td rowspan="3"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></strong></td>
 															<td colspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></strong></td>
-															<td colspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></strong></td>
-															<td colspan="2"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></strong></td>
 														</tr>
 														<tr>
 															<td width="101"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
 															<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-															<td width="84"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-															<td width="81"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-															<td width="93"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-															<td width="88"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
 														</tr>
 														<tr>
-															<td>1</td>
-															<td>120</td>
-															<td>95</td>
-															<td>210</td>
-															<td>166</td>
-															<td>300</td>
-															<td>238</td>
-														</tr>
-														<tr>
-															<td>2</td>
-															<td>130</td>
-															<td>105</td>
-															<td>228</td>
-															<td>184</td>
-															<td>325</td>
-															<td>263</td>
-														</tr>
-														<tr>
-															<td>3</td>
-															<td>145</td>
-															<td>115</td>
-															<td>254</td>
-															<td>201</td>
-															<td>363</td>
-															<td>288</td>
-														</tr>
-														<tr>
-															<td>4</td>
-															<td>180</td>
-															<td>135</td>
-															<td>315</td>
-															<td>236</td>
-															<td>450</td>
-															<td>338</td>
-														</tr>
-														<tr>
-															<td>5</td>
-															<td>215</td>
-															<td>155</td>
-															<td>376</td>
-															<td>271</td>
-															<td>538</td>
-															<td>388</td>
-														</tr>
-														<tr>
-															<td>6</td>
-															<td>250</td>
-															<td>175</td>
-															<td>438</td>
-															<td>306</td>
-															<td>625</td>
-															<td>438</td>
-														</tr>
-														<tr>
-															<td>7</td>
-															<td>270</td>
-															<td>188</td>
-															<td>473</td>
-															<td>329</td>
-															<td>675</td>
-															<td>470</td>
-														</tr>
-														<tr>
-															<td>8</td>
-															<td>290</td>
-															<td>200</td>
-															<td>508</td>
-															<td>350</td>
-															<td>725</td>
-															<td>500</td>
-														</tr>
-														<tr>
-															<td>9</td>
-															<td>305</td>
-															<td>212</td>
-															<td>534</td>
-															<td>371</td>
-															<td>763</td>
-															<td>530</td>
-														</tr>
-														<tr>
-															<td>10</td>
-															<td>320</td>
-															<td>225</td>
-															<td>560</td>
-															<td>394</td>
-															<td>800</td>
-															<td>563</td>
-														</tr>
-														<tr>
-															<td>11</td>
-															<td>345</td>
-															<td>237</td>
-															<td>604</td>
-															<td>415</td>
-															<td>863</td>
-															<td>593</td>
-														</tr>
-														<tr>
-															<td>12</td>
-															<td>370</td>
-															<td>249</td>
-															<td>648</td>
-															<td>436</td>
-															<td>925</td>
-															<td>623</td>
-														</tr>
-														<tr>
-															<td>13</td>
-															<td>390</td>
-															<td>261</td>
-															<td>683</td>
-															<td>457</td>
-															<td>975</td>
-															<td>653</td>
-														</tr>
-														<tr>
-															<td>14</td>
-															<td>410</td>
-															<td>273</td>
-															<td>718</td>
-															<td>478</td>
-															<td>1025</td>
-															<td>683</td>
-														</tr>
-														<tr>
-															<td>15</td>
-															<td>435</td>
-															<td>285</td>
-															<td>761</td>
-															<td>499</td>
-															<td>1088</td>
-															<td>713</td>
-														</tr>
-														<tr>
-															<td>16</td>
-															<td>470</td>
-															<td>297</td>
-															<td>823</td>
-															<td>520</td>
-															<td>1175</td>
-															<td>743</td>
-														</tr>
-														<tr>
-															<td>17</td>
-															<td>495</td>
-															<td>309</td>
-															<td>866</td>
-															<td>541</td>
-															<td>1238</td>
-															<td>773</td>
-														</tr>
-														<tr>
-															<td>18</td>
-															<td>515</td>
-															<td>321</td>
-															<td>901</td>
-															<td>562</td>
-															<td>1288</td>
-															<td>803</td>
-														</tr>
-														<tr>
-															<td>19</td>
-															<td>535</td>
-															<td>333</td>
-															<td>936</td>
-															<td>583</td>
-															<td>1338</td>
-															<td>833</td>
-														</tr>
-														<tr>
-															<td>20</td>
-															<td>555</td>
-															<td>345</td>
-															<td>971</td>
-															<td>604</td>
-															<td>1388</td>
-															<td>863</td>
-														</tr>
-														<tr>
-															<td>21</td>
-															<td>575</td>
-															<td>357</td>
-															<td>1006</td>
-															<td>625</td>
-															<td>1438</td>
-															<td>893</td>
-														</tr>
-														<tr>
-															<td>22</td>
-															<td>595</td>
-															<td>369</td>
-															<td>1041</td>
-															<td>646</td>
-															<td>1488</td>
-															<td>923</td>
-														</tr>
-														<tr>
-															<td>23</td>
-															<td>615</td>
-															<td>381</td>
-															<td>1076</td>
-															<td>667</td>
-															<td>1538</td>
-															<td>953</td>
-														</tr>
-														<tr>
-															<td>24</td>
-															<td>635</td>
-															<td>393</td>
-															<td>1111</td>
-															<td>688</td>
-															<td>1588</td>
-															<td>983</td>
-														</tr>
-														<tr>
-															<td>25</td>
-															<td>655</td>
-															<td>405</td>
-															<td>1146</td>
-															<td>709</td>
-															<td>1638</td>
-															<td>1013</td>
-														</tr>
-														<tr>
-															<td>26</td>
-															<td>675</td>
-															<td>417</td>
-															<td>1181</td>
-															<td>730</td>
-															<td>1688</td>
-															<td>1043</td>
-														</tr>
-														<tr>
-															<td>27</td>
-															<td>695</td>
-															<td>429</td>
-															<td>1216</td>
-															<td>751</td>
-															<td>1738</td>
-															<td>1073</td>
-														</tr>
-														<tr>
-															<td>28</td>
-															<td>715</td>
-															<td>441</td>
-															<td>1251</td>
-															<td>772</td>
-															<td>1788</td>
-															<td>1103</td>
-														</tr>
-														<tr>
-															<td>29</td>
-															<td>735</td>
-															<td>453</td>
-															<td>1286</td>
-															<td>793</td>
-															<td>1838</td>
-															<td>1133</td>
-														</tr>
-														<tr>
-															<td>30</td>
-															<td>755</td>
-															<td>465</td>
-															<td>1321</td>
-															<td>814</td>
-															<td>1888</td>
-															<td>1163</td>
-														</tr>
-														<tr>
-															<td>31</td>
-															<td>775</td>
-															<td>477</td>
-															<td>1356</td>
-															<td>835</td>
-															<td>1938</td>
-															<td>1193</td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.dayLimit" bundle="${msg}" />
-															<td>20</td>
-															<td>12</td>
-															<td>35</td>
-															<td>21</td>
-															<td>50</td>
-															<td>30</td>
+															<td width="101"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price1" bundle="${msg}" /></strong></td>
+															<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price2" bundle="${msg}" /></strong></td>
 														</tr>
 													</tbody>
 												</table>
-												<h4 class="h4-2">
-													<strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.heading" bundle="${msg}" /></strong>
-												</h4>
-												<table id="annual" class="table table-bordred">
-													<tbody>
-														<tr>
-															<td width="208" rowspan="4"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.header1" bundle="${msg}" /></strong></td>
-															<td colspan="2" rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.header2" bundle="${msg}" /></td>
-															<td width="108"><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
-															<td width="36">1,800</td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
-															<td>1,300</td>
-														</tr>
-														<tr>
-															<td colspan="2" rowspan="2"><fmt:message key="workingholiday.quote.fullDetails.priceTable.annual.header3" bundle="${msg}" /></td>
-															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
-															<td>3,600</td>
-														</tr>
-														<tr>
-															<td><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
-															<td>2,600</td>
-														</tr>
-													</tbody>
-												</table>
-												<br>
-												<h4 class="h4-2">
-													<strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.remark" bundle="${msg}" /></strong>
-												</h4>
-												<p><fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc1" bundle="${msg}" /><br/>
-													<fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc2" bundle="${msg}" /><br/>
-													<fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc3" bundle="${msg}" /><br/>
-													<fmt:message key="workingholiday.quote.fullDetails.priceTable.remark.desc4" bundle="${msg}" />
-												</p>
+												
 											</div>
 										</div>
 										<!-- / Premium table (���) -->
@@ -1080,7 +676,9 @@ var promoData = '';
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />"
 				target="_blank"><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a>
-				<fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
+				<fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" />
+				<br>
+				<fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
 		
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">

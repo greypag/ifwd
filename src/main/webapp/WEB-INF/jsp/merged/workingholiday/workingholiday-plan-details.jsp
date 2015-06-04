@@ -326,6 +326,9 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <input type="text"
                                             class="form-control full-control" id="inputFullName" name="whAppFullName"
+                                            placeholder="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />"
+                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />');" 
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.name.placeholder " bundle="${msg}" />'
                                             value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppFullName() != '') ? workingHolidayPlanDetailsForm.getWhAppFullName() : userDetails.getFullName()}"
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
                                             onkeypress=" return alphaOnly(event);" maxlength="100" />
@@ -373,7 +376,11 @@ function activateUserAccountJoinUs() {
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                         <div class="input-group date" id="dpWhAppDob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                              <input name="whAppDob" type="text" class="datepicker form-control border-radius" id="inputWhAppDob" value="${workingHolidayPlanDetailsForm.getWhAppDob()}" readonly>
+                                              <input name="whAppDob" type="text" class="datepicker form-control border-radius" id="inputWhAppDob" value="${workingHolidayPlanDetailsForm.getWhAppDob()}" 
+                                              placeholder="<fmt:message key="workingholiday.details.applicant.dob.placeholder" bundle="${msg}" />"
+                                              onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.dob.placeholder" bundle="${msg}" />');" 
+                                              onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.dob.placeholder " bundle="${msg}" />'
+                                              readonly> 
                                           </div>
                                           <span id="whAppDob" class="text-red"> </span></td>
                                    </div>
@@ -407,7 +414,9 @@ function activateUserAccountJoinUs() {
                                        <input class="form-control full-control"
                                             id="inputEmailId" name="whAppEmailAdd"
                                             value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppEmailAdd() != '') ? workingHolidayPlanDetailsForm.getWhAppEmailAdd() : userDetails.getEmailAddress()}"
-                                            onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');" maxlength="50"> <span
+                                            onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');" maxlength="50"
+                                            placeholder="<fmt:message key="workingholiday.details.applicant.email.placeholder" bundle="${msg}" />"> 
+                                            <span
                                             id="whAppEmailAdd" class="text-red"> </span>
                                    </div>
                                </div>
@@ -490,6 +499,7 @@ function activateUserAccountJoinUs() {
 	                                                name="whInsFullName" value="${workingHolidayPlanDetailsForm.getWhInsFullName()}"
 	                                                id="inputWhInsFullName" value=""
 	                                                class="form-control full-control " 
+
 	                                                onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
 	                                                onkeypress="    return alphaOnly(event);" maxlength="100" />
 	                                            <span id="whInsFullName" class="text-red">
@@ -640,6 +650,7 @@ function activateUserAccountJoinUs() {
                                        <!-- street no., street name start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
+
                                                <input type="text" class="form-control full-control"
                                             id="inputWhInsStreetNo" name="whInsStreetNo" value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
@@ -767,7 +778,9 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                        <input type="text"
                                                 class="form-control marginbt full-control input-white" id="Username"
-                                                name="username"> <span id="UsernameError"
+                                                name="username"
+                                                placeholder="<fmt:message key="workingholiday.details.registration.username.placeholder" bundle="${msg}" />">
+                                                <span id="UsernameError"
                                                 class="text-red"> </span>
                                    </div>
                                 </div>
@@ -778,7 +791,8 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                        <input type="password"
                                                 class="form-control marginbt full-control input-white" id="Password" autocomplete="off" name="password"
-                                                placeholder="<fmt:message key="workingholiday.details.registration.password.placeholder" bundle="${msg}" />"> <span id="PasswordError"
+                                                placeholder="<fmt:message key="workingholiday.details.registration.password.placeholder" bundle="${msg}" />">
+                                                <span id="PasswordError"
                                                 class="text-red"> </span>
                                    </div>
                                 </div>
@@ -876,7 +890,7 @@ function activateUserAccountJoinUs() {
                             </div>
                             </div>
                         </div>
-					
+					</div>
 
 
 
@@ -972,6 +986,7 @@ function activateUserAccountJoinUs() {
 <p class="padding1 workingholiday-plan-disclaimer">
 <fmt:message key="workingholiday.quote.other.disclaimer.part1" bundle="${msg}" /><a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
 <fmt:message key="workingholiday.quote.other.disclaimer.part3" bundle="${msg}" />
+<br>
 <fmt:message key="workingholiday.quote.other.disclaimer.part4" bundle="${msg}" /></p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
