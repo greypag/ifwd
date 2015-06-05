@@ -76,9 +76,9 @@
 </div>
 <!--/mob bottom--> 
 <script>
-$(function() {
-    $('input, textarea').placeholder();
-});
+// $(function() {
+//     $('input, textarea').placeholder();
+// });
 </script>
 
 <script type="text/javascript"
