@@ -484,7 +484,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <!-- beneficiary end -->
                                <!-- personalbenificiaryId start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.whInsBeneficary != 'SE')}">hide</c:if>" id="whbenificiaryId">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>" id="whbenificiaryId">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                        <label for="inputWhInsFullName" class="field-label bold-500"></label>
                                    </div>
@@ -510,7 +510,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <!-- personalbenificiaryId end -->
                                <!-- personalbenificiaryId b start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.whInsBeneficary != 'SE')}">hide</c:if>" id="whbenificiaryIdb">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>" id="whbenificiaryIdb">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label for="inputWhInsHKID" class="field-label form-label bold-500"></label>
                                    </div>
@@ -542,7 +542,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <!-- personalbenificiaryId b end -->
                                <!-- personalbenificiaryId c start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.whInsBeneficary != 'SE')}">hide</c:if>" id="whbenificiaryIdc">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>" id="whbenificiaryIdc">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                    </div>
