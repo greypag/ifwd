@@ -74,7 +74,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <button type="submit" class="bdr-curve-none btn btn-primary btn-lg" style="width:100%">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
-  </form>
+</form>
 </div>
 <!--Mobileform--> 
 
@@ -269,6 +269,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 <!--/#testiomonials-->
 <section id="testimonials" class="hidden-sm hidden-xs" style="background:#4E4E4E;">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
   <div class="container"> 
     <!--desktop-testimonials-->
     
@@ -298,7 +299,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     <!--/.desktop-testimonials--> 
     
   </div>
-  <!--/.container--> 
+  <!--/.container-->
+</form>   
 </section>
 <!--/#testiomonials--> 
 
