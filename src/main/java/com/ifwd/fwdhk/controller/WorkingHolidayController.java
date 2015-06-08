@@ -478,6 +478,7 @@ public class WorkingHolidayController {
 						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
 					}
 					model.addAttribute("mapRelationshipCode", mapRelationshipCode);
+					session.setAttribute("whRelationshipCode", mapRelationshipCode);
 
 				}
 			} else {
@@ -551,7 +552,7 @@ public class WorkingHolidayController {
 		HttpSession session = request.getSession();
 		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
 		String planSelected = (String) session.getAttribute("planSelected");
-		
+		System.out.println("planSelected " + planSelected);
 		if (session.getAttribute("token") == null) {
 			return "fail";
 		}
@@ -559,7 +560,10 @@ public class WorkingHolidayController {
 			return "fail";
 		}
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
+			Map<String, String> mapRelationshipCode = (Map<String, String>)session.getAttribute("whRelationshipCode");
+			planDetailsForm.setWhInsBeneficaryDesc(mapRelationshipCode.get(planDetailsForm.getWhInsBeneficary()));
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
+			
 		} else {
 			planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
 		}
@@ -571,7 +575,9 @@ public class WorkingHolidayController {
 		userDetails.setEmailAddress(planDetailsForm.getWhAppEmailAdd());
 
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "WorkingHoliday");
+		System.out.println("quoteDetails.getPlanName() " + quoteDetails.getPlanName());
+		parameters.put("planCode", planSelected);
+		
 		
 		Calendar calendar=Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -591,10 +597,12 @@ public class WorkingHolidayController {
 		JSONArray insureds = new JSONArray();
 		JSONObject insured = new JSONObject();
 		insured.put("name", planDetailsForm.getWhAppFullName());
-		insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
+		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
+		insured.put("ageRange", "2");
+		
 		insured.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 		insured.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
-		insured.put("relationship", planDetailsForm.getWhInsBeneficary());
+		insured.put("relationship", "SE");
 		JSONObject beneficiary = new JSONObject();
 		
 		if("SE".equals(planDetailsForm.getWhInsBeneficary())) {
@@ -603,7 +611,7 @@ public class WorkingHolidayController {
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		} else {
 			beneficiary.put("name", planDetailsForm.getWhInsFullName());
-			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsAgeRange());
+			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
 		}
 		beneficiary.put("relationship", planDetailsForm.getWhInsBeneficary());
@@ -637,6 +645,7 @@ public class WorkingHolidayController {
 		JSONObject responsObject = new JSONObject();
 			
 		System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
+		System.out.println("WORKINGHOLIDAY_CREATE_POLICY Request" + parameters);
 		responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
 		String finalizeReferenceNo = "";
 		System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
@@ -665,13 +674,16 @@ public class WorkingHolidayController {
 			createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
 			createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 			
+			session.setAttribute("transNo", createPolicy.getTransactionNo());
+			session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 			session.setAttribute("whCreatePolicy", createPolicy);
+			session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+			session.setAttribute("policyNo", createPolicy.getPolicyNo());
+			session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
+			
+			return "success";
 		}
-		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
-		session.setAttribute("policyNo", createPolicy.getPolicyNo());
-		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
-
-		return "success";
+		return "error";
 	}
 	
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
@@ -726,7 +738,7 @@ public class WorkingHolidayController {
 		
 		LocalDate dateL1 = new LocalDate(commencementDate);
 		LocalDate dateL2 = new LocalDate(expiryDate);
-		int days = Days.daysBetween(dateL1, dateL2).getDays();
+		int days = Days.daysBetween(dateL1, dateL2).getDays() + 1;
 		model.addAttribute("totalDays", days + " days");
 		model.addAttribute("path", path.replace("workingholiday-summary", "confirmation"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
@@ -766,8 +778,8 @@ public class WorkingHolidayController {
 				HttpMethod.POST,
 				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
 				submitPolicy);
-		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
-			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+		//if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			//if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				String month = request.getParameter("epMonth");
 				System.out.println("month " + month);
 				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
@@ -788,13 +800,13 @@ public class WorkingHolidayController {
 				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
 				return "success";
-			} else {
+				/*} else {
 				return checkJsonObjNull(jsonResponse, "policyNo");
 			}
 		} else {
 			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
-		return "fail";
+		return "fail";*/
 	}
 	
 	
@@ -821,7 +833,7 @@ public class WorkingHolidayController {
 			parameters.put("referenceNo",session.getAttribute("finalizeReferenceNo"));
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",session.getAttribute("transactionDate"));
-			
+			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			

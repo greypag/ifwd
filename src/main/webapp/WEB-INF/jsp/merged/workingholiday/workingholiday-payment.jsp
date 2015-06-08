@@ -11,6 +11,7 @@
 <script>
 var clicked = false;
 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
+		var result=false;
 		if (whPayValid() && clicked === false) {
  			clicked = true;
  			$("#PaymentingDiv").show();
@@ -28,16 +29,20 @@ var clicked = false;
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
- 							data = 'success';
  							if (data == 'success') {
  								form.action = geteWayUrl;
+ 								result=true;
  							} else {
  								console.log("fail to process payment " + data);
+ 								result=false;
  							}
  						}
  					});
- 			return true;
- 		}else return false;
+
+ 		}else{
+ 			result=false;
+ 		}
+		return result;
 	}
 	
 </script>
@@ -107,17 +112,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 	                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
 	                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="workingholiday.summary.heading" bundle="${msg}" /></h3>
 	                            </div>
-	                            <!-- 
-	                            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
-	                                <h4 class="h4-trav-full">
-	                                    <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
-	                                </h4>
-	                            </div>
-	                             -->
 	                        </div>
-							<!-- <h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="workingholiday.summary.heading" bundle="${msg}" /></h3> -->
-							<div class="row">
-                            <!-- <table class="table activation-form margin-left-2"> -->
                             <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
                                     <div class="margin-15">
@@ -276,174 +271,41 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                        </div>
+                            
+                            <div id="no-more-tables" class="hidden-sm hidden-xs">
 							
-							
-							<%-- <table class="table activation-form margin-left-2 vert-middle travel-summary">
+							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
+
 								<tbody>
-										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.name" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
+									<tr class="travel-tb-head">
+										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured" bundle="${msg}" /></td>
+										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.name" bundle="${msg}" /></td>
+										<%-- <td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.age" bundle="${msg}" /></td> --%>
+										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.hkid" bundle="${msg}" /></td>
+										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.beneficiary.relation" bundle="${msg}" /></td>
 									</tr>
-									<tr>
-
-										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.hkid" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.email" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.mobileNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
-									</tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.requestNo" bundle="${msg}" /></td>
-										<td class="pad-none h4-5">${whCreatePolicy.getReferenceNo()}</td>
-									</tr>
-
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.plan" bundle="${msg}" /></td>
-										<td class="pad-none h4-5">
-										    ${selectPlanName}  <fmt:message key="workingholiday.summary.plan" bundle="${msg}" />
-										    <%String selectPlanName = (String) request.getAttribute("selectPlanName");%>
-										    <%if (selectPlanName.equals("A")){%>
-										    	- <fmt:message key="workingholiday.quote.plan1.type" bundle="${msg}" />- HK$ 1,000,000 <fmt:message key="workingholiday.quote.plan1.medical" bundle="${msg}" />
-											<%}	else{ %>
-												- <fmt:message key="workingholiday.quote.plan2.type" bundle="${msg}" />- HK$	500,000 <fmt:message key="workingholiday.quote.plan2.medical" bundle="${msg}" />
-											<%} %>
-										</td>
-									<tr>
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.period" bundle="${msg}" /></td>
-										<td class="pad-none h4-5 "><fmt:message key="workingholiday.summary.period.from" bundle="${msg}" />
-											${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" />
-											${expiryDate}</td>
+	                            </tbody>
+								<tbody>
+									<tr class="hidden-sm hidden-xs">
+										<td data-title="Other"><span class="h2-1-td"><fmt:message key="workingholiday.summary.insured.traveller" bundle="${msg}" /></span></td>
+										<td class=" h4-5" data-title="Full name">${userDetails.getFullName()}</td>
+										<!-- <td class=" h4-5" data-title="Age range"></td> --> 
+										<td class=" h4-5" data-title="HKID">${userDetails.getHkid()}</td>
+										<td data-title="Relationship"><span class="h4-5"></span></td>
 									</tr>
 									
+									<c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE'}" >
 									<tr>
-                                        <td></td>
-                                        <td class="h2-1 pad-none">
-                                            <!-- Plan benefits -->
-				                            <div class="fwdpanel">
-				                                <c:if test="${selectPlanName=='A'}">
-				                            
-				                                <div class="fwdpanel-heading">
-				                                    <h4 class=" benefits">
-				                                        <span><i
-				                                                class="fa fa-plus"></i> <a href="#"
-				                                            class="fwdpanel-minimize uline text-black"><fmt:message key="workingholiday.quote.plan1.benefits" bundle="${msg}" /></a> </span>
-				                                    </h4>
-				                                </div>
-				                                <div class="fwdpanel-body" style="display: none;">
-				                                        <div class="col-xs-11 col-xs-offset-1">
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc1.price" bundle="${msg}" />
-				                                            </div>
-				                                        </div>
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc2" bundle="${msg}" />
-				                                            </div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc2.price" bundle="${msg}" />
-				                                            </div>
-				                                        </div> 
-				                                        
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc3.price" bundle="${msg}" />
-				                                            </div>
-				                                        </div>
-				                                        <div class="row">
-				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
-				                                            <div class="col-lg-4 col-md-4 col-xs-5">
-				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc4.price" bundle="${msg}" />
-				                                            </div>
-				                                            </div>
-				                                        </div>
-				                                </div>
-				                                </c:if>
-				                                <c:if test="${selectPlanName=='B'}">
-                                            
-                                                <div class="fwdpanel-heading">
-                                                    <h4 class=" benefits">
-                                                        <span><i
-                                                                class="fa fa-plus"></i> <a href="#"
-                                                            class="fwdpanel-minimize uline text-black"><fmt:message key="workingholiday.quote.plan2.benefits" bundle="${msg}" /></a> </span>
-                                                    </h4>
-                                                </div>
-                                                <div class="fwdpanel-body" style="display: none;">
-                                                        <div class="col-xs-11 col-xs-offset-1">
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc1.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc2" bundle="${msg}" />
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc2.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div> 
-                                                        
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc3.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
-                                                            <div class="col-lg-4 col-md-4 col-xs-5">
-                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc4.price" bundle="${msg}" />
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                </c:if>
-				                                
-				                                
-				                                <div class="clearfix"></div>
-				                            </div>
-				                            <!-- / Plan benefits -->
-                                        </td>
-                                    </tr>
-                                    
-									<tr>
-										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.days" bundle="${msg}" /></td>
-										<td class="h4-4-orange-b pad-none h4-5 ">${totalDays}</td>
+										<td data-title="Personal1"><span class="h4-6-td"><fmt:message key="workingholiday.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
+	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsFullName()}</td>
+                                        <!-- <td data-title="Age range" class="travel-tb-h3">&nbsp;</td> -->
+                                        <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsHKID()}</td>
+	                                    <td data-title="Relationship" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsBeneficaryDesc()}</td>
 									</tr>
-									<tr>
-										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.summary.amountDue" bundle="${msg}" />
-										</span></td>
-										<td class="pad-none "><span
-											class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.dollar" bundle="${msg}" /> ${dueAmount} </span></td>
-									</tr>
+									</c:if>
 								</tbody>
-							</table> --%>
-						<!-- </div> -->
-						
-						<!-- <div
-							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
-							<h4 class="h4-trav-full col-xs-offset-8">
-								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details" ><fmt:message key="workingholiday.summary.subheading" bundle="${msg}" /></a>
-							</h4>
-							
-						</div>  -->
-						
+							</table>
+						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
