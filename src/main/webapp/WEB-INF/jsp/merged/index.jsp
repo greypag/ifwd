@@ -332,6 +332,13 @@ $(document).ready(function() {
       </div>
     </div>
     <!--/.row-->
+     
+  </div>
+  <!--/.container--> 
+</section>
+<!--/#services-->
+<section class="blog-item">
+  <div class="container">
      <p><fmt:message key="index.blog.disclaimer" bundle="${msg}" /></p>
      
   </div>
