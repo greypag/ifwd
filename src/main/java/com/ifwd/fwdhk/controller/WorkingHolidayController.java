@@ -478,6 +478,7 @@ public class WorkingHolidayController {
 						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
 					}
 					model.addAttribute("mapRelationshipCode", mapRelationshipCode);
+					session.setAttribute("whRelationshipCode", mapRelationshipCode);
 
 				}
 			} else {
@@ -559,7 +560,10 @@ public class WorkingHolidayController {
 			return "fail";
 		}
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
+			Map<String, String> mapRelationshipCode = (Map<String, String>)session.getAttribute("whRelationshipCode");
+			planDetailsForm.setWhInsBeneficaryDesc(mapRelationshipCode.get(planDetailsForm.getWhInsBeneficary()));
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
+			
 		} else {
 			planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
 		}
@@ -598,7 +602,7 @@ public class WorkingHolidayController {
 		
 		insured.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 		insured.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
-		insured.put("relationship", planDetailsForm.getWhInsBeneficary());
+		insured.put("relationship", "SE");
 		JSONObject beneficiary = new JSONObject();
 		
 		if("SE".equals(planDetailsForm.getWhInsBeneficary())) {
@@ -607,7 +611,7 @@ public class WorkingHolidayController {
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		} else {
 			beneficiary.put("name", planDetailsForm.getWhInsFullName());
-			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsAgeRange());
+			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
 		}
 		beneficiary.put("relationship", planDetailsForm.getWhInsBeneficary());
@@ -672,14 +676,14 @@ public class WorkingHolidayController {
 			
 			session.setAttribute("transNo", createPolicy.getTransactionNo());
 			session.setAttribute("transactionDate", createPolicy.getTransactionDate());
-			
 			session.setAttribute("whCreatePolicy", createPolicy);
+			session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+			session.setAttribute("policyNo", createPolicy.getPolicyNo());
+			session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
+			
+			return "success";
 		}
-		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
-		session.setAttribute("policyNo", createPolicy.getPolicyNo());
-		session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
-
-		return "success";
+		return "error";
 	}
 	
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })

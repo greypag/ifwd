@@ -15,6 +15,7 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	private String whInsHKID;
 	private String whInsAgeRange;
 	private String whInsBeneficary;
+	private String whInsBeneficaryDesc;
 	private String whInsWorkingCty;
 	
 	private String whInsRoom;
@@ -31,6 +32,14 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	private String selectWhAppHKID;
 	private String selectWhInsHKID;
 	
+	public String getWhInsBeneficaryDesc() {
+		return whInsBeneficaryDesc;
+	}
+
+	public void setWhInsBeneficaryDesc(String whInsBeneficaryDesc) {
+		this.whInsBeneficaryDesc = whInsBeneficaryDesc;
+	}
+
 	public String getWhAppDob() {
 		return whAppDob;
 	}

@@ -464,10 +464,11 @@ function activateUserAccountJoinUs() {
                                              <select name="whInsBeneficary" id="selectWhInsBeneficary" 
                                                     onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary', 'inputWhInsFullName', 'inputWhInsHKID')"
                                                 class="soflow select-label" >
-                                                <option value="SE"><fmt:message key="workingholiday.details.insured.beneficiary.default" bundle="${msg}" /></option>
+                                                <%-- <option value="SE"><fmt:message key="workingholiday.details.insured.beneficiary.default" bundle="${msg}" /></option> --%>
 	                                            <c:forEach var="relationshipList" items="${mapRelationshipCode}">
 	                                                <c:choose>
-	                                                    <c:when test="${relationshipList.key == workingHolidayPlanDetailsForm.getWhInsBeneficary()}">
+	                                                    <c:when test="${(relationshipList.key == workingHolidayPlanDetailsForm.getWhInsBeneficary())
+	                                                        || (workingHolidayPlanDetailsForm.getWhInsBeneficary() == null && relationshipList.key == 'SE')}">
 	                                                        <option value="${relationshipList.key}" selected>
 	                                                    </c:when>
 	                                                    <c:otherwise>
