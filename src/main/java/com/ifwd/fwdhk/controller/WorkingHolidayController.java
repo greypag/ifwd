@@ -551,7 +551,7 @@ public class WorkingHolidayController {
 		HttpSession session = request.getSession();
 		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
 		String planSelected = (String) session.getAttribute("planSelected");
-		
+		System.out.println("planSelected " + planSelected);
 		if (session.getAttribute("token") == null) {
 			return "fail";
 		}
@@ -571,7 +571,9 @@ public class WorkingHolidayController {
 		userDetails.setEmailAddress(planDetailsForm.getWhAppEmailAdd());
 
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "WorkingHoliday");
+		System.out.println("quoteDetails.getPlanName() " + quoteDetails.getPlanName());
+		parameters.put("planCode", planSelected);
+		
 		
 		Calendar calendar=Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -591,7 +593,9 @@ public class WorkingHolidayController {
 		JSONArray insureds = new JSONArray();
 		JSONObject insured = new JSONObject();
 		insured.put("name", planDetailsForm.getWhAppFullName());
-		insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
+		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
+		insured.put("ageRange", "2");
+		
 		insured.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 		insured.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		insured.put("relationship", planDetailsForm.getWhInsBeneficary());
@@ -637,6 +641,7 @@ public class WorkingHolidayController {
 		JSONObject responsObject = new JSONObject();
 			
 		System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
+		System.out.println("WORKINGHOLIDAY_CREATE_POLICY Request" + parameters);
 		responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
 		String finalizeReferenceNo = "";
 		System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
@@ -824,7 +829,7 @@ public class WorkingHolidayController {
 			parameters.put("referenceNo",session.getAttribute("finalizeReferenceNo"));
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",session.getAttribute("transactionDate"));
-			
+			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
