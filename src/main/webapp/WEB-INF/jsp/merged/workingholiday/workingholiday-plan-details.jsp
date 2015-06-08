@@ -541,11 +541,11 @@ function activateUserAccountJoinUs() {
 	                                   </div>
 	                                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 	                                      <input id="inputWhInsHKID" name="whInsHKID" value="${workingHolidayPlanDetailsForm.getWhInsHKID()}"
-	                                            class="form-control textUpper full-control" 
-	                                            placeholder="<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
-	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-	                                          onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
-	                                          <span id="whInsHKID" class="text-red"> </span>
+                                                class="form-control textUpper full-control" 
+                                                placeholder="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeyup="hkidValid(this)" 
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
+                                              onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');"/>
+                                              <span id="whInsHKID" class="text-red"> </span>
 	                                   </div>
                                    </div>
                                </div>
