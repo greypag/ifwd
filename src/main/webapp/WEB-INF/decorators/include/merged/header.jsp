@@ -9,7 +9,35 @@
 <fmt:setBundle basename="messages" var="msg" />
 
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
+<!-- <a href="javascript:void(0)" id="testajax" >Press</a> --> 
+
 <script>
+
+
+$(window).bind("pageshow", function(event) {
+    if (event.originalEvent.persisted) {
+        //window.location.reload();
+        $('#loading-overlay').modal('hide');
+        $("#PaymentingDiv").hide();
+        $("#button_confirm").show();
+    }
+});
+
+/*
+$( "#testajax" ).click(function() {
+  
+  
+  $('#loading-overlay').modal({
+	   backdrop: 'static',
+	   keyboard: false
+	})
+});
+*/
+
+
+$('#ajax-loading').hide();
+
+
 var home_url = "<%=request.getContextPath()%>";
 function submitLoginForm(formID) {
 	
@@ -330,8 +358,14 @@ function submitLoginForm(formID) {
 <!--Mobile-header-->
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
+	    <!-- 
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
-			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
+			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
+		 -->	
+	    <span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span>
+            <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
+             
+	   
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
 			<%
 				if ("en".equals(session.getAttribute("language").toString())) {

@@ -279,7 +279,9 @@ $(document).ready(function() {
 	                 </div>
 	                 </td>
 	               <td class="col-md-2 pad-none">
-	                <button type="submit" class="border-radius btn btn-primary get-btn wd2" onclick="reset_desktop_submit()"><fmt:message key="travel.main.quote.top.action" bundle="${msg}" /></button>
+	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:30px;" onclick="reset_desktop_submit()">
+	                   <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
+	                </button>
 	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
 	              </td>
 	             </tr>

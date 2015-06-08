@@ -6,20 +6,6 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<%  
-  	String REQUEST_PATH = "";
-	String requestScheme = request.getScheme();
-	String requestServerName = request.getServerName();
-	Integer requestServerPort = request.getServerPort();
-	String requestContextPath = request.getContextPath();
-
-	if(requestServerPort == null || requestServerPort == 80)
-		REQUEST_PATH = requestScheme + "://" + requestServerName +  requestContextPath + "/";
-	else{
-		REQUEST_PATH = requestScheme + "://" + requestServerName + ":" + requestServerPort +  requestContextPath + "/";
-	}
-%>	
-
 <%
   /* Show Different Referral Benefits for Visitor & Member */
   String currUser = session.getAttribute("username").toString().trim();
@@ -135,7 +121,7 @@
               <!--Referral Code Table -->
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
                   <% if (isMember) { %>
-                      <table class="table table-bordred table-type-1 margin-bottom-10">
+                      <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
                           <tbody>
                               <tr>
                                   <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
@@ -176,7 +162,7 @@
                         <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
                       </div>
                 <% } else { %>
-                    <table class="table table-bordred table-type-1" style="margin-bottom:0px;">
+                    <table class="table table-bordred table-type-1" style="margin-bottom:0px;width:100% !important;">
                           <tbody>
                               <tr>
                                   <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
@@ -206,7 +192,7 @@
 	              <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
 	              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
 	                <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-	                    <div class=" wht-bg1 text-center" id="toBeCopied"><%=REQUEST_PATH%>${language}/workingholiday-insurance?promo=<%=session.getAttribute("finalizeReferenceNo")%>
+	                    <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance?promo=<%=session.getAttribute("finalizeReferenceNo")%>
 	                    </div>
 	                </div>
 	                <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
@@ -214,7 +200,7 @@
 	                        <fmt:message key="workingholiday.referral.copy" bundle="${msg}" />
 	                    </div>
 	    <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/  <%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
-	                    <div class="addthis_sharing_toolbox" data-url="<%=REQUEST_PATH%>${language}/workingholiday-insurance/sharing/" data-title="iFWD"></div>
+	                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance/sharing/" data-title="iFWD"></div>
 	                </div>
 	              </div>
 	              <div class="col-lg-12 col-md-12 travel-b pad-none">

@@ -36,6 +36,14 @@
    $(function () { $("[data-toggle='tooltip']").tooltip(); });
 </script>-->
 
+
+<script>
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>
+
+
 <script>
 
 var getBundleLanguage = "";
@@ -615,18 +623,21 @@ function activateUserAccountJoinUs() {
 					</div>
 					<div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
 
-						<div
-							class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none white-bg1">
+
+
+
+
+
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none white-bg1">
 							<br>
+							<div class="form-wrap">
 							<%
 								if (authenticate.equals("false") || authenticate.equals("direct")) 
 								{
 							%>
-							<h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
-							<a href="#"
-								class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4 login-btn"
-								data-toggle="modal" data-target="#loginpopup"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
-							<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 text-left">
+							<h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
+							<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
+							<div class="col-lg-9 col-md-9 col-xs-9 col-sm-9 text-left">
 								<h3 class="text-left or-continue">
 									<span><fmt:message key="home.details.login.other.part1" bundle="${msg}" /></span> <fmt:message key="home.details.login.other.part2" bundle="${msg}" />
 								</h3>
@@ -640,22 +651,22 @@ function activateUserAccountJoinUs() {
 							<%
 								}
 							%>
+							</div>
 
 							<div class="clearfix"></div>
 							<br/>
 							<div class="gray-bdr"></div>
 							<!-- updated responsive design start -->
 	                        <div class="form-wrap">
-	                            <div class="big-title black-bold">
+	                            <div class="big-title black-bold pad-none bmg-big-title">
 	                                <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
 	                            </div>
 	                            <!-- english name start -->
 	                           <div class="form-group float">
-	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-	                                  <label
-                                            class="field-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label>
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+	                                  <label class="field-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label>
 	                               </div>
-	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input type="text"
                                             class="form-control full-control" id="inputFullName" name="applicantName"
                                             value="${userDetails.getFullName().trim()}"
@@ -667,11 +678,11 @@ function activateUserAccountJoinUs() {
 	                           <!-- english name end -->
 	                           <!-- id card starts -->
 	                           <div class="form-group float">
-	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 	                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
                                                             key="home.details.applicant.hkid"
                                                             bundle="${msg}" /></label>
-	                                   <div class="styled-select">
+	                                   <div class="bmg-label-styled-select styled-select">
                                            <select
                                                name="apphkidandpassport" id="selectHkidPass"
                                                class="form-control soflow select-label">
@@ -688,7 +699,7 @@ function activateUserAccountJoinUs() {
                                            </select>
                                        </div>
 	                               </div>
-	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                    <!-- <input type="text" name="hkId" class="form-control numberinput textUpper full-control" id="txtAppHkid" placeholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onblur="chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)"> -->
                                         <input type="text" name="hkId" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="txtAppHkid" value="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />'); chkValidApplicantHkId(this, 'errAppHkid', 'selectHkidPass');" onkeyup="hkidValid(this)">
                                         <span id="errAppHkid" class="text-red"> </span>
@@ -697,11 +708,11 @@ function activateUserAccountJoinUs() {
 	                           <!-- id card ends -->
 	                           <!-- birthday starts -->
 	                           <div class="form-group float">
-	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 	                                   <label for="inputApplicantDob"
                                             class="field-label bold-500"><fmt:message key="home.details.applicant.birthday" bundle="${msg}" /></label>
 	                               </div>
-	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                    <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
 	                                          <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
 	                                      </div>
@@ -711,12 +722,12 @@ function activateUserAccountJoinUs() {
 	                           <!-- birthday ends -->
 	                           <!-- mobile starts -->
 	                           <div class="form-group float">
-	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 	                                   <label for="inputFullName" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.mobile" bundle="${msg}" />
 	                                   </label>
 	                               </div>
-	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input type="text"
                                             class="form-control full-control" id="inputMobileNo" name="mobileNo"
                                             value="${userDetails.getMobileNo().trim()}"
@@ -728,12 +739,12 @@ function activateUserAccountJoinUs() {
 	                           <!-- mobile ends -->
 	                           <!-- email address starts -->
 	                           <div class="form-group float">
-	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 	                                   <label for="inputFullName" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.email" bundle="${msg}" />
 	                                   </label>
 	                               </div>
-	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input class="form-control full-control"
                                             id="inputEmailId" name="emailAddress"
                                             value="${userDetails.getEmailAddress().trim()}"
@@ -827,10 +838,10 @@ function activateUserAccountJoinUs() {
 													.getAttribute("authenticate").toString())) {
 							%>
 
-                            <div class="gray-bg3-wid container membership-wrap">
+                            <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
+                             <div class="form-wrap">
 	                            <div class="membership-header">
-	                               <a id="link-error" class="scroll-to-top" style="display:none;" href="#"></a>
-	                                <h3><fmt:message key="home.details.registration.heading" bundle="${msg}" /></h3>
+	                                <h3 class="bmg-membership-header"><fmt:message key="home.details.registration.heading" bundle="${msg}" /></h3>
 	                                <i class="text-grey"><fmt:message key="home.details.registration.desc" bundle="${msg}" /></i>                                
 	                                <h3 class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                    
 	                            </div>
@@ -868,6 +879,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="home.details.registration.confirmPassword.placeholder" bundle="${msg}" />"> <span
                                                 id="Confirm-PasswordError" class="text-red"> </span>
 	                               </div>
+	                            </div>
 	                            </div>
 	                        </div>
 							<%-- <div class="gray-bg3-wid">
@@ -921,16 +933,16 @@ function activateUserAccountJoinUs() {
 								}
 							%>
 						    <div class="form-wrap">
-                                <div class="big-title black-bold">
+                                <div class="big-title black-bold" style="padding-left:0px !important;">
                                     <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
                                 </div>
                                  
 	                           <div class="form-group float">
-	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 	                                   <label
 	                                        for="inputFullName" class="field-label bold-500"><fmt:message key="home.details.registration.corraddress" bundle="${msg}" /></label>
 	                               </div>
-	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <!-- room, floor, block start -->
 	                                   <div class="row form-group">
 	                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -1175,7 +1187,7 @@ function activateUserAccountJoinUs() {
 								</tbody>
 							</table> --%>
 							<div class="form-wrap">
-                                <div class="big-title black-bold">
+                                <div class="big-title black-bold" style="padding-left:0px !important;">
                                     <fmt:message key="home.details.registration.addressdetails" bundle="${msg}" />
                                 </div>
                                 <div class="form-group float">
@@ -1189,22 +1201,23 @@ function activateUserAccountJoinUs() {
                                    </div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
 							<div class="form-wrap">
                                 <%-- <div class="big-title black-bold">
                                     <fmt:message key="home.details.applicant.heading" bundle="${msg}" />
                                 </div>
                                   --%>
                                <div class="form-group float">
-                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                        <label
                                             for="inputFullName" class="field-label bold-500"><fmt:message key="home.details.registration.insuaddress" bundle="${msg}" /></label>
                                    </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <!-- room, floor, block start -->
                                        <div class="row form-group">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text"
-	                                            class="form-control wd2 full-control bmg_custom_placeholder" id="inputARoom" name="aRoom"
+	                                            class="form-control full-control bmg_custom_placeholder" id="inputARoom" name="aRoom"
 	                                            placeholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />"
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />');"
 	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />');"
@@ -1354,14 +1367,15 @@ function activateUserAccountJoinUs() {
                                        <br/><br/>
                                    </div>
                                </div>
+                               <div class="clearfix"></div>
                                <!-- place start -->
                                <div class="form-group float">
-                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label
                                         class="field-label bold-500"><fmt:message key="home.details.registration.FloorArea.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.FloorArea.part2" bundle="${msg}" />
                                        </label>                                        
                                     </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <div class="styled-select">
                                         <select
                                             name="netFloorArea"
@@ -1388,12 +1402,12 @@ function activateUserAccountJoinUs() {
                                <!-- place end -->
                                <!-- start date  -->
                                <div class="form-group float">
-                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label
                                         class="field-label bold-500 home-line"><fmt:message key="home.details.registration.effdate.part1" bundle="${msg}" /> <fmt:message key="home.details.registration.effdate.part2" bundle="${msg}" />
                                     </label>
                                     </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                        <div class="form-group">
                                         <div class="input-group date" id="homecareDp">
                                             <span class="input-group-addon bg-img in"><span><img
@@ -1568,8 +1582,9 @@ function activateUserAccountJoinUs() {
 								</tbody>
 							</table> --%>
 							<div class="clearfix"></div>
-							<h4 class="h4-2 padding3"><fmt:message key="home.details.declarations.heading" bundle="${msg}" /></h4>
-							<div class="declaration-content">
+							<div class="form-wrap">
+							<h4 class="h4-2 bmg-disclaimer-header"><fmt:message key="home.details.declarations.heading" bundle="${msg}" /></h4>
+							<div class="declaration-content" style="margin-left: 0px;margin-right: 0px;">
 								<div class="checkbox">
 									<input id="checkbox1" name="declarration" type="checkbox">
 									<label for="checkbox1"> <fmt:message key="home.details.declarations.tnc" bundle="${msg}" /><br> 
@@ -1630,80 +1645,70 @@ function activateUserAccountJoinUs() {
 								});
 								</script>
 							</div>
+							</div>
 						</div>
-						<%
-							HomeQuoteBean homeQuoteDetails = (HomeQuoteBean) request.getAttribute("homeQuoteDetails");%>
-						<div
-							class="col-lg-5 col-md-5 col-sm-12 col-xs-12  gray-bg wht-bg3 pad-none floatingbox">
+						<%HomeQuoteBean homeQuoteDetails = (HomeQuoteBean) request.getAttribute("homeQuoteDetails");%>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  gray-bg wht-bg3 pad-none floatingbox">
 							<div class="hidden-sm hidden-xs">
 								<div class="wd2">
-									
-										<div class="col-md-7 col-lg-7">
-											<h2 class="h2-3-choose pad-none">
-												<fmt:message key="home.details.summary.product" bundle="${msg}" /></h2>
-											<h4 class="pad-none"><fmt:message key="home.details.summary.desc1" bundle="${msg}" /></h4>
-										</div>
-	
-										<div class="col-md-5 col-lg-5 pull-right">
-											<div class="text-left  h2-2 h2">
-												<div class="hk1 text-right-imp">HK$</div>
-												<div class="hk1 top-mrg-10">
-													<div class="flightcare-hk text-right-imp">
-														<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%></div>
-												</div>
-											</div>
-										</div>
-									
-								</div>
-								<div class="clearfix"></div>
-								<div class="orange-bdr"></div>
-								<div class="form-container">
-									<h3><fmt:message key="home.details.summary.desc2" bundle="${msg}" /></h3>
-									<div class="form-group">
-										<p class="h4-5 pad-none"><fmt:message key="home.details.summary.desc3" bundle="${msg}" /></p>
-									</div>
-
-								</div>
 								
-								<c:if test="${referralCode!=''}">
-								    <div class="form-container">
-	                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-                                        <h4>${referralCode}</h4>
+								    <div class="pull-left" style="width:150px;">
+	                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="home.details.summary.product" bundle="${msg}" /></h2>
+	                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="home.details.summary.desc1" bundle="${msg}" /></h4>
 	                                </div>
-                                </c:if>
-								
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%>
-									</h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.discount" bundle="${msg}" /></h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getDiscountAmount()))%>
-								
-								</h3>
+	                                <div class="pull-right" style="padding-top: 45px;">
+	                                    <div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+	                                        <div class="hk" style="font-size: 18px;">
+	                                            <fmt:message key="travel.dollar" bundle="${msg}" />
+	                                            <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+									
+								</div>
 								<div class="clearfix"></div>
 								<div class="orange-bdr"></div>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6"><fmt:message key="home.details.summary.amountDue" bundle="${msg}" /></h3>
-								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-								<%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%>
-									</h3>
-							<input type="hidden" name="totalDue"
-								value="${ homeQuoteDetails.getTotalDue()}"> <input
-								type="hidden" name="planCode"
-								value="${ homeQuoteDetails.getPlanCode()}"> <input
-								type="hidden" name="answer1" value="${answer1}"> <input
-								type="hidden" name="answer2" value="${answer2}">
-
-							<!--mob-->
-							
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-									<!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance/quote" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /> </a> -->
+								<div style="width: 80%;margin-left: 10%;">
+	                                <div class="form-container" style="padding:0px;">
+										<h3 class="txt-bold"><fmt:message key="home.details.summary.desc2" bundle="${msg}" /></h3>
+										<h4 class="topten"><fmt:message key="home.details.summary.desc3" bundle="${msg}" /></h4>
+									</div>
 									
-									<a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+									<c:if test="${referralCode!=''}">
+									    <div class="form-container">
+		                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+	                                        <h4>${referralCode}</h4>
+		                                </div>
+	                                </c:if>
+									
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.details.summary.subtotal" bundle="${msg}" /></h3>
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getGrossPremium()))%></h3>
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.details.summary.discount" bundle="${msg}" /></h3>
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getDiscountAmount()))%></h3>
+									<div class="clearfix"></div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-									<input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
-								</div>
+								<div class="orange-bdr"></div>
+								<div style="width: 80%;margin-left: 10%;">
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.details.summary.amountDue" bundle="${msg}" /></h3>
+									<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></h3>
+								     <input type="hidden" name="totalDue"
+									value="${ homeQuoteDetails.getTotalDue()}"> <input
+									type="hidden" name="planCode"
+									value="${ homeQuoteDetails.getPlanCode()}"> <input
+									type="hidden" name="answer1" value="${answer1}"> <input
+									type="hidden" name="answer2" value="${answer2}">
+                                </div>
+							<!--mob-->
+							     
+					           <div style="width: 80%;margin-left: 10%;">
+	                                <div class="top35 pull-left pad-none" style="width:47%">
+	                                     <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
+	                                </div>
+	                                <div class="top35 pull-right pad-none" style="width:47%"> 
+	                                    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
+	                                </div>
+	                            </div>
 
 
 							<div class="clearfix"></div>
@@ -1712,7 +1717,14 @@ function activateUserAccountJoinUs() {
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<p class="padding1">
+					
+					<div class="col-xs-12 hidden-md hidden-lg pad-none">
+		                 <div style="width: 80%;margin-left: 10%;">
+		                     <hr/>
+		                 </div>
+		            </div>
+					
+					<p class="padding1 workingholiday-plan-disclaimer">
 						<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a
 							class="sub-link"
 							href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"

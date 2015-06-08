@@ -252,7 +252,7 @@
                         <br>
                         </div>
 					</div>
-					<div class="col-lg-4 col-md-4 gray-bg pad-none hidden-sm hidden-xs floatingbox">
+					<div class="col-lg-4 col-md-4 gray-bg pad-none hidden-sm hidden-xs">
 						<div class="wd2">
 							<div class="pull-left" style="width:150px;">
 								<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="flight.quote.summary.product" bundle="${msg}" /></h2>

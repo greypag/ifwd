@@ -434,7 +434,7 @@ $(document).ready(function() {
 				<p class="col-xs-12 h4-6">
 				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 							
-					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class="sub-link"> 
+					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""> 
 					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
 					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
 					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					

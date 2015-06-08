@@ -702,7 +702,7 @@ function checkPromoCodePlaceholder(){
                         </div>
 					</div>
 					
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="col-md-12 hidden-sm hidden-xs pad-none">
                             <div class="wd2">
 								<div class="pull-left" style="width:150px;">

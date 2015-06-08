@@ -1195,7 +1195,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					</div>
 
 					<div
-						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
+						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="width:150px;">
@@ -1511,6 +1511,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                      <span aria-hidden="true" style="font-size:30px;">×</span>
                    </a>
                 </div>
+                <form>
                     <div class="form-container">
                         <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
                         <div class="alert alert-success hide proSuccess"></div>
@@ -1523,7 +1524,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a> -->
+                                
+                                <button type="submit" onclick="return sendEmail()"
+                                                            class="bdr-curve btn btn-primary btn-lg wd5">
+                                                            <fmt:message key="promotion.get.code.action" bundle="${msg}" />
+                                </button>
                             </div>
                             <div class="col-md-2">
                                 <br>
@@ -1537,6 +1543,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
                 
                 
@@ -1578,21 +1585,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $("#show-traveller").hide();
             
         });
-        
-        $('#emailToSendPromoCode').keypress(function (e) {
-            if (e.which == '13') {
-            	sendEmail();
-            }
-        });
 	});
 	
-	function enterKeyPress(e){
+//	function enterKeyPress(e){
 
-	    if (e.keyCode == 13) {
-	    	sendEmail();
-	        return false;
-        }
-    }
+//	    if (e.keyCode == 13) {
+//	    	sendEmail();
+//	        return false;
+//       }
+//    }
 	function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 		$("#promo-code-body").fadeIn();
 		var selected_div;
@@ -1642,32 +1643,31 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			setValue(promoData);
 		
 	}
-
+	
 	function sendEmail() {
-		
-		$('.proSuccess').addClass('hide');
-		if (get_promo_val()) {
-			$.ajax({
-				type : "POST",
-				url : "<%=request.getContextPath()%>/sendEmail",
-				data : "emailToSendPromoCode="+encodeURI($("#emailToSendPromoCode").val())+"&planCode=TRAVELCARE",
-				async : false,
-				success : function(data) {
-					
-					if (data == 'success') {
-						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
-						$("#getPromotionClose").trigger("click");
-					} else {
-						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
-					}
+        $('.proSuccess').addClass('hide');
+        if (get_promo_val()) {
+            $.ajax({
+                type : "POST",
+                url : "<%=request.getContextPath()%>/sendEmail",
+                data : $("#sendmailofpromocode form").serialize(),
+                async : false,
+                success : function(data) {
+                    
+                    if (data == 'success') {
+                        $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+                    } else {
+                        
+                        $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+                    }
 
-				},
-				error : function() {
-				}
-			});
-		}
-		return false;
-	}
+                },
+                error : function() {
+                }
+            });
+        }
+        return false;
+    }
 
 	function BackMe() {
 		window.history.back();

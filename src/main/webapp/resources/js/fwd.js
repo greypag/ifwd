@@ -4767,15 +4767,28 @@ function isValidUsername(el){
 function isValidPassword(el){
 	var passwordPattern = "[a-zA-Z0-9]{8,}";
 	var passwordPattern2 = "[A-Z]";
+	var passwordPattern3 = "[a-z]";
+	var passwordPattern4 = "[0-9]";
 	var specialChar = "\\W";
 	var rg = new RegExp(passwordPattern);
 	var rg2 = new RegExp(passwordPattern2);
+	var rg3 = new RegExp(passwordPattern3);
+	var rg4 = new RegExp(passwordPattern4);
 	var spChar = new RegExp(specialChar);
 	
 	if (el.trim() == ""){
 		message  = getBundle(getBundleLanguage, "user.password.notNull.message");
 		return message;
-	} else if(!(rg2.test(el) && rg.test(el))) { 
+	} else if(!rg.test(el)) { 
+		message = getBundle(getBundleLanguage, "user.password.validate.message");
+		return message;
+	} else if(!rg2.test(el)) { 
+		message = getBundle(getBundleLanguage, "user.password.validate.message");
+		return message;
+	} else if(!rg3.test(el)) { 
+		message = getBundle(getBundleLanguage, "user.password.validate.message");
+		return message;
+	} else if(!rg4.test(el)) { 
 		message = getBundle(getBundleLanguage, "user.password.validate.message");
 		return message;
 	} else if(spChar.test(el)){
@@ -5062,6 +5075,18 @@ function hkidValid(ths){
 }
 
 
+
+	
+//no chinese method
+	$(':text').keyup(function(e) {
+        console.log($(this).attr('id'));
+        inputVal = $(this).val();
+//        console.log($(this).val());
+        inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
+		$('#'+$(this).attr('id')).val(inputVal);
+    });
+
+
 // ***** homecare *****
 
 // 1. save credit card info by calling processHomeCarePayment
@@ -5070,8 +5095,6 @@ function hkidValid(ths){
 
 
 $(function () {
-	
-	
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
