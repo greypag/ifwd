@@ -322,7 +322,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					</div>
 				</div>
 				<div id="quote-wrap" class="container pad-none bdr">
-					<div class="col-lg-7 col-xs-12 col-sm-12 col-md-7">
+					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none">
+					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="travel.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
@@ -1190,25 +1191,26 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 									target="_blank"><fmt:message key="travel.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
 						</div>
+						</div>
 					</div>
 
 					<div
-						class="col-lg-5 col-md-5 col-sm-12 col-xs-12 gray-bg pad-none floatingbox">
+						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
-								<div class="pull-left">
-									<h2 class="h2-3-choose"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
-									<h4 id="seletedplanname"></h4>
+								<div class="pull-left" style="width:150px;">
+									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
 										
 								</div>
-								<div class="pull-right">
-									<div class="text-left pad-right1 h2-2 h2">
-										<div class="hk">
+								<div class="pull-right" style="padding-top: 45px;">
+									<div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+										<div class="hk" style="font-size: 18px;">
 											<fmt:message key="travel.dollar" bundle="${msg}" />
-											<div class="flightcare-hk" id="plansummary">0</div>
+											<div style="font-weight: bold;font-size: 28px;" class="flightcare-hk" id="plansummary">0</div>
 											<input type="hidden" name="txtgrossPremiumAmt"
 												id="txtgrossPremiumAmt" value="">
 										</div>
@@ -1217,7 +1219,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								<div class="clearfix"></div>
 							</div>
 							<div class="orange-bdr"></div>
-							<div class="">
+							<div class="form-container" style="padding: 0px !important;">
+							     <div style="width: 80%;margin-left: 10%;">
 							      <!-- departure date start -->
 								<!-- <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /></h3>
 								<div class="form-group">
@@ -1389,7 +1392,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                  <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
 								
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
-            					<div class="input-group wd2 datepicker form-control" > 
+            					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
 						<%	
 							if (travelQuote == null)
 					 			travelQuote = (QuoteDetails) session.getAttribute("tq");
@@ -1409,61 +1412,67 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						%>
 						</div>
 					</div>
-								
+								</div>
 							</div>
+							<div class="orange-bdr"></div>
 						</div>
-					<div class="col-xs-12">
-						<div id="promo-code-body" class="hide-html">
-							<h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+						<div id="promo-code-body" class="hide-html col-xs-12 pad-none">
+						  <div style="width: 80%;margin-left: 10%;">
+							<h3 style="font-size:18px;"><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
 							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
-								<div class="input-group" style="border: 0;">
-									<input type="text" id="promoCode" name="promoCode" style="border: 1px solid #e3e3e3;" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" placeholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-									<span class="input-group-addon in black-bold pointer" onclick="applyTravelPromoCode()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></span>
+								<div class="input-group">
+									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+									<a class="input-group-addon in black-bold pointer sub-link" onclick="applyTravelPromoCode()"><fmt:message key="travel.action.apply" bundle="${msg}" /></a>
 								</div>
 							</div>
-							<div class="travel-italic">
+							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
 					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 							</div>
+							</div>
 						</div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal"></h3>
-						<input type="hidden" name="subTotal" id="subTotal" value="540">
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt">-</h3>
-						<input type="hidden" name="selectedDiscountAmt"id="selectedDiscountAmt" value="">
-						<div class="clearfix"></div>
+						<div class="col-md-12 hidden-sm hidden-xs pad-none">
+                          <div style="width: 80%;margin-left: 10%;">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;font-size: 18px;"></h3>
+							<input type="hidden" name="subTotal" id="subTotal" value="540">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;font-size: 18px;">-</h3>
+							<input type="hidden" name="selectedDiscountAmt"id="selectedDiscountAmt" value="">
+							<div class="clearfix"></div>
+						</div>
 						<div class="orange-bdr"></div>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6"><fmt:message key="travel.sidebar.summary.amountDue" bundle="${msg}" /></h3>
-						<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue">0</h3>
-						<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="">
-						<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
-					</div>
-						<div class="hidden-sm hidden-xs">
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<!-- <a href="<%=request.getContextPath()%>/${language}/travel-insurance"
-									class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;"><fmt:message key="travel.action.back" bundle="${msg}" /> </a> -->
-									
-								<a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-									<fmt:message key="travel.action.next" bundle="${msg}" /></button>
-							</div>
-							<div class="clearfix"></div>
-							<div class="col-xs-12"><span class="text-red errDue"></span></div>
-							<br>
-							<div class="clearfix"></div>
-							<span id="divPersonsDesk"></span>
-		                    <span id="lblDaysDesk" style="display: none"></span>
-		                    <div id="quote-wrap" class="clearfix"></div>
-	                    </div>
+						<div style="width:80%;margin-left:10%">
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.amountDue" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;font-size: 18px;">0</h3>
+							<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="">
+							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
+						  </div>
+						</div>
+						<div class="col-xs-12 hidden-sm hidden-xs pad-none">
+                          <div style="width: 80%;margin-left: 10%;">
+                            <div class="top35 pull-left pad-none" style="width:47%">
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+                            </div>
+                            <div class="top35 pull-right pad-none" style="width:47%">
+                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
+                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-xs-12"><span class="text-red errDue"></span></div>
+                            <br>
+                            <div class="clearfix"></div>
+                            <span id="divPersonsDesk"></span>
+                            <span id="lblDaysDesk" style="display: none"></span>
+                            <div id="quote-wrap" class="clearfix"></div>
+                        </div>
+                    </div>
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
-		<p class="padding1">
+		<p class="padding1 workingholiday-plan-disclaimer">
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
@@ -1472,7 +1481,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		</p>
 		
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
-		   <div style="width: 80%;margin-left: 10%; margin-bottom: 50px;">
+		   <div style="width: 80%;margin-left: 10%; margin-bottom: 40px;">
 		        <div class="top35 pull-left pad-none" style="width:47%">
 		            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 		        </div>
@@ -1481,7 +1490,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 		        </div>
 		        <div class="clearfix"></div>
-		        <br> <span class="text-red errDue"></span> <br>
+		        <span class="text-red errDue"></span>
 		    </div>
 		</div>
 
@@ -1502,6 +1511,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                      <span aria-hidden="true" style="font-size:30px;">×</span>
                    </a>
                 </div>
+                <form>
                     <div class="form-container">
                         <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
                         <div class="alert alert-success hide proSuccess"></div>
@@ -1514,7 +1524,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a>
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a> -->
+                                
+                                <button type="submit" onclick="return sendEmail()"
+                                                            class="bdr-curve btn btn-primary btn-lg wd5">
+                                                            <fmt:message key="promotion.get.code.action" bundle="${msg}" />
+                                </button>
                             </div>
                             <div class="col-md-2">
                                 <br>
@@ -1528,6 +1543,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
                 
                 
@@ -1569,21 +1585,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $("#show-traveller").hide();
             
         });
-        
-        $('#emailToSendPromoCode').keypress(function (e) {
-            if (e.which == '13') {
-            	sendEmail();
-            }
-        });
 	});
 	
-	function enterKeyPress(e){
+//	function enterKeyPress(e){
 
-	    if (e.keyCode == 13) {
-	    	sendEmail();
-	        return false;
-        }
-    }
+//	    if (e.keyCode == 13) {
+//	    	sendEmail();
+//	        return false;
+//       }
+//    }
 	function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 		$("#promo-code-body").fadeIn();
 		var selected_div;
@@ -1633,32 +1643,31 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			setValue(promoData);
 		
 	}
-
+	
 	function sendEmail() {
-		
-		$('.proSuccess').addClass('hide');
-		if (get_promo_val()) {
-			$.ajax({
-				type : "POST",
-				url : "<%=request.getContextPath()%>/sendEmail",
-				data : "emailToSendPromoCode="+encodeURI($("#emailToSendPromoCode").val())+"&planCode=TRAVELCARE",
-				async : false,
-				success : function(data) {
-					
-					if (data == 'success') {
-						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
-						$("#getPromotionClose").trigger("click");
-					} else {
-						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
-					}
+        $('.proSuccess').addClass('hide');
+        if (get_promo_val()) {
+            $.ajax({
+                type : "POST",
+                url : "<%=request.getContextPath()%>/sendEmail",
+                data : $("#sendmailofpromocode form").serialize(),
+                async : false,
+                success : function(data) {
+                    
+                    if (data == 'success') {
+                        $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+                    } else {
+                        
+                        $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+                    }
 
-				},
-				error : function() {
-				}
-			});
-		}
-		return false;
-	}
+                },
+                error : function() {
+                }
+            });
+        }
+        return false;
+    }
 
 	function BackMe() {
 		window.history.back();

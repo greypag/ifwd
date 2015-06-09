@@ -178,7 +178,8 @@
 					</div>
 				</div>
 				<div class="container pad-none bdr ur-opt-content">
-					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none">
+					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="flight.quote.choose" bundle="${msg}" /></h2>
 						<%
 							for (int planCount = 1; planCount <= 1; planCount++) {
@@ -249,18 +250,19 @@
                             <li><fmt:message key="flight.quote.other.tnc.desc6" bundle="${msg}" /></li>
                         </ol>
                         <br>
+                        </div>
 					</div>
-					<div class="col-lg-5 col-md-5 gray-bg pad-none hidden-sm hidden-xs floatingbox">
+					<div class="col-lg-4 col-md-4 gray-bg pad-none hidden-sm hidden-xs">
 						<div class="wd2">
-							<div class="pull-left">
-								<h2 class="h2-3-choose"><fmt:message key="flight.quote.summary.product" bundle="${msg}" /></h2>
-								<h4><fmt:message key="flight.quote.summary.desc" bundle="${msg}" /> </h4>
+							<div class="pull-left" style="width:150px;">
+								<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="flight.quote.summary.product" bundle="${msg}" /></h2>
+								<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="flight.quote.summary.desc" bundle="${msg}" /> </h4>
 							</div>
-							<div class="pull-right">
-								<div class="text-left pad-right1 h2-2 h2">
-									<div class="hk">
+							<div class="pull-right" style="padding-top: 45px;">
+								<div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+									<div class="hk" style="font-size: 18px;">
 										<!-- HK$ -->
-										<div class="flightcare-hk">
+										<div style="font-weight: bold;font-size: 28px;" class="flightcare-hk">
 											<%-- ${flightQuoteDetails.getToalDue()} --%>
 											&nbsp;
 										</div>
@@ -270,7 +272,8 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="orange-bdr"></div>
-						<div class="form-container">
+						<div class="form-container" style="padding: 0px !important;">
+						  <div style="width: 80%;margin-left: 10%;">
 						  <!-- departure date start -->
 							<!-- <h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 								<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
@@ -453,7 +456,7 @@
                             <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
                             
                             <div id="show-traveller" class="form-group likeDatePicker bcg-trans">
-                                <div class="input-group wd2 datepicker form-control" > 
+                                <div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
                                 <%-- <input type="text" class="datepicker form-control" value=" --%>
                                 <c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
                                 <c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
@@ -465,7 +468,7 @@
                             <!-- traveller end -->
 							
 							
-							
+							</div>
 						</div>
 						<div class="orange-bdr"></div>
 						<!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due </h3> -->
@@ -473,18 +476,19 @@
 							&nbsp;
 							${flightQuoteDetails.getToalDue()}
 						</h3> --%>
-						<br> <br>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-							<!-- <a href="${pageContext.request.contextPath}/${language}/flight-insurance" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn">
-								<fmt:message key="flight.details.action.back" bundle="${msg}" /> 
-							</a> -->
-							
-                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-							<input type="submit"
-								class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-						</div>
+						
+						<div class="col-xs-12 hidden-sm hidden-xs pad-none">
+	                          <div style="width: 80%;margin-left: 10%;">
+	                            <div class="top35 pull-left pad-none" style="width:47%">
+	                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
+	                            </div>
+	                            <div class="top35 pull-right pad-none" style="width:47%">
+	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	                            </div>
+	                            <div class="clearfix"></div>
+	                            <br> <span class="text-red" id="errDue"></span> <br>
+	                        </div>
+	                    </div>
 
 
 
@@ -499,7 +503,7 @@
 					<div id="quote-wrap" class="clearfix"></div>
 				</div>
 				
-				<p class="padding1">
+				<p class="padding1 workingholiday-plan-disclaimer">
 				<fmt:message key="flight.quote.other.disclaimer.part1" bundle="${msg}" /> <a class="sub-link"
 						href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf"
 						target="_blank"><fmt:message key="flight.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.quote.other.disclaimer.part3" bundle="${msg}" /> <br>
@@ -508,15 +512,15 @@
 					
 					<!--mob-#bottom-->					
 					<div class="col-xs-12 hidden-md hidden-lg pad-none">
-					   <div style="margin-bottom: 40px;">
-					        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+					   <div style="width: 80%;margin-left: 10%;margin-bottom: 40px;">
+					        <div class="top35 pull-left pad-none" style="width:47%">
 	                            <!-- <a href="${pageContext.request.contextPath}/${language}/flight-insurance" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn">
 	                                <fmt:message key="flight.details.action.back" bundle="${msg}" /> 
 	                            </a> -->
 	                            
 	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 	                        </div>
-	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+	                        <div class="top35 pull-right pad-none" style="width:47%">
 	                            <input type="submit"
 	                                class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 	                        </div>

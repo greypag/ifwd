@@ -80,9 +80,10 @@ perventRedirect=true;
 				</div>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 				    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
-                       <div class="row">
-                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
-                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
+                       <div class="row summary-row">
+                            <div style="width:80%;margin-left:10%;">
+                            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
+                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
                             </div>
                             <!-- 
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
@@ -91,10 +92,12 @@ perventRedirect=true;
                                 </h4>
                             </div>
                              -->
+                             <div class="clearfix"></div>
+                             </div>
                         </div>
-                        <div class="row">
-                            <!-- <table class="table activation-form margin-left-2"> -->
-                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
+                        <div class="row summary-row">
+                            <div style="width:80%;margin-left:10%;">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
                                     <div class="margin-15">
                                         <div class="row summary-row">
@@ -221,6 +224,8 @@ perventRedirect=true;
 	                                <div class="clearfix"></div>
                                 </div>
 				            </div>
+				            <div class="clearfix"></div>
+				            </div>
 						</div>
 						
 
@@ -262,14 +267,246 @@ perventRedirect=true;
 					type="hidden" id="transactionDate" name="transactionDate"
 					value="${effectiveDate}"> <input type="hidden" id="gateway"
 					name="gateway" value="${createdPolicy.getPaymentGateway()}">
-				<div class="gray-bg1 pad20">
-					<div class="clearfix"></div>
-					<h2 class="from-control">
-						<fmt:message key="home.summary.pmtdetail.heading" bundle="${msg}" />
-					</h2>
-					<h3>
+				<div class="gray-bg1">
+                    <div style="width:80%;margin-left:10%;">
+                    <div class="col-xs-12 pad-none">
+						<h2 class="from-control" style="padding:0px !important;">
+							<fmt:message key="home.summary.pmtdetail.heading" bundle="${msg}" />
+						</h2>
 						<span id="paymentGatewayErrorMsg" class="text-red">${errormsg}</span>
-					</h3>
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="col-xs-12 pad-none">
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc1" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float" style="display: none;">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label h4-5">Payment Method</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <label class="radio-inline">                            
+                                 <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
+                                </label>    
+                                <label class="radio-inline">        
+                                    <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
+                                </label>
+                                
+                                <!-- <input type="radio" name="pMethod" value="Diners">Diners
+                                    Club <input type="radio" name="pMethod" value="JCB">JCB
+                                    <input type="radio" name="pMethod" value="AMEX">AMEX
+                                    
+                                    -->
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label h4-5"><fmt:message key="home.summary.pmtdetail.desc2" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <input id="cardnumber" name="cardNo" type="text"
+                                            class="input-block-level" maxlength="16" data-min="16"
+                                            title=""
+                                            onkeyup="" onkeypress="return isNumeric(event)" 
+                                            onBlur="validatecardnumber(this.value)"
+                                             />
+                                            
+                                            <span
+                                            id="errcardno" class="error-msg"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
+                                <div class="styled-select payment-select"><select class="pay-details-select"
+                                    id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+                                        <option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                </select></div>
+                                <span id="errmonth"
+                                    class="error-msg"></span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
+                                <div class="styled-select payment-select"><select class="pay-details-select" id="year"
+                                    name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
+                                        <option value="0"><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
+<!--                                        <option value="2015">2015</option> -->
+<!--                                        <option value="2016">2016</option> -->
+<!--                                        <option value="2017">2017</option> -->
+<!--                                        <option value="2018">2018</option> -->
+<!--                                        <option value="2019">2019</option> -->
+<!--                                        <option value="2020">2020</option> -->
+
+<!--                                        <option value="2021">2021</option> -->
+<!--                                        <option value="2022">2022</option> -->
+<!--                                        <option value="2023">2023</option> -->
+<!--                                        <option value="2024">2024</option> -->
+<!--                                        <option value="2025">2025</option> -->
+
+
+                                    <c:forEach begin="0" end="10" varStatus="loop">
+                                        <c:set var="currentYear" value="${year + loop.index}" />
+                                        <option value="${currentYear}">${currentYear}</option>
+                                    </c:forEach>
+                                </select></div>
+                                <span id="erryear"
+                                    class="error-msg"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc4" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <input id="holdername" name="cardHolder" type="text"
+                                            class="input-block-level"
+                                            onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
+                                            onkeypress="return alphaOnly(event);"> <span
+                                            id="errname" class="error-msg"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc5" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
+                                <input id="seccode" type="password" name="securityCode"
+                                            class="input-block-level" autocomplete="off" maxlength="3"
+                                            title=""
+                                            onblur="replaceAlphaNumeric(this);"
+                                            onkeypress="return isAlphaNumeric(event);" >
+                                <span id="errcode"
+                                    class="error-msg"></span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
+                                <img src="<%=request.getContextPath()%>/resources/images/icon-card.png" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="clearfix"></div>
+                    <div class="declaration-content" style="margin:0px !important;">
+                        <div class="checkbox" style="padding-left: 24px;">
+                            <input id="checkbox3" type="checkbox"> <label
+                                for="checkbox3"> <fmt:message key="home.summary.declarations" bundle="${msg}" /></label>
+                        </div>
+                        <span id="errchk1" class="error-msg"></span>
+
+                        <span id="errchk2" class="error-msg"></span>
+                        <div class="clearfix"></div>
+                        
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-left">
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
+                                <a id="button_confirm" onclick="perventRedirect=false;confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+                            </div>
+                        </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        
+                        
+                        <hr class="summary-hr"/>
+                        
+                        
+                        
+                        <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
+                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="paydollar-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
+                            </div>
+                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
+                             <fmt:message key="home.action.paydollar" bundle="${msg}" />
+                            </div>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="visa-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
+                            </div>
+                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
+                             <fmt:message key="home.action.visa" bundle="${msg}" />
+                            </div>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
+                            <div id="master-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                             <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
+                            </div>
+                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
+                             <fmt:message key="home.action.master" bundle="${msg}" />
+                            </div>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <br/>
+                        <br/>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<!-- 
+					
 					<table class="travel-tb">
 						<tbody>
 
@@ -291,9 +528,9 @@ perventRedirect=true;
 										Method</label></td>
 								<td><input type="radio" name="pMethod" id="chkVisa"
 									value="VISA">VISA <input type="radio" name="pMethod"
-									value="Master" id="chkMaster">MasterCard <!-- <input type="radio" name="pMethod" value="Diners">Diners
+									value="Master" id="chkMaster">MasterCard </!-- <input type="radio" name="pMethod" value="Diners">Diners
 									Club <input type="radio" name="pMethod" value="JCB">JCB
-									<input type="radio" name="pMethod" value="AMEX">AMEX --></td>
+									<input type="radio" name="pMethod" value="AMEX">AMEX --/></td>
 							</tr>
 
 							<tr class="control-group">
@@ -310,7 +547,7 @@ perventRedirect=true;
 											title="" placeholder="Credit card number"
 											onkeyup="validatecardnumber(this.value)" onkeypress="return isNumeric(event)" 
 											onBlur="chkValidCreditCard(this, 'errcardno');"
-											 /> -->
+											 /> -\->
 										<input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
 											title=""
@@ -346,18 +583,18 @@ perventRedirect=true;
 									name="epYear">
 										<option VALUE=""><fmt:message
 												key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
-										<!-- 										<option VALUE="2015">2015</option> -->
-										<!-- 										<option VALUE="2016">2016</option> -->
-										<!-- 										<option VALUE="2017">2017</option> -->
-										<!-- 										<option VALUE="2018">2018</option> -->
-										<!-- 										<option VALUE="2019">2019</option> -->
-										<!-- 										<option VALUE="2020">2020</option> -->
+										<!-\- 										<option VALUE="2015">2015</option> -\->
+										<!-\- 										<option VALUE="2016">2016</option> -\->
+										<!-\- 										<option VALUE="2017">2017</option> -\->
+										<!-\- 										<option VALUE="2018">2018</option> -\->
+										<!-\- 										<option VALUE="2019">2019</option> -\->
+										<!-\- 										<option VALUE="2020">2020</option> -\->
 										
-										<!-- 										<option VALUE="2021">2021</option> -->
-										<!-- 										<option VALUE="2022">2022</option> -->
-										<!-- 										<option VALUE="2023">2023</option> -->
-										<!-- 										<option VALUE="2024">2024</option> -->
-										<!-- 										<option VALUE="2025">2025</option> -->
+										<!-\- 										<option VALUE="2021">2021</option> -\->
+										<!-\- 										<option VALUE="2022">2022</option> -\->
+										<!-\- 										<option VALUE="2023">2023</option> -\->
+										<!-\- 										<option VALUE="2024">2024</option> -\->
+										<!-\- 										<option VALUE="2025">2025</option> -\->
 										
 										
 										
@@ -412,7 +649,7 @@ perventRedirect=true;
 							<tr class="control-group">
 								<td></td>
 								<td colspan="2">
-									<!--<a class="sub-link" href="#"><fmt:message key="home.summary.pmtdetail.desc6" bundle="${msg}" /></a>-->
+									<!-\-<a class="sub-link" href="#"><fmt:message key="home.summary.pmtdetail.desc6" bundle="${msg}" /></a>-\->
 								</td>
 							</tr>
 
@@ -432,7 +669,7 @@ perventRedirect=true;
 							<div class="clearfix"></div>
 						</div>
 						<span id="errchk1" class="error-msg"></span>
-						<!-- <div class="checkbox">
+						<!-\- <div class="checkbox">
 							<input id="checkbox2" type="checkbox"> <label
 								for="checkbox2"> I/We have read and understand the<a
 								href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
@@ -440,10 +677,10 @@ perventRedirect=true;
 							</label>
 							<div class="clearfix"></div>
 						</div>
-						<span id="errchk2" class="error-msg"></span>-->
+						<span id="errchk2" class="error-msg"></span>-\->
 						<div class="clearfix"></div>
 						
-						<!-- old buttons
+						<!-\- old buttons
 						<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
 								class="bdr-curve btn btn-primary bck-btn2"><fmt:message
@@ -451,12 +688,12 @@ perventRedirect=true;
 							<input type="submit" class="bdr-curve btn btn-primary nxt-btn margin-left"
 								value="<fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" />">
 						</div>
-						-->
+						-\->
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-	                            <!-- <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
+	                            <!-\- <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
 	                                <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
-	                            </a> -->
+	                            </a> -\->
 	                            
 	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
 	                        </div>
@@ -468,7 +705,7 @@ perventRedirect=true;
 						
 						
 						
-						<!-- 
+						<!-\- 
 						
 						
 						<br> <br>
@@ -490,19 +727,19 @@ perventRedirect=true;
 							<div class="clearfix"></div>
 
 						</div>
-						 -->
-						<!-- <br>
+						 -\->
+						<!-\- <br>
                             <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
-                        <br>-->
+                        <br>-\->
                         <br/>
-                        <!-- <div style="overflow: hidden;">
+                        <!-\- <div style="overflow: hidden;">
                           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 row pull-left">
                               <img src="<%=request.getContextPath()%>/resources/images/icon-paydollar.png" alt="">
                             </div>
                             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left" style="padding-left: 15px;line-height: 45px;">
                               <fmt:message key="travel.action.paydollar" bundle="${msg}" />
                             </div>
-                        </div>-->
+                        </div>-\->
                         
                         
                         <hr class="summary-hr"/>
@@ -534,7 +771,15 @@ perventRedirect=true;
                         </div>
 
 					</div>
-
+					 -->
+					
+					
+					
+					
+					
+					
+					
+                    </div>
 				</div>
 			</form>
 		</div>
@@ -544,10 +789,10 @@ perventRedirect=true;
 </section>
 <!--/end Main Content-->
 
-<div id="PaymentingDiv" class="waitingDiv" style="display: none">
-	<img
-		style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%"
-		src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+<div id="PaymentingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+    <img
+        style="width: 200px; height: 200px;"
+        src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
 
 
@@ -556,8 +801,10 @@ perventRedirect=true;
  var pay = false;
  	function confirmPayment(form) {
  		if (payValid() && !pay) {
- 			pay = true;
  			$('#PaymentingDiv').show();
+ 	        $("#button_confirm").hide();
+ 			pay = true;
+ 			
  			var geteWayUrl = $('#gateway').val();
  				$.ajax({
  						type : "POST",
@@ -565,15 +812,20 @@ perventRedirect=true;
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
-					$('#PaymentingDiv').hide();
+					$("#PaymentingDiv").hide();
+                    $("#button_confirm").show();
 					if (data == 'success') {
 						form.action = geteWayUrl;
 						$('#PaymentingDiv').hide();
 					} else {
+						$("#button_confirm").show();
 						$('#paymentErrorPopup').modal('show');
 					}
 				}
 			});
+		}else{
+			$('#PaymentingDiv').hide();	
+			$("#button_confirm").show();
 		}
 
 	}
@@ -581,8 +833,9 @@ perventRedirect=true;
  	var clicked = false;
  	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
  		if (payValid() && clicked === false) {
- 			clicked = true;
  			$("#PaymentingDiv").show();
+ 	        $("#button_confirm").hide();
+ 			clicked = true;
  			var gatewayUrlId = '#' + gatewayUrlId;
  			var paymentFormId = '#' + paymentFormId;
  			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
@@ -596,6 +849,7 @@ perventRedirect=true;
  						success : function(data) {
  							clicked = false;
  							$("#PaymentingDiv").hide();
+ 							$("#button_confirm").show();
  							if (data == 'success') {
                                 $("#"+form).attr('action', geteWayUrl);
                                 $("#"+form).submit();

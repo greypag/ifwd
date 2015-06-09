@@ -11,43 +11,21 @@ $(function () {
 		},
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd-mm-yyyy",
+		format: "dd MM yyyy",
 
 
 	}).on('changeDate', function (ev) {
-		$(".hidden-sm .form-container .topten").html($('#inputWhInseffectiveDate').val())
-		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
-		$('#whInseffectiveDate').html('');
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+			newDate.setFullYear(newDate.getFullYear() + 1);
 	});
 	
-	// 18 year ago date
-	var dob_end_date = new Date();
-	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+	/*$("#inputWhAppFullName").keyup(function() {
+		   document.getElementById("inputWhInsFullName").value = this.value;
+	});*/
 	
-	// 86 year ago date
-	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
-	dob_start_date.setDate(dob_start_date.getDate()+1);
-		
-	var checkin = $('#dpWhAppDob').datepicker({
-		beforeShowDay: function (date) {
-			return date.valueOf() < wh_now;
-		},
-		todayHighlight: true,
-		startView: "decade",
-		autoclose: true,
-		format: "dd-mm-yyyy",
-		startDate: dob_start_date,
-		endDate: dob_end_date
-
-
-	}).on('changeDate', function (ev) {
-		setAtt("WhAppDob", $('#inputWhAppDob').val())
-		$('#whAppDob').html('');
-	});
-	
-	$("#inputFullName").blur(function() {
-		var fullname = document.getElementById("inputFullName").value;
+	$("#inputWhAppFullName").blur(function() {
+		var fullname = document.getElementById("inputWhAppFullName").value;
 		
 		if (fullname.trim() == "") {
 			$("#whAppFullName").html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));//"Please enter your Name in English.";
@@ -57,14 +35,9 @@ $(function () {
 			$("#whAppFullName").html(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
 			return false;
 		}
-		
+			
+		$("#inputWhInsFullName").val($(this).val());
 		$("#whAppFullName").html('');
-		
-		setAtt("WhAppFullName", $(this).val());
-	});
-	
-	$("#selectWhAppHKID").change(function() {
-		setAtt("SelectWhAppHKID", $(this).val());
 	});
 	
 	$("#inputWhAppHKID").blur(function() {
@@ -104,10 +77,9 @@ $(function () {
 		
 		//$("#txtInsuHkid1").val($(this).val());
 		$('#whAppHKID').html('');
-		setAtt("WhAppHKID", $(this).val());
 	});
 	
-	$("#inputMobileNo").blur(function() {
+	$("#inputWhAppMobileNO").blur(function() {
 		var mobileNo = $(this).val();
 		
 		if (mobileNo.trim() == "") {
@@ -120,10 +92,9 @@ $(function () {
 			}
 		}
 		$("#whAppMobileNO").html("");
-		setAtt("WhAppMobileNO", $(this).val());
 	});
 	
-	$("#inputEmailId").blur(function() {
+	$("#inputWhAppEmailAdd").blur(function() {
 		var emailId = $(this).val();
 		
 		if (emailId.trim() == "") {
@@ -137,40 +108,19 @@ $(function () {
 			}
 		}
 		$("#whAppEmailAdd").html("");
-		setAtt("WhAppEmailAdd", $(this).val());
-	});
-	
-	/*$("#selectWhInsAgeRange").change(function() {
-		setAtt("WhInsAgeRange", $(this).val());
-	});*/
-	
-	$("#selectWhInsBeneficary").change(function() {
-		$("#inputWhInsFullName").val("");
-		$("#selectWhInsHKID").val("HKID");
-		$("#inputWhInsHKID").val("");
 		
-		setAtt("WhInsBeneficary", $(this).val());
-		setAtt("SelectWhInsHKID", "");
-		setAtt("WhInsFullName", "");
-		setAtt("WhInsHKID", "");
 	});
 	
-	$("#selectWhInsHKID").change(function() {
-		setAtt("SelectWhInsHKID", $(this).val());
-	});
-	
-	
-	$( "#inputWhInsFullName" ).on( "blur", function() {
+	$( "#inputWhInsFullName" ).on( "change blur", function() {
 	    var fullname = $(this).val();
 		if (fullname.trim() == "") {
 			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));//"Please enter your Name in English.";
 			return false;
 		}
 		$("#whInsFullName").html('');
-		setAtt("WhInsFullName", $(this).val());
 	});
 	
-	$( "#inputWhInsHKID" ).on( "blur", function() {
+	$( "#inputWhInsHKID" ).on( "change blur", function() {
 		var appHkid = $(this).val();
 		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
 			if (appHkid.trim() == "") {
@@ -196,88 +146,8 @@ $(function () {
 			}
 		}
 		$("#whInsHKID").html('');
-		setAtt("WhInsHKID", $(this).val());
 	});
 	
-	$("#selectWhInsWorkingCty").change(function() {
-		setAtt("WhInsWorkingCty", $(this).val());
-	});
-	
-	$( "#inputWhInsRoom" ).on( "blur", function() {
-		setAtt("WhInsRoom", $(this).val());
-	});
-	
-	$( "#inputWhInsFloor" ).on( "blur", function() {
-		setAtt("WhInsFloor", $(this).val());
-	});
-	
-	$( "#inputWhInsBlock" ).on( "blur", function() {
-		setAtt("WhInsBlock", $(this).val());
-	});
-	
-	$( "#inputWhInsEstate" ).on( "blur", function() {
-	    var whInsEstate = $(this).val();
-	    var whInsBuilding = $("#inputWhInsBuilding").val();
-		if (whInsEstate.trim() == "" && whInsBuilding.trim() == "" ) {
-			$("#whInsEstate").html( getBundle(getBundleLanguage, "workinghoilday.estate.message"));
-			return false;
-		}
-		$("#whInsEstate").html('');
-		$("#whInsBuilding").html('');
-		setAtt("WhInsEstate", $(this).val());
-	});
-	
-	$( "#inputWhInsBuilding" ).on( "blur", function() {
-	    var whInsBuilding = $(this).val();
-	    var whInsEstate = $("#inputWhInsEstate").val();
-		if (whInsBuilding.trim() == "" && whInsEstate.trim() == "" ) {
-			$("#whInsBuilding").html( getBundle(getBundleLanguage, "workinghoilday.building.message"));
-			return false;
-		}
-		$("#whInsEstate").html('');
-		$("#whInsBuilding").html('');
-		setAtt("WhInsBuilding", $(this).val());
-	});
-	
-	$( "#inputWhInsStreetNo" ).on( "blur", function() {
-		setAtt("WhInsStreetNo", $(this).val());
-	});
-	
-	$( "#inputWhInsStreetName" ).on( "blur", function() {
-		setAtt("WhInsStreetName", $(this).val());
-	});
-	
-	$("#selectWhInsDistrict").change(function() {
-		setAtt("WhInsDistrict", $(this).val());
-	});
-	
-	$("#inlineCARadio3").change(function() {
-		setAtt("WhInsArea", $(this).val());
-	});
-	
-	$("#inlineCARadio4").change(function() {
-		setAtt("WhInsArea", $(this).val());
-	});
-	
-	$("#inlineCARadio5").change(function() {
-		setAtt("WhInsArea", $(this).val());
-	});
-	
-	//payment
-	$( "#seccode" ).on( "change blur", function() {
-	    var seccode = $(this).val();
-		if (seccode.trim() == "") {
-			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));//"Please enter your Name in English.";
-			return false;
-		}else{
-			if(seccode.length<3)
-			{
-				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
-				return false;
-			}
-		}
-		$("#errcode").html('');
-	});
 });
 
 function dateFormate(thisDate) {
@@ -300,46 +170,39 @@ function dateFormate(thisDate) {
 var wh_click = false;
 function whDetailsValid(){
 	var flag=true;
-	
 	document.getElementById("whAppFullName").innerHTML = "";
 	document.getElementById("whAppHKID").innerHTML = "";
-	document.getElementById("whAppDob").innerHTML = "";
 	document.getElementById("whAppMobileNO").innerHTML = "";    
 	document.getElementById("whAppEmailAdd").innerHTML = "";
-	//document.getElementById("whInsAgeRange").innerHTML = "";
+	document.getElementById("whInsAgeRange").innerHTML = "";
 	document.getElementById("whInsBeneficary").innerHTML = "";
 	document.getElementById("whInsFullName").innerHTML = "";
 	document.getElementById("whInsHKID").innerHTML = "";
 	document.getElementById("whInsWorkingCty").innerHTML = "";
 	document.getElementById("whAppEmailAdd").innerHTML = "";
-	document.getElementById("chk1").innerHTML = "";
-	document.getElementById("chk2").innerHTML = "";
 	
-	document.getElementById("UsernameError").innerHTML = "";
-	document.getElementById("PasswordError").innerHTML = "";
-	document.getElementById("Confirm-PasswordError").innerHTML = "";
+	document.getElementById("whInsRoom").innerHTML = "";
+	document.getElementById("whInsFloor").innerHTML = "";
+	document.getElementById("whInsBuilding").innerHTML = "";
+	document.getElementById("whInsEstate").innerHTML = "";
 
-	var WhAppFullName = document.getElementById("inputFullName").value;
+	var WhAppFullName = document.getElementById("inputWhAppFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
-	var WhAppDob = document.getElementById("inputWhAppDob").value;
-	var WhAppMobileNO = document.getElementById("inputMobileNo").value;
-	var WhAppEmailAdd = document.getElementById("inputEmailId").value;
+	var WhAppMobileNO = document.getElementById("inputWhAppMobileNO").value;
+	var WhAppEmailAdd = document.getElementById("inputWhAppEmailAdd").value;
 	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
+	
 	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
 	var WhInsFloor = document.getElementById("inputWhInsFloor").value;
 	var WhInsBuilding = document.getElementById("inputWhInsBuilding").value;
 	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
-	
-	var username = document.getElementById("Username").value;
-	var password = document.getElementById("Password").value;
-	var confirmPassword = document.getElementById("Confirm-Password").value;
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"); //"Please read and accept the Declaration, Terms & Conditions before submitting the application.";
 		flag = false;
 	}
 	if (document.getElementById("checkbox2").checked == false) {
-		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");//"Please read and accept the Personal Information Collection Statement before submitting the application";
+		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "homecare.tnc.notChecked.message");;//"Please read and accept the Personal Information Collection Statement before submitting the application";
 		flag = false;
 	}
 	
@@ -379,10 +242,6 @@ function whDetailsValid(){
 		}
 	}
 	
-	if (WhAppDob.trim() == "") {
-		$("#whAppDob").html(getBundle(getBundleLanguage, "workinghoilday.dob.message"));
-		flag = false;
-	}
 		
 	if (WhAppMobileNO.trim() == "") {
 		$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
@@ -398,14 +257,25 @@ function whDetailsValid(){
 		$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
 		flag = false;
 	} else {
-		if (emailreg.test(WhAppEmailAdd) == false) {
+		if (WhAppEmailAdd.test(emailId) == false) {
 			$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
 			flag = false;
 		}
 	}
 	
-	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
+	if (WhInsRoom.trim() == "") {
+		$("#whInsRoom").html(getBundle(getBundleLanguage, "workinghoilday.room.message"));
+		flag = false;
+	}
+	if (WhInsFloor.trim() == "") {
+		$("#whInsFloor").html(getBundle(getBundleLanguage, "workinghoilday.floor.message"));
+		flag = false;
+	}
+	if (WhInsBuilding.trim() == "") {
 		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
+		flag = false;
+	}
+	if (WhInsEstate.trim() == "") {
 		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
 		flag = false;
 	}
@@ -413,6 +283,7 @@ function whDetailsValid(){
 		$("#whInseffectiveDate").html(getBundle(getBundleLanguage, "workinghoilday.effectivedate.message"));
 		flag = false;
 	}
+
     if(wh_click)
     	return false
     else{
@@ -420,166 +291,4 @@ function whDetailsValid(){
     		wh_click = true;
     	return flag;
     }	
-}
-
-function whPayValid()
-{
-
-	var flag=true;
-	var cardno=document.getElementById("cardnumber").value;
-
-	var month=document.getElementById("month").value;
-
-
-	var year=document.getElementById("year").value;
-	var seccode=document.getElementById("seccode").value;
-	var holdername=document.getElementById("holdername").value;
-
-	document.getElementById('errcardno').innerHTML="";
-	document.getElementById('errmonth').innerHTML="";
-	document.getElementById('erryear').innerHTML="";
-	document.getElementById('errname').innerHTML="";	
-	document.getElementById('errcode').innerHTML="";
-	document.getElementById('errchk1').innerHTML="";
-	/*document.getElementById('errchk2').innerHTML="";*/
-
-	if(cardno.length<16 || !isCreditCard(cardno))
-	{
-		flag=false;
-		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
-	}
-	if(month=="" || month== 0)
-	{
-		flag=false;
-		$('#errmonth').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.month.notValid.message"));
-	}
-	if(year=="" || year == 0)
-	{
-		flag=false;
-		$('#erryear').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.year.notValid.message"));
-	}
-	if(holdername.trim()=="")
-	{
-		flag=false;
-		$('#errname').html(getBundle(getBundleLanguage, "payment.creditCard.name.notValid.message"));
-	}
-	if(seccode.trim()=="")
-	{
-		flag=false;
-		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));
-	}else{
-		if(seccode.length<3)
-		{
-			flag=false;
-			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
-		}
-	}
-	if (document.getElementById("checkbox3").checked == false)
-	{
-		$('#errchk1').html(getBundle(getBundleLanguage, "payment.tnc.notChecked.message"));
-		flag = false;
-	}
-	
-	return flag;
-}
-
-var details_clicked = false;
-function confirmDetails(form){
-	var result =false;
-	if (whDetailsValid() && details_clicked === false) {
-	//if (details_clicked === false) {
-		details_clicked=true;
-		var inputWhAppFullName = $("#inputFullName").val();
-		var selectWhAppHKID = $("#selectWhAppHKID").val();
-		var inputWhAppHKID = $("#inputWhAppHKID").val();
-		var inputWhAppDob = $("#inputWhAppDob").val();
-		var inputWhAppMobileNO = $("#inputMobileNo").val();
-		var inputWhAppEmailAdd = $("#inputEmailId").val();
-		var selectWhInsAgeRange = $("#selectWhInsAgeRange").val();
-		var selectWhInsBeneficary = $("#selectWhInsBeneficary").val();
-		var inputWhInsFullName = $("#inputWhInsFullName").val();
-		var selectWhInsHKID = $("#selectWhInsHKID").val();
-		var inputWhInsHKID = $("#inputWhInsHKID").val();
-		var selectWhInsWorkingCty = $("#selectWhInsWorkingCty").val();
-		var inputWhInsRoom = $("#inputWhInsRoom").val();
-		var inputWhInsFloor = $("#inputWhInsFloor").val();
-		var inputWhInsBlock = $("#inputWhInsBlock").val();
-		var inputWhInsBuilding = $("#inputWhInsBuilding").val();
-		var inputWhInsEstate = $("#inputWhInsEstate").val();
-		var inputWhInsStreetNo = $("#inputWhInsStreetNo").val();
-		var inputWhInsStreetName = $("#inputWhInsStreetName").val();
-		var selectWhInsDistrict = $("#selectWhInsDistrict").val();
-		
-		var radioWhInsArea = "";
-		if(document.getElementById("inlineCARadio5").checked){
-			radioWhInsArea="NT";
-		}else if(document.getElementById("inlineCARadio4").checked){
-			radioWhInsArea="KL";
-		}else {
-			radioWhInsArea="HK";
-		}
-		
-		var inputWhInseffectiveDate = $("#inputWhInseffectiveDate").val();
-		
-		var planDetailsForm = { 'whAppFullName': inputWhAppFullName,
-			  	'selectWhAppHKID': selectWhAppHKID,
-			  	'whAppHKID':inputWhAppHKID,
-			  	'whAppDob':inputWhAppDob,					  	  
-			  	'whAppMobileNO':inputWhAppMobileNO,
-			  	'whAppEmailAdd':inputWhAppEmailAdd,
-			  	'whInsAgeRange':'',
-			  	'whInsBeneficary':selectWhInsBeneficary,
-			  	'whInsFullName':inputWhInsFullName,
-			  	'selectWhInsHKID':selectWhInsHKID,
-			  	'whInsHKID':inputWhInsHKID,
-			  	'whInsWorkingCty':selectWhInsWorkingCty,
-			  	'whInsRoom':inputWhInsRoom,
-			  	'whInsFloor':inputWhInsFloor,
-			  	'whInsBlock':inputWhInsBlock,
-			  	'whInsBuilding':inputWhInsBuilding,
-			  	'whInsEstate':inputWhInsEstate,
-			  	'whInsStreetNo':inputWhInsStreetNo,
-			  	'whInsStreetName':inputWhInsStreetName,
-			  	'whInsDistrict':selectWhInsDistrict,
-			  	'whInsArea':radioWhInsArea,
-			  	'whInseffectiveDate':inputWhInseffectiveDate
-		    };
-		var method = this.rootUrl + "/wh-summary";
-		var rePage = this.rootUrl + this.rootLang + '/workingholiday-insurance/workingholiday-summary';
-		$.ajaxSetup({  
-	        contentType : 'application/json'  
-	    });
-		
-		$.ajax({
-			type : "POST",
-			url : method,
-			data : JSON.stringify(planDetailsForm),
-			async : false,
-			success : function(data) {
-				if (data == 'success') {
-					form.action=rePage;
-					result=true;
-				} else {
-					console.log("fail to process payment " + data);
-					result=false;
-				}
-			}
-		});
-	}else {
-		result=false;
-	}
-	return result;
-}
-
-function setAtt(att, value) {
-	var method = this.rootUrl + "/saveAtt";
-	var data = {"att":att , "value": value};
-	$.ajax({
-		type : "POST",
-		url : method,
-		data : data,
-		async : false,
-		success : function(data) {
-		}
-	});
 }

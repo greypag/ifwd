@@ -11,7 +11,6 @@
 <script>
 var clicked = false;
 	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-		var result=false;
 		if (whPayValid() && clicked === false) {
  			clicked = true;
  			$("#PaymentingDiv").show();
@@ -29,20 +28,16 @@ var clicked = false;
  						data : $(paymentFormId).serialize(),
  						async : false,
  						success : function(data) {
+ 							data = 'success';
  							if (data == 'success') {
  								form.action = geteWayUrl;
- 								result=true;
  							} else {
  								console.log("fail to process payment " + data);
- 								result=false;
  							}
  						}
  					});
-
- 		}else{
- 			result=false;
- 		}
-		return result;
+ 			return true;
+ 		}else return false;
 	}
 	
 </script>
@@ -108,14 +103,27 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
 						<!-- <div class="col-xs-12 col-md-7  pad-none"> -->
-						   <div class="row">
-	                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 pad-none">
-	                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="workingholiday.summary.heading" bundle="${msg}" /></h3>
+						   <div class="row summary-row">
+                                <div style="width:80%;margin-left:10%;">
+	                            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
+	                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="workingholiday.summary.heading" bundle="${msg}" /></h3>
 	                            </div>
+	                            <!-- 
+	                            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
+	                                <h4 class="h4-trav-full">
+	                                    <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+	                                </h4>
+	                            </div>
+	                             -->
+	                             <div class="clearfix"></div>
+                                </div>
 	                        </div>
-                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 pad-none">
+							<!-- <h3 class="margin-left-2 h2-3-existing-fwd-head"><fmt:message key="workingholiday.summary.heading" bundle="${msg}" /></h3> -->
+							<div class="row summary-row">
+                                <div style="width:80%;margin-left:10%;">
+                            <!-- <table class="table activation-form margin-left-2"> -->
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
-                                    <div class="margin-15">
                                         <!-- <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h2-1 pad-none"><span class="home-summary-applicant h2-3-existing-fwd-head"><fmt:message key="home.summary.changedetail.desc1" bundle="${msg}" /></span></div>
                                         </div> -->
@@ -267,45 +275,179 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                             <!-- / Plan benefits -->
                                             </div>
                                         </div>
-                                    </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            
-                            <div id="no-more-tables" class="hidden-sm hidden-xs">
+                            <div class="clearfix"></div>
+                                </div>
+                        </div>
 							
-							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
-
+							
+							<%-- <table class="table activation-form margin-left-2 vert-middle travel-summary">
 								<tbody>
-									<tr class="travel-tb-head">
-										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured" bundle="${msg}" /></td>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.name" bundle="${msg}" /></td>
-										<%-- <td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.age" bundle="${msg}" /></td> --%>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.hkid" bundle="${msg}" /></td>
-										<td class=" h2-1  travel-tb-td"><fmt:message key="workingholiday.summary.insured.beneficiary.relation" bundle="${msg}" /></td>
+										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.name" bundle="${msg}" /></td>
+										<td class="pad-none h4-5 ">${userDetails.getFullName() }</td>
 									</tr>
-	                            </tbody>
-								<tbody>
-									<tr class="hidden-sm hidden-xs">
-										<td data-title="Other"><span class="h2-1-td"><fmt:message key="workingholiday.summary.insured.traveller" bundle="${msg}" /></span></td>
-										<td class=" h4-5" data-title="Full name">${userDetails.getFullName()}</td>
-										<!-- <td class=" h4-5" data-title="Age range"></td> --> 
-										<td class=" h4-5" data-title="HKID">${userDetails.getHkid()}</td>
-										<td data-title="Relationship"><span class="h4-5"></span></td>
+									<tr>
+
+										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.hkid" bundle="${msg}" /></td>
+										<td class="pad-none h4-5 ">${userDetails.getHkid()}</td>
+									</tr>
+									<tr>
+										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.email" bundle="${msg}" /></td>
+										<td class="pad-none h4-5 ">${userDetails.getEmailAddress() }</td>
+									</tr>
+									<tr>
+										<td class="h2-1 pad-none "><fmt:message key="workingholiday.summary.applicant.mobileNo" bundle="${msg}" /></td>
+										<td class="pad-none h4-5 ">${userDetails.getMobileNo() }</td>
+									</tr>
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.requestNo" bundle="${msg}" /></td>
+										<td class="pad-none h4-5">${whCreatePolicy.getReferenceNo()}</td>
+									</tr>
+
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.plan" bundle="${msg}" /></td>
+										<td class="pad-none h4-5">
+										    ${selectPlanName}  <fmt:message key="workingholiday.summary.plan" bundle="${msg}" />
+										    <%String selectPlanName = (String) request.getAttribute("selectPlanName");%>
+										    <%if (selectPlanName.equals("A")){%>
+										    	- <fmt:message key="workingholiday.quote.plan1.type" bundle="${msg}" />- HK$ 1,000,000 <fmt:message key="workingholiday.quote.plan1.medical" bundle="${msg}" />
+											<%}	else{ %>
+												- <fmt:message key="workingholiday.quote.plan2.type" bundle="${msg}" />- HK$	500,000 <fmt:message key="workingholiday.quote.plan2.medical" bundle="${msg}" />
+											<%} %>
+										</td>
+									<tr>
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.period" bundle="${msg}" /></td>
+										<td class="pad-none h4-5 "><fmt:message key="workingholiday.summary.period.from" bundle="${msg}" />
+											${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" />
+											${expiryDate}</td>
 									</tr>
 									
-									<c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE'}" >
 									<tr>
-										<td data-title="Personal1"><span class="h4-6-td"><fmt:message key="workingholiday.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsFullName()}</td>
-                                        <!-- <td data-title="Age range" class="travel-tb-h3">&nbsp;</td> -->
-                                        <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsHKID()}</td>
-	                                    <td data-title="Relationship" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsBeneficaryDesc()}</td>
+                                        <td></td>
+                                        <td class="h2-1 pad-none">
+                                            <!-- Plan benefits -->
+				                            <div class="fwdpanel">
+				                                <c:if test="${selectPlanName=='A'}">
+				                            
+				                                <div class="fwdpanel-heading">
+				                                    <h4 class=" benefits">
+				                                        <span><i
+				                                                class="fa fa-plus"></i> <a href="#"
+				                                            class="fwdpanel-minimize uline text-black"><fmt:message key="workingholiday.quote.plan1.benefits" bundle="${msg}" /></a> </span>
+				                                    </h4>
+				                                </div>
+				                                <div class="fwdpanel-body" style="display: none;">
+				                                        <div class="col-xs-11 col-xs-offset-1">
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc1.price" bundle="${msg}" />
+				                                            </div>
+				                                        </div>
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc2" bundle="${msg}" />
+				                                            </div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc2.price" bundle="${msg}" />
+				                                            </div>
+				                                        </div> 
+				                                        
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc3.price" bundle="${msg}" />
+				                                            </div>
+				                                        </div>
+				                                        <div class="row">
+				                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+				                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
+				                                            <div class="col-lg-4 col-md-4 col-xs-5">
+				                                                <fmt:message key="workingholiday.quote.plan1.benefits.desc4.price" bundle="${msg}" />
+				                                            </div>
+				                                            </div>
+				                                        </div>
+				                                </div>
+				                                </c:if>
+				                                <c:if test="${selectPlanName=='B'}">
+                                            
+                                                <div class="fwdpanel-heading">
+                                                    <h4 class=" benefits">
+                                                        <span><i
+                                                                class="fa fa-plus"></i> <a href="#"
+                                                            class="fwdpanel-minimize uline text-black"><fmt:message key="workingholiday.quote.plan2.benefits" bundle="${msg}" /></a> </span>
+                                                    </h4>
+                                                </div>
+                                                <div class="fwdpanel-body" style="display: none;">
+                                                        <div class="col-xs-11 col-xs-offset-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc1.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc2" bundle="${msg}" />
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc2.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div> 
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc3.price" bundle="${msg}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="workingholiday.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
+                                                            <div class="col-lg-4 col-md-4 col-xs-5">
+                                                                <fmt:message key="workingholiday.quote.plan2.benefits.desc4.price" bundle="${msg}" />
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                </c:if>
+				                                
+				                                
+				                                <div class="clearfix"></div>
+				                            </div>
+				                            <!-- / Plan benefits -->
+                                        </td>
+                                    </tr>
+                                    
+									<tr>
+										<td class="h2-1 pad-none"><fmt:message key="workingholiday.summary.days" bundle="${msg}" /></td>
+										<td class="h4-4-orange-b pad-none h4-5 ">${totalDays}</td>
 									</tr>
-									</c:if>
+									<tr>
+										<td class="pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.summary.amountDue" bundle="${msg}" />
+										</span></td>
+										<td class="pad-none "><span
+											class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.dollar" bundle="${msg}" /> ${dueAmount} </span></td>
+									</tr>
 								</tbody>
-							</table>
-						</div>
+							</table> --%>
+						<!-- </div> -->
+						
+						<!-- <div
+							class="col-md-5 pad-none pull-right hidden-sm hidden-xs">
+							<h4 class="h4-trav-full col-xs-offset-8">
+								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details" ><fmt:message key="workingholiday.summary.subheading" bundle="${msg}" /></a>
+							</h4>
+							
+						</div>  -->
+						
 						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
@@ -337,247 +479,198 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 					<input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.getEmailAddress()}">
 					<input type="hidden" id="gateway" name="gateway" value="${whCreatePolicy.getPaymentGateway()}">
 
-
-
-					<table class="travel-tb">
-						<tbody>
-							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="workingholiday.payment.card.type" bundle="${msg}" /></label></td>
-								<td class="col-lg-8" colspan="2">
-									<div class="controls">
-										
-										
-										<div>
-											<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr style="display: none;">
-							 <td ><label class="control-label h4-5">Payment Method</label></td> 
-								<td colspan="2">
-								<div class="controls">
-								<label class="radio-inline">							
-								 <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
-								</label>	
-								<label class="radio-inline">		
-									<input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
-								</label>
-								</div>
-									<!-- <input type="radio" name="pMethod" value="Diners">Diners
-									Club <input type="radio" name="pMethod" value="JCB">JCB
-									<input type="radio" name="pMethod" value="AMEX">AMEX
-									
-									-->
-									</td> 
-							</tr>
-							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label h4-5"><fmt:message key="workingholiday.payment.card.no" bundle="${msg}" /></label></td>
-								<td colspan="2">
-									<div class="controls">
-											
-											<input id="cardnumber" name="cardNo" type="text"
-											class="input-block-level" maxlength="16" data-min="16"
-											title="" placeholder="<fmt:message key="workingholiday.payment.card.no.placeholder" bundle="${msg}" />"
-											onkeyup="" onkeypress="return isNumeric(event)" 
-											onBlur="validatecardnumber(this.value)"
-											 />
-											
-											<span
-											id="errcardno" class="error-msg"></span>	<!-- chkMinLength(this.value); -->
-											
-									</div>
-								</td>
-							</tr>
-							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.expiryDate" bundle="${msg}" /></label></td>
-								<td class="col-lg-4"><div class="styled-select payment-select"><select class="pay-details-select"
-									id="month" name="epMonth">
-										<option value="0"><fmt:message key="workingholiday.payment.card.expiryDate.month" bundle="${msg}" /></option>
-										<option value="1">01</option>
-										<option value="2">02</option>
-										<option value="3">03</option>
-										<option value="4">04</option>
-										<option value="5">05</option>
-										<option value="6">06</option>
-										<option value="7">07</option>
-										<option value="8">08</option>
-										<option value="9">09</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-								</select></div></td>
-								<td><div class="styled-select payment-select"><select class="pay-details-select" id="year"
-									name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
-										<option value="0"><fmt:message key="workingholiday.payment.card.expiryDate.year" bundle="${msg}" /></option>
-<!-- 										<option value="2015">2015</option> -->
-<!-- 										<option value="2016">2016</option> -->
-<!-- 										<option value="2017">2017</option> -->
-<!-- 										<option value="2018">2018</option> -->
-<!-- 										<option value="2019">2019</option> -->
-<!-- 										<option value="2020">2020</option> -->
-									<c:forEach begin="0" end="10" varStatus="loop">
-										<c:set var="currentYear" value="${year + loop.index}" />
-										<option value="${currentYear}">${currentYear}</option>
-									</c:forEach>
-								</select></div></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td style="max-width: 200px"><span id="errmonth"
-									class="error-msg"></span></td>
-								<td style="max-width: 200px"><span id="erryear"
-									class="error-msg"></span></td>
-							</tr>
-							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.holderName" bundle="${msg}" /></label></td>
-								<td colspan="2">
-									<div class="controls">
-										<input id="holdername" name="cardHolder" type="text"
-											class="input-block-level" placeholder="<fmt:message key="workingholiday.payment.card.holderName.placeholder" bundle="${msg}" />"
-											onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
-											onkeypress="return alphaOnly(event);"> <span
-											id="errname" class="error-msg"></span>
-									</div>
-								</td>
-							</tr>
-							<tr class="control-group">
-								<td class="col-lg-4 ht1"><label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.cvv" bundle="${msg}" /></label></td>
-								<td>
-									<div class="controls">
-										<input id="seccode" type="password" name="securityCode"
-											class="input-block-level" autocomplete="off" maxlength="3"
-											title="" placeholder="<fmt:message key="workingholiday.payment.card.cvv.placeholder" bundle="${msg}" />"
-											onblur="replaceAlphaNumeric(this);"
-											onkeypress="return isAlphaNumeric(event);" >
-
-									</div>
-								</td>
-								<td><img src="<%=request.getContextPath()%>/resources/images/cards.png" alt=""></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td style="max-width: 200px"><span id="errcode"
-									class="error-msg"></span></td>
-								<td style="max-width: 200px"></td>
-							</tr>
-							<tr class="control-group">
-								<td></td>
-								<td colspan="2">
-									<!-- <a class="sub-link" href="#">What is my security code?</a>-->
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="clearfix"></div>
-					<div class="declaration-content margin-left-small">
-						<div class="checkbox">
-							<input id="checkbox3" type="checkbox"> <label
-								for="checkbox3"> <fmt:message key="workingholiday.payment.declarations" bundle="${msg}" /></label>
-						</div>
-						<span id="errchk1" class="error-msg"></span>
-
-						<span id="errchk2" class="error-msg"></span>
-						<div class="clearfix"></div>
-						<!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返回 </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確認付款</a> </div>-->
-						<!-- <div class="hidden-sm hidden-xs pad-none">
-							
-								class="bdr-curve btn btn-primary bck-btn2">返回 </a> <input
-								type="submit"
-								class="bdr-curve btn btn-primary nxt-btn margin-left"
-								value="確認付款" onclick="confirmPayment()" />
-						</div>
-						<br> <br>
-						
-						<div class="pad-none hidden-md hidden-lg">
-							<a href="travel-plan-details.html"
-								class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返回
-							</a>
-						</div> -->
-						<!-- vincent add a button for paymnet confirmation (mobile) -->
-						<!-- <div class="pad-none hidden-md hidden-lg">
-							<input
-								type="submit"
-								class="bdr-curve btn btn-primary nxt-btn"
-								value="確認付款" onclick="confirmPayment()" /> -->
-						<!-- vincent add a button for paymnet confirmation (mobile) -->	
-						
-						
-						<!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="#" onclick="BackMe()"
-									class="bdr-curve btn btn-primary bck-btn">返回 </a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								<input type="submit"
-									class="bdr-curve-none btn btn-primary nxt-btn "
-									value="確認付款" onclick="confirmPayment()" />
-								
-
-							</div> -->
-							
-							<%-- <div class="hidden-sm hidden-xs pad-none">
-							<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
-								class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
-							<input type="submit"
-								class="bdr-curve btn btn-primary nxt-btn margin-left" 
-								value="<fmt:message key="workingholiday.action.payment" bundle="${msg}" />">
-						</div> --%>
-						<br> <br>
-						<div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
-                                    class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" />  </a>
+    
+                    <div class="col-xs-12 pad-none">
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label h4-5"><fmt:message key="workingholiday.payment.card.type" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <input type="submit"
-                                    class="bdr-curve btn btn-primary nxt-btn"
-                                    value="<fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float" style="display: none;">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label h4-5">Payment Method</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <label class="radio-inline">                            
+                                 <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
+                                </label>    
+                                <label class="radio-inline">        
+                                    <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
+                                </label>
+                                
+                                <!-- <input type="radio" name="pMethod" value="Diners">Diners
+                                    Club <input type="radio" name="pMethod" value="JCB">JCB
+                                    <input type="radio" name="pMethod" value="AMEX">AMEX
+                                    
+                                    -->
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label h4-5"><fmt:message key="workingholiday.payment.card.no" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <input id="cardnumber" name="cardNo" type="text"
+                                            class="input-block-level" maxlength="16" data-min="16"
+                                            title=""
+                                            onkeyup="" onkeypress="return isNumeric(event)" 
+                                            onBlur="validatecardnumber(this.value)"
+                                             />
+                                            
+                                            <span
+                                            id="errcardno" class="error-msg"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.expiryDate" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
+                                <div class="styled-select payment-select"><select class="pay-details-select"
+                                    id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+                                        <option value="0"><fmt:message key="workingholiday.payment.card.expiryDate.month" bundle="${msg}" /></option>
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                </select></div>
+                                <span id="errmonth"
+                                    class="error-msg"></span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
+                                <div class="styled-select payment-select"><select class="pay-details-select" id="year"
+                                    name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
+                                        <option value="0"><fmt:message key="workingholiday.payment.card.expiryDate.year" bundle="${msg}" /></option>
+<!--                                        <option value="2015">2015</option> -->
+<!--                                        <option value="2016">2016</option> -->
+<!--                                        <option value="2017">2017</option> -->
+<!--                                        <option value="2018">2018</option> -->
+<!--                                        <option value="2019">2019</option> -->
+<!--                                        <option value="2020">2020</option> -->
+
+<!--                                        <option value="2021">2021</option> -->
+<!--                                        <option value="2022">2022</option> -->
+<!--                                        <option value="2023">2023</option> -->
+<!--                                        <option value="2024">2024</option> -->
+<!--                                        <option value="2025">2025</option> -->
+
+
+                                    <c:forEach begin="0" end="10" varStatus="loop">
+                                        <c:set var="currentYear" value="${year + loop.index}" />
+                                        <option value="${currentYear}">${currentYear}</option>
+                                    </c:forEach>
+                                </select></div>
+                                <span id="erryear"
+                                    class="error-msg"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.holderName" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <input id="holdername" name="cardHolder" type="text"
+                                            class="input-block-level"
+                                            onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
+                                            onkeypress="return alphaOnly(event);"> <span
+                                            id="errname" class="error-msg"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                                <label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.cvv" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
+                                <input id="seccode" type="password" name="securityCode"
+                                            class="input-block-level" autocomplete="off" maxlength="3"
+                                            title=""
+                                            onblur="replaceAlphaNumeric(this);"
+                                            onkeypress="return isAlphaNumeric(event);" >
+                                <span id="errcode"
+                                    class="error-msg"></span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
+                                <img src="<%=request.getContextPath()%>/resources/images/icon-card.png" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    
+					<div class="clearfix"></div>
+					
+					
+					<div class="declaration-content" style="margin:0px !important;">
+                        <div class="checkbox" style="padding-left: 24px;">
+                            <input id="checkbox3" type="checkbox"> <label
+                                for="checkbox3"> <fmt:message key="workingholiday.payment.declarations" bundle="${msg}" /></label>
+                        </div>
+                        <span id="errchk1" class="error-msg"></span>
+
+                        <span id="errchk2" class="error-msg"></span>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-left">
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
+                                <a onclick="perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="workingholiday.action.payment" bundle="${msg}" /></a>
                             </div>
                         </div>
-						<%-- <div class="row hidden-md hidden-lg">
-							<div class="clearfix"></div>
-
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details"
-									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" />  </a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-								
-								<input type="submit"
-									class="bdr-curve-none btn btn-primary nxt-btn"
-									value="<fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
-
-
-							</div>
-							<div class="clearfix"></div>
-						</div> --%>
+                            <div class="clearfix"></div>
+                        </div>
+					
 						<hr class="summary-hr"/>
-                        <div id="paydoller-wrap" class="declaration-content margin-left-small float">
+						
+						<div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                            <div id="paydollar-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
-                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
                              <fmt:message key="workingholiday.action.paydollar" bundle="${msg}" />
                             </div>
+                            <div class="clearfix"></div>
                           </div>
                           <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                            <div id="visa-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
-                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
                              <fmt:message key="workingholiday.action.visa" bundle="${msg}" />
                             </div>
+                            <div class="clearfix"></div>
                           </div>
                           <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                            <div id="master-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
-                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-left">
+                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
                              <fmt:message key="workingholiday.action.master" bundle="${msg}" />
                             </div>
+                            <div class="clearfix"></div>
                           </div>
-                        </div>	
+                          <div class="clearfix"></div>
+                        </div>
+						
 							
 							
 													

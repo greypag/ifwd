@@ -6,20 +6,6 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<%  
-  	String REQUEST_PATH = "";
-	String requestScheme = request.getScheme();
-	String requestServerName = request.getServerName();
-	Integer requestServerPort = request.getServerPort();
-	String requestContextPath = request.getContextPath();
-
-	if(requestServerPort == null || requestServerPort == 80)
-		REQUEST_PATH = requestScheme + "://" + requestServerName +  requestContextPath + "/";
-	else{
-		REQUEST_PATH = requestScheme + "://" + requestServerName + ":" + requestServerPort +  requestContextPath + "/";
-	}
-%>	
-
 <%
   /* Show Different Referral Benefits for Visitor & Member */
   String currUser = session.getAttribute("username").toString().trim();
@@ -110,16 +96,16 @@
         <div class="container pad-none bdr" style="margin-top:0px;">
           <div class="col-sm-12 pad-none" >
             <div style="width:80%;margin-left:10%">
-	            <h3 class="bmg-confirmation-h3">
-	              <fmt:message key="workingholiday.confirmation.msg.part1" bundle="${msg}" />
-	              <fmt:message key="workingholiday.confirmation.msg.part2" bundle="${msg}" />
-	              <fmt:message key="workingholiday.confirmation.msg.part3" bundle="${msg}" />
-	              <fmt:message key="workingholiday.confirmation.msg.part4" bundle="${msg}" />
-	              <fmt:message key="workingholiday.confirmation.msg.part5" bundle="${msg}" />
-	              <strong><%=session.getAttribute("emailAddress")%></strong>
-	              <fmt:message key="workingholiday.confirmation.msg.part6" bundle="${msg}" />
-	            </h3>
-	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="workingholiday.confirmation.policyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
+              <h3 class="bmg-confirmation-h3">
+                <fmt:message key="workingholiday.confirmation.msg.part1" bundle="${msg}" />
+                <fmt:message key="workingholiday.confirmation.msg.part2" bundle="${msg}" />
+                <fmt:message key="workingholiday.confirmation.msg.part3" bundle="${msg}" />
+                <fmt:message key="workingholiday.confirmation.msg.part4" bundle="${msg}" />
+                <fmt:message key="workingholiday.confirmation.msg.part5" bundle="${msg}" />
+                <strong><%=session.getAttribute("emailAddress")%></strong>
+                <fmt:message key="workingholiday.confirmation.msg.part6" bundle="${msg}" />
+              </h3>
+              <h4 class="bmg-confirmation-h4"><strong><fmt:message key="workingholiday.confirmation.policyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
                 <div style="width:80%;margin-left:10%">
@@ -135,7 +121,7 @@
               <!--Referral Code Table -->
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
                   <% if (isMember) { %>
-                      <table class="table table-bordred table-type-1 margin-bottom-10">
+                      <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
                           <tbody>
                               <tr>
                                   <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
@@ -176,7 +162,7 @@
                         <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
                       </div>
                 <% } else { %>
-                    <table class="table table-bordred table-type-1" style="margin-bottom:0px;">
+                    <table class="table table-bordred table-type-1" style="margin-bottom:0px;width:100% !important;">
                           <tbody>
                               <tr>
                                   <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
@@ -201,38 +187,23 @@
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
                 <div><fmt:message key="workingholiday.confirmation.partnerDesc" bundle="${msg}" /></div>
-                <img src="<%=request.getContextPath()%>/resources/images/agoda.png" alt="" class="img-responsive">
+                <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="" class="img-responsive">
 
-	              <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
-	              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
-	                <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-	                    <div class=" wht-bg1 text-center" id="toBeCopied"><%=REQUEST_PATH%>${language}/workingholiday-insurance?promo=<%=session.getAttribute("finalizeReferenceNo")%>
-	                    </div>
-	                </div>
-	                <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
-	                    <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
-	                        <fmt:message key="workingholiday.referral.copy" bundle="${msg}" />
-	                    </div>
-	    <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/  <%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
-	                    <div class="addthis_sharing_toolbox" data-url="<%=REQUEST_PATH%>${language}/workingholiday-insurance/sharing/" data-title="iFWD"></div>
-	                </div>
-	              </div>
-	              <div class="col-lg-12 col-md-12 travel-b pad-none">
-	                <div class="declaration-content1"> <b><fmt:message key="workingholiday.referral.disclaimer" bundle="${msg}" /></b>
-	                  <p>
-	                      <fmt:message key="workingholiday.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
-	                      <fmt:message key="workingholiday.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>
-	                      <fmt:message key="workingholiday.referral.disclaimer.section1.desc2" bundle="${msg}" /><br>
-	                      <fmt:message key="workingholiday.referral.disclaimer.section2.header" bundle="${msg}" /><br>
-	                      <fmt:message key="workingholiday.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
-	
-	            			<fmt:message key="workingholiday.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
-	            			<a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
-	            				<fmt:message key="workingholiday.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
-	            			</a>
-	            			<fmt:message key="workingholiday.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
-	                  </p></div>
-	              </div>
+                <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
+                  <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
+                      <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance?promo=<%=session.getAttribute("finalizeReferenceNo")%>
+                      </div>
+                  </div>
+                  <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
+                      <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
+                          <fmt:message key="workingholiday.referral.copy" bundle="${msg}" />
+                      </div>
+      <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/  <%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
+                      <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance/sharing/" data-title="iFWD"></div>
+                  </div>
+                </div>
+                
                 </div>
               </div>
               <div class="clearfix"></div>

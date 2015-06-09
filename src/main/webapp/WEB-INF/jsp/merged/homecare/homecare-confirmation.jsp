@@ -192,28 +192,35 @@
 						<div id="confirm-error-msg" class="alert alert-danger hide"
 							role="alert">${errormsg}</div>
 					</c:if>
-					<div class="container pad-none bdr margin-bottom-20">
-						<div class="col-sm-12 gray-bg1">
-							<h3>
-								<fmt:message key="home.confirmation.msg.part1" bundle="${msg}" /> <strong><fmt:message key="home.confirmation.msg.part2" bundle="${msg}" /></strong>
-								<fmt:message key="home.confirmation.msg.part3" bundle="${msg}" /><strong><fmt:message key="home.confirmation.msg.part4" bundle="${msg}" /></strong><br>
-								<fmt:message key="home.confirmation.msg.part5" bundle="${msg}" /> <strong>${emailID}</strong> <fmt:message key="home.confirmation.msg.part6" bundle="${msg}" />
+					<div class="container pad-none bdr" style="margin-top:0px;">
+						<div class="col-sm-12 pad-none">
+						  <div style="width:80%;margin-left:10%">
+							<h3 class="bmg-confirmation-h3">
+								<fmt:message key="home.confirmation.msg.part1" bundle="${msg}" />
+								<fmt:message key="home.confirmation.msg.part2" bundle="${msg}" />
+								<fmt:message key="home.confirmation.msg.part3" bundle="${msg}" />
+								<fmt:message key="home.confirmation.msg.part4" bundle="${msg}" />
+								<fmt:message key="home.confirmation.msg.part5" bundle="${msg}" />
+								<strong>${emailID}</strong>
+								<fmt:message key="home.confirmation.msg.part6" bundle="${msg}" />
 							</h3>
-							<h4>
-								<fmt:message key="home.confirmation.policyNo" bundle="${msg}" />
+							<h4 class="bmg-confirmation-h4">
+								<strong><fmt:message key="home.confirmation.policyNo" bundle="${msg}" /></strong>
 								<span> ${policyNo}</span>
 							</h4>
+						</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
-								<h5>
-									<fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /><span> <%=session.getAttribute("myHomeReferralCode")%></span>
+							 <div style="width:80%;margin-left:10%">
+								<h5 class="bmg-confirmation-h5">
+									<strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong><span> <%=session.getAttribute("myHomeReferralCode")%></span>
 								</h5>
-								<div class="h4-3-b margin-left margin-bottom-10">
+								<div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
 									<fmt:message key="<%=key_referralCodeDesc%>" bundle="${msg}" />
 								</div>
 								<!-- Referral Code Table -->
-					                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
 					                <% if (isMember) { %>
-					                    <table class="table table-bordred table-type-1 margin-bottom-10">
+					                    <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
 					                        <tbody>
 					                            <tr>
 					                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
@@ -254,7 +261,7 @@
 					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
 					                    </div>
 					              <% } else { %>
-					                  <table class="table table-bordred table-type-1 margin-bottom-10">
+					                  <table class="table table-bordred table-type-1 margin-bottom-10" style="margin-bottom:0px;width:100% !important;">
 					                        <tbody>
 					                            <tr>
 					                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
@@ -272,12 +279,30 @@
 					                  </table>
 					              <% } %>                    
 					              </div>
+					              </div>
 					            <!-- END Referral Code Table -->	
 							</div>
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
+						     <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
 								<div><fmt:message key="home.confirmation.partnerDesc" bundle="${msg}" /></div>
 								<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="">
+								<div class="h4-2 margin-left">
+	                            <fmt:message key="home.confirmation.sharenow" bundle="${msg}" />
+	                            </div>
+								<div class="col-md-7 col-sm-12 col-xs-12 pad-none">
+                                    <div class=" wht-bg1 text-center referral-url"><a class=" h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
+                                </div>
+                                <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
+                                    <div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
+                                    <!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
+                                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance/sharing/" data-title="iFWD"></div>
+                                </div>
+				                <div class="clearfix"></div>
+				                </div>
 							</div>
+							
+							<!-- 
+							
 							<div class="clearfix"></div>
 							<br>
 							<div class="h4-2 margin-left">
@@ -290,7 +315,7 @@
 					            </div>
 					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
-						        	<!-- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -->
+						        	<!-/- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -/->
 					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance/sharing/" data-title="iFWD"></div>
 					           	</div>
 					         </div>
@@ -298,7 +323,7 @@
 							<div class="clearfix"></div>
 							<br>
 							<div class="col-lg-12 col-md-12 travel-b">
-								<!--
+								<!-/-
 								<div class="declaration-content1">
 									<b><span class="orange-star">*</span><fmt:message key="home.confirmation.referral.heading" bundle="${msg}" /></b>
 									<p class="margin-none">
@@ -310,37 +335,38 @@
 									</p>
 									<br>
 								</div>
-								-->
+								-/->
 							</div>
+							
+							 -->
+							
+							
+							
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<div class="spacer2 hidden-sm hidden-xs"></div>
-					<div class="container pad-none hidden-xs hidden-sm travel-homecare">
-						<div class="row-fluid">
-							<div class="center " style="visibility: visible;">
-								<h4 class="center-h2"><fmt:message key="home.confirmation.other.heading" bundle="${msg}" /></h4>
-								<br>
-								<br>
-								<div class="col-md-3 col-lg-3 text-left pad-none">
-									<img src="<%=request.getContextPath()%>/resources/images/t-care.png" alt="">
-								</div>
-								<div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
-									<div>
-										<div class="h2-32"><fmt:message key="home.confirmation.other.subheading" bundle="${msg}" /></div>
-										<p class="h4-5"><fmt:message key="home.confirmation.other.desc" bundle="${msg}" /></p>
-										<a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="border-radius btn btn-primary get-btn">
-											<fmt:message key="home.confirmation.other.quote" bundle="${msg}" />
-										</a>
-									</div>
-								</div>
-
-							</div>
-
-
-						</div>
-					</div>
-					<div class="spacer2 hidden-sm hidden-xs"></div>
+					
+					
+					<div class="container pad-none hidden-xs hidden-sm travel-homecare" style="margin-top:30px;">
+			            <div class="row-fluid">
+			              <div class="center " style="visibility: visible;">
+			                <div class="col-md-3 col-lg-3 text-left pad-none">
+			                  <img src="<%=request.getContextPath()%>/resources/images/t-care.png" alt=""> </div>
+			                <div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
+			                  <div>
+			                    <h4 class="center-h2"><fmt:message key="home.confirmation.other.heading" bundle="${msg}" /></h4>                  
+			                    <div class="h2-32" style="margin-top:30px;">
+			                      <strong><fmt:message key="home.confirmation.other.subheading" bundle="${msg}" /></strong>
+			                    </div>
+			                    <br>
+			                    <p class="h4-5"><fmt:message key="home.confirmation.other.desc" bundle="${msg}" /></p><br>
+			                    <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="border-radius btn btn-primary  get-btn" >
+			                    <fmt:message key="home.confirmation.other.quote" bundle="${msg}" /></a>
+			                  </div>
+			                </div>
+			              </div>  
+			            </div>
+			          </div>
 				</form>
 			</div>
 			<!--/.row-->

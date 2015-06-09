@@ -158,9 +158,11 @@ hr {
 .bold {
     font-weight: bold;
 }
+/*
 .datepicker table tr td.today {
     background-color: #e3e3e3 !important;
-}
+}*/
+
 /*Topbar*/
 .navbar-brand img {
     padding: 21px 0px;
@@ -4630,7 +4632,6 @@ table.purchase-history tr td {
 }
 #tr-wizard.shop-tracking-status .image-order-status .status {
     position: absolute;
-    min-width: 270px;
     top: 62px;
 }
 #tr-wizard.shop-tracking-status .image-order-status .status:before {
@@ -4763,8 +4764,15 @@ table.purchase-history tr td {
     right: 156px;
     display: block;
     position: absolute;
-    text-align: right;
+    text-align: right !important;
+    width: 180px !important;
 }
+
+#tr-wizard.shop-tracking-status .third .status {
+    width:255px !important;
+}
+
+
 /********************************************/
 .travel-tb {
     width: 100%;
@@ -5736,7 +5744,8 @@ font-family: 'Foco-bold';
 }
 
 #summary tbody tr:first-child td, #summary tbody tr:nth-child(2) td,
-#Premium tbody tr:first-child td, #Premium tbody tr:nth-child(2) td,
+#Premium tbody tr:first-child td:first-child,
+#Premium tbody tr:nth-child(3) td:first-child,
 #userBenefits tbody tr:first-child td, .table-type-1 tbody tr:first-child td,
 #homecarePremium tbody tr:first-child th { color:#fff; background-color: #f68a1d;}
 .fixed-content{ position: fixed;}
@@ -5950,11 +5959,14 @@ table.vert-middle td{
 .show-inline-xs{
     display: inline;
 }
+/*
+joe 278
 @media (max-width: 767px){
     .show-inline-md{
         display: none;
     }
 }
+*/
 @media (min-width: 768px){
     .show-inline-xs{
         display: none;
@@ -6352,7 +6364,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 100% !important;
+   width: 117% !important;
 }
 .styled-select {
 /*    width: 240px;
@@ -6518,6 +6530,7 @@ tr.product-landing-error-wrap {
 }
 
 .loading-modal {
+	
     background: transparent url(../images/loading.gif) no-repeat;
     width: 200px !important;
     height:200px !important;
@@ -6574,6 +6587,10 @@ tr.product-landing-error-wrap {
     text-align: center;
 }
 
+.summary-row{
+    margin:0px !important;
+}
+
 @media (min-width: 1200px) {
     .summary-container{
        border: none !important;
@@ -6589,10 +6606,6 @@ tr.product-landing-error-wrap {
         color: #000 !important;
     }
     
-    .summary-row{
-        margin-bottom:0px !important;
-    }
-    
     .summary-fwdpanel h4.benefits a{
       font-size: 18px !important;
       line-height: 0px !important;
@@ -6605,6 +6618,10 @@ tr.product-landing-error-wrap {
     
     .paymethod-icon{
         margin-bottom: 15px;
+    }
+    
+    .bmg_recaptcha{
+        margin-left:10%;
     }
 }
 
@@ -6623,10 +6640,6 @@ tr.product-landing-error-wrap {
         color: #000 !important;
     }
     
-    .summary-row{
-        margin-bottom:0px !important;
-    }
-    
     .summary-fwdpanel h4.benefits a{
       font-size: 18px !important;
       line-height: 0px !important;
@@ -6639,6 +6652,10 @@ tr.product-landing-error-wrap {
     
     .paymethod-icon{
         margin-bottom: 15px;
+    }
+    
+    .bmg_recaptcha{
+        margin-left:10%;
     }
 }
 
@@ -6661,12 +6678,12 @@ tr.product-landing-error-wrap {
         color: #f68a1d;
     }
     
-    .summary-row{
-        margin-bottom:15px;
-    }
-    
     .paymethod-container{
         margin-bottom: 40px;
+    }
+    
+    .bmg_recaptcha{
+        margin-left:10%;
     }
 }
 
@@ -6689,12 +6706,17 @@ tr.product-landing-error-wrap {
         margin-bottom:30px;
     }
     
-    .summary-row{
-        margin-bottom:15px;
-    }
-    
     .paymethod-container{
         margin-bottom: 40px;
+    }
+    .bmg_recaptcha{
+        margin-left:10%;
+    }
+}
+
+@media (max-width: 400px) {
+    .bmg_recaptcha{
+        margin-left:2%;
     }
 }
 /** bmg summary css **/
@@ -6777,21 +6799,21 @@ tr.product-landing-error-wrap {
     }
     
     .bmg-detail-exist-member-head{
-	    font-size: 24px !important;
-	    color: #f68a1d;
-	}
-	
-	.bmg-big-title{
-	   color: #f68a1d !important;
-	}
-	
-	.bmg-membership-header{
-	   color: #f68a1d !important;
-	}
-	
-	.bmg-disclaimer-header{
-	   color: #f68a1d !important;
-	}
+        font-size: 24px !important;
+        color: #f68a1d;
+    }
+    
+    .bmg-big-title{
+       color: #f68a1d !important;
+    }
+    
+    .bmg-membership-header{
+       color: #f68a1d !important;
+    }
+    
+    .bmg-disclaimer-header{
+       color: #f68a1d !important;
+    }
 }
 
 @media (min-width: 992px){
@@ -6867,29 +6889,84 @@ tr.product-landing-error-wrap {
 }
 
 .bmg-confirmation-h3{
-	color: #061d2a;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 1.4;
-	margin-bottom: 0;
+    color: #061d2a;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 0;
 }
 
 .bmg-confirmation-h4{
-	color: #f6871e;
-	padding-top: 15px;
-	font-weight: normal;
-	font-size: 24px;
-	line-height: 24px;
+    color: #f6871e;
+    padding-top: 15px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
 }
 
 .bmg-confirmation-h5{
-	color: #f6871e;
-	padding-top: 15px;
-	padding-bottom: 0px;
-	font-weight: normal;
-	font-size: 24px;
-	line-height: 24px;
+    color: #f6871e;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
 }
 /** bmg working holiday end **/
+
+@media (max-width: 991px){
+    .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+        padding: 1.5px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+    }
+    
+    
+    .table{
+        width:auto;
+    }
+    
+    #grossPremium{
+       font-size:27px;
+    }
+    
+    .flightcare-hk{
+       font-size:35px;
+    }
+    
+    .modal-dialog{
+        min-width:200px;
+    }
+    
+    #loading-overlay{
+        width:100%;    
+    }
+    
+    
+    .loading-dialog{
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:80px;
+    }
+    
+    .loading-modal {
+        
+	    
+	    margin-left: 0px;
+	    margin-right: 0px;
+	    
+	    background: transparent url(../images/loading.gif) no-repeat;
+	    width: 200px !important;
+	    height:200px !important;
+	    border:0px !important;
+	    -webkit-box-shadow: 0 0px 0px;
+	    box-shadow: 0 0px 0px;
+	}
+    
+    
+    
+    
+}

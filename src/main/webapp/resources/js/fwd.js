@@ -2,6 +2,7 @@ var reg = /^[a-zA-Z]+$/;
 var emailreg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var regex_malasia = /\+60[-]\d{2,4}[-]?\d{6,9}\b/;
 var mobile_pattern = /^1[0-9]{10}$|^[5689][0-9]{7}$/;   /* /^\d{8}$/; */
+var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
 
 var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).{8,}$/;
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
@@ -44,9 +45,12 @@ function IsHKID(str) {
 	// regular expression to check pattern and split
 	var hkidPat = /^([A-Z]{1,2})([0-9]{6})([A0-9])$/;
 	var matchArray = str.match(hkidPat);
+	
+	var hkidPat2 = /^([A-Z]{1,2})([0-9]{6})([(])([A0-9])([)])$/;
+	var matchArray2 = str.match(hkidPat2);
 
 	// not match, return false
-	if (matchArray == null)
+	if (matchArray == null && matchArray2 == null)
 		return false;
 
 	// the character part, numeric part and check digit part
@@ -121,6 +125,7 @@ $(function () {
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 89*24*60*60*1000);
 	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
+	var oneDay=24*60*60*1000;
 	
 	var checkout;
 	/* desktoip datepicker*/
@@ -504,8 +509,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy",
-
+		format: "dd MM yyyy"
 
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
@@ -513,12 +517,27 @@ $(function () {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
+			
 			$('#dp3').datepicker('update', newDate);
 			$('#dp5').datepicker('update', newDate);
 			if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
 				checkout.datepicker("update", newDate);
 				checkout2.datepicker("update", newDate);
 				checkout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= checkout.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(checkout.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
 			}
 			//checkout.datepicker("setEndDate", new Date(checkin.datepicker("getDate").valueOf() + duration));
 			
@@ -732,6 +751,20 @@ $(function () {
 				checkout.datepicker("update", newDate);
 				checkout2.datepicker("update", newDate);
 				checkout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= checkout2.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(checkout2.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
 			}
 		//}
 		$('#dp4')[0].focus();
@@ -795,12 +828,29 @@ $(function () {
 			var newDate = new Date(ev.date);
 			newDate.setDate(newDate.getDate());
 			
+			if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
+				checkout.datepicker("update", newDate);
+				checkout2.datepicker("update", newDate);
+				checkout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= checkout3.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(checkout3.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				checkout.datepicker("update", lastDate);
+				checkout2.datepicker("update", lastDate);
+				checkout3.datepicker("update", lastDate);
+			}
+			
 			$('#dp1').datepicker('update', newDate);
 			$('#dp3').datepicker('update', newDate);
 			
-			checkout.datepicker("update", newDate);
-			checkout2.datepicker("update", newDate);
-			checkout3.datepicker("update", newDate);
 		//}
 		$('#dp6')[0].focus();
 		var startDate = new Date($('#dp5').datepicker("getDate").valueOf());
@@ -4698,7 +4748,6 @@ function isAccountNumeric(num){
 }
 
 function isValidUsername(el){
-	var plan_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]+$/;
 	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
 		return getBundle(getBundleLanguage, "user.username.notValid.message");
@@ -4718,15 +4767,28 @@ function isValidUsername(el){
 function isValidPassword(el){
 	var passwordPattern = "[a-zA-Z0-9]{8,}";
 	var passwordPattern2 = "[A-Z]";
+	var passwordPattern3 = "[a-z]";
+	var passwordPattern4 = "[0-9]";
 	var specialChar = "\\W";
 	var rg = new RegExp(passwordPattern);
 	var rg2 = new RegExp(passwordPattern2);
+	var rg3 = new RegExp(passwordPattern3);
+	var rg4 = new RegExp(passwordPattern4);
 	var spChar = new RegExp(specialChar);
 	
 	if (el.trim() == ""){
 		message  = getBundle(getBundleLanguage, "user.password.notNull.message");
 		return message;
-	} else if(!(rg2.test(el) && rg.test(el))) { 
+	} else if(!rg.test(el)) { 
+		message = getBundle(getBundleLanguage, "user.password.validate.message");
+		return message;
+	} else if(!rg2.test(el)) { 
+		message = getBundle(getBundleLanguage, "user.password.validate.message");
+		return message;
+	} else if(!rg3.test(el)) { 
+		message = getBundle(getBundleLanguage, "user.password.validate.message");
+		return message;
+	} else if(!rg4.test(el)) { 
 		message = getBundle(getBundleLanguage, "user.password.validate.message");
 		return message;
 	} else if(spChar.test(el)){
@@ -4880,10 +4942,10 @@ if($('#txtMobileNo').length){
 	$('#txtMobileNo').on('blur', function(){
 		var value = $(this).val();
 		if(isMobileNo(value) != true){
-			$('#errorEmptyMob').text(isMobileNo(value));
+			$('#errorEmptyMobJoinUs').text(isMobileNo(value));
 		}
 		else{
-			$('#errorEmptyMob').text('');
+			$('#errorEmptyMobJoinUs').text('');
 		}
 	})
 }
@@ -4892,10 +4954,10 @@ if($('#txtEmailId').length){
 	$('#txtEmailId').on('blur', function(){
 		var value = $(this).val();
 		if(isEmail(value) != true){
-			$('#errorEmptyEmailId').text(isEmail(value));
+			$('#errorEmptyEmailIdJoinUs').text(isEmail(value));
 		}
 		else{
-			$('#errorEmptyEmailId').text('');
+			$('#errorEmptyEmailIdJoinUs').text('');
 		}
 	})
 }
@@ -4905,9 +4967,9 @@ if($('#txtUserName1').length){
 	$cur.on('blur', function(){
 		value = $(this).val();
 		if(isValidUsername(value) !== true){
-			$('#errorEmptyUName').text(isValidUsername(value));
+			$('#errorEmptyUNameJoinUs').text(isValidUsername(value));
 		}else
-			$('#errorEmptyUName').text('');
+			$('#errorEmptyUNameJoinUs').text('');
 	})
 }
 
@@ -5007,10 +5069,22 @@ function hkidValid(ths){
 	var inputVal = $('#'+inputId).val();
 	var selectHkPass = document.getElementById(selectId).value;
 	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
-		inputVal = inputVal.replace(/[\W]/g,'');
+		inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()]/g,'');
 		$('#'+inputId).val(inputVal);
 	}
 }
+
+
+
+	
+//no chinese method
+	$(':text').keyup(function(e) {
+        console.log($(this).attr('id'));
+        inputVal = $(this).val();
+//        console.log($(this).val());
+        inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
+		$('#'+$(this).attr('id')).val(inputVal);
+    });
 
 
 // ***** homecare *****
@@ -5021,8 +5095,6 @@ function hkidValid(ths){
 
 
 $(function () {
-	
-	
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);

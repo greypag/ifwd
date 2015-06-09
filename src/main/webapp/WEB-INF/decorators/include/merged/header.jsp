@@ -9,7 +9,35 @@
 <fmt:setBundle basename="messages" var="msg" />
 
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
+<!-- <a href="javascript:void(0)" id="testajax" >Press</a> --> 
+
 <script>
+
+
+$(window).bind("pageshow", function(event) {
+    if (event.originalEvent.persisted) {
+        //window.location.reload();
+        $('#loading-overlay').modal('hide');
+        $("#PaymentingDiv").hide();
+        $("#button_confirm").show();
+    }
+});
+
+/*
+$( "#testajax" ).click(function() {
+  
+  
+  $('#loading-overlay').modal({
+	   backdrop: 'static',
+	   keyboard: false
+	})
+});
+*/
+
+
+$('#ajax-loading').hide();
+
+
 var home_url = "<%=request.getContextPath()%>";
 function submitLoginForm(formID) {
 	
@@ -23,12 +51,13 @@ function submitLoginForm(formID) {
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
-				console.log(data);
 				$('#ajax-loading').hide();
 				if (data == 'success') {
 					//$('#ajax-loading').hide();
 					//var Backlen = history.length;
 					//history.go(-Backlen);
+					
+					perventRedirect=false;
 					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 					location.reload();
 				} else if (data == 'fail') {
@@ -127,11 +156,11 @@ function submitLoginForm(formID) {
 							System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
 							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
 							<%
 							} else {
 							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>
+								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">EN</a>
 							<%
 							}
 							
@@ -142,7 +171,7 @@ function submitLoginForm(formID) {
 							%>
 						
 							<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
                             </a>
 							<!--  </a> -->
 							
@@ -162,7 +191,7 @@ function submitLoginForm(formID) {
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4 class="margin-shift">
-													<fmt:message key="header.login.username" bundle="${msg}" />  <a href="forgotUserName"
+													<fmt:message key="header.login.username" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -172,7 +201,7 @@ function submitLoginForm(formID) {
 												</div>
 												<span id="errUserName" style="color: red"></span>
 												<h4 class="margin-shift">
-													<fmt:message key="header.login.password" bundle="${msg}" />  <a href="forgotPassword"
+													<fmt:message key="header.login.password" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
@@ -203,7 +232,7 @@ function submitLoginForm(formID) {
 									.getAttribute("authenticate").toString())){
 								%>
 								<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
+								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message key="header.menu.login" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
 							</a>
 								<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform">
@@ -260,7 +289,7 @@ function submitLoginForm(formID) {
 								<%
 								}else{%>
 									<li class="dropdown logout-btn margin-left1" id="myDropdown">
-								<a href="#" class="dropdown-toggle" id="fwd-login"
+								<a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"><fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%> <i
 									class="fa fa-caret-right"></i>
 							</a>
@@ -268,7 +297,7 @@ function submitLoginForm(formID) {
 									<ul>
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
-										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
+										<li><a href="<%=request.getContextPath()%>/${language}/account" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
 										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1">
@@ -308,11 +337,11 @@ function submitLoginForm(formID) {
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}/home"><img
 					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
 			</div>
-			<div class="col-lg-8 col-md-7 pull-right">
-				
+			<div class="col-lg-8 col-md-7 pull-right">		
 				<ul class="maintabs">
-	  <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> </li>			
-       <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+	  <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance" class="travel-and-home-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> 
+	  </li> 
+	  <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
       <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
       <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a class="travel-and-home-tab"   href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
@@ -330,25 +359,14 @@ function submitLoginForm(formID) {
 <!--Mobile-header-->
 <div class="mob-header hidden-lg hidden-md pad-none">
 	<div class="mob-topbar">
-
-		<span class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> 
-		    <!-- 
-		    <a href="#" onClick="zopim_chat_start()">
-		      <span class="chat pull-right">
-		          <fmt:message key="header.menu.chatnow" bundle="${msg}" />
-		      </span>
-		    </a>
-		     -->
-		     
-		    <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />">
-		      <span class="chat pull-right">
-		          <fmt:message key="header.menu.chatnow" bundle="${msg}" />
-		      </span>
-		    </a>
-		    
-		    
-		     
-            
+	    <!-- 
+		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
+			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
+		 -->	
+	    <span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span>
+            <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a> 
+             
+	   
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
 			<%
 				if ("en".equals(session.getAttribute("language").toString())) {
@@ -401,7 +419,7 @@ function submitLoginForm(formID) {
 											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
-												<h4 class="margin-shift"><fmt:message key="header.login.username" bundle="${msg}" /> <a href="forgotUserName"
+												<h4 class="margin-shift"><fmt:message key="header.login.username" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -410,7 +428,7 @@ function submitLoginForm(formID) {
 														placeholder="" id="headerUserName">
 												</div>
 												<span id="errUserName" style="color: red"></span>
-												<h4 class="margin-shift"><fmt:message key="header.login.password" bundle="${msg}" /> <a href="forgotPassword"
+												<h4 class="margin-shift"><fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
@@ -450,7 +468,7 @@ function submitLoginForm(formID) {
 									<ul>
 									<% if(!"direct".equalsIgnoreCase(request.getSession()
 											.getAttribute("authenticate").toString())){ %>
-										<li><a href="<%=request.getContextPath()%>/getAccByUsernaneAndPassword" class="color1">
+										<li><a href="<%=request.getContextPath()%>/${language}/account" class="color1">
 												<fmt:message key="header.menu.member" bundle="${msg}" /></a></li>
 												<%} %>
 										<li><a href="<%=request.getContextPath()%>/userLogout" class="color1"><fmt:message key="header.menu.logout" bundle="${msg}" /></a></li>
@@ -514,7 +532,9 @@ $('.navmenu').on('show.bs.offcanvas', function(){
 	$('#test').show();
 });
 $('.navmenu').on('hidden.bs.offcanvas', function(){
-	$('#test').hide();
+	$('#test').hide(function(){
+		$( "#toplefthotline" ).trigger( "click" );
+	});
 });
 $('#test').click(function(){
 	$('.navmenu').offcanvas('hide');

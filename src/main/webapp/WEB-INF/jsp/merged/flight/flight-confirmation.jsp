@@ -19,7 +19,7 @@ perventRedirect=true;
 <section>
 <div class="container">
 <div class="row">
-<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/${language}/travel?promo=FLTUGD">
+<form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/${language}/flight-upgrade-travel-summary">
 
 <ol class="breadcrumb pad-none">
 <li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -63,205 +63,205 @@ class="image-order-status image-order-status-active  img-circle">
 </div>
 </div>
 <div class="container pad-none bdr">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gray-bg1">
-<h3>
-<fmt:message key="flight.confirmation.msg.part1" bundle="${msg}" /> <fmt:message key="flight.confirmation.msg.part2" bundle="${msg}" />
-<fmt:message key="flight.confirmation.msg.part3" bundle="${msg}" /> <fmt:message key="flight.confirmation.msg.part4" bundle="${msg}" /> <br> <fmt:message key="flight.confirmation.msg.part5" bundle="${msg}" /> <%-- <%=request.getAttribute("email")%> --%>
-
-<%=request.getSession().getAttribute(
-"setEmailForConfirmation")%>
- <fmt:message key="flight.confirmation.msg.part6" bundle="${msg}" />
-</h3>
-<%-- <h4>Reference Number :<span>${createFlightPolicy.getReferenceNo()}</span></h4> --%>
-<h4>
-<fmt:message key="flight.confirmation.policyNo" bundle="${msg}" /> <span><%=request.getSession().getAttribute(
-"policyNo")%></span>
-</h4>
-
-<div class="gray-bg1-content">
-<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pad-none">
-
-
-<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>
-</div>
-<div class="col-lg-6 col-md-6">
-<p>
-<!-- Other sharing options -->
-</p>
-</div>
-<div class="clearfix"></div>
-</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none" style="background-color: #f5f5f5;">
+    <div style="width:80%;margin-left:10%">
+		<h3 class="bmg-confirmation-h3">
+			<fmt:message key="flight.confirmation.msg.part1" bundle="${msg}" />
+			<fmt:message key="flight.confirmation.msg.part2" bundle="${msg}" />
+			<fmt:message key="flight.confirmation.msg.part3" bundle="${msg}" />
+			<fmt:message key="flight.confirmation.msg.part4" bundle="${msg}" />
+			<fmt:message key="flight.confirmation.msg.part5" bundle="${msg}" />
+			<strong><%=request.getSession().getAttribute("setEmailForConfirmation")%></strong>
+			<fmt:message key="flight.confirmation.msg.part6" bundle="${msg}" />
+		</h3>
+		<%-- <h4>Reference Number :<span>${createFlightPolicy.getReferenceNo()}</span></h4> --%>
+		<h4 class="bmg-confirmation-h4">
+			<strong><fmt:message key="flight.confirmation.policyNo" bundle="${msg}" /></strong> <span><%=request.getSession().getAttribute(
+			"policyNo")%></span>
+		</h4>
+		
+		<div class="gray-bg1-content" style="padding:0px !important">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
+			     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<p>
+				<!-- Other sharing options -->
+				</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
 </div>
 <div class="clearfix"></div>
 </div>
 <div class="spacer2"></div>
 <div class="container pad-none">
-<div class="row-fluid">
-<div class="center " style="visibility: visible;">
-<h4 class="center-h2"><fmt:message key="flight.confirmation.heading" bundle="${msg}" /></h4>
-<h3 class="center-h3"><fmt:message key="flight.confirmation.subheading" bundle="${msg}" /></h3>
-<br>
-</div>
-<!--Start Travel Plan  -->
-
-<!-- HTML Travel Plans -->
-
-<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box ">
-<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-<h2>
-PLAN A<br> Superior Cover<br> HK$ 1,000,000 Medical
-</h2>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-<br>
-<h3>HK$</h3>
-<h6>420</h6>
-<p>
-<del> 540</del>
-</p>
-</div>
-<div class="clearfix"></div>
-<div class="fwdpanel">
-<div class="fwdpanel-heading">
-<h4 class="benefits">
-<span><i class="fa fa-plus"></i> 
-<button href="#"
-class="fwdpanel-minimize uline color-wht">See All
-Benefits </button> </span>
-</h4>
-</div>
-<div class="fwdpanel-body" style="display: none;">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<p class="color-wht">
-<i class="fa fa-plus"></i> Hospital or quarantine cash
-$10,000<br> <i class="fa fa-plus"></i>Worldwide
-emergency assistance Fully Covered <br> <i
-class="fa fa-plus"></i> Rental vehicle excess $5,000 <br>
-<i class="fa fa-plus"></i> Golfer Hole in one $3,000 <br>
-</p>
-</div>
-</div>
-<div class="clearfix"></div>
-</div>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box2 ">
-<div class="plan-box2-inner">
-<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-<h2>
-PLAN B<br> Standard Cover<br> HK$ 500,000 Medical
-</h2>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-<br>
-<h3>HK$</h3>
-<h6>285</h6>
-<p>
-<del> 376</del>
-<p>
-</div>
-<div class="clearfix"></div>
-<div class="fwdpanel">
-<div class="fwdpanel-heading">
-<h4 class="benefits">
-<span><i class="fa fa-plus"></i> <button
-class="fwdpanel-minimize uline">See All Benefits </button> </span>
-</h4>
-</div>
-<div class="fwdpanel-body" style="display: none;">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<p>
-<i class="fa fa-plus"></i> Hospital or quarantine cash
-$5,000 <br> <i class="fa fa-plus"></i> Worldwide
-emergency assistance Fully Covered<br> <i
-class="fa fa-plus"></i> Rental vehicle excess $3,000<br>
-<i class="fa fa-plus"></i> Golfer Hole in one $1,000<br>
-</p>
-</div>
-</div>
-<div class="clearfix"></div>
-</div>
-</div>
-</div> -->
-
-<!-- Commented code for upgrade plan to travel -->
-
-<%
-QuoteDetails travelQuote = (QuoteDetails) request
-.getAttribute("quoteDetails");
-if (travelQuote.getPlanName().length > 0) {
-for (int i = 0; i < travelQuote.getPlanName().length; i++) {
-%>
-<div
-class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-box">
-<div class="plan-box2-inner travelproductbox"
-id="box<%=i%>">
-<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
-<h2>
-									Plan <%=travelQuote.getPlanName()[i]%>
-									<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
-									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
-									{%> <fmt:message key="flight.confirmation.upgrade.plan1.type" bundle="${msg}" /><br><fmt:message key="flight.confirmation.upgrade.plan1.medical" bundle="${msg}" /> 
-								<%}	else{ %>
-								<fmt:message key="flight.confirmation.upgrade.plan2.type" bundle="${msg}" /><br>
-									<fmt:message key="flight.confirmation.upgrade.plan2.medical" bundle="${msg}" />
-									<%} %>
-									
-								</h2>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-<h3><fmt:message key="dollar.hkd" bundle="${msg}" /></h3>
-<span id="totalDue"></span>
-<h6><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></h6>
-    
-<p>
-<del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del> 
-</p>
-</div>
-<div class="clearfix"></div>
-<div class="fwdpanel">
-<div class="fwdpanel-heading">
-<h4 class="benefits">
-<span><i class="fa fa-plus"></i> <a href="#"
-class="fwdpanel-minimize uline"><fmt:message key="flight.confirmation.upgrade.plan1.benefits" bundle="${msg}" />  </a> </span>
-</h4>
-</div>
-<div class="fwdpanel-body clearfix" style="display: none;">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<ul>
-			<%
-				String planBenefitDesc1Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc1";
-				String planBenefitDesc2Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc2";
-				String planBenefitDesc3Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc3";
-				String planBenefitDesc4Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc4";
-			%>
-			<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li> 
-			<li><fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" /></li> 
-			<li><fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /></li>
-			<li><fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></li>
-		</ul>
+	<div class="row-fluid">
+	   <div style="width:80%;margin-left:10%">
+		<div class="center " style="visibility: visible;">
+			<h4 class="center-h2"><fmt:message key="flight.confirmation.heading" bundle="${msg}" /></h4>
+			<h3 class="center-h3"><fmt:message key="flight.confirmation.subheading" bundle="${msg}" /></h3>
+			<br>
+		</div>
+		<!--Start Travel Plan  -->
+		
+		<!-- HTML Travel Plans -->
+		
+		<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box ">
+		<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+		<h2>
+		PLAN A<br> Superior Cover<br> HK$ 1,000,000 Medical
+		</h2>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+		<br>
+		<h3>HK$</h3>
+		<h6>420</h6>
+		<p>
+		<del> 540</del>
+		</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="fwdpanel">
+		<div class="fwdpanel-heading">
+		<h4 class="benefits">
+		<span><i class="fa fa-plus"></i> 
+		<button href="#"
+		class="fwdpanel-minimize uline color-wht">See All
+		Benefits </button> </span>
+		</h4>
+		</div>
+		<div class="fwdpanel-body" style="display: none;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<p class="color-wht">
+		<i class="fa fa-plus"></i> Hospital or quarantine cash
+		$10,000<br> <i class="fa fa-plus"></i>Worldwide
+		emergency assistance Fully Covered <br> <i
+		class="fa fa-plus"></i> Rental vehicle excess $5,000 <br>
+		<i class="fa fa-plus"></i> Golfer Hole in one $3,000 <br>
+		</p>
+		</div>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box2 ">
+		<div class="plan-box2-inner">
+		<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 pad-none">
+		<h2>
+		PLAN B<br> Standard Cover<br> HK$ 500,000 Medical
+		</h2>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+		<br>
+		<h3>HK$</h3>
+		<h6>285</h6>
+		<p>
+		<del> 376</del>
+		<p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="fwdpanel">
+		<div class="fwdpanel-heading">
+		<h4 class="benefits">
+		<span><i class="fa fa-plus"></i> <button
+		class="fwdpanel-minimize uline">See All Benefits </button> </span>
+		</h4>
+		</div>
+		<div class="fwdpanel-body" style="display: none;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<p>
+		<i class="fa fa-plus"></i> Hospital or quarantine cash
+		$5,000 <br> <i class="fa fa-plus"></i> Worldwide
+		emergency assistance Fully Covered<br> <i
+		class="fa fa-plus"></i> Rental vehicle excess $3,000<br>
+		<i class="fa fa-plus"></i> Golfer Hole in one $1,000<br>
+		</p>
+		</div>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+		</div>
+		</div> -->
+		
+		<!-- Commented code for upgrade plan to travel -->
+		
+		<%
+		QuoteDetails travelQuote = (QuoteDetails) request
+		.getAttribute("quoteDetails");
+		if (travelQuote.getPlanName().length > 0) {
+		for (int i = 0; i < travelQuote.getPlanName().length; i++) {
+		%>
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 plan-box">
+		<div class="plan-box2-inner travelproductbox" id="box<%=i%>">
+		<div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 pad-none">
+		<h2>
+											Plan <%=travelQuote.getPlanName()[i]%>
+											<%-- <input type="text" name="txtPlanName<%=i %>" values="<%=travelQuote.getPlanName()[i] %>"> --%>
+											<br> <%if (travelQuote.getPlanName()[i].equals("A"))
+											{%> <fmt:message key="flight.confirmation.upgrade.plan1.type" bundle="${msg}" /><br><fmt:message key="flight.confirmation.upgrade.plan1.medical" bundle="${msg}" /> 
+										<%}	else{ %>
+										<fmt:message key="flight.confirmation.upgrade.plan2.type" bundle="${msg}" /><br>
+											<fmt:message key="flight.confirmation.upgrade.plan2.medical" bundle="${msg}" />
+											<%} %>
+											
+										</h2>
+		</div>
+		<div class="col-lg-5 col-md-5 col-sm-6 col-xs-6" style="text-align: right;">
+		<h3><fmt:message key="dollar.hkd" bundle="${msg}" /></h3>
+		<span id="totalDue"></span>
+		<h6><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></h6>
+		    
+		<p>
+		<del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del> 
+		</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="fwdpanel">
+		<div class="fwdpanel-heading">
+		<h4 class="benefits">
+		<span><a href="#"
+		class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> <fmt:message key="flight.confirmation.upgrade.plan1.benefits" bundle="${msg}" />  </a> </span>
+		</h4>
+		</div>
+		<div class="fwdpanel-body clearfix" style="display: none;">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<ul>
+					<%
+						String planBenefitDesc1Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc1";
+						String planBenefitDesc2Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc2";
+						String planBenefitDesc3Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc3";
+						String planBenefitDesc4Key = "flight.confirmation.upgrade.plan" + (i+1) + ".benefits.desc4";
+					%>
+					<li><fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></li> 
+					<li><fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" /></li> 
+					<li><fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /></li>
+					<li><fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<h5>
+		    <!-- joe -->
+			<a href="#" class="bdr-curve btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal" onclick="perventRedirect=false;setPriceAndColorNotSubmit('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')">
+			   <fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" />
+			</a>
+		</h5>
+		<!--
+		this is the old button 
+		<h5><a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="perventRedirect=false;setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
+		-->
+		</div>
+		</div>
+		<%
+		}
+		}
+		%>
+		
+		<!-- End Travel Plan -->
+		</div>
 	</div>
-</div>
-</div>
-<h5>
-   
-	<a href="#" class="bdr-curve btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal">
-	   <fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" />
-	</a>
-</h5>
-<!--
-this is the old button 
-<h5><a href="javascript:void(0)" class="bdr-curve-none btn btn-primary bck-btn" onclick="perventRedirect=false;setPriceAndColor('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')"><fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" /></a> </h5>
--->
-</div>
-</div>
-<%
-}
-}
-%>
-
-<!-- End Travel Plan -->
-
-</div>
 </div>
 
 <div class="modal fade details-popup" id="confirm-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
@@ -380,6 +380,8 @@ this is the old button
 		            if(optIn1 == "true" && optIn2 == "true"){
 		            	$(".error-hide1").hide();
 		            	$(".error-hide2").hide();
+		            	
+		            	$('#frmTravelPlan').submit();
 		            }
 		            
 		            
@@ -484,6 +486,38 @@ data : $('#frmTravelPlan').serialize()
 });  */
 
 }
+
+
+
+function setPriceAndColorNotSubmit(id, planName, selectedPrice, selectPlanPremium) {
+    var selected_div;
+    var idArray = [];
+
+    $('.travelproductbox').each(function() {
+        idArray.push(this.id);
+    });
+
+    var index = idArray.indexOf(id);
+    if (index > -1) {
+        idArray.splice(index, 1);
+        
+    }
+
+    $('#inputseletedplanname').val(planName);
+    $('#inputseletedDueAmount').val(selectedPrice);
+    $('#inputselectPlanPremium').val(selectPlanPremium);
+    
+
+    //$('#frmTravelPlan').submit();
+/* $.ajax({
+type : 'POST',
+url : 'travel-summary',
+data : $('#frmTravelPlan').serialize()
+});  */
+
+}
+
+
 </script>
 
 

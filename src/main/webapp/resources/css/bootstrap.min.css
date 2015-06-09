@@ -1256,10 +1256,11 @@ th {
 	text-align: left
 }
 .table {
-	width: auto;
-	/*joe
+	/*
+	joe
 	width: 100%;
 	*/
+	width: auto;
 	margin-bottom: 20px
 }
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {

@@ -11,7 +11,6 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
 function prepareWorkingHolidayPlan(form, paymentFormId){
-	var result = false;
 	var paymentFormId = '#' + paymentFormId;
 	var method = "<%=request.getContextPath()%>/prepareWorkingHolidayPlan";
 	$.ajax({
@@ -22,14 +21,12 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		success : function(data) {
 			if (data == 'success') {
 				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
-				result = true;
 			} else {
 				console.log("fail to process prepareWorkingHolidayPlan " + data);
-				result = false;
+				return false;
 			}
 		}
-	});
-	return result;
+	}); 
 }
 
 
@@ -71,7 +68,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
 <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
-      <button type="submit" class="bdr-curve-none btn btn-primary btn-lg" style="width:100%">
+      <button type="submit" class="bdr-curve btn btn-primary btn-lg" style="width:100%">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
 </form>
@@ -89,15 +86,11 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
             <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-		        <fmt:message key="workingholiday.main.feature1.title" bundle="${msg}" />
+		        <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
 		      </h3>
 	          <div style="margin-top:25px;">
 	               <img src="<%=request.getContextPath()%>/resources/images/icon1.png" />
 	          </div>
-	          <div style="margin-top:15px; ">
-	               <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
-	          </div>
-	          <hr width="50%">
 	          <div style="margin-top:10px;">
                    <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" /><span style="color:#f68a1d;">*</span>
               </div>
@@ -109,15 +102,11 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	      <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	             <fmt:message key="workingholiday.main.feature2.title" bundle="${msg}" />
+	             <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
 	          </h3>
 	          <div style="margin-top:25px;">
                    <img src="<%=request.getContextPath()%>/resources/images/icon2.png" />
               </div>
-              <div style="margin-top:15px; ">
-                   <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
-              </div>
-              <hr width="50%">
               <div style="margin-top:10px;">
                     <fmt:message key="workingholiday.main.feature2.paragraph" bundle="${msg}" />
               </div>
@@ -126,15 +115,11 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	                 <fmt:message key="workingholiday.main.feature3.title" bundle="${msg}" />
+	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
 	              </h3>
 	              <div style="margin-top:25px;">
 	                   <img src="<%=request.getContextPath()%>/resources/images/icon3.png" />
 	              </div>
-	              <div style="margin-top:15px; ">
-	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
-	              </div>
-	              <hr width="50%">
 	              <div style="margin-top:10px;">
 	                  <fmt:message key="workingholiday.main.feature3.paragraph" bundle="${msg}" />
 	              </div>
