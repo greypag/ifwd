@@ -71,7 +71,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <button type="submit" class="bdr-curve btn btn-primary btn-lg" style="width:100%">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
-  </form>
+</form>
 </div>
 <!--Mobileform--> 
 
@@ -86,62 +86,42 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
             <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-		      Flexibility <br />
-		      of Refund
+		        <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
 		      </h3>
 	          <div style="margin-top:25px;">
 	               <img src="<%=request.getContextPath()%>/resources/images/icon1.png" />
 	          </div>
-	          <div style="margin-top:15px; ">
-	               Pay only for what <br /> you use
-	          </div>
-	          <hr width="50%">
 	          <div style="margin-top:10px;">
-                   Get refunded for <br /> unused coverage<span style="color:#f68a1d;">*</span>
+                   <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" /><span style="color:#f68a1d;">*</span>
               </div>
               <div style="margin-top:15px; font-size:10px; color:#f68a1d;">
-                    *Service fee of $500HK applies
+                    <fmt:message key="workingholiday.main.feature1.paragraph2" bundle="${msg}" />
               </div>
               </div>
 	      </div>
 	      <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	          Unforeseable <br />
-	          Loss of Income
+	             <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
 	          </h3>
 	          <div style="margin-top:25px;">
                    <img src="<%=request.getContextPath()%>/resources/images/icon2.png" />
               </div>
-              <div style="margin-top:15px; ">
-                   Get cash allowanc for <br /> 
-                   accidental injury
-              </div>
-              <hr width="50%">
               <div style="margin-top:10px;">
-                   Get compensation for <br /> 
-                   employer's business <br />
-                   bankruptcy
+                    <fmt:message key="workingholiday.main.feature2.paragraph" bundle="${msg}" />
               </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
 	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
-	              Travel The World <br />
-	              Without Limits
+	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
 	              </h3>
 	              <div style="margin-top:25px;">
 	                   <img src="<%=request.getContextPath()%>/resources/images/icon3.png" />
 	              </div>
-	              <div style="margin-top:15px; ">
-	                   Cover leisure trips within <br /> 
-	                   coverage period
-	              </div>
-	              <hr width="50%">
 	              <div style="margin-top:10px;">
-	                   Extends to worldwide <br />
-	                   locations
+	                  <fmt:message key="workingholiday.main.feature3.paragraph" bundle="${msg}" />
 	              </div>
 	          </div>
           </div>
@@ -179,7 +159,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a><fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
@@ -242,7 +222,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /></p>
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -274,6 +254,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 <!--/#testiomonials-->
 <section id="testimonials" class="hidden-sm hidden-xs" style="background:#4E4E4E;">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
   <div class="container"> 
     <!--desktop-testimonials-->
     
@@ -284,17 +265,17 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     
     <div style="color:white; float:left; width:50%;">
         <div>
-	        <h2>Next Step</h2>        
-	        <hr style="width:120px; margin:0; margin-left:10px; margin-top:8px;">
+          <h2><fmt:message key="workingholiday.main.quote.bottom.next" bundle="${msg}" /></h2>        
+          <hr style="width:120px; margin:0; margin-left:10px; margin-top:8px;">
         </div>
         
         <div>
-            <h2>Made your decision</h2>        
-            <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
+            <h2><fmt:message key="workingholiday.main.quote.bottom.heading" bundle="${msg}" /></h2>        
+            <span style="font-size:21px;"><fmt:message key="workingholiday.main.quote.bottom.desc" bundle="${msg}" /></span>
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
         </div>
     </div>
     
@@ -303,7 +284,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     <!--/.desktop-testimonials--> 
     
   </div>
-  <!--/.container--> 
+  <!--/.container-->
+</form>   
 </section>
 <!--/#testiomonials--> 
 
@@ -334,8 +316,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
-            <h1><fmt:message key="workingholiday.main.highlight1.heading.line1" bundle="${msg}" /><br/>
-              <fmt:message key="workingholiday.main.highlight1.heading.line2" bundle="${msg}" />
+            <h1><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" />
             </h1>
               <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
 
@@ -345,8 +326,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
-            <h1><fmt:message key="workingholiday.main.highlight2.heading.line1" bundle="${msg}" /><br/>
-              <fmt:message key="workingholiday.main.highlight2.heading.line2" bundle="${msg}" /></h1>
+            <h1><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h1>
               <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /><br>
               <br>
             </p>
@@ -356,8 +336,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
-            <h1><fmt:message key="workingholiday.main.highlight3.heading.line1" bundle="${msg}" /><br/>
-              <fmt:message key="workingholiday.main.highlight3.heading.line2" bundle="${msg}" /></h1>
+            <h1><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h1>
             <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
             <!--<img src="resources/images/agoda-logo.png" alt=""/>--> </div>
         </div>
@@ -378,8 +357,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
-                <h2><fmt:message key="workingholiday.main.highlight1.heading.line1" bundle="${msg}" /><br/>
-                  <fmt:message key="workingholiday.main.highlight1.heading.line2" bundle="${msg}" /></h2>
+                <h2><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" /></h2>
                 <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
@@ -390,7 +368,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           <div class="slide-margin">
             <div class="recent-work-wrap-mid text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
-              <h2><fmt:message key="workingholiday.main.highlight2.heading.line1" bundle="${msg}" /> <fmt:message key="workingholiday.main.highlight2.heading.line2" bundle="${msg}" /></h2>
+              <h2><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h2>
                 <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /></p>
               </div>
             </div>
@@ -401,7 +379,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           <div class="slide-margin">
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
-              <h2><fmt:message key="workingholiday.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="workingholiday.main.highlight3.heading.line2" bundle="${msg}" /></h2>
+              <h2><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h2>
                 <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
               </div>
             </div>
