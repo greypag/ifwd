@@ -21,13 +21,11 @@ var promoData = '';
 		var promoCode = document.getElementById("promoCode").value;
 		promoCode=promoCode.trim();
 		document.getElementById("promoCode").value = promoCode;
-		
-		if (promoCode == "") {
-			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+		if (promoCode == "" || promoCode == "例如:FWD789") {
 			flag = false;
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 		} else
 			flag = true;
-
 		return flag;
 	}
 	function chkDueAmount() {
