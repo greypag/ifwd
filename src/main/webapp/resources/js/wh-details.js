@@ -380,7 +380,7 @@ function whDetailsValid(){
 	}
 	
 	if (WhAppDob.trim() == "") {
-		$("#whAppDob").html(getBundle(getBundleLanguage, "workinghoilday.dob.message"));
+		$("#whAppDob").html(getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
 		flag = false;
 	}
 		
