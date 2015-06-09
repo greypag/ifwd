@@ -77,11 +77,11 @@ public class TravelController {
 		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
 		
 		HttpSession session = request.getSession();
-//		if (promo != null) {
-//			if (!promo.equals("")) {
-//				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-//			}	
-//		}
+		if (promo != null) {
+			if (!promo.equals("")) {
+				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+			}	
+		}
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		System.out.println("travel promo " + (String)session.getAttribute("referralCode"));
 		TravelQuoteBean travelQuote;
@@ -134,7 +134,11 @@ public class TravelController {
 		} else {
 			ogTitle = WebServiceUtils.getPageTitle("travel.sharing.og.title", UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request));
+			
 			ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));
+			if (promo != null) {
+				ogUrl = ogUrl + "?promo=" + promo;	
+			}
 			ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
 			ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));
 			
@@ -282,6 +286,7 @@ public class TravelController {
 					Url, header, null);
 
 			System.out.println("Get Travel Quotes API " + responseJsonObj);
+			System.out.println("errMsgs " + responseJsonObj.get("errMsgs"));
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
@@ -326,7 +331,53 @@ public class TravelController {
 				session.setAttribute("quoteDetails", quoteDetails);
 				
 				model.addAttribute("travelQuoteBean", travelQuote);
-			} else {
+			} else if (responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")) {
+				QuoteDetails quoteDetails = new QuoteDetails();
+				quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
+				responseJsonObj.get("referralCode");
+				responseJsonObj.get("referralName");
+				responseJsonObj.get("priceInfoA");
+				responseJsonObj.get("priceInfoB");
+				JSONObject jsonPriceInfoA = new JSONObject();
+				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
+				JSONObject jsonPriceInfoB = new JSONObject();
+				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
+				String planeName[] = { "A", "B" };
+				String grossPrem[] = {
+						jsonPriceInfoA.get("grossPremium").toString(),
+						jsonPriceInfoB.get("grossPremium").toString() };
+
+				String discountPercentage[] = {
+						jsonPriceInfoA.get("discountPercentage").toString(),
+						jsonPriceInfoB.get("discountPercentage").toString() };
+
+				String discountAmount[] = {
+						jsonPriceInfoA.get("discountAmount").toString(),
+						jsonPriceInfoB.get("discountAmount").toString() };
+
+				String totalNetPremium[] = {
+						jsonPriceInfoA.get("totalNetPremium").toString(),
+						jsonPriceInfoB.get("totalNetPremium").toString() };
+
+				String totalDue[] = {
+						jsonPriceInfoA.get("totalDue").toString(),
+						jsonPriceInfoB.get("totalDue").toString() };
+
+				quoteDetails.setGrossPremium(grossPrem);
+				quoteDetails.setDiscountPercentage(discountPercentage);
+				quoteDetails.setDiscountAmount(discountAmount);
+				quoteDetails.setTotalNetPremium(totalNetPremium);
+				quoteDetails.setToalDue(totalDue);
+				quoteDetails.setPlanName(planeName);
+
+				request.setAttribute("quoteDetails", quoteDetails);
+				model.addAttribute("quoteDetails", quoteDetails);
+				session.setAttribute("quoteDetails", quoteDetails);
+				
+				model.addAttribute("travelQuoteBean", travelQuote);
+				session.setAttribute("referralCode", "");
+			}
+			else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "travel/travel");

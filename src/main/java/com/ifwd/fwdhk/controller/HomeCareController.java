@@ -78,11 +78,11 @@ public class HomeCareController {
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		HttpSession session = request.getSession();
 		String token = null, username = null;
-//		if (promo != null) {
-//			if (!promo.equals("")) {
-//				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-//			}
-//		}
+		if (promo != null) {
+			if (!promo.equals("")) {
+				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+			}
+		}
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());
@@ -167,6 +167,9 @@ public class HomeCareController {
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.og.title", lang);
 				ogType = WebServiceUtils.getPageTitle("homeCare.og.type", lang);
 				ogUrl = WebServiceUtils.getPageTitle("homeCare.og.url", lang);
+				if (promo != null) {
+					ogUrl = ogUrl + "?promo=" + promo;	
+				}
 				ogImage = WebServiceUtils.getPageTitle("homeCare.og.image", lang);
 				ogDescription = WebServiceUtils.getPageTitle("homeCare.og.description", lang);
 			}
@@ -251,7 +254,22 @@ public class HomeCareController {
 	
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare-plan";
-		} else {
+		} else if (planQuote.getErrormsg().contains("Promotion code is not valid")) {
+			model.addAttribute("planQuote", planQuote);
+			request.setAttribute("planQuote", planQuote);
+			model.addAttribute("answer1", answer1);
+			model.addAttribute("answer2", answer2);
+			String pageTitle = WebServiceUtils.getPageTitle("page.homeCareQuotation", lang);
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCareQuotation",	lang);
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			session.setAttribute("referralCode", "");
+			return UserRestURIConstants.getSitePath(request)
+					+ "homecare/homecare-plan";
+		} 
+		
+		
+		else {
 			System.out.println("errMsgs " + planQuote.getErrormsg());
 			model.addAttribute("errMsgs", planQuote.getErrormsg());
 			

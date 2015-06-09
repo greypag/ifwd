@@ -11,6 +11,8 @@
 <mvc:annotation-driven />
 
 <mvc:resources mapping="/resources/**" location="/resources/" />
+<mvc:resources mapping="/**" location="/analysis/" />
+
 
 <context:component-scan base-package="com.ifwd.fwdhk" />
 
@@ -25,5 +27,6 @@
 	<property name="prefix" value="/WEB-INF/jsp/" />
 	<property name="suffix" value=".jsp" />
 </bean>
+
 
 </beans>

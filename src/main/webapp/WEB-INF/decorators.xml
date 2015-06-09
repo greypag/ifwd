@@ -2,7 +2,10 @@
 
 <decorators defaultdir="/WEB-INF/decorators">
 
-
+	<excludes>
+        <pattern>/google*</pattern>
+        <pattern>/baidu*</pattern>
+    </excludes>
 
 	<decorator name="default" page="template_default.jsp">
 		<pattern>/*</pattern>

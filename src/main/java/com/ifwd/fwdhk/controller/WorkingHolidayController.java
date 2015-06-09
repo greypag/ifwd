@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -332,8 +333,8 @@ public class WorkingHolidayController {
 				if (responseJsonObj.get("errMsgs") == null) {
 					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
 					System.out.println(" jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
+					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 
-					Map<String, String> mapRelationshipCode = new HashMap<String, String>();
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 						JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
 						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
@@ -471,8 +472,8 @@ public class WorkingHolidayController {
 				if (responseJsonObj.get("errMsgs") == null) {
 					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
 					System.out.println(" jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
-
-					Map<String, String> mapRelationshipCode = new HashMap<String, String>();
+					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
+					
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 						JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
 						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
