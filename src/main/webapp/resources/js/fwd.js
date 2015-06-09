@@ -5113,3 +5113,14 @@ $(function () {
 	});
 	
 });
+
+//select text function 
+function autoSelect(id){
+	var sel = window.getSelection(),
+    range = document.createRange();
+					
+	range.setStart($("#"+id)[0].firstChild, 0);
+	range.setEnd($("#"+id)[0].firstChild, $("#"+id)[0].firstChild.length);
+	sel.removeAllRanges();
+	sel.addRange(range);
+}
