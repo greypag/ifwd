@@ -479,8 +479,6 @@ public class WorkingHolidayController {
 						mapRelationshipCode.put(checkJsonObjNull(obj, "itemCode"), checkJsonObjNull(obj, "itemDesc"));
 					}
 					model.addAttribute("mapRelationshipCode", mapRelationshipCode);
-					session.setAttribute("whRelationshipCode", mapRelationshipCode);
-
 				}
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
@@ -561,8 +559,6 @@ public class WorkingHolidayController {
 			return "fail";
 		}
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
-			Map<String, String> mapRelationshipCode = (Map<String, String>)session.getAttribute("whRelationshipCode");
-			planDetailsForm.setWhInsBeneficaryDesc(mapRelationshipCode.get(planDetailsForm.getWhInsBeneficary()));
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
 			
 		} else {
@@ -736,6 +732,7 @@ public class WorkingHolidayController {
 		model.addAttribute("commencementDate", commencementDate);
 		model.addAttribute("expiryDate", expiryDate);
 		model.addAttribute("planDetailsForm", planDetailsForm);
+		model.addAttribute("whInsBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getWhInsBeneficary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
 		
 		LocalDate dateL1 = new LocalDate(commencementDate);
 		LocalDate dateL2 = new LocalDate(expiryDate);
