@@ -471,7 +471,7 @@ function whPayValid()
 		if(seccode.length<3)
 		{
 			flag=false;
-			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
+			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
 		}
 	}
 	if (document.getElementById("checkbox3").checked == false)
