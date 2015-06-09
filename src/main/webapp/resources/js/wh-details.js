@@ -430,7 +430,7 @@ function whDetailsValid(){
 		}
 	}
 	
-	if($("#selectWhInsBeneficary") != "" && $("#selectWhInsBeneficary") != 'SE'){
+	if($("#selectWhInsBeneficary").val() != "" && $("#selectWhInsBeneficary").val() != 'SE'){
 		if (WhInsFullName.trim() == "") {
 			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));
 			flag = false;
@@ -444,7 +444,6 @@ function whDetailsValid(){
 			flag = false;
 		}
 	}
-	
 	
 	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
 		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
