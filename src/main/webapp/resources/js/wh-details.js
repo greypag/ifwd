@@ -352,6 +352,9 @@ function whDetailsValid(){
 	var WhInsFloor = document.getElementById("inputWhInsFloor").value;
 	var WhInsBuilding = document.getElementById("inputWhInsBuilding").value;
 	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
+	var WhInsFullName = document.getElementById("inputWhInsFullName").value;
+	var WhInsHKID = document.getElementById("inputWhInsHKID").value;
+
 	
 	var username = document.getElementById("Username").value;
 	var password = document.getElementById("Password").value;
@@ -426,6 +429,22 @@ function whDetailsValid(){
 			flag = false;
 		}
 	}
+	
+	if($("#selectWhInsBeneficary") != "" && $("#selectWhInsBeneficary") != 'SE'){
+		if (WhInsFullName.trim() == "") {
+			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));
+			flag = false;
+		}
+		if (WhInsHKID.trim() == "") {
+			if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
+			}else{
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+			}
+			flag = false;
+		}
+	}
+	
 	
 	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
 		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
