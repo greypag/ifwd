@@ -5,7 +5,7 @@ $(function () {
 	var wh_tillDate_back = wh_nowTemp.setFullYear(wh_nowTemp.getFullYear() + 1);
 	var wh_duration = $('#frmTravelGetQuote').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	
-	var checkin = $('#dpEffectiveDate').datepicker({
+	$('#dpEffectiveDate').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() >= wh_now.valueOf() && date.valueOf() < wh_tillDate_from;
 		},
@@ -20,31 +20,54 @@ $(function () {
 		$('#whInseffectiveDate').html('');
 	});
 	
+//	// 18 year ago date
+//	var dob_end_date = new Date();
+//	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+//	
+//	// 86 year ago date
+//	var dob_start_date = new Date();
+//	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
+//	dob_start_date.setDate(dob_start_date.getDate()+1);
+//		
+//	$('#dpWhAppDob').datepicker({
+//		beforeShowDay: function (date) {
+//			return date.valueOf() < wh_now;
+//		},
+//		todayHighlight: true,
+//		startView: "decade",
+//		autoclose: true,
+//		format: "dd-mm-yyyy",
+//		startDate: dob_start_date,
+//		endDate: dob_end_date
+//
+//
+//	}).on('changeDate', function (ev) {
+//		setAtt("WhAppDob", $('#inputWhAppDob').val())
+//		$('#whAppDob').html('');
+//	});
+	
 	// 18 year ago date
 	var dob_end_date = new Date();
 	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 	
 	// 86 year ago date
 	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
-		
-	var checkin = $('#dpWhAppDob').datepicker({
-		beforeShowDay: function (date) {
-			return date.valueOf() < wh_now;
-		},
-		todayHighlight: true,
+	
+	// birthday datepicker, only 18-85 year-old users can buy the insurance
+	$('#dpWhAppDob').datepicker({
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
 		startDate: dob_start_date,
 		endDate: dob_end_date
-
-
+		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		setAtt("WhAppDob", $('#inputWhAppDob').val())
 		$('#whAppDob').html('');
 	});
+	$('#dpWhAppDob').datepicker('setDate', dob_end_date);
 	
 	$("#inputFullName").blur(function() {
 		var fullname = document.getElementById("inputFullName").value;
