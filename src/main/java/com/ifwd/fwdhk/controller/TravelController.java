@@ -1840,9 +1840,9 @@ public class TravelController {
 		System.out.println("path " + path);
 		
 		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation"));
+				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation"));
+				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
@@ -2010,7 +2010,7 @@ public class TravelController {
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				
 				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
-				
+				model.addAttribute("utm_nooverride", 1);
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 				return UserRestURIConstants.getSitePath(request)

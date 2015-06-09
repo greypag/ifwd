@@ -597,7 +597,7 @@ public class HomeCareController {
 //		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
 //				"homecare-confirmation"));
 		model.addAttribute("path",
-				path.replace("home-summary", "confirmation"));
+				path.replace("home-summary", "confirmation?utm_nooverride=1"));
 		
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 
@@ -762,7 +762,7 @@ public class HomeCareController {
 					+ "error";
 			
 		}
-
+		model.addAttribute("utm_nooverride", 1);
 		model.addAttribute("emailID", emailId);
 
 		// model.addAttribute("finalize", finalize);
