@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,6 +47,7 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -416,7 +418,7 @@ public class HomeCareController {
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
-		String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
+		String dob = DateApi.formatString(WebServiceUtils.getParameterValue("applicantDob", session, request));
 		NumberFormat formatter = new DecimalFormat("#0.00");  
 		
 		
@@ -427,16 +429,6 @@ public class HomeCareController {
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
 		
-		Format f = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-			
-			Calendar dateDob = Calendar.getInstance();
-			dateDob.setTime(new Date(dob));
-			f = new SimpleDateFormat("yyyy-MM-dd");
-			dob = f.format(dateDob.getTime());
-		} catch (Exception e) {
-			
-		}
 		boolean optIn1;
 		boolean optIn2;
 		if (optIn1Value == null) {
@@ -570,9 +562,10 @@ public class HomeCareController {
 		model.addAttribute("createdPolicy", createdPolicy);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("referralCode", session.getAttribute("referralCode"));
+		
 		Calendar date = Calendar.getInstance();
-		date.setTime(new Date(homeCareDetails.getEffectiveDate()));
-		f = new SimpleDateFormat("dd MMMM yyyy");
+		date.setTime(DateApi.formatDate(homeCareDetails.getEffectiveDate()));
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		date.add(Calendar.YEAR, 1);
 		date.add(Calendar.DATE, -1);
 		String endDate = f.format(date.getTime());
@@ -591,7 +584,7 @@ public class HomeCareController {
 		
 		
 		String path = request.getRequestURL().toString();
-		model.addAttribute("effectiveDate", homeCareDetails.getEffectiveDate());
+		model.addAttribute("effectiveDate", DateApi.pickDate1(homeCareDetails.getEffectiveDate()));
 		model.addAttribute("effectiveEndDate", endDate);
 		model.addAttribute("homeCareDetails", homeCareDetails);
 //		model.addAttribute("path", path.replace("prepareUserSummaryForHome",

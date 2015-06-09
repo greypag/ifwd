@@ -30,6 +30,7 @@ import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -374,7 +375,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		JSONObject applicant = new JSONObject();
 		RestServiceDao restService = new RestServiceImpl();
 
-		Date effectiveDate = new Date(homeCareDetails.getEffectiveDate());
+		Date effectiveDate = DateApi.formatDate(homeCareDetails.getEffectiveDate());
 
 		LocalDate date = new LocalDate(effectiveDate);
 		CreatePolicy createPolicy = new CreatePolicy();

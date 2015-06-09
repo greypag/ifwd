@@ -5106,7 +5106,7 @@ $(function () {
 		},
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 	}).on('changeDate', function (ev) {
 		$('#errEffDate').html('');
 	});
