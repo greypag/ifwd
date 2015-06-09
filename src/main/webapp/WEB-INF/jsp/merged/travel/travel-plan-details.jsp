@@ -2113,7 +2113,7 @@ function activateUserAccountJoinUs() {
                                     <div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
                                         <div class="hk" style="font-size: 18px;">
                                             <fmt:message key="travel.dollar" bundle="${msg}" />
-                                            <div class="flightcare-hk">${planPremium}</div>
+                                            <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;">${planPremium}</div>
                                         </div>
                                     </div>
                                 </div>

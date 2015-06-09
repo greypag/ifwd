@@ -2027,7 +2027,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     <div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
                                         <div class="hk" style="font-size: 18px;">
                                             <!-- <fmt:message key="travel.dollar" bundle="${msg}" />
-                                            <div class="flightcare-hk"></div> -->
+                                            <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;"></div> -->
                                         </div>
                                     </div>
                                 </div>
