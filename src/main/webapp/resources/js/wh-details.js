@@ -267,12 +267,12 @@ $(function () {
 	$( "#seccode" ).on( "change blur", function() {
 	    var seccode = $(this).val();
 		if (seccode.trim() == "") {
-			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));//"Please enter your Name in English.";
+			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
 			return false;
 		}else{
 			if(seccode.length<3)
 			{
-				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
+				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
 				return false;
 			}
 		}
@@ -466,7 +466,7 @@ function whPayValid()
 	if(seccode.trim()=="")
 	{
 		flag=false;
-		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));
+		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));
 	}else{
 		if(seccode.length<3)
 		{
