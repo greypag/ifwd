@@ -21,7 +21,7 @@ var promoData = '';
 		var promoCode = document.getElementById("promoCode").value;
 		promoCode=promoCode.trim();
 		document.getElementById("promoCode").value = promoCode;
-		if (promoCode == "" || promoCode == "例如:FWD789") {
+		if (promoCode == "" || promoCode == '<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />' ) {
 			flag = false;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 		} else
