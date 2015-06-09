@@ -949,7 +949,7 @@ function activateUserAccountJoinUs() {
 				            </div>
 							<div style="width: 80%;margin-left: 10%;">
 								<div class="top35 pull-left pad-none" style="width:47%">
-									 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+									 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width:47%"> 
 									<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="activateUserAccountJoinUs();"/>
