@@ -494,7 +494,7 @@ $(function () {
 	$('#input_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
-		format: "dd MM yyyy",
+		format: "dd-mm-yyyy",
 		startDate: dob_start_date,
 		endDate: dob_end_date
 		/*language: getBundleLanguage*/
@@ -509,8 +509,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy"
-
+		format: "dd-mm-yyyy",
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
 		
@@ -635,7 +634,7 @@ $(function () {
 		},
 		autoclose: true,
 		
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		var startDate = new Date($('#dp1').datepicker("getDate").valueOf());

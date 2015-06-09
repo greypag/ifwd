@@ -74,8 +74,8 @@ public class DateApi {
 		
 		}
 	
-	public String pickDate1(String pickDate){
-		String getDate[] = pickDate.split(" ");
+	public static String pickDate1(String pickDate){
+		String getDate[] = pickDate.split("-");
 		String formatedDate=getDate[2]+"-"+getDate[1]+"-"+getDate[0];
 		System.out.println(formatedDate +" formatedDate");
 		return formatedDate;
@@ -86,6 +86,17 @@ public class DateApi {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 		try {
 			return dateFormat.parse(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static String formatString(String date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		SimpleDateFormat newDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		try {
+			return newDateFormat.format(dateFormat.parse(date));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

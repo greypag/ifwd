@@ -209,8 +209,8 @@ public class TravelController {
 			int days = 0;
 
 			/* Calculate total Days */
-			Date dateD1 = new Date(travelQuote.getTrLeavingDate());
-			Date dateD2 = new Date(travelQuote.getTrBackDate());
+			Date dateD1 = DateApi.formatDate(travelQuote.getTrLeavingDate());
+			Date dateD2 = DateApi.formatDate(travelQuote.getTrBackDate());
 			LocalDate commencementDate = new LocalDate(dateD1);
 			LocalDate expiryDate = new LocalDate(dateD2);
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
@@ -482,8 +482,8 @@ public class TravelController {
 			int days = 0;
 
 			/* Calculate total Days */
-			Date dateD1 = new Date(travelQuote.getTrLeavingDate());
-			Date dateD2 = new Date(travelQuote.getTrBackDate());
+			Date dateD1 = DateApi.formatDate(travelQuote.getTrLeavingDate());
+			Date dateD2 = DateApi.formatDate(travelQuote.getTrBackDate());
 			LocalDate commencementDate = new LocalDate(dateD1);
 			LocalDate expiryDate = new LocalDate(dateD2);
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
@@ -958,7 +958,6 @@ public class TravelController {
 		Map<String,String> mapHkId = new TreeMap<>();
 
 		String lang = UserRestURIConstants.getLanaguage(request);
-		// TODO please change to apply message bundle nicely
 		String hkIdLbl = "HKID";
 		String passportLbl = "Passport";
 		if("tc".equals(lang)){
@@ -1029,7 +1028,6 @@ public class TravelController {
 					parameters
 							.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -1062,21 +1060,13 @@ public class TravelController {
 		 
 		
 		UserDetails userDetails = new UserDetails();
-		DateApi dateApi = new DateApi();
+		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",
-				session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectedPlanName", session, request);
-		;
+		System.out.println("inside Controller fro prepare Summary" + selectPlanName);
 
-		System.out.println("inside Controller fro prepare Summary"
-				+ selectPlanName);
-
-		String deaprtureDate = dateApi.pickDate((String) session
-				.getAttribute("departureDate"));
-		String returnDate = dateApi.pickDate((String) session
-				.getAttribute("returnDate"));
+		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
+		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
 		
 		System.out.println("departureDate " + deaprtureDate);
 		System.out.println("returnDate " + returnDate);
@@ -1104,14 +1094,16 @@ public class TravelController {
 		}
 		
 		//String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
-		try {
+		/*try {
 			Calendar dateDob = Calendar.getInstance();
 			dateDob.setTime(new Date(dob));
 			Format f = new SimpleDateFormat("yyyy-MM-dd");
 			dob = f.format(dateDob.getTime());
 		} catch (Exception e) {
 			
-		}
+		}*/
+		
+		dob = DateApi.pickDate1(dob);
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 		System.out.println("totalTravellingDays " + totalTravellingDays);
@@ -1901,7 +1893,6 @@ public class TravelController {
 					
 					session.setAttribute("creditCardNo", encryptedCreditCard);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					session.setAttribute("creditCardNo", "");
 					e.printStackTrace();
 				}
