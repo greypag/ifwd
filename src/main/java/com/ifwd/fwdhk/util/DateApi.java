@@ -94,7 +94,7 @@ public class DateApi {
 	
 	public static String formatString(String date){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-		SimpleDateFormat newDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		SimpleDateFormat newDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		try {
 			return newDateFormat.format(dateFormat.parse(date));
 		} catch (Exception e) {

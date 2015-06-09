@@ -269,8 +269,8 @@ public class FlightController {
 		//System.out.println(planDetails.getDepartureDate() + " (Date1) "	+ planDetails.getReturnDate());
 		int days = 0;
 
-		Date dateD1 = new Date(planDetails.getDepartureDate());
-		Date dateD2 = new Date(planDetails.getReturnDate());
+		Date dateD1 = DateApi.formatDate(planDetails.getDepartureDate());
+		Date dateD2 = DateApi.formatDate(planDetails.getReturnDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
@@ -468,8 +468,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
 		int days = 0;
 
-		Date dateD1 = new Date(planDetails.getDepartureDate());
-		Date dateD2 = new Date(planDetails.getReturnDate());
+		Date dateD1 = DateApi.formatDate(planDetails.getDepartureDate());
+		Date dateD2 = DateApi.formatDate(planDetails.getReturnDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		
@@ -817,13 +817,12 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 		String emailId = request.getParameter("emailAddress");
 		request.setAttribute("email", emailId);
-		DateApi dateApi = new DateApi();
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "FlightCare");
 		parameters.put("commencementDate",
-				dateApi.pickDate(planDetailsForm.getDepartureDate()));
+				DateApi.pickDate1(planDetailsForm.getDepartureDate()));
 		parameters.put("expiryDate",
-				dateApi.pickDate(planDetailsForm.getReturnDate()));
+				DateApi.pickDate1(planDetailsForm.getReturnDate()));
 		JSONArray insured = new JSONArray();
 
 		String langSelected = UserRestURIConstants.getLanaguage(request);
@@ -1275,11 +1274,14 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		String optIn1 = String.valueOf(planDetailsForm.getCheckbox3());
 		String optIn2 = String.valueOf(planDetailsForm.getCheckbox4());
 				
-		String dob = request.getParameter("applicantDob");
+		/*String dob = request.getParameter("applicantDob");
 		Calendar dateDob = Calendar.getInstance();
 		dateDob.setTime(new Date(dob));
 		Format f = new SimpleDateFormat("yyyy-MM-dd");
-		dob = f.format(dateDob.getTime());
+		dob = f.format(dateDob.getTime());*/
+		
+		String dob = DateApi.formatString(request.getParameter("applicantDob"));
+		
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("gender", "M"); // default value
@@ -1434,8 +1436,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 			/* Calculate total Days */
 
-			Date dateD1 = new Date(createFlightPolicy.getDepartureDate());
-			Date dateD2 = new Date(createFlightPolicy.getReturnDate());
+			Date dateD1 = DateApi.formatDate(createFlightPolicy.getDepartureDate());
+			Date dateD2 = DateApi.formatDate(createFlightPolicy.getReturnDate());
 			
 			
 			session.setAttribute("departureDate", createFlightPolicy.getDepartureDate());
