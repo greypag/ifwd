@@ -672,7 +672,7 @@ $(document).ready(function() {
             <h1><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h1>
             <p>
-              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
+              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
             </p>
             </div>
         </div>
