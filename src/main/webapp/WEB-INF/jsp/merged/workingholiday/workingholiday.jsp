@@ -95,7 +95,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	               <img src="<%=request.getContextPath()%>/resources/images/icon1.png" />
 	          </div>
 	          <div style="margin-top:10px;">
-                   <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" /><span style="color:#f68a1d;">*</span>
+                   <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" />
               </div>
               <div style="margin-top:15px; font-size:10px; color:#f68a1d;">
                     <fmt:message key="workingholiday.main.feature1.paragraph2" bundle="${msg}" />

@@ -2117,6 +2117,7 @@ function activateUserAccountJoinUs() {
                                         </div>
                                     </div>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>

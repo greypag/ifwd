@@ -5,7 +5,7 @@ $(function () {
 	var wh_tillDate_back = wh_nowTemp.setFullYear(wh_nowTemp.getFullYear() + 1);
 	var wh_duration = $('#frmTravelGetQuote').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	
-	var checkin = $('#dpEffectiveDate').datepicker({
+	$('#dpEffectiveDate').datepicker({
 		beforeShowDay: function (date) {
 			return date.valueOf() >= wh_now.valueOf() && date.valueOf() < wh_tillDate_from;
 		},
@@ -20,31 +20,54 @@ $(function () {
 		$('#whInseffectiveDate').html('');
 	});
 	
+//	// 18 year ago date
+//	var dob_end_date = new Date();
+//	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+//	
+//	// 86 year ago date
+//	var dob_start_date = new Date();
+//	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
+//	dob_start_date.setDate(dob_start_date.getDate()+1);
+//		
+//	$('#dpWhAppDob').datepicker({
+//		beforeShowDay: function (date) {
+//			return date.valueOf() < wh_now;
+//		},
+//		todayHighlight: true,
+//		startView: "decade",
+//		autoclose: true,
+//		format: "dd-mm-yyyy",
+//		startDate: dob_start_date,
+//		endDate: dob_end_date
+//
+//
+//	}).on('changeDate', function (ev) {
+//		setAtt("WhAppDob", $('#inputWhAppDob').val())
+//		$('#whAppDob').html('');
+//	});
+	
 	// 18 year ago date
 	var dob_end_date = new Date();
 	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 	
 	// 86 year ago date
 	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
-		
-	var checkin = $('#dpWhAppDob').datepicker({
-		beforeShowDay: function (date) {
-			return date.valueOf() < wh_now;
-		},
-		todayHighlight: true,
+	
+	// birthday datepicker, only 18-85 year-old users can buy the insurance
+	$('#dpWhAppDob').datepicker({
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
 		startDate: dob_start_date,
 		endDate: dob_end_date
-
-
+		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		setAtt("WhAppDob", $('#inputWhAppDob').val())
 		$('#whAppDob').html('');
 	});
+	$('#dpWhAppDob').datepicker('setDate', dob_end_date);
 	
 	$("#inputFullName").blur(function() {
 		var fullname = document.getElementById("inputFullName").value;
@@ -267,12 +290,12 @@ $(function () {
 	$( "#seccode" ).on( "change blur", function() {
 	    var seccode = $(this).val();
 		if (seccode.trim() == "") {
-			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));//"Please enter your Name in English.";
+			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
 			return false;
 		}else{
 			if(seccode.length<3)
 			{
-				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
+				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
 				return false;
 			}
 		}
@@ -329,6 +352,9 @@ function whDetailsValid(){
 	var WhInsFloor = document.getElementById("inputWhInsFloor").value;
 	var WhInsBuilding = document.getElementById("inputWhInsBuilding").value;
 	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
+	var WhInsFullName = document.getElementById("inputWhInsFullName").value;
+	var WhInsHKID = document.getElementById("inputWhInsHKID").value;
+
 	
 	var username = document.getElementById("Username").value;
 	var password = document.getElementById("Password").value;
@@ -380,7 +406,7 @@ function whDetailsValid(){
 	}
 	
 	if (WhAppDob.trim() == "") {
-		$("#whAppDob").html(getBundle(getBundleLanguage, "workinghoilday.dob.message"));
+		$("#whAppDob").html(getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
 		flag = false;
 	}
 		
@@ -400,6 +426,21 @@ function whDetailsValid(){
 	} else {
 		if (emailreg.test(WhAppEmailAdd) == false) {
 			$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
+			flag = false;
+		}
+	}
+	
+	if($("#selectWhInsBeneficary").val() != "" && $("#selectWhInsBeneficary").val() != 'SE'){
+		if (WhInsFullName.trim() == "") {
+			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));
+			flag = false;
+		}
+		if (WhInsHKID.trim() == "") {
+			if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
+			}else{
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+			}
 			flag = false;
 		}
 	}
@@ -466,12 +507,12 @@ function whPayValid()
 	if(seccode.trim()=="")
 	{
 		flag=false;
-		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull"));
+		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));
 	}else{
 		if(seccode.length<3)
 		{
 			flag=false;
-			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid"));
+			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
 		}
 	}
 	if (document.getElementById("checkbox3").checked == false)

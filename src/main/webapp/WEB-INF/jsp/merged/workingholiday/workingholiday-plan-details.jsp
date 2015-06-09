@@ -76,7 +76,6 @@ function activateUserAccountJoinUs() {
     $("#Confirm-PasswordError").text("");
     
      
-    
     if(name == "" && password == "" && password2 == ""){
         $('#frmYourDetails').submit()
     }else{
@@ -474,7 +473,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <!-- beneficiary end -->
                                <!-- personalbenificiaryId start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryId">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>" id="whbenificiaryId">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                        <label for="inputWhInsFullName" class="field-label bold-500"></label>
                                    </div>
@@ -499,7 +498,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <!-- personalbenificiaryId end -->
                                <!-- personalbenificiaryId b start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryIdb">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>" id="whbenificiaryIdb">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label for="inputWhInsHKID" class="field-label form-label bold-500"></label>
                                    </div>
@@ -531,7 +530,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <!-- personalbenificiaryId b end -->
                                <!-- personalbenificiaryId c start -->
-                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || !(workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE')}">hide</c:if>" id="whbenificiaryIdc">
+                               <div class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>" id="whbenificiaryIdc">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                       <label for="inputWhInsHKID" class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                    </div>
@@ -949,7 +948,7 @@ function activateUserAccountJoinUs() {
 				            </div>
 							<div style="width: 80%;margin-left: 10%;">
 								<div class="top35 pull-left pad-none" style="width:47%">
-									 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+									 <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote" class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width:47%"> 
 									<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="activateUserAccountJoinUs();"/>

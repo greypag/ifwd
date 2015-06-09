@@ -2031,6 +2031,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
