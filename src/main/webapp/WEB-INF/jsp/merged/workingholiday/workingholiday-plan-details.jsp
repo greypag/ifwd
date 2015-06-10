@@ -367,7 +367,7 @@ function activateUserAccountJoinUs() {
 									<div class="bmg-label-styled-select styled-select">
 										<select name="selectWhAppHKID" id="selectWhAppHKID"
 											class="form-control soflow select-label"
-											onchange="selected(this)">
+											onchange="selected(this)" onchange="togglePlaceholder(this,'inputWhAppHKID','<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');">
 											<c:forEach var="hkidList" items="${mapHkId}">
 												<c:choose>
 													<c:when
@@ -1292,9 +1292,9 @@ function activateUserAccountJoinUs() {
 	}
 	/* END- For Benefitiary Dive active and Inactive */
 
-	function selected(id){
-		$('#selectWhInsHKID').val(id.value);
-	}
+//	function selected(id){
+//		$('#selectWhInsHKID').val(id.value);
+//	}
 </script>
 
 <script>

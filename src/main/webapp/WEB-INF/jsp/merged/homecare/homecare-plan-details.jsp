@@ -685,7 +685,7 @@ function activateUserAccountJoinUs() {
 	                                   <div class="bmg-label-styled-select styled-select">
                                            <select
                                                name="apphkidandpassport" id="selectHkidPass"
-                                               class="form-control soflow select-label">
+                                               class="form-control soflow select-label" onchange="togglePlaceholder(this,'txtAppHkid','<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />');">
                                                <option
                                                    value="appHkid" selected="selected">
                                                    <fmt:message

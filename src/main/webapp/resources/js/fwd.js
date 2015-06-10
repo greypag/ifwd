@@ -5123,3 +5123,12 @@ function autoSelect(id){
 	sel.removeAllRanges();
 	sel.addRange(range);
 }
+
+//hkid placehoder
+function togglePlaceholder(selectElement, inputId, placeholder){
+	if(selectElement.value=="HKID"){
+		$("#"+inputId).val(placeholder);
+	}else{
+		$("#"+inputId).val('');
+	}
+}
