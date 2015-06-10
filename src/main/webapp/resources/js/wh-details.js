@@ -438,7 +438,12 @@ function whDetailsValid(){
 				if (tr == false) {
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
 					flag = false;
-				}	
+				}
+				
+				if(WhInsHKID.trim() == WhAppHKID.trim()){
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.same.message"));
+					flag = false;
+				}
 			}
 		}else{ 
 			if (WhInsHKID.trim() == "") {
@@ -452,7 +457,7 @@ function whDetailsValid(){
 				}
 				
 				if(WhInsHKID.trim() == WhAppHKID.trim()){
-					//$("#whInsHKID").html(getBundle(getBundleLanguage, "same"));
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.same.message"));
 					flag = false;
 				}
 			}
