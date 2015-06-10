@@ -338,9 +338,9 @@ function whDetailsValid(){
 	document.getElementById("chk1").innerHTML = "";
 	document.getElementById("chk2").innerHTML = "";
 	
-	document.getElementById("UsernameError").innerHTML = "";
+	/*document.getElementById("UsernameError").innerHTML = "";
 	document.getElementById("PasswordError").innerHTML = "";
-	document.getElementById("Confirm-PasswordError").innerHTML = "";
+	document.getElementById("Confirm-PasswordError").innerHTML = "";*/
 
 	var WhAppFullName = document.getElementById("inputFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
@@ -356,9 +356,9 @@ function whDetailsValid(){
 	var WhInsHKID = document.getElementById("inputWhInsHKID").value;
 
 	
-	var username = document.getElementById("Username").value;
+	/*var username = document.getElementById("Username").value;
 	var password = document.getElementById("Password").value;
-	var confirmPassword = document.getElementById("Confirm-Password").value;
+	var confirmPassword = document.getElementById("Confirm-Password").value;*/
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"); //"Please read and accept the Declaration, Terms & Conditions before submitting the application.";
