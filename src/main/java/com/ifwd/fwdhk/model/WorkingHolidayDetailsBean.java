@@ -32,6 +32,43 @@ public class WorkingHolidayDetailsBean implements Serializable {
 	private String selectWhAppHKID;
 	private String selectWhInsHKID;
 	
+	private boolean checkbox1;
+	private boolean checkbox2;
+	private boolean checkbox3;
+	private boolean checkbox4;
+	
+	public boolean getCheckbox1() {
+		return checkbox1;
+	}
+
+	public void setCheckbox1(boolean checkbox1) {
+		this.checkbox1 = checkbox1;
+	}
+
+	public boolean getCheckbox2() {
+		return checkbox2;
+	}
+
+	public void setCheckbox2(boolean checkbox2) {
+		this.checkbox2 = checkbox2;
+	}
+
+	public boolean getCheckbox3() {
+		return checkbox3;
+	}
+
+	public void setCheckbox3(boolean checkbox3) {
+		this.checkbox3 = checkbox3;
+	}
+
+	public boolean getCheckbox4() {
+		return checkbox4;
+	}
+
+	public void setCheckbox4(boolean checkbox4) {
+		this.checkbox4 = checkbox4;
+	}
+
 	public String getWhInsBeneficaryDesc() {
 		return whInsBeneficaryDesc;
 	}

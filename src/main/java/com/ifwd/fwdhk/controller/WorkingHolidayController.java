@@ -626,14 +626,21 @@ public class WorkingHolidayController {
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("dob", dob);
 		parameters.put("applicant", applicantJsonObj);
 		
 		JSONObject addressJsonObj = new JSONObject();
 		addressJsonObj.put("room", planDetailsForm.getWhInsRoom());
 		addressJsonObj.put("floor", planDetailsForm.getWhInsFloor());
+		addressJsonObj.put("block", planDetailsForm.getWhInsBlock());
 		addressJsonObj.put("building", planDetailsForm.getWhInsBuilding());
 		addressJsonObj.put("estate", planDetailsForm.getWhInsEstate());
+		addressJsonObj.put("streetNo", planDetailsForm.getWhInsStreetNo());
+		addressJsonObj.put("streetName", planDetailsForm.getWhInsStreetName());
+		addressJsonObj.put("district", planDetailsForm.getWhInsDistrict());
+		addressJsonObj.put("area", planDetailsForm.getWhInsArea());
 		parameters.put("address", addressJsonObj);
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);

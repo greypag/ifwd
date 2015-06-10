@@ -450,6 +450,11 @@ function whDetailsValid(){
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
 					flag = false;
 				}
+				
+				if(WhInsHKID.trim() == WhAppHKID.trim()){
+					//$("#whInsHKID").html(getBundle(getBundleLanguage, "same"));
+					flag = false;
+				}
 			}
 		}
 			
@@ -568,6 +573,11 @@ function confirmDetails(form){
 		var inputWhInsStreetName = $("#inputWhInsStreetName").val();
 		var selectWhInsDistrict = $("#selectWhInsDistrict").val();
 		
+		var checkbox1 = document.getElementById("checkbox1").checked;
+		var checkbox2 = document.getElementById("checkbox2").checked;
+		var checkbox3 = document.getElementById("checkbox3").checked;
+		var checkbox4 = document.getElementById("checkbox4").checked;
+		
 		var radioWhInsArea = "";
 		if(document.getElementById("inlineCARadio5").checked){
 			radioWhInsArea="NT";
@@ -600,7 +610,11 @@ function confirmDetails(form){
 			  	'whInsStreetName':inputWhInsStreetName,
 			  	'whInsDistrict':selectWhInsDistrict,
 			  	'whInsArea':radioWhInsArea,
-			  	'whInseffectiveDate':inputWhInseffectiveDate
+			  	'whInseffectiveDate':inputWhInseffectiveDate,
+			  	'checkbox1':checkbox1,
+			  	'checkbox2':checkbox2,
+			  	'checkbox3':checkbox3,
+			  	'checkbox4':checkbox4
 		    };
 		var method = this.rootUrl + "/wh-summary";
 		var rePage = this.rootUrl + this.rootLang + '/workingholiday-insurance/workingholiday-summary';
