@@ -50,9 +50,9 @@ $(function () {
 	var dob_end_date = new Date();
 	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 	
-	// 86 year ago date
+	// 30 year ago date
 	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-30);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
