@@ -24,7 +24,6 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
 				result = true;
 			} else {
-				console.log("fail to process prepareWorkingHolidayPlan " + data);
 				result = false;
 			}
 		}
@@ -87,12 +86,12 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-            <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
+            <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
 		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 		        <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
 		      </h3>
 	          <div style="margin-top:25px;">
-	               <img src="<%=request.getContextPath()%>/resources/images/icon1.png" />
+	               <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon1.png" />
 	          </div>
 	          <div style="margin-top:10px;">
                    <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" />
@@ -103,12 +102,12 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               </div>
 	      </div>
 	      <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
+	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
 	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 	             <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
 	          </h3>
 	          <div style="margin-top:25px;">
-                   <img src="<%=request.getContextPath()%>/resources/images/icon2.png" />
+                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon2.png" />
               </div>
               <div style="margin-top:10px;">
                     <fmt:message key="workingholiday.main.feature2.paragraph" bundle="${msg}" />
@@ -116,12 +115,12 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;">
+	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
 	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
 	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
 	              </h3>
 	              <div style="margin-top:25px;">
-	                   <img src="<%=request.getContextPath()%>/resources/images/icon3.png" />
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon3.png" />
 	              </div>
 	              <div style="margin-top:10px;">
 	                  <fmt:message key="workingholiday.main.feature3.paragraph" bundle="${msg}" />
@@ -294,20 +293,40 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 <!--/#testiomonials mob-->
 <section id="testimonials-mob" class="hidden-lg hidden-md workingholiday-testimonials-mob" style="margin: 0px;">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
     <!--desktop-testimonials-->
-    <img src="<%=request.getContextPath()%>/resources/images/icon4.png" style="margin-top: 50px;" />
-    <h2>Next Step</h2>        
+   <%--  <img src="<%=request.getContextPath()%>/resources/images/icon4.png" style="margin-top: 50px;" />
+    <h2><fmt:message key="workingholiday.main.quote.bottom.next" bundle="${msg}" /></h2>        
     <hr style="width:120px;">
-    <h2>Made your decision</h2>        
-    <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
-    <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>    
+    <h2><fmt:message key="workingholiday.main.quote.bottom.heading" bundle="${msg}" /></h2>        
+    <span style="font-size:21px;">
+      <fmt:message key="workingholiday.main.quote.bottom.desc" bundle="${msg}" />
+    </span>
+    <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>  --%>   
 
+ 
+    <!--desktop-testimonials-->
+        <img src="<%=request.getContextPath()%>/resources/images/icon4.png" style="margin-top: 50px;" />
+    
+
+
+          <h2><fmt:message key="workingholiday.main.quote.bottom.next" bundle="${msg}" /></h2>        
+          <hr style="width:120px;">
+
+        
+
+            <h2><fmt:message key="workingholiday.main.quote.bottom.heading" bundle="${msg}" /></h2>        
+            <span style="font-size:21px;"><fmt:message key="workingholiday.main.quote.bottom.desc" bundle="${msg}" /></span>
+
+        
+
+            <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
     
     <!--/.row--> 
     <!--/.desktop-testimonials--> 
+</form>
 </section>
 <!--/#testiomonials mob-->
-
 
 
 

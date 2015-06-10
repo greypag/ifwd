@@ -488,7 +488,7 @@ $(document).ready(function() {
     <!--desktop Features-->
     <div class="hidden-xs hidden-sm">
       <div class="col-md-10 col-md-offset-1 pad-none home-features">
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home-flight1.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
@@ -503,10 +503,10 @@ $(document).ready(function() {
             <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
             <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home-flight-mob-2.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt=""  /> </div>
         <div class="clearfix"></div>
         <br>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home-flight3.png" alt=""  /> </div>
+        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt=""  /> </div>
         <div class="col-md-6 col-lg-6">
           <div class="content">
             <h2><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
@@ -545,7 +545,7 @@ $(document).ready(function() {
     
     <!--mobile-Features-->
     <div class="hidden-lg hidden-md mob-features">
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home-flight1.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
@@ -554,7 +554,7 @@ $(document).ready(function() {
       </div>
       <div class="clearfix"></div>
       <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home-flight-mob-2.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
@@ -563,7 +563,7 @@ $(document).ready(function() {
       </div>
       <div class="clearfix"></div>
       <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home-flight3.png" alt=""  /> </div>
+      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt=""  /> </div>
       <div class="col-xs-8 col-sm-8">
         <div>
           <h2 class="h2-3"><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
@@ -672,7 +672,7 @@ $(document).ready(function() {
             <h1><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h1>
             <p>
-              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
+              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
             </p>
             </div>
         </div>

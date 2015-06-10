@@ -493,7 +493,7 @@ $(document).ready(function() {
 <!--desktop Features-->
 <div class="hidden-xs hidden-sm">
     <div class="col-md-10 col-md-offset-1 home-features"  >
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home3.png" alt="" /> </div>
+    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" alt="" /> </div>
     <div class="col-md-6 col-lg-6">
       <div class="content">
         <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
@@ -510,10 +510,10 @@ $(document).ready(function() {
         <p class="details-text"><fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" /></p>
         <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
     </div>
-    <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/home2.png" alt=""  /> </div>
+    <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" alt=""  /> </div>
     <div class="clearfix"></div>
     <br>
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/home1.png" alt=""  /> </div>
+    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt=""  /> </div>
     <div class="col-md-6 col-lg-6">
       <div class="content">
         <h2><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
@@ -530,7 +530,7 @@ $(document).ready(function() {
 
 <!--mob Features-->
 <div class="mob-features hidden-lg hidden-md">
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home1.png" alt=""  /> </div>
+  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" alt=""  /> </div>
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3"><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /><br/>
@@ -540,7 +540,7 @@ $(document).ready(function() {
   </div>
   <div class="clearfix"></div>
   <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home2.png" alt=""  /> </div>
+  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" alt=""  /> </div>
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3"><fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /><br/>
@@ -550,7 +550,7 @@ $(document).ready(function() {
   </div>
   <div class="clearfix"></div>
   <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/home3.png" alt=""  /> </div>
+  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt=""  /> </div>
   <div class="col-xs-8 col-sm-8">
     <div>
       <h2 class="h2-3"><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>

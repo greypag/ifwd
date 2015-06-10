@@ -109,91 +109,27 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
                 <div style="width:80%;margin-left:10%">
-              <h5 class="bmg-confirmation-h5">
-                  <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong><span><%=session.getAttribute("finalizeReferenceNo")%></span>
-              </h5>
+              
+              <!--Promo Code  -->
+              <!-- END Promo Code Table -->
 
-              <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
-                <fmt:message key="<%=key_referralCodeDesc%>" bundle="${msg}" />
-                <!-- <span class="orange-star">*</span> -->
-              </div>
 
               <!--Referral Code Table -->
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
-                  <% if (isMember) { %>
-                      <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
-                          <tbody>
-                              <tr>
-                                  <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                              <tr>
-                                  <td rowspan="2">
-                                    <strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong>
-                                  </td>
-                                  <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                              <tr>
-                                  <td><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row2col3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                              <tr>
-                                  <td rowspan="2">
-                                    <strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong>
-                                  </td>
-                                  <td><strong><fmt:message key="<%=key_row3col2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row3col3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                              <tr>
-                                  <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                          </tbody>
-                      </table>
-                      <div class="disclaimer">
-                        <p><fmt:message key="<%=key_disclaimer1%>" bundle="${msg}" /></p>
-                        <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
-                      </div>
-                <% } else { %>
-                    <table class="table table-bordred table-type-1" style="margin-bottom:0px;width:100% !important;">
-                          <tbody>
-                              <tr>
-                                  <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                              <tr>
-                                  <td><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
-                                  <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
-                              </tr>
-                          </tbody>
-                    </table>
-                <% } %>                    
-                </div>
               <!-- END Referral Code Table -->
+
                 </div>
               </div>
             
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
-                <div><fmt:message key="workingholiday.confirmation.partnerDesc" bundle="${msg}" /></div>
-                <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="" class="img-responsive">
+                <!--Partnership Logo-->
+                <!--END Partnership Logo-->
 
                 <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-20">
                   <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-                      <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance
-                      </div>
+                      <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance</div>
+                      <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage">Press CTRL-C to copy</span> <span class="boxDownArrow"></span> </div>
                   </div>
                   <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                       <!-- <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">

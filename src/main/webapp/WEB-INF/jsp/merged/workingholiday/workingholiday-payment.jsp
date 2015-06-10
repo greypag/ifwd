@@ -33,7 +33,6 @@ var clicked = false;
  								form.action = geteWayUrl;
  								result=true;
  							} else {
- 								console.log("fail to process payment " + data);
  								result=false;
  							}
  						}
@@ -286,7 +285,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                             </div>
                             
                             <div id="no-more-tables" class="hidden-sm hidden-xs">
-							
+							<div style="width:80%;margin-left:10%;">
 							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
 
 								<tbody>
@@ -313,22 +312,25 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsFullName()}</td>
                                         <!-- <td data-title="Age range" class="travel-tb-h3">&nbsp;</td> -->
                                         <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsHKID()}</td>
-	                                    <td data-title="Relationship" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsBeneficaryDesc()}</td>
+	                                    <td data-title="Relationship" class="travel-tb-h3">${whInsBeneficaryDesc}</td>
 									</tr>
 									</c:if>
 								</tbody>
 							</table>
+							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="gray-bg1 pad20">
-					<div class="clearfix"></div>
-					<h2 class="from-control"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
-					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
+				<div class="gray-bg1">
+					<div style="width:80%;margin-left:10%;">
+					<div class="col-xs-12 pad-none">
+						<h2 class="from-control" style="padding:0px !important;"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
+						<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
+					</div>
 					<input type="hidden" name="merchantId" value="${whCreatePolicy.getMerchantId()}">
-					<input type="hidden" name="amount" value="${dueAmount.trim()}">
+					<input type="hidden" name="amount" value="${dueAmount.replace(',','').trim()}">
 					<input type="hidden" name="orderRef" value="${whCreatePolicy.getTransactionNo() }">
 					<input type="hidden" name="currCode" value="${whCreatePolicy.getCurrCode() }">
 					<input type="hidden" name="successUrl" value="${path}">
@@ -547,6 +549,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 							
 													
 							<div class="clearfix"></div>
+						</div>
 						</div>
 						<br>
 						<br>

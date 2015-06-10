@@ -63,7 +63,7 @@ public class WorkingHolidayController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/workingholiday-insurance"})
+	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/workingholiday-insurance", "/{lang}/workingholiday-insurance/sharing/"})
 	public ModelAndView getWorkingHolidayHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("WorkingHoliday");
@@ -395,6 +395,8 @@ public class WorkingHolidayController {
 		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
+		String planDiscount = WebServiceUtils.getParameterValue("selectedDiscountAmt", session, request);
+		
 		selectPlanName = planName;
 		System.out.println("Seeeeeee" + selectPlanName);
 
@@ -488,6 +490,7 @@ public class WorkingHolidayController {
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("planPremium", selectPlanPremium);
+			model.addAttribute("planDiscount", planDiscount);
 			
 			//get country
 			String getCountryUrl = UserRestURIConstants.GET_COUNTRY + "?itemTable=WorkingHolidayCountry";
@@ -623,14 +626,21 @@ public class WorkingHolidayController {
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("dob", dob);
 		parameters.put("applicant", applicantJsonObj);
 		
 		JSONObject addressJsonObj = new JSONObject();
 		addressJsonObj.put("room", planDetailsForm.getWhInsRoom());
 		addressJsonObj.put("floor", planDetailsForm.getWhInsFloor());
+		addressJsonObj.put("block", planDetailsForm.getWhInsBlock());
 		addressJsonObj.put("building", planDetailsForm.getWhInsBuilding());
 		addressJsonObj.put("estate", planDetailsForm.getWhInsEstate());
+		addressJsonObj.put("streetNo", planDetailsForm.getWhInsStreetNo());
+		addressJsonObj.put("streetName", planDetailsForm.getWhInsStreetName());
+		addressJsonObj.put("district", planDetailsForm.getWhInsDistrict());
+		addressJsonObj.put("area", planDetailsForm.getWhInsArea());
 		parameters.put("address", addressJsonObj);
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);

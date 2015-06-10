@@ -1,7 +1,7 @@
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
-	var wh_tillDate_from = new Date((new Date()).getTime() + 29*24*60*60*1000);
+	var wh_tillDate_from = new Date((new Date()).getTime() + 179*24*60*60*1000);
 	var wh_tillDate_back = wh_nowTemp.setFullYear(wh_nowTemp.getFullYear() + 1);
 	var wh_duration = $('#frmTravelGetQuote').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	
@@ -50,9 +50,9 @@ $(function () {
 	var dob_end_date = new Date();
 	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 	
-	// 86 year ago date
+	// 30 year ago date
 	var dob_start_date = new Date();
-	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-31);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
@@ -338,15 +338,12 @@ function whDetailsValid(){
 	document.getElementById("chk1").innerHTML = "";
 	document.getElementById("chk2").innerHTML = "";
 	
-	document.getElementById("UsernameError").innerHTML = "";
-	document.getElementById("PasswordError").innerHTML = "";
-	document.getElementById("Confirm-PasswordError").innerHTML = "";
-
 	var WhAppFullName = document.getElementById("inputFullName").value;
 	var WhAppHKID = document.getElementById("inputWhAppHKID").value;
 	var WhAppDob = document.getElementById("inputWhAppDob").value;
 	var WhAppMobileNO = document.getElementById("inputMobileNo").value;
 	var WhAppEmailAdd = document.getElementById("inputEmailId").value;
+	var WhInsDistrict = document.getElementById("selectWhInsDistrict").value;
 	var WhInseffectiveDate = document.getElementById("inputWhInseffectiveDate").value;
 	var WhInsRoom = document.getElementById("inputWhInsRoom").value;
 	var WhInsFloor = document.getElementById("inputWhInsFloor").value;
@@ -354,11 +351,6 @@ function whDetailsValid(){
 	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
 	var WhInsFullName = document.getElementById("inputWhInsFullName").value;
 	var WhInsHKID = document.getElementById("inputWhInsHKID").value;
-
-	
-	var username = document.getElementById("Username").value;
-	var password = document.getElementById("Password").value;
-	var confirmPassword = document.getElementById("Confirm-Password").value;
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"); //"Please read and accept the Declaration, Terms & Conditions before submitting the application.";
@@ -433,16 +425,44 @@ function whDetailsValid(){
 	if($("#selectWhInsBeneficary").val() != "" && $("#selectWhInsBeneficary").val() != 'SE'){
 		if (WhInsFullName.trim() == "") {
 			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));
+			
 			flag = false;
 		}
-		if (WhInsHKID.trim() == "") {
-			if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
+		
+		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
+			if (WhInsHKID.trim() == "") {
 				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
+				flag = false;
 			}else{
-				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+				var tr = chkTravelHKPass(WhInsHKID.trim());
+				if (tr == false) {
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+					flag = false;
+				}
+				
+				if(WhInsHKID.trim() == WhAppHKID.trim()){
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.same.message"));
+					flag = false;
+				}
 			}
-			flag = false;
+		}else{ 
+			if (WhInsHKID.trim() == "") {
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+				flag = false;
+			}else {
+				var tr=IsHKID(WhInsHKID.trim());
+				if(tr==false){
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					flag = false;
+				}
+				
+				if(WhInsHKID.trim() == WhAppHKID.trim()){
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.same.message"));
+					flag = false;
+				}
+			}
 		}
+			
 	}
 	
 	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
@@ -450,6 +470,13 @@ function whDetailsValid(){
 		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
 		flag = false;
 	}
+	
+	
+	if (WhInsDistrict.trim() == "") {
+		$("#whInsDistrict").html(getBundle(getBundleLanguage, "workinghoilday.district.message"));
+		flag = false;
+	}
+	
 	if (WhInseffectiveDate.trim() == "") {
 		$("#whInseffectiveDate").html(getBundle(getBundleLanguage, "workinghoilday.effectivedate.message"));
 		flag = false;
@@ -551,6 +578,11 @@ function confirmDetails(form){
 		var inputWhInsStreetName = $("#inputWhInsStreetName").val();
 		var selectWhInsDistrict = $("#selectWhInsDistrict").val();
 		
+		var checkbox1 = document.getElementById("checkbox1").checked;
+		var checkbox2 = document.getElementById("checkbox2").checked;
+		var checkbox3 = document.getElementById("checkbox3").checked;
+		var checkbox4 = document.getElementById("checkbox4").checked;
+		
 		var radioWhInsArea = "";
 		if(document.getElementById("inlineCARadio5").checked){
 			radioWhInsArea="NT";
@@ -583,7 +615,11 @@ function confirmDetails(form){
 			  	'whInsStreetName':inputWhInsStreetName,
 			  	'whInsDistrict':selectWhInsDistrict,
 			  	'whInsArea':radioWhInsArea,
-			  	'whInseffectiveDate':inputWhInseffectiveDate
+			  	'whInseffectiveDate':inputWhInseffectiveDate,
+			  	'checkbox1':checkbox1,
+			  	'checkbox2':checkbox2,
+			  	'checkbox3':checkbox3,
+			  	'checkbox4':checkbox4
 		    };
 		var method = this.rootUrl + "/wh-summary";
 		var rePage = this.rootUrl + this.rootLang + '/workingholiday-insurance/workingholiday-summary';

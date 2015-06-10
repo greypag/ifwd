@@ -5755,7 +5755,7 @@ font-family: 'Foco-bold';
 
 .travel-special{top:5px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
-select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
+select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:10%;}
 .chin .travel-special{top:18px;}
 .chin .travel-and-home-tab{top:52px;}
 
@@ -6364,7 +6364,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 117% !important;
+   /*width: 117% !important;*/
 }
 .styled-select {
 /*    width: 240px;
@@ -6964,9 +6964,47 @@ tr.product-landing-error-wrap {
 	    border:0px !important;
 	    -webkit-box-shadow: 0 0px 0px;
 	    box-shadow: 0 0px 0px;
-	}
-    
-    
-    
-    
+	}    
+}
+
+.form-control.soflow.select-label{
+    width: 100% !important;
+}
+
+/** copy tips box **/
+.boxMain {
+    background-color: #f68a1d;
+	left: 80px;
+	outline: 1px solid rgba(255,255,255,0.5);
+	position: absolute;
+	text-align: center;
+	bottom: -14px;
+	width: 135px;
+	z-index: 99;
+}
+
+.boxSub {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.boxMessage {
+  color: #fff;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 29px;
+  text-align: center;
+}
+
+.boxDownArrow {
+  border-bottom: 5px solid #f68a1d;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: transparent;
+  top: -5px;
+  left: 65px;
+  outline: none;
+  margin: 0 0 0 -5px;
+  position: absolute;
 }

@@ -5073,14 +5073,24 @@ function hkidValid(ths){
 	}
 }
 
-
+function hkidOnkeypress(evt) {
+	evt = (evt) ? evt : event;
+	var eCode = evt.keyCode;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	var keychar = String.fromCharCode(charCode)
+	//alert(keychar);
+	// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
+	// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8) {
+		return true;
+	}
+	return false;
+}
 
 	
 //no chinese method
 	$(':text').keyup(function(e) {
-        console.log($(this).attr('id'));
         inputVal = $(this).val();
-//        console.log($(this).val());
         inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
 		$('#'+$(this).attr('id')).val(inputVal);
     });
@@ -5122,4 +5132,18 @@ function autoSelect(id){
 	range.setEnd($("#"+id)[0].firstChild, $("#"+id)[0].firstChild.length);
 	sel.removeAllRanges();
 	sel.addRange(range);
+	$("#copyTipBox").show();
+}
+
+$("#toBeCopied").on("blur",function(){
+	$("#copyTipBox").hide();
+});
+
+//hkid placehoder
+function togglePlaceholder(selectElement, inputId, placeholder){
+	if(selectElement.value=="HKID"){
+		$("#"+inputId).val(placeholder);
+	}else{
+		$("#"+inputId).val('');
+	}
 }
