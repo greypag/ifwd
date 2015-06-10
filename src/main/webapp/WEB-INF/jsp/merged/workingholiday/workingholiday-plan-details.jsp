@@ -139,7 +139,7 @@ function activateUserAccountJoinUs() {
            $.ajax({
                        type : 'POST',
                         url : '<%=request.getContextPath()%>/joinus',
-                        data : { optIn1: optIn1, optIn2: optIn2, password: password, mobileNo: mobile, fullName: name, userName: userName, emailAddress: email, checkbox3: checkbox3, checkbox4: checkbox4, ajax: "true" },
+                        data : { optIn1: optIn1, optIn2: optIn2, password: password, mobileNo: mobile, fullName: name, userName: userName, emailAddress: email, checkbox3: checkbox3, checkbox4: checkbox4 },
                         async : false,
                         success : function(data) {
                             
@@ -408,7 +408,7 @@ function activateUserAccountJoinUs() {
 										onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');"
 										onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
                                         chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');"
-										onkeyup="hkidValid(this)"> <span id="whAppHKID"
+										onkeyup="hkidValid(this)" onkeypress=" return hkidOnkeypress(event);"> <span id="whAppHKID"
 										class="text-red"></span>
 								</div>
 							</div>

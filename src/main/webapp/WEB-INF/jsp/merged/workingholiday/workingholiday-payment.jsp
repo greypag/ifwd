@@ -312,7 +312,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsFullName()}</td>
                                         <!-- <td data-title="Age range" class="travel-tb-h3">&nbsp;</td> -->
                                         <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsHKID()}</td>
-	                                    <td data-title="Relationship" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsBeneficaryDesc()}</td>
+	                                    <td data-title="Relationship" class="travel-tb-h3">${whInsBeneficaryDesc}</td>
 									</tr>
 									</c:if>
 								</tbody>
