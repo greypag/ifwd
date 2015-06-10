@@ -5131,6 +5131,7 @@ function autoSelect(id){
 	range.setEnd($("#"+id)[0].firstChild, $("#"+id)[0].firstChild.length);
 	sel.removeAllRanges();
 	sel.addRange(range);
+	$("#copyTipBox").show();
 }
 
 //hkid placehoder

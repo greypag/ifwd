@@ -6970,3 +6970,41 @@ tr.product-landing-error-wrap {
 .form-control.soflow.select-label{
     width: 100% !important;
 }
+
+/** copy tips box **/
+.boxMain {
+    background-color: #f68a1d;
+	left: 80px;
+	outline: 1px solid rgba(255,255,255,0.5);
+	position: absolute;
+	text-align: center;
+	bottom: -14px;
+	width: 135px;
+	z-index: 99;
+}
+
+.boxSub {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.boxMessage {
+  color: #fff;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 29px;
+  text-align: center;
+}
+
+.boxDownArrow {
+  border-bottom: 5px solid #f68a1d;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: transparent;
+  top: -5px;
+  left: 65px;
+  outline: none;
+  margin: 0 0 0 -5px;
+  position: absolute;
+}

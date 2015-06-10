@@ -128,8 +128,8 @@
                 <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-20">
                   <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-                      <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance?promo=<%=session.getAttribute("finalizeReferenceNo")%>
-                      </div>
+                      <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance?promo=<%=session.getAttribute("finalizeReferenceNo")%></div>
+                      <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage">Press CTRL-C to copy</span> <span class="boxDownArrow"></span> </div>
                   </div>
                   <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                       <!-- <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
