@@ -13,43 +13,49 @@
 <script>
 perventRedirect=true;
 
+var enablePayment=true;
+
     var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
-        if (payValid() && clicked === false) {
-        	$("#PaymentingDiv").show();
-            $("#button_confirm").hide();
-            clicked = true;
-            
-            var gatewayUrlId = '#' + gatewayUrlId;
-            var paymentFormId = '#' + paymentFormId;
-            var method = "<%=request.getContextPath()%>/processTravePayment";
-            
-            var geteWayUrl = $(gatewayUrlId).val();
-            $.ajax({
-                        type : "POST",
-                        url : method,
-                        data : $(paymentFormId).serialize(),
-                        async : false,
-                        success : function(data) {
-                        	$("#PaymentingDiv").hide();
-                            $("#button_confirm").show();
-                            if (data == 'success') {
-                                $("#"+form).attr('action', geteWayUrl);
-                                $("#"+form).submit();
-                            } else {
-                                $('#paymentErrorPopup').modal('show');
-                                $("#button_confirm").show();
-                                return false;
-                            }
-                        }
-                    });
-            return true;
-        }else{ 
-        	$("#button_confirm").show();
-        	$("#PaymentingDiv").hide();	
-        	return false;
-        };
-
+    	if(enablePayment){
+    		enablePayment=false;
+    		$("#PaymentingDiv").show();
+	        if (payValid() && clicked === false) {
+	            clicked = true;
+	            
+	            var gatewayUrlId = '#' + gatewayUrlId;
+	            var paymentFormId = '#' + paymentFormId;
+	            var method = "<%=request.getContextPath()%>/processTravePayment";
+	            
+	            var geteWayUrl = $(gatewayUrlId).val();
+	            $.ajax({
+	                        type : "POST",
+	                        url : method,
+	                        data : $(paymentFormId).serialize(),
+	                        async : false,
+	                        success : function(data) {
+	                        	clicked = false;
+                                //$("#PaymentingDiv").hide();
+	                            if (data == 'success') {
+	                            	setTimeout(function(){
+	                            		$("#"+form).attr('action', geteWayUrl);
+	                                    $("#"+form).submit();
+                                    }, 3000);
+	                            } else {
+	                            	$("#PaymentingDiv").hide();
+                                    enablePayment=true;
+	                                $('#paymentErrorPopup').modal('show');
+	                                return false;
+	                            }
+	                        }
+	                    });
+	            return true;
+	        }else{ 
+	        	$("#PaymentingDiv").hide();
+                enablePayment=true;	
+	        	return false;
+	        };
+    	}
     }
 
 </script>
