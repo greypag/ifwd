@@ -312,7 +312,7 @@ $(document).ready(function() {
 			<div class="hidden-xs hidden-sm">
 				<div class="col-lg-12 col-md-12 home-features pad-none">
 					<div class="col-md-6 col-lg-6 pad-none text-center">
-						<img src="<%=request.getContextPath()%>/resources/images/homecare1.png" alt="" />
+						<img src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon1.png" alt="" />
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
@@ -336,12 +336,12 @@ $(document).ready(function() {
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none text-center">
-						<img src="<%=request.getContextPath()%>/resources/images/homecare2.png" alt="" />
+						<img src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon2.png" alt="" />
 					</div>
 					<div class="clearfix"></div>
 					<br>
 					<div class="col-md-6 col-lg-6 pad-none text-center">
-						<img src="<%=request.getContextPath()%>/resources/images/homecare3.png" alt="" />
+						<img src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon3.png" alt="" />
 					</div>
 					<div class="col-md-6 col-lg-6 pad-none">
 						<div class="content">
@@ -371,7 +371,7 @@ $(document).ready(function() {
 			<!--mob-Features-->
 			<div class="mob-features hidden-lg hidden-md">
 				<div class="col-xs-4 col-sm-4 text-center">
-					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/homecare1.png"
+					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon1.png"
 						alt="" />
 				</div>
 				<div class="col-xs-8 col-sm-8">
@@ -390,7 +390,7 @@ $(document).ready(function() {
 				<div class="clearfix"></div>
 				<br>
 				<div class="col-xs-4 col-sm-4 text-center">
-					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/homecare2.png"
+					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon2.png"
 						alt="" />
 				</div>
 				<div class="col-xs-8 col-sm-8">
@@ -406,7 +406,7 @@ $(document).ready(function() {
 				<div class="clearfix"></div>
 				<br>
 				<div class="col-xs-4 col-sm-4 text-center">
-					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/homecare3.png"
+					<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon3.png"
 						alt="" />
 				</div>
 				<div class="col-xs-8 col-sm-8">
