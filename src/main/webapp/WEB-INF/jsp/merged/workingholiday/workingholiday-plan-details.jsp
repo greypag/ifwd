@@ -505,7 +505,7 @@ function activateUserAccountJoinUs() {
 									<div class="styled-select">
 										<select name="whInsBeneficary" id="selectWhInsBeneficary"
 											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary', 'inputWhInsFullName', 'inputWhInsHKID')"
-											class="soflow select-label">
+											class="form-control soflow select-label">
 											<c:forEach var="relationshipList"
 												items="${mapRelationshipCode}">
 												<c:choose>

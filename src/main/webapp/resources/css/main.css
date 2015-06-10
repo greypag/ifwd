@@ -5755,7 +5755,7 @@ font-family: 'Foco-bold';
 
 .travel-special{top:5px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
-select#selectHkidPass, .selectHkidPass{ width:98% !important; margin-right:10%;}
+select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:10%;}
 .chin .travel-special{top:18px;}
 .chin .travel-and-home-tab{top:52px;}
 
@@ -6364,7 +6364,7 @@ tr.product-landing-error-wrap {
    /* border-radius: 0;
    height: 34px; */
    -webkit-appearance: none;
-   width: 117% !important;
+   /*width: 117% !important;*/
 }
 .styled-select {
 /*    width: 240px;
@@ -6964,9 +6964,9 @@ tr.product-landing-error-wrap {
 	    border:0px !important;
 	    -webkit-box-shadow: 0 0px 0px;
 	    box-shadow: 0 0px 0px;
-	}
-    
-    
-    
-    
+	}    
+}
+
+.select-label{
+    width: 100% !important;
 }

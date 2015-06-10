@@ -459,7 +459,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         <div class="styled-select custom-select-label">
 	                                        <select id="selectHkidPass"
 	                                            name="selectedHkidPassApplicant" onchange="selected(this)"
-	                                            class="soflow select-label">
+	                                            class="form-control soflow select-label">
 	                                            <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                 <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
 	                                        </select>
@@ -701,7 +701,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select"><select
-                                                        name="personalAgeRange" class="soflow select-label"
+                                                        name="personalAgeRange" class="form-control soflow select-label"
                                                         id="selectAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapSelfType}">
                                                             <c:choose>
@@ -728,7 +728,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                <select name="personalBeneficiary" class="soflow select-label" id="personalselectBenificiary${inx}" onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
+                                                <select name="personalBeneficiary" class="form-control soflow select-label" id="personalselectBenificiary${inx}" onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
 	                                                <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                        <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
                                                     </c:forEach>
@@ -874,7 +874,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                 </td>
                                                 <td class="">
                                                      <div class="styled-select"><select
-                                                        name="personalAgeRange" class="soflow select-label"
+                                                        name="personalAgeRange" class="form-control soflow select-label"
                                                         id="selectAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapSelfType}">
                                                             <c:choose>
@@ -898,7 +898,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
-                                                     <div class="styled-select"><select name="personalBeneficiary" class="soflow select-label"
+                                                     <div class="styled-select"><select name="personalBeneficiary" class="form-control soflow select-label"
                                                         id="personalselectBenificiary${inx}"
                                                         onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}')">
                                                         <option value="SE"><fmt:message
@@ -1022,7 +1022,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select"><select
-                                                        name="adultAgeRange" class="soflow select-label"
+                                                        name="adultAgeRange" class="form-control soflow select-label"
                                                         id="selectAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapSelfType}">
                                                             <c:choose>
@@ -1049,7 +1049,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                               <select name="adultBeneficiary" class="soflow select-label" id="adultsselectBenificiary${inx}" onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')">
+                                               <select name="adultBeneficiary" class="form-control soflow select-label" id="adultsselectBenificiary${inx}" onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')">
 		                                                <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                        <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
                                                     </c:forEach>
@@ -1194,7 +1194,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                 </td>
                                                 <td class="">
                                                      <div class="styled-select"><select
-                                                        name="adultAgeRange" class="soflow select-label"
+                                                        name="adultAgeRange" class="form-control soflow select-label"
                                                         id="selectAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapSelfType}">
                                                             <c:choose>
@@ -1218,7 +1218,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     key="flight.details.insured.beneficiary" bundle="${msg}" /></label>
                                                 </td>
                                                 <td class="">
-                                                     <div class="styled-select"><select name="adultBeneficiary" class="soflow select-label"
+                                                     <div class="styled-select"><select name="adultBeneficiary" class="form-control soflow select-label"
                                                         id="adultsselectBenificiary${inx}"
                                                         onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')">
                                                         <option value="SE"><fmt:message
@@ -1331,7 +1331,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                    <select name="childAgeRange" class="soflow select-label"
+                                                    <select name="childAgeRange" class="form-control soflow select-label"
                                                         id="selectchildAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapChildType}">
                                                             <c:choose>
@@ -1362,7 +1362,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                    <select id="childselectBenificiary${inx}"
                                                        name="childBeneficiary"
                                                        onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
-                                                       class="soflow select-label">
+                                                       class="form-control soflow select-label">
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                        <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
                                                     </c:forEach>
@@ -1517,7 +1517,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         valueElmName="childAgeRange"
                                                     />
                                                     <div class="styled-select">
-                                                    <select name="childAgeRange" class="soflow select-label"
+                                                    <select name="childAgeRange" class="form-control soflow select-label"
                                                         id="selectchildAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapChildType}">
                                                             <c:choose>
@@ -1544,7 +1544,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     <select id="childselectBenificiary${inx}"
                                                         name="childBeneficiary"
                                                         onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-                                                        class="soflow select-label">
+                                                        class="form-control soflow select-label">
                                                         <option value="SE"><fmt:message
                                                                 key="flight.details.insured.beneficiary.default"
                                                                 bundle="${msg}" /></option>
@@ -1651,7 +1651,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                    <select name="otherAgeRange" class="soflow select-label"
+                                                    <select name="otherAgeRange" class="form-control soflow select-label"
                                                         id="selectOtherAgeRange${inx}">
                                                    <c:forEach var="ageList" items="${mapAgeType}">
                                                        <c:choose>
@@ -1836,7 +1836,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                                valueElmName="otherAgeRange"
 		                                            />
 		                                            <div class="styled-select">
-		                                            <select name="otherAgeRange" class="soflow select-label"
+		                                            <select name="otherAgeRange" class="form-control soflow select-label"
 		                                                id="selectOtherAgeRange${inx}">
 		                                                <c:forEach var="ageList" items="${mapAgeType}">
 		                                                    <c:choose>

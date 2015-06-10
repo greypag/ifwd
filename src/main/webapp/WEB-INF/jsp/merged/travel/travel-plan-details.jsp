@@ -363,7 +363,7 @@ function activateUserAccountJoinUs() {
                                    <div class="bmg-label-styled-select styled-select ">
                                         <select id="selectHkidPass"
                                             name="selectedHkidPassApplicant" onchange="selected(this)"
-                                            class="soflow select-label">
+                                            class="form-control soflow select-label">
                                             <c:forEach var="hkidList"
                                                 items="${mapHkId}">
                                                 <option
@@ -453,7 +453,7 @@ function activateUserAccountJoinUs() {
                                     <div class="styled-select custom-select-label">
                                         <select id="selectHkidPass"
                                             name="selectedHkidPassApplicant" onchange="selected(this)"
-                                            class="soflow select-label">
+                                            class="form-control soflow select-label">
                                             <c:forEach var="hkidList"
                                                 items="${mapHkId}">
                                                 <option
@@ -684,7 +684,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
                                                         <select
-                                                            name="personalAgeRange" class="soflow select-label"
+                                                            name="personalAgeRange" class="form-control soflow select-label"
                                                             id="selectAgeRange${inx}">
         
                                                             <c:choose>
@@ -745,7 +745,7 @@ function activateUserAccountJoinUs() {
                                                <div class="styled-select">
                                                      <select name="personalBeneficiary" id="personalselectBenificiary${inx}" 
                                                             onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')"
-                                                        class="soflow select-label" >
+                                                        class="form-control soflow select-label" >
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipList.key}"><c:out
                                                                     value="${relationshipList.value}" /></option>
@@ -888,7 +888,7 @@ function activateUserAccountJoinUs() {
                                                 <td>
                                                      <div class="styled-select">
                                                         <select
-                                                            name="personalAgeRange" class="soflow select-label"
+                                                            name="personalAgeRange" class="form-control soflow select-label"
                                                             id="selectAgeRange${inx}">
         
                                                             <c:choose>
@@ -947,7 +947,7 @@ function activateUserAccountJoinUs() {
                                                      <div class="styled-select">
                                                      <select name="personalBeneficiary" id="personalselectBenificiary${inx}" 
                                                             onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}')"
-                                                        class="soflow select-label" >
+                                                        class="form-control soflow select-label" >
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipList.key}"><c:out
@@ -1067,7 +1067,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                               <div class="styled-select">
                                                         <select
-                                                            name="adultAgeRange" class="soflow select-label"
+                                                            name="adultAgeRange" class="form-control soflow select-label"
                                                             id="selectAgeRange${inx}">
         
                                                             <c:choose>
@@ -1128,7 +1128,7 @@ function activateUserAccountJoinUs() {
                                                <div class="styled-select">
                                                    <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
                                                           onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')"
-                                                      class="soflow select-label" >
+                                                      class="form-control soflow select-label" >
                                                       <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                           <option value="${relationshipList.key}"><c:out
                                                                   value="${relationshipList.value}" /></option>
@@ -1276,7 +1276,7 @@ function activateUserAccountJoinUs() {
                                                 <td>
                                                      <div class="styled-select">
                                                         <select
-                                                            name="adultAgeRange" class="soflow select-label"
+                                                            name="adultAgeRange" class="form-control soflow select-label"
                                                             id="selectAgeRange${inx}">
         
                                                             <c:choose>
@@ -1335,7 +1335,7 @@ function activateUserAccountJoinUs() {
                                                      <div class="styled-select">
                                                      <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
                                                             onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}')"
-                                                        class="soflow select-label" >
+                                                        class="form-control soflow select-label" >
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipList.key}"><c:out
@@ -1448,7 +1448,7 @@ function activateUserAccountJoinUs() {
                                                <div class="styled-select">
                                                   <select
                                                       name="childAgeRange" id="selectchildAgeRange${inx}"
-                                                      class="soflow select-label">
+                                                      class="form-control soflow select-label">
                                                       <c:forEach var="ageList" items="${mapChildType}">
                                                           <c:choose> 
                                                             <c:when test="${ageList.key == '1'}">
@@ -1475,7 +1475,7 @@ function activateUserAccountJoinUs() {
                                                     <select
                                                         id="childselectBenificiary${inx}" name="childBeneficiary"
                                                         onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
-                                                        class="soflow select-label">
+                                                        class="form-control soflow select-label">
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
@@ -1633,7 +1633,7 @@ function activateUserAccountJoinUs() {
                                                     <div class="styled-select">
                                                         <select
                                                             name="childAgeRange" id="selectchildAgeRange${inx}"
-                                                            class="soflow select-label">
+                                                            class="form-control soflow select-label">
                                                             <c:forEach var="ageList" items="${mapChildType}">
                                                                 <c:choose> 
                                                                   <c:when test="${ageList.key == '1'}">
@@ -1658,7 +1658,7 @@ function activateUserAccountJoinUs() {
                                                     <select
                                                         id="childselectBenificiary${inx}" name="childBeneficiary"
                                                         onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}')"
-                                                        class="soflow select-label">
+                                                        class="form-control soflow select-label">
                                                         <option value="SE"><fmt:message key="travel.details.insured.beneficiary.default" bundle="${msg}" /></option>
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
                                                             <option value="${relationshipCodeList.key}"><c:out
@@ -2336,6 +2336,7 @@ function activateUserAccountJoinUs() {
 
     function selected(id){
         $('#selectedAdHkidPass1').val(id.value);
+        
     }
 </script>
 
