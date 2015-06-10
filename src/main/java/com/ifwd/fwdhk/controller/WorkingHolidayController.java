@@ -395,6 +395,8 @@ public class WorkingHolidayController {
 		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
+		String planDiscount = WebServiceUtils.getParameterValue("selectedDiscountAmt", session, request);
+		
 		selectPlanName = planName;
 		System.out.println("Seeeeeee" + selectPlanName);
 
@@ -488,6 +490,7 @@ public class WorkingHolidayController {
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 			model.addAttribute("planPremium", selectPlanPremium);
+			model.addAttribute("planDiscount", planDiscount);
 			
 			//get country
 			String getCountryUrl = UserRestURIConstants.GET_COUNTRY + "?itemTable=WorkingHolidayCountry";

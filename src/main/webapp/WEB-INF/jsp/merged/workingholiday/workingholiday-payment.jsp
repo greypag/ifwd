@@ -328,7 +328,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 					<h2 class="from-control"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
 					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
 					<input type="hidden" name="merchantId" value="${whCreatePolicy.getMerchantId()}">
-					<input type="hidden" name="amount" value="${dueAmount.trim()}">
+					<input type="hidden" name="amount" value="${dueAmount.replace(',','').trim()}">
 					<input type="hidden" name="orderRef" value="${whCreatePolicy.getTransactionNo() }">
 					<input type="hidden" name="currCode" value="${whCreatePolicy.getCurrCode() }">
 					<input type="hidden" name="successUrl" value="${path}">
