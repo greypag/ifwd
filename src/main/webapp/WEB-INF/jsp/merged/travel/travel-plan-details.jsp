@@ -2336,7 +2336,7 @@ function activateUserAccountJoinUs() {
 
     function selected(id){
         $('#selectedAdHkidPass1').val(id.value);
-        
+        $('#selectedPersonalHkidPass1').val(id.value);
     }
 </script>
 
