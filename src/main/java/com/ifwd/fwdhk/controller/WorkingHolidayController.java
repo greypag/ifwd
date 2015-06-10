@@ -63,7 +63,7 @@ public class WorkingHolidayController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/workingholiday-insurance"})
+	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/workingholiday-insurance", "/{lang}/workingholiday-insurance/sharing/"})
 	public ModelAndView getWorkingHolidayHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("WorkingHoliday");
