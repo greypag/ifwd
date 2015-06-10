@@ -286,7 +286,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                             </div>
                             
                             <div id="no-more-tables" class="hidden-sm hidden-xs">
-							
+							<div style="width:80%;margin-left:10%;">
 							<table class="col-md-12 table-condensed cf pad-left-20 beneList ">
 
 								<tbody>
@@ -318,15 +318,18 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 									</c:if>
 								</tbody>
 							</table>
+							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="gray-bg1 pad20">
-					<div class="clearfix"></div>
-					<h2 class="from-control"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
-					<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
+				<div class="gray-bg1">
+					<div style="width:80%;margin-left:10%;">
+					<div class="col-xs-12 pad-none">
+						<h2 class="from-control" style="padding:0px !important;"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
+						<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
+					</div>
 					<input type="hidden" name="merchantId" value="${whCreatePolicy.getMerchantId()}">
 					<input type="hidden" name="amount" value="${dueAmount.trim()}">
 					<input type="hidden" name="orderRef" value="${whCreatePolicy.getTransactionNo() }">
@@ -547,6 +550,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 							
 													
 							<div class="clearfix"></div>
+						</div>
 						</div>
 						<br>
 						<br>
