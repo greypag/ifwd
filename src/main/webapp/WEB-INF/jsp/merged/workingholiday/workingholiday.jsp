@@ -294,20 +294,38 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 <!--/#testiomonials mob-->
 <section id="testimonials-mob" class="hidden-lg hidden-md workingholiday-testimonials-mob" style="margin: 0px;">
+<form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
     <!--desktop-testimonials-->
-    <img src="<%=request.getContextPath()%>/resources/images/icon4.png" style="margin-top: 50px;" />
+   <%--  <img src="<%=request.getContextPath()%>/resources/images/icon4.png" style="margin-top: 50px;" />
     <h2>Next Step</h2>        
     <hr style="width:120px;">
     <h2>Made your decision</h2>        
     <span style="font-size:21px;">It's time to get protected and choose the right coverage for you.</span>
-    <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>    
+    <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn ">Get Covered Now</button>  --%>   
 
+ 
+    <!--desktop-testimonials-->
+        <img src="<%=request.getContextPath()%>/resources/images/icon4.png" style="margin-top: 50px;" />
+    
+
+
+          <h2><fmt:message key="workingholiday.main.quote.bottom.next" bundle="${msg}" /></h2>        
+          <hr style="width:120px;">
+
+        
+
+            <h2><fmt:message key="workingholiday.main.quote.bottom.heading" bundle="${msg}" /></h2>        
+            <span style="font-size:21px;"><fmt:message key="workingholiday.main.quote.bottom.desc" bundle="${msg}" /></span>
+
+        
+
+            <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
     
     <!--/.row--> 
     <!--/.desktop-testimonials--> 
+</form>
 </section>
 <!--/#testiomonials mob-->
-
 
 
 

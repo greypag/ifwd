@@ -69,30 +69,30 @@ var promoData = '';
 			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
 				
-				$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
-				$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-				$('#txtDiscountAmount').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-				$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-				$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+				$("#subtotal").html(format(parseFloat(result["priceInfoB"].grossPremium)));
+				$("#discountAmt").html(format(parseFloat(result["priceInfoB"].discountAmount)));
+				$('#selectedDiscountAmt').val(format(parseFloat(result["priceInfoB"].discountAmount)));
+				$('#txtDiscountAmount').val(format(parseFloat(result["priceInfoB"].discountAmount)));
+				$("#amountdue").html(format(parseFloat(result["priceInfoB"].totalDue)));
+				$('#selectedAmountDue').val(format(parseFloat(result["priceInfoB"].totalDue)));
+				$('#selectPlanPremium').val(format(parseFloat(result["priceInfoB"].grossPremium)));
 				
 				
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
-				$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				$("#subtotal").html(format(parseFloat(result["priceInfoA"].grossPremium)));
+				$("#discountAmt").html(format(parseFloat(result["priceInfoA"].discountAmount)));
+				$('#selectedDiscountAmt').val(format(parseFloat(result["priceInfoA"].discountAmount)));
+				$('#txtDiscountAmount').val(format(parseFloat(result["priceInfoA"].discountAmount)));
+				$("#amountdue").html(format(parseFloat(result["priceInfoA"].totalDue)));
+				$('#selectedAmountDue').val(format(parseFloat(result["priceInfoA"].totalDue)));
+				$('#selectPlanPremium').val(format(parseFloat(result["priceInfoA"].grossPremium)));
 
 			}
-			$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-			$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-			$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-			$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+			$('.totalPriceA').html(format(parseFloat(result["priceInfoA"].totalDue)));
+			$('.actualPriceA del').html(format(parseFloat(result["priceInfoA"].grossPremium)));
+			$('.totalPriceB').html(format(parseFloat(result["priceInfoB"].totalDue)));
+			$('.actualPriceB del').html(format(parseFloat(result["priceInfoB"].grossPremium)));
 		}
 	}
 	
@@ -224,7 +224,7 @@ var promoData = '';
 								
 								<h3><fmt:message key="workingholiday.dollar" bundle="${msg}" /></h3>
 								<%
-										DecimalFormat df = new DecimalFormat("#,###,###,##0");
+										DecimalFormat df = new DecimalFormat("#,###,###,##0.00");
 										if (Double.parseDouble(workingholidayQuote.getDiscountAmount()[i]) == 0) {
 									%>
 									<h6>
@@ -846,6 +846,7 @@ var promoData = '';
 		
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
+		/* alert("discountAmt: "+discountAmt+";totalDue: "+totalDue); */
 		$("#promo-code-body").fadeIn();
 		document.getElementById("errDue").innerHTML = "";
 		
@@ -868,30 +869,35 @@ var promoData = '';
 		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
 		selected_price = parseFloat(selected_price).toFixed(2);
 		
-		$('#amountdue').html(parseFloat(totalDue).toFixed(2));
+		$('#amountdue').html(format(parseFloat(totalDue)));
 		
 		
 		/*   $('#selectedAmountDue').value=selected_price; */
-		$('#subtotal').html(parseFloat(selected_price).toFixed(2));
-		$('#plansummary').html(parseFloat(selected_price).toFixed(2));
+		$('#subtotal').html(format(parseFloat(selected_price)));
+		$('#plansummary').html(format(parseFloat(selected_price)));
 		$('#seletedplanname').html('<fmt:message key="workingholiday.summary.plan" bundle="${msg}" />'+' '+ planName + ' ' + '<fmt:message key="workingholiday.summary" bundle="${msg}"/>');
 		$('#inputseletedplanname').val(planName);
-		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
+		$('#selectPlanPremium').val(format(parseFloat(selected_price)));
 
 		$('#' + id).addClass("plan-box5");
 
-		$('#discountAmt').html(parseFloat(discountAmt).toFixed(2));
+		$('#discountAmt').html(format(parseFloat(discountAmt)));
 		
-		document.getElementById("selectedAmountDue").value = parseFloat(totalDue.trim()).toFixed(2);
-		document.getElementById("selectedDiscountAmt").value = parseFloat(discountAmt.trim()).toFixed(2);
-		$('#txtDiscountAmount').val(parseFloat(discountAmt.trim()).toFixed(2));
-		document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
+		document.getElementById("selectedAmountDue").value = format(parseFloat(totalDue.trim()));
+		document.getElementById("selectedDiscountAmt").value = format(parseFloat(discountAmt.trim()));
+		$('#txtDiscountAmount').val(format(parseFloat(discountAmt.trim())));
+		document.getElementById("txtgrossPremiumAmt").value = format(parseFloat(selected_price.trim()));
 		
 		if(promoData !== '')
 			setValue(promoData);
 		
 	}
-
+	
+	function format (num) { 
+	    return (num.toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,'); 
+	} 
+	 
+	
 	function sendEmail() {
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
