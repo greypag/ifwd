@@ -701,10 +701,10 @@ var promoData = '';
 								-->
 								
 								
-								<div class="working-italic workingholiday-getpromocode" style="font-size:14px;">
+								<%-- <div class="working-italic workingholiday-getpromocode" style="font-size:14px;">
 									<a href="" class="sub-link" data-toggle="modal"
 											data-target=".bs-promo-modal-lg"><i><fmt:message key="workingholiday.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
-								</div>
+								</div> --%>
 							</div>
 					   </div>
                         <div class="col-md-12 hidden-sm hidden-xs pad-none">
