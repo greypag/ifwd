@@ -5134,6 +5134,10 @@ function autoSelect(id){
 	$("#copyTipBox").show();
 }
 
+$("#toBeCopied").on("blur",function(){
+	$("#copyTipBox").hide();
+});
+
 //hkid placehoder
 function togglePlaceholder(selectElement, inputId, placeholder){
 	if(selectElement.value=="HKID"){
