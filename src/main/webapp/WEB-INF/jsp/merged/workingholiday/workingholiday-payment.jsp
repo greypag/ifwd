@@ -331,7 +331,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
 					</div>
 					<input type="hidden" name="merchantId" value="${whCreatePolicy.getMerchantId()}">
-					<input type="hidden" name="amount" value="${dueAmount.trim()}">
+					<input type="hidden" name="amount" value="${dueAmount.replace(',','').trim()}">
 					<input type="hidden" name="orderRef" value="${whCreatePolicy.getTransactionNo() }">
 					<input type="hidden" name="currCode" value="${whCreatePolicy.getCurrCode() }">
 					<input type="hidden" name="successUrl" value="${path}">
