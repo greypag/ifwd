@@ -310,6 +310,15 @@ function activateUserAccountJoinUs() {
 							%>
 							<h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head">
 								<fmt:message key="workingholiday.details.login" bundle="${msg}" />
+								<!--
+		                        278
+		                        --> 
+		                        <a 
+		                        class="tool-tip show-inline-md"
+		                        data-toggle="tooltip" data-placement="bottom"
+		                        title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />">
+		                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+		                        alt=""></a>
 							</h3>
 							<a href="#"
 								class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn"
@@ -1295,6 +1304,12 @@ function activateUserAccountJoinUs() {
 //	function selected(id){
 //		$('#selectWhInsHKID').val(id.value);
 //	}
+</script>
+
+<script>
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+    });
 </script>
 
 <script>

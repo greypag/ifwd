@@ -304,7 +304,20 @@ function activateUserAccountJoinUs() {
                         <%
                             if (authenticate.equals("false") || authenticate.equals("direct")) {
                         %>
-                        <h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head"><fmt:message key="travel.details.login" bundle="${msg}" /></h3>
+                        <h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head">
+                        <fmt:message key="travel.details.login" bundle="${msg}" />
+                        <!--
+                        278 
+                        278
+                        --> 
+                        <a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        data-toggle="tooltip" data-placement="top"
+                        title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a>
+                        </h3>
                         
 
                         <!-- <a href="#"

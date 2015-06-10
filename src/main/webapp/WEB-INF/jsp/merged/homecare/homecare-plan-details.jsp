@@ -635,7 +635,19 @@ function activateUserAccountJoinUs() {
 								if (authenticate.equals("false") || authenticate.equals("direct")) 
 								{
 							%>
-							<h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head"><fmt:message key="home.details.login" bundle="${msg}" /></h3>
+							<h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head">
+							<fmt:message key="home.details.login" bundle="${msg}" />
+							<!--
+                            278
+                            --> 
+                            <a 
+                            class="tool-tip show-inline-md"
+                            data-toggle="tooltip" data-placement="bottom"
+                            title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />">
+                            <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                            alt=""></a>
+							</h3>
+							
 							<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="home.details.login.action" bundle="${msg}" /></a>
 							<div class="col-lg-9 col-md-9 col-xs-9 col-sm-9 text-left">
 								<h3 class="text-left or-continue">
