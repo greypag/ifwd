@@ -5087,9 +5087,7 @@ function hkidOnkeypress(evt) {
 	
 //no chinese method
 	$(':text').keyup(function(e) {
-        console.log($(this).attr('id'));
         inputVal = $(this).val();
-//        console.log($(this).val());
         inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
 		$('#'+$(this).attr('id')).val(inputVal);
     });

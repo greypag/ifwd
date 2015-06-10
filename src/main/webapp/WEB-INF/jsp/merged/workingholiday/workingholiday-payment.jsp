@@ -33,7 +33,6 @@ var clicked = false;
  								form.action = geteWayUrl;
  								result=true;
  							} else {
- 								console.log("fail to process payment " + data);
  								result=false;
  							}
  						}

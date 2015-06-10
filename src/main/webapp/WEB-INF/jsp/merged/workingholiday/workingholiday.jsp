@@ -24,7 +24,6 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
 				result = true;
 			} else {
-				console.log("fail to process prepareWorkingHolidayPlan " + data);
 				result = false;
 			}
 		}
