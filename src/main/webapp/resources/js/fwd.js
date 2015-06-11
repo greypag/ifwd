@@ -5101,11 +5101,13 @@ function hkidOnkeypress(evt) {
 
 	
 //no chinese method
-	$(':text').keyup(function(e) {
-        inputVal = $(this).val();
-        inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
-		$('#'+$(this).attr('id')).val(inputVal);
-    });
+$(':text').keyup(function(e) {
+    var inputVal = $(this).val();
+    var newVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
+    if(inputVal != newVal){
+    	$('#'+$(this).attr('id')).val(newVal);
+    }
+});
 
 
 // ***** homecare *****
