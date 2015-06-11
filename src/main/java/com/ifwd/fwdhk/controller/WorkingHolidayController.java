@@ -498,7 +498,7 @@ public class WorkingHolidayController {
 			if (jsonCountry.get("errMsgs") == null) {
 				JSONArray jsonRelationshipCode = (JSONArray) jsonCountry.get("optionItemDesc");
 				
-				Map<String, String> countryInfo = new HashMap<String, String>();
+				Map<String, String> countryInfo = new LinkedHashMap<String, String>();
 				for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 					JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
 					countryInfo.put(checkJsonObjNull(obj, "itemCode"),
