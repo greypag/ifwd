@@ -10,7 +10,9 @@ $(function () {
 	
 	// 30 days date
 	var effective_end_date = new Date();
-	effective_end_date.setDate(effective_end_date.getDate()+179);
+
+	effective_end_date.setDate(effective_end_date.getDate()+89);
+
 	
 	$('#dpEffectiveDate').datepicker({
 		autoclose: true,
