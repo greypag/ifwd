@@ -40,6 +40,20 @@
 			setAtt("WhInsArea", "NT");
 		}
 	}
+	
+	
+	
+	var hkidPlaceholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />";
+	
+	var benHkidPlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
+
+	var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
+	var floorPlaceholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />";
+	var blockPlaceholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />";
+	var buildingPlaceholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />";
+	var estatePlaceholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />";
+	var streetNoPlaceholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />";
+	var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />";
 </script>
 
 
@@ -640,7 +654,7 @@ function activateUserAccountJoinUs() {
 										
 											class="form-control textUpper full-control bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-											onkeyup="hkidValid(this)"
+											onkeyup="hkidValid(this)" onkeypress=" return hkidOnkeypress(event);"
 											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');"
 											onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');" />
 										<span id="whInsHKID" class="text-red"> </span>
@@ -697,16 +711,8 @@ function activateUserAccountJoinUs() {
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsRoom" name="whInsRoom"
-												
-												<c:choose>
-		                                         <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsRoom() != null && workingHolidayPlanDetailsForm.getWhInsRoom() != ''}">
-		                                           value="${workingHolidayPlanDetailsForm.getWhInsRoom()}"
-		                                         </c:when>
-		                                         <c:otherwise>
-		                                           value="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"
-		                                         </c:otherwise>
-		                                       </c:choose>
-												
+												value="${workingHolidayPlanDetailsForm.getWhInsRoom()}"
+												placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
 												onkeypress="    return isAlphaNumeric(event);"
@@ -716,14 +722,8 @@ function activateUserAccountJoinUs() {
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsFloor" name="whInsFloor"
 												
-												<c:choose>
-                                                 <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsFloor() != null && workingHolidayPlanDetailsForm.getWhInsFloor() != ''}">
-                                                   value="${workingHolidayPlanDetailsForm.getWhInsFloor()}"
-                                                 </c:when>
-                                                 <c:otherwise>
-                                                   value="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
-                                                 </c:otherwise>
-                                               </c:choose>
+												value="${workingHolidayPlanDetailsForm.getWhInsFloor()}"
+                                                placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"
@@ -733,14 +733,8 @@ function activateUserAccountJoinUs() {
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsBlock" name="whInsBlock"
 												
-												<c:choose>
-                                                 <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsBlock() != null && workingHolidayPlanDetailsForm.getWhInsBlock() != ''}">
-                                                   value="${workingHolidayPlanDetailsForm.getWhInsBlock()}"
-                                                 </c:when>
-                                                 <c:otherwise>
-                                                   value="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
-                                                 </c:otherwise>
-                                               </c:choose>
+												value="${workingHolidayPlanDetailsForm.getWhInsBlock()}"
+                                                   placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
@@ -754,14 +748,8 @@ function activateUserAccountJoinUs() {
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsBuilding" name="whInsBuilding"
 												
-												<c:choose>
-                                                 <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsBuilding() != null && workingHolidayPlanDetailsForm.getWhInsBuilding() != ''}">
-                                                   value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
-                                                 </c:when>
-                                                 <c:otherwise>
-                                                   value="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
-                                                 </c:otherwise>
-                                               </c:choose>
+												value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
+                                                   placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'whInsBuilding');"
@@ -774,14 +762,8 @@ function activateUserAccountJoinUs() {
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsEstate" name="whInsEstate"
 												
-												<c:choose>
-                                                 <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsEstate() != null && workingHolidayPlanDetailsForm.getWhInsEstate() != ''}">
-                                                   value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
-                                                 </c:when>
-                                                 <c:otherwise>
-                                                   value="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
-                                                 </c:otherwise>
-                                               </c:choose>
+												value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
+                                                   placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'whInsEstate');"
@@ -797,14 +779,8 @@ function activateUserAccountJoinUs() {
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsStreetNo" name="whInsStreetNo"
 												
-												<c:choose>
-                                                 <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsStreetNo() != null && workingHolidayPlanDetailsForm.getWhInsStreetNo() != ''}">
-                                                   value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
-                                                 </c:when>
-                                                 <c:otherwise>
-                                                   value="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
-                                                 </c:otherwise>
-                                               </c:choose>
+												value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
+                                                   placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -816,14 +792,8 @@ function activateUserAccountJoinUs() {
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsStreetName" name="whInsStreetName"
 												
-												<c:choose>
-                                                 <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsStreetName() != null && workingHolidayPlanDetailsForm.getWhInsStreetName() != ''}">
-                                                   value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
-                                                 </c:when>
-                                                 <c:otherwise>
-                                                   value="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
-                                                 </c:otherwise>
-                                               </c:choose>
+												value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
+                                                   placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"

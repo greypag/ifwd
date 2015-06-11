@@ -204,7 +204,11 @@ $(function () {
 				if (tr == false) {
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
 					return false;
-				}	
+				}
+				if(appHkid.trim() == $( "#inputWhAppHKID" ).val().trim()){
+					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.same.message"));
+					return false;
+				}
 			}
 		}else{ 
 			if (appHkid.trim() == "") {
@@ -215,6 +219,10 @@ $(function () {
 			if(tr==false)
 			{
 				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+				return false;
+			}
+			if(appHkid.trim() == $( "#inputWhAppHKID" ).val().trim()){
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.same.message"));
 				return false;
 			}
 		}
@@ -556,6 +564,39 @@ function confirmDetails(form){
 	var result =false;
 	if (whDetailsValid() && details_clicked === false) {
 	//if (details_clicked === false) {
+		
+		
+		if($("#inputWhAppHKID").val()==hkidPlaceholder){
+	    	$("#inputWhAppHKID").val('');
+	    }
+		
+		if($("#inputWhInsHKID").val()==benHkidPlaceholder){
+	    	$("#inputWhInsHKID").val('');
+	    }
+	    
+	    
+	    if($("#inputWhInsRoom").val()==roomPlaceholder){
+	    	$("#inputWhInsRoom").val('');
+	    }
+	    if($("#inputWhInsFloor").val()==floorPlaceholder){
+	    	$("#inputWhInsFloor").val('');
+	    }
+	    if($("#inputWhInsBlock").val()==blockPlaceholder){
+	    	$("#inputWhInsBlock").val('');
+	    }
+	    if($("#inputWhInsBuilding").val()==buildingPlaceholder){
+	    	$("#inputWhInsBuilding").val('');
+	    }
+	    if($("#inputWhInsEstate").val()==estatePlaceholder){
+	    	$("#inputWhInsEstate").val('');
+	    }
+	    if($("#inputWhInsStreetNo").val()==streetNoPlaceholder){
+	    	$("#inputWhInsStreetNo").val('');
+	    }
+	    if($("#inputWhInsStreetName").val()==streetNamePlaceholder){
+	    	$("#inputWhInsStreetName").val('');
+	    }
+		
 		details_clicked=true;
 		var inputWhAppFullName = $("#inputFullName").val();
 		var selectWhAppHKID = $("#selectWhAppHKID").val();
@@ -577,6 +618,9 @@ function confirmDetails(form){
 		var inputWhInsStreetNo = $("#inputWhInsStreetNo").val();
 		var inputWhInsStreetName = $("#inputWhInsStreetName").val();
 		var selectWhInsDistrict = $("#selectWhInsDistrict").val();
+		
+		
+		
 		
 		var checkbox1 = document.getElementById("checkbox1").checked;
 		var checkbox2 = document.getElementById("checkbox2").checked;
