@@ -123,7 +123,7 @@ var promoCodeInsertFlag = true;
 				async : false,
 				success : function(data) {
 					if (data == 'success') {
-						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
+						form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/user-details";
 						result = true;
 					} else {
 						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
@@ -742,7 +742,7 @@ var promoCodeInsertFlag = true;
                         <div class="col-xs-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
 							<div class="top35 pull-left pad-none" style="width:47%">
-								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
+								<a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 							</div>
 							<div class="top35 pull-right pad-none" style="width:47%">
@@ -769,7 +769,7 @@ var promoCodeInsertFlag = true;
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
            <div style="width: 80%;margin-left: 10%;">
                 <div class="top35 pull-left pad-none" style="width:47%">
-                    <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
+                    <a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
                         class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%">

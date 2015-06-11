@@ -672,7 +672,7 @@ function confirmDetails(form){
 			  	'checkbox4':checkbox4
 		    };
 		var method = this.rootUrl + "/wh-summary";
-		var rePage = this.rootUrl + this.rootLang + '/workingholiday-insurance/workingholiday-summary';
+		var rePage = this.rootUrl + this.rootLang + '/working-holiday-insurance/working-holiday-summary';
 		$.ajaxSetup({  
 	        contentType : 'application/json'  
 	    });

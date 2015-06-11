@@ -1191,7 +1191,7 @@ function activateUserAccountJoinUs() {
 							<div style="width: 80%; margin-left: 10%;">
 								<div class="top35 pull-left pad-none" style="width: 47%">
 									<a
-										href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"
+										href="<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote"
 										class="bdr-curve btn btn-primary bck-btn"><fmt:message
 											key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
@@ -1231,7 +1231,7 @@ function activateUserAccountJoinUs() {
 					<div style="width: 80%; margin-left: 10%; margin-bottom: 60px;">
 						<div class="top35 pull-left pad-none" style="width: 47%">
 							<a
-								href="<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote"
+								href="<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote"
 								class="bdr-curve btn btn-primary bck-btn"><fmt:message
 									key="workingholiday.action.back" bundle="${msg}" /> </a>
 						</div>
