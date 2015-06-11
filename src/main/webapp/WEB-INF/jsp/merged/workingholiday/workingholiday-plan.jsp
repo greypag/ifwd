@@ -150,8 +150,7 @@ var promoData = '';
 				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
-						<div class="center wow fadeInDown animated"
-							style="visibility: visible;">
+						<div class="center wow fadeInDown animated" style="visibility: visible;">
 							<h2 class="workingholiday-plan-jumbo-header"><fmt:message key="workingholiday.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
