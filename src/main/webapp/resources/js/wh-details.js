@@ -279,6 +279,7 @@ $(function () {
 	});
 	
 	$("#selectWhInsDistrict").change(function() {
+		$("#whInsDistrict").html('');
 		setAtt("WhInsDistrict", $(this).val());
 	});
 	
