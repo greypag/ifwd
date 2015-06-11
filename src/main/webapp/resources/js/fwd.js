@@ -5080,8 +5080,10 @@ function hkidValid(ths){
 	var inputVal = $('#'+inputId).val();
 	var selectHkPass = document.getElementById(selectId).value;
 	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
-		inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()]/g,'');
-		$('#'+inputId).val(inputVal);
+		var newVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()]/g,'');
+		if(inputVal != newVal){
+			$('#'+inputId).val(newVal);
+		}
 	}
 }
 
@@ -5090,10 +5092,13 @@ function hkidOnkeypress(evt) {
 	var eCode = evt.keyCode;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
 	var keychar = String.fromCharCode(charCode)
+	//alert("charCode:"+evt.charCode);
+	//alert("keyCode:"+evt.keyCode);
 	//alert(keychar);
 	// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
 	// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
-	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8) {
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39)) {
 		return true;
 	}
 	return false;
