@@ -5135,7 +5135,7 @@ $(function () {
 		todayHighlight: true,
 		format: "dd-mm-yyyy"
 	}).on('changeDate', function (ev) {
-		$('#errEffDate').html('');
+		$('#errEffDate').html(''); 
 	});
 	
 });
