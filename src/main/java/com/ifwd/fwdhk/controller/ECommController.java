@@ -80,21 +80,21 @@ public class ECommController {
 			return new ModelAndView("redirect:" + viewName);	
 	}
 	
-	@RequestMapping(value = {"home", "/{lang}/home", "/{lang}/home/sharing/", "/tc", "/en", "/tc/", "/en/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"home", "/en/home", "/en/home/sharing/", "/tc/home", "tc/home", "tc/home/sharing/", "tc", "en", "tc/", "en/"}, method = RequestMethod.GET)
 	public String homePage(@RequestParam(required = false) final String promo, HttpServletRequest req, Model model, HttpServletResponse response,
 			@RequestParam(required = false) final String utm_source,
 			@RequestParam(required = false) final String utm_medium,
 			@RequestParam(required = false) final String utm_campaign,
-			@RequestParam(required = false) final String utm_content, @PathVariable String lang) {
+			@RequestParam(required = false) final String utm_content) {
 		
-		if (!lang.equals("tc") && !lang.equals("en")) {
-			System.out.println("lang " + lang);
-			
-			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );
-			
-			return null;
-	
-		} else {
+//		if (!lang.equals("tc") && !lang.equals("en")) {
+//			System.out.println("lang " + lang);
+//			
+//			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );
+//			
+//			return null;
+//	
+//		} else {
 
 			model.addAttribute("utm_source", utm_source);
 			model.addAttribute("utm_medium", utm_medium);
@@ -148,7 +148,7 @@ public class ECommController {
 			
 	//		session.setAttribute("language", "EN");
 			return "../jsp/" + dir + "/index";
-		}
+//		}
 		
 	}
 

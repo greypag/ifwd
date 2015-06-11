@@ -119,6 +119,9 @@ function submitLoginForm(formID) {
 
 <!--END -Google Code for SEO-->
 
+
+<!-- End Visual Website Optimizer Asynchronous Code -->
+<!--End VWO-->
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
