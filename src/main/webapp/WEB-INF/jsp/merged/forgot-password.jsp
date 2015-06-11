@@ -13,8 +13,7 @@
 			if (forgotPassword() == true) {
 
 				$('#ajax-loading').show();
-				$
-						.ajax({
+				$.ajax({
 							type : 'POST',
 							url : '<%=request.getContextPath()%>/forgotUserPassword',
 							data : $('#forgotPasswordForm input').serialize(),
@@ -22,19 +21,19 @@
 
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
-									$('#forgotpassword-err-msg')
+									$('#forgotpassword-err-msg1')
 											.html(
 													'Provided User Account Details Does Not Exist');
-									$('#forgotpassword-err-msg').show();
+									$('#forgotpassword-err-msg1').show();
 								} else if (data == 'success') {
-									$('#success-message')
+									$('#success-message1')
 											.html(
 													'Link Sent Successfully On Your Registered Mail ID');
-									$('#success-message').show();
+									$('#success-message1').show();
 								} else {
-									$('#success-message').html(
+									$('#success-message1').html(
 											'Internet Connection Error ');
-									$('#success-message').show();
+									$('#success-message1').show();
 									$('#user-details-main').hide();
 								}
 
@@ -70,11 +69,11 @@
 						action="forgotPassword" method="post"
 						commandName="forgotUserPassword">
 						<div id="hide-field"></div>
-						<div id="forgotpassword-err-msg" class="alert alert-danger"
+						<div id="forgotpassword-err-msg1" class="alert alert-danger"
 							role="alert" style="display: none;">
 							<P id="error1">
 						</div>
-						<div id="success-message" class="alert alert-success" role="alert"
+						<div id="success-message1" class="alert alert-success" role="alert"
 							style="display: none;">
 							<P id="error1">
 						</div>
@@ -92,12 +91,12 @@
 										<tr>
 											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
 											<td class=""><input type="text" name="mobileNo"
-												class="form-control" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+												class="form-control" id="fMobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
 												onkeypress="return isNumeric(event)"
 												onblur="replaceNumeric(this);"> <span
-												id="errorEmptyMob" class="hide1"> <label
+												id="errorFEmptyMob" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /> </label>
-											</span> <span class="hide" id="errorInvalidMob"> <label
+											</span> <span class="hide1" id="errorFInvalidMob"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
 											</span></td>
 										</tr>
@@ -106,10 +105,10 @@
 											</label></td>
 
 											<td class=""><input type="email"
-												name="emailAddress" class="form-control" id="emailAddress"
-												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId"
+												name="emailAddress" class="form-control" id="fEmailAddress"
+												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorFEmptyEmailId"
 												class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /> </label>
-											</span> <span id="errorInvalidEmailId" class="hide1"> <label
+											</span> <span id="errorFInvalidEmailId" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
 											</span></td>
 
@@ -118,10 +117,10 @@
 											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.userName" bundle="${msg}" />
 											</label></td>
 											<td class=""><input type="text" name="userName"
-												class="form-control" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />">
-												<span id="errorEmptyUName" class="hide1"> <label
+												class="form-control" id="fUserName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />">
+												<span id="errorFEmptyUName" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.userName.errorEmptyUName" bundle="${msg}" /></label>
-											</span> <span id="errorInvalidUName" class="hide1"> <label
+											</span> <span id="errorFInvalidUName" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.userName.errorInvalidUName" bundle="${msg}" /></label>
 											</span></td>
 
