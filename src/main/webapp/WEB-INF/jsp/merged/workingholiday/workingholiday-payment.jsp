@@ -21,7 +21,7 @@ var clicked = false;
  			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
  			
  			var geteWayUrl = $(gatewayUrlId).val();
- 			<%-- form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/workingholiday-insurance/confirmation'; --%>
+ 			<%-- form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/working-holiday-insurance/confirmation'; --%>
  			
  			$.ajax({
  						type : "POST",
