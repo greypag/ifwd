@@ -3436,42 +3436,43 @@ function forgotPassword()
 	var valid = true;
 
 
-	var mobileNo = document.getElementById("mobileNo").value;
+	var mobileNo = document.getElementById("fMobileNo").value;
 
-	var emailId = document.getElementById("emailAddress").value; 
-	var userName = document.getElementById("userName").value; 
+	var emailId = document.getElementById("fEmailAddress").value; 
+	var userName = document.getElementById("fUserName").value; 
 
-
-	document.getElementById("errorEmptyMob").style.display = "none";
-	document.getElementById("errorInvalidMob").style.display = "none";
-	document.getElementById("errorEmptyEmailId").style.display = "none";
-	document.getElementById("errorInvalidEmailId").style.display = "none";
-	document.getElementById("errorEmptyUName").style.display = "none";    
-	document.getElementById("errorInvalidUName").style.display = "none";
+	document.getElementById("errorFEmptyMob").style.display = "none";
+	document.getElementById("errorFInvalidMob").style.display = "none";
+	document.getElementById("errorFEmptyEmailId").style.display = "none";
+	document.getElementById("errorFInvalidEmailId").style.display = "none";
+	document.getElementById("errorFEmptyUName").style.display = "none";    
+	document.getElementById("errorFInvalidUName").style.display = "none";
 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
-		document.getElementById("errorEmptyMob").style.display = "block";
+		document.getElementById("errorFEmptyMob").style.display = "block";
 
 
+		alert(1 + "!!" + mobileNo.trim())
 		valid = false;
 
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
-			document.getElementById("errorInvalidMob").style.display = "block";
+			document.getElementById("errorFInvalidMob").style.display = "block";
 
+			alert(2 + "!!" + mobile_pattern.test(mobileNo))
 			valid = false;
 		}
 	}
 
 	// Email Address Validation
 	if (emailId.trim() == "") {
-		document.getElementById("errorEmptyEmailId").style.display = "block";
+		document.getElementById("errorFEmptyEmailId").style.display = "block";
 
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
-			document.getElementById("errorInvalidEmailId").style.display = "block";
+			document.getElementById("errorFInvalidEmailId").style.display = "block";
 
 			valid = false;
 		}
@@ -3479,13 +3480,13 @@ function forgotPassword()
 
 	// UserName Validation
 	if (userName.trim() == "") {
-		document.getElementById("errorEmptyUName").style.display = "block";
+		document.getElementById("errorFEmptyUName").style.display = "block";
 
 		valid = false;
 
 	} else {
 		if (reg.test(userName) == false) {
-			document.getElementById("errorInvalidUName").style.display = "block";
+			document.getElementById("errorFInvalidUName").style.display = "block";
 			valid = false;
 		}
 	}
