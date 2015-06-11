@@ -231,12 +231,12 @@ hr {
 
 /*******************Main Tabs*********************/
 .main-tab{
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 18px;
     font-weight: bold;
     position: relative;
     text-align:center;
-    height:131px;
+    height:130px;
     display:inline-block;
 }
 
@@ -274,15 +274,6 @@ ul.maintabs li.active a span{
 ul.maintabs li a{ display:inline-block; color: #9fb1b2;}
 ul.maintabs li a:hover{ color: #fff ;}  
     
-ul.maintabs li .offer{
-  color: #f68a1d;
-  font-size: 14px;
-}
-ul.maintabs li a span.offer:hover{
-  color: #fff !important;
-  font-size: 14px;
-}
-
 #numOfDays {
     font-size: 18px;
     margin-top: 10px;
@@ -290,7 +281,33 @@ ul.maintabs li a span.offer:hover{
 }
 
 
-.travel-and-home-tab{top:38px; position:relative;}
+.workingholiday-tab{
+	top:47px;
+	position:relative;
+}
+
+.travel-special{
+	top:29px;
+	position:relative;
+	padding-left: 35px;
+    padding-right: 35px;
+}
+ul.maintabs li .offer{
+  color: #f68a1d;
+  font-size: 18px;
+}
+ul.maintabs li a span.offer:hover{
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.travel-and-home-tab {
+    top: 47px;
+	position: relative;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 /**/
 #middle {
     /*background: #505759;*/
@@ -5753,7 +5770,6 @@ font-family: 'Foco-bold';
 
 .textUpper{text-transform:uppercase;}
 
-.travel-special{top:5px; position:relative;}
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:10%;}
 .chin .travel-special{top:18px;}
@@ -6727,7 +6743,7 @@ tr.product-landing-error-wrap {
 }
 
 .workingholiday-middle{
-    bottom:70px !important;
+    bottom:30px !important;
 }
 
 .workingholiday-heading{
@@ -6740,7 +6756,7 @@ tr.product-landing-error-wrap {
 
 #other-benefits-mob .prev, #other-benefits-mob .next {
     position: absolute;
-    top: 73%;
+    top: 50%;
     color: #495d66;
     display: inline-block;
     margin-top: -25px;
