@@ -161,7 +161,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
@@ -220,32 +220,18 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           </div>
       </div>
       <!--/.item-->
-      <div class="item" >
-          <div class="slide-margin">
-            <div class="other-benefits-wrap text-center">
-              <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item-->
-      <div class="item" >
-          <div class="slide-margin">
-            <div class="other-benefits-wrap text-center">
-              <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item-->
     </div>
     <!--/.carousel-inner--> 
+    <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
   </div>
-  <!--/.carousel--> 
-  <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+  <!--/.carousel-->
   <div class="clearfix"></div>
+  
+  <div class="spacer3"></div>
+  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  
+  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
 <!--/.container-->
 </div>
 </section>
@@ -253,6 +239,134 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 
 
+
+
+
+
+
+
+<section id="recent-works" class="hidden-xs hidden-sm">
+  <div class="container">
+    <div class="row hidden-sm hidden-xs">
+      <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
+        <div class="recent-work-wrap wrap text-center">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
+            <h1><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" />
+            </h1>
+              <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
+        <div class="recent-work-wrap-mid wrap text-center">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
+            <h1><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h1>
+              <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /><br>
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
+        <div class="recent-work-wrap wrap text-center">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
+            <h1><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h1>
+            <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
+            <!--<img src="resources/images/agoda-logo.png" alt=""/>--> </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <!--End Desktop Support--> 
+    <!--/.row--> 
+  </div>
+  <!--/.container--> 
+</section>
+<!--/#recent-works-->
+
+<section id="recent-works-mob" class="hidden-lg hidden-md" style="margin: 0px;">
+  <div class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active">
+          <div class="slide-margin">
+            <div class="recent-work-wrap text-center">
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
+                <h2><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" /></h2>
+                <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="recent-work-wrap-mid text-center">
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
+              <h2><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h2>
+                <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item">
+          <div class="slide-margin">
+            <div class="recent-work-wrap text-center">
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
+              <h2><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h2>
+                <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item--> 
+    </div>
+    <!--/.carousel-inner--> 
+  </div>
+  <!--/.carousel--> 
+  <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+  <div class="clearfix"></div>
+  </section>
+
+
+
+<section class="blog-item hidden-sm hidden-xs">
+  <div class="container">
+    <div class="center">
+      <h2><fmt:message key="workingholiday.main.blog.heading" bundle="${msg}" /></h2>
+    </div>
+    <div class="col-lg-12 pad-none">
+      <div class="col-lg-4 col-md-4 pad-none">
+        <div class="services-wrap service-bx1">
+          <div> <a href="<fmt:message key="workingholiday.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
+            <h3> <a href="<fmt:message key="workingholiday.blog.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 pad-none">
+        <div class="services-wrap service-bx2">
+          <div> <a href="<fmt:message key="workingholiday.blog.post2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
+            <h3><a href="<fmt:message key="workingholiday.blog.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 pad-none">
+        <div class="services-wrap service-bx3">
+          <div> <a href="<fmt:message key="workingholiday.blog.post3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
+            <h3> <a href="<fmt:message key="workingholiday.blog.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.row--> 
+     <p><fmt:message key="workingholiday.main.blog.disclaimer" bundle="${msg}" /></p>
+    <div class="clearfix"></div>
+   
+   
+  </div>
+</section>
+<!--/#middle-->
 
 <!--/#testiomonials-->
 <section id="testimonials" class="hidden-sm hidden-xs" style="background:#4E4E4E;">
@@ -327,130 +441,3 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 </form>
 </section>
 <!--/#testiomonials mob-->
-
-
-
-
-
-<section id="recent-works" class="hidden-xs hidden-sm">
-  <div class="container">
-    <div class="row hidden-sm hidden-xs">
-      <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
-        <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
-            <h1><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" />
-            </h1>
-              <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
-        <div class="recent-work-wrap-mid wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
-            <h1><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h1>
-              <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /><br>
-              <br>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
-        <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
-            <h1><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h1>
-            <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
-            <!--<img src="resources/images/agoda-logo.png" alt=""/>--> </div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-    <!--End Desktop Support--> 
-    <!--/.row--> 
-  </div>
-  <!--/.container--> 
-</section>
-<!--/#recent-works-->
-
-<section id="recent-works-mob" class="hidden-lg hidden-md" style="margin: 0px;">
-  <div class="carousel slide">
-    <div class="carousel-inner">
-      <div class="item active">
-          <div class="slide-margin">
-            <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
-                <h2><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" /></h2>
-                <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item-->
-      <div class="item" >
-          <div class="slide-margin">
-            <div class="recent-work-wrap-mid text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
-              <h2><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h2>
-                <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item-->
-      <div class="item">
-          <div class="slide-margin">
-            <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
-              <h2><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h2>
-                <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item--> 
-    </div>
-    <!--/.carousel-inner--> 
-  </div>
-  <!--/.carousel--> 
-  <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
-  <div class="clearfix"></div>
-  </section>
-
-
-
-<section class="blog-item hidden-sm hidden-xs">
-  <div class="container">
-    <div class="center">
-      <h2><fmt:message key="workingholiday.main.blog.heading" bundle="${msg}" /></h2>
-    </div>
-    <div class="col-lg-12 pad-none">
-      <div class="col-lg-4 col-md-4 pad-none">
-        <div class="services-wrap service-bx1">
-          <div> <a href="<fmt:message key="workingholiday.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home4.png" alt=""></a>
-            <h3> <a href="<fmt:message key="workingholiday.blog.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 pad-none">
-        <div class="services-wrap service-bx2">
-          <div> <a href="<fmt:message key="workingholiday.blog.post2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home5.png" alt=""></a>
-            <h3><a href="<fmt:message key="workingholiday.blog.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 pad-none">
-        <div class="services-wrap service-bx3">
-          <div> <a href="<fmt:message key="workingholiday.blog.post3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/home6.png" alt=""></a>
-            <h3> <a href="<fmt:message key="workingholiday.blog.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/.row--> 
-     <p><fmt:message key="workingholiday.main.blog.disclaimer" bundle="${msg}" /></p>
-    <div class="clearfix"></div>
-   
-   
-  </div>
-</section>
-<!--/#middle-->
