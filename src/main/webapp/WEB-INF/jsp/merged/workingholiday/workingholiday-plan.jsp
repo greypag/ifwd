@@ -12,6 +12,9 @@
 
 <script>
 var promoData = '';
+
+var promoCodeInsertFlag = true;
+
 	function getuserDetails() {
 
 		
@@ -41,21 +44,32 @@ var promoData = '';
 		return flag;
 	}
 	function applyWorkingHolidayPromoCode() {
-		$("#errPromoCode").html("");
-		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
-			data : $('#frmWorkingHolidayPlan input').serialize(),
-			success : function(data) {
-				
-				var json = JSON.parse(data);
-				promoData = json;
-				setValue(json);
+		if(promoCodeInsertFlag){
+            promoCodeInsertFlag = false;
+            
+			$("#errPromoCode").html("");
+			
+			if(chkPromoCode()){
+				$('#loading-overlay').modal({
+	                backdrop: 'static',
+	                keyboard: false
+	            })
+	            $.ajax({
+	                type : 'POST',
+	                url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
+	                data : $('#frmWorkingHolidayPlan input').serialize(),
+	                success : function(data) {
+	                	$('#loading-overlay').modal('hide');
+                        promoCodeInsertFlag = true;
+	                    
+	                    var json = JSON.parse(data);
+	                    promoData = json;
+	                    setValue(json);
+	                }
+	
+	            });
 			}
-
-		});
+		}
 	}
 
 	function setValue(result) {
