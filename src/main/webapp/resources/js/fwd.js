@@ -3032,7 +3032,7 @@ function flightValidateDeskTravel()
 	
 	var startDates= new Array();
 	startDates=startDate.split("-");
-	var new_start = new Date(startDates[2],startDates[1],startDates[0], 0, 0, 0, 0);
+	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
 	
 	var new_end = new Date(endDate);
 	var startdays = dateDiffInDays(now, new_start);
@@ -4250,7 +4250,6 @@ function dateLessThanCurrent(dat){
 function dateDiffInDaysFromNow(dat){	
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    
     return dateDiffInDays(now, dat);
 }
 
@@ -4277,12 +4276,10 @@ function chkValidFlightDepartureDate(element, errElementId, name){
 		
 		var departureDates= new Array();
 		departureDates=departureDate.split("-");
-		departureDate = new Date(departureDates[2],departureDates[1],departureDates[0], 0, 0, 0, 0);
-		
+		departureDate = new Date(departureDates[2],departureDates[1] - 1,departureDates[0], 0, 0, 0, 0);
 	    //departureDate = new Date(departureDate);
-	    
-	    
 	    var dateDiff = dateDiffInDaysFromNow(departureDate);
+	    
 	    if(dateDiff < 0){
 	    	var msg = getBundle(getBundleLanguage, "flight.departureDate.notLessThanCurrent.message");
         	document.getElementById(errElementId).innerHTML = msg;
@@ -4340,9 +4337,7 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 	
 	var elementDepartureDate = document.getElementById(departureDateId);
 
-	
 	if(chkValidFlightDepartureDate(elementDepartureDate, errDepartureDateId, departureDateName)){
-		
 		// check return date
 		if(chkValidDate(element, errElementId, name)){
 		    var departureDate = elementDepartureDate.value;
@@ -4350,10 +4345,10 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 		    
 		    var departureDates= new Array(); 
 		    departureDates=departureDate.split("-"); 
-			departureDate = new Date(departureDates[2],departureDates[1],departureDates[0], 0, 0, 0, 0);
+			departureDate = new Date(departureDates[2],departureDates[1] - 1,departureDates[0], 0, 0, 0, 0);
 			var returnDates= new Array(); 
 			returnDates=departureDate.split("-"); 
-			returnDate = new Date(returnDates[2],returnDates[1],returnDates[0], 0, 0, 0, 0);
+			returnDate = new Date(returnDates[2],returnDates[1] - 1,returnDates[0], 0, 0, 0, 0);
 		    
 		    //departureDate = new Date(departureDate);
 		    //returnDate = new Date(returnDate);

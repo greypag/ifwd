@@ -654,7 +654,7 @@ function activateUserAccountJoinUs() {
 										
 											class="form-control textUpper full-control bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-											onkeyup="hkidValid(this)"
+											onkeyup="hkidValid(this)" onkeypress=" return hkidOnkeypress(event);"
 											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');"
 											onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');" />
 										<span id="whInsHKID" class="text-red"> </span>
