@@ -243,6 +243,7 @@ public class HomeCareController {
 		
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
 				(String)session.getAttribute("referralCode"), answer1, answer2,	lang);
+		session.setAttribute("referralCode", planQuote.getReferralCode());
 		if (planQuote.getErrormsg().equals("null")) {
 		
 			model.addAttribute("planQuote", planQuote);
@@ -590,7 +591,7 @@ public class HomeCareController {
 //		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
 //				"homecare-confirmation"));
 		model.addAttribute("path",
-				path.replace("home-summary", "confirmation"));
+				path.replace("home-summary", "confirmation?utm_nooverride=1"));
 		
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 
@@ -755,7 +756,7 @@ public class HomeCareController {
 					+ "error";
 			
 		}
-
+		model.addAttribute("utm_nooverride", 1);
 		model.addAttribute("emailID", emailId);
 
 		// model.addAttribute("finalize", finalize);

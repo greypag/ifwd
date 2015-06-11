@@ -498,7 +498,7 @@ public class WorkingHolidayController {
 			if (jsonCountry.get("errMsgs") == null) {
 				JSONArray jsonRelationshipCode = (JSONArray) jsonCountry.get("optionItemDesc");
 				
-				Map<String, String> countryInfo = new HashMap<String, String>();
+				Map<String, String> countryInfo = new LinkedHashMap<String, String>();
 				for (int i = 0; i < jsonRelationshipCode.size(); i++) {
 					JSONObject obj = (JSONObject) jsonRelationshipCode.get(i);
 					countryInfo.put(checkJsonObjNull(obj, "itemCode"),
@@ -598,7 +598,7 @@ public class WorkingHolidayController {
 		JSONObject insured = new JSONObject();
 		insured.put("name", planDetailsForm.getWhAppFullName());
 		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
-		insured.put("ageRange", "2");
+		insured.put("ageRange", "4");
 		
 		insured.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 		insured.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
@@ -752,6 +752,7 @@ public class WorkingHolidayController {
 		model.addAttribute("totalDays", days + " days");
 		model.addAttribute("path", path.replace("working-holiday-summary", "confirmation"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		model.addAttribute("utm_nooverride", 1);
 		
 		String paymentGatewayFlag = request.getParameter("paymentGatewayFlag");
 		String errorMsg = request.getParameter("errorMsg");
@@ -788,8 +789,8 @@ public class WorkingHolidayController {
 				HttpMethod.POST,
 				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
 				submitPolicy);
-		//if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
-			//if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				String month = request.getParameter("epMonth");
 				System.out.println("month " + month);
 				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
@@ -810,13 +811,13 @@ public class WorkingHolidayController {
 				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
 				return "success";
-				/*} else {
+				} else {
 				return checkJsonObjNull(jsonResponse, "policyNo");
 			}
 		} else {
 			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
-		return "fail";*/
+		return "fail";
 	}
 	
 	

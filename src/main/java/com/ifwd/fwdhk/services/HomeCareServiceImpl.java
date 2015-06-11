@@ -187,7 +187,46 @@ public class HomeCareServiceImpl implements HomeCareService {
 			// quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
 			quoteDetails.setErrormsg(checkJsonObjNull(jsonGetPlanResponse,
 					"errMsgs"));
-		} else {
+		} else if (jsonGetPlanResponse.get("errMsgs").toString().contains("Promotion code is not valid")) {
+			
+			System.out.println("WS Response===>>>" + jsonGetPlanResponse);
+
+			// if (jsonGetPlanResponse.get("errMsgs") == null) {
+			String referralCode = (String) jsonGetPlanResponse
+					.get("referralCode");
+			String referralName = (String) jsonGetPlanResponse
+					.get("referralName");
+			String planCode = (String) jsonGetPlanResponse.get("planCode");
+
+			System.out.println("Plan Code ===>>" + planCode);
+
+			jsonGetPlanResponse.get("priceInfo");
+			JSONObject jsonPriceInfo = new JSONObject();
+
+			jsonPriceInfo = (JSONObject) jsonGetPlanResponse.get("priceInfo");
+			String discountPercentage = jsonPriceInfo.get("discountPercentage")
+					.toString();
+			String totalDue = jsonPriceInfo.get("totalDue").toString();
+			String grossPremium = jsonPriceInfo.get("grossPremium").toString();
+			String totalNetPremium = jsonPriceInfo.get("totalNetPremium")
+					.toString();
+			String discountAmount = jsonPriceInfo.get("discountAmount")
+					.toString();
+
+			quoteDetails.setDiscountPercentage(discountPercentage);
+			quoteDetails.setTotalDue(totalDue);
+			quoteDetails.setGrossPremium(grossPremium);
+			quoteDetails.setTotalNetPremium(totalNetPremium);
+			quoteDetails.setDiscountAmount(discountAmount);
+			quoteDetails.setReferralCode("");
+			quoteDetails.setReferralName("");
+			quoteDetails.setPlanCode(planCode);
+			// quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
+			quoteDetails.setErrormsg(checkJsonObjNull(jsonGetPlanResponse,
+					"errMsgs"));
+		}
+		
+		else {
 			quoteDetails.setErrormsg(jsonGetPlanResponse.get("errMsgs").toString());
 		}
 		return quoteDetails;
@@ -406,20 +445,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
 		parameters.put("planCode", homeCareDetails.getPlanCode());
 
-		insuredAddress.put("room", homeCareDetails.getApplicantRoom());
-		insuredAddress.put("floor", homeCareDetails.getApplicantFloor());
-		insuredAddress.put("block", homeCareDetails.getApplicantBlock());
-		insuredAddress.put("building",
-				homeCareDetails.getApplicantBuilding());
-		insuredAddress.put("estate",
-				homeCareDetails.getApplicantEstate());
-		insuredAddress.put("streetNo",
-				homeCareDetails.getApplicantStreetNo());
-		insuredAddress.put("streetName",
-				homeCareDetails.getApplicantStreetName());
-		insuredAddress.put("district",
-				homeCareDetails.getApplicantDistrict());
-		insuredAddress.put("area", homeCareDetails.getApplicantArea());
+		
 
 		parameters.put("correspondenceAddress", correspondenceAddress);
 
@@ -438,17 +464,32 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		parameters.put("applicant", applicant);
 
-		correspondenceAddress.put("room", homeCareDetails.getaRoom());
+		correspondenceAddress.put("room", homeCareDetails.getApplicantRoom());
+		correspondenceAddress.put("floor", homeCareDetails.getApplicantFloor());
+		correspondenceAddress.put("block", homeCareDetails.getApplicantBlock());
+		correspondenceAddress.put("building",
+				homeCareDetails.getApplicantBuilding());
+		correspondenceAddress.put("estate",
+				homeCareDetails.getApplicantEstate());
+		correspondenceAddress.put("streetNo",
+				homeCareDetails.getApplicantStreetNo());
+		correspondenceAddress.put("streetName",
+				homeCareDetails.getApplicantStreetName());
+		correspondenceAddress.put("district",
+				homeCareDetails.getApplicantDistrict());
+		correspondenceAddress.put("area", homeCareDetails.getApplicantArea());
 
-		correspondenceAddress.put("floor", homeCareDetails.getaFloor());
 
-		correspondenceAddress.put("block", homeCareDetails.getaBlock());
-		correspondenceAddress.put("building", homeCareDetails.getaBuilding());
-		correspondenceAddress.put("estate", homeCareDetails.getaEstate());
-		correspondenceAddress.put("streetNo", homeCareDetails.getaStreetNo());
-		correspondenceAddress.put("streetName", homeCareDetails.getaStreetName());
-		correspondenceAddress.put("district", homeCareDetails.getaDistrict());
-		correspondenceAddress.put("area", homeCareDetails.getaArea());
+		insuredAddress.put("room", homeCareDetails.getaRoom());
+		insuredAddress.put("floor", homeCareDetails.getaFloor());
+		insuredAddress.put("block", homeCareDetails.getaBlock());
+		insuredAddress.put("building", homeCareDetails.getaBuilding());
+		insuredAddress.put("estate", homeCareDetails.getaEstate());
+		insuredAddress.put("streetNo", homeCareDetails.getaStreetNo());
+		insuredAddress.put("streetName", homeCareDetails.getaStreetName());
+		insuredAddress.put("district", homeCareDetails.getaDistrict());
+		insuredAddress.put("area", homeCareDetails.getaArea());
+		
 		parameters.put("insuredAddress", insuredAddress);
 		parameters.put("referralCode", referralCode);
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
