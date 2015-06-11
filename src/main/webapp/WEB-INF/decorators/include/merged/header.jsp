@@ -10,7 +10,7 @@
 
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> --> 
-
+ 	
 <script>
 
 
@@ -144,10 +144,10 @@ function submitLoginForm(formID) {
 							System.out.println("username " + username);   
 							if (username == null) {
 							%>
-							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="${pageContext.request.contextPath}/${language}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<% } else if (username.equals("*DIRECTGI")) { %>
-							<li><a href="${pageContext.request.contextPath}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="${pageContext.request.contextPath}/${language}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							
 							<% } %>

@@ -598,7 +598,7 @@ public class WorkingHolidayController {
 		JSONObject insured = new JSONObject();
 		insured.put("name", planDetailsForm.getWhAppFullName());
 		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
-		insured.put("ageRange", "2");
+		insured.put("ageRange", "4");
 		
 		insured.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 		insured.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");

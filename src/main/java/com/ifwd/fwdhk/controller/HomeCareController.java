@@ -243,6 +243,7 @@ public class HomeCareController {
 		
 		HomeQuoteBean planQuote = homecareService.getHomePlan(token, username,
 				(String)session.getAttribute("referralCode"), answer1, answer2,	lang);
+		session.setAttribute("referralCode", planQuote.getReferralCode());
 		if (planQuote.getErrormsg().equals("null")) {
 		
 			model.addAttribute("planQuote", planQuote);
