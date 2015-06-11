@@ -105,7 +105,7 @@ function checkPromoCodePlaceholder(){
 
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("referralCode").value;
+		var promoCode = document.getElementById("promoCode").value;
 	
 		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
