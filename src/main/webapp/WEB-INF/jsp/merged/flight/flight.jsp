@@ -17,17 +17,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<!-- Google Tag Manager -->
-<noscript>
-<iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWPF25"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MWPF25');</script> 
-<!-- End Google Tag Manager --> 
+
 
 <script type="text/javascript">
 
@@ -715,7 +705,7 @@ $(document).ready(function() {
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h2>
-                <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a  href=" http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
+                <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a  href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
