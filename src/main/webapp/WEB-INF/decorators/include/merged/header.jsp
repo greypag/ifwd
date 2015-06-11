@@ -374,7 +374,7 @@ function submitLoginForm(formID) {
 			<%
 				if ("en".equals(session.getAttribute("language").toString())) {
 				%>
-					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
 				<%
 				} else {
 				%>
