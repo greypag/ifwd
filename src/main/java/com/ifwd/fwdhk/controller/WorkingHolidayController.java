@@ -277,7 +277,7 @@ public class WorkingHolidayController {
 	public String prepareYourDetails(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
-			return "error";
+			return "token is null";
 		}
 		try {
 			String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
@@ -343,7 +343,7 @@ public class WorkingHolidayController {
 
 				}
 			} else {
-				return "error";
+				return responseJsonObj.get("errMsgs").toString();
 			}
 			//get country
 			String getCountryUrl = UserRestURIConstants.GET_COUNTRY + "?itemTable=WorkingHolidayCountry";
@@ -556,10 +556,10 @@ public class WorkingHolidayController {
 		String planSelected = (String) session.getAttribute("planSelected");
 		System.out.println("planSelected " + planSelected);
 		if (session.getAttribute("token") == null) {
-			return "fail";
+			return "Token is null";
 		}
 		if (quoteDetails == null || planSelected == null) {
-			return "fail";
+			return "Session Expired";
 		}
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
@@ -689,8 +689,10 @@ public class WorkingHolidayController {
 			session.setAttribute("emailAddress", planDetailsForm.getWhAppEmailAdd());
 			
 			return "success";
+		}else {
+			System.out.println(responsObject.get("errMsgs"));
+			return responsObject.get("errMsgs").toString();
 		}
-		return "error";
 	}
 	
 	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })

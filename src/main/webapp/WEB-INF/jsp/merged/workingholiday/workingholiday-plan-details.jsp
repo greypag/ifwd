@@ -364,6 +364,9 @@ function activateUserAccountJoinUs() {
 								<fmt:message key="home.details.applicant.heading"
 									bundle="${msg}" />
 							</div>
+							<div class="form-group float">
+								<span id="errorMsg"  class="text-red">${errormsg}</span>
+							</div>
 							<!-- english name start -->
 							<div class="form-group float">
 								<div
@@ -422,7 +425,7 @@ function activateUserAccountJoinUs() {
 										onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');"
 										onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
                                         chkValidApplicantHkId(this, 'whAppHKID', 'selectWhAppHKID');"
-										onkeyup="hkidValid(this)" onkeypress=" return hkidOnkeypress(event);"> <span id="whAppHKID"
+										onkeypress=" return hkidOnkeypress(event);"> <span id="whAppHKID"
 										class="text-red"></span>
 								</div>
 							</div>
@@ -440,14 +443,14 @@ function activateUserAccountJoinUs() {
 									<div class="input-group date" id="dpWhAppDob">
 										<span class="input-group-addon in border-radius"><img
 											src="<%=request.getContextPath()%>/resources/images/calendar.png"
-											alt=""></span> <input name="whAppDob" type="text"
+											alt=""></span> 
+										<input name="whAppDob" type="text"
 											class="datepicker form-control border-radius"
 											id="inputWhAppDob"
 											value="${workingHolidayPlanDetailsForm.getWhAppDob()}"
 											readonly>
 									</div>
 									<span id="whAppDob" class="text-red"> </span>
-									</td>
 								</div>
 							</div>
 							<!-- birthday ends -->
@@ -654,7 +657,7 @@ function activateUserAccountJoinUs() {
 										
 											class="form-control textUpper full-control bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-											onkeyup="hkidValid(this)" onkeypress=" return hkidOnkeypress(event);"
+											onkeypress=" return hkidOnkeypress(event);"
 											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');"
 											onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputWhInsHKID','selectWhInsHKID','whInsHKID',false,'beneficiary');" />
 										<span id="whInsHKID" class="text-red"> </span>
