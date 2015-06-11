@@ -3029,7 +3029,11 @@ function flightValidateDeskTravel()
 
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
+	
+	var startDates= new Array();
+	startDates=startDate.split("-");
+	var new_start = new Date(startDates[2],startDates[1],startDates[0], 0, 0, 0, 0);
+	
 	var new_end = new Date(endDate);
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
@@ -4270,7 +4274,12 @@ function chkValidFlightDepartureDate(element, errElementId, name){
 	if(chkValidDate(element, errElementId, name)){
 	    //var departureDate = element.value;
 		var departureDate = $(element).val();
-	    departureDate = new Date(departureDate);
+		
+		var departureDates= new Array();
+		departureDates=departureDate.split("-");
+		departureDate = new Date(departureDates[2],departureDates[1],departureDates[0], 0, 0, 0, 0);
+		
+	    //departureDate = new Date(departureDate);
 	    
 	    
 	    var dateDiff = dateDiffInDaysFromNow(departureDate);
@@ -4331,6 +4340,7 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 	
 	var elementDepartureDate = document.getElementById(departureDateId);
 
+	
 	if(chkValidFlightDepartureDate(elementDepartureDate, errDepartureDateId, departureDateName)){
 		
 		// check return date
@@ -4338,8 +4348,15 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 		    var departureDate = elementDepartureDate.value;
 		    var returnDate = element.value;	    
 		    
-		    departureDate = new Date(departureDate);
-		    returnDate = new Date(returnDate);
+		    var departureDates= new Array(); 
+		    departureDates=departureDate.split("-"); 
+			departureDate = new Date(departureDates[2],departureDates[1],departureDates[0], 0, 0, 0, 0);
+			var returnDates= new Array(); 
+			returnDates=departureDate.split("-"); 
+			returnDate = new Date(returnDates[2],returnDates[1],returnDates[0], 0, 0, 0, 0);
+		    
+		    //departureDate = new Date(departureDate);
+		    //returnDate = new Date(returnDate);
 		    
 		    var dateDiff = dateDiffInDays(departureDate, returnDate);
 		    if(dateDiff < 0){
@@ -5118,7 +5135,7 @@ $(function () {
 		todayHighlight: true,
 		format: "dd-mm-yyyy"
 	}).on('changeDate', function (ev) {
-		$('#errEffDate').html('');
+		$('#errEffDate').html(''); 
 	});
 	
 });
