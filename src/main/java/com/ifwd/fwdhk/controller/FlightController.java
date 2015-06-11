@@ -807,12 +807,12 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 
 		if (planDetailsForm.getPlanSelected().equals("personal")) {
 			relationOfSelfTraveller = "SE";
-			relationOfAdultTraveller = "FE";
+			relationOfAdultTraveller = "RF";
 		} else if (planDetailsForm.getPlanSelected().equals("family")) {
 			relationOfSelfTraveller = "SE";
 			relationOfAdultTraveller = "SP";
 			relationOfChildTraveller = "CH";
-			relationOfOtherTraveller = "FE";
+			relationOfOtherTraveller = "RF";
 		}
 
 		String emailId = request.getParameter("emailAddress");
@@ -838,7 +838,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			personal.put("passport", "");
 
 			if (inx != 0) {// For other travelers skip first one
-				personal.put("relationship", "FE"); // adult - should be friend
+				personal.put("relationship", "RF"); // adult - should be friend
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty()
 							&& INSURED_RELATIONSHIP_SELF
@@ -981,7 +981,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			if (inx != 0) {// For other travelers skip first one
 
 				if (planDetailsForm.getPlanSelected().equals("personal"))
-					adult.put("relationship", "FE"); // adult - should be friend
+					adult.put("relationship", "RF"); // adult - should be friend
 														// for personal plan
 				else
 					adult.put("relationship", "SP"); // adult - should be spouse
@@ -1193,7 +1193,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				other.put("ageRange", planDetailsForm.getOtherAgeRange()[inx]);
 				other.put("hkId", planDetailsForm.getOtherHKID()[inx].toUpperCase());
 				other.put("passport", "");
-				other.put("relationship", "FE"); // other, should be friend
+				other.put("relationship", "RF"); // other, should be friend
 
 				JSONObject beneficiary = new JSONObject();
 

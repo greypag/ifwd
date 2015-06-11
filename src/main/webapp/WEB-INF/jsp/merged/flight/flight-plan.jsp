@@ -143,37 +143,39 @@
 					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div class="container ">
-					<div id="tr-steps"
-						class="col-md-12 col-lg-12 col-sm-12 col-xs-12  shop-tracking-status">
-						<div class="center wow fadeInDown animated"
-							style="visibility: visible;">
+					<div id="tr-steps" class="col-md-12 col-lg-12 col-sm-12 col-xs-12  shop-tracking-status">
+						<div class="center wow fadeInDown animated" style="visibility: visible;">
 							<h2><fmt:message key="flight.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
-						<div class="order-status">
-							<div class="order-status-timeline-new">
-								<!--
-								There can be n '.order-status-timeline-completion'
-								dots-inactive and dots-active color the dots -->
-								<div class="order-status-timeline-completion dots-inactive"></div>
-								<div class="order-status-timeline-completion dots-inactive"></div>
-								
-							</div>
-							<div
-								class="image-order-status image-order-status-new active  img-circle">
-								<div class="icon">1</div>
-								<span class="status"><fmt:message key="flight.breadcrumb2.item1" bundle="${msg}" /></span>
-							</div>
-							<div
-								class="image-order-status image-order-status-active disabled  img-circle">
-								<div class="icon">2</div>
-								<span class="status"><fmt:message key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
-							</div>
-							<div
-								class="image-order-status image-order-status-intransit disabled  img-circle">
-								<div class="icon">3</div>
-								<span class="status min-left"><fmt:message key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
-							</div>
+						<div class="col-lg-12 col-md-12">
+                            <div class="shop-tracking-status">
+								<div class="order-status" style="margin-top: 30px;position: relative;margin-bottom: 30px;">
+									<div class="order-status-timeline-new">
+										<!--
+										There can be n '.order-status-timeline-completion'
+										dots-inactive and dots-active color the dots -->
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										<div class="order-status-timeline-completion dots-inactive"></div>
+										
+									</div>
+									<div
+										class="image-order-status image-order-status-new active  img-circle">
+										<div class="icon">1</div>
+										<span class="status"><fmt:message key="flight.breadcrumb2.item1" bundle="${msg}" /></span>
+									</div>
+									<div
+										class="image-order-status image-order-status-active disabled  img-circle">
+										<div class="icon">2</div>
+										<span class="status"><fmt:message key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
+									</div>
+									<div
+										class="image-order-status image-order-status-intransit disabled  img-circle">
+										<div class="icon">3</div>
+										<span class="status min-left"><fmt:message key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
+									</div>
+								</div>
+					        </div>
 						</div>
 					</div>
 				</div>

@@ -2920,6 +2920,9 @@ function replaceNumeric(id) {
 function alphaOnly(evt) {
 	evt = (evt) ? evt : event;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	if((evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39) || (evt.charCode == 0  && evt.keyCode==46)){
+		return true;
+	}
 	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
 		return false;
 	}
@@ -3034,10 +3037,12 @@ function flightValidateDeskTravel()
 	startDates=startDate.split("-");
 	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
 	
-	var new_end = new Date(endDate);
+	var endDates = new Array();
+	endDates = endDate.split("-");
+	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
+	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
-		
 	if(startDate.trim()=="")
 	{
 		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
@@ -3431,42 +3436,43 @@ function forgotPassword()
 	var valid = true;
 
 
-	var mobileNo = document.getElementById("mobileNo").value;
+	var mobileNo = document.getElementById("fMobileNo").value;
 
-	var emailId = document.getElementById("emailAddress").value; 
-	var userName = document.getElementById("userName").value; 
+	var emailId = document.getElementById("fEmailAddress").value; 
+	var userName = document.getElementById("fUserName").value; 
 
-
-	document.getElementById("errorEmptyMob").style.display = "none";
-	document.getElementById("errorInvalidMob").style.display = "none";
-	document.getElementById("errorEmptyEmailId").style.display = "none";
-	document.getElementById("errorInvalidEmailId").style.display = "none";
-	document.getElementById("errorEmptyUName").style.display = "none";    
-	document.getElementById("errorInvalidUName").style.display = "none";
+	document.getElementById("errorFEmptyMob").style.display = "none";
+	document.getElementById("errorFInvalidMob").style.display = "none";
+	document.getElementById("errorFEmptyEmailId").style.display = "none";
+	document.getElementById("errorFInvalidEmailId").style.display = "none";
+	document.getElementById("errorFEmptyUName").style.display = "none";    
+	document.getElementById("errorFInvalidUName").style.display = "none";
 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
-		document.getElementById("errorEmptyMob").style.display = "block";
+		document.getElementById("errorFEmptyMob").style.display = "block";
 
 
+		alert(1 + "!!" + mobileNo.trim())
 		valid = false;
 
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
-			document.getElementById("errorInvalidMob").style.display = "block";
+			document.getElementById("errorFInvalidMob").style.display = "block";
 
+			alert(2 + "!!" + mobile_pattern.test(mobileNo))
 			valid = false;
 		}
 	}
 
 	// Email Address Validation
 	if (emailId.trim() == "") {
-		document.getElementById("errorEmptyEmailId").style.display = "block";
+		document.getElementById("errorFEmptyEmailId").style.display = "block";
 
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
-			document.getElementById("errorInvalidEmailId").style.display = "block";
+			document.getElementById("errorFInvalidEmailId").style.display = "block";
 
 			valid = false;
 		}
@@ -3474,13 +3480,13 @@ function forgotPassword()
 
 	// UserName Validation
 	if (userName.trim() == "") {
-		document.getElementById("errorEmptyUName").style.display = "block";
+		document.getElementById("errorFEmptyUName").style.display = "block";
 
 		valid = false;
 
 	} else {
 		if (reg.test(userName) == false) {
-			document.getElementById("errorInvalidUName").style.display = "block";
+			document.getElementById("errorFInvalidUName").style.display = "block";
 			valid = false;
 		}
 	}
@@ -4345,9 +4351,9 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 		    
 		    var departureDates= new Array(); 
 		    departureDates=departureDate.split("-"); 
-			departureDate = new Date(departureDates[2],departureDates[1] - 1,departureDates[0], 0, 0, 0, 0);
-			var returnDates= new Array(); 
-			returnDates=departureDate.split("-"); 
+		    departureDate = new Date(departureDates[2],departureDates[1] - 1,departureDates[0], 0, 0, 0, 0);
+			var returnDates= new Array();
+			returnDates=returnDate.split("-");
 			returnDate = new Date(returnDates[2],returnDates[1] - 1,returnDates[0], 0, 0, 0, 0);
 		    
 		    //departureDate = new Date(departureDate);
@@ -5080,8 +5086,10 @@ function hkidValid(ths){
 	var inputVal = $('#'+inputId).val();
 	var selectHkPass = document.getElementById(selectId).value;
 	if(selectHkPass == 'HKID' || selectHkPass == 'appHkid'){
-		inputVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()]/g,'');
-		$('#'+inputId).val(inputVal);
+		var newVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()]/g,'');
+		if(inputVal != newVal){
+			$('#'+inputId).val(newVal);
+		}
 	}
 }
 
@@ -5090,10 +5098,12 @@ function hkidOnkeypress(evt) {
 	var eCode = evt.keyCode;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
 	var keychar = String.fromCharCode(charCode)
+	//alert("keychar:"+keychar+"\ncharCode:"+evt.charCode+"\nkeyCode:"+evt.keyCode);
 	//alert(keychar);
 	// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
 	// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
-	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8) {
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39)) {
 		return true;
 	}
 	return false;
@@ -5161,3 +5171,88 @@ function togglePlaceholder(selectElement, inputId, placeholder){
 		$("#"+inputId).val('');
 	}
 }
+
+var split;
+//Avoid running twice; that would break the `nativeSplit` reference
+split = split || function (undef) {
+
+ var nativeSplit = String.prototype.split,
+     compliantExecNpcg = /()??/.exec("")[1] === undef, // NPCG: nonparticipating capturing group
+     self;
+
+ self = function (str, separator, limit) {
+     // If `separator` is not a regex, use `nativeSplit`
+     if (Object.prototype.toString.call(separator) !== "[object RegExp]") {
+         return nativeSplit.call(str, separator, limit);
+     }
+     var output = [],
+         flags = (separator.ignoreCase ? "i" : "") +
+                 (separator.multiline  ? "m" : "") +
+                 (separator.extended   ? "x" : "") + // Proposed for ES6
+                 (separator.sticky     ? "y" : ""), // Firefox 3+
+         lastLastIndex = 0,
+         // Make `global` and avoid `lastIndex` issues by working with a copy
+         separator = new RegExp(separator.source, flags + "g"),
+         separator2, match, lastIndex, lastLength;
+     str += ""; // Type-convert
+     if (!compliantExecNpcg) {
+         // Doesn't need flags gy, but they don't hurt
+         separator2 = new RegExp("^" + separator.source + "$(?!\\s)", flags);
+     }
+     /* Values for `limit`, per the spec:
+      * If undefined: 4294967295 // Math.pow(2, 32) - 1
+      * If 0, Infinity, or NaN: 0
+      * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
+      * If negative number: 4294967296 - Math.floor(Math.abs(limit))
+      * If other: Type-convert, then use the above rules
+      */
+     limit = limit === undef ?
+         -1 >>> 0 : // Math.pow(2, 32) - 1
+         limit >>> 0; // ToUint32(limit)
+     while (match = separator.exec(str)) {
+         // `separator.lastIndex` is not reliable cross-browser
+         lastIndex = match.index + match[0].length;
+         if (lastIndex > lastLastIndex) {
+             output.push(str.slice(lastLastIndex, match.index));
+             // Fix browsers whose `exec` methods don't consistently return `undefined` for
+             // nonparticipating capturing groups
+             if (!compliantExecNpcg && match.length > 1) {
+                 match[0].replace(separator2, function () {
+                     for (var i = 1; i < arguments.length - 2; i++) {
+                         if (arguments[i] === undef) {
+                             match[i] = undef;
+                         }
+                     }
+                 });
+             }
+             if (match.length > 1 && match.index < str.length) {
+                 Array.prototype.push.apply(output, match.slice(1));
+             }
+             lastLength = match[0].length;
+             lastLastIndex = lastIndex;
+             if (output.length >= limit) {
+                 break;
+             }
+         }
+         if (separator.lastIndex === match.index) {
+             separator.lastIndex++; // Avoid an infinite loop
+         }
+     }
+     if (lastLastIndex === str.length) {
+         if (lastLength || !separator.test("")) {
+             output.push("");
+         }
+     } else {
+         output.push(str.slice(lastLastIndex));
+     }
+     return output.length > limit ? output.slice(0, limit) : output;
+ };
+
+ // For convenience
+ String.prototype.split = function (separator, limit) {
+     return self(this, separator, limit);
+ };
+
+ return self;
+
+}();

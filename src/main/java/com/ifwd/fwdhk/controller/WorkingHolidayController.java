@@ -63,7 +63,7 @@ public class WorkingHolidayController {
 	@Autowired
 	private MessageSource messageSource;
 	
-	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/workingholiday-insurance", "/{lang}/workingholiday-insurance/sharing/"})
+	@RequestMapping(value = {"/{lang}/workingholiday", "/{lang}/working-holiday-insurance", "/{lang}/working-holiday-insurance/sharing/"})
 	public ModelAndView getWorkingHolidayHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model) {
 
 		UserRestURIConstants.setController("WorkingHoliday");
@@ -100,7 +100,7 @@ public class WorkingHolidayController {
 		String ogImage = "";
 		String ogDescription = "";
 		System.out.println("working holiday path " + request.getRequestURI().toString());
-		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/workingholiday-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/workingholiday-insurance/sharing/")) 
+		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/working-holiday-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/working-holiday-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("workingholiday.og.title", UserRestURIConstants.getLanaguage(request));
 			ogType = WebServiceUtils.getPageTitle("workingholiday.og.type", UserRestURIConstants.getLanaguage(request));
@@ -229,7 +229,7 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/getWorkingHolidayQuote", "/{lang}/workingholiday-insurance/quote"})
+	@RequestMapping(value = {"/{lang}/getWorkingHolidayQuote", "/{lang}/working-holiday-insurance/quote"})
 	public ModelAndView prepareWorkingHolidayPlan(
 			@ModelAttribute("workingholidayQuote") WorkingHolidayQuoteBean workingholidayQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
@@ -380,7 +380,7 @@ public class WorkingHolidayController {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = {"/{lang}/workingholiday-insurance/user-details" })
+	@RequestMapping(value = {"/{lang}/working-holiday-insurance/user-details" })
 	public ModelAndView prepareYourDetails(@ModelAttribute("workingholidayQuote") WorkingHolidayQuoteBean workingholidayQuote, 
 			BindingResult result, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -695,7 +695,7 @@ public class WorkingHolidayController {
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-summary" })
+	@RequestMapping(value = {"/{lang}/working-holiday-insurance/working-holiday-summary" })
 	public ModelAndView prepareSummary(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		QuoteDetails quoteDetails = (QuoteDetails) session.getAttribute("quoteDetails");
@@ -750,7 +750,7 @@ public class WorkingHolidayController {
 		LocalDate dateL2 = new LocalDate(expiryDate);
 		int days = Days.daysBetween(dateL1, dateL2).getDays() + 1;
 		model.addAttribute("totalDays", days + " days");
-		model.addAttribute("path", path.replace("workingholiday-summary", "confirmation?utm_nooverride=1"));
+		model.addAttribute("path", path.replace("working-holiday-summary", "confirmation"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 		model.addAttribute("utm_nooverride", 1);
 		
@@ -789,8 +789,8 @@ public class WorkingHolidayController {
 				HttpMethod.POST,
 				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
 				submitPolicy);
-		//if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
-			//if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				String month = request.getParameter("epMonth");
 				System.out.println("month " + month);
 				System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
@@ -811,18 +811,18 @@ public class WorkingHolidayController {
 				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
 				return "success";
-				/*} else {
+				} else {
 				return checkJsonObjNull(jsonResponse, "policyNo");
 			}
 		} else {
 			checkJsonObjNull(jsonResponse, "errMsgs");
 		}
-		return "fail";*/
+		return "fail";
 	}
 	
 	
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/{lang}/workingholiday-insurance/workingholiday-confirmation", "/{lang}/workingholiday-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/working-holiday-insurance/workingholiday-confirmation", "/{lang}/working-holiday-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam(required = false) String Ref ) {
 		HttpSession session = request.getSession();
@@ -914,7 +914,7 @@ public class WorkingHolidayController {
 			
 			model.addAttribute("errMsgs", e.toString());
 			return UserRestURIConstants.getSitePath(request)
-					+ "workingholiday/workingholiday-summary-payment";
+					+ "workingholiday/working-holiday-summary-payment";
 		}
 	}
 	

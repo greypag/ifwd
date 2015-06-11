@@ -128,7 +128,7 @@
                 <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-20">
                   <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-                      <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance</div>
+                      <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/working-holiday-insurance</div>
                       <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage">Press CTRL-C to copy</span> <span class="boxDownArrow"></span> </div>
                   </div>
                   <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
@@ -141,7 +141,7 @@
                       </div>
                       
       <%--                   <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/  <%=request.getContextPath()%>/" data-title="iFWD"></div> --%>
-                      <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/workingholiday-insurance/sharing/" data-title="iFWD"></div>
+                      <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/working-holiday-insurance/sharing/" data-title="iFWD"></div>
                   </div>
                 </div>
                 

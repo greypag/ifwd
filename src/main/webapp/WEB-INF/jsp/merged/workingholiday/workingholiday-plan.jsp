@@ -12,6 +12,9 @@
 
 <script>
 var promoData = '';
+
+var promoCodeInsertFlag = true;
+
 	function getuserDetails() {
 
 		
@@ -41,21 +44,32 @@ var promoData = '';
 		return flag;
 	}
 	function applyWorkingHolidayPromoCode() {
-		$("#errPromoCode").html("");
-		
-		if(chkPromoCode())
-		$.ajax({
-			type : 'POST',
-			url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
-			data : $('#frmWorkingHolidayPlan input').serialize(),
-			success : function(data) {
-				
-				var json = JSON.parse(data);
-				promoData = json;
-				setValue(json);
+		if(promoCodeInsertFlag){
+            promoCodeInsertFlag = false;
+            
+			$("#errPromoCode").html("");
+			
+			if(chkPromoCode()){
+				$('#loading-overlay').modal({
+	                backdrop: 'static',
+	                keyboard: false
+	            })
+	            $.ajax({
+	                type : 'POST',
+	                url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
+	                data : $('#frmWorkingHolidayPlan input').serialize(),
+	                success : function(data) {
+	                	$('#loading-overlay').modal('hide');
+                        promoCodeInsertFlag = true;
+	                    
+	                    var json = JSON.parse(data);
+	                    promoData = json;
+	                    setValue(json);
+	                }
+	
+	            });
 			}
-
-		});
+		}
 	}
 
 	function setValue(result) {
@@ -109,7 +123,7 @@ var promoData = '';
 				async : false,
 				success : function(data) {
 					if (data == 'success') {
-						form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/user-details";
+						form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/user-details";
 						result = true;
 					} else {
 						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
@@ -150,8 +164,7 @@ var promoData = '';
 				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
-						<div class="center wow fadeInDown animated"
-							style="visibility: visible;">
+						<div class="center wow fadeInDown animated" style="visibility: visible;">
 							<h2 class="workingholiday-plan-jumbo-header"><fmt:message key="workingholiday.quote.jumbo" bundle="${msg}" /></h2>
 						</div>
 						<br>
@@ -729,7 +742,7 @@ var promoData = '';
                         <div class="col-xs-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
 							<div class="top35 pull-left pad-none" style="width:47%">
-								<a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
+								<a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 							</div>
 							<div class="top35 pull-right pad-none" style="width:47%">
@@ -756,7 +769,7 @@ var promoData = '';
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
            <div style="width: 80%;margin-left: 10%;">
                 <div class="top35 pull-left pad-none" style="width:47%">
-                    <a href="<%=request.getContextPath()%>/${language}/workingholiday-insurance"
+                    <a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
                         class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
                 <div class="top35 pull-right pad-none" style="width:47%">

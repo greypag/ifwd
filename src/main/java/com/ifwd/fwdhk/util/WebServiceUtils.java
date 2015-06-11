@@ -70,57 +70,47 @@ public class WebServiceUtils {
 		relationships[idx] = getInsuredRelationshipDesc(relationshipCode, language);//getAgeRangeName(relationships[i], language);
 		return relationships;
 	}
-	public static String getInsuredRelationshipDesc(String relationship, String language) {
+	public static String getBeneRelationshipDesc(String relationship, String language) {
 		// TODO, check against DB
 	
 		String desc = "";
 		if (language.toUpperCase().equals("EN")) {
-			if (relationship.equals("BR"))
-				desc = "Brother";
-			else if (relationship.equals("CH"))
+			if (relationship.equals("CH"))
 				desc = "Child";
 			else if (relationship.equals("PA"))
 				desc = "Parent";
-			else if (relationship.equals("SI"))
-				desc = "Sister";
+			else if (relationship.equals("GC"))
+				desc = "Grand Parent & Grand Child";
 			else if (relationship.equals("SP"))
 				desc = "Spouse";
-			else if (relationship.equals("EE"))
-				desc = "Employee";			
-			else if (relationship.equals("FE"))
-				desc = "Friend";
-			else if (relationship.equals("OT"))
-				desc = "Others";	
-			else if (relationship.equals("RE"))
-				desc = "Relative";	
-			
-			else if (relationship.equals("ST"))
-				desc = "Student";				
+			else if (relationship.equals("FM"))
+				desc = "Fiance";
+			else if (relationship.equals("FF"))
+				desc = "Fiancee";			
+			else if (relationship.equals("SL"))
+				desc = "Sibling";
+			else if (relationship.equals("SE"))
+				desc = "Own Estate";		
 			else
 				desc = relationship;
 		} else {
-			if (relationship.equals("BR"))
-				desc = "兄弟";
-			else if (relationship.equals("CH"))
+			if (relationship.equals("CH"))
 				desc = "子女";
 			else if (relationship.equals("PA"))
 				desc = "父母";
-			else if (relationship.equals("SI"))
-				desc = "姊妹";
+			else if (relationship.equals("GC"))
+				desc = "祖父母及孫兒";
 			else if (relationship.equals("SP"))
 				desc = "配偶";
-			else if (relationship.equals("EE"))
-				desc = "員工";
-			else if (relationship.equals("FE"))
-				desc = "朋友";
-			else if (relationship.equals("OT"))
-				desc = "其他";
-			else if (relationship.equals("RE"))
-				desc = "親友";	
+			else if (relationship.equals("FM"))
+				desc = "未婚夫";
+			else if (relationship.equals("FF"))
+				desc = "未婚妻";			
+			else if (relationship.equals("SL"))
+				desc = "兄弟姊妹";
 			else if (relationship.equals("SE"))
-				desc = "我自己";	
-			else if (relationship.equals("ST"))
-				desc = "學生";		
+				desc = "個人遺產";		
+			
 			else
 				desc = relationship;
 		}
@@ -132,14 +122,12 @@ public class WebServiceUtils {
 		relationships[idx] = getBeneRelationshipDesc(relationshipCode, language);//getAgeRangeName(relationships[i], language);
 		return relationships;
 	}	
-	public static String getBeneRelationshipDesc(String relationship, String language) {
+	public static String getInsuredRelationshipDesc(String relationship, String language) {
 		// TODO, check against DB
 
 		String desc = "";
 		if (language.toUpperCase().equals("EN")) {
-			if (relationship.equals("BR"))
-				desc = "Brother";
-			else if (relationship.equals("CH"))
+			if (relationship.equals("CH"))
 				desc = "Child";
 			else if (relationship.equals("PA"))
 				desc = "Parent";
@@ -161,28 +149,30 @@ public class WebServiceUtils {
 			else
 				desc = relationship;
 		} else {
-			if (relationship.equals("BR"))
-				desc = "兄弟";
-			else if (relationship.equals("CH"))
+			if (relationship.equals("CH"))
 				desc = "子女";
 			else if (relationship.equals("PA"))
 				desc = "父母";
-			else if (relationship.equals("SI"))
-				desc = "姊妹";
+			else if (relationship.equals("SL"))
+				desc = "兄弟姊妹";
 			else if (relationship.equals("SP"))
 				desc = "配偶";
-			else if (relationship.equals("GP"))
-				desc = "祖父母";
-			else if (relationship.equals("GR"))
-				desc = "孫兒";
-			else if (relationship.equals("SE"))
-				desc = "個人遺產";			
 			else if (relationship.equals("FM"))
-				desc = "未婚夫";
+				desc = "未婚夫";			
 			else if (relationship.equals("FF"))
 				desc = "未婚妻";
-			else
-				desc = relationship;
+			else if (relationship.equals("EE"))
+				desc = "僱員";	
+			else if (relationship.equals("RF"))
+				desc = "親戚 / 朋友";	
+			else if (relationship.equals("GC"))
+				desc = "祖父母及孫兒";				
+			else if (relationship.equals("OT"))
+				desc = "其他";
+			else if (relationship.equals("SE"))
+				desc = "本人";		
+			else if (relationship.equals("ST"))
+				desc = "學生";	
 		}
 			
 		return desc;

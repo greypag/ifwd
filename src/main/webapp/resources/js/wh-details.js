@@ -5,14 +5,21 @@ $(function () {
 	var wh_tillDate_back = wh_nowTemp.setFullYear(wh_nowTemp.getFullYear() + 1);
 	var wh_duration = $('#frmTravelGetQuote').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	
+	// today
+	var effective_start_date = new Date();
+	
+	// 30 days date
+	var effective_end_date = new Date();
+
+	effective_end_date.setDate(effective_end_date.getDate()+89);
+
+	
 	$('#dpEffectiveDate').datepicker({
-		beforeShowDay: function (date) {
-			return date.valueOf() >= wh_now.valueOf() && date.valueOf() < wh_tillDate_from;
-		},
 		autoclose: true,
 		todayHighlight: true,
 		format: "dd-mm-yyyy",
-
+		startDate: effective_start_date,
+		endDate: effective_end_date
 
 	}).on('changeDate', function (ev) {
 		$(".hidden-sm .form-container .topten").html($('#inputWhInseffectiveDate').val())
@@ -667,7 +674,7 @@ function confirmDetails(form){
 			  	'checkbox4':checkbox4
 		    };
 		var method = this.rootUrl + "/wh-summary";
-		var rePage = this.rootUrl + this.rootLang + '/workingholiday-insurance/workingholiday-summary';
+		var rePage = this.rootUrl + this.rootLang + '/working-holiday-insurance/working-holiday-summary';
 		$.ajaxSetup({  
 	        contentType : 'application/json'  
 	    });

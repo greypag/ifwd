@@ -1153,7 +1153,7 @@ public class TravelController {
 
 		if (planDetailsForm.getPlanSelected().equals("personal")) {
 			relationOfSelfTraveller = "SE";
-			relationOfAdultTraveller = "FE";
+			relationOfAdultTraveller = "RF";
 		} else if (planDetailsForm.getPlanSelected().equals("family")) {
 			relationOfSelfTraveller = "SE";
 			relationOfAdultTraveller = "SP";
@@ -1219,7 +1219,7 @@ public class TravelController {
 
 
 			if (inx != 0) {// For other travelers skip first one
-				personal.put("relationship", "FE");
+				personal.put("relationship", "RF");
 				
 			
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
@@ -1379,7 +1379,7 @@ public class TravelController {
 			if (inx != 0) {// For other travelers skip first one
 				
 				if (planDetailsForm.getPlanSelected().equals("personal")) {
-					adult.put("relationship", "FE");
+					adult.put("relationship", "RF");
 				} else {
 					adult.put("relationship", "SP");
 				}

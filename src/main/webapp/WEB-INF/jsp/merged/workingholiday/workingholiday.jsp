@@ -21,7 +21,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		async : false,
 		success : function(data) {
 			if (data == 'success') {
-				form.action = "<%=request.getContextPath()%>/${language}/workingholiday-insurance/quote";
+				form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote";
 				result = true;
 			} else {
 				result = false;
