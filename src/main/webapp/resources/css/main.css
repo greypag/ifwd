@@ -4324,10 +4324,25 @@ input[name=applicantDob] {
     padding: 0px 18px;
     font-size: 18px;
     line-height: 1.4;
+    
+	/*padding: 20px 30px;
+	font-size: 36px;
+	line-height: 0.4;*/
 }
 .other-benefits ul.bullets li{
     margin-bottom: 10px;
-} 
+}
+/*
+    position: relative;
+}
+.other-benefits ul.bullets li .main-dot-content{
+	position: absolute;
+    top: 7px;
+    left: -10px;
+    line-height: 0;
+}
+*/
+
 .wrap {
     height: 511px !important;
 }

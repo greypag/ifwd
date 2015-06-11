@@ -415,7 +415,7 @@ $(document).ready(function() {
 				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 							
 					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""> 
-					<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+					<u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> 
 					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
 					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
 
