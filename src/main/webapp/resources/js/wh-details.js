@@ -67,7 +67,7 @@ $(function () {
 		setAtt("WhAppDob", $('#inputWhAppDob').val())
 		$('#whAppDob').html('');
 	});
-	$('#dpWhAppDob').datepicker('setDate', dob_end_date);
+	//$('#dpWhAppDob').datepicker('setDate', dob_end_date);
 	
 	$("#inputFullName").blur(function() {
 		var fullname = document.getElementById("inputFullName").value;
@@ -681,7 +681,10 @@ function confirmDetails(form){
 					form.action=rePage;
 					result=true;
 				} else {
-					console.log("fail to process payment " + data);
+					$("#errorMsg").html(data);
+					details_clicked = false;
+					wh_click = false;
+					//console.log("fail to process payment " + data);
 					result=false;
 				}
 			}
