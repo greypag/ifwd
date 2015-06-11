@@ -329,7 +329,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         <a
                         class="tool-tip show-inline-md"
                         data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />">
+                        title="<fmt:message key="member.account.login.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
                         alt=""></a>
                         </h3>
