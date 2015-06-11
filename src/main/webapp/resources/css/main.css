@@ -308,6 +308,20 @@ ul.maintabs li a span.offer:hover{
 	padding-right: 30px;
 }
 
+.chin .workingholiday-tab{
+    top:56px;
+}
+
+.chin .travel-special{
+	top:38px;
+}
+
+.chin .travel-and-home-tab{
+	top:56px;
+}
+
+
+
 /**/
 #middle {
     /*background: #505759;*/
@@ -5772,8 +5786,6 @@ font-family: 'Foco-bold';
 
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:10%;}
-.chin .travel-special{top:18px;}
-.chin .travel-and-home-tab{top:52px;}
 
 .chin .flight-form{
     padding: 20px 0;
