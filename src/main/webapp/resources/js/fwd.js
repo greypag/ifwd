@@ -3993,6 +3993,9 @@ function hc_planValid() {
     var EffDate = $("#txtEffDate").val();
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var EffDates = new Array();
+    EffDates = EffDate.split("-");
+    EffDate = new Date(EffDates[2],EffDates[1] - 1,EffDates[0], 0, 0, 0, 0);
     var new_start = new Date(EffDate);
     var startdays = dateDiffInDays(now, new_start);
     
