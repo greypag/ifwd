@@ -2920,7 +2920,7 @@ function replaceNumeric(id) {
 function alphaOnly(evt) {
 	evt = (evt) ? evt : event;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
-	if((evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39)){
+	if((evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39) || (evt.charCode == 0  && evt.keyCode==46)){
 		return true;
 	}
 	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
@@ -5095,13 +5095,12 @@ function hkidOnkeypress(evt) {
 	var eCode = evt.keyCode;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
 	var keychar = String.fromCharCode(charCode)
-	//alert("charCode:"+evt.charCode);
-	//alert("keyCode:"+evt.keyCode);
+	//alert("keychar:"+keychar+"\ncharCode:"+evt.charCode+"\nkeyCode:"+evt.keyCode);
 	//alert(keychar);
 	// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
 	// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
 	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
-			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39)) {
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39)) {
 		return true;
 	}
 	return false;
