@@ -254,8 +254,8 @@ perventRedirect=true;
 						else 
 							payLang = "e";
 						
-						System.out.println("getLanguage" + session.getAttribute("language"));
-						System.out.println("payLang" + payLang);
+						//System.out.println("getLanguage" + session.getAttribute("language"));
+						//System.out.println("payLang" + payLang);
 					%>
 
 

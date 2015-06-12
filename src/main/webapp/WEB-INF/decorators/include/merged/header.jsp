@@ -144,7 +144,7 @@ function submitLoginForm(formID) {
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<% String username = (String) session.getAttribute("username");					
-							System.out.println("username " + username);   
+							//System.out.println("username " + username);   
 							if (username == null) {
 							%>
 							<li><a href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
@@ -156,7 +156,7 @@ function submitLoginForm(formID) {
 							<% } %>
 							<li>
 							<%
-							System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
+							//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
 							if ("en".equals(session.getAttribute("language").toString())) {
 							%>
 								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
@@ -374,7 +374,7 @@ function submitLoginForm(formID) {
 			<%
 				if ("en".equals(session.getAttribute("language").toString())) {
 				%>
-					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=CN&action=<%=request.getServletPath()%>">中文</a>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
 				<%
 				} else {
 				%>

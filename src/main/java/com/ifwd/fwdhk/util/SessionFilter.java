@@ -34,12 +34,12 @@ public class SessionFilter implements Filter {
         {
 	        if (session.getAttribute("language") == null)
 	        {
-	        	session.setAttribute("language", "en");
-	        	session.setAttribute("uiLocale", "en-US");
+	        	session.setAttribute("language", "tc");
+	        	session.setAttribute("uiLocale", "zh-HK");
 	        }
-	        //System.out.println("url : "+url); 
-	        //System.out.println("session.getAttribute(\"language\") : "+session.getAttribute("language"));
-	        //System.out.println("session.getAttribute(\"uiLocale\") : "+session.getAttribute("uiLocale"));
+	        ////System.out.println("url : "+url); 
+	        ////System.out.println("session.getAttribute(\"language\") : "+session.getAttribute("language"));
+	        ////System.out.println("session.getAttribute(\"uiLocale\") : "+session.getAttribute("uiLocale"));
         }
         
         filterChain.doFilter(servletRequest, servletResponse);

@@ -102,7 +102,7 @@ public class FlightController {
 			planDetails.setPlanSelected("personal");
 		}
 		else{
-			System.out.println("Plan selected : "+planDetails.getPlanSelected());
+			//System.out.println("Plan selected : "+planDetails.getPlanSelected());
 		}
 
 		// default
@@ -132,7 +132,7 @@ public class FlightController {
 		String ogDescription = "";
 		String ogSiteName = "";
 		
-		System.out.println("flight path " + request.getRequestURI().toString());
+		//System.out.println("flight path " + request.getRequestURI().toString());
 		if (request
 				.getRequestURI()
 				.toString()
@@ -170,7 +170,7 @@ public class FlightController {
 					"flight.og.siteName",
 					UserRestURIConstants.getLanaguage(request));			
 		}
-		System.out.println("request URL " + request.getRequestURL().toString());
+		//System.out.println("request URL " + request.getRequestURL().toString());
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -218,13 +218,13 @@ public class FlightController {
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
 
-		System.out.println("/flight-insurance/quote");
-		System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
-		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
-		System.out.println("Child    : " + planDetails.getTotalChildTraveller());
-		System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
+		//System.out.println("/flight-insurance/quote");
+		//System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
+		//System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
+		//System.out.println("Child    : " + planDetails.getTotalChildTraveller());
+		//System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
 		
-		System.out.println("PlanSelected   : " + planDetails.getPlanSelected());
+		//System.out.println("PlanSelected   : " + planDetails.getPlanSelected());
 		
 		
 		TravelQuoteBean travelQuote = new TravelQuoteBean();
@@ -255,9 +255,9 @@ public class FlightController {
 
 		if (planDetails.getDepartureDate() != null) {
 			session.setAttribute("flightPlanDetails", planDetails);
-			//System.out.println(this.getClass()	+ " flightPlanDetails set session");
+			////System.out.println(this.getClass()	+ " flightPlanDetails set session");
 		} else {
-			//System.out.println(this.getClass()	+ " planDetails.getDepartureDate() == null, flightPlanDetails get session");
+			////System.out.println(this.getClass()	+ " planDetails.getDepartureDate() == null, flightPlanDetails get session");
 			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
 
 			if (planDetails == null) {
@@ -266,7 +266,7 @@ public class FlightController {
 			}
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
-		//System.out.println(planDetails.getDepartureDate() + " (Date1) "	+ planDetails.getReturnDate());
+		////System.out.println(planDetails.getDepartureDate() + " (Date1) "	+ planDetails.getReturnDate());
 		int days = 0;
 
 		Date dateD1 = DateApi.formatDate(planDetails.getDepartureDate());
@@ -277,7 +277,7 @@ public class FlightController {
 		planDetails.setDays(days + 1);
 		travelQuote.setTotalTravellingDays(days + 1);
 		if (session != null) {
-//			System.out.println(planDetails.getDepartureDate() + " "
+//			//System.out.println(planDetails.getDepartureDate() + " "
 //					+ planDetails.getReturnDate() + " "
 //					+ planDetails.getPlanSelected() + " "
 //					+ planDetails.getTravellerCount());
@@ -335,7 +335,7 @@ public class FlightController {
 				+ (String) session.getAttribute("referralCode");
 		
 		/* flight landing page save date */
-		System.out.println("Fight Quote user " + base);
+		//System.out.println("Fight Quote user " + base);
 
 		String token = null, username = null;
 
@@ -358,7 +358,7 @@ public class FlightController {
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
-		System.out.println(jsonObject);
+		//System.out.println(jsonObject);
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
 
@@ -411,18 +411,18 @@ public class FlightController {
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Flight");
-		System.out.println("/updateFlightQuote");
-		System.out.println("PLAN SELECTED " + planDetails.getPlanSelected());
-		System.out.println("PERSONAL " + planDetails.getTotalPersonalTraveller());
-		System.out.println("ADULT " + planDetails.getTotalAdultTraveller());
-		System.out.println("CHILD " + planDetails.getTotalChildTraveller());
-		System.out.println("OTHER " + planDetails.getTotalOtherTraveller());
+		//System.out.println("/updateFlightQuote");
+		//System.out.println("PLAN SELECTED " + planDetails.getPlanSelected());
+		//System.out.println("PERSONAL " + planDetails.getTotalPersonalTraveller());
+		//System.out.println("ADULT " + planDetails.getTotalAdultTraveller());
+		//System.out.println("CHILD " + planDetails.getTotalChildTraveller());
+		//System.out.println("OTHER " + planDetails.getTotalOtherTraveller());
 				
-		System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
-		System.out.println("getReturnDate : "+planDetails.getReturnDate());
+		//System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
+		//System.out.println("getReturnDate : "+planDetails.getReturnDate());
 				
-		System.out.println("departureDate : "+request.getParameter("departureDate"));
-		System.out.println("returnDate : "+request.getParameter("returnDate"));
+		//System.out.println("departureDate : "+request.getParameter("departureDate"));
+		//System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 		// test planselected
 		if( planDetails.getTotalPersonalTraveller() > 0 ) {
@@ -443,11 +443,11 @@ public class FlightController {
 				+ planDetails.getTotalPersonalTraveller());
 		
 		
-System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
-System.out.println("getReturnDate : "+planDetails.getReturnDate());
+//System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
+//System.out.println("getReturnDate : "+planDetails.getReturnDate());
 
-System.out.println("departureDate : "+request.getParameter("departureDate"));
-System.out.println("returnDate : "+request.getParameter("returnDate"));
+//System.out.println("departureDate : "+request.getParameter("departureDate"));
+//System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -473,8 +473,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		
-		System.out.println("commencementDate : "+commencementDate);
-		System.out.println("expiryDate : "+expiryDate);
+		//System.out.println("commencementDate : "+commencementDate);
+		//System.out.println("expiryDate : "+expiryDate);
 		
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		planDetails.setTotalTravellingDays(days + 1);
@@ -534,7 +534,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				+ (String) session.getAttribute("referralCode");
 		
 		/* flight landing page save date */
-		System.out.println("Fight Quote user " + base);
+		//System.out.println("Fight Quote user " + base);
 		
 		String token = null, username = null;
 
@@ -557,7 +557,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
-		System.out.println(jsonObject);
+		//System.out.println(jsonObject);
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
 			
@@ -623,11 +623,11 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			session.setAttribute("flightPlanDetails", planDetails);
 		}
 			
-		System.out.println("/flight-insurance/user-details");
-		System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
-		System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
-		System.out.println("Child    : " + planDetails.getTotalChildTraveller());
-		System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
+		//System.out.println("/flight-insurance/user-details");
+		//System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
+		//System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
+		//System.out.println("Child    : " + planDetails.getTotalChildTraveller());
+		//System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
 		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -673,8 +673,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
 					.get("optionItemDesc");
 			/* JSONObject jsonObjectAgeType = null; */
-			System.out.println(" jsonAgeTypeArray ====>>>>>>"
-					+ jsonAgeTypeArray);
+			/*System.out.println(" jsonAgeTypeArray ====>>>>>>"
+					+ jsonAgeTypeArray);*/
 			Map<String, String> mapAgeType = new HashMap<String, String>();
 			Map<String, String> mapSelfType = new HashMap<String, String>();
 			Map<String, String> mapChildType = new HashMap<String, String>();
@@ -687,7 +687,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			Iterator iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
+				////System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 
 				if (mapEntry.getKey().equals("2")
 						|| mapEntry.getKey().equals("3"))
@@ -698,7 +698,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				// System.out.println("key " + mapEntry.getKey() + " value " +
+				// //System.out.println("key " + mapEntry.getKey() + " value " +
 				// mapEntry.getValue());
 				if (mapEntry.getKey().equals("1"))
 					mapChildType.put((String) mapEntry.getKey(),
@@ -710,10 +710,10 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			model.addAttribute("mapChildType", mapChildType);
 
 		} else {
-			System.out.println("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs").toString());
+			//System.out.println("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs").toString());
 			String returnUrl = UserRestURIConstants.getSitePath(request)
 					+ "flight/flight-plan";
-			System.out.println("returnUrl " + returnUrl);
+			//System.out.println("returnUrl " + returnUrl);
 			model.addAttribute("errMsgs",
 					"API failed - Could not retrieve Age Type List");
 			return new ModelAndView(returnUrl);
@@ -727,8 +727,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		if (responseJsonObj.get("errMsgs") == null) {
 			JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
 					.get("optionItemDesc");
-			System.out.println(" jsonRelationShipArray ====>>>>>>"
-					+ jsonRelationshipCode);
+			/*System.out.println(" jsonRelationShipArray ====>>>>>>"
+					+ jsonRelationshipCode);*/
 
 			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 			for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -739,9 +739,9 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
 		} else {
-			System.out.println("API failed - Could not retrieve Relationship code List");
+			//System.out.println("API failed - Could not retrieve Relationship code List");
 			String returnUrl = UserRestURIConstants.getSitePath(request) + "flight/flight-plan";
-			System.out.println("returnUrl " + returnUrl);
+			//System.out.println("returnUrl " + returnUrl);
 			model.addAttribute("errMsgs", "API failed - Could not retrieve Relationship code List");
 			return new ModelAndView(returnUrl);
 		}
@@ -763,7 +763,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		model.addAttribute("planDetailsForm", planDetails);
 		String returnUrl = UserRestURIConstants.getSitePath(request)
 				+ "flight/flight-plan-details";
-		System.out.println("returnUrl " + returnUrl);
+		//System.out.println("returnUrl " + returnUrl);
 		// return returnUrl;
 		return new ModelAndView(returnUrl);
 	}
@@ -1289,8 +1289,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
-		System.out.println("debug: Flight optIn1 " + optIn1);
-		System.out.println("debug: Flight optIn2 " + optIn2);
+		//System.out.println("debug: Flight optIn1 " + optIn1);
+		//System.out.println("debug: Flight optIn2 " + optIn2);
 		
 		applicantJsonObj.put("optIn1", optIn1);
 		applicantJsonObj.put("optIn2", optIn2);
@@ -1322,12 +1322,12 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		System.out.println("Create Flight  header" + header);
-		System.out.println("Create Flight parameters" + parameters);
+		//System.out.println("Create Flight  header" + header);
+		//System.out.println("Create Flight parameters" + parameters);
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.CREATEFLIGHTPOLICY, header, parameters);
-		System.out.println("createFilghr response" + responsObject);
+		//System.out.println("createFilghr response" + responsObject);
 
 		if (responsObject.get("errMsgs") == null && responsObject != null) {
 			session.setAttribute("FlightResponseFrTrvl", parameters);
@@ -1348,8 +1348,8 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 					responsObject, "paymentGateway"));
 			createFlightPolicy.setPaymentType(checkJsonObjNull(responsObject,
 					"paymentType"));
-			System.out.println("Email address"
-					+ request.getParameter("emailAddress"));
+			/*System.out.println("Email address"
+					+ request.getParameter("emailAddress"));*/
 
 			request.getSession().setAttribute("setReferenceNoForConfirmation",
 					checkJsonObjNull(responsObject, "referenceNo"));
@@ -1469,7 +1469,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			
 			
 			
-			System.out.println("Travel Quote user " + Url);
+			//System.out.println("Travel Quote user " + Url);
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -1483,7 +1483,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
-			System.out.println("Get Travel Quotes API " + responseJsonObj);
+			//System.out.println("Get Travel Quotes API " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(createFlightPolicy
@@ -1650,12 +1650,12 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		String referralCode = (String) session.getAttribute("referralCode");
 		parameters.put("referralCode", referralCode);
 		model.addAttribute("selectPlanName", createFlightPolicy.getPlanCode());
-		System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
+		//System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 
-		System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
+		//System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
 
 		String finalizeReferenceNo = "";
 		JSONObject resultObj = new JSONObject();
@@ -1686,14 +1686,14 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 			// Calling Api of Confirm Travel Care Policy
 			JSONObject confirmPolicyParameter = new JSONObject();
 			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-			System.out.println("Header Object for Confirm"
-					+ confirmPolicyParameter);
+			/*System.out.println("Header Object for Confirm"
+					+ confirmPolicyParameter);*/
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 
-			System.out.println("Response From Confirm Travel Policy "
-					+ jsonResponse);
+			/*System.out.println("Response From Confirm Travel Policy "
+					+ jsonResponse);*/
 
 			createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
 					"secureHash"));
@@ -1718,7 +1718,7 @@ System.out.println("returnDate : "+request.getParameter("returnDate"));
 		String optIn1 = request.getParameter("optIn1");
 		String optIn2 = request.getParameter("optIn2");
 		String totalTravallingDays = request.getParameter("days");
-		System.out.println("inside Controller fro flight upgrade Summary");
+		//System.out.println("inside Controller fro flight upgrade Summary");
 
 		TravelQuoteBean travelBean = new TravelQuoteBean();
 		travelBean.setTrLeavingDate(parameters.get("commencementDate")

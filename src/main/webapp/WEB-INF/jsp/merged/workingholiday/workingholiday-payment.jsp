@@ -341,9 +341,9 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
-						System.out.println("getLanguage" + session.getAttribute("language"));
+						//System.out.println("getLanguage" + session.getAttribute("language"));
 						payLang = "C";
-						System.out.println("payLang" + payLang);
+						//System.out.println("payLang" + payLang);
 						//if (payLang.equals("t"))
 						
 					%>

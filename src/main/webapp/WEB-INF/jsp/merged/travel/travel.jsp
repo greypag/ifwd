@@ -1,7 +1,7 @@
 <%
 //	session = request.getSession();
 //	String uatAuth = (String) session.getAttribute("uatAuth");
-//	System.out.println("uatAuth " + uatAuth);
+//	//System.out.println("uatAuth " + uatAuth);
 //	if (uatAuth == null)
 //		response.sendRedirect(request.getContextPath() + "/uatAuth");
 %>
@@ -22,15 +22,15 @@
 <%
 	TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 	if( sessTravelQuoteBean != null ) {
-		System.out.println("------------------------------------------------------------");		
-		System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
-		System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
-		System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
-		System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
-		System.out.println("------------------------------------------------------------");
+		//System.out.println("------------------------------------------------------------");		
+		//System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+		//System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+		//System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+		//System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+		//System.out.println("------------------------------------------------------------");
 	}
 	else {
-		System.out.println("default session TravelQuote");
+		//System.out.println("default session TravelQuote");
 	}
 %>
 <script type="text/javascript">
@@ -125,7 +125,7 @@ $(document).ready(function() {
   String personalSpinnerStyle = "";
   String familySpinnerStyle = "style='display:none'";
   if( sessTravelQuoteBean != null ) {
-	  System.out.println(sessTravelQuoteBean.getPlanSelected());
+	  //System.out.println(sessTravelQuoteBean.getPlanSelected());
 	    if(sessTravelQuoteBean.getPlanSelected().equalsIgnoreCase("personal")){
 	      PersonalPlanChecked = "checked";
 	    }
@@ -135,8 +135,8 @@ $(document).ready(function() {
 	      personalSpinnerStyle = "style='display:none'";
 	      familySpinnerStyle = "";
 	    } 
-	    System.out.println(familySpinnerStyle);
-	    System.out.println(personalSpinnerStyle);
+	    //System.out.println(familySpinnerStyle);
+	    //System.out.println(personalSpinnerStyle);
   }
 %>
 <section id="main-slider" class="no-margin"> 
@@ -560,8 +560,8 @@ $(document).ready(function() {
   <div class="clearfix"></div>
 </div>
 <div class="clearfix"></div>
-<div class="other-benefits col-lg-12">
-  <h3 class="h4-2"><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h3>
+<div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
+  <h2><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
     <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc1" bundle="${msg}" /></p>
@@ -580,10 +580,80 @@ $(document).ready(function() {
     </li>
   </ul>
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div>
+
+<div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+  <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
+  <div class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active">
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc1" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc2" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc3" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc4" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc5" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+    </div>
+    <!--/.carousel-inner--> 
+    <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+  </div>
+  <!--/.carousel-->
+  <div class="clearfix"></div>
+  
+  <div class="spacer3"></div>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
+<!--/.container-->
+</div>
+
 <!--/.container-->
 </div>
 </section>
@@ -597,7 +667,7 @@ $(document).ready(function() {
             <h1><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" />
             </h1>
-              <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
+              <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
 
           </div>
         </div>
@@ -640,7 +710,7 @@ $(document).ready(function() {
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
                   <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" /></h2>
-                <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
+                <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>

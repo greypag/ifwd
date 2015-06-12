@@ -61,7 +61,7 @@ public class UserController {
 			else
 				homeURL = "/changeLang?selectLang=tc&action=/tc/home";
 		}
-		System.out.println("redirect to home lang: " + lang);
+		//System.out.println("redirect to home lang: " + lang);
 		return new ModelAndView("redirect:" + homeURL);
 	}
 
@@ -80,18 +80,18 @@ public class UserController {
 				JSONObject response = restService.consumeApi(HttpMethod.POST,
 						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
 						params);
-				System.out.println(response);
+				//System.out.println(response);
 
 				// check by error message is null then valid response
 				if (response.get("errMsgs") == null && response != null) {
-					/*System.out.println("session set"
+					/*//System.out.println("session set"
 							+ response.get("token").toString());*/
 					HttpSession session = servletRequest.getSession(true);
 					session.setAttribute("authenticate", "true");
 					session.setAttribute("token", response.get("token")
 							.toString());
 					session.setAttribute("username", userLogin.getUserName());
-					System.out.println("language in sessin" + UserRestURIConstants.getLanaguage(servletRequest));
+					//System.out.println("language in sessin" + UserRestURIConstants.getLanaguage(servletRequest));
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
@@ -190,7 +190,7 @@ public class UserController {
 				if (jsonUPHResponse.get("errMsgs") == null) {
 					JSONArray jsonArray = (JSONArray) jsonUPHResponse
 							.get("policies");
-					System.out.println("purchase history" + jsonArray);
+					//System.out.println("purchase history" + jsonArray);
 					Iterator<?> itr = jsonArray.iterator();
 					ArrayList al = new ArrayList();
 					while (itr.hasNext()) {
@@ -250,7 +250,7 @@ public class UserController {
 		
 //		session.setAttribute("language", "EN");
 		String redirect ="../jsp/" + dir + "/uatLogin";
-		System.out.println("redirect " + redirect);
+		//System.out.println("redirect " + redirect);
 		return redirect;
 	}
 	
@@ -262,7 +262,7 @@ public class UserController {
 		if (userName.equals("ifwdUser") && password.equals("Pass1234")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("uatAuth", "ifwdUser");
-			System.out.println("redirect to home lang from uatAuth: ");
+			//System.out.println("redirect to home lang from uatAuth: ");
 			return new ModelAndView("redirect:" + "/tc/home");
 		}
 		return null;
@@ -326,7 +326,7 @@ public class UserController {
 			
 			
 			
-			System.out.println(params);
+			//System.out.println(params);
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.PUT,
 					UserRestURIConstants.USER_JOIN_US,
 					COMMON_HEADERS, params);
@@ -343,13 +343,13 @@ public class UserController {
 						params);
 				
 				if (response.get("errMsgs") == null && response != null) {
-					/*System.out.println("session set"
+					/*//System.out.println("session set"
 							+ response.get("token").toString());*/
 					session.setAttribute("authenticate", "true");
 					session.setAttribute("token", response.get("token")
 							.toString());
 					session.setAttribute("username", userLogin.getUserName());
-					System.out.println("language in sessin" + session.getAttribute("language"));
+					//System.out.println("language in sessin" + session.getAttribute("language"));
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
@@ -444,7 +444,7 @@ public class UserController {
 					UserRestURIConstants.USER_FORGOT_PASSWORD,
 					COMMON_HEADERS, params);
 			/* {"errMsgs":null} */
-			System.out.println("Error "+jsonResponse.toString());
+			//System.out.println("Error "+jsonResponse.toString());
             if (jsonResponse.get("errMsgs") == null) {
                 return "success";
             }

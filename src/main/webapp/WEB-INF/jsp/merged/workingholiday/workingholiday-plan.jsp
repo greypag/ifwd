@@ -126,7 +126,7 @@ var promoCodeInsertFlag = true;
 						form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/user-details";
 						result = true;
 					} else {
-						console.log("fail to process prepareWorkingHolidayUserDetails " + data);
+						/* console.log("fail to process prepareWorkingHolidayUserDetails " + data); */
 						result = false;
 					}
 				}

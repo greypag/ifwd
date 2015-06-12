@@ -172,7 +172,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy",
+		format: "dd-mm-yyyy",
 
 
 	}).on('changeDate', function (ev) {
@@ -253,7 +253,7 @@ $(function () {
 		},
 		autoclose: true,
 		
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		
@@ -326,7 +326,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy",
+		format: "dd-mm-yyyy",
 
 
 	}).on('changeDate', function (ev) {
@@ -431,7 +431,7 @@ $(function () {
 		},
 		autoclose: true,
 		
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		
@@ -736,7 +736,7 @@ $(function () {
 		},
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
@@ -791,7 +791,7 @@ $(function () {
 			}
 		},
 		autoclose: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 
@@ -820,7 +820,7 @@ $(function () {
 		},
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
@@ -876,7 +876,7 @@ $(function () {
 			}
 		},
 		autoclose: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) { 
 
@@ -3993,6 +3993,9 @@ function hc_planValid() {
     var EffDate = $("#txtEffDate").val();
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var EffDates = new Array();
+    EffDates = EffDate.split("-");
+    EffDate = new Date(EffDates[2],EffDates[1] - 1,EffDates[0], 0, 0, 0, 0);
     var new_start = new Date(EffDate);
     var startdays = dateDiffInDays(now, new_start);
     

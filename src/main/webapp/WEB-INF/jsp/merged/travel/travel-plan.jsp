@@ -11,15 +11,15 @@
 <%
     TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
     if( sessTravelQuoteBean != null ) {
-        System.out.println("------------------------------------------------------------");     
-        System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
-        System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
-        System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
-        System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
-        System.out.println("------------------------------------------------------------");
+        //System.out.println("------------------------------------------------------------");     
+        //System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+        //System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+        //System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+        //System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+        //System.out.println("------------------------------------------------------------");
     }
     else {
-        System.out.println("default session TravelQuote");
+        //System.out.println("default session TravelQuote");
     }
 %>
 <script>
@@ -248,14 +248,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 <!--/#main-Content-->
 <%  
 	String cp = request.getContextPath(); 
-	System.out.println("travel-plan.jsp");
+	//System.out.println("travel-plan.jsp");
 	
 	String PersonalPlanChecked = "";
 	  String FamilyPlanChecked = "";
 	  String personalSpinnerStyle = "";
 	  String familySpinnerStyle = "style='display:none'";
 	  if( sessTravelQuoteBean != null ) {
-	      System.out.println(sessTravelQuoteBean.getPlanSelected());
+	      //System.out.println(sessTravelQuoteBean.getPlanSelected());
 	        if(sessTravelQuoteBean.getPlanSelected().equalsIgnoreCase("personal")){
 	          PersonalPlanChecked = "checked";
 	        }
@@ -265,8 +265,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	          personalSpinnerStyle = "style='display:none'";
 	          familySpinnerStyle = "";
 	        } 
-	        System.out.println(familySpinnerStyle);
-	        System.out.println(personalSpinnerStyle);
+	        //System.out.println(familySpinnerStyle);
+	        //System.out.println(personalSpinnerStyle);
 	  }
 %>
 <section>
@@ -340,7 +340,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						 	}
 					    	else 
 					    	{
-					    		System.out.println("travel-plan.jsp travelQuote is null!!!");
+					    		//System.out.println("travel-plan.jsp travelQuote is null!!!");
 					    	}
 						
 					    	if (travelQuote != null)
@@ -473,7 +473,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						 	}
 					    	else 
 					    	{
-					    		System.out.println("travel-plan.jsp travelQuote is null!!!");
+					    		//System.out.println("travel-plan.jsp travelQuote is null!!!");
 					    	}
 						%>
 						<div class="clearfix"></div>
