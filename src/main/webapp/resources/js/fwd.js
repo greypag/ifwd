@@ -1018,8 +1018,8 @@ function fPlanValid()
 		 var age = document.getElementById("selectAgeRange1").value;
 		 var applicantDobs = new Array();
 		 applicantDobs = applicantDob.split("-");
-		 applicantDob = new Date(applicantDobs[2],applicantDobs[1] - 1,applicantDobs[0], 0, 0, 0, 0);
-		 var applicantDobDate = new Date(applicantDob);
+		 var applicantDob1 = new Date(applicantDobs[2],applicantDobs[1] - 1,applicantDobs[0], 0, 0, 0, 0);
+		 var applicantDobDate = new Date(applicantDob1);
 		 var today = new Date();
 
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
