@@ -261,22 +261,50 @@
 					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
 					                    </div>
 					              <% } else { %>
-					                  <table class="table table-bordred table-type-1 margin-bottom-10" style="margin-bottom:0px;width:100% !important;">
-					                        <tbody>
-					                            <tr>
-					                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                            <tr>
-					                                <td><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                        </tbody>
-					                  </table>
+				                        <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+					                    <div class="confirmation-table-margin">
+					                        <div class="col-sm-12 col-xs-12">
+					                            <strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong>
+					                        </div>
+					                        <div class="col-sm-12 col-xs-12">
+					                            <fmt:message key="<%=key_row1col1%>" bundle="${msg}" />
+					                        </div>
+					                        <div class="clearfix"></div>
+					                    </div>
+					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+					                    
+					                    <div class="confirmation-table-margin">
+					                        <div class="col-sm-12 col-xs-12">
+					                            <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+					                        </div>
+					                        <div class="col-sm-12 col-xs-12">
+					                            <fmt:message key="<%=key_row1col2%>" bundle="${msg}" />
+					                        </div>
+					                        <div class="clearfix"></div>
+					                    </div>
+					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+					                    
+					                    <div class="confirmation-table-margin">
+					                        <div class="col-sm-12 col-xs-12">
+					                            <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+					                        </div>
+					                        <div class="col-sm-12 col-xs-12">
+					                            <fmt:message key="<%=key_row1col3%>" bundle="${msg}" />
+					                        </div>
+					                        <div class="clearfix"></div>
+					                    </div>
+					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+					                    
+					                    <div class="confirmation-table-margin">
+					                        <div class="col-sm-12 col-xs-12">
+					                            <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+					                        </div>
+					                        <div class="col-sm-12 col-xs-12">
+					                            <fmt:message key="<%=key_row1col4%>" bundle="${msg}" />
+					                        </div>
+					                        <div class="clearfix"></div>
+					                    </div>
+					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 					              <% } %>                    
 					              </div>
 					              </div>

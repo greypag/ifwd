@@ -7052,3 +7052,9 @@ tr.product-landing-error-wrap {
   margin: 0 0 0 -5px;
   position: absolute;
 }
+
+.confirmation-table-margin{
+	margin-top:15px;
+	margin-bottom:15px;
+	margin-left:15px;
+}
