@@ -37,6 +37,7 @@ var promoCodeInsertFlag = true;
 
 		if (amount == "0") {
 			document.getElementById("errDue").innerHTML = "<fmt:message key="workingholiday.plan.empty" bundle="${msg}" />";
+			document.getElementById("errDueMobile").innerHTML = "<fmt:message key="workingholiday.plan.empty" bundle="${msg}" />";
 			flag = false;
 		} else
 			flag = true;
@@ -777,7 +778,7 @@ var promoCodeInsertFlag = true;
                         <fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
                 </div>
                 <div class="clearfix"></div>
-                <br> <span class="text-red" id="errDue"></span> <br>
+                <br> <span class="text-red" id="errDueMobile"></span> <br>
             </div>
         </div>
 
@@ -862,6 +863,7 @@ var promoCodeInsertFlag = true;
 		/* alert("discountAmt: "+discountAmt+";totalDue: "+totalDue); */
 		$("#promo-code-body").fadeIn();
 		document.getElementById("errDue").innerHTML = "";
+		document.getElementById("errDueMobile").innerHTML = "";
 		
 		var selected_div;
 		var idArray = [];
