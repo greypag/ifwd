@@ -302,17 +302,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 										<div class="icon">1</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-intransit  img-circle disabled second">
+										class="image-order-status image-order-status-intransit  img-circle second">
 										<span class="status"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle disabled third">
+										class="image-order-status image-order-status-delivered  img-circle third">
 										<span class="status"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle disabled fourth">
+										class="image-order-status image-order-status-completed  img-circle fourth">
 										<span class="status lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
@@ -849,7 +849,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			                                                            <td width="88"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
 			                                                        </tr>
 			                                                        <tr>
-			                                                            <td>1</td>
+			                                                            <td style="background-color: #fff;color: #333">1</td>
 			                                                            <td>120</td>
 			                                                            <td>95</td>
 			                                                            <td>210</td>

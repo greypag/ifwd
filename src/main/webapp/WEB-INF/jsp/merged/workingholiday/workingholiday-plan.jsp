@@ -186,17 +186,17 @@ var promoCodeInsertFlag = true;
 										<div class="icon">1</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-intransit  img-circle disabled second">
+										class="image-order-status image-order-status-intransit  img-circle second">
 										<span class="status"><fmt:message key="workingholiday.breadcrumb2.item2" bundle="${msg}" /></span>
 										<div class="icon">2</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-delivered  img-circle disabled third">
+										class="image-order-status image-order-status-delivered  img-circle third">
 										<span class="status"><fmt:message key="workingholiday.breadcrumb2.item3" bundle="${msg}" /></span>
 										<div class="icon">3</div>
 									</div>
 									<div
-										class="image-order-status image-order-status-completed  img-circle disabled fourth">
+										class="image-order-status image-order-status-completed  img-circle fourth">
 										<span class="status lst-status"><fmt:message key="workingholiday.breadcrumb2.item4" bundle="${msg}" /></span>
 										<div class="icon">4</div>
 									</div>
@@ -622,7 +622,7 @@ var promoCodeInsertFlag = true;
 																		<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
 																	</tr>
 																	<tr>
-																		<td width="101"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price1" bundle="${msg}" /></strong></td>
+																		<td width="101" style="background-color: #fff;color: #333"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price1" bundle="${msg}" /></strong></td>
 																		<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price2" bundle="${msg}" /></strong></td>
 																	</tr>
 																</tbody>

@@ -296,7 +296,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                         key="flight.breadcrumb2.item2" bundle="${msg}" /></span>
                             </div>
                             <div
-                                class="image-order-status image-order-status-intransit disabled  img-circle">
+                                class="image-order-status image-order-status-intransit img-circle">
                                 <div class="icon">3</div>
                                 <span class="status min-left"><fmt:message
                                         key="flight.breadcrumb2.item3" bundle="${msg}" /></span>
