@@ -1016,6 +1016,9 @@ function fPlanValid()
         flag = false;
     } else {
 		 var age = document.getElementById("selectAgeRange1").value;
+		 var applicantDobs = new Array();
+		 applicantDobs = applicantDob.split("-");
+		 applicantDob = new Date(applicantDobs[2],applicantDobs[1] - 1,applicantDobs[0], 0, 0, 0, 0);
 		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
