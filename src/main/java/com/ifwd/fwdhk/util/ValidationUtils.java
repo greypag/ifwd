@@ -124,6 +124,36 @@ public class ValidationUtils {
 
 	
 */
-	
+    // both are null return true
+    public static boolean stringCompareToIgnoreCase(String str1, String str2){
+        boolean rtn = false;
+                
+        if(str1 == null && str2 == null){
+            rtn = true;
+        }else if (str1 == null && str2 != null){
+            rtn = false;
+        }else if (str1 != null && str2 == null){
+            rtn = false;
+        }else{
+            if(str1.compareToIgnoreCase(str2) == 0){
+                rtn = true;
+            }else{
+                rtn = false;
+            }
+        }
+                            
+        return rtn;
+    }
+    public static String getRelationshipById(String idA1, String idA2){
+        String relationship = "";
+                
+        if(stringCompareToIgnoreCase(idA1, idA2)){
+            relationship = "SE";    // self
+        }else{
+            relationship = "RF";    // relation or friend 
+        }
+                
+        return relationship;
+    }	
 
 }

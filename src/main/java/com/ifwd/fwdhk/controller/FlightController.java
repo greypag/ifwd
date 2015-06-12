@@ -50,6 +50,7 @@ import com.ifwd.fwdhk.util.MessageUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
+import com.ifwd.fwdhk.util.ValidationUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -801,20 +802,15 @@ public class FlightController {
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
-		final String INSURED_RELATIONSHIP_SELF = "SE";
-		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
-		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
+        final String BENE_RELATIONSHIP_SELF = "SE";
+        
+        // applicant information
+        String name = StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
+        String hkid = StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
+        String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
+        String mobileNo = request.getParameter("mobileNo");        
 
-		if (planDetailsForm.getPlanSelected().equals("personal")) {
-			relationOfSelfTraveller = "SE";
-			relationOfAdultTraveller = "RF";
-		} else if (planDetailsForm.getPlanSelected().equals("family")) {
-			relationOfSelfTraveller = "SE";
-			relationOfAdultTraveller = "SP";
-			relationOfChildTraveller = "CH";
-			relationOfOtherTraveller = "RF";
-		}
-
+        
 		String emailId = request.getParameter("emailAddress");
 		request.setAttribute("email", emailId);
 		JSONObject parameters = new JSONObject();
@@ -841,7 +837,7 @@ public class FlightController {
 				personal.put("relationship", "RF"); // adult - should be friend
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF
+							&& BENE_RELATIONSHIP_SELF
 									.compareToIgnoreCase(planDetailsForm
 											.getPersonalBeneficiary()[inx]) != 0) {// If
 																				// have
@@ -888,12 +884,12 @@ public class FlightController {
 					planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
-				personal.put("relationship", "SE"); // adult, should be self for
-													// 1st insured
+                personal.put("relationship", ValidationUtils.getRelationshipById(hkid, personal.get("hkId").toString()));
+               
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx]
 							.isEmpty()
-							&& INSURED_RELATIONSHIP_SELF
+							&& BENE_RELATIONSHIP_SELF
 									.compareToIgnoreCase(planDetailsForm
 											.getPersonalBeneficiary()[inx]) != 0) {// If
 																				// have
@@ -990,7 +986,7 @@ public class FlightController {
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
 							.isEmpty()
-							&& INSURED_RELATIONSHIP_SELF
+							&& BENE_RELATIONSHIP_SELF
 									.compareToIgnoreCase(planDetailsForm
 											.getAdultBeneficiary()[inx]) != 0) {// If
 																				// have
@@ -1031,12 +1027,12 @@ public class FlightController {
 					planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
-				adult.put("relationship", "SE"); // adult, should be self for
-													// 1st insured
+                adult.put("relationship", ValidationUtils.getRelationshipById(hkid, adult.get("hkId").toString()));
+
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx]
 							.isEmpty()
-							&& INSURED_RELATIONSHIP_SELF
+							&& BENE_RELATIONSHIP_SELF
 									.compareToIgnoreCase(planDetailsForm
 											.getAdultBeneficiary()[inx]) != 0) {// If
 																				// have
@@ -1116,7 +1112,7 @@ public class FlightController {
 				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getChildBenificiaryFullName()[inx]
 							.isEmpty()
-							&& INSURED_RELATIONSHIP_SELF
+							&& BENE_RELATIONSHIP_SELF
 									.compareToIgnoreCase(planDetailsForm
 											.getChildBeneficiary()[inx]) != 0) {// If
 																				// have
@@ -1200,7 +1196,7 @@ public class FlightController {
 				if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getOtherBenificiaryFullName()[inx]
 							.isEmpty()
-							&& INSURED_RELATIONSHIP_SELF
+							&& BENE_RELATIONSHIP_SELF
 									.compareToIgnoreCase(planDetailsForm
 											.getOtherBeneficiary()[inx]) != 0) {
 						beneficiary
@@ -1267,10 +1263,6 @@ public class FlightController {
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 		
-		String name = StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
-		String hkid = StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
-		String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
-		String mobileNo = request.getParameter("mobileNo");
 		String optIn1 = String.valueOf(planDetailsForm.getCheckbox3());
 		String optIn2 = String.valueOf(planDetailsForm.getCheckbox4());
 				

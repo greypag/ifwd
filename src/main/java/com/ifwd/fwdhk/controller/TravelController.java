@@ -48,6 +48,7 @@ import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
+import com.ifwd.fwdhk.util.ValidationUtils;
 
 @Controller
 public class TravelController {
@@ -1147,16 +1148,12 @@ public class TravelController {
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setDob(dob);
 //		userDetails.setDob("");
-		final String INSURED_RELATIONSHIP_SELF = "SE";
-		String relationOfSelfTraveller = "", relationOfAdultTraveller = "";
+        final String BENE_RELATIONSHIP_SELF = "SE";
+
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
 
 		if (planDetailsForm.getPlanSelected().equals("personal")) {
-			relationOfSelfTraveller = "SE";
-			relationOfAdultTraveller = "RF";
 		} else if (planDetailsForm.getPlanSelected().equals("family")) {
-			relationOfSelfTraveller = "SE";
-			relationOfAdultTraveller = "SP";
 			relationOfChildTraveller = "CH";
 			relationOfOtherTraveller = "OT";
 		}
@@ -1224,7 +1221,7 @@ public class TravelController {
 			
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty() 
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
@@ -1276,10 +1273,20 @@ public class TravelController {
 					personal.put("beneficiary", beneficiary);				
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
-				personal.put("relationship", "SE");
+                // update relationship 
+                String personalID;
+                if(personal.get("hkId") != null && !personal.get("hkId").toString().isEmpty()){
+                    personalID = personal.get("hkId").toString();
+                }else if(personal.get("passport") != null && !personal.get("passport").toString().isEmpty()){
+                    personalID = personal.get("passport").toString();
+                }else {
+                    personalID = "";
+                }
+                personal.put("relationship", ValidationUtils.getRelationshipById(applicantHKID, personalID));
+                
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary
 								.put(hkId,
@@ -1386,7 +1393,7 @@ public class TravelController {
 				
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty() 
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
@@ -1437,10 +1444,20 @@ public class TravelController {
 					adult.put("beneficiary", beneficiary);				
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
-				adult.put("relationship", relationOfSelfTraveller);
+                // update relationship 
+                String adultID;
+                if(adult.get("hkId") != null && !adult.get("hkId").toString().isEmpty()){
+                    adultID = adult.get("hkId").toString();
+                }else if(adult.get("passport") != null && !adult.get("passport").toString().isEmpty()){
+                    adultID = adult.get("passport").toString();
+                }else {
+                    adultID = "";
+                }
+                adult.put("relationship", ValidationUtils.getRelationshipById(applicantHKID, adultID));
+
 				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary
 								.put(hkId,
@@ -1534,7 +1551,7 @@ public class TravelController {
 				/* JSONObject beneficiary = new JSONObject(); */
 				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getChildBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If have beneficiary
+							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If have beneficiary
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
@@ -1621,7 +1638,7 @@ public class TravelController {
 
 				if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getOtherBenificiaryFullName()[inx].isEmpty()
-							&& INSURED_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getOtherBeneficiary()[inx]) != 0) {
+							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getOtherBeneficiary()[inx]) != 0) {
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary
 								.put(hkId,

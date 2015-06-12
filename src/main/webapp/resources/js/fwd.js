@@ -1019,25 +1019,29 @@ function fPlanValid()
 		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365)); 
-		 if (age == 1) {
-			 if ( difference > 18) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }  
-		 } else if (age == 2) {
-			 if ( difference < 18 || difference > 70) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
+         // check only when same "id" found
+         if(insured1Hkid != null && insured1Hkid == appHkid){   		 
+			 if (age == 1) {
+				 if ( difference > 18) {
+					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				     flag = false;		 
+				 }  
+			 } else if (age == 2) {
+				 if ( difference < 18 || difference > 70) {
+					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				     flag = false;		 
+				 }
+			 } else if (age == 3) {
+				 if ( difference < 70 || difference > 85) {
+					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				     flag = false;		 
+				 }
 			 }
-		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }
-		 }
+         }
 		 
 	 }
    
@@ -2282,25 +2286,29 @@ function tPlanValid()
 		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26)); 
-		 if (age == 1) {
-			 if ( difference > 18) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }  
-		 } else if (age == 2) {
-			 if ( difference < 18 || difference > 70) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }
-		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }
-		 }
+		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
+         // check only when same "id" found
+         if(insured1Hkid != null && insured1Hkid == appHkid){   
+    		 if (age == 1) {
+    			 if ( difference > 18) {
+    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+    			     flag = false;		 
+    			 }  
+    		 } else if (age == 2) {
+    			 if ( difference < 18 || difference > 70) {
+    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+    			     flag = false;		 
+    			 }
+    		 } else if (age == 3) {
+    			 if ( difference < 70 || difference > 85) {
+    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+    			     flag = false;		 
+    			 }
+    		 }        	 
+         }
 		 
 	 }
 	 
