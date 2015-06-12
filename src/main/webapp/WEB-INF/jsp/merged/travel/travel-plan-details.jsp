@@ -17,12 +17,12 @@
     }
     
     TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
-    System.out.println("------------------------------------------------------------");     
-    System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
-    System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
-    System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
-    System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
-    System.out.println("------------------------------------------------------------");
+    //System.out.println("------------------------------------------------------------");     
+    //System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+    //System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+    //System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+    //System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+    //System.out.println("------------------------------------------------------------");
 
     request.setAttribute("travelQuote", sessTravelQuoteBean);
 %>

@@ -76,7 +76,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 				quetionaries.setQid(String.valueOf(i));
 				quetionariesList.add(quetionaries);
 				i++;
-				//System.out.println("Value After ++" + i);
+				////System.out.println("Value After ++" + i);
 			}
 
 		}
@@ -106,8 +106,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1 = "";
 		;
 		String ans2 = "";
-		System.out.println("Ans 1 in Controller===" + answer1
-				+ "Answer2 in Servicr impl===" + answer2);
+		/*System.out.println("Ans 1 in Controller===" + answer1
+				+ "Answer2 in Servicr impl===" + answer2);*/
 		// answer1 = StringHelper.convertToUTF8(answer1);
 
 		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
@@ -145,14 +145,14 @@ public class HomeCareServiceImpl implements HomeCareService {
 			header.put("token", token);
 		}
 
-		System.out.println("******************URL==>" + url);
-		System.out.println("******************Header ===>>" + header);
+		//System.out.println("******************URL==>" + url);
+		//System.out.println("******************Header ===>>" + header);
 
 		JSONObject jsonGetPlanResponse = restService.consumeApi(HttpMethod.GET,
 				url, header, null);
 		if (jsonGetPlanResponse.get("errMsgs") == null) {
 
-			System.out.println("WS Response===>>>" + jsonGetPlanResponse);
+			//System.out.println("WS Response===>>>" + jsonGetPlanResponse);
 
 			// if (jsonGetPlanResponse.get("errMsgs") == null) {
 			String referralCode = (String) jsonGetPlanResponse
@@ -161,7 +161,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 					.get("referralName");
 			String planCode = (String) jsonGetPlanResponse.get("planCode");
 
-			System.out.println("Plan Code ===>>" + planCode);
+			//System.out.println("Plan Code ===>>" + planCode);
 
 			jsonGetPlanResponse.get("priceInfo");
 			JSONObject jsonPriceInfo = new JSONObject();
@@ -189,7 +189,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 					"errMsgs"));
 		} else if (jsonGetPlanResponse.get("errMsgs").toString().contains("Promotion code is not valid")) {
 			
-			System.out.println("WS Response===>>>" + jsonGetPlanResponse);
+			//System.out.println("WS Response===>>>" + jsonGetPlanResponse);
 
 			// if (jsonGetPlanResponse.get("errMsgs") == null) {
 			String referralCode = (String) jsonGetPlanResponse
@@ -198,7 +198,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 					.get("referralName");
 			String planCode = (String) jsonGetPlanResponse.get("planCode");
 
-			System.out.println("Plan Code ===>>" + planCode);
+			//System.out.println("Plan Code ===>>" + planCode);
 
 			jsonGetPlanResponse.get("priceInfo");
 			JSONObject jsonPriceInfo = new JSONObject();
@@ -239,8 +239,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1 = "";
 		;
 		String ans2 = "";
-		System.out.println("Ans 1 in Controller===" + answer1
-				+ "Answer2 in Servicr impl===" + answer2);
+		/*System.out.println("Ans 1 in Controller===" + answer1
+				+ "Answer2 in Servicr impl===" + answer2);*/
 
 		//å¦ is the CHINESE WORD 否, TODO - CONVERT THAT CHARACTER TO BE READABLE
 		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
@@ -273,10 +273,10 @@ public class HomeCareServiceImpl implements HomeCareService {
 			header.put("token", token);
 		}
 
-		System.out.println("******************URL==>" + url);
+		//System.out.println("******************URL==>" + url);
 		JSONObject jsonGetPlanResponse = restService.consumeApi(HttpMethod.GET,
 				url, header, null);
-		System.out.println("WS Response===>>>" + jsonGetPlanResponse);
+		//System.out.println("WS Response===>>>" + jsonGetPlanResponse);
 		return jsonGetPlanResponse.toJSONString();
 	}
 
@@ -384,8 +384,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		JSONObject jsonResponseNetFloorArea = restService.consumeApi(
 				HttpMethod.GET, url, header, null);
 
-		System.out.println("jsonResponseDistrict=====>>>"
-				+ jsonResponseNetFloorArea);
+		/*System.out.println("jsonResponseDistrict=====>>>"
+				+ jsonResponseNetFloorArea);*/
 		if (jsonResponseNetFloorArea.get("errMsgs") == null) {
 			JSONArray jsonNetFloorAreaArray = (JSONArray) jsonResponseNetFloorArea
 					.get("optionItemDesc");
@@ -420,14 +420,14 @@ public class HomeCareServiceImpl implements HomeCareService {
 		CreatePolicy createPolicy = new CreatePolicy();
 
 		String edate = date.toString();
-		System.out.println("E DATE============================>>>" + edate);
+		//System.out.println("E DATE============================>>>" + edate);
 		
 		boolean checkbox3;
 		boolean checkbox4;
 		
 		
-		System.out.println("HomeCare checkBox3 " + homeCareDetails.getCheckbox3());
-		System.out.println("HomeCare checkBox4 " + homeCareDetails.getCheckbox4());
+		//System.out.println("HomeCare checkBox3 " + homeCareDetails.getCheckbox3());
+		//System.out.println("HomeCare checkBox4 " + homeCareDetails.getCheckbox4());
 		
 		if (homeCareDetails.getCheckbox3()) {
 			checkbox3 = true;
@@ -496,18 +496,18 @@ public class HomeCareServiceImpl implements HomeCareService {
 		header.put("userName", userName);
 		header.put("token", token);
 
-		System.out.println("parameter for Create Homecare Policy=========>>>"
-				+ parameters);
+		/*System.out.println("parameter for Create Homecare Policy=========>>>"
+				+ parameters);*/
 
 		JSONObject responsObject = restService
 				.consumeApi(HttpMethod.PUT,
 						UserRestURIConstants.HOMECARE_CREATE_POLICY, header,
 						parameters);
 
-		System.out.println("WS Response=====>>>>" + responsObject);
+		//System.out.println("WS Response=====>>>>" + responsObject);
 
 		JSONObject resultObj = new JSONObject();
-		System.out.println("errMsgs" + responsObject.get("errMsgs"));
+		//System.out.println("errMsgs" + responsObject.get("errMsgs"));
 		if (responsObject.get("errMsgs") == null) {
 			
 
@@ -551,8 +551,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_CONFIRM_POLICY, header,
 				confirmPolicyParameter);
-		System.out.println("Response From Confirm homeCare Policy "
-				+ jsonResponse);
+		/*System.out.println("Response From Confirm homeCare Policy "
+				+ jsonResponse);*/
 
 		createPolicy
 				.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
@@ -588,7 +588,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	 * 
 	 * JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
 	 * UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header, parameters);
-	 * System.out.println("final homeCare Policy Response"+responsObject);
+	 * //System.out.println("final homeCare Policy Response"+responsObject);
 	 * 
 	 * if (responsObject.get("errMsgs") == null) {
 	 * 
@@ -651,12 +651,12 @@ public class HomeCareServiceImpl implements HomeCareService {
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
 					parameters);
-			System.out.println("final homeCare Policy Response" + apiResponsObject);
+			//System.out.println("final homeCare Policy Response" + apiResponsObject);
 	
 			if (apiResponsObject.get("errMsgs") == null) {
 				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
-				System.out.println("Policy Number in Impl after WS "
-						+ finalizeObject.getPolicyNo());
+				/*System.out.println("Policy Number in Impl after WS "
+						+ finalizeObject.getPolicyNo());*/
 				finalizeObject.setReferralCode(referenceNo);
 			} else {
 				finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());

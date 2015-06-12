@@ -172,7 +172,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy",
+		format: "dd-mm-yyyy",
 
 
 	}).on('changeDate', function (ev) {
@@ -253,7 +253,7 @@ $(function () {
 		},
 		autoclose: true,
 		
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		
@@ -326,7 +326,7 @@ $(function () {
 		//endDate:  tillDate_from,
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy",
+		format: "dd-mm-yyyy",
 
 
 	}).on('changeDate', function (ev) {
@@ -431,7 +431,7 @@ $(function () {
 		},
 		autoclose: true,
 		
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		
@@ -736,7 +736,7 @@ $(function () {
 		},
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout2.datepicker("getDate").valueOf() || !checkout2.datepicker("getDate").valueOf()) {
@@ -791,7 +791,7 @@ $(function () {
 			}
 		},
 		autoclose: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 
@@ -820,7 +820,7 @@ $(function () {
 		},
 		autoclose: true,
 		todayHighlight: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) {
 		//if (ev.date.valueOf() > checkout3.datepicker("getDate").valueOf() || !checkout3.datepicker("getDate").valueOf()) {
@@ -876,7 +876,7 @@ $(function () {
 			}
 		},
 		autoclose: true,
-		format: "dd MM yyyy"
+		format: "dd-mm-yyyy"
 
 	}).on('changeDate', function (ev) { 
 
