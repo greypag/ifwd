@@ -4897,6 +4897,8 @@ function checkMembership(field){
 		else if(isValidPassword(value) !== true){
 			$('#PasswordError').text(isValidPassword(value));
 			result = false;
+		}else if(value == $("#Username").val().trim()){
+			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));//XXX
 		}else $('#PasswordError').text('');
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
@@ -5015,6 +5017,8 @@ if($('#txtPass1').length){
 		value = $(this).val();
 		if(isValidPassword(value) !== true){
 			$('#errorJoinUsPassword').text(isValidPassword(value));
+		}else if(value == $("#txtUserName1").val().trim()){
+			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));//XXX
 		}else $('#errorJoinUsPassword').text('');
 	})
 }
