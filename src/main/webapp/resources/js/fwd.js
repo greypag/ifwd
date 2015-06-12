@@ -4113,7 +4113,7 @@ function hc_planValid() {
         $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
         flag = false;
     }
-    if (EffDate.trim() == "") {
+    if ((EffDate+"").trim() == "") {
        // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
         $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
         flag = false;
