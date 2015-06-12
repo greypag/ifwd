@@ -192,7 +192,17 @@ perventRedirect=true;
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
                 <div><fmt:message key="travel.confirmation.partnerDesc" bundle="${msg}" /></div>
-                <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="" class="img-responsive">
+                <div class="hidden-xs hidden-sm">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class="img-responsive ">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class="img-responsive ">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="img-responsive ">
+                </div>
+                <div class="hidden-lg hidden-md" style="text-align:center;">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class="img-responsive "><br/>
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class="img-responsive "><br/>
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="img-responsive ">
+                </div>
+                <div class="clearfix"></div>
                 <div class="h4-2"><fmt:message key="travel.confirmation.sharenow" bundle="${msg}" /></div>
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
                     <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>

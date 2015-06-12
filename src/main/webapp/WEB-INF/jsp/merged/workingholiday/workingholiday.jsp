@@ -145,19 +145,19 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <h2><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
     <li>
-      <p class="h4-5 main-dot-content"><fmt:message key="workingholiday.main.other.benefit.desc1" bundle="${msg}" /></p>
+      <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc1" bundle="${msg}" /></p>
     </li>
     <li>
-      <p class="h4-5 main-dot-content"><fmt:message key="workingholiday.main.other.benefit.desc2" bundle="${msg}" /></p>
+      <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc2" bundle="${msg}" /></p>
     </li>
     <li>
-      <p class="h4-5 main-dot-content"><fmt:message key="workingholiday.main.other.benefit.desc3" bundle="${msg}" /></p>
+      <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc3" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5 main-dot-content"><fmt:message key="workingholiday.main.other.benefit.desc4" bundle="${msg}" /></p>
+      <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc4" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5 main-dot-content"><fmt:message key="workingholiday.main.other.benefit.desc5" bundle="${msg}" /></p>
+      <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc5" bundle="${msg}" /></p>
     </li>
   </ul>
   <div class="spacer3"></div>

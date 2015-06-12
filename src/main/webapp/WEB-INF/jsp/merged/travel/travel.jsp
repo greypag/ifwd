@@ -1016,7 +1016,7 @@ $(document).ready(function() {
                 
         </td>
               <td class="col-md-2 pad-none">
-                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn  wd2"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
+                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:30px;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">

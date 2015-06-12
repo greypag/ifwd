@@ -4319,7 +4319,7 @@ input[name=applicantDob] {
     border: none;
 }
 .other-benefits ul.bullets {
-    list-style-type: disc;
+	list-style-image: url('../images/li-icon.png');
     color: #f68a1d;
     padding: 0px 18px;
     font-size: 18px;
