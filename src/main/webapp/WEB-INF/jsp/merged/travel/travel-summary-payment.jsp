@@ -107,7 +107,7 @@ var enablePayment=true;
                                         <span class="status color2"> <fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
                                         <div class="icon">3</div>
                                     </div>
-                                    <div class="image-order-status image-order-status-completed  img-circle disabled fourth">
+                                    <div class="image-order-status image-order-status-completed  img-circle fourth">
                                         <span class="status lst-status"> <fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
                                         <div class="icon">4</div>
                                     </div>

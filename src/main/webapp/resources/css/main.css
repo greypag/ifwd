@@ -4047,9 +4047,8 @@ color:#fff !important;
 .shop-tracking-status .image-order-status .status {
     position: absolute;
     text-shadow: 1px 1px #eee;
-    color: #e8e8e8;
+    color: #000;
     font-size: 24px;
-    
     width: 180px;
     top: 60px;
     left: -26px;
