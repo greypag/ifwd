@@ -20,14 +20,14 @@
 <%-- <% --%>
 <%-- 	session = request.getSession();
 // 	String uatAuth = (String) session.getAttribute("uatAuth");
-// 	System.out.println("uatAuth " + uatAuth);
+// 	//System.out.println("uatAuth " + uatAuth);
 // 	if (uatAuth == null)
 
 
 <%
 // 	session = request.getSession();
 // 	String uatAuth = (String) session.getAttribute("uatAuth");
-// 	System.out.println("uatAuth " + uatAuth);
+// 	//System.out.println("uatAuth " + uatAuth);
 // 	if (uatAuth == null)
 // 		response.sendRedirect(request.getContextPath() + "/uatAuth");
 	

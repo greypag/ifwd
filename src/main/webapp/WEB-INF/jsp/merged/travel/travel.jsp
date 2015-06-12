@@ -1,7 +1,7 @@
 <%
 //	session = request.getSession();
 //	String uatAuth = (String) session.getAttribute("uatAuth");
-//	System.out.println("uatAuth " + uatAuth);
+//	//System.out.println("uatAuth " + uatAuth);
 //	if (uatAuth == null)
 //		response.sendRedirect(request.getContextPath() + "/uatAuth");
 %>
@@ -22,15 +22,15 @@
 <%
 	TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 	if( sessTravelQuoteBean != null ) {
-		System.out.println("------------------------------------------------------------");		
-		System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
-		System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
-		System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
-		System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
-		System.out.println("------------------------------------------------------------");
+		//System.out.println("------------------------------------------------------------");		
+		//System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
+		//System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
+		//System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
+		//System.out.println( "sess Others  : " + sessTravelQuoteBean.getTotalOtherTraveller() );
+		//System.out.println("------------------------------------------------------------");
 	}
 	else {
-		System.out.println("default session TravelQuote");
+		//System.out.println("default session TravelQuote");
 	}
 %>
 <script type="text/javascript">
@@ -125,7 +125,7 @@ $(document).ready(function() {
   String personalSpinnerStyle = "";
   String familySpinnerStyle = "style='display:none'";
   if( sessTravelQuoteBean != null ) {
-	  System.out.println(sessTravelQuoteBean.getPlanSelected());
+	  //System.out.println(sessTravelQuoteBean.getPlanSelected());
 	    if(sessTravelQuoteBean.getPlanSelected().equalsIgnoreCase("personal")){
 	      PersonalPlanChecked = "checked";
 	    }
@@ -135,8 +135,8 @@ $(document).ready(function() {
 	      personalSpinnerStyle = "style='display:none'";
 	      familySpinnerStyle = "";
 	    } 
-	    System.out.println(familySpinnerStyle);
-	    System.out.println(personalSpinnerStyle);
+	    //System.out.println(familySpinnerStyle);
+	    //System.out.println(personalSpinnerStyle);
   }
 %>
 <section id="main-slider" class="no-margin"> 
