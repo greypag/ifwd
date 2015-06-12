@@ -285,7 +285,18 @@
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
 						     <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
 								<div><fmt:message key="home.confirmation.partnerDesc" bundle="${msg}" /></div>
-								<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt="">
+								<div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
+				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+				                </div>
+				                <div class="clearfix"></div>
+				                <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
+				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" "><br/>
+				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" "><br/>
+				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+				                </div>
+				                <div class="clearfix"></div>
 								<div class="h4-2 margin-left">
 	                            <fmt:message key="home.confirmation.sharenow" bundle="${msg}" />
 	                            </div>

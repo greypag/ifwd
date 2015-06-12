@@ -6475,6 +6475,7 @@ tr.product-landing-error-wrap {
     height:49px;
     display:none;
     cursor:pointer;
+    z-index: 99;
 }
 
 .flightCheckboxBubble{
