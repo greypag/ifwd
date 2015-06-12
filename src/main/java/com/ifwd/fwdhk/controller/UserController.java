@@ -226,7 +226,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = {"/joinus", "/join-us"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/{lang}/joinus", "/{lang}/join-us"}, method = RequestMethod.GET)
 	public String signup(Model model, HttpServletRequest req) {
 		/* UserDetails userDetails = new UserDetails(); */
 		UserDetails userDetails = new UserDetails();

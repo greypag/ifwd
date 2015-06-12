@@ -147,10 +147,10 @@ function submitLoginForm(formID) {
 							System.out.println("username " + username);   
 							if (username == null) {
 							%>
-							<li><a href="${pageContext.request.contextPath}/${language}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<% } else if (username.equals("*DIRECTGI")) { %>
-							<li><a href="${pageContext.request.contextPath}/${language}/join-us"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
+							<li><a href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message key="header.menu.join" bundle="${msg}" /></a></li>
 							<li> | </li>
 							
 							<% } %>
