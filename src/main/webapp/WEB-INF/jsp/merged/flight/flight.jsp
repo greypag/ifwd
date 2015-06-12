@@ -504,30 +504,30 @@ $(document).ready(function() {
             <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
         </div>
         <div class="clearfix"></div>
-        <div class="other-benefits col-lg-12 col-md-12">
-          <h3 class="h4-2"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h3>
+        <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
+          <h2><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
           <ul class="bullets">
             <li>
-              <p class="h4-5"> <fmt:message key="flight.main.other.tnc.desc1" bundle="${msg}" /> </p>
+              <p class="h4-5 main-dot-content"> <fmt:message key="flight.main.other.tnc.desc1" bundle="${msg}" /> </p>
             </li>
             <li>
-              <p class="h4-5"> <fmt:message key="flight.main.other.tnc.desc2" bundle="${msg}" /> </p>
+              <p class="h4-5 main-dot-content"> <fmt:message key="flight.main.other.tnc.desc2" bundle="${msg}" /> </p>
             </li>
             <li>
-              <p class="h4-5">  <fmt:message key="flight.main.other.tnc.desc3" bundle="${msg}" /></p>
+              <p class="h4-5 main-dot-content">  <fmt:message key="flight.main.other.tnc.desc3" bundle="${msg}" /></p>
             </li>
             <li>
-              <p class="h4-5"> <fmt:message key="flight.main.other.tnc.desc4" bundle="${msg}" /></p>
+              <p class="h4-5 main-dot-content"> <fmt:message key="flight.main.other.tnc.desc4" bundle="${msg}" /></p>
             </li>
             <li>
-              <p class="h4-5"> <fmt:message key="flight.main.other.tnc.desc5" bundle="${msg}" /></p>
+              <p class="h4-5 main-dot-content"> <fmt:message key="flight.main.other.tnc.desc5" bundle="${msg}" /></p>
             </li>
             <li>
-              <p class="h4-5"> <fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /> </p>
+              <p class="h4-5 main-dot-content"> <fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /> </p>
             </li>
           </ul>
           <div class="spacer3"></div>
-          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
+          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         </div>
       </div>
@@ -616,32 +616,17 @@ $(document).ready(function() {
                   </div>
               </div>
               <!--/.item-->
-              <div class="item" >
-                  <div class="slide-margin">
-                    <div class="other-benefits-wrap text-center">
-                      <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class="sub-link-underline"><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <!--/.item-->
-              <div class="item" >
-                  <div class="slide-margin">
-                    <div class="other-benefits-wrap text-center">
-                      <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <!--/.item-->
             </div>
-            <!--/.carousel-inner--> 
+            <!--/.carousel-inner-->
+            <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+            <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
           </div>
-          <!--/.carousel--> 
-          <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+          <!--/.carousel-->
           <div class="clearfix"></div>
+          
+          <div class="spacer3"></div>
+          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
+          <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         <!--/.container-->
         </div>
     </div>
@@ -662,7 +647,7 @@ $(document).ready(function() {
             <h1><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /><br>
               <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h1>
             <p>
-              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
+              <fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /></u> </a>  <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" />
             </p>
             </div>
         </div>
@@ -705,7 +690,7 @@ $(document).ready(function() {
             <div class="recent-work-wrap text-center">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
                 <h2><fmt:message key="flight.main.highlight1.heading.line1" bundle="${msg}" /> <fmt:message key="flight.main.highlight1.heading.line2" bundle="${msg}" /></h2>
-                <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a  href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
+                <p><fmt:message key="flight.main.highlight1.desc.part1" bundle="${msg}" /> <a  href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="flight.main.highlight1.desc.part2" bundle="${msg}" /></u> </a> <fmt:message key="flight.main.highlight1.desc.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
