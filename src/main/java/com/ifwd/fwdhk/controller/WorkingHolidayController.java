@@ -384,6 +384,7 @@ public class WorkingHolidayController {
 	public ModelAndView prepareYourDetails(@ModelAttribute("workingholidayQuote") WorkingHolidayQuoteBean workingholidayQuote, 
 			BindingResult result, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
+		session.removeAttribute("workingHolidayPlanDetailsForm");
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			return getWorkingHolidayHomePage((String) session.getAttribute("referralCode"), request, model);
