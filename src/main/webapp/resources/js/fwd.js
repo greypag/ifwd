@@ -3991,12 +3991,15 @@ function hc_planValid() {
     var NFA = $("#selectNFA").val();
     document.getElementById("errEffDate").innerHTML = "";
     var EffDate = $("#txtEffDate").val();
+    
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var new_start = new Date(newEffDate);
+    
     var EffDates = new Array();
     EffDates = EffDate.split("-");
-    EffDate = new Date(EffDates[2],EffDates[1] - 1,EffDates[0], 0, 0, 0, 0);
-    var new_start = new Date(EffDate);
+    var newEffDate = new Date(EffDates[2],EffDates[1] - 1,EffDates[0], 0, 0, 0, 0);
+    
     var startdays = dateDiffInDays(now, new_start);
     
     //bmg edit
@@ -4113,7 +4116,8 @@ function hc_planValid() {
         $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
         flag = false;
     }
-    if ((EffDate+"").trim() == "") {
+    
+    if (EffDate.trim() == "") {
        // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
         $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
         flag = false;
