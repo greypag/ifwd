@@ -1019,25 +1019,29 @@ function fPlanValid()
 		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365)); 
-		 if (age == 1) {
-			 if ( difference > 18) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }  
-		 } else if (age == 2) {
-			 if ( difference < 18 || difference > 70) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
+         // check only when same "id" found
+         if(insured1Hkid != null && insured1Hkid == appHkid){   		 
+			 if (age == 1) {
+				 if ( difference > 18) {
+					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				     flag = false;		 
+				 }  
+			 } else if (age == 2) {
+				 if ( difference < 18 || difference > 70) {
+					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				     flag = false;		 
+				 }
+			 } else if (age == 3) {
+				 if ( difference < 70 || difference > 85) {
+					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				     flag = false;		 
+				 }
 			 }
-		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }
-		 }
+         }
 		 
 	 }
    
@@ -2282,25 +2286,29 @@ function tPlanValid()
 		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26)); 
-		 if (age == 1) {
-			 if ( difference > 18) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }  
-		 } else if (age == 2) {
-			 if ( difference < 18 || difference > 70) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }
-		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
-				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-			     flag = false;		 
-			 }
-		 }
+		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
+         // check only when same "id" found
+         if(insured1Hkid != null && insured1Hkid == appHkid){   
+    		 if (age == 1) {
+    			 if ( difference > 18) {
+    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+    			     flag = false;		 
+    			 }  
+    		 } else if (age == 2) {
+    			 if ( difference < 18 || difference > 70) {
+    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+    			     flag = false;		 
+    			 }
+    		 } else if (age == 3) {
+    			 if ( difference < 70 || difference > 85) {
+    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+    			     flag = false;		 
+    			 }
+    		 }        	 
+         }
 		 
 	 }
 	 
@@ -3096,7 +3104,10 @@ function flightValidateMobTravel() {
 	var peopleCount = document.getElementById("lblPeopleMob").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
+	
+	startDates=startDate.split("-");
+	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
+	
 	var new_end = new Date(endDate);
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
@@ -3991,12 +4002,15 @@ function hc_planValid() {
     var NFA = $("#selectNFA").val();
     document.getElementById("errEffDate").innerHTML = "";
     var EffDate = $("#txtEffDate").val();
+    
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var new_start = new Date(newEffDate);
+    
     var EffDates = new Array();
     EffDates = EffDate.split("-");
-    EffDate = new Date(EffDates[2],EffDates[1] - 1,EffDates[0], 0, 0, 0, 0);
-    var new_start = new Date(EffDate);
+    var newEffDate = new Date(EffDates[2],EffDates[1] - 1,EffDates[0], 0, 0, 0, 0);
+    
     var startdays = dateDiffInDays(now, new_start);
     
     //bmg edit
@@ -4113,6 +4127,7 @@ function hc_planValid() {
         $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
         flag = false;
     }
+    
     if (EffDate.trim() == "") {
        // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
         $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
