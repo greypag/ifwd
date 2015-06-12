@@ -673,8 +673,8 @@ public class FlightController {
 			JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
 					.get("optionItemDesc");
 			/* JSONObject jsonObjectAgeType = null; */
-			//System.out.println(" jsonAgeTypeArray ====>>>>>>"
-					+ jsonAgeTypeArray);
+			/*System.out.println(" jsonAgeTypeArray ====>>>>>>"
+					+ jsonAgeTypeArray);*/
 			Map<String, String> mapAgeType = new HashMap<String, String>();
 			Map<String, String> mapSelfType = new HashMap<String, String>();
 			Map<String, String> mapChildType = new HashMap<String, String>();
@@ -727,8 +727,8 @@ public class FlightController {
 		if (responseJsonObj.get("errMsgs") == null) {
 			JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
 					.get("optionItemDesc");
-			//System.out.println(" jsonRelationShipArray ====>>>>>>"
-					+ jsonRelationshipCode);
+			/*System.out.println(" jsonRelationShipArray ====>>>>>>"
+					+ jsonRelationshipCode);*/
 
 			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 			for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -1348,8 +1348,8 @@ public class FlightController {
 					responsObject, "paymentGateway"));
 			createFlightPolicy.setPaymentType(checkJsonObjNull(responsObject,
 					"paymentType"));
-			//System.out.println("Email address"
-					+ request.getParameter("emailAddress"));
+			/*System.out.println("Email address"
+					+ request.getParameter("emailAddress"));*/
 
 			request.getSession().setAttribute("setReferenceNoForConfirmation",
 					checkJsonObjNull(responsObject, "referenceNo"));
@@ -1686,14 +1686,14 @@ public class FlightController {
 			// Calling Api of Confirm Travel Care Policy
 			JSONObject confirmPolicyParameter = new JSONObject();
 			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-			//System.out.println("Header Object for Confirm"
-					+ confirmPolicyParameter);
+			/*System.out.println("Header Object for Confirm"
+					+ confirmPolicyParameter);*/
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 
-			//System.out.println("Response From Confirm Travel Policy "
-					+ jsonResponse);
+			/*System.out.println("Response From Confirm Travel Policy "
+					+ jsonResponse);*/
 
 			createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
 					"secureHash"));

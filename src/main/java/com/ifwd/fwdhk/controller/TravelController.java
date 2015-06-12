@@ -704,8 +704,8 @@ public class TravelController {
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
-			//System.out.println("Response Get Travel Quotes API "
-					+ responseJsonObj);
+			/*System.out.println("Response Get Travel Quotes API "
+					+ responseJsonObj);*/
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
 			} else {
@@ -922,8 +922,8 @@ public class TravelController {
 				if (responseJsonObj.get("errMsgs") == null) {
 					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
 							.get("optionItemDesc");
-					//System.out.println(" jsonRelationShipArray ====>>>>>>"
-							+ jsonRelationshipCode);
+					/*System.out.println(" jsonRelationShipArray ====>>>>>>"
+							+ jsonRelationshipCode);*/
 
 					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -1011,9 +1011,9 @@ public class TravelController {
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			//System.out.println(WebServiceUtils
+			/*System.out.println(WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+							.getLanaguage(request)));*/
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));
@@ -1783,14 +1783,14 @@ public class TravelController {
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				//System.out.println("Header Object for Confirm"
-						+ confirmPolicyParameter);
+				/*System.out.println("Header Object for Confirm"
+						+ confirmPolicyParameter);*/
 				JSONObject jsonResponse = restService.consumeApi(
 						HttpMethod.POST,
 						UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 						confirmPolicyParameter);
 
-				//System.out.println("Response From Confirm Travel Policy "
+				System.out.println("Response From Confirm Travel Policy "
 						+ jsonResponse);
 
 				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
@@ -1965,14 +1965,14 @@ public class TravelController {
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			//System.out.println(WebServiceUtils
+			/*System.out.println(WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+							.getLanaguage(request)));*/
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));
-			//System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
-					+ parameters);
+			/*System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
+					+ parameters);*/
 			//System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
@@ -2022,8 +2022,8 @@ public class TravelController {
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 				}
 				
-				//System.out.println("travel confirmation" + UserRestURIConstants.getSitePath(request)
-						+ "error");
+				/*System.out.println("travel confirmation" + UserRestURIConstants.getSitePath(request)
+						+ "error");*/
 				return UserRestURIConstants.getSitePath(request)
 						+ "error";
 			}

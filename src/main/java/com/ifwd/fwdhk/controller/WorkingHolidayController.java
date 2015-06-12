@@ -979,8 +979,8 @@ public class WorkingHolidayController {
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
-			//System.out.println("Response Get Working Holiday Quotes API "
-					+ responseJsonObj);
+			/*System.out.println("Response Get Working Holiday Quotes API "
+					+ responseJsonObj);*/
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
 			} else {

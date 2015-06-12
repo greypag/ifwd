@@ -106,8 +106,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1 = "";
 		;
 		String ans2 = "";
-		//System.out.println("Ans 1 in Controller===" + answer1
-				+ "Answer2 in Servicr impl===" + answer2);
+		/*System.out.println("Ans 1 in Controller===" + answer1
+				+ "Answer2 in Servicr impl===" + answer2);*/
 		// answer1 = StringHelper.convertToUTF8(answer1);
 
 		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
@@ -239,8 +239,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1 = "";
 		;
 		String ans2 = "";
-		//System.out.println("Ans 1 in Controller===" + answer1
-				+ "Answer2 in Servicr impl===" + answer2);
+		/*System.out.println("Ans 1 in Controller===" + answer1
+				+ "Answer2 in Servicr impl===" + answer2);*/
 
 		//å¦ is the CHINESE WORD 否, TODO - CONVERT THAT CHARACTER TO BE READABLE
 		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
@@ -384,8 +384,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		JSONObject jsonResponseNetFloorArea = restService.consumeApi(
 				HttpMethod.GET, url, header, null);
 
-		//System.out.println("jsonResponseDistrict=====>>>"
-				+ jsonResponseNetFloorArea);
+		/*System.out.println("jsonResponseDistrict=====>>>"
+				+ jsonResponseNetFloorArea);*/
 		if (jsonResponseNetFloorArea.get("errMsgs") == null) {
 			JSONArray jsonNetFloorAreaArray = (JSONArray) jsonResponseNetFloorArea
 					.get("optionItemDesc");
@@ -496,8 +496,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		header.put("userName", userName);
 		header.put("token", token);
 
-		//System.out.println("parameter for Create Homecare Policy=========>>>"
-				+ parameters);
+		/*System.out.println("parameter for Create Homecare Policy=========>>>"
+				+ parameters);*/
 
 		JSONObject responsObject = restService
 				.consumeApi(HttpMethod.PUT,
@@ -551,8 +551,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_CONFIRM_POLICY, header,
 				confirmPolicyParameter);
-		//System.out.println("Response From Confirm homeCare Policy "
-				+ jsonResponse);
+		/*System.out.println("Response From Confirm homeCare Policy "
+				+ jsonResponse);*/
 
 		createPolicy
 				.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
@@ -655,8 +655,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 	
 			if (apiResponsObject.get("errMsgs") == null) {
 				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
-				//System.out.println("Policy Number in Impl after WS "
-						+ finalizeObject.getPolicyNo());
+				/*System.out.println("Policy Number in Impl after WS "
+						+ finalizeObject.getPolicyNo());*/
 				finalizeObject.setReferralCode(referenceNo);
 			} else {
 				finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());
