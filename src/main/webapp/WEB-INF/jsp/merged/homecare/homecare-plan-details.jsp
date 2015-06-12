@@ -1718,7 +1718,7 @@ function activateUserAccountJoinUs() {
 	                                     <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 	                                </div>
 	                                <div class="top35 pull-right pad-none" style="width:47%"> 
-	                                    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
+	                                    <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
 	                                </div>
 	                            </div>
 
