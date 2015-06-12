@@ -379,7 +379,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control"
 										id="inputFullName" name="whAppFullName"
-										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppFullName() != null) ? workingHolidayPlanDetailsForm.getWhAppFullName() : userDetails.getFullName()}"
+										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whAppFullName != null) ? workingHolidayPlanDetailsForm.getWhAppFullName() : userDetails.getFullName()}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
 										onkeypress=" return alphaOnly(event);" maxlength="100" />
 										<span id="whAppFullName" class="text-red"></span>
@@ -466,7 +466,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
-										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppMobileNO() != null) ? workingHolidayPlanDetailsForm.getWhAppMobileNO() : userDetails.getMobileNo()}"
+										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whAppMobileNO != null) ? workingHolidayPlanDetailsForm.getWhAppMobileNO() : userDetails.getMobileNo()}"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');"
 										maxlength="8" /> <span id="whAppMobileNO" class="text-red"></span>
@@ -485,7 +485,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input class="form-control full-control" id="inputEmailId"
 										name="whAppEmailAdd"
-										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppEmailAdd() != null) ? workingHolidayPlanDetailsForm.getWhAppEmailAdd() : userDetails.getEmailAddress()}"
+										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whAppEmailAdd != null) ? workingHolidayPlanDetailsForm.getWhAppEmailAdd() : userDetails.getEmailAddress()}"
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
 										maxlength="50"> <span id="whAppEmailAdd"
 										class="text-red"> </span>

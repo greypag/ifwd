@@ -219,7 +219,7 @@ function submitLoginForm(formID) {
 													</div>
 													<h3
 														class="text-left col-lg-6 col-md-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/${language}/joinus">
 															 <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>
@@ -277,7 +277,7 @@ function submitLoginForm(formID) {
 													</div>
 													<h3
 														class="text-left col-lg-6 col-md-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/${language}/joinus">
 															 <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>
@@ -445,7 +445,7 @@ function submitLoginForm(formID) {
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3 class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
-														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
+														<span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/${language}/joinus">
 															<fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
 													</h3>
 													<div class="clearfix"></div>
