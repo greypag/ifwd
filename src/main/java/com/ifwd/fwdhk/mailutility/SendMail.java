@@ -17,8 +17,8 @@ public class SendMail {
 
 	public void mailsend(String userName,String data) throws AddressException,
 			MessagingException {
-System.out.println("In mail Code class"+userName);
-System.out.println("Datataaa==+>"+data);
+//System.out.println("In mail Code class"+userName);
+//System.out.println("Datataaa==+>"+data);
 		SendMail javaEmail = new SendMail();
 
 		javaEmail.setMailServerProperties();
@@ -68,7 +68,7 @@ System.out.println("Datataaa==+>"+data);
 		transport.connect(emailHost, fromUser, fromUserEmailPassword);
 		transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
 		transport.close();
-		System.out.println("Email sent successfully.");
+		//System.out.println("Email sent successfully.");
 		
 		
 	}

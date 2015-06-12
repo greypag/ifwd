@@ -69,7 +69,7 @@ public class DateApi {
 	
 //		String formatedDate=getDate[0]+"/"+m+"/"+getDate[2];
 		String formatedDate=getDate[2]+"-"+m+"-"+getDate[0];
-		System.out.println(formatedDate +" formatedDate");
+		//System.out.println(formatedDate +" formatedDate");
 		return formatedDate;
 		
 		}
@@ -77,7 +77,7 @@ public class DateApi {
 	public static String pickDate1(String pickDate){
 		String getDate[] = pickDate.split("-");
 		String formatedDate=getDate[2]+"-"+getDate[1]+"-"+getDate[0];
-		System.out.println(formatedDate +" formatedDate");
+		//System.out.println(formatedDate +" formatedDate");
 		return formatedDate;
 		
 	}
