@@ -849,7 +849,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			                                                            <td width="88"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
 			                                                        </tr>
 			                                                        <tr>
-			                                                            <td>1</td>
+			                                                            <td style="background-color: #fff;color: #333">1</td>
 			                                                            <td>120</td>
 			                                                            <td>95</td>
 			                                                            <td>210</td>

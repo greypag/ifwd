@@ -622,7 +622,7 @@ var promoCodeInsertFlag = true;
 																		<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
 																	</tr>
 																	<tr>
-																		<td width="101"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price1" bundle="${msg}" /></strong></td>
+																		<td width="101" style="background-color: #fff;color: #333"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price1" bundle="${msg}" /></strong></td>
 																		<td width="86"><strong><fmt:message key="workingholiday.quote.fullDetails.priceTable.single.price2" bundle="${msg}" /></strong></td>
 																	</tr>
 																</tbody>
