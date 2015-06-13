@@ -30,6 +30,7 @@ import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
@@ -39,6 +40,14 @@ public class UserController {
 	@Autowired
 	RestServiceDao restService;
 
+	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
+	@ResponseBody
+	public String verifyCaptcha(HttpServletRequest request) 
+	{	
+		boolean result = ValidationUtils.verifyGoogleRecaptcha(request.getParameter("recaptchaValue"));
+		return result ? "success": "fail";
+	}
+	
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	
