@@ -37,6 +37,8 @@ import com.ifwd.fwdhk.util.WebServiceUtils;
 @SuppressWarnings("unchecked")
 public class UserController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);	
+	
 	@Autowired
 	RestServiceDao restService;
 
@@ -45,6 +47,7 @@ public class UserController {
 	public String verifyCaptcha(HttpServletRequest request) 
 	{	
 		boolean result = ValidationUtils.verifyGoogleRecaptcha(request.getParameter("recaptchaValue"));
+		logger.debug("Google Recaptcha Result: "+result);
 		return result ? "success": "fail";
 	}
 	
