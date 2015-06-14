@@ -5,7 +5,7 @@
 	<artifactId>fwdhk</artifactId>
 	<packaging>war</packaging>
 	<version>1.7-SNAPSHOT</version>
-	<name>Fwd eCommerce </name>
+	<name>Fwd eCommerce</name>
 	
 	<url>http://maven.apache.org</url>
 	<parent>
@@ -13,8 +13,31 @@
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
+	<properties>
+		<slf4j.version>1.7.12</slf4j.version>
+		<logback.version>1.1.3</logback.version>
+	</properties>	
 	<dependencies>
-
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -26,8 +49,6 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.7</version>
 		</dependency>
-		<!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-mapper-asl</artifactId> 
-			<version>1.9.13</version> </dependency> -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -49,8 +70,6 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		<!-- <dependency> <groupId>javax.mail</groupId> <artifactId>mail</artifactId> 
-			<version>1.4.3</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -77,14 +96,11 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.1.0.Final</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.googlecode.json-simple</groupId> <artifactId>json-simple</artifactId> 
-			<version>1.1</version> </dependency> -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -116,101 +132,244 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.4</version>
 		</dependency>
-		
-		<!-- iReport JasperReports Start-->
-<!-- 		<dependency> -->
-<!-- 			<groupId>net.sf.jasperreports</groupId> -->
-<!-- 			<artifactId>jasperreports</artifactId> -->
-<!-- 			<version>5.6.0</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.codehaus.groovy</groupId> -->
-<!-- 			<artifactId>groovy-all</artifactId> -->
-<!-- 			<version>2.2.2</version> -->
-<!-- 		</dependency>		 -->
-		
-<!--  		<dependency> -->
-<!-- 		    <groupId>com.itextpdf</groupId> -->
-<!-- 		    <artifactId>itextpdf</artifactId> -->
-<!-- 		    <version>5.4.3</version> -->
-<!-- 		</dependency>	 -->
-		
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.lowagie</groupId> -->
-<!-- 			<artifactId>itext</artifactId> -->
-<!-- 			<version>2.1.7</version> -->
-<!-- 		</dependency>		 -->
-		<!-- iReport JasperReports End-->
-
 	</dependencies>
-
-
-	<build>
-		<finalName>FWDHKPH1A</finalName>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-enforcer-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>enforce</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-gpg-plugin</artifactId> -->
-<!-- 				<version>1.4</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>sign-artifacts</id> -->
-<!-- 						<phase>verify</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>sign</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.2.2</version>
-				<dependencies>
-					<dependency>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<finalName>FWDHKPH1A</finalName>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-enforcer-plugin</artifactId>
+												<versionRange>[1.0.0,)</versionRange>
+												<goals>
+													<goal>enforce</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+				<plugins>
+					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-scm-plugin</artifactId>
-						<version>1.8.1</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<echo>>>>>>> This is for DEVELOPMENT</echo>
+										<delete file="${project.build.outputDirectory}/config.properties"/>
+										<copy file="src/main/resources/config.dev.properties"
+										      tofile="${project.build.outputDirectory}/config.properties"/>
+									</tasks>
+								</configuration>				
+							</execution>
+						</executions>
+					</plugin>		
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.2</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.2.2</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-scm-plugin</artifactId>
+								<version>1.8.1</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<build>
+				<finalName>FWDHKPH1A</finalName>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-enforcer-plugin</artifactId>
+												<versionRange>[1.0.0,)</versionRange>
+												<goals>
+													<goal>enforce</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<echo>>>>>>> This is for PRODUCTION</echo>
+										<delete file="${project.build.outputDirectory}/config.properties"/>
+										<copy file="src/main/resources/config.prd.properties"
+										      tofile="${project.build.outputDirectory}/config.properties"/>
+									</tasks>
+								</configuration>				
+							</execution>
+						</executions>
+					</plugin>		
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.2</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.2.2</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-scm-plugin</artifactId>
+								<version>1.8.1</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>sit</id>
+			<build>
+				<finalName>FWDHKPH1A</finalName>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-enforcer-plugin</artifactId>
+												<versionRange>[1.0.0,)</versionRange>
+												<goals>
+													<goal>enforce</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<echo>>>>>>> This is for SIT</echo>
+										<delete file="${project.build.outputDirectory}/config.properties"/>
+										<copy file="src/main/resources/config.sit.properties"
+										      tofile="${project.build.outputDirectory}/config.properties"/>
+									</tasks>
+								</configuration>				
+							</execution>
+						</executions>
+					</plugin>		
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.2</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.2.2</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-scm-plugin</artifactId>
+								<version>1.8.1</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
