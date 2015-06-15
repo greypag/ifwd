@@ -8,7 +8,7 @@
 
 
 	<script>
-		function forgotUserPassword() {
+		function forgotUserPassword1() {
 
 			if (forgotPassword() == true) {
 
@@ -16,7 +16,7 @@
 				$.ajax({
 							type : 'POST',
 							url : '<%=request.getContextPath()%>/forgotUserPassword',
-							data : $('#forgotPasswordForm input').serialize(),
+							data : $('#forgotPasswordForm1 input').serialize(),
 							success : function(data) {
 
 								$('#ajax-loading').hide();
@@ -65,7 +65,7 @@
 						src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 				</div>
 				<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12 margin-left">
-					<form name="forgotPasswordForm" id="forgotPasswordForm"
+					<form name="forgotPasswordForm1" id="forgotPasswordForm1"
 						action="forgotPassword" method="post"
 						commandName="forgotUserPassword">
 						<div id="hide-field"></div>
@@ -131,7 +131,7 @@
 												<!-- <button type="button" onclick="forgotPassword()"
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
-												<button type="button" onclick="forgotUserPassword()"
+												<button type="button" onclick="forgotUserPassword1()"
 													class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>
 
 											</td>
