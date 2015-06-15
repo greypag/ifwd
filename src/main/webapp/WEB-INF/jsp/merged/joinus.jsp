@@ -150,11 +150,7 @@
 								</tr>
 								<tr>
 									<td><label for="txtUserName"
-										class="join-us-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label> <a href="#"
-										class="pull-right tool-tip show-inline-xs"
-										data-toggle="tooltip" data-placement="bottom"
-										title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="<%=request.getContextPath()%>/resources/images/ic.png"
-											alt=""></a></td>
+										class="join-us-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label></td>
 									<td>
 										
 											<input type="text" class="form-control "
@@ -176,11 +172,7 @@
 
 								<tr>
 									<td><label class="join-us-label"><fmt:message key="member.registration.details.label.password" bundle="${msg}" />
-									</label> <a href="#"
-										class="pull-right tool-tip show-inline-xs"
-										data-toggle="tooltip" data-placement="bottom"
-										title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"> <img
-											src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a></td>
+									</label></td>
 									<td>
 											<input type="password" class="form-control" autocomplete="off"
                                                 onfocus="$('#errorJoinUsPassword').html('');"
