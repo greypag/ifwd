@@ -750,7 +750,7 @@ function checkPromoCodePlaceholder(){
 							<div class="col-md-12 hidden-sm hidden-xs pad-none">
                                <div style="width: 80%;margin-left: 10%;">
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-									<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
+									<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></h3>
 		
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.discount" bundle="${msg}" /></h3>
 									<h3 id="discountAmt" class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%></h3>
