@@ -30,15 +30,27 @@ import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
 public class UserController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);	
+	
 	@Autowired
 	RestServiceDao restService;
 
+	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
+	@ResponseBody
+	public String verifyCaptcha(HttpServletRequest request) 
+	{	
+		boolean result = ValidationUtils.verifyGoogleRecaptcha(request.getParameter("recaptchaValue"));
+		logger.debug("Google Recaptcha Result: "+result);
+		return result ? "success": "fail";
+	}
+	
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	

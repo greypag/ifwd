@@ -69,33 +69,27 @@
     
     <div align="center" style="margin-top:50px;" >
         <h3 style="bold !important; font-weight: 900; font-size:30px;">
-            <!-- Page not found -->
-            <fmt:message key="erro.404.page.miss" bundle="${msg}" />
+            <!-- System maintenance -->
+            <fmt:message key="system.under.maintenance.notice" bundle="${msg}" /> 
         </h3>
     </div>
     
     
-    <div align="center" style="margin-top:35px;" >
-        <h2 style="bold !important; font-weight:1200; font-size:90px; color:#f68a1d;">
-            404
-        </h3>
-    </div>
-    
-    <div align="center" style="margin-top:30px;" >
+    <div align="center" style="margin-top:38px;" >
         <h3 style="font-size:23px;">
-            <!-- Your request page cannot be found or has been moved. -->
-            <fmt:message key="erro.404.page.move" bundle="${msg}" />
+            <!-- Our site is currently undergoing scheduled maintenance. -->
+            <fmt:message key="system.under.scheduled.maintenance" bundle="${msg}" /> 
             <br>
             <br>
-            <!-- Please call our 24-hour hotline for any assistance. -->
-            <fmt:message key="erro.404.call.assistance" bundle="${msg}" /> 
+            <!-- Please try again later. For any further assistance, please call our 24-hour hotline. -->
+            <fmt:message key="system.assistance.hotline.call" bundle="${msg}" /> 
         </h3>
     </div>
     
     <div align="center" style="margin-top:55px; margin-bottom:80px;" >
         <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >
         <!-- Back to Home -->
-        <fmt:message key="system.back.to.me" bundle="${msg}" />
+        <fmt:message key="system.back.to.me" bundle="${msg}" /> 
         </a>
     </div>
     

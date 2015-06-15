@@ -289,8 +289,8 @@ ul.maintabs li a:hover{ color: #fff ;}
 .travel-special{
 	top:29px;
 	position:relative;
-	padding-left: 35px;
-    padding-right: 35px;
+	margin-left: 35px;
+    margin-right: 35px;
 }
 ul.maintabs li .offer{
   color: #f68a1d;
@@ -304,8 +304,8 @@ ul.maintabs li a span.offer:hover{
 .travel-and-home-tab {
     top: 47px;
 	position: relative;
-	padding-left: 30px;
-	padding-right: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .chin .workingholiday-tab{
@@ -4974,7 +4974,7 @@ box-shadow:0 0 6px #f68a1d;
 .pay-details-select
 {
         
-    width: 100% !important; 
+    width: 115% !important; 
     border: 1px solid #f6d5b4;
 
     padding: 8px;
@@ -5156,7 +5156,7 @@ select.soflow, select.soflow-color {
     background-repeat: no-repeat;
     padding: 5px 10px;*/
     
-    width: 100% !important;    
+    width: 115% !important;    
     border: none  ! important;    
     outline : medium none !important;
     display: inline-flex !important;   
@@ -7011,7 +7011,7 @@ tr.product-landing-error-wrap {
 }
 
 .form-control.soflow.select-label{
-    width: 100% !important;
+    width: 115% !important;
 }
 
 /** copy tips box **/

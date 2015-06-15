@@ -3601,7 +3601,7 @@ function validUser(formID)
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.notValid.message"));
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
 		
 		flag = false;
 	}
@@ -4788,14 +4788,14 @@ function isAccountNumeric(num){
 function isValidUsername(el){
 	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
-		return getBundle(getBundleLanguage, "user.username.notValid.message");
+		return getBundle(getBundleLanguage, "user.username.empty.message");
 		
 		valid = false;
 
 	} else if (isAccountNumeric(el)) {
-		return getBundle(getBundleLanguage, "user.username.validate.message");
+		return getBundle(getBundleLanguage, "user.username.notValid.message");
 	} else if (!plan_user.test(el)) {
-		return getBundle(getBundleLanguage, "user.username.validate.message");
+		return getBundle(getBundleLanguage, "user.username.notValid.message");
 	} else if(el.length < 6 || el.length > 50) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
 	} else {

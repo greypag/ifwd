@@ -2339,15 +2339,19 @@ function createFlightFnc(form)
             async : false,
             success : function(data) 
             {
+            	var result = data['result'];
+            	var errMsg = data['errMsgs']
+            	
+            	
             	flight_click = false;
-                if (data == 'success') {
+                if (result == 'success') {
                     $('#errorMessages').hide();
                     flag= true;
                     form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
                 } else{
                     flag= false;
                     $('#errorMessages').removeClass('hide');
-                    $('#errorMessages').html(data);
+                    $('#errorMessages').html(errMsg);
                 }
         
             }
