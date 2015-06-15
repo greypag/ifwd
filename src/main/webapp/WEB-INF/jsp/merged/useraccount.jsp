@@ -345,9 +345,24 @@
 									<td><p>
 											<fmt:message key="member.account.promotionCode.share.message.header" bundle="${msg}" /><span class="h2-1">
 												${userDetails.getReferralCode()}</span><br> <fmt:message key="member.account.promotionCode.share.message.body" bundle="${msg}" />
-										</p> <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3.png" alt=""
-										class="text-center col-xs-offset-3" /></td>
+										</p>
+										</td>
 								</tr>
+								<tr>
+                                    <td>
+                                        <div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
+                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
+                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" "><br/>
+                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" "><br/>
+                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+                                        </div>
+                                        </td>
+                                </tr>
 								<tr>
 									<td><h3 class="h4-3-b"><fmt:message key="member.account.promotionCode.share.social.message.header" bundle="${msg}" /></h3></td>
 								</tr>
