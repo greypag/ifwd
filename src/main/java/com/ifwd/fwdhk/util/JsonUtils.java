@@ -41,11 +41,12 @@ public class JsonUtils {
 		if(REPLACE_KEY == null) {
 			REPLACE_KEY = getKeys();
 		}
+		JSONObject reObj = new JSONObject();
 		Set<Object> keys = obj.keySet();
 		for(Object key : keys){
 			if(obj.get(key) instanceof JSONObject) {
 				JSONObject newobj = jsonPrint((JSONObject)obj.get(key), (String)key);
-				obj.replace(key, newobj);
+				reObj.put(key, newobj);
 			}else if (obj.get(key) instanceof JSONArray){
 				JSONArray arr = (JSONArray)obj.get(key);
 				JSONArray newarr = new JSONArray();
@@ -58,7 +59,7 @@ public class JsonUtils {
 						newarr.add(entity);
 					}
 				}
-				obj.replace(key, newarr);
+				reObj.put(key, newarr);
 			}else if (obj.get(key) instanceof String) {
 				String newKey;
 				if(name != null) {
@@ -67,11 +68,13 @@ public class JsonUtils {
 					newKey = (String)key;
 				}
 				if(REPLACE_KEY.contains(newKey) && !"".equals(obj.get(key).toString())){
-					obj.replace(key, replaceByStar(obj.get(key).toString()));
+					reObj.put(key, replaceByStar(obj.get(key).toString()));
 				}
+			}else {
+				reObj.put(key, obj.get(key));
 			}
 		}
-		return obj;
+		return reObj;
 	}
 	
 	private static String replaceByStar(String str) {
