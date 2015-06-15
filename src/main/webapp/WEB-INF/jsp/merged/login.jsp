@@ -235,7 +235,7 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotusername-err-msg').html('Provided User Account Details Does Not Exist');
+                                    $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
@@ -513,13 +513,13 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html('Provided User Account Details Does Not Exist');
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
-                                    $('#success-message-password').html('Link Sent Successfully On Your Registered Mail ID');
+                                    $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
                                     $('#success-message-password').show();
                                 } else {
-                                    $('#success-message-password').html('Internet Connection Error ');
+                                    $('#success-message-password').html(getBundle(getBundleLanguage, "connection.lost.message"));
                                     $('#success-message-password').show();
                                     $('#user-details-main').hide();
                                 }
