@@ -17,6 +17,8 @@ import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
@@ -40,6 +42,7 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -48,6 +51,8 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 @Controller
 @SuppressWarnings("unchecked")
 public class FlightController {
+	
+	private final static Logger logger = LoggerFactory.getLogger(FlightController.class);
 
 	@Autowired
 	RestServiceDao restService;
@@ -552,6 +557,7 @@ public class FlightController {
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
 		//System.out.println(jsonObject);
+		logger.info("updateFlightQuote:jsonObject ====>>>>>>" + JsonUtils.jsonPrint(jsonObject));
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
 			
@@ -669,6 +675,7 @@ public class FlightController {
 			/* JSONObject jsonObjectAgeType = null; */
 			/*System.out.println(" jsonAgeTypeArray ====>>>>>>"
 					+ jsonAgeTypeArray);*/
+			logger.info("jsonAgeTypeArray ====>>>>>>" + JsonUtils.jsonPrint(jsonAgeTypeArray));
 			Map<String, String> mapAgeType = new HashMap<String, String>();
 			Map<String, String> mapSelfType = new HashMap<String, String>();
 			Map<String, String> mapChildType = new HashMap<String, String>();
@@ -705,6 +712,7 @@ public class FlightController {
 
 		} else {
 			//System.out.println("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs").toString());
+			logger.info("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs"));
 			String returnUrl = UserRestURIConstants.getSitePath(request)
 					+ "flight/flight-plan";
 			//System.out.println("returnUrl " + returnUrl);
@@ -723,6 +731,7 @@ public class FlightController {
 					.get("optionItemDesc");
 			/*System.out.println(" jsonRelationShipArray ====>>>>>>"
 					+ jsonRelationshipCode);*/
+			logger.info("jsonRelationShipArray ====>>>>>>" + JsonUtils.jsonPrint(jsonRelationshipCode));
 
 			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 			for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -1315,6 +1324,7 @@ public class FlightController {
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.CREATEFLIGHTPOLICY, header, parameters);
 		//System.out.println("createFilghr response" + responsObject);
+		logger.info("createFilghr response" + JsonUtils.jsonPrint(responsObject));
 
 		if (responsObject.get("errMsgs") == null && responsObject != null) {
 			session.setAttribute("FlightResponseFrTrvl", parameters);
@@ -1473,6 +1483,7 @@ public class FlightController {
 					Url, header, null);
 
 			//System.out.println("Get Travel Quotes API " + responseJsonObj);
+			logger.info("Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(createFlightPolicy
@@ -1640,10 +1651,12 @@ public class FlightController {
 		parameters.put("referralCode", referralCode);
 		model.addAttribute("selectPlanName", createFlightPolicy.getPlanCode());
 		//System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
+		logger.info("TRAVEL_CREATE_POLICY Parameters" + JsonUtils.jsonPrint(parameters));
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 
+		logger.info("TRAVEL_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 		//System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
 
 		String finalizeReferenceNo = "";
@@ -1677,12 +1690,14 @@ public class FlightController {
 			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 			/*System.out.println("Header Object for Confirm"
 					+ confirmPolicyParameter);*/
+			logger.info("Header Object for Confirm" + JsonUtils.jsonPrint(confirmPolicyParameter));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 
 			/*System.out.println("Response From Confirm Travel Policy "
 					+ jsonResponse);*/
+			logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
 
 			createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
 					"secureHash"));

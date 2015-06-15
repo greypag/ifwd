@@ -22,6 +22,8 @@ import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
@@ -46,6 +48,7 @@ import com.ifwd.fwdhk.model.WorkingHolidayQuoteBean;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -54,6 +57,8 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 @Controller
 public class WorkingHolidayController {
 
+	private final static Logger logger = LoggerFactory.getLogger(WorkingHolidayController.class);
+	
 	@Autowired
 	private RestServiceDao restService;
 
@@ -333,6 +338,7 @@ public class WorkingHolidayController {
 				if (responseJsonObj.get("errMsgs") == null) {
 					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
 					//System.out.println(" jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
+					logger.info("jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
 					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -654,8 +660,10 @@ public class WorkingHolidayController {
 			
 		//System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
 		//System.out.println("WORKINGHOLIDAY_CREATE_POLICY Request" + parameters);
+		logger.info("WORKINGHOLIDAY_CREATE_POLICY Request:" + JsonUtils.jsonPrint(parameters));
 		responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
 		String finalizeReferenceNo = "";
+		logger.info("WORKINGHOLIDAY_CREATE_POLICY Response:" + JsonUtils.jsonPrint(responsObject));
 		//System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
 
 		if (responsObject.get("errMsgs") == null) {
@@ -982,6 +990,7 @@ public class WorkingHolidayController {
 
 			/*System.out.println("Response Get Working Holiday Quotes API "
 					+ responseJsonObj);*/
+			logger.info("Response Get Working Holiday Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
 			} else {

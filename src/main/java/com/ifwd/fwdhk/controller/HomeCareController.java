@@ -11,7 +11,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
@@ -19,8 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.joda.time.LocalDate;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
@@ -31,23 +31,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.ser.impl.UnknownSerializer;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.FinalizePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
-import com.ifwd.fwdhk.model.PlanDetailsForm;
-import com.ifwd.fwdhk.model.QuoteDetails;
-import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -55,6 +50,8 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class HomeCareController {
+	
+	private final static Logger logger = LoggerFactory.getLogger(HomeCareController.class);
 
 	@Autowired
 	RestServiceDao restService;
@@ -638,6 +635,9 @@ public class HomeCareController {
 				HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_SUBMIT_POLICY, header,
 				submitPolicy);
+		
+		logger.info("HOMECARE_SUBMIT_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
+		
 		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
 			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				try {
