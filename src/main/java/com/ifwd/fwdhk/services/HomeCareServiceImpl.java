@@ -14,9 +14,11 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
+import org.apache.commons.io.IOUtils;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 
@@ -58,6 +60,12 @@ public class HomeCareServiceImpl implements HomeCareService {
 		header.put("language", WebServiceUtils.transformLanaguage(language));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 				Url, header, null);
+		
+//		String encoding = "UTF-8";
+//		String responseStr = IOUtils.toString(responseJsonOb, encoding);
+//		JSONParser parser = new JSONParser();
+//		return (JSONObject) parser.parse(responseStr);
+		
 		if (responseJsonObj.get("errMsgs") == null) {
 			JSONArray jsonQuetionaries = (JSONArray) responseJsonObj
 					.get("homeCareQuestions");
