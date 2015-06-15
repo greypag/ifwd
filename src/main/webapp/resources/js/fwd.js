@@ -3601,7 +3601,7 @@ function validUser(formID)
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.notValid.message"));
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
 		
 		flag = false;
 	}
@@ -4788,7 +4788,7 @@ function isAccountNumeric(num){
 function isValidUsername(el){
 	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
-		return getBundle(getBundleLanguage, "user.username.notValid.message");
+		return getBundle(getBundleLanguage, "user.username.empty.message");
 		
 		valid = false;
 
