@@ -103,7 +103,6 @@
 										<tr>
 											<td class=""><label class="control-label lhnormal"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />
 											</label></td>
-
 											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="fEmailAddress"
 												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorFEmptyEmailId"
