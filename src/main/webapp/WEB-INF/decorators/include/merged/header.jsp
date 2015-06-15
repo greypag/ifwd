@@ -179,7 +179,7 @@ function submitLoginForm(formID) {
 							<!--  </a> -->
 							
 							
-								<div class="dropdown-menu drop-width">
+								<div class="dropdown-menu drop-width" style="left: -20px;">
 									<form name="loginform" id="loginform">
 										<div class="login-form">
 											<div
