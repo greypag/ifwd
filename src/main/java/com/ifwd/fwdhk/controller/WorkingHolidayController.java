@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
@@ -583,7 +584,7 @@ public class WorkingHolidayController {
 
 		JSONObject parameters = new JSONObject();
 		//System.out.println("quoteDetails.getPlanName() " + quoteDetails.getPlanName());
-		parameters.put("planCode", planSelected);
+		parameters.put("planCode", planSelected.toUpperCase());
 		
 		
 		Calendar calendar=Calendar.getInstance();
@@ -603,7 +604,7 @@ public class WorkingHolidayController {
 		
 		JSONArray insureds = new JSONArray();
 		JSONObject insured = new JSONObject();
-		insured.put("name", planDetailsForm.getWhAppFullName());
+		insured.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
 		insured.put("ageRange", "4");
 		
@@ -613,11 +614,11 @@ public class WorkingHolidayController {
 		JSONObject beneficiary = new JSONObject();
 		
 		if("SE".equals(planDetailsForm.getWhInsBeneficary())) {
-			beneficiary.put("name", planDetailsForm.getWhAppFullName());
+			beneficiary.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		} else {
-			beneficiary.put("name", planDetailsForm.getWhInsFullName());
+			beneficiary.put("name", planDetailsForm.getWhInsFullName().toUpperCase());
 			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
 		}
@@ -626,10 +627,10 @@ public class WorkingHolidayController {
 		insureds.add(insured);
 		parameters.put("insured", insureds);
 
-		parameters.put("referralCode", session.getAttribute("referralCode"));
+		parameters.put("referralCode", (session.getAttribute("referralCode")+"").toUpperCase());
 
 		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", planDetailsForm.getWhAppFullName());
+		applicantJsonObj.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
@@ -639,15 +640,15 @@ public class WorkingHolidayController {
 		parameters.put("applicant", applicantJsonObj);
 		
 		JSONObject addressJsonObj = new JSONObject();
-		addressJsonObj.put("room", planDetailsForm.getWhInsRoom());
-		addressJsonObj.put("floor", planDetailsForm.getWhInsFloor());
-		addressJsonObj.put("block", planDetailsForm.getWhInsBlock());
-		addressJsonObj.put("building", planDetailsForm.getWhInsBuilding());
-		addressJsonObj.put("estate", planDetailsForm.getWhInsEstate());
-		addressJsonObj.put("streetNo", planDetailsForm.getWhInsStreetNo());
-		addressJsonObj.put("streetName", planDetailsForm.getWhInsStreetName());
-		addressJsonObj.put("district", planDetailsForm.getWhInsDistrict());
-		addressJsonObj.put("area", planDetailsForm.getWhInsArea());
+		addressJsonObj.put("room", (planDetailsForm.getWhInsRoom()+"").toUpperCase());
+		addressJsonObj.put("floor", (planDetailsForm.getWhInsFloor()+"").toUpperCase());
+		addressJsonObj.put("block", (planDetailsForm.getWhInsBlock()+"").toUpperCase());
+		addressJsonObj.put("building", (planDetailsForm.getWhInsBuilding()+"").toUpperCase());
+		addressJsonObj.put("estate", (planDetailsForm.getWhInsEstate()+"").toUpperCase());
+		addressJsonObj.put("streetNo", (planDetailsForm.getWhInsStreetNo()+"").toUpperCase());
+		addressJsonObj.put("streetName", (planDetailsForm.getWhInsStreetName()+"").toUpperCase());
+		addressJsonObj.put("district", (planDetailsForm.getWhInsDistrict()+"").toUpperCase());
+		addressJsonObj.put("area", (planDetailsForm.getWhInsArea()+"").toUpperCase());
 		parameters.put("address", addressJsonObj);
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
