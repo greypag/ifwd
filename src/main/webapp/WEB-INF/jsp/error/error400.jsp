@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+<html>
 <head>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script type="text/javascript">
@@ -42,7 +44,10 @@
 <meta name="robots" content="NOODP">
 <meta name='keywords' content="meta keywords here"/>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <dec:head />
 
 </head>
@@ -82,4 +87,4 @@
 	</div>
 		<jsp:include page="/WEB-INF/decorators/include/merged/footer.jsp" />
 </body>
- 
+</html>
