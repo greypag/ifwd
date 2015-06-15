@@ -270,9 +270,8 @@ function checkPromoCodePlaceholder(){
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
 								<div class="h4">
 									<fmt:message key="workingholiday.dollar" bundle="${msg}" />
-									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
-									<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
-									<span class="del actualPrice"><del></del></span>
+									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></div>
+									<span class="del actualPrice"><del><% if(Double.parseDouble(planQuote.getDiscountAmount()) < 0){ %><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%><% } %></del></span>			
 								</div>
 							</div>
 							

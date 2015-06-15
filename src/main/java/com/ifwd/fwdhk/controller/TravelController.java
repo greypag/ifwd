@@ -4,10 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.Format;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -24,6 +21,8 @@ import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
@@ -44,14 +43,17 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
-import com.ifwd.fwdhk.util.ValidationUtils;
 
 @Controller
 public class TravelController {
+	
+	private final static Logger logger = LoggerFactory.getLogger(TravelController.class);
 
 	@Autowired
 	private RestServiceDao restService;
@@ -286,6 +288,7 @@ public class TravelController {
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
+			logger.info("Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			//System.out.println("Get Travel Quotes API " + responseJsonObj);
 			//System.out.println("errMsgs " + responseJsonObj.get("errMsgs"));
 			if (responseJsonObj.get("errMsgs") == null) {
@@ -564,6 +567,7 @@ public class TravelController {
 
 			//System.out.println("total days: " + travelQuote.getTotalTravellingDays());
 			//System.out.println("Get Travel Quotes API " + responseJsonObj);
+			logger.info("Get Travel Quotes API " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				
 				
@@ -707,6 +711,7 @@ public class TravelController {
 
 			/*System.out.println("Response Get Travel Quotes API "
 					+ responseJsonObj);*/
+			logger.info("Response Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
 			} else {
@@ -1779,6 +1784,7 @@ public class TravelController {
 					parameters);
 			createPolicy = new CreatePolicy();
 			//System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
+			logger.info("TRAVEL_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
 			String finalizeReferenceNo = "";
 
@@ -1807,8 +1813,9 @@ public class TravelController {
 						UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 						confirmPolicyParameter);
 
-				System.out.println("Response From Confirm Travel Policy "
-						+ jsonResponse);
+				/*System.out.println("Response From Confirm Travel Policy "
+						+ jsonResponse);*/
+				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
 
 				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
 						"secureHash"));

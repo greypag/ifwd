@@ -18,10 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
@@ -46,6 +49,7 @@ import com.ifwd.fwdhk.model.WorkingHolidayQuoteBean;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -54,6 +58,8 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 @Controller
 public class WorkingHolidayController {
 
+	private final static Logger logger = LoggerFactory.getLogger(WorkingHolidayController.class);
+	
 	@Autowired
 	private RestServiceDao restService;
 
@@ -333,6 +339,7 @@ public class WorkingHolidayController {
 				if (responseJsonObj.get("errMsgs") == null) {
 					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
 					//System.out.println(" jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
+					logger.info("jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
 					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -577,7 +584,7 @@ public class WorkingHolidayController {
 
 		JSONObject parameters = new JSONObject();
 		//System.out.println("quoteDetails.getPlanName() " + quoteDetails.getPlanName());
-		parameters.put("planCode", planSelected);
+		parameters.put("planCode", planSelected.toUpperCase());
 		
 		
 		Calendar calendar=Calendar.getInstance();
@@ -597,7 +604,7 @@ public class WorkingHolidayController {
 		
 		JSONArray insureds = new JSONArray();
 		JSONObject insured = new JSONObject();
-		insured.put("name", planDetailsForm.getWhAppFullName());
+		insured.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
 		insured.put("ageRange", "4");
 		
@@ -607,11 +614,11 @@ public class WorkingHolidayController {
 		JSONObject beneficiary = new JSONObject();
 		
 		if("SE".equals(planDetailsForm.getWhInsBeneficary())) {
-			beneficiary.put("name", planDetailsForm.getWhAppFullName());
+			beneficiary.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		} else {
-			beneficiary.put("name", planDetailsForm.getWhInsFullName());
+			beneficiary.put("name", planDetailsForm.getWhInsFullName().toUpperCase());
 			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
 			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
 		}
@@ -620,10 +627,10 @@ public class WorkingHolidayController {
 		insureds.add(insured);
 		parameters.put("insured", insureds);
 
-		parameters.put("referralCode", session.getAttribute("referralCode"));
+		parameters.put("referralCode", (session.getAttribute("referralCode")+"").toUpperCase());
 
 		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", planDetailsForm.getWhAppFullName());
+		applicantJsonObj.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
@@ -633,15 +640,15 @@ public class WorkingHolidayController {
 		parameters.put("applicant", applicantJsonObj);
 		
 		JSONObject addressJsonObj = new JSONObject();
-		addressJsonObj.put("room", planDetailsForm.getWhInsRoom());
-		addressJsonObj.put("floor", planDetailsForm.getWhInsFloor());
-		addressJsonObj.put("block", planDetailsForm.getWhInsBlock());
-		addressJsonObj.put("building", planDetailsForm.getWhInsBuilding());
-		addressJsonObj.put("estate", planDetailsForm.getWhInsEstate());
-		addressJsonObj.put("streetNo", planDetailsForm.getWhInsStreetNo());
-		addressJsonObj.put("streetName", planDetailsForm.getWhInsStreetName());
-		addressJsonObj.put("district", planDetailsForm.getWhInsDistrict());
-		addressJsonObj.put("area", planDetailsForm.getWhInsArea());
+		addressJsonObj.put("room", (planDetailsForm.getWhInsRoom()+"").toUpperCase());
+		addressJsonObj.put("floor", (planDetailsForm.getWhInsFloor()+"").toUpperCase());
+		addressJsonObj.put("block", (planDetailsForm.getWhInsBlock()+"").toUpperCase());
+		addressJsonObj.put("building", (planDetailsForm.getWhInsBuilding()+"").toUpperCase());
+		addressJsonObj.put("estate", (planDetailsForm.getWhInsEstate()+"").toUpperCase());
+		addressJsonObj.put("streetNo", (planDetailsForm.getWhInsStreetNo()+"").toUpperCase());
+		addressJsonObj.put("streetName", (planDetailsForm.getWhInsStreetName()+"").toUpperCase());
+		addressJsonObj.put("district", (planDetailsForm.getWhInsDistrict()+"").toUpperCase());
+		addressJsonObj.put("area", (planDetailsForm.getWhInsArea()+"").toUpperCase());
 		parameters.put("address", addressJsonObj);
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -654,8 +661,10 @@ public class WorkingHolidayController {
 			
 		//System.out.println("WORKINGHOLIDAY_CREATE_POLICY URL" + UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY);
 		//System.out.println("WORKINGHOLIDAY_CREATE_POLICY Request" + parameters);
+		logger.info("WORKINGHOLIDAY_CREATE_POLICY Request:" + JsonUtils.jsonPrint(parameters));
 		responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.WORKINGHOLIDAY_CREATE_POLICY, header, parameters);
 		String finalizeReferenceNo = "";
+		logger.info("WORKINGHOLIDAY_CREATE_POLICY Response:" + JsonUtils.jsonPrint(responsObject));
 		//System.out.println("WORKINGHOLIDAY_CREATE_POLICY Response" + responsObject);
 
 		if (responsObject.get("errMsgs") == null) {
@@ -982,6 +991,7 @@ public class WorkingHolidayController {
 
 			/*System.out.println("Response Get Working Holiday Quotes API "
 					+ responseJsonObj);*/
+			logger.info("Response Get Working Holiday Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
 			} else {

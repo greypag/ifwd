@@ -189,13 +189,17 @@ hr {
     
 }
 @media screen and (min-width: 768px){
-    .modal-dialog {
-          width: 800px;
-    }
     #loginpopup .modal-dialog {
           width: 600px;
     }
-    
+    .modal-dialog {
+          margin: 230px auto;
+    }
+}
+@media screen and (min-width: 992px){
+    .modal-dialog {
+          width: 800px;
+    }
 }
 
 .top-menu .nav>li>a {
@@ -5256,11 +5260,6 @@ input[type='radio']:checked:before {
 
 .plan-modal .fwdpanel-body {
     font-size: 14px;
-}
-@media only screen and (min-width: 767px){
-    .plan-modal {
-        top: 200px;
-    }
 }
 
 /******Summary Table*****/

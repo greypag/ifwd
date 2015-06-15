@@ -4901,7 +4901,7 @@ function checkMembership(field){
 			$('#PasswordError').text(isValidPassword(value));
 			result = false;
 		}else if(value == $("#Username").val().trim()){
-			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));//XXX
+			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		}else $('#PasswordError').text('');
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
@@ -5021,7 +5021,7 @@ if($('#txtPass1').length){
 		if(isValidPassword(value) !== true){
 			$('#errorJoinUsPassword').text(isValidPassword(value));
 		}else if(value == $("#txtUserName1").val().trim()){
-			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));//XXX
+			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		}else $('#errorJoinUsPassword').text('');
 	})
 }
