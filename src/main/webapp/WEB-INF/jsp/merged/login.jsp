@@ -199,11 +199,11 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
                                                                 <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>
                                                     </div>
                                                 
-                                                    <div class="col-lg-3 col-md-3">                                           
+                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">                                           
                                                                 <button type="button" onclick="getForgotUserName()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>                                                    
                                                     </div>
                                                     
@@ -402,13 +402,13 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
                                                                                                               
                                                        <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>                                                    
                                                     
                                                     </div>
                                                 
-                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
                                                                                                               
                                                        <button type="button" onclick="forgotUserPassword()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>                                                    
                                                     
