@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.binary.StringUtils;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
@@ -277,7 +276,7 @@ public class WorkingHolidayController {
 				+ "workingholiday/workingholiday-plan");
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unused" })
 	@RequestMapping(value = {"/wh-details" })
 	@ResponseBody
 	public String prepareYourDetails(HttpServletRequest request) {
@@ -632,7 +631,7 @@ public class WorkingHolidayController {
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
 		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
-		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd());
+		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd().toUpperCase());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
@@ -778,7 +777,7 @@ public class WorkingHolidayController {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	@RequestMapping(value = "/processWorkingHolidayPayment")
 	@ResponseBody
 	public String processPayment(HttpServletRequest request,

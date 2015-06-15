@@ -409,7 +409,7 @@ public class TravelController {
 
 	// BMG updateTravelQuote
 	// return JSON
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/updateTravelQuote", method = RequestMethod.POST)
 	@ResponseBody
 	public String updateTravelQuote(
@@ -648,7 +648,7 @@ public class TravelController {
 //		return "JSON";
 	}
 	
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unused" })
 	@RequestMapping(value = "/applyTravelPromoCode", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyPromotionCode(
@@ -772,6 +772,7 @@ public class TravelController {
 		
 	}
 
+	@SuppressWarnings({ "unused", "rawtypes" })
 	@RequestMapping(value = {"/{lang}/getYourDetails", "/{lang}/travel-insurance/user-details"})
 	public ModelAndView prepareYourDetails(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
@@ -998,7 +999,7 @@ public class TravelController {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	@RequestMapping(value = {"/{lang}/prepareUserSummary", "/{lang}/travel-insurance/travel-summary"})
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
@@ -1789,7 +1790,6 @@ public class TravelController {
 			String finalizeReferenceNo = "";
 
 			if (responsObject.get("errMsgs") == null) {
-				@SuppressWarnings("unused")
 				JSONObject jsonPriceInfoA = (JSONObject) responsObject
 						.get("priceInfoA");
 
@@ -1877,7 +1877,7 @@ public class TravelController {
 				+ "/travel/travel-summary-payment");				
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	@RequestMapping(value = "/processTravePayment")
 	@ResponseBody
 	public String processPayment(HttpServletRequest request,
@@ -1932,7 +1932,7 @@ public class TravelController {
 		return "fail";
 	}
 
-	@SuppressWarnings({ "unchecked", "finally" })
+	@SuppressWarnings({ "unchecked"})
 	@RequestMapping(value = {"/{lang}/travel-confirmation", "/{lang}/travel-confirmation", "/{lang}/travel-insurance/confirmation"})
 	public String processPayment(Model model, HttpServletRequest request,
 			@RequestParam(required = false) String Ref ) {
@@ -2060,6 +2060,34 @@ public class TravelController {
 		}
 	}
 	
+	@RequestMapping(value = "/getPromoCode")
+	@ResponseBody
+	public String getPromoCode(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", request.getSession().getAttribute("token").toString());
+		
+		String url = UserRestURIConstants.TRAVEL_GET_PROMOCODE + "?partner=Agoda";
+		
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.GET,
+				url, header,
+				null);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			String promoCode = (String)jsonResponse.get("promoCode");
+			return promoCode;
+		} else {
+			return checkJsonObjNull(jsonResponse, "errMsgs");
+		}
+	}
+	
+	
+	
+	
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
@@ -2078,6 +2106,7 @@ public class TravelController {
 	}
 
 	// @Link(label="Flight", family="FlightController", parent = "" )
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/sendEmail")
 	@ResponseBody
 	public String sendEmail(HttpServletRequest request) {
