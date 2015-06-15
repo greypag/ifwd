@@ -4793,9 +4793,9 @@ function isValidUsername(el){
 		valid = false;
 
 	} else if (isAccountNumeric(el)) {
-		return getBundle(getBundleLanguage, "user.username.validate.message");
+		return getBundle(getBundleLanguage, "user.username.notValid.message");
 	} else if (!plan_user.test(el)) {
-		return getBundle(getBundleLanguage, "user.username.validate.message");
+		return getBundle(getBundleLanguage, "user.username.notValid.message");
 	} else if(el.length < 6 || el.length > 50) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
 	} else {
