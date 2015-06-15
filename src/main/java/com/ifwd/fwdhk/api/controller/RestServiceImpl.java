@@ -160,9 +160,14 @@ public class RestServiceImpl implements RestServiceDao {
 						public JSONObject handleResponse(HttpResponse response)
 								throws ClientProtocolException, IOException {
 
-							String responseStr = IOUtils.toString(response
-									.getEntity().getContent());
+//							String responseStr = IOUtils.toString(response
+//									.getEntity().getContent());
+//							JSONParser parser = new JSONParser();
+//							
+							String encoding = "UTF-8";
+							String responseStr = IOUtils.toString(response.getEntity().getContent(), encoding);
 							JSONParser parser = new JSONParser();
+							
 							try {
 								return (JSONObject) parser.parse(responseStr);
 							} catch (ParseException e) {
