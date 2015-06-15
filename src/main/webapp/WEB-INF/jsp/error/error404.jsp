@@ -69,7 +69,8 @@
     
     <div align="center" style="margin-top:50px;" >
         <h3 style="bold !important; font-weight: 900; font-size:30px;">
-            Page not found
+            <!-- Page not found -->
+            <fmt:message key="erro.404.page.miss" bundle="${msg}" />
         </h3>
     </div>
     
@@ -82,15 +83,20 @@
     
     <div align="center" style="margin-top:30px;" >
         <h3 style="font-size:23px;">
-            Your request page cannot be found or has been moved.
+            <!-- Your request page cannot be found or has been moved. -->
+            <fmt:message key="erro.404.page.move" bundle="${msg}" />
             <br>
             <br>
-            Please call our 24-hour hotline for any assistance. 
+            <!-- Please call our 24-hour hotline for any assistance. -->
+            <fmt:message key="erro.404.call.assistance" bundle="${msg}" /> 
         </h3>
     </div>
     
     <div align="center" style="margin-top:55px; margin-bottom:80px;" >
-        <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >Back to Home</a>
+        <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >
+        <!-- Back to Home -->
+        <fmt:message key="system.back.to.me" bundle="${msg}" />
+        </a>
     </div>
     
     

@@ -4,17 +4,12 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,7 +23,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,11 +40,10 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
-import com.ifwd.fwdhk.util.MessageUtil;
 import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
-import com.ifwd.fwdhk.util.ValidationUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -784,7 +777,7 @@ public class FlightController {
 	@RequestMapping(value = { "/{lang}/flight-confirmation",
 			"/{lang}/flight-insurance/confirm-policy" })
 	@ResponseBody
-	public String flightConfirmation(
+	public JSONObject flightConfirmation(
 			HttpServletRequest request,
 			@ModelAttribute("confirmationData") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model) {
@@ -793,11 +786,13 @@ public class FlightController {
 		urc.updateLanguage(request);
 
 		HttpSession session = request.getSession();
-
+		JSONObject jsonObject = new JSONObject();
+		
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			model.addAttribute("action", "/flight-insurance");
-			return "fail";
+			jsonObject.put("result", "fail");
+			return jsonObject;
 		}
 		UserRestURIConstants.setController("Flight");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -1363,12 +1358,14 @@ public class FlightController {
 			model.addAttribute("pageMetaDataDescription",
 					pageMetaDataDescription);
 			session.removeAttribute("flight-temp-save");
-			return "success";
+			jsonObject.put("result", "success");
+			return jsonObject;
 		} else {
 			model.addAttribute("errMsgs", responsObject.get("errMsgs")
 					.toString());
 			model.addAttribute("action", "/flight-insurance");
-			return responsObject.get("errMsgs").toString();
+			//return responsObject.get("errMsgs").toString();
+			return responsObject;
 		}
 	}
 
