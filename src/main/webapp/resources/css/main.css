@@ -5156,7 +5156,7 @@ select.soflow, select.soflow-color {
     background-repeat: no-repeat;
     padding: 5px 10px;*/
     
-    width: 111% !important;    
+    width: 115% !important;    
     border: none  ! important;    
     outline : medium none !important;
     display: inline-flex !important;   
@@ -7011,7 +7011,7 @@ tr.product-landing-error-wrap {
 }
 
 .form-control.soflow.select-label{
-    width: 111% !important;
+    width: 115% !important;
 }
 
 /** copy tips box **/
