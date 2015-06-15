@@ -76,9 +76,9 @@ public class JsonUtils {
 	
 	private static String replaceByStar(String str) {
 		int length = str.length();
-		String oldChar = str.substring(length / 4, length - length / 4);
+		String oldChar = length <=3 ? str.substring(length / 3, length - length / 3) : str.substring(length / 4, length - length / 4);
 		String newChar = "";
-		for(int i = 0; length / 2 > i; i++) {
+		for(int i = 0; oldChar.length() > i; i++) {
 			newChar += RE_CHAR;
 		}
 		return str.replace(oldChar, newChar);
