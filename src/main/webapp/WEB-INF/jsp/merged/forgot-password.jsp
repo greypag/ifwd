@@ -22,17 +22,14 @@
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
 									$('#forgotpassword-err-msg1')
-											.html(
-													'Provided User Account Details Does Not Exist');
+											.html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 									$('#forgotpassword-err-msg1').show();
 								} else if (data == 'success') {
 									$('#success-message1')
-											.html(
-													'Link Sent Successfully On Your Registered Mail ID');
+											.html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
 									$('#success-message1').show();
 								} else {
-									$('#success-message1').html(
-											'Internet Connection Error ');
+									$('#success-message1').html(getBundle(getBundleLanguage, "connection.lost.message"));
 									$('#success-message1').show();
 									$('#user-details-main').hide();
 								}

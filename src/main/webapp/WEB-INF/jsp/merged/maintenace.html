@@ -620,8 +620,7 @@ $('#myDropdownMob').click(function(e){
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
                                     $('#forgotusername-err-msg')
-		                                    .html(
-		                                            'Provided User Account Details Does Not Exist');
+		                                    .html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
@@ -873,17 +872,14 @@ $('#myDropdownMob').click(function(e){
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
                                     $('#forgotpassword-err-msg')
-                                            .html(
-                                                    'Provided User Account Details Does Not Exist');
+                                            .html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
                                     $('#success-message')
-                                            .html(
-                                                    'Link Sent Successfully On Your Registered Mail ID');
+                                            .html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
                                     $('#success-message').show();
                                 } else {
-                                    $('#success-message').html(
-                                            'Internet Connection Error ');
+                                    $('#success-message').html(getBundle(getBundleLanguage, "connection.lost.message"));
                                     $('#success-message').show();
                                     $('#user-details-main').hide();
                                 }
