@@ -127,7 +127,7 @@
 												<!-- <button type="button" onclick="forgotPassword()"
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
-												<button type="button" onclick="forgotUserPassword1()"
+												<button type="button" onclick="forgotUserPassword1();"
 													class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>
 
 											</td>
