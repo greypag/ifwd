@@ -1407,7 +1407,7 @@ function fPlanValid()
 		
 		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
 		var HkidPass = document.getElementById("txtchildInsuHkid"+i).value;
-		var selectedChldBenefitiaryHkidPass = document.getElementById("selectedChldBenefitiaryHkidPass" + i).value;
+		var selectedChldBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 
 		if(selectedValue != "SE"){
 			
@@ -1532,7 +1532,7 @@ function fPlanValid()
 
 			var hkidc = document.getElementById("txtOtherBenInsuHkid" + i).value;
 			$("#errtxtOtherBenInsuHkid" + i).html("");
-			var selectOtherBenefitiaryHkidPass = document.getElementById("selectOtherBenefitiaryHkidPass" + i).value;
+			var selectOtherBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 			
 			
 			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID' ) {
