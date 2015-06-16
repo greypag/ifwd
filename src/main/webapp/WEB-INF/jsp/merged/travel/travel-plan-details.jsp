@@ -182,7 +182,6 @@ function activateUserAccountJoinUs() {
   	                             $('#frmYourDetails').submit();
   	                            return;                            
   	                        } else {
-  	                        	$('#loading-overlay').modal('hide');
   	                        	
      	                            $("#link-error").click();
      	                            $(".error-hide").css("display", "block");
