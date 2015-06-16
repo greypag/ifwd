@@ -700,6 +700,16 @@ function confirmDetails(form){
 	}else {
 		result=false;
 	}
+	
+	if(result){
+		$('#loading-overlay').modal({
+           backdrop: 'static',
+           keyboard: false
+        })
+	}else{
+		$('#loading-overlay').modal('hide');
+	}
+	
 	return result;
 }
 
