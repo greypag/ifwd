@@ -47,7 +47,7 @@
 
 </head>
 	<%
-	if (langFlag && "EN".equals(session.getAttribute("language").toString())) {
+	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {
 	%>
 		<body>
 	<%
@@ -63,7 +63,7 @@
 <div class="container">
 
     <div align="center" style="margin-top:80px;">
-        <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon1.png">
+        <img src="<%=request.getContextPath()%>/resources/images/icon1.png">
     </div>
     
     
