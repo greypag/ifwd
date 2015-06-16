@@ -52,7 +52,7 @@
 
 </head>
 	<%
-	if (langFlag && "EN".equals(session.getAttribute("language").toString())) {
+	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {
 	%>
 		<body>
 	<%

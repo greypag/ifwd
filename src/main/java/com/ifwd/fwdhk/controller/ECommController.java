@@ -7,29 +7,26 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
-import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
-@SuppressWarnings("unchecked")
 public class ECommController {
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) {
-		if (!action.toLowerCase().contains("tc/") && !action.toLowerCase().contains("en/") && !action.contains("joinus")) {
+		if (!action.toLowerCase().contains("/tc/") && !action.toLowerCase().contains("/en/") && !action.contains("joinus") && !action.contains("error")) {
 			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
 			return null;
-		} else if (action.contains(".")) {
+		} else if (action.contains(".") && !action.contains("error")) {
 			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
 			return null;
 		} else {
@@ -58,10 +55,10 @@ public class ECommController {
 
 			viewName = action;
 			
-			if (viewName.indexOf("en") > 0)
-				viewName = viewName.replace("en", "tc");
+			if (viewName.indexOf("/en/") > 0)
+				viewName = viewName.replace("/en/", "/tc/");
 			else
-				viewName = viewName.replace("tc", "en");
+				viewName = viewName.replace("/tc/", "/en/");
 			
 			return new ModelAndView("redirect:" + viewName);
 			
@@ -151,6 +148,12 @@ public class ECommController {
 //		}
 		
 	}
-
+	
+	
+	@RequestMapping(value = "/{lang}/maintenace")
+	public ModelAndView maintenace(HttpServletRequest request,HttpServletResponse response) {
+		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
+	}
 	
 }

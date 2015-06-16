@@ -74,7 +74,7 @@
                                                     </div>
                                                     <h3
                                                         class="text-left col-lg-6 col-md-6 pad-none margin-none">
-                                                        <span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
+                                                        <span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/${language}/joinus">
                                                             <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
                                                     </h3>
                                                     <div class="clearfix"></div>
@@ -199,11 +199,11 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
                                                                 <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>
                                                     </div>
                                                 
-                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">                                           
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">                                           
                                                                 <button type="button" onclick="getForgotUserName()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>                                                    
                                                     </div>
                                                     
@@ -235,7 +235,7 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotusername-err-msg').html('Provided User Account Details Does Not Exist');
+                                    $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
@@ -402,13 +402,13 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
                                                                                                               
                                                        <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>                                                    
                                                     
                                                     </div>
                                                 
-                                                    <div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
                                                                                                               
                                                        <button type="button" onclick="forgotUserPassword()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>                                                    
                                                     
@@ -513,13 +513,13 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html('Provided User Account Details Does Not Exist');
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
-                                    $('#success-message-password').html('Link Sent Successfully On Your Registered Mail ID');
+                                    $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
                                     $('#success-message-password').show();
                                 } else {
-                                    $('#success-message-password').html('Internet Connection Error ');
+                                    $('#success-message-password').html(getBundle(getBundleLanguage, "connection.lost.message"));
                                     $('#success-message-password').show();
                                     $('#user-details-main').hide();
                                 }
