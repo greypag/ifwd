@@ -241,7 +241,7 @@
 							</label>
 						</div>
 						<div class="checkboxBubble">
-                            <fmt:message key="member.registration.declarations.PDPO.warning" bundle="${msg}" />
+                            <fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
                         </div>
 
                         <script type="text/javascript">
