@@ -405,14 +405,7 @@ function activateUserAccountJoinUs() {
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" name="whAppHKID"
-									   <c:choose>
-                                         <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppHKID() != null && workingHolidayPlanDetailsForm.getWhAppHKID() != ''}">
-                                           value="${workingHolidayPlanDetailsForm.getWhAppHKID()}"
-                                         </c:when>
-                                         <c:otherwise>
                                            value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />"
-                                         </c:otherwise>
-                                       </c:choose>
 									   class="form-control numberinput textUpper full-control bmg_custom_placeholder"
 										id="inputWhAppHKID"
 										onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');"
@@ -529,7 +522,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<div class="styled-select">
 										<select name="whInsBeneficary" id="selectWhInsBeneficary"
-											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary', 'inputWhInsFullName', 'inputWhInsHKID')"
+											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary')"
 											class="form-control soflow select-label">
 											<c:forEach var="relationshipList"
 												items="${mapRelationshipCode}">
@@ -638,16 +631,7 @@ function activateUserAccountJoinUs() {
 											class="field-label form-label bold-500 hidden-lg hidden-md"></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-										<input id="inputWhInsHKID" name="whInsHKID"
-										    <c:choose>
-                                              <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsHKID() != null && workingHolidayPlanDetailsForm.getWhInsHKID() != ''}">
-                                                value="${workingHolidayPlanDetailsForm.getWhInsHKID()}"
-                                              </c:when>
-                                              <c:otherwise>
-                                                value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                              </c:otherwise>
-                                            </c:choose>
-										
+										<input id="inputWhInsHKID" name="whInsHKID"										
 											class="form-control textUpper full-control bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 											onkeypress=" return hkidOnkeypress(event);"

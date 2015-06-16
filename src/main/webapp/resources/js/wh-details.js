@@ -175,9 +175,9 @@ $(function () {
 	});*/
 	
 	$("#selectWhInsBeneficary").change(function() {
-		$("#inputWhInsFullName").val("");
-		$("#selectWhInsHKID").val("HKID");
-		$("#inputWhInsHKID").val("");
+//		$("#inputWhInsFullName").val("");
+//		$("#selectWhInsHKID").val("HKID");
+//		$("#inputWhInsHKID").val("");
 		
 		setAtt("WhInsBeneficary", $(this).val());
 		setAtt("SelectWhInsHKID", "");
