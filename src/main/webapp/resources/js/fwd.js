@@ -4905,6 +4905,7 @@ function checkMembership(field){
 			result = false;
 		}else if(value == $("#Username").val().trim()){
 			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));
+			result = false;
 		}else $('#PasswordError').text('');
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
