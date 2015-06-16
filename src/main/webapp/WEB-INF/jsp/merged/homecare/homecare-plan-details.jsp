@@ -107,12 +107,10 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 	    }
 		
 		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
-		var skillsSelect = document.getElementById("selectADistHid");
-
-		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
-		if (selectedText.trim() == "HK")
+		
+		if ($("#selectADistHid option[value='"+id+"']").text() == "HK")
 			document.getElementById("inlineDeskRadio31").checked = true;
-		else if (selectedText.trim() == "KL")
+		else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
 			document.getElementById("inlineDeskRadio41").checked = true;
 		else
 			document.getElementById("inlineDeskRadio51").checked = true;

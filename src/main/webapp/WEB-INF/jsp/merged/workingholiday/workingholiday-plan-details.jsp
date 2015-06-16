@@ -26,16 +26,13 @@
 	
 	function setDropArea(id) {
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
-		var skillsSelect = document.getElementById("selectCADistHid");
-		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		
-		if (selectedText.trim() == "HK"){
-			document.getElementById("inlineCARadio3").checked = true;
-		}else if (selectedText.trim() == "KL"){
-			document.getElementById("inlineCARadio4").checked = true;
-		}else{
-			document.getElementById("inlineCARadio5").checked = true;
-		}
+		if ($("#selectCADistHid option[value='"+id+"']").text() == "HK")
+            document.getElementById("inlineCARadio3").checked = true;
+        else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+            document.getElementById("inlineCARadio4").checked = true;
+        else
+            document.getElementById("inlineCARadio5").checked = true;
 	}
 	
 	
