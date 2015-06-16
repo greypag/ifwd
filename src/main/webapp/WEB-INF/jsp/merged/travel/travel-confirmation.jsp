@@ -46,21 +46,6 @@
   String key_disclaimer2Part3 = "travel.referral.benefits." + userType + ".disclaimer2.part3";
 %>
 
-<script>
-perventRedirect=true;
-
-function getPromoCode(){
-	$.ajax({
-		type : "POST",
-		url : '<%=request.getContextPath()%>/getPromoCode',
-		async : false,
-		success : function(data) {
-			$("#promoCode").val(data);
-		}
-	});
-}
-
-</script>
 <!--/#main-Content-->
 <section>
    <div id="cn" class="container">
@@ -130,16 +115,6 @@ function getPromoCode(){
                   <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong><span><%=session.getAttribute("myTravelReferralCode")%></span>
               </h5>
 				
-				<% 
-					String username = (String) session.getAttribute("username");
-					if (username != null && !(username.equals("*DIRECTGI"))) {
-				%>
-					<div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
-						<input type="text" id="promoCode" value="" style="width: ">
-                		<input type="button" value="promoCode" onclick="getPromoCode()">
-              		</div>
-				<% } %>
-				
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
                 <fmt:message key="<%=key_referralCodeDesc%>" bundle="${msg}" />
                 <!-- <span class="orange-star">*</span> -->
@@ -178,8 +153,8 @@ function getPromoCode(){
                                       <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
                                   </tr>
                                   <tr>
-                                      <td><strong style="color: #f6871e;"><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong><a href="javascript:;" onclick="" class="btn-box-2 color4 login-btn" style="padding:6px;font-size:14px;margin-left:10px;"><fmt:message key="home.confirmation.agoda.get" bundle="${msg}" /></a></td>
-                                      <td><strong style="color: #f6871e;"><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
+                                      <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
+                                      <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
                                       <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
                                   </tr>
                               </tbody>
@@ -291,8 +266,8 @@ function getPromoCode(){
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
                                   </div>
-                                  <div class="col-sm-12 col-xs-12" style="color: #f6871e;">
-                                      <fmt:message key="<%=key_row4col2%>" bundle="${msg}" /><a href="javascript:;" onclick="" class="btn-box-2 color4 login-btn" style="padding:6px;font-size:14px;margin-left:10px;"><fmt:message key="home.confirmation.agoda.get" bundle="${msg}" /></a>
+                                  <div class="col-sm-12 col-xs-12">
+                                      <fmt:message key="<%=key_row4col2%>" bundle="${msg}" />
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
@@ -301,7 +276,7 @@ function getPromoCode(){
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
                                   </div>
-                                  <div class="col-sm-12 col-xs-12" style="color: #f6871e;">
+                                  <div class="col-sm-12 col-xs-12">
                                       <fmt:message key="<%=key_row4col3%>" bundle="${msg}" />
                                   </div>
                                   <div class="clearfix"></div>
