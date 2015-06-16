@@ -251,8 +251,8 @@
 						                                <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td><strong style="color: #f6871e;"><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong><a href="javascript:;" onclick="" class="btn-box-2 color4 login-btn" style="padding:6px;font-size:14px;margin-left:10px;"><fmt:message key="home.confirmation.agoda.get" bundle="${msg}" /></a></td>
-						                                <td><strong style="color: #f6871e;"><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                        </tbody>
@@ -364,8 +364,8 @@
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
                                                     </div>
-                                                    <div class="col-sm-12 col-xs-12" style="color: #f6871e;">
-                                                        <fmt:message key="<%=key_row4col2%>" bundle="${msg}" /><a href="javascript:;" onclick="" class="btn-box-2 color4 login-btn" style="padding:6px;font-size:14px;margin-left:10px;"><fmt:message key="home.confirmation.agoda.get" bundle="${msg}" /></a>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row4col2%>" bundle="${msg}" />
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
@@ -374,7 +374,7 @@
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
                                                     </div>
-                                                    <div class="col-sm-12 col-xs-12" style="color: #f6871e;">
+                                                    <div class="col-sm-12 col-xs-12">
                                                         <fmt:message key="<%=key_row4col3%>" bundle="${msg}" />
                                                     </div>
                                                     <div class="clearfix"></div>
