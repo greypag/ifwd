@@ -291,7 +291,7 @@ class="image-order-status image-order-status-active  img-circle">
                 </div>  
                 <span id="chk1" class="text-red"></span>
                 <h3 class="error-hide1" style='display:none; color:red; font-size:15px;'>
-                     Please read and accept the Declaration, Terms & Conditions before submitting the application.
+                    <fmt:message key="general.tnc.error" bundle="${msg}" />
                 </h3>     
                 
                 <div class="checkbox">
@@ -307,7 +307,7 @@ class="image-order-status image-order-status-active  img-circle">
                 </div>
                 <span id="chk2" class="text-red"></span>
                 <h3 class="error-hide2" style='display:none; color:red; font-size:15px;'>
-                    Please read and accept the Personal Information Collection Statement before submitting the application.
+                    <fmt:message key="general.PICS.error" bundle="${msg}" />
                 </h3>
                 <hr/>
                 <div>
