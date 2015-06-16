@@ -23,7 +23,7 @@ public class ECommController {
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) {
-		if (!action.toLowerCase().contains("tc/") && !action.toLowerCase().contains("en/") && !action.contains("joinus") && !action.contains("error")) {
+		if (!action.toLowerCase().contains("/tc/") && !action.toLowerCase().contains("/en/") && !action.contains("joinus") && !action.contains("error")) {
 			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
 			return null;
 		} else if (action.contains(".") && !action.contains("error")) {
@@ -55,10 +55,10 @@ public class ECommController {
 
 			viewName = action;
 			
-			if (viewName.indexOf("en") > 0)
-				viewName = viewName.replace("en", "tc");
+			if (viewName.indexOf("/en/") > 0)
+				viewName = viewName.replace("/en/", "/tc/");
 			else
-				viewName = viewName.replace("tc", "en");
+				viewName = viewName.replace("/tc/", "/en/");
 			
 			return new ModelAndView("redirect:" + viewName);
 			
