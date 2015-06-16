@@ -74,6 +74,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
 </form>
+<h2 style="text-align: center;"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
 </div>
 <!--Mobileform--> 
 

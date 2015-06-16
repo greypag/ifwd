@@ -361,7 +361,7 @@ function activateUserAccountJoinUs() {
                                         class="form-control full-control" id="inputFullName"
                                         value="${userDetails.getFullName()}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                        onkeypress="return alphaOnly(event);" maxlength="100" />
+                                        onkeypress="return alphaOnly(event);" maxlength="100" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>
@@ -422,7 +422,7 @@ function activateUserAccountJoinUs() {
                                         class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"
-                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
+                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
                                     <span id="errMobileNo" class="text-red">
                                     </span>
                                </div>
@@ -437,7 +437,7 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control" name="emailAddress"
                                         value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
-                                        maxlength="50" onblur="validateEmail('inputEmailId','emailid');"> <span id="emailid" class="text-red"></span>
+                                        maxlength="50" onblur="validateEmail('inputEmailId','emailid');" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if>> <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
                            <!-- email address ends -->
@@ -656,14 +656,14 @@ function activateUserAccountJoinUs() {
                                                         id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                 </c:if>
                                                 <c:if test="${inx > 1}">
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value=""
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                  </c:if>
                                                  <span id="errtxtPersonalFullName${inx}" class="text-red"></span>
                                            </div>
@@ -1036,14 +1036,14 @@ function activateUserAccountJoinUs() {
                                                         id="txtInsuFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                     </c:if>
                                                     <c:if test="${inx > 1}">
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName" value=""
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"></span>
                                            </div>

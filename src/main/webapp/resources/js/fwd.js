@@ -1407,7 +1407,7 @@ function fPlanValid()
 		
 		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
 		var HkidPass = document.getElementById("txtchildInsuHkid"+i).value;
-		var selectedChldBenefitiaryHkidPass = document.getElementById("selectedChldBenefitiaryHkidPass" + i).value;
+		var selectedChldBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 
 		if(selectedValue != "SE"){
 			
@@ -1532,7 +1532,7 @@ function fPlanValid()
 
 			var hkidc = document.getElementById("txtOtherBenInsuHkid" + i).value;
 			$("#errtxtOtherBenInsuHkid" + i).html("");
-			var selectOtherBenefitiaryHkidPass = document.getElementById("selectOtherBenefitiaryHkidPass" + i).value;
+			var selectOtherBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 			
 			
 			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID' ) {
@@ -3163,8 +3163,17 @@ function flightValidateBtmTravel() {
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
-	var new_end = new Date(endDate);
+	/*var new_start = new Date(startDate);
+	var new_end = new Date(endDate);*/
+	
+	var startDates= new Array();
+	startDates=startDate.split("-");
+	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
+	
+	var endDates = new Array();
+	endDates = endDate.split("-");
+	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
+	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
@@ -3498,12 +3507,15 @@ function forgotPassword()
 
 		valid = false;
 
-	} else {
+	}else if(el.length < 6 || el.length > 50) {
+		return getBundle(getBundleLanguage, "user.username.length.message");
+	}
+	/*else {
 		if (reg.test(userName) == false) {
 			document.getElementById("errorFInvalidUName").style.display = "block";
 			valid = false;
 		}
-	}
+	}*/
 	return valid;
 }
 function forgotUserName() {
@@ -4902,6 +4914,7 @@ function checkMembership(field){
 			result = false;
 		}else if(value == $("#Username").val().trim()){
 			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));
+			result = false;
 		}else $('#PasswordError').text('');
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
@@ -5060,6 +5073,11 @@ function activateUserAccount(){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
 			check = false;
 		}
+	}
+	
+	if(userName == password){
+		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+		check = false;
 	}
 	
 	var mobileValidateResult = isMobileNo(mobile);

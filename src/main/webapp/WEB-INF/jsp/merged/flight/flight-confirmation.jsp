@@ -275,13 +275,6 @@ class="image-order-status image-order-status-active  img-circle">
             <div class="declaration-content">
                 <h4 class="h4-2"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
                 
-                <h3 class="error-hide1" style='display:none; color:red; font-size:15px;'>
-                     Please read and accept the Declaration, Terms & Conditions before submitting the application.
-                </h3>
-                
-                
-                
-                
                 <div class="checkbox">
                     <input id="checkbox1" name="checkbox1" type="checkbox"> 
                     <label for="checkbox1">
@@ -296,14 +289,10 @@ class="image-order-status image-order-status-active  img-circle">
                         
                     </label>
                 </div>  
-                <span id="chk1" class="text-red"></span>        
-                
-                
-                
-                <h3 class="error-hide2" style='display:none; color:red; font-size:15px;'>
-                    Please read and accept the Personal Information Collection Statement before submitting the application.
-                </h3>
-                
+                <span id="chk1" class="text-red"></span>
+                <h3 class="error-hide1" style='display:none; color:red; font-size:15px;'>
+                     Please read and accept the Declaration, Terms & Conditions before submitting the application.
+                </h3>     
                 
                 <div class="checkbox">
                     <input id="checkbox2" name="checkbox2" type="checkbox"> <label
@@ -317,6 +306,9 @@ class="image-order-status image-order-status-active  img-circle">
                         </label>
                 </div>
                 <span id="chk2" class="text-red"></span>
+                <h3 class="error-hide2" style='display:none; color:red; font-size:15px;'>
+                    Please read and accept the Personal Information Collection Statement before submitting the application.
+                </h3>
                 <hr/>
                 <div>
                      <label>

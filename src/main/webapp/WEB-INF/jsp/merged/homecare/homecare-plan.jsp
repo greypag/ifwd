@@ -680,7 +680,7 @@ function checkPromoCodePlaceholder(){
 	                            <span class="text-red" id="errPromoCode"></span>
 	                            <div id="promo-wrap" class="form-group">
 	                                <div class="input-group">
-	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>

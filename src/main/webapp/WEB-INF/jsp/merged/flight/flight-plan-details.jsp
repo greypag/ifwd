@@ -367,7 +367,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                   value="${userDetails.getFullName().trim()}" class="form-control full-control"
 	                                   id="inputFullName" name="fullName"
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-	                                   onkeypress="return alphaOnly(event);" maxlength="100" /> 
+	                                   onkeypress="return alphaOnly(event);" maxlength="100" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>
@@ -416,7 +416,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						                value="${userDetails.getMobileNo().trim()}" class="form-control full-control"
 						                name="mobileNo" id="inputMobileNo"
 						                onkeypress="return isNumeric(event)"
-						                onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" /> 
+						                onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
 						            <span id="mobileNoInvalid" class="text-red"></span>
                                </div>
                            </div>
@@ -432,7 +432,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    <input class="form-control full-control"
 					                value="${userDetails.getEmailAddress().trim()}" name="emailAddress"
 					                id="inputEmailId"
-					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
+					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
 					                <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
@@ -673,14 +673,14 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
                                                         value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>
                                                             <c:if test="${inx > 1}">
                                                                 <input
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
                                                         value="" class="form-control full-control"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                     </c:if>
                                                     <span id="errtxtPersonalFullName${inx}" class="text-red"> </span>
 			                               </div>
@@ -995,14 +995,14 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
                                                         value="${userDetails.getFullName().trim()}" class="form-control full-control"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>
                                                             <c:if test="${inx > 1}">
                                                                 <input
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
                                                         value="" class="form-control full-control"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"> </span>
                                            </div>
@@ -1112,7 +1112,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
-                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedAdBenefitiaryHkidPass" onchange="togglePlaceholder(this,'adultBenefitiaryHKId${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedOtherBenefitiaryHkidPass" onchange="togglePlaceholder(this,'adultBenefitiaryHKId${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
@@ -1750,7 +1750,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
-                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedAdBenefitiaryHkidPass" onchange="togglePlaceholder(this,'txtOtherBenInsuHkid${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedChldBenefitiaryHkidPass" onchange="togglePlaceholder(this,'txtOtherBenInsuHkid${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
