@@ -7,19 +7,16 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
-import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
-@SuppressWarnings("unchecked")
 public class ECommController {
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
@@ -154,15 +151,9 @@ public class ECommController {
 	
 	
 	@RequestMapping(value = "/{lang}/maintenace")
-	public ModelAndView maintenace(HttpServletRequest request,
-			@RequestParam String action, @RequestParam String errMsgs) {
+	public ModelAndView maintenace(HttpServletRequest request,HttpServletResponse response) {
 		
-		String viewName = action.replace("/", "");
-		if (StringHelper.isStringNullOrEmpty(errMsgs))
-			return new ModelAndView("redirect:" + viewName + "?errMsgs="
-					+ errMsgs);
-		else
-			return new ModelAndView("redirect:" + viewName);	
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
 	
 }
