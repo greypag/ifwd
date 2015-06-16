@@ -8,7 +8,7 @@
 
 
 	<script>
-		function forgotUserPassword() {
+		function forgotUserPassword1() {
 
 			if (forgotPassword() == true) {
 
@@ -16,23 +16,20 @@
 				$.ajax({
 							type : 'POST',
 							url : '<%=request.getContextPath()%>/forgotUserPassword',
-							data : $('#forgotPasswordForm input').serialize(),
+							data : $('#forgotPasswordForm1 input').serialize(),
 							success : function(data) {
 
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
 									$('#forgotpassword-err-msg1')
-											.html(
-													'Provided User Account Details Does Not Exist');
+											.html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 									$('#forgotpassword-err-msg1').show();
 								} else if (data == 'success') {
 									$('#success-message1')
-											.html(
-													'Link Sent Successfully On Your Registered Mail ID');
+											.html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
 									$('#success-message1').show();
 								} else {
-									$('#success-message1').html(
-											'Internet Connection Error ');
+									$('#success-message1').html(getBundle(getBundleLanguage, "connection.lost.message"));
 									$('#success-message1').show();
 									$('#user-details-main').hide();
 								}
@@ -65,7 +62,7 @@
 						src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 				</div>
 				<div class="col-lg-7 col-md-7 col-xs-12 col-sm-12 margin-left">
-					<form name="forgotPasswordForm" id="forgotPasswordForm"
+					<form name="forgotPasswordForm1" id="forgotPasswordForm1"
 						action="forgotPassword" method="post"
 						commandName="forgotUserPassword">
 						<div id="hide-field"></div>
@@ -103,7 +100,6 @@
 										<tr>
 											<td class=""><label class="control-label lhnormal"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />
 											</label></td>
-
 											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="fEmailAddress"
 												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorFEmptyEmailId"
@@ -131,7 +127,7 @@
 												<!-- <button type="button" onclick="forgotPassword()"
 												class="bdr-curve-none btn btn-primary btn-lg ">Submit</button> -->
 
-												<button type="button" onclick="forgotUserPassword()"
+												<button type="button" onclick="forgotUserPassword1();"
 													class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>
 
 											</td>

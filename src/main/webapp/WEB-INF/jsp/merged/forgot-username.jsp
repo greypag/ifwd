@@ -24,8 +24,7 @@
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
 									$('#success-message')
-											.html(
-													'Provided User Account Details Does Not Exist');
+											.html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 									$('#success-message').show();
 									$('#user-details-main').hide();
 									$('#hide-field').hide();
