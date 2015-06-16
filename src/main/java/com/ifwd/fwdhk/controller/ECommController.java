@@ -26,10 +26,10 @@ public class ECommController {
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) {
-		if (!action.toLowerCase().contains("tc/") && !action.toLowerCase().contains("en/") && !action.contains("joinus")) {
+		if (!action.toLowerCase().contains("tc/") && !action.toLowerCase().contains("en/") && !action.contains("joinus") && !action.contains("error")) {
 			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
 			return null;
-		} else if (action.contains(".")) {
+		} else if (action.contains(".") && !action.contains("error")) {
 			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
 			return null;
 		} else {
@@ -151,6 +151,18 @@ public class ECommController {
 //		}
 		
 	}
-
+	
+	
+	@RequestMapping(value = "/{lang}/maintenace")
+	public ModelAndView maintenace(HttpServletRequest request,
+			@RequestParam String action, @RequestParam String errMsgs) {
+		
+		String viewName = action.replace("/", "");
+		if (StringHelper.isStringNullOrEmpty(errMsgs))
+			return new ModelAndView("redirect:" + viewName + "?errMsgs="
+					+ errMsgs);
+		else
+			return new ModelAndView("redirect:" + viewName);	
+	}
 	
 }
