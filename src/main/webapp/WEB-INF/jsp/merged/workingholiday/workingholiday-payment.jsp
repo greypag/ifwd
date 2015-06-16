@@ -178,8 +178,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.period" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
                                                 <fmt:message key="workingholiday.summary.period.from" bundle="${msg}" />
-	                                            ${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" />
-	                                            ${expiryDate}
+	                                            ${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" /> ${expiryDate}
                                             </div>
                                         </div>
                                         <div class="row summary-row">
