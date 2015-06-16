@@ -50,7 +50,6 @@
 perventRedirect=true;
 
 function getPromoCode(){
-	alert(12121);
 	$.ajax({
 		type : "POST",
 		url : '<%=request.getContextPath()%>/getPromoCode',
