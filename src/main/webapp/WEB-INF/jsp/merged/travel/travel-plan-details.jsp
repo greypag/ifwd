@@ -422,7 +422,7 @@ function activateUserAccountJoinUs() {
                                         class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"
-                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
+                                        onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
                                     <span id="errMobileNo" class="text-red">
                                     </span>
                                </div>
@@ -437,7 +437,7 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control" name="emailAddress"
                                         value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
-                                        maxlength="50" onblur="validateEmail('inputEmailId','emailid');" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if>> <span id="emailid" class="text-red"></span>
+                                        maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
                            <!-- email address ends -->
@@ -683,7 +683,8 @@ function activateUserAccountJoinUs() {
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"/> 
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
+                                               readonly="readonly"/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -1066,7 +1067,8 @@ function activateUserAccountJoinUs() {
                                                <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);"
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"/> 
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
+                                               readonly="readonly"/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>

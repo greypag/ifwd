@@ -416,7 +416,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 						                value="${userDetails.getMobileNo().trim()}" class="form-control full-control"
 						                name="mobileNo" id="inputMobileNo"
 						                onkeypress="return isNumeric(event)"
-						                onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
+						                onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" /> 
 						            <span id="mobileNoInvalid" class="text-red"></span>
                                </div>
                            </div>
@@ -432,7 +432,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    <input class="form-control full-control"
 					                value="${userDetails.getEmailAddress().trim()}" name="emailAddress"
 					                id="inputEmailId"
-					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
+					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
 					                <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
@@ -699,7 +699,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     class="form-control textUpper full-control bmg_custom_placeholder"
                                                      onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                      onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
-                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);"/>
+                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);"
+                                                    readonly="readonly"/>
                                                     <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span>
                                            </div>
@@ -1021,7 +1022,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     class="form-control textUpper full-control bmg_custom_placeholder"
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');"
 													onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdultHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
-                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')"/> <span id="errtxtInsuHkid${inx}"
+                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')"
+                                                    readonly="readonly"/> <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span>
                                            </div>
                                        </div>
