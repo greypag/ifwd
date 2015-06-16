@@ -3163,8 +3163,17 @@ function flightValidateBtmTravel() {
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
-	var new_end = new Date(endDate);
+	/*var new_start = new Date(startDate);
+	var new_end = new Date(endDate);*/
+	
+	var startDates= new Array();
+	startDates=startDate.split("-");
+	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
+	
+	var endDates = new Array();
+	endDates = endDate.split("-");
+	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
+	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
