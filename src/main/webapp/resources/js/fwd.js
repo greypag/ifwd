@@ -5060,7 +5060,7 @@ function activateUserAccount(){
 		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
 		check = false;
 	} else {
-		if(name == password){
+		if(userName == password){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
 			check = false;
 		}
