@@ -516,7 +516,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
                                 <a id="button_confirm" onclick="perventRedirect=false;confirmWorkingHolidayPayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" /></a>
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" /></a>
                             </div>
                         </div>
                             <div class="clearfix"></div>

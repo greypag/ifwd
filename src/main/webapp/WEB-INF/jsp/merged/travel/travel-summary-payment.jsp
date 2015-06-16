@@ -900,7 +900,7 @@ var enablePayment=true;
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
                                 <a id="button_confirm" onclick="perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
                             </div>
                         </div>
                         
