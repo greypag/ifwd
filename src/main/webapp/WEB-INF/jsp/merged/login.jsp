@@ -74,7 +74,7 @@
                                                     </div>
                                                     <h3
                                                         class="text-left col-lg-6 col-md-6 pad-none margin-none">
-                                                        <span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/joinus">
+                                                        <span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/${language}/joinus">
                                                             <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
                                                     </h3>
                                                     <div class="clearfix"></div>
