@@ -62,7 +62,7 @@
 %>
 
 <script>
-
+perventRedirect=true;
 
 
 function activateUserAccountJoinUs() {

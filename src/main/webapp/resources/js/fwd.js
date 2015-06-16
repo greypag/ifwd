@@ -1025,7 +1025,7 @@ function fPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365)); 
+		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
          if(insured1Hkid != null && insured1Hkid == appHkid){   		 
 			 if (age == 1) {
@@ -1629,7 +1629,7 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
             var tr1 = chkTravelHKPass(appHkid.trim());
             
 			if (tr == false) {
-				$('#'+errorId).html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+				$('#'+errorId).html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 				
 				return false;
 			}	
