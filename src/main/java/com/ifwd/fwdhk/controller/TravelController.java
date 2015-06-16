@@ -5,6 +5,8 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -601,13 +603,14 @@ public class TravelController {
 //		return "JSON";
 	}
 	
-	@SuppressWarnings({ "deprecation", "unused" })
+	@SuppressWarnings({ "unused" })
 	@RequestMapping(value = "/applyTravelPromoCode", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyPromotionCode(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
-			BindingResult result, Model model, HttpServletRequest request) {
-
+			BindingResult result, Model model, HttpServletRequest request) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		
 		JSONObject responseJsonObj = new JSONObject();
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
@@ -617,8 +620,10 @@ public class TravelController {
 		int days = 0;
 		int otherCount = 0, childCount = 0, adultCount = 0;
 		boolean spouseCover = false, selfCover = false;
-		Date dateD1 = new Date(travelQuote.getTrLeavingDate());
-		Date dateD2 = new Date(travelQuote.getTrBackDate());
+		/*Date dateD1 = new Date(travelQuote.getTrLeavingDate());
+		Date dateD2 = new Date(travelQuote.getTrBackDate());*/
+		Date dateD1 = sdf.parse(travelQuote.getTrLeavingDate());
+		Date dateD2 = sdf.parse(travelQuote.getTrBackDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();

@@ -389,7 +389,7 @@
 										<div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true" style="  background-color: #f5f5f5;">
 										<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home?promo=<%=session.getAttribute("myReferralCode")%>
 										</div>
-										<div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage">Press CTRL-C to copy</span> <span class="boxDownArrow"></span> </div>
+										<div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage"><fmt:message key="link.copy.desktop" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
 										</div>
 									</td>
 
