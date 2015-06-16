@@ -48,6 +48,19 @@
 
 <script>
 perventRedirect=true;
+
+function getPromoCode(){
+	alert(12121);
+	$.ajax({
+		type : "POST",
+		url : '<%=request.getContextPath()%>/getPromoCode',
+		async : false,
+		success : function(data) {
+			$("#promoCode").val(data);
+		}
+	});
+}
+
 </script>
 <!--/#main-Content-->
 <section>
@@ -117,7 +130,17 @@ perventRedirect=true;
               <h5 class="bmg-confirmation-h5">
                   <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong><span><%=session.getAttribute("myTravelReferralCode")%></span>
               </h5>
-
+				
+				<% 
+					String username = (String) session.getAttribute("username");
+					if (username != null && !(username.equals("*DIRECTGI"))) {
+				%>
+					<div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
+						<input type="text" id="promoCode" value="" style="width: ">
+                		<input type="button" value="promoCode" onclick="getPromoCode()">
+              		</div>
+				<% } %>
+				
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
                 <fmt:message key="<%=key_referralCodeDesc%>" bundle="${msg}" />
                 <!-- <span class="orange-star">*</span> -->
