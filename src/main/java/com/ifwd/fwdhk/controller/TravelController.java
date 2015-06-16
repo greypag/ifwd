@@ -86,7 +86,6 @@ public class TravelController {
 			}	
 		}
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-		//System.out.println("travel promo " + (String)session.getAttribute("referralCode"));
 		TravelQuoteBean travelQuote;
 		
 		//travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
@@ -102,7 +101,6 @@ public class TravelController {
 			travelQuote.setPlanSelected("personal");
 		}
 		else{
-			//System.out.println("Plan selected : "+travelQuote.getPlanSelected());
 		}
 		
 		session.setAttribute("corrTravelQuote", travelQuote);
@@ -126,7 +124,6 @@ public class TravelController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
-		//System.out.println("travel path " + request.getRequestURI().toString());
 		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/travel-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/travel-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
@@ -166,12 +163,6 @@ public class TravelController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		//System.out.println("/{lang}/travel-insurance/quote");
-		//System.out.println("PLAN SELECTED " + travelQuote.getPlanSelected());
-		//System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
-		//System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
-		//System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
-		//System.out.println("OTHER " + travelQuote.getTotalOtherTraveller());
 		
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -192,7 +183,6 @@ public class TravelController {
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 			}				
 		}
-		//System.out.println("plan: " + travelQuote.getPlanSelected() );
 		session.setAttribute("corrTravelQuote", travelQuote);
 		
 		try {
@@ -245,13 +235,6 @@ public class TravelController {
 				}
 			}
 			
-			//System.out.println("------------------------------------------------------------");
-			//System.out.println("CALLING API");
-			//System.out.println("SELF COVER " + selfCover);
-			//System.out.println("SPOUSE COVER " + spouseCover);
-			//System.out.println("CHILD COUNT " + childCount);
-			//System.out.println("OTHER COUNT " + otherCount);		
-			//System.out.print("------------------------------------------------------------");
 			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
 			travelQuoteCount.setSelfCover(selfCover);
 			travelQuoteCount.setSpouseCover(spouseCover);
@@ -271,8 +254,6 @@ public class TravelController {
 					+ commencementDate + "&expiryDate=" + expiryDate
 					+ "&referralCode=" + promoCode;
 
-			//System.out.println("Travel Quote user " + Url);
-
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			if (request.getSession().getAttribute("username") != null) {
@@ -288,9 +269,7 @@ public class TravelController {
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
-			logger.info("Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
-			//System.out.println("Get Travel Quotes API " + responseJsonObj);
-			//System.out.println("errMsgs " + responseJsonObj.get("errMsgs"));
+			logger.info("Get Travel Quotes API " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
@@ -400,7 +379,6 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		//System.out.println("plan: " + travelQuote.getPlanSelected() );
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-plan");
@@ -416,13 +394,6 @@ public class TravelController {
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Travel");
-		
-		//System.out.println("/updateTravelQuote");
-		////System.out.println("PLAN SELECTED " + travelQuote.getPlanSelected());
-		//System.out.println("PERSONAL " + travelQuote.getTotalPersonalTraveller());
-		//System.out.println("ADULT " + travelQuote.getTotalAdultTraveller());
-		//System.out.println("CHILD " + travelQuote.getTotalChildTraveller());
-		//System.out.println("OTHER " + travelQuote.getTotalOtherTraveller());
 		
 		// test planselected
 		if( travelQuote.getTotalPersonalTraveller() > 0 ) {
@@ -464,10 +435,8 @@ public class TravelController {
 		}
 		
 		session.setAttribute("corrTravelQuote", travelQuote);
-		////System.out.println("plan: " + travelQuote.getPlanSelected() );
 		
 		try {
-			//System.out.println("=1");
 			
 			String token = null, username = null;
 			if ((session.getAttribute("token") != null)
@@ -482,7 +451,6 @@ public class TravelController {
 				}
 			}
 			
-			//System.out.println("=2");
 			int days = 0;
 
 			/* Calculate total Days */
@@ -493,13 +461,10 @@ public class TravelController {
 			days = Days.daysBetween(commencementDate, expiryDate).getDays();
 			travelQuote.setTotalTravellingDays(days + 1);
 			
-			//System.out.println("=3" + travelQuote );
-			//System.out.println("plan:"+travelQuote.getPlanSelected());
 			int otherCount = 0, childCount = 0, adultCount = 0;
 			boolean spouseCover = false, selfCover = false;
 			if (travelQuote.getPlanSelected().equals("personal")) 
 			{
-				//System.out.println("=4");
 				selfCover = true;
 				spouseCover = false;
 				otherCount = travelQuote.getTotalPersonalTraveller();
@@ -507,7 +472,6 @@ public class TravelController {
 			} 
 			else 
 			{
-				//System.out.println("=5");
 				adultCount = travelQuote.getTotalAdultTraveller();
 				childCount = travelQuote.getTotalChildTraveller();
 				otherCount = travelQuote.getTotalOtherTraveller();
@@ -523,13 +487,6 @@ public class TravelController {
 				}
 			}
 			
-			//System.out.println("------------------------------------------------------------");
-			//System.out.println("UpdateTravelQuote CALLING API");
-			//System.out.println("SELF COVER " + selfCover);
-			//System.out.println("SPOUSE COVER " + spouseCover);
-			//System.out.println("CHILD COUNT " + childCount);
-			//System.out.println("OTHER COUNT " + otherCount);		
-			//System.out.print("------------------------------------------------------------");
 			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
 			travelQuoteCount.setSelfCover(selfCover);
 			travelQuoteCount.setSpouseCover(spouseCover);
@@ -548,8 +505,6 @@ public class TravelController {
 					+ commencementDate + "&expiryDate=" + expiryDate
 					+ "&referralCode=" + promoCode;
 
-			//System.out.println("Travel Quote user " + Url);
-
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			if (request.getSession().getAttribute("username") != null) {
@@ -565,8 +520,6 @@ public class TravelController {
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
-			//System.out.println("total days: " + travelQuote.getTotalTravellingDays());
-			//System.out.println("Get Travel Quotes API " + responseJsonObj);
 			logger.info("Get Travel Quotes API " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				
@@ -674,13 +627,6 @@ public class TravelController {
 		spouseCover = travelQuoteCount.isSpouseCover();
 		childCount = travelQuoteCount.getTotalChildTraveller();
 		otherCount = travelQuoteCount.getTotalOtherTraveller();
-		//System.out.println("------------------------------------------------------------");
-		//System.out.println("CALLING API");
-		//System.out.println("SELF COVER " + selfCover);
-		//System.out.println("SPOUSE COVER " + spouseCover);
-		//System.out.println("CHILD COUNT " + childCount);
-		//System.out.println("OTHER COUNT " + otherCount);		
-		//System.out.println("------------------------------------------------------------");
 		
 		try {
 			travelQuote.setTotalTravellingDays(days + 1);
@@ -709,8 +655,6 @@ public class TravelController {
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
-			/*System.out.println("Response Get Travel Quotes API "
-					+ responseJsonObj);*/
 			logger.info("Response Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 				session.setAttribute("referralCode", "");
@@ -756,11 +700,9 @@ public class TravelController {
 				request.setAttribute("quoteDetails", quoteDetails);
 				
 				session.setAttribute("quoteDetails", quoteDetails);
-				//System.out.println(responseJsonObj.toString());
 				return responseJsonObj.toString();
 			} else {
 				model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
-				//System.out.println(responseJsonObj.toString());
 				return responseJsonObj.get("errMsgs").toString();
 			}
 
@@ -799,14 +741,12 @@ public class TravelController {
 		String selectPlanName = WebServiceUtils.getParameterValue(
 				"selectPlanName", session, request);
 		selectPlanName = planName;
-		//System.out.println("Seeeeeee" + selectPlanName);
 		
 		if (travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 			if(travelQuote == null){
-				//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);	
 				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}				
 		}
@@ -886,6 +826,7 @@ public class TravelController {
 			if (responseJsonObj.get("errMsgs") == null) {
 				JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
 						.get("optionItemDesc");
+				logger.info("GET_AGE_TYPE Response" + jsonAgeTypeArray);
 				Map<String, String> mapAgeType = new HashMap<String, String>();
 				Map<String, String> mapSelfType = new HashMap<String, String>();
 				Map<String, String> mapChildType = new HashMap<String, String>();
@@ -905,7 +846,6 @@ public class TravelController {
 				iterator = mapAgeType.entrySet().iterator();
 				while (iterator.hasNext()) {
 					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					//System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 					if (mapEntry.getKey().equals("1")) {
 						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
 					}
@@ -929,8 +869,7 @@ public class TravelController {
 				if (responseJsonObj.get("errMsgs") == null) {
 					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
 							.get("optionItemDesc");
-					/*System.out.println(" jsonRelationShipArray ====>>>>>>"
-							+ jsonRelationshipCode);*/
+					logger.info("jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
 
 					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -1018,9 +957,6 @@ public class TravelController {
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			/*System.out.println(WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));*/
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));
@@ -1039,18 +975,15 @@ public class TravelController {
 				}
 			}
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header, parameters);
-			
+			logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 			
 		}
 		
-		
-		//System.out.println("planDetaisForm " + planDetailsForm.toString() );
 		String hkId = "hkId", passId = "passport";
-		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
-		
 		
 		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		String planSelected = (String) session.getAttribute("planSelected");
@@ -1059,7 +992,6 @@ public class TravelController {
 			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		if(travelQuote == null || planSelected == null){
-			//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);				
 			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 		}
 		UserRestURIConstants.setController("Travel");
@@ -1069,17 +1001,8 @@ public class TravelController {
 		UserDetails userDetails = new UserDetails();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
-
-		//System.out.println("inside Controller fro prepare Summary" + selectPlanName);
-
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
 		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
-		
-		//System.out.println("departureDate " + deaprtureDate);
-		//System.out.println("returnDate " + returnDate);
-		
-		
-		
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
@@ -1095,8 +1018,6 @@ public class TravelController {
 			String[] paramValues = request.getParameterValues(paramName);
 			for (int i = 0; i < paramValues.length; i++) {
 				String paramValue = paramValues[i];
-				//System.out.println(paramName + " t " + paramValue);
-				
 			}
 		}
 		
@@ -1113,7 +1034,6 @@ public class TravelController {
 		dob = DateApi.pickDate1(dob);
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
-		//System.out.println("totalTravellingDays " + totalTravellingDays);
 		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
 		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
 		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
@@ -1153,7 +1073,6 @@ public class TravelController {
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setDob(dob);
-//		userDetails.setDob("");
         final String BENE_RELATIONSHIP_SELF = "SE";
 
 		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
@@ -1331,8 +1250,6 @@ public class TravelController {
 				} else {// If don't have beneficiary then
 					
 					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-					//System.out.println("planDetailsForm.getSelectedPersonalHkidPass()[inx] " + planDetailsForm.getSelectedPersonalHkidPass()[inx]);
-					//System.out.println("planDetailsForm.getPersonalHKID()[inx] " + planDetailsForm.getPersonalHKID()[inx]);
 					
 					beneficiary.put("hkId", 
 							checkPasswortAndHkid(
@@ -1364,15 +1281,11 @@ public class TravelController {
 				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
 			}
 			
-			//System.out.println("personal relationship " + personal.get("relationship").toString());
-			//System.out.println("beneficiary relationship " + beneficiary.get("relationship").toString());
-			
 			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, personal.get("relationship").toString(), inx));
 			
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		// personal
-		//System.out.println("personal done " + planDetailsForm.getTotalPersonalTraveller());		
 
 		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
@@ -1533,7 +1446,6 @@ public class TravelController {
 			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
 			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
-		//System.out.println("personal done " + planDetailsForm.getTotalAdultTraveller());
 		if (planDetailsForm.getTotalChildTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
 				JSONObject child = new JSONObject();
@@ -1622,7 +1534,6 @@ public class TravelController {
 				
 			}
 		}
-		//System.out.println("personal done " + planDetailsForm.getTotalChildTraveller());
 		if (planDetailsForm.getTotalOtherTraveller() > 0) {
 			for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
 				JSONObject other = new JSONObject();
@@ -1716,8 +1627,6 @@ public class TravelController {
 				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));				
 			}
 		}
-		//System.out.println("personal done " + planDetailsForm.getTotalOtherTraveller());
-		
 		
 		parameters.put("insured", insured);
 
@@ -1746,11 +1655,6 @@ public class TravelController {
 		
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", applicantMobNo);
-		
-		//System.out.println("Travel optIn1 " + planDetailsForm.getCheckbox3());
-		//System.out.println("Travel optIn2 " + planDetailsForm.getCheckbox4());
-		
-		
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
 		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("email", emailAddress);
@@ -1760,19 +1664,12 @@ public class TravelController {
 		JSONObject addressJsonObj = new JSONObject();
 		parameters.put("address", addressJsonObj);
 
-		/* //System.out.println(parameters); */
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		/*
-		 * //System.out.println("headers=====>>>>>" + header);
-		 */
-		// Comment for to avoid over load Data
-
-		//System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
 		//TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER IS NOT REUSED
 		
 		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
@@ -1780,12 +1677,12 @@ public class TravelController {
 		JSONObject responsObject = new JSONObject();
  		if (createPolicy == null) {
 
+ 			logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.PUT,
 					UserRestURIConstants.TRAVEL_CREATE_POLICY, header,
 					parameters);
+			logger.info("TRAVEL_CREATE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 			createPolicy = new CreatePolicy();
-			//System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
-			logger.info("TRAVEL_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
 			String finalizeReferenceNo = "";
 
@@ -1806,15 +1703,11 @@ public class TravelController {
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				/*System.out.println("Header Object for Confirm"
-						+ confirmPolicyParameter);*/
+				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
 				JSONObject jsonResponse = restService.consumeApi(
 						HttpMethod.POST,
 						UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 						confirmPolicyParameter);
-
-				/*System.out.println("Response From Confirm Travel Policy "
-						+ jsonResponse);*/
 				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
 
 				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
@@ -1827,7 +1720,6 @@ public class TravelController {
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
 			} else {
-				//System.out.println("redirect back");
 				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
 				return new ModelAndView("redirect:" + "/" + (String) session.getAttribute("language") + "/travel-insurance/user-details");
 			}
@@ -1853,8 +1745,6 @@ public class TravelController {
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
-		//System.out.println("path " + path);
-		
 		model.addAttribute("path",
 				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("path",
@@ -1883,13 +1773,7 @@ public class TravelController {
 	public String processPayment(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
-		
-		
-		
 		String referenceNo = request.getParameter("referenceNo");
-		
-		//System.out.print("referenceNo : " + referenceNo);
-		
 		JSONObject submitPolicy = new JSONObject();
 		submitPolicy.put("referenceNo", referenceNo);
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -1897,24 +1781,21 @@ public class TravelController {
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		
+		logger.info("TRAVEL_SUBMIT_POLICY Request" + submitPolicy);
 		JSONObject jsonResponse = restService.consumeApi(
 				HttpMethod.POST,
 				UserRestURIConstants.TRAVEL_SUBMIT_POLICY, header,
 				submitPolicy);
+		logger.info("TRAVEL_SUBMIT_POLICY Response" + jsonResponse);
 		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
 			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				String month = request.getParameter("epMonth");
-				//System.out.println("month " + month);
-				//System.out.println("pad month " + String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))));
-				//System.out.println("expiryDate " + request.getSession().getAttribute("expiryDate"));
 				session.setAttribute("transactionNo", request.getParameter("transNo"));
 				String encryptedCreditCard = request.getParameter("cardNo");
 				
 				
 				try {
 					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
-					//System.out.println("encryptedCreditCard "+ encryptedCreditCard);
-					
 					session.setAttribute("creditCardNo", encryptedCreditCard);
 				} catch (Exception e) {
 					session.setAttribute("creditCardNo", "");
@@ -1940,7 +1821,6 @@ public class TravelController {
 		
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
-			//System.out.println("Session Expired");
 			model.addAttribute("errormsg", "Session Expired");
 			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-confirmation";
@@ -1989,18 +1869,14 @@ public class TravelController {
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
 			header.put("token", session.getAttribute("token").toString());
-			/*System.out.println(WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));*/
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));
-			/*System.out.println("TRAVEL_FINALIZE_POLICY parameters-"
-					+ parameters);*/
-			//System.out.println("TRAVEL_FINALIZE_POLICY Header-" + header);
+			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
 					parameters);
+			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
 			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
@@ -2031,9 +1907,6 @@ public class TravelController {
 				return UserRestURIConstants.getSitePath(request)
 						+ "travel/travel-confirmation";
 			} else {
-				
-				//System.out.println(responsObject.get("errMsgs").toString());
-				
 				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
 					model.addAttribute("errorHeader1", "Invalid Payment Amount");
 					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
@@ -2045,9 +1918,6 @@ public class TravelController {
 					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 				}
-				
-				/*System.out.println("travel confirmation" + UserRestURIConstants.getSitePath(request)
-						+ "error");*/
 				return UserRestURIConstants.getSitePath(request)
 						+ "error";
 			}
@@ -2077,6 +1947,7 @@ public class TravelController {
 				HttpMethod.GET,
 				url, header,
 				null);
+		logger.info("TRAVEL_GET_PROMOCODE Response " + jsonResponse);
 		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
 			String promoCode = (String)jsonResponse.get("promoCode");
 			return promoCode;

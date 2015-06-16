@@ -266,7 +266,6 @@ public class UserRestURIConstants {
 		String servletPath = request.getServletPath();
 		HttpSession session = request.getSession();
 		
-		////System.out.println("sid: " + session.getId());
 		if (servletPath.indexOf(UserRestURIConstants.LANG_TC) >= 0)
 		{
 			session.setAttribute("language", UserRestURIConstants.LANG_TC);

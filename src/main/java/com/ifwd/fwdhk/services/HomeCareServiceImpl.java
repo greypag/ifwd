@@ -9,16 +9,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
-import org.apache.commons.io.IOUtils;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 
@@ -27,13 +23,12 @@ import com.ifwd.fwdhk.api.controller.RestServiceImpl;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.FinalizePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.DateApi;
-import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
@@ -44,10 +39,11 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 public class HomeCareServiceImpl implements HomeCareService {
 	@Autowired
 	SendEmailDao sendEmail;
+	
+	private final static Logger logger = LoggerFactory.getLogger(HomeCareServiceImpl.class);
 
 	public List<HomeCareQuetionaries> getHomeQuetionaries(String token,
 			String userName, String language) {
-		// TODO Auto-generated method stub
 
 		String Url = UserRestURIConstants.GET_HOMECARE_UW_QUESTIONS;
 		RestServiceDao restService = new RestServiceImpl();
@@ -60,6 +56,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		header.put("language", WebServiceUtils.transformLanaguage(language));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 				Url, header, null);
+		logger.info("GET_HOMECARE_UW_QUESTIONS Response " + responseJsonObj);
 		
 //		String encoding = "UTF-8";
 //		String responseStr = IOUtils.toString(responseJsonOb, encoding);
@@ -84,7 +81,6 @@ public class HomeCareServiceImpl implements HomeCareService {
 				quetionaries.setQid(String.valueOf(i));
 				quetionariesList.add(quetionaries);
 				i++;
-				////System.out.println("Value After ++" + i);
 			}
 
 		}
@@ -114,8 +110,6 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1 = "";
 		;
 		String ans2 = "";
-		/*System.out.println("Ans 1 in Controller===" + answer1
-				+ "Answer2 in Servicr impl===" + answer2);*/
 		// answer1 = StringHelper.convertToUTF8(answer1);
 
 		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
@@ -132,7 +126,6 @@ public class HomeCareServiceImpl implements HomeCareService {
 		try {
 			userReferralCode = java.net.URLEncoder.encode(userReferralCode, "UTF-8").replace("+", "%20");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			userReferralCode = "";
 			e.printStackTrace();
 		}
@@ -153,23 +146,15 @@ public class HomeCareServiceImpl implements HomeCareService {
 			header.put("token", token);
 		}
 
-		//System.out.println("******************URL==>" + url);
-		//System.out.println("******************Header ===>>" + header);
-
 		JSONObject jsonGetPlanResponse = restService.consumeApi(HttpMethod.GET,
 				url, header, null);
+		logger.info("HOMECARE_GET_QUOTE Response " + jsonGetPlanResponse);
 		if (jsonGetPlanResponse.get("errMsgs") == null) {
-
-			//System.out.println("WS Response===>>>" + jsonGetPlanResponse);
-
-			// if (jsonGetPlanResponse.get("errMsgs") == null) {
 			String referralCode = (String) jsonGetPlanResponse
 					.get("referralCode");
 			String referralName = (String) jsonGetPlanResponse
 					.get("referralName");
 			String planCode = (String) jsonGetPlanResponse.get("planCode");
-
-			//System.out.println("Plan Code ===>>" + planCode);
 
 			jsonGetPlanResponse.get("priceInfo");
 			JSONObject jsonPriceInfo = new JSONObject();
@@ -197,16 +182,12 @@ public class HomeCareServiceImpl implements HomeCareService {
 					"errMsgs"));
 		} else if (jsonGetPlanResponse.get("errMsgs").toString().contains("Promotion code is not valid")) {
 			
-			//System.out.println("WS Response===>>>" + jsonGetPlanResponse);
-
 			// if (jsonGetPlanResponse.get("errMsgs") == null) {
 			String referralCode = (String) jsonGetPlanResponse
 					.get("referralCode");
 			String referralName = (String) jsonGetPlanResponse
 					.get("referralName");
 			String planCode = (String) jsonGetPlanResponse.get("planCode");
-
-			//System.out.println("Plan Code ===>>" + planCode);
 
 			jsonGetPlanResponse.get("priceInfo");
 			JSONObject jsonPriceInfo = new JSONObject();
@@ -247,10 +228,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans1 = "";
 		;
 		String ans2 = "";
-		/*System.out.println("Ans 1 in Controller===" + answer1
-				+ "Answer2 in Servicr impl===" + answer2);*/
 
-		//å¦ is the CHINESE WORD 否, TODO - CONVERT THAT CHARACTER TO BE READABLE
 		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
 			ans1 = "N";
 		}
@@ -261,11 +239,9 @@ public class HomeCareServiceImpl implements HomeCareService {
 		try {
 			userReferralCode = java.net.URLEncoder.encode(userReferralCode, "UTF-8").replace("+", "%20");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			userReferralCode = "";
 			e.printStackTrace();
 		}
-		
 		
 		String url = UserRestURIConstants.HOMECARE_GET_QUOTE
 				+ "?planCode=EasyHomeCare" + "&referralCode="
@@ -281,15 +257,13 @@ public class HomeCareServiceImpl implements HomeCareService {
 			header.put("token", token);
 		}
 
-		//System.out.println("******************URL==>" + url);
 		JSONObject jsonGetPlanResponse = restService.consumeApi(HttpMethod.GET,
 				url, header, null);
-		//System.out.println("WS Response===>>>" + jsonGetPlanResponse);
+		logger.info("HOMECARE_GET_QUOTE Response " + jsonGetPlanResponse);
 		return jsonGetPlanResponse.toJSONString();
 	}
 
 	public List<DistrictBean> getDistrict(String userName, String token, String language) {
-		// TODO Auto-generated method stub
 		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
 		String UrlTerritory = UserRestURIConstants.HOMECARE_GET_TERRITORY_DISTRICT;
 		
@@ -302,10 +276,10 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		JSONObject jsonResponseDistrict = restService.consumeApi(
 				HttpMethod.GET, Url, header, null);
-						
+		logger.info("HOMECARE_GET_DISTRICT Response " + jsonResponseDistrict);
 		JSONObject jsonResponseTerritory = restService.consumeApi(
 				HttpMethod.GET, UrlTerritory, header, null);		
-		
+		logger.info("HOMECARE_GET_TERRITORY_DISTRICT Response " + jsonResponseTerritory);
 		if (jsonResponseDistrict.get("errMsgs") == null) {
 			JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict.get("optionItemDesc");
 			for (int i = 0; i < jsonDistrictArray.size(); i++) {
@@ -358,7 +332,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		JSONObject jsonResponseArea = restService.consumeApi(
 				HttpMethod.GET, url, header, null);
-
+		logger.info("HOMECARE_GET_TERRITORY Response " + jsonResponseArea);
 		if (jsonResponseArea.get("errMsgs") == null) {
 			JSONArray jsonAreaArray = (JSONArray) jsonResponseArea
 					.get("optionItemDesc");
@@ -376,8 +350,6 @@ public class HomeCareServiceImpl implements HomeCareService {
 	@Override
 	public LinkedHashMap<String, String> getNetFloorArea(String userName, String token,
 			String language) {
-		// TODO Auto-generated method stub
-
 		String url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA
 				+ "?itemTable=NetFloorArea";
 
@@ -392,8 +364,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		JSONObject jsonResponseNetFloorArea = restService.consumeApi(
 				HttpMethod.GET, url, header, null);
 
-		/*System.out.println("jsonResponseDistrict=====>>>"
-				+ jsonResponseNetFloorArea);*/
+		logger.info("HOMECARE_GET_NET_FLOOR_AREA Response" + jsonResponseNetFloorArea);
 		if (jsonResponseNetFloorArea.get("errMsgs") == null) {
 			JSONArray jsonNetFloorAreaArray = (JSONArray) jsonResponseNetFloorArea
 					.get("optionItemDesc");
@@ -403,14 +374,11 @@ public class HomeCareServiceImpl implements HomeCareService {
 				mapNetFloorArea.put(checkJsonObjNull(obj, "itemCode"),
 						checkJsonObjNull(obj, "itemDesc"));
 			}
-
-			// {"optionItemDesc":[{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA01","itemLang":"EN","itemDesc":"Less than 500"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA02","itemLang":"EN","itemDesc":"500-700"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA03","itemLang":"EN","itemDesc":"701-850"},{"itemTable":"NetFloorArea","itemCode":"EEHCFLOORAREAA04","itemLang":"EN","itemDesc":"851-1000"}],"errMsgs":null}
 		}
-
 		return mapNetFloorArea;
 	}
 
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked"})
 	@Override
 	public CreatePolicy createHomeCarePolicy(String userName, String token,
 			HomeCareDetailsBean homeCareDetails, UserDetails userDetails,
@@ -428,14 +396,9 @@ public class HomeCareServiceImpl implements HomeCareService {
 		CreatePolicy createPolicy = new CreatePolicy();
 
 		String edate = date.toString();
-		//System.out.println("E DATE============================>>>" + edate);
 		
 		boolean checkbox3;
 		boolean checkbox4;
-		
-		
-		//System.out.println("HomeCare checkBox3 " + homeCareDetails.getCheckbox3());
-		//System.out.println("HomeCare checkBox4 " + homeCareDetails.getCheckbox4());
 		
 		if (homeCareDetails.getCheckbox3()) {
 			checkbox3 = true;
@@ -504,21 +467,16 @@ public class HomeCareServiceImpl implements HomeCareService {
 		header.put("userName", userName);
 		header.put("token", token);
 
-		/*System.out.println("parameter for Create Homecare Policy=========>>>"
-				+ parameters);*/
+		logger.info("HOMECARE_CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 
 		JSONObject responsObject = restService
 				.consumeApi(HttpMethod.PUT,
 						UserRestURIConstants.HOMECARE_CREATE_POLICY, header,
 						parameters);
 
-		//System.out.println("WS Response=====>>>>" + responsObject);
+		logger.info("HOMECARE_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
-		JSONObject resultObj = new JSONObject();
-		//System.out.println("errMsgs" + responsObject.get("errMsgs"));
 		if (responsObject.get("errMsgs") == null) {
-			
-
 			createPolicy.setReferralCode(checkJsonObjNull(responsObject,
 					"referralCode"));
 			createPolicy.setReferenceNo(checkJsonObjNull(responsObject,
@@ -537,14 +495,12 @@ public class HomeCareServiceImpl implements HomeCareService {
 		} else {
 			createPolicy.setErrMsgs(responsObject.get("errMsgs").toString());
 		}
-		
 		return createPolicy;
 	}
 
 	@Override
 	public CreatePolicy confirmHomeCarePolicy(String userName, String token,
 			String referenceNo, String language) {
-		// TODO Auto-generated method stub
 
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
@@ -556,11 +512,11 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		JSONObject confirmPolicyParameter = new JSONObject();
 		confirmPolicyParameter.put("referenceNo", referenceNo);
+		logger.info("HOMECARE_CONFIRM_POLICY Requset" + confirmPolicyParameter);
 		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_CONFIRM_POLICY, header,
 				confirmPolicyParameter);
-		/*System.out.println("Response From Confirm homeCare Policy "
-				+ jsonResponse);*/
+		logger.info("HOMECARE_CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
 
 		createPolicy
 				.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
@@ -596,7 +552,6 @@ public class HomeCareServiceImpl implements HomeCareService {
 	 * 
 	 * JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
 	 * UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header, parameters);
-	 * //System.out.println("final homeCare Policy Response"+responsObject);
 	 * 
 	 * if (responsObject.get("errMsgs") == null) {
 	 * 
@@ -634,10 +589,12 @@ public class HomeCareServiceImpl implements HomeCareService {
 			parameters.put("creditCardNo", creditCardNo);
 			parameters.put("expiryDate", expiryDate);
 			parameters.put("paymentFail", "1");
-	
+			
+			logger.info("HOMECARE_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
 					parameters);
+			logger.info("HOMECARE_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 			return null;
 		} else {
 		
@@ -655,16 +612,14 @@ public class HomeCareServiceImpl implements HomeCareService {
 			parameters.put("creditCardNo", creditCardNo);
 			parameters.put("expiryDate", expiryDate);
 			
-			
+			logger.info("HOMECARE_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
 					parameters);
-			//System.out.println("final homeCare Policy Response" + apiResponsObject);
+			logger.info("HOMECARE_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 	
 			if (apiResponsObject.get("errMsgs") == null) {
 				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
-				/*System.out.println("Policy Number in Impl after WS "
-						+ finalizeObject.getPolicyNo());*/
 				finalizeObject.setReferralCode(referenceNo);
 			} else {
 				finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());

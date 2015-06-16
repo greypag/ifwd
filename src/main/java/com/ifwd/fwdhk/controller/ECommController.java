@@ -85,7 +85,6 @@ public class ECommController {
 			@RequestParam(required = false) final String utm_content) {
 		
 //		if (!lang.equals("tc") && !lang.equals("en")) {
-//			//System.out.println("lang " + lang);
 //			
 //			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );
 //			
@@ -102,7 +101,6 @@ public class ECommController {
 			urc.updateLanguage(req);
 			HttpSession session = req.getSession(true);
 			session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-			//System.out.println("index promo " + (String)session.getAttribute("referralCode"));
 			String pageTitle = WebServiceUtils.getPageTitle("page.index", UserRestURIConstants.getLanaguage(req));
 			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.index", UserRestURIConstants.getLanaguage(req));
 			
@@ -111,7 +109,6 @@ public class ECommController {
 			String ogUrl = "";
 			String ogImage = "";
 			String ogDescription = "";
-			//System.out.println("index path " + req.getRequestURI().toString());
 			if (req.getRequestURI().toString().equals(req.getContextPath() + "/tc/home/sharing/") || req.getRequestURI().toString().equals(req.getContextPath() + "/en/home/sharing/")) {
 				ogTitle = WebServiceUtils.getPageTitle("index.sharing.og.title", UserRestURIConstants.getLanaguage(req));
 				ogType = WebServiceUtils.getPageTitle("index.sharing.og.type", UserRestURIConstants.getLanaguage(req));

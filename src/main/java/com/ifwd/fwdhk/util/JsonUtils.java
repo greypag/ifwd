@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 
 public class JsonUtils {
 
-	private static String REPLACE_KEY; //= "room,floor,block,applicant.name,applicant.dob,applicant.hkId,applicant.passport,applicant.email,applicant.mobile,creditCardNo,expiryDate,insured.name,insured.hkKid,insured.passport,beneficiary.name,beneficiary.hkId,beneficiary.passport,password,oldPassword,newPassword";
+	private static String REPLACE_KEY;
 	private static final String RE_CHAR = "*";
 	
 	public static final JSONObject jsonPrint(JSONObject obj){
@@ -69,6 +69,8 @@ public class JsonUtils {
 				}
 				if(REPLACE_KEY.contains(newKey) && !"".equals(obj.get(key).toString())){
 					reObj.put(key, replaceByStar(obj.get(key).toString()));
+				}else {
+					reObj.put(key, obj.get(key));
 				}
 			}else {
 				reObj.put(key, obj.get(key));
@@ -87,7 +89,7 @@ public class JsonUtils {
 		return str.replace(oldChar, newChar);
 	}
 	
-	public static String getKeys() {
+	private static String getKeys() {
 
 		try {
 			Properties propEn = new Properties();

@@ -284,7 +284,6 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
-			//System.out.println("direct user response" + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("authenticate", "direct");

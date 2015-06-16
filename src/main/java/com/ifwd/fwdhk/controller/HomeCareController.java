@@ -86,9 +86,7 @@ public class HomeCareController {
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());
 		Format f = new SimpleDateFormat("dd-MMMM-yyyy");
-		//System.out.println(f.format(date.getTime()));
 		date.add(Calendar.YEAR, 1);
-		//System.out.println(f.format(date.getTime()));
 
 		if ((session.getAttribute("token") != null)
 				&& (session.getAttribute("username") != null)) {
@@ -153,7 +151,6 @@ public class HomeCareController {
 			String ogImage = "";
 			String ogDescription = "";
 			
-			//System.out.println("homecare path " + request.getRequestURI().toString());
 			if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/home-insurance/sharing/") ||request.getRequestURI().toString().equals(request.getContextPath() + "/en/home-insurance/sharing/")) 
 			{
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", lang);
@@ -199,7 +196,6 @@ public class HomeCareController {
 
 	@RequestMapping(value = {"/{lang}/getHomePlan", "/{lang}/home-insurance/quote"})
 	public String getHomeCarePlanage(Model model, HttpServletRequest request) {
-		//System.out.println("/home-insurance/quote");
 		UserRestURIConstants.setController("Homecare");
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -211,7 +207,6 @@ public class HomeCareController {
 		session.removeAttribute("policyNo");
 		// redirect to 1ST step when null
 		if (session.getAttribute("token") == null) {
-			//System.out.println("session null");
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 
@@ -270,9 +265,7 @@ public class HomeCareController {
 		
 		
 		else {
-			//System.out.println("errMsgs " + planQuote.getErrormsg());
 			model.addAttribute("errMsgs", planQuote.getErrormsg());
-			
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 		}
 	}
@@ -398,10 +391,7 @@ public class HomeCareController {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		
-		//System.out.println("home-insurance/home-summary called ");
 		HttpSession session = request.getSession();
-		
-		//System.out.println("homeCareDetails " + homeCareDetails.toString());
 		
 		if (session.getAttribute("token") == null) {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
@@ -470,7 +460,6 @@ public class HomeCareController {
 				return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}
 		}
-		//System.out.println("***************passportORhkid********************");
 		if (passportORhkid.equalsIgnoreCase("appHkid")) {
 			userDetails.setHkid(hkId);
 			userDetails.setPassport("");
@@ -516,7 +505,6 @@ public class HomeCareController {
 				try {
 					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -549,11 +537,6 @@ public class HomeCareController {
 //			return UserRestURIConstants.getSitePath(request)
 //					+ "home-insurance/user-details";
 		}
-
-		//System.out.println("PayType===>" + createdPolicy.getPaymentType());
-
-		//System.out.println("Curr Code ID==>" + createdPolicy.getPaymentGateway());
-		//System.out.println("M ID==>" + createdPolicy.getMerchantId());
 
 		model.addAttribute("totalDue", totalDue);
 		model.addAttribute("planCode", planCode);
@@ -631,6 +614,7 @@ public class HomeCareController {
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		
+		logger.info("HOMECARE_SUBMIT_POLICY Request" + JsonUtils.jsonPrint(submitPolicy));
 		JSONObject jsonResponse = restService.consumeApi(
 				HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_SUBMIT_POLICY, header,
@@ -643,7 +627,6 @@ public class HomeCareController {
 				try {
 					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr((String)request.getParameter("cardNo")));
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -706,7 +689,6 @@ public class HomeCareController {
 						+ "homecare/homecare-confirmation";
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			creditCardNo = "";
 			e.printStackTrace();
 		}
@@ -780,7 +762,6 @@ public class HomeCareController {
 	public String processPaymentFailure(Model model, HttpServletRequest request) {
 
 		String errormsg = request.getParameter("errorMsg");
-		//System.out.println("Error Message" + errormsg);
 		model.addAttribute("errormsg", errormsg);
 
 		return UserRestURIConstants.getSitePath(request) + "failure";
