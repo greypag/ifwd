@@ -31,13 +31,10 @@
 		
 		if (selectedText.trim() == "HK"){
 			document.getElementById("inlineCARadio3").checked = true;
-			setAtt("WhInsArea", "HK");
 		}else if (selectedText.trim() == "KL"){
 			document.getElementById("inlineCARadio4").checked = true;
-			setAtt("WhInsArea", "KL");
 		}else{
 			document.getElementById("inlineCARadio5").checked = true;
-			setAtt("WhInsArea", "NT");
 		}
 	}
 	

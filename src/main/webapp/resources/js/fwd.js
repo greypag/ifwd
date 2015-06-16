@@ -3498,12 +3498,15 @@ function forgotPassword()
 
 		valid = false;
 
-	} else {
+	}else if(el.length < 6 || el.length > 50) {
+		return getBundle(getBundleLanguage, "user.username.length.message");
+	}
+	/*else {
 		if (reg.test(userName) == false) {
 			document.getElementById("errorFInvalidUName").style.display = "block";
 			valid = false;
 		}
-	}
+	}*/
 	return valid;
 }
 function forgotUserName() {
