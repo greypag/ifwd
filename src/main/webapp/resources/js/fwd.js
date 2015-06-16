@@ -5060,10 +5060,15 @@ function activateUserAccount(){
 		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
 		check = false;
 	} else {
-		if(userName == password){
+		if(name == password){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
 			check = false;
 		}
+	}
+	
+	if(userName == password){
+		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+		check = false;
 	}
 	
 	var mobileValidateResult = isMobileNo(mobile);
