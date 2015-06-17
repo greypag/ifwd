@@ -5299,3 +5299,25 @@ split = split || function (undef) {
  return self;
 
 }();
+
+
+function validationUsername(evt){	
+		evt = (evt) ? evt : event;
+		var eCode = evt.keyCode;
+		var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+		var keychar = String.fromCharCode(charCode)
+		//alert("keychar:"+keychar+"\ncharCode:"+evt.charCode+"\nkeyCode:"+evt.keyCode);
+		//alert(keychar);
+		// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
+		// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
+		if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+				|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+				|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+			return true;
+		}
+		return false;
+	}
+
+
+$("#Username").removeAttr("onkeyup");
+
