@@ -3865,7 +3865,7 @@ function chkTravelHKPass(value) {
 //ie9 placeholder solution
 function placeholderOnFocus(element, placeholderVal){
 	$(element).removeClass("bmg_custom_placeholder");
-	if($(element).val()==placeholderVal){
+	if($(element).val().trim()==placeholderVal.trim()){
 		$(element).val('');
 	}
 }
@@ -3930,53 +3930,53 @@ function hc_planValid() {
     
     //bmg edit
     
-    if($("#txtAppHkid").val()==hkidPlaceholder){
+    if($("#txtAppHkid").val().trim()==hkidPlaceholder.trim()){
     	$("#txtAppHkid").val('');
     }
     
     
-    if($("#inputCARoom").val()==roomPlaceholder){
+    if($("#inputCARoom").val().trim()==roomPlaceholder.trim()){
     	$("#inputCARoom").val('');
     }
-    if($("#inputCAFloor").val()==floorPlaceholder){
+    if($("#inputCAFloor").val().trim()==floorPlaceholder.trim()){
     	$("#inputCAFloor").val('');
     }
-    if($("#inputCABlock").val()==blockPlaceholder){
+    if($("#inputCABlock").val().trim()==blockPlaceholder.trim()){
     	$("#inputCABlock").val('');
     }
-    if($("#inputCABuilding").val()==buildingPlaceholder){
+    if($("#inputCABuilding").val().trim()==buildingPlaceholder.trim()){
     	$("#inputCABuilding").val('');
     }
-    if($("#inputCAEstate").val()==estatePlaceholder){
+    if($("#inputCAEstate").val().trim()==estatePlaceholder.trim()){
     	$("#inputCAEstate").val('');
     }
-    if($("#inputCAStreetNo").val()==streetNoPlaceholder){
+    if($("#inputCAStreetNo").val().trim()==streetNoPlaceholder.trim()){
     	$("#inputCAStreetNo").val('');
     }
-    if($("#inputCAStreetName").val()==streetNamePlaceholder){
+    if($("#inputCAStreetName").val().trim()==streetNamePlaceholder.trim()){
     	$("#inputCAStreetName").val('');
     }
     
     
-    if($("#inputARoom").val()==roomPlaceholder){
+    if($("#inputARoom").val().trim()==roomPlaceholder.trim()){
     	$("#inputARoom").val('');
     }
-    if($("#inputAFloor").val()==floorPlaceholder){
+    if($("#inputAFloor").val().trim()==floorPlaceholder.trim()){
     	$("#inputAFloor").val('');
     }
-    if($("#inputABlock").val()==blockPlaceholder){
+    if($("#inputABlock").val().trim()==blockPlaceholder.trim()){
     	$("#inputABlock").val('');
     }
-    if($("#inputABuilding").val()==buildingPlaceholder){
+    if($("#inputABuilding").val().trim()==buildingPlaceholder.trim()){
     	$("#inputABuilding").val('');
     }
-    if($("#inputAEstate").val()==estatePlaceholder){
+    if($("#inputAEstate").val().trim()==estatePlaceholder.trim()){
     	$("#inputAEstate").val('');
     }
-    if($("#inputAStreetNo").val()==streetNoPlaceholder){
+    if($("#inputAStreetNo").val().trim()==streetNoPlaceholder.trim()){
     	$("#inputAStreetNo").val('');
     }
-    if($("#inputAStreetName").val()==streetNamePlaceholder){
+    if($("#inputAStreetName").val().trim()==streetNamePlaceholder.trim()){
     	$("#inputAStreetName").val('');
     }
     

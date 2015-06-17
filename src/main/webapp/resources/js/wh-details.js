@@ -574,34 +574,34 @@ function confirmDetails(form){
 	//if (details_clicked === false) {
 		
 		
-		if($("#inputWhAppHKID").val()==hkidPlaceholder){
+		if($("#inputWhAppHKID").val()==hkidPlaceholder.trim()){
 	    	$("#inputWhAppHKID").val('');
 	    }
 		
-		if($("#inputWhInsHKID").val()==benHkidPlaceholder){
+		if($("#inputWhInsHKID").val()==benHkidPlaceholder.trim()){
 	    	$("#inputWhInsHKID").val('');
 	    }
 	    
 	    
-	    if($("#inputWhInsRoom").val()==roomPlaceholder){
+	    if($("#inputWhInsRoom").val().trim()==roomPlaceholder.trim()){
 	    	$("#inputWhInsRoom").val('');
 	    }
-	    if($("#inputWhInsFloor").val()==floorPlaceholder){
+	    if($("#inputWhInsFloor").val().trim()==floorPlaceholder.trim()){
 	    	$("#inputWhInsFloor").val('');
 	    }
-	    if($("#inputWhInsBlock").val()==blockPlaceholder){
+	    if($("#inputWhInsBlock").val().trim()==blockPlaceholder.trim()){
 	    	$("#inputWhInsBlock").val('');
 	    }
-	    if($("#inputWhInsBuilding").val()==buildingPlaceholder){
+	    if($("#inputWhInsBuilding").val().trim()==buildingPlaceholder.trim()){
 	    	$("#inputWhInsBuilding").val('');
 	    }
-	    if($("#inputWhInsEstate").val()==estatePlaceholder){
+	    if($("#inputWhInsEstate").val().trim()==estatePlaceholder.trim()){
 	    	$("#inputWhInsEstate").val('');
 	    }
-	    if($("#inputWhInsStreetNo").val()==streetNoPlaceholder){
+	    if($("#inputWhInsStreetNo").val().trim()==streetNoPlaceholder.trim()){
 	    	$("#inputWhInsStreetNo").val('');
 	    }
-	    if($("#inputWhInsStreetName").val()==streetNamePlaceholder){
+	    if($("#inputWhInsStreetName").val().trim()==streetNamePlaceholder.trim()){
 	    	$("#inputWhInsStreetName").val('');
 	    }
 		
