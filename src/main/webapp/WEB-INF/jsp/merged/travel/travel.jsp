@@ -579,6 +579,14 @@ $(document).ready(function() {
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5" bundle="${msg}" /></p>
     </li>
   </ul>
+  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
+  	<div class="main-partner-1">
+    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class="">
+    </div>
+    <div class="main-partner-2">
+    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+    </div>
+  </div>
   <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
@@ -647,6 +655,15 @@ $(document).ready(function() {
   <!--/.carousel-->
   <div class="clearfix"></div>
   
+  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="">
+  	<div class="col-lg-6 col-md-6 col-xs-6 main-partner-1">
+    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class="">
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-6 main-partner-2">
+    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+    </div>
+  </div>
+
   <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
