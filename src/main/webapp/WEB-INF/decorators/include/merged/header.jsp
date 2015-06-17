@@ -61,7 +61,7 @@ function submitLoginForm(formID) {
 			url : "<%=request.getContextPath()%>/userLogin",
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
-			success : function(data) {
+			success : function(data) {				
 				if (data == 'success') {
 					//$('.login-ajax-loading').hide();
 					//var Backlen = history.length;
@@ -71,26 +71,32 @@ function submitLoginForm(formID) {
 					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 					location.reload();
 				} else if (data == 'Provided User Account Details Does Not Exist') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.forgotUsername.notMatch.message"));
 				} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.forgotPassword.success.message"));
 				} else if (data == 'Internet Connection Error') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Connection.lost.message"));
 				} else if (data == 'Invaild Username or password. Please try again.') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.first"));
 				} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.second"));
 				} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.third"));					
