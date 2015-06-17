@@ -5319,3 +5319,24 @@ try{$("#fUserName").unbind("keyup");}catch(err){}
 try{$("#headerUserName").unbind("keyup");}catch(err){}
 try{$("#userName").unbind("keyup");}catch(err){}
 
+
+function validationEmail(evt){	
+	evt = (evt) ? evt : event;
+	var eCode = evt.keyCode;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	var keychar = String.fromCharCode(charCode)
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+			|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+		return true;
+	}
+	return false;
+}
+
+
+
+
+
+
+
+
