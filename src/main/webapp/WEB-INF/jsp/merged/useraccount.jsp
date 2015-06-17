@@ -126,6 +126,7 @@
 										class="control-label">Username</label></td>
 									<td class=""><input type="text"
 										value="${userDetails.getUserName() }" class="form-control"
+										onkeypress="return validationUsername(event);"
 										id="userName" placeholder="Username" name="userName"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"

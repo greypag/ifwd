@@ -382,7 +382,8 @@
                                                 
                                                     <div class="form-group">
                                                 <input type="text" name="userName"
-                                                class="form-control check-emp-forgotuserpassoword" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />">
+                                                class="form-control check-emp-forgotuserpassoword" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />"
+                                                onkeypress="return validationUsername(event);">
                                                 </div>
                                                 
                                                 
