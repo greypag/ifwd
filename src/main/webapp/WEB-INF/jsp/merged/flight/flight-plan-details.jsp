@@ -2386,7 +2386,6 @@ function createFlightFnc(form)
                 
                 flight_click = false;
                 if (result == 'success') {
-                if (data == 'success') {
                     $('#errorMessages').hide();
                     flag= true;
                     form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
