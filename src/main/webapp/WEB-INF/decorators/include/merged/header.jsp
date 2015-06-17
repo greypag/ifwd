@@ -13,6 +13,18 @@
  	
 <script>
 
+var getBundleLanguage = "";
+var lang = UILANGUAGE;
+
+if(lang === "EN") {
+    getBundleLanguage = "en";
+} else {
+	if(lang === "tc") {
+	    getBundleLanguage = "zh";
+	} else {
+	    getBundleLanguage = "en";
+	}
+}
 
 $(window).bind("pageshow", function(event) {
     if (event.originalEvent.persisted) {
@@ -58,6 +70,30 @@ function submitLoginForm(formID) {
 					perventRedirect=false;
 					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 					location.reload();
+				} else if (data == 'Provided User Account Details Does Not Exist') {
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.forgotUsername.notMatch.message"));
+				} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.forgotPassword.success.message"));
+				} else if (data == 'Internet Connection Error') {
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Connection.lost.message"));
+				} else if (data == 'Invaild Username or password. Please try again.') {
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.first"));
+				} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.second"));
+				} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.third"));					
 				} else if (data == 'fail') {
 					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
@@ -457,43 +493,6 @@ function submitLoginForm(formID) {
 		
 		
 		<% } %>
-		
-		
-		
-		
-		<!-- <a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" data-toggle="dropdown"><i class="fa fa-lock"></i> 登入 </a>
-		<div class="dropdown-menu full-width">
-			<div class="moblogin">
-				<div class="form-container">
-					<h2>ç™»å…¥å¯Œè¡›å®¢æˆ¶ç¶²ä¸Šæœå‹™</h2>
-					<h4 class="margin-shift clearfix">
-						<span class="pull-left login-padding">ç”¨æˆ¶åç¨±</span> <a href="forgotUserName" class="pull-right sub-link">忘記用戶名稱?</a>
-					</h4>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="">
-					</div>
-					<h4 class="margin-shift clearfix">
-						<span class="pull-left login-padding">å€‹äººå¯†ç¢¼ </span><a href="forgotPassword" class="pull-right sub-link">忘記密碼?</a>
-					</h4>
-					<div class="form-group">
-						<input type="text" class="form-control">
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-xs-6 col-sm-6">
-
-							<a class="bdr-curve btn btn-primary btn-lg wd5"
-								href="#" onclick="return validUser()"> ç™»å…¥ </a>
-						</div>
-						<h3 class="text-left col-xs-6 col-sm-6 pad-none margin-none">
-							<span> 新會員？</span><br> <a href="joinus"> è«‹è¨»å†Š</a>
-						</h3>
-						<div class="clearfix"></div>
-					</div>
-					<p>æœ¬äººåœ¨æ­¤åŒæ„é€šéŽæœ¬ç¶²ç«™ï¼ˆä»¥ä¸‹ç°¡ç¨±â€œè¨ˆåŠƒâ€ï¼‰è³¼è²·æŒ‡å®šä¿éšªè¨ˆåŠƒï¼Œå°‡æˆ‘çš„å€‹äººè³‡æ–™å¾žå¯Œè¡›é›»å­æœå‹™è½‰ç§»åˆ°è¨ˆåŠƒçš„ç°½ç™¼äººã€‚</p>
-				</div>
-			</div>
-		</div> -->
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">

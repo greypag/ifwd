@@ -490,6 +490,11 @@ $(function () {
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
+	// 70 year ago date
+	var dob_70_date = new Date();
+	dob_70_date.setFullYear(dob_70_date.getFullYear()-70);
+	dob_70_date.setDate(dob_70_date.getDate()+1);
+	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
 		startView: "decade",
@@ -498,6 +503,16 @@ $(function () {
 		startDate: dob_start_date,
 		endDate: dob_end_date
 		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+		var selected = 2;
+		if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
+			selected = 2;
+		}else{
+			selected = 3;
+		}
+		if($("#selectAgeRange1").length > 0){
+			$("#selectAgeRange1").val(selected);
+		}
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
 

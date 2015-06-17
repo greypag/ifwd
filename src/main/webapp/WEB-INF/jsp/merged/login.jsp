@@ -694,13 +694,11 @@ function userLoginFnc() {
         success : function(data) {
             if (data == 'success') {
                 window.location.reload();
-                /* window.location.href = "getAccByUsernaneAndPassword"; */
             } else if (data == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
                 $('#login-err-msg').html('Please Check Login Credential');
             }
-
         }
     });
     /* } */
