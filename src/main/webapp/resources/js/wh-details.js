@@ -367,6 +367,25 @@ function whDetailsValid(){
 	var WhInsEstate = document.getElementById("inputWhInsEstate").value;
 	var WhInsFullName = document.getElementById("inputWhInsFullName").value;
 	var WhInsHKID = document.getElementById("inputWhInsHKID").value;
+	
+	if(WhAppHKID.trim()==hkidPlaceholder.trim()){
+		WhAppHKID='';
+    }    
+    if(WhInsRoom.trim()==roomPlaceholder.trim()){
+    	WhInsRoom='';
+    }
+    if(WhInsFloor.trim()==floorPlaceholder.trim()){
+    	WhInsFloor='';
+    }
+    if(WhInsBuilding.trim()==buildingPlaceholder.trim()){
+    	WhInsBuilding='';
+    }
+    if(WhInsEstate.trim()==estatePlaceholder.trim()){
+    	WhInsEstate='';
+    }
+    if(WhInsHKID.trim()==benHkidPlaceholder.trim()){
+    	WhInsHKID='';
+    }
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"); //"Please read and accept the Declaration, Terms & Conditions before submitting the application.";

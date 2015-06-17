@@ -47,13 +47,12 @@ $( "#testajax" ).click(function() {
 */
 
 
-$('#ajax-loading').hide();
 
 
 var home_url = "<%=request.getContextPath()%>";
 function submitLoginForm(formID) {
 	
-	$('#ajax-loading').show();
+	$('.login-ajax-loading').show();
 	$("#"+formID+' #login-err-msg').html("");
 	$("#"+formID+' #login-err-msg').hide();
 	if (validUser(formID)) {
@@ -63,9 +62,8 @@ function submitLoginForm(formID) {
 			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 			async : false,
 			success : function(data) {
-				$('#ajax-loading').hide();
 				if (data == 'success') {
-					//$('#ajax-loading').hide();
+					//$('.login-ajax-loading').hide();
 					//var Backlen = history.length;
 					//history.go(-Backlen);
 					
@@ -97,22 +95,23 @@ function submitLoginForm(formID) {
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.third"));					
 				} else if (data == 'fail') {
-					$('#ajax-loading').hide();
+					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
 					$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
 				} else {
-					$('#ajax-loading').hide();
+					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
 					$("#"+formID+' #login-err-msg').html(data);
 				}
 
 			},
 			error : function() {
-				$('#ajax-loading').hide();
+				$('.login-ajax-loading').hide();
 			}
 		});
+	}else{
+		$('.login-ajax-loading').hide();	
 	}
-	$('#ajax-loading').hide();
 	return false;
 }
 </script>
@@ -198,7 +197,7 @@ function submitLoginForm(formID) {
 										<div class="login-form">
 											<div
 												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-												id="ajax-loading">
+												class="login-ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
@@ -228,7 +227,7 @@ function submitLoginForm(formID) {
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="submit" onclick="return submitLoginForm('loginform');"
+														<button type="button" onclick="submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3
@@ -256,7 +255,7 @@ function submitLoginForm(formID) {
 										<div class="login-form">
 											<div
 												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-												id="ajax-loading">
+												class="login-ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
@@ -286,7 +285,7 @@ function submitLoginForm(formID) {
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6">
-														<button type="submit" onclick="return submitLoginForm('loginform');"
+														<button type="button" onclick="submitLoginForm('loginform');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3
@@ -428,7 +427,7 @@ function submitLoginForm(formID) {
 										<div class="login-form" style="position: relative;">
 											<div
 												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-												id="ajax-loading">
+												class="login-ajax-loading">
 												<img
 													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
@@ -455,7 +454,7 @@ function submitLoginForm(formID) {
 												<span id="errPass" style="color: red"></span> <br>
 												<div class="row">
 													<div class="col-lg-6 col-md-6 col-xs-6">
-														<button type="submit" onclick="return submitLoginForm('loginform2');"
+														<button type="button" onclick="submitLoginForm('loginform2');"
 															class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
 													</div>
 													<h3 class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">

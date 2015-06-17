@@ -14,19 +14,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content plan-modal">
             
-            
                        <!-- 登入 -->      
             
                             <form name="loginform" id="loginform-pop">
                                         
                                         <div class="login-form" >
-                                            <div
-                                                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-                                                id="ajax-loading">
-                                                <img
-                                                    style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-                                                    src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                                            </div>
+                                            <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
+							                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+							                </div>
                                             <div id="login-err-msg" class="alert alert-danger empHide"
                                                 role="alert" style="display: none;"></div>
                                         
@@ -69,7 +64,7 @@
                                                 <span id="errPass" class="empHide" style="color: red"></span> <br>
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6">
-                                                        <button type="submit" onclick="return submitLoginForm('loginform-pop');"
+                                                        <button type="button" onclick="submitLoginForm('loginform-pop');"
                                                             class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
                                                     </div>
                                                     <h3
@@ -110,6 +105,9 @@
                  
                         
                             <div class="login-form"  >
+                                <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
+                                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+                                </div>
                 <div id="forgotusername-err-msg" class="alert alert-danger"
                         role="alert" style="display: none;">
                         <P id="error-mobile-no"></P>
@@ -123,13 +121,7 @@
                             
                             
                             
-                                            <div
-                                                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-                                                id="ajax-loading">
-                                                <img
-                                                    style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-                                                    src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                                            </div>
+                                            
                                             <div id="login-err-msg" class="alert alert-danger"
                                                 role="alert" style="display: none;"></div>
                                         
@@ -180,7 +172,7 @@
                                                 <div class="form-group">
                                              <input type="email"
                                         name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
-                                        onkeypress="return validationEmail(event);"
+                                        onkeypress="return validationUsername(event);"
                                         placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
                                              
                                                 </div>
@@ -228,14 +220,14 @@
             var validationFormVal = forgotUserName();
             if (validationFormVal == true) {
                 $('#forgotusername-err-msg').hide();
-                $('#ajax-loading').show();
+                $('.login-ajax-loading').show();
                 $.ajax({
                             type : 'POST',
                             url : '<%=request.getContextPath()%>/forgotUser',
                             data : $('#forgotUserNameForm input').serialize(),
                             success : function(data) {
 
-                                $('#ajax-loading').hide();
+                                $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
                                     $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 		                            $('#forgotusername-err-msg').show();
@@ -253,7 +245,7 @@
 
                             },
                             error : function(xhr, status, error) {
-                                $('#ajax-loading').hide();
+                                $('.login-ajax-loading').hide();
                             }
                         });
             }
@@ -276,6 +268,9 @@
                         
                         
                             <div class="login-form"  >
+                                <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
+                                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+                                </div>
                                                                                            
                                                                            <div id="hide-field"></div>
                         <div id="forgotpassword-err-msg" class="alert alert-danger empHide"
@@ -287,13 +282,7 @@
                             <P id="error1"></P>
                         </div>
                             
-                                            <div
-                                                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-                                                id="ajax-loading">
-                                                <img
-                                                    style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-                                                    src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                                            </div>
+                                            
                                             <div id="login-err-msg" class="alert alert-danger"
                                                 role="alert" style="display: none;"></div>
                                         
@@ -367,7 +356,7 @@
                                                 </span>
 
                                     
-                                                 <span id="errorInvalidEmailId-forgotpassword" class="hide1"> 
+                                                 <span id="errorInvalidEmailId-forgotpassword" class="hide1 empHide"> 
                                                      <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
                                                  </span>
                                                 
@@ -505,7 +494,7 @@
             if( valid == true){
 
    
-                $('#ajax-loading').show();
+                $('.login-ajax-loading').show();
                 $.ajax({
                             type : 'POST',
                             url : '<%=request.getContextPath()%>/forgotUserPassword',
@@ -516,7 +505,7 @@
                                 },
                             success : function(data) {
 
-                                $('#ajax-loading').hide();
+                                $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
                                     $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
                                     $('#forgotpassword-err-msg').show();
@@ -531,7 +520,7 @@
 
                             },
                             error : function(xhr, status, error) {
-                                $('#ajax-loading').hide();
+                                $('.login-ajax-loading').hide();
                             }
                         });
             }
@@ -693,7 +682,6 @@
 /* UserLogin ajax function */
 function userLoginFnc() {
 
-    $('#ajax-loading').show();
     /* var a=validUser(); */
     /* 
     if(a==true)
@@ -704,11 +692,10 @@ function userLoginFnc() {
         data : $("#popUploginform input").serialize(),
         async : false,
         success : function(data) {
-            $('#ajax-loading').hide();
             if (data == 'success') {
                 window.location.reload();
             } else if (data == 'fail') {
-                $('#ajax-loading').hide();
+                $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
                 $('#login-err-msg').html('Please Check Login Credential');
             }
