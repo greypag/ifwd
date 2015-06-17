@@ -354,7 +354,7 @@ $(document).ready(function() {
            <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
-                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" disabled="disabled" data-parent="personal">
+                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" data-parent="personal">
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
@@ -379,7 +379,7 @@ $(document).ready(function() {
            <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
-                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtAdultsMob" disabled="disabled" data-parent="family">
+                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtAdultsMob" data-parent="family">
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
@@ -400,7 +400,7 @@ $(document).ready(function() {
            <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
-                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" disabled="disabled" data-parent="family">
+                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" data-parent="family">
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
@@ -421,7 +421,7 @@ $(document).ready(function() {
            <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
-                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" disabled="disabled" data-parent="family">
+                <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" data-parent="family">
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>

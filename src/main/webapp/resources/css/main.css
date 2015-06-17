@@ -7052,3 +7052,11 @@ tr.product-landing-error-wrap {
 	margin-bottom:15px;
 	margin-left:15px;
 }
+
+.bmg_custom_benelist .h2-1-td{
+	padding:0px !important;
+}
+
+.bmg_custom_benelist .h4-5{
+    text-align: left !important;
+}
