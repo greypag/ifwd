@@ -68,15 +68,6 @@ if(lang === "EN"){
 perventRedirect=true;
 </script>
 
-<script type="text/javascript">
-	var widgetId;
-	var onloadCallback = function() {
-		widgetId = grecaptcha.render('fwd_recaptcha', {
-	      'sitekey' : '6LfP6QcTAAAAAHlgmCoww2R_FXgjmGOZawHB2lFZ'
-	    });
-	  };	  
-</script>
-
 <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
 
 <script>
@@ -100,39 +91,7 @@ function activateUserAccountJoinUs() {
     /*name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;*/
-
-    recaptchaValue =  grecaptcha.getResponse(widgetId);
-
-    if(recaptchaValue == '') {
-        $(".recaptcha-error-hide").css("display", "block");
-        $(".recaptcha-error-hide").html(getBundle(getBundleLanguage, "form.captcha.empty.message"));
-        return;
-    }
-
-    var proceed = false;
-	$.ajax({
-		type : 'POST',
-		url : '<%=request.getContextPath()%>/verifyRecaptcha',
-		data : { recaptchaValue: recaptchaValue, ajax: "true" },
-		async : false,
-		success : function(data) {
-			if (data != 'success') {
-		        $(".recaptcha-error-hide").css("display", "block");
-		        $(".recaptcha-error-hide").html(getBundle(getBundleLanguage, "form.captcha.empty.message"));
-			} else {
-                $(".recaptcha-error-hide").css("display", "none");
-				proceed = true;
-			}
-			
-			return;
-		},
-	});
-	// TODO: when should reset recaptcha
-	grecaptcha.reset();
-	if (!proceed) {
-		return;	
-	}	
-    
+  
     name = $("#Username").val();
     password = $("#Password").val();
     password2 = $("#Confirm-Password").val();
@@ -2217,10 +2176,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         
                         <!--mob-hidden-->
                         </div>
-                        <div id="fwd_recaptcha" class="bmg_recaptcha" style="width: 80%;margin-top:20px;">
-                        </div>
-                        	<h3 class="recaptcha-error-hide" style='display:none; color:red; font-size:15px;'></h3>
-						<script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit" async defer></script>
                         <div class="hidden-sm hidden-xs">
                         <div style="width: 80%;margin-left: 10%;">
                             <div class="top35 pull-left pad-none" style="width:47%">
