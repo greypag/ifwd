@@ -102,6 +102,7 @@
 											</label></td>
 											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="fEmailAddress"
+												onkeypress="return validationEmail(event);"
 												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorFEmptyEmailId"
 												class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /> </label>
 											</span> <span id="errorFInvalidEmailId" class="hide1"> <label
