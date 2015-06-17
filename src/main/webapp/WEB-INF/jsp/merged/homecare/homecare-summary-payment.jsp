@@ -209,7 +209,7 @@ perventRedirect=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.from" bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to" bundle="${msg}" />${effectiveEndDate}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="home.summary.plansummary.from" bundle="${msg}" /> ${effectiveDate } &nbsp;<fmt:message key="home.summary.plansummary.to" bundle="${msg}" />${effectiveEndDate}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></div>
