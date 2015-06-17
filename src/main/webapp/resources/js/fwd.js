@@ -3507,7 +3507,7 @@ function forgotPassword()
 
 		valid = false;
 
-	}else if(el.length < 6 || el.length > 50) {
+	}else if(userName.length < 6 || userName.length > 50) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
 	}
 	/*else {
