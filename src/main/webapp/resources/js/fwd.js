@@ -3601,7 +3601,6 @@ function validUser(formID)
 	var flag = true;
 	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
 	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
-	
 	//document.getElementById("errUserName").innerHTML = "";
 	//document.getElementById("errPass").innerHTML = "";
 	$("#"+formID+" #errUserName").html("");
@@ -3609,15 +3608,15 @@ function validUser(formID)
 
 	if (password.trim() == "")
 	{    	
-		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message")); 
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errPass").attr("style","color: red;");
 		flag = false;
 	} 
 	if (userName.trim() == "") {
 		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
-		
+		$("#"+formID+" #errUserName").attr("style","color: red;");
 		flag = false;
 	}
-
 	return flag;
 }
 var device = 0; // 0 of desktop and 1 for mob

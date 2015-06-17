@@ -656,14 +656,14 @@ function activateUserAccountJoinUs() {
                                                         id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
+                                                        onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                 </c:if>
                                                 <c:if test="${inx > 1}">
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value=""
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
+                                                        onkeypress="return alphaOnly(event);" maxlength="100"/>
                                                  </c:if>
                                                  <span id="errtxtPersonalFullName${inx}" class="text-red"></span>
                                            </div>
@@ -672,19 +672,22 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <div class="bmg-label-styled-select styled-select">
-                                                    <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
-                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
-                                                        <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
-                                                    </select>
-                                                </div>
+                                               <div class=" bmg-label-styled-select styled-select">
+                                                   <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                       <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                       <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+                                                   </select>
+                                                   <c:if test="${inx == 1}">
+                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+                                                   </c:if>
+                                               </div>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
-                                               readonly="readonly"/> 
+                                               <c:if test="${inx == 1}">readonly="readonly"</c:if>/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -1044,7 +1047,7 @@ function activateUserAccountJoinUs() {
                                                         id="txtInsuFullName${inx}" name="adultName" value=""
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100"/>
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"></span>
                                            </div>
@@ -1061,6 +1064,9 @@ function activateUserAccountJoinUs() {
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
+                                                    <c:if test="${inx == 1}">
+                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+                                                   </c:if>
                                                 </div>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
@@ -1068,7 +1074,7 @@ function activateUserAccountJoinUs() {
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);"
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
-                                               readonly="readonly"/> 
+                                               <c:if test="${inx == 1}">readonly="readonly"</c:if>/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>

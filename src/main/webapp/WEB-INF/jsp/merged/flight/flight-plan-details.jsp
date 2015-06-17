@@ -681,7 +681,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
                                                         value="" class="form-control full-control"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     </c:if>
                                                     <span id="errtxtPersonalFullName${inx}" class="text-red"> </span>
 			                               </div>
@@ -701,7 +701,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                      onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                      onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);"
-                                                    readonly="readonly"/>
+                                                    <c:if test="${inx == 1}">readonly="readonly"</c:if>/>
                                                     <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span>
                                            </div>
@@ -1004,7 +1004,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
                                                         value="" class="form-control full-control"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"> </span>
                                            </div>
@@ -1024,8 +1024,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');"
 													onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdultHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')"
-                                                    readonly="readonly"/> <span id="errtxtInsuHkid${inx}"
-                                                    class="text-red"> </span>
+                                                    <c:if test="${inx == 1}">readonly="readonly"</c:if>/>
+                                                    <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- id card end -->
