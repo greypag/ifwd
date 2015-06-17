@@ -68,6 +68,14 @@ if(lang === "EN"){
 perventRedirect=true;
 </script>
 
+<script type="text/javascript">
+	var widgetId;
+	var onloadCallback = function() {
+		widgetId = grecaptcha.render('fwd_recaptcha', {
+	      'sitekey' : '6LfP6QcTAAAAAHlgmCoww2R_FXgjmGOZawHB2lFZ'
+	    });
+	  };	  
+</script>
 
 <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
 
@@ -92,6 +100,38 @@ function activateUserAccountJoinUs() {
     /*name = document.getElementById("Username").value;
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;*/
+
+    recaptchaValue =  grecaptcha.getResponse(widgetId);
+
+    if(recaptchaValue == '') {
+        $(".recaptcha-error-hide").css("display", "block");
+        $(".recaptcha-error-hide").html(getBundle(getBundleLanguage, "form.captcha.empty.message"));
+        return;
+    }
+
+    var proceed = false;
+	$.ajax({
+		type : 'POST',
+		url : '<%=request.getContextPath()%>/verifyRecaptcha',
+		data : { recaptchaValue: recaptchaValue, ajax: "true" },
+		async : false,
+		success : function(data) {
+			if (data != 'success') {
+		        $(".recaptcha-error-hide").css("display", "block");
+		        $(".recaptcha-error-hide").html(getBundle(getBundleLanguage, "form.captcha.empty.message"));
+			} else {
+                $(".recaptcha-error-hide").css("display", "none");
+				proceed = true;
+			}
+			
+			return;
+		},
+	});
+	// TODO: when should reset recaptcha
+	grecaptcha.reset();
+	if (!proceed) {
+		return;	
+	}	
     
     name = $("#Username").val();
     password = $("#Password").val();
@@ -133,8 +173,7 @@ function activateUserAccountJoinUs() {
     		if (applicantDob.trim() == "") {
     			
     			document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
-    	        validateForm = false;	
-    	    
+    	        validateForm = false;	    	    
     		}
     		
     				
@@ -164,7 +203,7 @@ function activateUserAccountJoinUs() {
    	        
    	       $.ajax({
    	                   type : 'POST',
-   	                    url : '<%=request.getContextPath()%>/joinus',
+   	                    url : '<%=request.getContextPath()%>/${language}/joinus',
    	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
    	                    async : false,
    	                    success : function(data) {
@@ -2175,9 +2214,10 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         
                         <!--mob-hidden-->
                         </div>
-                        <div class="bmg_recaptcha" style="width: 80%;margin-top:20px;">
-                            <div class="g-recaptcha" data-sitekey="6LfP6QcTAAAAAHlgmCoww2R_FXgjmGOZawHB2lFZ"></div>
+                        <div id="fwd_recaptcha" class="bmg_recaptcha" style="width: 80%;margin-top:20px;">
                         </div>
+                        	<h3 class="recaptcha-error-hide" style='display:none; color:red; font-size:15px;'></h3>
+						<script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit" async defer></script>
                         <div class="hidden-sm hidden-xs">
                         <div style="width: 80%;margin-left: 10%;">
                             <div class="top35 pull-left pad-none" style="width:47%">
@@ -2247,8 +2287,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
         <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
     </a>
 </div>
-
-<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script>
 
@@ -2326,6 +2364,7 @@ var flight_click = false;
 
 function createFlightFnc(form) 
 {   	
+
     var flag = false;
     
     if (fPlanValid() && !flight_click )
@@ -2339,21 +2378,20 @@ function createFlightFnc(form)
             async : false,
             success : function(data) 
             {
-            	var result = data['result'];
-            	var errMsg = data['errMsgs']
-            	
-            	
-            	flight_click = false;
+                var result = data['result'];
+                var errMsg = data['errMsgs']                
+                
+                flight_click = false;
                 if (result == 'success') {
+                if (data == 'success') {
                     $('#errorMessages').hide();
                     flag= true;
                     form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
-                } else{
+                } else {
                     flag= false;
                     $('#errorMessages').removeClass('hide');
                     $('#errorMessages').html(errMsg);
                 }
-        
             }
         });
     } else {
