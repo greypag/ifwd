@@ -17,6 +17,8 @@ import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
@@ -40,6 +42,7 @@ import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -48,6 +51,8 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 @Controller
 @SuppressWarnings("unchecked")
 public class FlightController {
+	
+	private final static Logger logger = LoggerFactory.getLogger(FlightController.class);
 
 	@Autowired
 	RestServiceDao restService;
@@ -96,7 +101,6 @@ public class FlightController {
 			planDetails.setPlanSelected("personal");
 		}
 		else{
-			//System.out.println("Plan selected : "+planDetails.getPlanSelected());
 		}
 
 		// default
@@ -126,7 +130,6 @@ public class FlightController {
 		String ogDescription = "";
 		String ogSiteName = "";
 		
-		//System.out.println("flight path " + request.getRequestURI().toString());
 		if (request
 				.getRequestURI()
 				.toString()
@@ -164,7 +167,6 @@ public class FlightController {
 					"flight.og.siteName",
 					UserRestURIConstants.getLanaguage(request));			
 		}
-		//System.out.println("request URL " + request.getRequestURL().toString());
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -211,15 +213,6 @@ public class FlightController {
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model) throws MalformedURLException,
 			URISyntaxException {
-
-		//System.out.println("/flight-insurance/quote");
-		//System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
-		//System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
-		//System.out.println("Child    : " + planDetails.getTotalChildTraveller());
-		//System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
-		
-		//System.out.println("PlanSelected   : " + planDetails.getPlanSelected());
-		
 		
 		TravelQuoteBean travelQuote = new TravelQuoteBean();
 		HttpSession session = request.getSession();
@@ -249,18 +242,14 @@ public class FlightController {
 
 		if (planDetails.getDepartureDate() != null) {
 			session.setAttribute("flightPlanDetails", planDetails);
-			////System.out.println(this.getClass()	+ " flightPlanDetails set session");
 		} else {
-			////System.out.println(this.getClass()	+ " planDetails.getDepartureDate() == null, flightPlanDetails get session");
 			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
 
 			if (planDetails == null) {
-				// return flight(request, model, "tc");
 				return flight(request, model, "", "", "", "");
 			}
 		}
 		FlightQuoteDetails flightQuoteDetails = new FlightQuoteDetails();
-		////System.out.println(planDetails.getDepartureDate() + " (Date1) "	+ planDetails.getReturnDate());
 		int days = 0;
 
 		Date dateD1 = DateApi.formatDate(planDetails.getDepartureDate());
@@ -271,10 +260,6 @@ public class FlightController {
 		planDetails.setDays(days + 1);
 		travelQuote.setTotalTravellingDays(days + 1);
 		if (session != null) {
-//			//System.out.println(planDetails.getDepartureDate() + " "
-//					+ planDetails.getReturnDate() + " "
-//					+ planDetails.getPlanSelected() + " "
-//					+ planDetails.getTravellerCount());
 			session.setAttribute("leavingDate", planDetails.getDepartureDate());
 			session.setAttribute("backDate", planDetails.getReturnDate());
 			session.setAttribute("planType", planDetails.getPlanSelected());
@@ -329,8 +314,6 @@ public class FlightController {
 				+ (String) session.getAttribute("referralCode");
 		
 		/* flight landing page save date */
-		//System.out.println("Fight Quote user " + base);
-
 		String token = null, username = null;
 
 		if ((session.getAttribute("token") != null)
@@ -352,7 +335,7 @@ public class FlightController {
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
-		//System.out.println(jsonObject);
+		logger.info("GETFLIGHTQUOTE Response" + jsonObject);
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
 
@@ -405,18 +388,6 @@ public class FlightController {
 			@ModelAttribute("planBind") PlanDetails planDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Flight");
-		//System.out.println("/updateFlightQuote");
-		//System.out.println("PLAN SELECTED " + planDetails.getPlanSelected());
-		//System.out.println("PERSONAL " + planDetails.getTotalPersonalTraveller());
-		//System.out.println("ADULT " + planDetails.getTotalAdultTraveller());
-		//System.out.println("CHILD " + planDetails.getTotalChildTraveller());
-		//System.out.println("OTHER " + planDetails.getTotalOtherTraveller());
-				
-		//System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
-		//System.out.println("getReturnDate : "+planDetails.getReturnDate());
-				
-		//System.out.println("departureDate : "+request.getParameter("departureDate"));
-		//System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 		// test planselected
 		if( planDetails.getTotalPersonalTraveller() > 0 ) {
@@ -435,13 +406,6 @@ public class FlightController {
 				+ planDetails.getTotalChildTraveller()
 				+ planDetails.getTotalOtherTraveller()
 				+ planDetails.getTotalPersonalTraveller());
-		
-		
-//System.out.println("getDepartureDate : "+planDetails.getDepartureDate());
-//System.out.println("getReturnDate : "+planDetails.getReturnDate());
-
-//System.out.println("departureDate : "+request.getParameter("departureDate"));
-//System.out.println("returnDate : "+request.getParameter("returnDate"));
 		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -466,9 +430,6 @@ public class FlightController {
 		Date dateD2 = DateApi.formatDate(planDetails.getReturnDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
 		LocalDate expiryDate = new LocalDate(dateD2);
-		
-		//System.out.println("commencementDate : "+commencementDate);
-		//System.out.println("expiryDate : "+expiryDate);
 		
 		days = Days.daysBetween(commencementDate, expiryDate).getDays();
 		planDetails.setTotalTravellingDays(days + 1);
@@ -528,8 +489,6 @@ public class FlightController {
 				+ (String) session.getAttribute("referralCode");
 		
 		/* flight landing page save date */
-		//System.out.println("Fight Quote user " + base);
-		
 		String token = null, username = null;
 
 		if ((session.getAttribute("token") != null)
@@ -551,7 +510,7 @@ public class FlightController {
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.GET, base,
 				header, null);
-		//System.out.println(jsonObject);
+		logger.info("updateFlightQuote:jsonObject ====>>>>>>" + JsonUtils.jsonPrint(jsonObject));
 
 		if (jsonObject.get("errMsgs") == null & jsonObject != null) {
 			
@@ -617,12 +576,6 @@ public class FlightController {
 			session.setAttribute("flightPlanDetails", planDetails);
 		}
 			
-		//System.out.println("/flight-insurance/user-details");
-		//System.out.println("Personal : " + planDetails.getTotalPersonalTraveller());
-		//System.out.println("Adult    : " + planDetails.getTotalAdultTraveller());
-		//System.out.println("Child    : " + planDetails.getTotalChildTraveller());
-		//System.out.println("Others   : " + planDetails.getTotalOtherTraveller());
-		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 
@@ -667,8 +620,7 @@ public class FlightController {
 			JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
 					.get("optionItemDesc");
 			/* JSONObject jsonObjectAgeType = null; */
-			/*System.out.println(" jsonAgeTypeArray ====>>>>>>"
-					+ jsonAgeTypeArray);*/
+			logger.info("jsonAgeTypeArray ====>>>>>>" + JsonUtils.jsonPrint(jsonAgeTypeArray));
 			Map<String, String> mapAgeType = new HashMap<String, String>();
 			Map<String, String> mapSelfType = new HashMap<String, String>();
 			Map<String, String> mapChildType = new HashMap<String, String>();
@@ -681,7 +633,6 @@ public class FlightController {
 			Iterator iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				////System.out.println("key " + mapEntry.getKey() + " value " + mapEntry.getValue());
 
 				if (mapEntry.getKey().equals("2")
 						|| mapEntry.getKey().equals("3"))
@@ -692,7 +643,6 @@ public class FlightController {
 			iterator = mapAgeType.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				// //System.out.println("key " + mapEntry.getKey() + " value " +
 				// mapEntry.getValue());
 				if (mapEntry.getKey().equals("1"))
 					mapChildType.put((String) mapEntry.getKey(),
@@ -704,10 +654,9 @@ public class FlightController {
 			model.addAttribute("mapChildType", mapChildType);
 
 		} else {
-			//System.out.println("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs").toString());
+			logger.info("API failed - Could not retrieve Age Type List" + responseJsonObj.get("errMsgs"));
 			String returnUrl = UserRestURIConstants.getSitePath(request)
 					+ "flight/flight-plan";
-			//System.out.println("returnUrl " + returnUrl);
 			model.addAttribute("errMsgs",
 					"API failed - Could not retrieve Age Type List");
 			return new ModelAndView(returnUrl);
@@ -721,8 +670,7 @@ public class FlightController {
 		if (responseJsonObj.get("errMsgs") == null) {
 			JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
 					.get("optionItemDesc");
-			/*System.out.println(" jsonRelationShipArray ====>>>>>>"
-					+ jsonRelationshipCode);*/
+			logger.info("jsonRelationShipArray ====>>>>>>" + JsonUtils.jsonPrint(jsonRelationshipCode));
 
 			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
 			for (int i = 0; i < jsonRelationshipCode.size(); i++) {
@@ -733,9 +681,7 @@ public class FlightController {
 			model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
 		} else {
-			//System.out.println("API failed - Could not retrieve Relationship code List");
 			String returnUrl = UserRestURIConstants.getSitePath(request) + "flight/flight-plan";
-			//System.out.println("returnUrl " + returnUrl);
 			model.addAttribute("errMsgs", "API failed - Could not retrieve Relationship code List");
 			return new ModelAndView(returnUrl);
 		}
@@ -757,7 +703,6 @@ public class FlightController {
 		model.addAttribute("planDetailsForm", planDetails);
 		String returnUrl = UserRestURIConstants.getSitePath(request)
 				+ "flight/flight-plan-details";
-		//System.out.println("returnUrl " + returnUrl);
 		// return returnUrl;
 		return new ModelAndView(returnUrl);
 	}
@@ -1276,9 +1221,6 @@ public class FlightController {
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
-		//System.out.println("debug: Flight optIn1 " + optIn1);
-		//System.out.println("debug: Flight optIn2 " + optIn2);
-		
 		applicantJsonObj.put("optIn1", optIn1);
 		applicantJsonObj.put("optIn2", optIn2);
 		applicantJsonObj.put("email", emailAddress);
@@ -1309,12 +1251,11 @@ public class FlightController {
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		//System.out.println("Create Flight  header" + header);
-		//System.out.println("Create Flight parameters" + parameters);
+		logger.info("CreateFilghr Request " + JsonUtils.jsonPrint(parameters));
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.CREATEFLIGHTPOLICY, header, parameters);
-		//System.out.println("createFilghr response" + responsObject);
+		logger.info("CreateFilghr Response " + JsonUtils.jsonPrint(responsObject));
 
 		if (responsObject.get("errMsgs") == null && responsObject != null) {
 			session.setAttribute("FlightResponseFrTrvl", parameters);
@@ -1335,8 +1276,6 @@ public class FlightController {
 					responsObject, "paymentGateway"));
 			createFlightPolicy.setPaymentType(checkJsonObjNull(responsObject,
 					"paymentType"));
-			/*System.out.println("Email address"
-					+ request.getParameter("emailAddress"));*/
 
 			request.getSession().setAttribute("setReferenceNoForConfirmation",
 					checkJsonObjNull(responsObject, "referenceNo"));
@@ -1369,7 +1308,6 @@ public class FlightController {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	@RequestMapping(value = { "/{lang}/flight-confrimation-page",
 			"/{lang}/flight-insurance/confirmation" })
 	public ModelAndView flightConfrimationPage(
@@ -1455,10 +1393,6 @@ public class FlightController {
 					+ "&childInput=" + childCount + "&otherInput=" + otherCount
 					+ "&commencementDate=" + commencementDate + "&expiryDate="
 					+ expiryDate + "&referralCode=" + upgradeReferralCode;
-			
-			
-			
-			//System.out.println("Travel Quote user " + Url);
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -1472,7 +1406,7 @@ public class FlightController {
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 
-			//System.out.println("Get Travel Quotes API " + responseJsonObj);
+			logger.info("Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
 			if (responseJsonObj.get("errMsgs") == null) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(createFlightPolicy
@@ -1639,12 +1573,12 @@ public class FlightController {
 		String referralCode = (String) session.getAttribute("referralCode");
 		parameters.put("referralCode", referralCode);
 		model.addAttribute("selectPlanName", createFlightPolicy.getPlanCode());
-		//System.out.println("TRAVEL_CREATE_POLICY Parameters" + parameters);
+		logger.info("TRAVEL_CREATE_POLICY Requset" + JsonUtils.jsonPrint(parameters));
 
 		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT,
 				UserRestURIConstants.TRAVEL_CREATE_POLICY, header, parameters);
 
-		//System.out.println("TRAVEL_CREATE_POLICY Response" + responsObject);
+		logger.info("TRAVEL_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
 		String finalizeReferenceNo = "";
 		JSONObject resultObj = new JSONObject();
@@ -1675,14 +1609,12 @@ public class FlightController {
 			// Calling Api of Confirm Travel Care Policy
 			JSONObject confirmPolicyParameter = new JSONObject();
 			confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-			/*System.out.println("Header Object for Confirm"
-					+ confirmPolicyParameter);*/
+			logger.info("Confirm Travel Policy Requst" + JsonUtils.jsonPrint(confirmPolicyParameter));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
 					confirmPolicyParameter);
 
-			/*System.out.println("Response From Confirm Travel Policy "
-					+ jsonResponse);*/
+			logger.info("Confirm Travel Policy Response " + JsonUtils.jsonPrint(jsonResponse));
 
 			createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
 					"secureHash"));
@@ -1707,7 +1639,6 @@ public class FlightController {
 		String optIn1 = request.getParameter("optIn1");
 		String optIn2 = request.getParameter("optIn2");
 		String totalTravallingDays = request.getParameter("days");
-		//System.out.println("inside Controller fro flight upgrade Summary");
 
 		TravelQuoteBean travelBean = new TravelQuoteBean();
 		travelBean.setTrLeavingDate(parameters.get("commencementDate")

@@ -95,9 +95,16 @@ public class RestServiceImpl implements RestServiceDao {
 						public JSONObject handleResponse(HttpResponse response)
 								throws ClientProtocolException, IOException {
 
-							String responseStr = IOUtils.toString(response
-									.getEntity().getContent());
+//							String responseStr = IOUtils.toString(response
+//									.getEntity().getContent());
+//							JSONParser parser = new JSONParser();
+//							
+							
+							String encoding = "UTF-8";
+							String responseStr = IOUtils.toString(response.getEntity().getContent(), encoding);
 							JSONParser parser = new JSONParser();
+							
+							
 							try {
 								return (JSONObject) parser.parse(responseStr);
 							} catch (ParseException e) {
@@ -153,9 +160,14 @@ public class RestServiceImpl implements RestServiceDao {
 						public JSONObject handleResponse(HttpResponse response)
 								throws ClientProtocolException, IOException {
 
-							String responseStr = IOUtils.toString(response
-									.getEntity().getContent());
+//							String responseStr = IOUtils.toString(response
+//									.getEntity().getContent());
+//							JSONParser parser = new JSONParser();
+//							
+							String encoding = "UTF-8";
+							String responseStr = IOUtils.toString(response.getEntity().getContent(), encoding);
 							JSONParser parser = new JSONParser();
+							
 							try {
 								return (JSONObject) parser.parse(responseStr);
 							} catch (ParseException e) {
@@ -272,7 +284,6 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
-			//System.out.println("direct user response" + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("authenticate", "direct");

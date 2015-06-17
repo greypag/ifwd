@@ -189,13 +189,17 @@ hr {
     
 }
 @media screen and (min-width: 768px){
-    .modal-dialog {
-          width: 800px;
-    }
     #loginpopup .modal-dialog {
           width: 600px;
     }
-    
+    .modal-dialog {
+          margin: 230px auto;
+    }
+}
+@media screen and (min-width: 992px){
+    .modal-dialog {
+          width: 800px;
+    }
 }
 
 .top-menu .nav>li>a {
@@ -4974,7 +4978,7 @@ box-shadow:0 0 6px #f68a1d;
 .pay-details-select
 {
         
-    width: 100% !important; 
+    width: 115% !important; 
     border: 1px solid #f6d5b4;
 
     padding: 8px;
@@ -5156,7 +5160,7 @@ select.soflow, select.soflow-color {
     background-repeat: no-repeat;
     padding: 5px 10px;*/
     
-    width: 100% !important;    
+    width: 115% !important;    
     border: none  ! important;    
     outline : medium none !important;
     display: inline-flex !important;   
@@ -5256,11 +5260,6 @@ input[type='radio']:checked:before {
 
 .plan-modal .fwdpanel-body {
     font-size: 14px;
-}
-@media only screen and (min-width: 767px){
-    .plan-modal {
-        top: 200px;
-    }
 }
 
 /******Summary Table*****/
@@ -6984,10 +6983,6 @@ tr.product-landing-error-wrap {
         min-width:200px;
     }
     
-    #loading-overlay{
-        width:100%;    
-    }
-    
     
     .loading-dialog{
         margin-left:auto;
@@ -7011,7 +7006,7 @@ tr.product-landing-error-wrap {
 }
 
 .form-control.soflow.select-label{
-    width: 100% !important;
+    width: 115% !important;
 }
 
 /** copy tips box **/
@@ -7056,4 +7051,12 @@ tr.product-landing-error-wrap {
 	margin-top:15px;
 	margin-bottom:15px;
 	margin-left:15px;
+}
+
+.bmg_custom_benelist .h2-1-td{
+	padding:0px !important;
+}
+
+.bmg_custom_benelist .h4-5{
+    text-align: left !important;
 }

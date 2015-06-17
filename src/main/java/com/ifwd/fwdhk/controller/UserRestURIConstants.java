@@ -49,6 +49,7 @@ public class UserRestURIConstants {
 	
 	public static final String TRAVEL_FINALIZE_POLICY = SERVICE_URL
 			+ "/gi/travel/policies";
+	public static final String TRAVEL_GET_PROMOCODE = SERVICE_URL + "/leads/partnership/promoCode";
 	
 	/* WorkingHoliday URL */
 	public static final String WORKINGHOLIDAY_GET_QUOTE = SERVICE_URL
@@ -265,7 +266,6 @@ public class UserRestURIConstants {
 		String servletPath = request.getServletPath();
 		HttpSession session = request.getSession();
 		
-		////System.out.println("sid: " + session.getId());
 		if (servletPath.indexOf(UserRestURIConstants.LANG_TC) >= 0)
 		{
 			session.setAttribute("language", UserRestURIConstants.LANG_TC);

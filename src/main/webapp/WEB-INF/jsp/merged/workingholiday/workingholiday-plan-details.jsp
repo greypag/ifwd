@@ -26,19 +26,13 @@
 	
 	function setDropArea(id) {
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
-		var skillsSelect = document.getElementById("selectCADistHid");
-		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
 		
-		if (selectedText.trim() == "HK"){
-			document.getElementById("inlineCARadio3").checked = true;
-			setAtt("WhInsArea", "HK");
-		}else if (selectedText.trim() == "KL"){
-			document.getElementById("inlineCARadio4").checked = true;
-			setAtt("WhInsArea", "KL");
-		}else{
-			document.getElementById("inlineCARadio5").checked = true;
-			setAtt("WhInsArea", "NT");
-		}
+		if ($("#selectCADistHid option[value='"+id+"']").text() == "HK")
+            document.getElementById("inlineCARadio3").checked = true;
+        else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+            document.getElementById("inlineCARadio4").checked = true;
+        else
+            document.getElementById("inlineCARadio5").checked = true;
 	}
 	
 	
@@ -62,7 +56,7 @@
 %>
 
 <script>
-
+perventRedirect=true;
 
 
 function activateUserAccountJoinUs() {
@@ -169,7 +163,6 @@ function activateUserAccountJoinUs() {
                                  $('#frmYourDetails').submit();
                                 return;                            
                             } else {
-                                $('#loading-overlay').modal('hide');
                                 
                                     $("#link-error").click();
                                     $(".error-hide").css("display", "block");
@@ -412,14 +405,7 @@ function activateUserAccountJoinUs() {
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" name="whAppHKID"
-									   <c:choose>
-                                         <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhAppHKID() != null && workingHolidayPlanDetailsForm.getWhAppHKID() != ''}">
-                                           value="${workingHolidayPlanDetailsForm.getWhAppHKID()}"
-                                         </c:when>
-                                         <c:otherwise>
                                            value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />"
-                                         </c:otherwise>
-                                       </c:choose>
 									   class="form-control numberinput textUpper full-control bmg_custom_placeholder"
 										id="inputWhAppHKID"
 										onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');"
@@ -536,7 +522,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<div class="styled-select">
 										<select name="whInsBeneficary" id="selectWhInsBeneficary"
-											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary', 'inputWhInsFullName', 'inputWhInsHKID')"
+											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary')"
 											class="form-control soflow select-label">
 											<c:forEach var="relationshipList"
 												items="${mapRelationshipCode}">
@@ -645,16 +631,7 @@ function activateUserAccountJoinUs() {
 											class="field-label form-label bold-500 hidden-lg hidden-md"></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-										<input id="inputWhInsHKID" name="whInsHKID"
-										    <c:choose>
-                                              <c:when test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsHKID() != null && workingHolidayPlanDetailsForm.getWhInsHKID() != ''}">
-                                                value="${workingHolidayPlanDetailsForm.getWhInsHKID()}"
-                                              </c:when>
-                                              <c:otherwise>
-                                                value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
-                                              </c:otherwise>
-                                            </c:choose>
-										
+										<input id="inputWhInsHKID" name="whInsHKID"										
 											class="form-control textUpper full-control bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 											onkeypress=" return hkidOnkeypress(event);"
@@ -948,7 +925,7 @@ function activateUserAccountJoinUs() {
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 										<input type="text"
 											class="form-control marginbt full-control input-white"
-											id="Username" name="username"> <span
+											id="Username" name="username" onkeypress="return validationUsername(event);"> <span
 											id="UsernameError" class="text-red"> </span>
 									</div>
 								</div>

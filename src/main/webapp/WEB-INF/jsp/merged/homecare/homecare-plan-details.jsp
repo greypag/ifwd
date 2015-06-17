@@ -73,64 +73,7 @@ var streetNoPlaceholder="<fmt:message key="home.details.registration.insuaddress
 var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />";
 </script>
 
-<!--VWO-->
-<!-- Start Visual Website Optimizer Asynchronous Code -->
-<script type='text/javascript'>
-	var _vwo_code = (function() {
-		var account_id = 95373, settings_tolerance = 2000, library_tolerance = 2500, use_existing_jquery = false,
-		// DO NOT EDIT BELOW THIS LINE
-		f = false, d = document;
-		return {
-			use_existing_jquery : function() {
-				return use_existing_jquery;
-			},
-			library_tolerance : function() {
-				return library_tolerance;
-			},
-			finish : function() {
-				if (!f) {
-					f = true;
-					var a = d.getElementById('_vis_opt_path_hides');
-					if (a)
-						a.parentNode.removeChild(a);
-				}
-			},
-			finished : function() {
-				return f;
-			},
-			load : function(a) {
-				var b = d.createElement('script');
-				b.src = a;
-				b.type = 'text/javascript';
-				b.innerText;
-				b.onerror = function() {
-					_vwo_code.finish();
-				};
-				d.getElementsByTagName('head')[0].appendChild(b);
-			},
-			init : function() {
-				settings_timer = setTimeout('_vwo_code.finish()',
-						settings_tolerance);
-				this.load('//dev.visualwebsiteoptimizer.com/j.php?a='
-						+ account_id + '&u=' + encodeURIComponent(d.URL)
-						+ '&r=' + Math.random());
-				var a = d.createElement('style'), b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}', h = d
-						.getElementsByTagName('head')[0];
-				a.setAttribute('id', '_vis_opt_path_hides');
-				a.setAttribute('type', 'text/css');
-				if (a.styleSheet)
-					a.styleSheet.cssText = b;
-				else
-					a.appendChild(d.createTextNode(b));
-				h.appendChild(a);
-				return settings_timer;
-			}
-		};
-	}());
-	_vwo_settings_timer = _vwo_code.init();
-</script>
-<!-- End Visual Website Optimizer Asynchronous Code -->
-<!--End VWO-->
+
 <script>
 	function setDropArea(id) {
 		
@@ -164,12 +107,10 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 	    }
 		
 		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
-		var skillsSelect = document.getElementById("selectADistHid");
-
-		var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
-		if (selectedText.trim() == "HK")
+		
+		if ($("#selectADistHid option[value='"+id+"']").text() == "HK")
 			document.getElementById("inlineDeskRadio31").checked = true;
-		else if (selectedText.trim() == "KL")
+		else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
 			document.getElementById("inlineDeskRadio41").checked = true;
 		else
 			document.getElementById("inlineDeskRadio51").checked = true;
@@ -864,7 +805,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <input type="text"
                                                 class="form-control marginbt full-control input-white" id="Username"
-                                                name="userName"> <span id="UsernameError"
+                                                name="userName" onkeypress="return validationUsername(event);"> <span id="UsernameError"
                                                 class="text-red"> </span>
 	                               </div>
 	                            </div>
@@ -1718,7 +1659,8 @@ function activateUserAccountJoinUs() {
 	                                     <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.action.back" bundle="${msg}" /> </a>
 	                                </div>
 	                                <div class="top35 pull-right pad-none" style="width:47%"> 
-	                                    <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" />
+	                                    <!-- <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="home.action.next" bundle="${msg}" />" /> -->
+	                                    <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 	                                </div>
 	                            </div>
 

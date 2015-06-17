@@ -490,6 +490,11 @@ $(function () {
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
+	// 70 year ago date
+	var dob_70_date = new Date();
+	dob_70_date.setFullYear(dob_70_date.getFullYear()-70);
+	dob_70_date.setDate(dob_70_date.getDate()+1);
+	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
 		startView: "decade",
@@ -498,6 +503,16 @@ $(function () {
 		startDate: dob_start_date,
 		endDate: dob_end_date
 		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+		var selected = 2;
+		if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
+			selected = 2;
+		}else{
+			selected = 3;
+		}
+		if($("#selectAgeRange1").length > 0){
+			$("#selectAgeRange1").val(selected);
+		}
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
 
@@ -1025,7 +1040,7 @@ function fPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365)); 
+		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
          if(insured1Hkid != null && insured1Hkid == appHkid){   		 
 			 if (age == 1) {
@@ -1407,7 +1422,7 @@ function fPlanValid()
 		
 		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
 		var HkidPass = document.getElementById("txtchildInsuHkid"+i).value;
-		var selectedChldBenefitiaryHkidPass = document.getElementById("selectedChldBenefitiaryHkidPass" + i).value;
+		var selectedChldBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 
 		if(selectedValue != "SE"){
 			
@@ -1532,7 +1547,7 @@ function fPlanValid()
 
 			var hkidc = document.getElementById("txtOtherBenInsuHkid" + i).value;
 			$("#errtxtOtherBenInsuHkid" + i).html("");
-			var selectOtherBenefitiaryHkidPass = document.getElementById("selectOtherBenefitiaryHkidPass" + i).value;
+			var selectOtherBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 			
 			
 			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID' ) {
@@ -1629,7 +1644,7 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
             var tr1 = chkTravelHKPass(appHkid.trim());
             
 			if (tr == false) {
-				$('#'+errorId).html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+				$('#'+errorId).html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 				
 				return false;
 			}	
@@ -3163,8 +3178,17 @@ function flightValidateBtmTravel() {
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var new_start = new Date(startDate);
-	var new_end = new Date(endDate);
+	/*var new_start = new Date(startDate);
+	var new_end = new Date(endDate);*/
+	
+	var startDates= new Array();
+	startDates=startDate.split("-");
+	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
+	
+	var endDates = new Array();
+	endDates = endDate.split("-");
+	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
+	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
@@ -3498,12 +3522,15 @@ function forgotPassword()
 
 		valid = false;
 
-	} else {
+	}else if(userName.length < 6 || userName.length > 50) {
+		return getBundle(getBundleLanguage, "user.username.length.message");
+	}
+	/*else {
 		if (reg.test(userName) == false) {
 			document.getElementById("errorFInvalidUName").style.display = "block";
 			valid = false;
 		}
-	}
+	}*/
 	return valid;
 }
 function forgotUserName() {
@@ -3589,7 +3616,6 @@ function validUser(formID)
 	var flag = true;
 	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
 	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
-	
 	//document.getElementById("errUserName").innerHTML = "";
 	//document.getElementById("errPass").innerHTML = "";
 	$("#"+formID+" #errUserName").html("");
@@ -3597,15 +3623,15 @@ function validUser(formID)
 
 	if (password.trim() == "")
 	{    	
-		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message")); 
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errPass").attr("style","color: red;");
 		flag = false;
 	} 
 	if (userName.trim() == "") {
-		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.notValid.message"));
-		
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
+		$("#"+formID+" #errUserName").attr("style","color: red;");
 		flag = false;
 	}
-
 	return flag;
 }
 var device = 0; // 0 of desktop and 1 for mob
@@ -3853,7 +3879,7 @@ function chkTravelHKPass(value) {
 //ie9 placeholder solution
 function placeholderOnFocus(element, placeholderVal){
 	$(element).removeClass("bmg_custom_placeholder");
-	if($(element).val()==placeholderVal){
+	if($(element).val().trim()==placeholderVal.trim()){
 		$(element).val('');
 	}
 }
@@ -3918,53 +3944,53 @@ function hc_planValid() {
     
     //bmg edit
     
-    if($("#txtAppHkid").val()==hkidPlaceholder){
+    if($("#txtAppHkid").val().trim()==hkidPlaceholder.trim()){
     	$("#txtAppHkid").val('');
     }
     
     
-    if($("#inputCARoom").val()==roomPlaceholder){
+    if($("#inputCARoom").val().trim()==roomPlaceholder.trim()){
     	$("#inputCARoom").val('');
     }
-    if($("#inputCAFloor").val()==floorPlaceholder){
+    if($("#inputCAFloor").val().trim()==floorPlaceholder.trim()){
     	$("#inputCAFloor").val('');
     }
-    if($("#inputCABlock").val()==blockPlaceholder){
+    if($("#inputCABlock").val().trim()==blockPlaceholder.trim()){
     	$("#inputCABlock").val('');
     }
-    if($("#inputCABuilding").val()==buildingPlaceholder){
+    if($("#inputCABuilding").val().trim()==buildingPlaceholder.trim()){
     	$("#inputCABuilding").val('');
     }
-    if($("#inputCAEstate").val()==estatePlaceholder){
+    if($("#inputCAEstate").val().trim()==estatePlaceholder.trim()){
     	$("#inputCAEstate").val('');
     }
-    if($("#inputCAStreetNo").val()==streetNoPlaceholder){
+    if($("#inputCAStreetNo").val().trim()==streetNoPlaceholder.trim()){
     	$("#inputCAStreetNo").val('');
     }
-    if($("#inputCAStreetName").val()==streetNamePlaceholder){
+    if($("#inputCAStreetName").val().trim()==streetNamePlaceholder.trim()){
     	$("#inputCAStreetName").val('');
     }
     
     
-    if($("#inputARoom").val()==roomPlaceholder){
+    if($("#inputARoom").val().trim()==roomPlaceholder.trim()){
     	$("#inputARoom").val('');
     }
-    if($("#inputAFloor").val()==floorPlaceholder){
+    if($("#inputAFloor").val().trim()==floorPlaceholder.trim()){
     	$("#inputAFloor").val('');
     }
-    if($("#inputABlock").val()==blockPlaceholder){
+    if($("#inputABlock").val().trim()==blockPlaceholder.trim()){
     	$("#inputABlock").val('');
     }
-    if($("#inputABuilding").val()==buildingPlaceholder){
+    if($("#inputABuilding").val().trim()==buildingPlaceholder.trim()){
     	$("#inputABuilding").val('');
     }
-    if($("#inputAEstate").val()==estatePlaceholder){
+    if($("#inputAEstate").val().trim()==estatePlaceholder.trim()){
     	$("#inputAEstate").val('');
     }
-    if($("#inputAStreetNo").val()==streetNoPlaceholder){
+    if($("#inputAStreetNo").val().trim()==streetNoPlaceholder.trim()){
     	$("#inputAStreetNo").val('');
     }
-    if($("#inputAStreetName").val()==streetNamePlaceholder){
+    if($("#inputAStreetName").val().trim()==streetNamePlaceholder.trim()){
     	$("#inputAStreetName").val('');
     }
     
@@ -4788,14 +4814,14 @@ function isAccountNumeric(num){
 function isValidUsername(el){
 	var atLeastOneCharacterReg = /^[A-Za-z]+$/;
 	if (el.trim() == "") {
-		return getBundle(getBundleLanguage, "user.username.notValid.message");
+		return getBundle(getBundleLanguage, "user.username.empty.message");
 		
 		valid = false;
 
 	} else if (isAccountNumeric(el)) {
-		return getBundle(getBundleLanguage, "user.username.validate.message");
+		return getBundle(getBundleLanguage, "user.username.notValid.message");
 	} else if (!plan_user.test(el)) {
-		return getBundle(getBundleLanguage, "user.username.validate.message");
+		return getBundle(getBundleLanguage, "user.username.notValid.message");
 	} else if(el.length < 6 || el.length > 50) {
 		return getBundle(getBundleLanguage, "user.username.length.message");
 	} else {
@@ -4901,7 +4927,8 @@ function checkMembership(field){
 			$('#PasswordError').text(isValidPassword(value));
 			result = false;
 		}else if(value == $("#Username").val().trim()){
-			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));//XXX
+			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));
+			result = false;
 		}else $('#PasswordError').text('');
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
@@ -5021,7 +5048,7 @@ if($('#txtPass1').length){
 		if(isValidPassword(value) !== true){
 			$('#errorJoinUsPassword').text(isValidPassword(value));
 		}else if(value == $("#txtUserName1").val().trim()){
-			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));//XXX
+			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		}else $('#errorJoinUsPassword').text('');
 	})
 }
@@ -5060,6 +5087,11 @@ function activateUserAccount(){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
 			check = false;
 		}
+	}
+	
+	if(userName == password){
+		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+		check = false;
 	}
 	
 	var mobileValidateResult = isMobileNo(mobile);
@@ -5281,3 +5313,45 @@ split = split || function (undef) {
  return self;
 
 }();
+
+
+function validationUsername(evt){	
+		evt = (evt) ? evt : event;
+		var eCode = evt.keyCode;
+		var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+		var keychar = String.fromCharCode(charCode)
+		if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+				|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+				|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+			return true;
+		}
+		return false;
+	}
+
+try{$("#Username").unbind("keyup");}catch(err){}
+try{$("#txtUserName1").unbind("keyup");}catch(err){}
+try{$("#fUserName").unbind("keyup");}catch(err){}
+try{$("#headerUserName").unbind("keyup");}catch(err){}
+try{$("#userName").unbind("keyup");}catch(err){}
+
+
+function validationEmail(evt){	
+	evt = (evt) ? evt : event;
+	var eCode = evt.keyCode;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	var keychar = String.fromCharCode(charCode)
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+			|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+		return true;
+	}
+	return false;
+}
+
+
+
+
+
+
+
+

@@ -9,39 +9,50 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
-var clicked = false;
-	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
-		var result=false;
-		
-		if (whPayValid() && clicked === false) {
- 			clicked = true;
- 			$("#PaymentingDiv").show();
- 			var gatewayUrlId = '#' + gatewayUrlId;
- 			var paymentFormId = '#' + paymentFormId;
- 			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
- 			
- 			var geteWayUrl = $(gatewayUrlId).val();
- 			<%-- form.action = '<%=request.getContextPath()%>/<%=session.getAttribute("language").toString()%>/working-holiday-insurance/confirmation'; --%>
- 			
- 			$.ajax({
- 						type : "POST",
- 						url : method,
- 						data : $(paymentFormId).serialize(),
- 						async : false,
- 						success : function(data) {
- 							if (data == 'success') {
- 								form.action = geteWayUrl;
- 								result=true;
- 							} else {
- 								result=false;
- 							}
- 						}
- 					});
+perventRedirect=true;
 
- 		}else{
- 			result=false;
- 		}
-		return result;
+var enablePayment=true;
+
+var clicked = false;
+	function confirmWorkingHolidayPayment(form, gatewayUrlId, paymentFormId) {
+		if(enablePayment){
+			enablePayment=false;
+            $("#PaymentingDiv").show();
+			if (whPayValid() && clicked === false) {
+	 			clicked = true;
+	 			
+	 			var gatewayUrlId = '#' + gatewayUrlId;
+	 			var paymentFormId = '#' + paymentFormId;
+	 			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
+	 			
+	 			var geteWayUrl = $(gatewayUrlId).val();
+	 			$.ajax({
+	 						type : "POST",
+	 						url : method,
+	 						data : $(paymentFormId).serialize(),
+	 						async : false,
+	 						success : function(data) {
+	 							if (data == 'success') {
+	 								setTimeout(function(){
+                                        $("#"+form).attr('action', geteWayUrl);
+                                        $("#"+form).submit();
+                                    }, 3000);
+	 							} else {
+	 								$("#PaymentingDiv").hide();
+                                    enablePayment=true;
+                                    $('#paymentErrorPopup').modal('show');
+                                    return false;
+	 							}
+	 						}
+	 					});
+	 			return true;
+	
+	 		}else{
+	 			$("#PaymentingDiv").hide();
+                enablePayment=true; 
+                return false;
+	 		}
+		}
 	}
 	
 </script>
@@ -52,7 +63,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="paymentForm" id="paymentForm" method="post" onsubmit="return confirmHomeCarePayment(this, 'gateway', 'paymentForm');">
+			<form name="paymentForm" id="paymentForm" method="post">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -167,8 +178,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.period" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
                                                 <fmt:message key="workingholiday.summary.period.from" bundle="${msg}" />
-	                                            ${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" />
-	                                            ${expiryDate}
+	                                            ${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" /> ${expiryDate}
                                             </div>
                                         </div>
                                         <div class="row summary-row">
@@ -504,9 +514,8 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <input type="submit"
-                                    class="bdr-curve btn btn-primary nxt-btn"
-                                    value="<fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" />" onclick="confirmPayment()" />
+                                <a id="button_confirm" onclick="perventRedirect=false;confirmWorkingHolidayPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" /></a>
                             </div>
                         </div>
                             <div class="clearfix"></div>
@@ -563,10 +572,10 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 	<br>
 </section>
 <!--/end Main Content-->
-<div id="PaymentingDiv" class="waitingDiv" style="display: none">
-	<img
-		style="width: 200px; height: 200px; position: absolute; top: 40%; left: 40%"
-		src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+<div id="PaymentingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+    <img
+        style="width: 200px; height: 200px;"
+        src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>

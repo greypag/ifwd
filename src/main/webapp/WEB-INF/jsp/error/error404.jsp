@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+<html>
 <head>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script type="text/javascript">
@@ -42,12 +44,15 @@
 <meta name="robots" content="NOODP">
 <meta name='keywords' content="meta keywords here"/>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <dec:head />
 
 </head>
 	<%
-	if (langFlag && "EN".equals(session.getAttribute("language").toString())) {
+	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {
 	%>
 		<body>
 	<%
@@ -63,7 +68,7 @@
 <div class="container">
 
     <div align="center" style="margin-top:80px;">
-        <img src="http://localhost:8080/FWDHKPH1A/resources/images/icon1.png">
+        <img src="<%=request.getContextPath()%>/resources/images/icon1.png">
     </div>
     
     
@@ -93,7 +98,7 @@
     </div>
     
     <div align="center" style="margin-top:55px; margin-bottom:80px;" >
-        <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >
+        <a href="<%=request.getContextPath()%>/${language}/home" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >
         <!-- Back to Home -->
         <fmt:message key="system.back.to.me" bundle="${msg}" />
         </a>
@@ -104,4 +109,4 @@
 <!--------/end- Main Content------------>
 		<jsp:include page="/WEB-INF/decorators/include/merged/footer.jsp" />
 </body>
- 
+</html>

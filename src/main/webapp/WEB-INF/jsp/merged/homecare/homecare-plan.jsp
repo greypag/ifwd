@@ -29,64 +29,7 @@
 
 
 
-<!--VWO-->
-<!-- Start Visual Website Optimizer Asynchronous Code -->
-<script type='text/javascript'>
-	var _vwo_code = (function() {
-		var account_id = 95373, settings_tolerance = 2000, library_tolerance = 2500, use_existing_jquery = false,
-		// DO NOT EDIT BELOW THIS LINE
-		f = false, d = document;
-		return {
-			use_existing_jquery : function() {
-				return use_existing_jquery;
-			},
-			library_tolerance : function() {
-				return library_tolerance;
-			},
-			finish : function() {
-				if (!f) {
-					f = true;
-					var a = d.getElementById('_vis_opt_path_hides');
-					if (a)
-						a.parentNode.removeChild(a);
-				}
-			},
-			finished : function() {
-				return f;
-			},
-			load : function(a) {
-				var b = d.createElement('script');
-				b.src = a;
-				b.type = 'text/javascript';
-				b.innerText;
-				b.onerror = function() {
-					_vwo_code.finish();
-				};
-				d.getElementsByTagName('head')[0].appendChild(b);
-			},
-			init : function() {
-				settings_timer = setTimeout('_vwo_code.finish()',
-						settings_tolerance);
-				this.load('//dev.visualwebsiteoptimizer.com/j.php?a='
-						+ account_id + '&u=' + encodeURIComponent(d.URL)
-						+ '&r=' + Math.random());
-				var a = d.createElement('style'), b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}', h = d
-						.getElementsByTagName('head')[0];
-				a.setAttribute('id', '_vis_opt_path_hides');
-				a.setAttribute('type', 'text/css');
-				if (a.styleSheet)
-					a.styleSheet.cssText = b;
-				else
-					a.appendChild(d.createTextNode(b));
-				h.appendChild(a);
-				return settings_timer;
-			}
-		};
-	}());
-	_vwo_settings_timer = _vwo_code.init();
-</script>
-<!-- End Visual Website Optimizer Asynchronous Code -->
-<!--End VWO-->
+
 <script>
 
 var promoCodePlaceholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
@@ -270,9 +213,8 @@ function checkPromoCodePlaceholder(){
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
 								<div class="h4">
 									<fmt:message key="workingholiday.dollar" bundle="${msg}" />
-									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></div>
-									<span class="hide"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></span>
-									<span class="del actualPrice"><del></del></span>
+									<div class="flightcare-hk totalPrice"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></div>
+									<span class="del actualPrice"><del><% if(Double.parseDouble(planQuote.getDiscountAmount()) < 0){ %><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%><% } %></del></span>			
 								</div>
 							</div>
 							
@@ -738,7 +680,7 @@ function checkPromoCodePlaceholder(){
 	                            <span class="text-red" id="errPromoCode"></span>
 	                            <div id="promo-wrap" class="form-group">
 	                                <div class="input-group">
-	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>
@@ -750,7 +692,7 @@ function checkPromoCodePlaceholder(){
 							<div class="col-md-12 hidden-sm hidden-xs pad-none">
                                <div style="width: 80%;margin-left: 10%;">
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.subtotal" bundle="${msg}" /></h3>
-									<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%></h3>
+									<h3 id="subtotal" class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getGrossPremium()))%></h3>
 		
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6 marg-t" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.sidebar.summary.discount" bundle="${msg}" /></h3>
 									<h3 id="discountAmt" class="h4-1-orange-b col-lg-6 col-md-6 text-right marg-t" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(planQuote.getDiscountAmount()))%></h3>

@@ -117,10 +117,15 @@ $(document).ready(function(){
     }
   });
   
+  var scrollToTopValid=true;
   //Click event to scroll to top
   $('.scroll-to-top').click(function(){
-    $('html, body').animate({scrollTop : 0},400);
-    return false;
+if(scrollToTopValid){
+	scrollToTopValid=false;
+	$('html, body').animate({scrollTop : 0},400, function() {
+		scrollToTopValid=true;
+	});
+}
   });
   
 //Check to see if the window is top if not then display button

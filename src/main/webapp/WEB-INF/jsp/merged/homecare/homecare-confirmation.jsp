@@ -69,65 +69,7 @@
 
 
 
-<!--VWO-->
-<!-- Start Visual Website Optimizer Asynchronous Code -->
-<script type='text/javascript'>
-	var _vwo_code = (function() {
-		var account_id = 95373, settings_tolerance = 2000, library_tolerance = 2500, use_existing_jquery = false,
-		// DO NOT EDIT BELOW THIS LINE
-		f = false, d = document;
-		return {
-			use_existing_jquery : function() {
-				return use_existing_jquery;
-			},
-			library_tolerance : function() {
-				return library_tolerance;
-			},
-			finish : function() {
-				if (!f) {
-					f = true;
-					var a = d.getElementById('_vis_opt_path_hides');
-					if (a)
-						a.parentNode.removeChild(a);
-				}
-			},
-			finished : function() {
-				return f;
-			},
-			load : function(a) {
-				var b = d.createElement('script');
-				b.src = a;
-				b.type = 'text/javascript';
-				b.innerText;
-				b.onerror = function() {
-					_vwo_code.finish();
-				};
-				d.getElementsByTagName('head')[0].appendChild(b);
-			},
-			init : function() {
-				settings_timer = setTimeout('_vwo_code.finish()',
-						settings_tolerance);
-				this.load('//dev.visualwebsiteoptimizer.com/j.php?a='
-						+ account_id + '&u=' + encodeURIComponent(d.URL)
-						+ '&r=' + Math.random());
-				var a = d.createElement('style'), b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}', h = d
-						.getElementsByTagName('head')[0];
-				a.setAttribute('id', '_vis_opt_path_hides');
-				a.setAttribute('type', 'text/css');
-				if (a.styleSheet)
-					a.styleSheet.cssText = b;
-				else
-					a.appendChild(d.createTextNode(b));
-				h.appendChild(a);
-				return settings_timer;
-			}
-		};
-	}());
-	_vwo_settings_timer = _vwo_code.init();
-</script>
-<!-- End Visual Website Optimizer Asynchronous Code -->
-<!--End VWO-->
-
+	
 </head>
 <body>
 
@@ -220,91 +162,249 @@
 								<!-- Referral Code Table -->
 					                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
 					                <% if (isMember) { %>
-					                    <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
-					                        <tbody>
-					                            <tr>
-					                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                            <tr>
-					                                <td rowspan="2">
-					                                  <strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong>
-					                                </td>
-					                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                            <tr>
-					                                <td><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row2col3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                            <tr>
-					                                <td rowspan="2">
-					                                  <strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong>
-					                                </td>
-					                                <td><strong><fmt:message key="<%=key_row3col2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row3col3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                            <tr>
-					                                <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
-					                                <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
-					                            </tr>
-					                        </tbody>
-					                    </table>
+					                    <div class="hidden-xs hidden-sm">
+						                    <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
+						                        <tbody>
+						                            <tr>
+						                                <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
+						                            </tr>
+						                            <tr>
+						                                <td rowspan="2">
+						                                  <strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong>
+						                                </td>
+						                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
+						                            </tr>
+						                            <tr>
+						                                <td><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row2col3%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
+						                            </tr>
+						                            <tr>
+						                                <td rowspan="2">
+						                                  <strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong>
+						                                </td>
+						                                <td><strong><fmt:message key="<%=key_row3col2%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row3col3%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
+						                            </tr>
+						                            <tr>
+						                                <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
+						                                <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
+						                            </tr>
+						                        </tbody>
+						                    </table>
+					                    </div>
+					                    
+					                    <div class="hidden-md hidden-lg margin-bottom-10">
+					                       <div style="margin-top:15px;margin-bottom:15px;">
+						                        <h4 style="color: #f68a1d"><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></h4>
+	                                            <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+	                                            <div class="confirmation-table-margin">
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+	                                                </div>
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <fmt:message key="<%=key_row1col2%>" bundle="${msg}" />
+	                                                </div>
+	                                                <div class="clearfix"></div>
+	                                            </div>
+	                                            
+	                                            <div class="confirmation-table-margin">
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+	                                                </div>
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <fmt:message key="<%=key_row1col3%>" bundle="${msg}" />
+	                                                </div>
+	                                                <div class="clearfix"></div>
+	                                            </div>
+	                                            
+	                                            <div class="confirmation-table-margin">
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+	                                                </div>
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <fmt:message key="<%=key_row1col4%>" bundle="${msg}" />
+	                                                </div>
+	                                                <div class="clearfix"></div>
+	                                            </div>
+	                                            <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+	                                            
+	                                            <div class="confirmation-table-margin">
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+	                                                </div>
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <fmt:message key="<%=key_row2col2%>" bundle="${msg}" />
+	                                                </div>
+	                                                <div class="clearfix"></div>
+	                                            </div>
+	                                            
+	                                            <div class="confirmation-table-margin">
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+	                                                </div>
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <fmt:message key="<%=key_row2col3%>" bundle="${msg}" />
+	                                                </div>
+	                                                <div class="clearfix"></div>
+	                                            </div>
+	                                            
+	                                            <div class="confirmation-table-margin">
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+	                                                </div>
+	                                                <div class="col-sm-12 col-xs-12">
+	                                                    <fmt:message key="<%=key_row2col4%>" bundle="${msg}" />
+	                                                </div>
+	                                                <div class="clearfix"></div>
+	                                            </div>
+	                                            <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+                                            </div>
+                                            
+                                            <div style="margin-top:15px;margin-bottom:15px;">
+                                                <h4 style="color: #f68a1d"><strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong></h4>
+                                                <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row3col2%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row3col3%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row3col4%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row4col2%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row4col3%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row4col4%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+                                            </div>
+                                        </div>
+					                    
 					                    <div class="disclaimer">
 					                      <p><fmt:message key="<%=key_disclaimer1%>" bundle="${msg}" /></p>
 					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
 					                    </div>
 					              <% } else { %>
-				                        <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-					                    <div class="confirmation-table-margin">
-					                        <div class="col-sm-12 col-xs-12">
-					                            <strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong>
-					                        </div>
-					                        <div class="col-sm-12 col-xs-12">
-					                            <fmt:message key="<%=key_row1col1%>" bundle="${msg}" />
-					                        </div>
-					                        <div class="clearfix"></div>
+					                    <div class="hidden-xs hidden-sm">
+	                                        <table class="table table-bordred table-type-1 margin-bottom-10" style="width:100% !important;">
+	                                            <tbody>
+	                                                <tr>
+	                                                    <td><strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong></td>
+	                                                    <td><strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong></td>
+	                                                    <td><strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong></td>
+	                                                    <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
+	                                                </tr>
+	                                                <tr>
+	                                                    <td><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></td>
+	                                                    <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
+	                                                    <td><strong><fmt:message key="<%=key_row1col3%>" bundle="${msg}" /></strong></td>
+	                                                    <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
+	                                                </tr>
+	                                            </tbody>
+	                                        </table>
+                                        </div>
+					                   
+				                        <div class="hidden-md hidden-lg margin-bottom-10">
+					                        <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+						                    <div class="confirmation-table-margin">
+						                        <div class="col-sm-12 col-xs-12">
+						                            <strong><fmt:message key="<%=key_header1%>" bundle="${msg}" /></strong>
+						                        </div>
+						                        <div class="col-sm-12 col-xs-12">
+						                            <fmt:message key="<%=key_row1col1%>" bundle="${msg}" />
+						                        </div>
+						                        <div class="clearfix"></div>
+						                    </div>
+						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+						                    
+						                    <div class="confirmation-table-margin">
+						                        <div class="col-sm-12 col-xs-12">
+						                            <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+						                        </div>
+						                        <div class="col-sm-12 col-xs-12">
+						                            <fmt:message key="<%=key_row1col2%>" bundle="${msg}" />
+						                        </div>
+						                        <div class="clearfix"></div>
+						                    </div>
+						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+						                    
+						                    <div class="confirmation-table-margin">
+						                        <div class="col-sm-12 col-xs-12">
+						                            <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+						                        </div>
+						                        <div class="col-sm-12 col-xs-12">
+						                            <fmt:message key="<%=key_row1col3%>" bundle="${msg}" />
+						                        </div>
+						                        <div class="clearfix"></div>
+						                    </div>
+						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
+						                    
+						                    <div class="confirmation-table-margin">
+						                        <div class="col-sm-12 col-xs-12">
+						                            <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+						                        </div>
+						                        <div class="col-sm-12 col-xs-12">
+						                            <fmt:message key="<%=key_row1col4%>" bundle="${msg}" />
+						                        </div>
+						                        <div class="clearfix"></div>
+						                    </div>
+						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 					                    </div>
-					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-					                    
-					                    <div class="confirmation-table-margin">
-					                        <div class="col-sm-12 col-xs-12">
-					                            <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
-					                        </div>
-					                        <div class="col-sm-12 col-xs-12">
-					                            <fmt:message key="<%=key_row1col2%>" bundle="${msg}" />
-					                        </div>
-					                        <div class="clearfix"></div>
-					                    </div>
-					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-					                    
-					                    <div class="confirmation-table-margin">
-					                        <div class="col-sm-12 col-xs-12">
-					                            <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
-					                        </div>
-					                        <div class="col-sm-12 col-xs-12">
-					                            <fmt:message key="<%=key_row1col3%>" bundle="${msg}" />
-					                        </div>
-					                        <div class="clearfix"></div>
-					                    </div>
-					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-					                    
-					                    <div class="confirmation-table-margin">
-					                        <div class="col-sm-12 col-xs-12">
-					                            <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
-					                        </div>
-					                        <div class="col-sm-12 col-xs-12">
-					                            <fmt:message key="<%=key_row1col4%>" bundle="${msg}" />
-					                        </div>
-					                        <div class="clearfix"></div>
-					                    </div>
-					                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 					              <% } %>                    
 					              </div>
 					              </div>
@@ -330,7 +430,7 @@
 	                            </div>
 								<div class="col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></div>
-                                    <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage">Press CTRL-C to copy</span> <span class="boxDownArrow"></span> </div>
+                                    <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="link.copy.desktop" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg"><fmt:message key="link.copy.mobile" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
                                 </div>
                                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                                     <!-- <div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>-->

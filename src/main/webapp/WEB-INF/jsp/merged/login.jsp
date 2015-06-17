@@ -48,7 +48,7 @@
 
                                                 <div class="form-group">
                                                     <input type="text" name="userName" class="form-control check-emp"
-                                                        placeholder="" id="headerUserName">
+                                                        placeholder="" id="headerUserName" onkeypress="return validationUsername(event);">
                                                 </div>
                                                 <span id="errUserName" class="empHide" style="color: red"></span>
                                                 
@@ -151,7 +151,8 @@
                                                 
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
-                                                        <input type="text" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">                                                                                                                
+                                                        <input type="text" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+                                                        onkeypress="return isNumeric(event)">                                                                                                                
                                                 </div>
                                                                                         
                                                <!--  phone erro message -->
@@ -179,6 +180,7 @@
                                                 <div class="form-group">
                                              <input type="email"
                                         name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
+                                        onkeypress="return validationEmail(event);"
                                         placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
                                              
                                                 </div>
@@ -199,11 +201,11 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
                                                                 <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>
                                                     </div>
                                                 
-                                                    <div class="col-lg-3 col-md-3">                                           
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">                                           
                                                                 <button type="button" onclick="getForgotUserName()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>                                                    
                                                     </div>
                                                     
@@ -235,7 +237,7 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotusername-err-msg').html('Provided User Account Details Does Not Exist');
+                                    $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
@@ -319,7 +321,8 @@
                                                 
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
-                                                        <input type="text" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">                                                                                                                
+                                                        <input type="text" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+                                                        onkeypress="return isNumeric(event)">                                                                                                                
                                                
                                                
                                                 </div>
@@ -350,6 +353,7 @@
                                                 <div class="form-group">
                                                     <input type="email"
                                                 name="emailAddress" class="form-control check-emp-forgotuserpassoword" id="emailAddress-forgotpassowrd"
+                                                onkeypress="return validationEmail(event);"
                                                 placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId" class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>
                                                 </div>
                                                 
@@ -357,10 +361,10 @@
                                                 
 
                                                 
-                                                <!-- 電郵 Errror message -->                                               
+                                                <!-- 電郵 Errror message -->                                             
                                                 <span id="errorEmptyEmailId-forgotpassword" class="hide1 empHide">
                                                      <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
-                                                </span> 
+                                                </span>
 
                                     
                                                  <span id="errorInvalidEmailId-forgotpassword" class="hide1"> 
@@ -382,7 +386,8 @@
                                                 
                                                     <div class="form-group">
                                                 <input type="text" name="userName"
-                                                class="form-control check-emp-forgotuserpassoword" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />">
+                                                class="form-control check-emp-forgotuserpassoword" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />"
+                                                onkeypress="return validationUsername(event);">
                                                 </div>
                                                 
                                                 
@@ -402,13 +407,13 @@
                                                 
                                   
                                                 <div class="row">
-                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
                                                                                                               
                                                        <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>                                                    
                                                     
                                                     </div>
                                                 
-                                                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
                                                                                                               
                                                        <button type="button" onclick="forgotUserPassword()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>                                                    
                                                     
@@ -513,13 +518,13 @@
 
                                 $('#ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html('Provided User Account Details Does Not Exist');
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
-                                    $('#success-message-password').html('Link Sent Successfully On Your Registered Mail ID');
+                                    $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
                                     $('#success-message-password').show();
                                 } else {
-                                    $('#success-message-password').html('Internet Connection Error ');
+                                    $('#success-message-password').html(getBundle(getBundleLanguage, "connection.lost.message"));
                                     $('#success-message-password').show();
                                     $('#user-details-main').hide();
                                 }

@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -29,9 +28,8 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
-import com.ifwd.fwdhk.util.StringHelper;
+import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.ValidationUtils;
-import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -73,7 +71,6 @@ public class UserController {
 			else
 				homeURL = "/changeLang?selectLang=tc&action=/tc/home";
 		}
-		//System.out.println("redirect to home lang: " + lang);
 		return new ModelAndView("redirect:" + homeURL);
 	}
 
@@ -89,26 +86,22 @@ public class UserController {
 				params.put("userName", userLogin.getUserName());
 				params.put("password", userLogin.getPassword());
 				
+				logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
 				JSONObject response = restService.consumeApi(HttpMethod.POST,
 						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
 						params);
-				//System.out.println(response);
+				logger.info("USER_LOGIN Response" + JsonUtils.jsonPrint(response));
 
 				// check by error message is null then valid response
 				if (response.get("errMsgs") == null && response != null) {
-					/*//System.out.println("session set"
-							+ response.get("token").toString());*/
 					HttpSession session = servletRequest.getSession(true);
 					session.setAttribute("authenticate", "true");
 					session.setAttribute("token", response.get("token")
 							.toString());
 					session.setAttribute("username", userLogin.getUserName());
-					//System.out.println("language in sessin" + UserRestURIConstants.getLanaguage(servletRequest));
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
-//					session.setAttribute("referralCode",
-//							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myHomeReferralCode",
@@ -191,7 +184,7 @@ public class UserController {
 						HttpMethod.GET,
 						UserRestURIConstants.USER_PURCHASE_POLICY_HISTORY,
 						header, null);
-
+				logger.info("USER_PURCHASE_POLICY_HISTORY Response " + JsonUtils.jsonPrint(jsonUPHResponse));
 				/*
 				 * 
 				 * {"policies":
@@ -202,7 +195,6 @@ public class UserController {
 				if (jsonUPHResponse.get("errMsgs") == null) {
 					JSONArray jsonArray = (JSONArray) jsonUPHResponse
 							.get("policies");
-					//System.out.println("purchase history" + jsonArray);
 					Iterator<?> itr = jsonArray.iterator();
 					ArrayList al = new ArrayList();
 					while (itr.hasNext()) {
@@ -222,12 +214,6 @@ public class UserController {
 
 					servletRequest.setAttribute("al", al);
 					return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+"useraccount");
-//					return new ModelAndView(UserRestURIConstants.checkLangSetPage(servletRequest)+"useraccount");
-					/*
-					 * } else{ return new
-					 * ModelAndView("useraccount","messageFromCtrl"
-					 * ,"Please Login Session timeout"); }
-					 */
 				}
 			}
 			return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+ "useraccount");
@@ -240,11 +226,9 @@ public class UserController {
 
 	@RequestMapping(value = {"/{lang}/joinus", "/{lang}/join-us"}, method = RequestMethod.GET)
 	public String signup(Model model, HttpServletRequest req) {
-		/* UserDetails userDetails = new UserDetails(); */
 		UserDetails userDetails = new UserDetails();
 		model.addAttribute("userDetails", userDetails);
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
-//		return UserRestURIConstants.checkLangSetPage(req)+ "joinus";
 	}
 
 	@RequestMapping(value = "/useraccount", method = RequestMethod.GET)
@@ -262,7 +246,6 @@ public class UserController {
 		
 //		session.setAttribute("language", "EN");
 		String redirect ="../jsp/" + dir + "/uatLogin";
-		//System.out.println("redirect " + redirect);
 		return redirect;
 	}
 	
@@ -274,7 +257,6 @@ public class UserController {
 		if (userName.equals("ifwdUser") && password.equals("Pass1234")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("uatAuth", "ifwdUser");
-			//System.out.println("redirect to home lang from uatAuth: ");
 			return new ModelAndView("redirect:" + "/tc/home");
 		}
 		return null;
@@ -289,11 +271,6 @@ public class UserController {
 			@ModelAttribute("userDetails") UserDetails userDetails,
 			HttpServletRequest servletRequest, Model model) {
 		HttpSession session = servletRequest.getSession(false);
-		
-		
-		boolean ajax = false;
-		
-		
 		boolean optIn1 = false;
 		boolean optIn2 = false;
 		if (userDetails.getCheckbox3() == null) { 
@@ -336,12 +313,11 @@ public class UserController {
 				params.put("optIn2", servletRequest.getParameter("optIn2"));
 			}
 			
-			
-			
-			//System.out.println(params);
+			logger.info("USER_JOIN_US Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.PUT,
 					UserRestURIConstants.USER_JOIN_US,
 					COMMON_HEADERS, params);
+			logger.info("USER_JOIN_US Response " + JsonUtils.jsonPrint(jsonResponse));
 			if (jsonResponse.get("errMsgs") == null) {
 				UserLogin userLogin = new UserLogin();
 				userLogin.setUserName(userDetails.getUserName());
@@ -350,23 +326,19 @@ public class UserController {
 				params.put("userName", userLogin.getUserName());
 				params.put("password", userLogin.getPassword());
 				
+				logger.info("USER_LOGIN Request " + JsonUtils.jsonPrint(params));
 				JSONObject response = restService.consumeApi(HttpMethod.POST,
 						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
 						params);
-				
+				logger.info("USER_LOGIN Response " + JsonUtils.jsonPrint(response));
 				if (response.get("errMsgs") == null && response != null) {
-					/*//System.out.println("session set"
-							+ response.get("token").toString());*/
 					session.setAttribute("authenticate", "true");
 					session.setAttribute("token", response.get("token")
 							.toString());
 					session.setAttribute("username", userLogin.getUserName());
-					//System.out.println("language in sessin" + session.getAttribute("language"));
 					JSONObject customer = (JSONObject) response.get("customer");
 					session.setAttribute("emailAddress",
 							checkJsonObjNull(customer, "email"));
-//					session.setAttribute("referralCode",
-//							StringHelper.emptyIfNull(checkJsonObjNull(customer, "referralCode")));
 					session.setAttribute("myReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myHomeReferralCode",
@@ -421,10 +393,13 @@ public class UserController {
 			JSONObject params = new JSONObject();
 			params.put("email", userDetails.getEmailAddress());
 			params.put("mobile", userDetails.getMobileNo());
+			
+			logger.info("USER_FORGOT_USERNAME Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.USER_FORGOT_USERNAME,
 					COMMON_HEADERS, params);
-			/* {"errMsgs":null,"userName":"eCommUser89"} */
+			logger.info("USER_FORGOT_USERNAME Response " + JsonUtils.jsonPrint(jsonResponse));
+			
 			if (jsonResponse.get("errMsgs") == null) {
 				return jsonResponse.get("userName").toString();
 			} else {
@@ -438,7 +413,6 @@ public class UserController {
 
 	@RequestMapping(value = {"/forgotUserName", "/forgot-user-name"}, method = RequestMethod.GET)
 	public String forgotUserNameFields(HttpServletRequest req) {
-		//return UserRestURIConstants.checkLangSetPage(req) + "forgot-username";
 		return UserRestURIConstants.getSitePath(req) + "forgot-username";
 	}
 
@@ -452,11 +426,13 @@ public class UserController {
 			params.put("userName", userDetails.getUserName());
 			params.put("email", userDetails.getEmailAddress());
 			params.put("mobile", userDetails.getMobileNo());
+			
+			logger.info("USER_FORGOT_PASSWORD Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.USER_FORGOT_PASSWORD,
 					COMMON_HEADERS, params);
-			/* {"errMsgs":null} */
-			//System.out.println("Error "+jsonResponse.toString());
+			logger.info("USER_FORGOT_PASSWORD Response " + JsonUtils.jsonPrint(jsonResponse));
+			
             if (jsonResponse.get("errMsgs") == null) {
                 return "success";
             }
@@ -468,9 +444,7 @@ public class UserController {
 
 	@RequestMapping(value = {"/forgotPassword", "/forgot-password"}, method = RequestMethod.GET)
 	public String forgotUserPasswordFields(HttpServletRequest req) {
-		//return UserRestURIConstants.checkLangSetPage(req) + "forgot-password";
 		return UserRestURIConstants.getSitePath(req) + "forgot-password";
-		
 	}
 
 	
