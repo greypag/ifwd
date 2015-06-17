@@ -26,7 +26,7 @@
 		if (validateFormVal == true) {
 			$.ajax({
 						type : 'POST',
-						url : '<%=request.getContextPath()%>/joinus',
+						url : '<%=request.getContextPath()%>/{language}/joinus',
 						data : $('#joinus_form form').serialize(),
 						async : false,
 						success : function(data) {
@@ -280,4 +280,3 @@
 	</section>
 
 </body>
-y>
