@@ -511,7 +511,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                         <div class="clearfix"></div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-left">
-                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false; window.history.back();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
                                 <a id="button_confirm" onclick="perventRedirect=false;confirmWorkingHolidayPayment('paymentForm', 'gateway', 'paymentForm');"
