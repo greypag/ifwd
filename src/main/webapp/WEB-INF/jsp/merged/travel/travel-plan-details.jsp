@@ -534,7 +534,7 @@ function activateUserAccountJoinUs() {
                                    <input type="text"
                                             name="username" class="form-control full-control input-white"
                                             id="Username" 
-                                            onfocus="emptyMembershipError();"><span
+                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span
                                             id="UsernameError" class="text-red"> </span>
                                </div>
                             </div>

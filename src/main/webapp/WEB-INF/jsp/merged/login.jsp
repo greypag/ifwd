@@ -48,7 +48,7 @@
 
                                                 <div class="form-group">
                                                     <input type="text" name="userName" class="form-control check-emp"
-                                                        placeholder="" id="headerUserName">
+                                                        placeholder="" id="headerUserName" onkeypress="return validationUsername(event);">
                                                 </div>
                                                 <span id="errUserName" class="empHide" style="color: red"></span>
                                                 
