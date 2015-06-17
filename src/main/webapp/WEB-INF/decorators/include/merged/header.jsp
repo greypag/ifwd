@@ -73,11 +73,11 @@ function submitLoginForm(formID) {
 				} else if (data == 'Provided User Account Details Does Not Exist') {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.forgotUsername.notMatch.message"));
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
 				} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.forgotPassword.success.message"));
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
 				} else if (data == 'Internet Connection Error') {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
@@ -85,15 +85,15 @@ function submitLoginForm(formID) {
 				} else if (data == 'Invaild Username or password. Please try again.') {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.first"));
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 				} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.second"));
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.second"));
 				} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Member.login.fail.third"));					
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.third"));					
 				} else if (data == 'fail') {
 					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
@@ -102,16 +102,23 @@ function submitLoginForm(formID) {
 					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
 					$("#"+formID+' #login-err-msg').html(data);
-				}
+				} 
 
 			},
 			error : function() {
 				$('.login-ajax-loading').hide();
+				
+				$('.login-ajax-loading').hide();
+				$("#"+formID+' #login-err-msg').show();
+				$("#"+formID+' #login-err-msg').html(data);
+				
 			}
 		});
 	}else{
 		$('.login-ajax-loading').hide();	
 	}
+	$('.login-ajax-loading').hide();
+
 	return false;
 }
 </script>
