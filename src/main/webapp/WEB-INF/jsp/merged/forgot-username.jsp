@@ -95,7 +95,7 @@
 								</tr>
 								<tr>
 									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input type="text" name="mobileNo"
+									<td class="pad-none"><input type="text" name="mobileNo" onkeypress="return isNumeric(event);"
 										class="form-control" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
 										<span id="errorEmptyMob" class="hide1"> <label
 											class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>

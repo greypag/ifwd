@@ -265,7 +265,7 @@ public class UserController {
 			
 	
 	
-	@RequestMapping(value = {"/joinus", "/join-us"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/{lang}/joinus", "/{lang}/join-us"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String registerUser(
 			@ModelAttribute("userDetails") UserDetails userDetails,

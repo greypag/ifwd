@@ -151,7 +151,8 @@
                                                 
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
-                                                        <input type="text" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">                                                                                                                
+                                                        <input type="text" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+                                                        onkeypress="return isNumeric(event)">                                                                                                                
                                                 </div>
                                                                                         
                                                <!--  phone erro message -->
@@ -179,6 +180,7 @@
                                                 <div class="form-group">
                                              <input type="email"
                                         name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
+                                        onkeypress="return validationEmail(event);"
                                         placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
                                              
                                                 </div>
@@ -319,7 +321,8 @@
                                                 
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
-                                                        <input type="text" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">                                                                                                                
+                                                        <input type="text" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+                                                        onkeypress="return isNumeric(event)">                                                                                                                
                                                
                                                
                                                 </div>
@@ -350,6 +353,7 @@
                                                 <div class="form-group">
                                                     <input type="email"
                                                 name="emailAddress" class="form-control check-emp-forgotuserpassoword" id="emailAddress-forgotpassowrd"
+                                                onkeypress="return validationEmail(event);"
                                                 placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId" class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>
                                                 </div>
                                                 
@@ -357,10 +361,10 @@
                                                 
 
                                                 
-                                                <!-- 電郵 Errror message -->                                               
+                                                <!-- 電郵 Errror message -->                                             
                                                 <span id="errorEmptyEmailId-forgotpassword" class="hide1 empHide">
                                                      <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
-                                                </span> 
+                                                </span>
 
                                     
                                                  <span id="errorInvalidEmailId-forgotpassword" class="hide1"> 
@@ -703,13 +707,11 @@ function userLoginFnc() {
             $('#ajax-loading').hide();
             if (data == 'success') {
                 window.location.reload();
-                /* window.location.href = "getAccByUsernaneAndPassword"; */
             } else if (data == 'fail') {
                 $('#ajax-loading').hide();
                 $('#login-err-msg').show();
                 $('#login-err-msg').html('Please Check Login Credential');
             }
-
         }
     });
     /* } */

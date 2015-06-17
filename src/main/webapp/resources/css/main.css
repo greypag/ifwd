@@ -6983,10 +6983,6 @@ tr.product-landing-error-wrap {
         min-width:200px;
     }
     
-    #loading-overlay{
-        width:100%;    
-    }
-    
     
     .loading-dialog{
         margin-left:auto;
@@ -7055,4 +7051,12 @@ tr.product-landing-error-wrap {
 	margin-top:15px;
 	margin-bottom:15px;
 	margin-left:15px;
+}
+
+.bmg_custom_benelist .h2-1-td{
+	padding:0px !important;
+}
+
+.bmg_custom_benelist .h4-5{
+    text-align: left !important;
 }

@@ -490,6 +490,11 @@ $(function () {
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
+	// 70 year ago date
+	var dob_70_date = new Date();
+	dob_70_date.setFullYear(dob_70_date.getFullYear()-70);
+	dob_70_date.setDate(dob_70_date.getDate()+1);
+	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
 		startView: "decade",
@@ -498,6 +503,16 @@ $(function () {
 		startDate: dob_start_date,
 		endDate: dob_end_date
 		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+		var selected = 2;
+		if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
+			selected = 2;
+		}else{
+			selected = 3;
+		}
+		if($("#selectAgeRange1").length > 0){
+			$("#selectAgeRange1").val(selected);
+		}
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
 
@@ -5318,4 +5333,25 @@ try{$("#txtUserName1").unbind("keyup");}catch(err){}
 try{$("#fUserName").unbind("keyup");}catch(err){}
 try{$("#headerUserName").unbind("keyup");}catch(err){}
 try{$("#userName").unbind("keyup");}catch(err){}
+
+
+function validationEmail(evt){	
+	evt = (evt) ? evt : event;
+	var eCode = evt.keyCode;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	var keychar = String.fromCharCode(charCode)
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+			|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+		return true;
+	}
+	return false;
+}
+
+
+
+
+
+
+
 
