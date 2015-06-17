@@ -372,7 +372,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control"
 										id="inputFullName" name="whAppFullName"
-										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whAppFullName != null) ? workingHolidayPlanDetailsForm.getWhAppFullName() : userDetails.getFullName()}"
+										value="${userDetails.getFullName()}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
 										onkeypress=" return alphaOnly(event);" maxlength="100" />
 										<span id="whAppFullName" class="text-red"></span>
@@ -388,17 +388,11 @@ function activateUserAccountJoinUs() {
 											class="form-control soflow select-label"
 											onchange="selected(this); togglePlaceholder(this,'inputWhAppHKID','<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');">
 											<c:forEach var="hkidList" items="${mapHkId}">
-												<c:choose>
-													<c:when
-														test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhAppHKID()}">
-														<option value="${hkidList.key}" selected>
-													</c:when>
-													<c:otherwise>
-														<option value="${hkidList.key}">
-													</c:otherwise>
-												</c:choose>
-												<c:out value="${hkidList.value}" />
-												</option>
+												<option
+                                                    value="${hkidList.key}">
+                                                    <c:out
+                                                        value="${hkidList.value}" />
+                                                </option>
 											</c:forEach>
 										</select>
 									</div>
@@ -433,7 +427,6 @@ function activateUserAccountJoinUs() {
 										<input name="whAppDob" type="text"
 											class="datepicker form-control border-radius"
 											id="inputWhAppDob"
-											value="${workingHolidayPlanDetailsForm.getWhAppDob()}"
 											readonly>
 									</div>
 									<span id="whAppDob" class="text-red"> </span>
@@ -452,7 +445,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
-										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whAppMobileNO != null) ? workingHolidayPlanDetailsForm.getWhAppMobileNO() : userDetails.getMobileNo()}"
+										value="${userDetails.getMobileNo()}"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');"
 										maxlength="8" /> <span id="whAppMobileNO" class="text-red"></span>
@@ -471,7 +464,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input class="form-control full-control" id="inputEmailId"
 										name="whAppEmailAdd"
-										value="${(workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whAppEmailAdd != null) ? workingHolidayPlanDetailsForm.getWhAppEmailAdd() : userDetails.getEmailAddress()}"
+										value="${userDetails.getEmailAddress()}"
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
 										maxlength="50"> <span id="whAppEmailAdd"
 										class="text-red"> </span>
@@ -526,16 +519,8 @@ function activateUserAccountJoinUs() {
 											class="form-control soflow select-label">
 											<c:forEach var="relationshipList"
 												items="${mapRelationshipCode}">
-												<c:choose>
-													<c:when
-														test="${relationshipList.key == workingHolidayPlanDetailsForm.getWhInsBeneficary()}">
-														<option value="${relationshipList.key}" selected>
-													</c:when>
-													<c:otherwise>
-														<option value="${relationshipList.key}">
-													</c:otherwise>
-												</c:choose>
-												<c:out value="${relationshipList.value}" />
+												<option value="${relationshipList.key}">
+												    <c:out value="${relationshipList.value}" />
 												</option>
 											</c:forEach>
 										</select>
@@ -563,8 +548,7 @@ function activateUserAccountJoinUs() {
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 										<input type="text" name="whInsFullName"
-											value="${workingHolidayPlanDetailsForm.getWhInsFullName()}"
-											id="inputWhInsFullName" value=""
+											id="inputWhInsFullName"
 											class="form-control full-control "
 											onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
 											onkeypress="    return alphaOnly(event);" maxlength="100" />
@@ -597,16 +581,8 @@ function activateUserAccountJoinUs() {
 											<select id="selectWhInsHKID" name="selectWhInsHKID"
 												class="form-control soflow select-label" onchange="togglePlaceholder(this,'inputWhInsHKID','<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
 												<c:forEach var="hkidList" items="${mapHkId}">
-													<c:choose>
-														<c:when
-															test="${hkidList.key == workingHolidayPlanDetailsForm.getSelectWhInsHKID()}">
-															<option value="${hkidList.key}" selected>
-														</c:when>
-														<c:otherwise>
-															<option value="${hkidList.key}">
-														</c:otherwise>
-													</c:choose>
-													<c:out value="${hkidList.value}" />
+													<option value="${hkidList.key}">
+														<c:out value="${hkidList.value}" />
 													</option>
 												</c:forEach>
 											</select>
@@ -657,16 +633,8 @@ function activateUserAccountJoinUs() {
 										<select id="selectWhInsWorkingCty" name="whInsWorkingCty"
 											class="form-control soflow select-label">
 											<c:forEach var="country" items="${countryInfo}">
-												<c:choose>
-													<c:when
-														test="${country.key == workingHolidayPlanDetailsForm.getWhInsWorkingCty()}">
-														<option value="${country.key}" selected>
-													</c:when>
-													<c:otherwise>
-														<option value="${country.key}">
-													</c:otherwise>
-												</c:choose>
-												<c:out value="${country.value}" />
+												<option value="${country.key}">
+												    <c:out value="${country.value}" />
 												</option>
 											</c:forEach>
 										</select>
@@ -691,7 +659,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsRoom" name="whInsRoom"
-												value="${workingHolidayPlanDetailsForm.getWhInsRoom()}"
 												placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
@@ -701,8 +668,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsFloor" name="whInsFloor"
-												
-												value="${workingHolidayPlanDetailsForm.getWhInsFloor()}"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />');"
@@ -712,8 +677,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsBlock" name="whInsBlock"
-												
-												value="${workingHolidayPlanDetailsForm.getWhInsBlock()}"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />');"
@@ -727,8 +690,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-xs-12">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsBuilding" name="whInsBuilding"
-												
-												value="${workingHolidayPlanDetailsForm.getWhInsBuilding()}"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />');"
@@ -741,8 +702,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-xs-12">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsEstate" name="whInsEstate"
-												
-												value="${workingHolidayPlanDetailsForm.getWhInsEstate()}"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />');"
@@ -758,8 +717,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-xs-12">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsStreetNo" name="whInsStreetNo"
-												
-												value="${workingHolidayPlanDetailsForm.getWhInsStreetNo()}"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
@@ -771,8 +728,6 @@ function activateUserAccountJoinUs() {
 										<div class="col-xs-12">
 											<input type="text" class="form-control full-control bmg_custom_placeholder"
 												id="inputWhInsStreetName" name="whInsStreetName"
-												
-												value="${workingHolidayPlanDetailsForm.getWhInsStreetName()}"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />');"
@@ -795,23 +750,12 @@ function activateUserAccountJoinUs() {
 														List lst = (List) request.getAttribute("districtList");
 															Iterator itr = lst.iterator();
 															int i = 1;
-															String dis = request.getSession().getAttribute(
-																	"workingHolidayPlanDetailsForm") != null
-																	? ((WorkingHolidayDetailsBean) request.getSession()
-																			.getAttribute("workingHolidayPlanDetailsForm"))
-																			.getWhInsDistrict() : "";
 															while (itr.hasNext()) {
 																DistrictBean districtList = (DistrictBean) itr.next();
-																if (dis != null && dis.equals(districtList.getCode())) {
-													%>
-													<option selected value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
-													<%
-														} else {
 													%>
 													<option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
 													<%
 														}
-															}
 													%>
 												</select>
 											</div>
@@ -844,7 +788,6 @@ function activateUserAccountJoinUs() {
 												<label class="radio-inline homecare-lb"> <input
 													type="radio" name="whInsArea" id="inlineCARadio3"
 													value="HK"
-													<c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'HK'}"> checked="checked"</c:if>
 													class="home-input1"> <span><fmt:message
 															key="home.details.registration.hk" bundle="${msg}" /> </span>
 												</label>
@@ -853,7 +796,6 @@ function activateUserAccountJoinUs() {
 												<label class="radio-inline homecare-lb"> <input
 													type="radio" name="whInsArea" id="inlineCARadio4"
 													value="KL"
-													<c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'KL'}"> checked="checked"</c:if>
 													class="home-input1"> <span> <fmt:message
 															key="home.details.registration.kln" bundle="${msg}" /></span>
 												</label>
@@ -861,7 +803,6 @@ function activateUserAccountJoinUs() {
 											<div class="col-xs-4">
 												<label class="radio-inline"> <input type="radio"
 													name="whInsArea" id="inlineCARadio5" value="NT"
-													<c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsArea() == 'NT'}"> checked="checked"</c:if>
 													class="home-input1"> <span> <fmt:message
 															key="home.details.registration.nt" bundle="${msg}" /></span>
 												</label>
@@ -887,7 +828,6 @@ function activateUserAccountJoinUs() {
 												alt=""></span></span> <input name="whInseffectiveDate" type="text"
 											class="datepicker form-control border-radius"
 											id="inputWhInseffectiveDate"
-											value="${workingHolidayPlanDetailsForm.getWhInseffectiveDate()}"
 											readonly>
 									</div>
 									<span id="whInseffectiveDate" class="text-red"></span>

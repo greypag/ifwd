@@ -733,7 +733,7 @@ function confirmDetails(form){
 }
 
 function setAtt(att, value) {
-	var method = this.rootUrl + "/saveAtt";
+	/*var method = this.rootUrl + "/saveAtt";
 	var data = {"att":att , "value": value};
 	$.ajax({
 		type : "POST",
@@ -742,5 +742,5 @@ function setAtt(att, value) {
 		async : false,
 		success : function(data) {
 		}
-	});
+	});*/
 }

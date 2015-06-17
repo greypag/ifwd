@@ -240,7 +240,12 @@
                                     $('#success-message').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
-                                } else {
+                                } else if (data.indexOf('[')==0&data.indexOf(']')>0) {
+                                	$('#success-message').html('');
+                                    $('#success-message').hide();
+                                    $('#forgotusername-err-msg').html(data);
+                                    $('#forgotusername-err-msg').show();
+                                } else {             
                                     $('#success-message').html('Your Username is ' + data);
                                     $('#success-message').show();
                                 }
