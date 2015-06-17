@@ -1,5 +1,9 @@
 package com.ifwd.fwdhk.controller;
 
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,12 +26,12 @@ public class ECommController {
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
-			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) {
+			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) throws IOException {
 		if (!action.toLowerCase().contains("/tc/") && !action.toLowerCase().contains("/en/") && !action.contains("joinus") && !action.contains("/error/")) {
-			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
 			return null;
 		} else if (action.contains(".") && !action.contains("/error/")) {
-			response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );			
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
 			return null;
 		} else {
 			HttpSession session = request.getSession();
@@ -52,15 +56,24 @@ public class ECommController {
 			{
 				session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);
 			}
-
-			viewName = action;
 			
-			if (viewName.indexOf("/en/") >= 0)
-				viewName = viewName.replace("/en/", "/tc/");
+			if(action.contains(".") && action.contains("/error/")){
+				response.sendError(Integer.parseInt(Pattern.compile("[^0-9]").matcher(action).replaceAll("")));
+				return null;
+			}
 			else
-				viewName = viewName.replace("/tc/", "/en/");
+			{
+				viewName = action;
+				
+				if (viewName.indexOf("/en/") >= 0)
+					viewName = viewName.replace("/en/", "/tc/");
+				else
+					viewName = viewName.replace("/tc/", "/en/");
+				return new ModelAndView("redirect:" + viewName);
+				
+			}
+
 			
-			return new ModelAndView("redirect:" + viewName);
 			
 		} 
 	}
