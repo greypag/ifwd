@@ -505,13 +505,15 @@ $(function () {
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		var selected = 2;
-		if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
-			selected = 2;
-		}else{
-			selected = 3;
-		}
-		if($("#selectAgeRange1").length > 0){
-			$("#selectAgeRange1").val(selected);
+		if(ev.date != undefined) {
+			if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
+				selected = 2;
+			}else{
+				selected = 3;
+			}
+			if($("#selectAgeRange1").length > 0){
+				$("#selectAgeRange1").val(selected);
+			}
 		}
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);

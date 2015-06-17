@@ -240,7 +240,10 @@
                                     $('#success-message').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
-                                } else {
+                                } else if (data.indexOf('[')==0&data.indexOf(']')>0) {
+                                	$('#success-message').html('<font color=red>' + data + "</font>");
+                                    $('#success-message').show();
+                                } else {             
                                     $('#success-message').html('Your Username is ' + data);
                                     $('#success-message').show();
                                 }
