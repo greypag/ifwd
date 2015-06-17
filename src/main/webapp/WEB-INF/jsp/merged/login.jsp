@@ -144,7 +144,8 @@
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
                                                         <input type="text" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
-                                                        onkeypress="return isNumeric(event)">                                                                                                                
+                                                        onkeypress="return isNumeric(event)"
+                                                        onblur="forgotUserName();">                                                                                                                
                                                 </div>
                                                                                         
                                                <!--  phone erro message -->
@@ -173,6 +174,7 @@
                                              <input type="email"
                                         name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
                                         onkeypress="return validationUsername(event);"
+                                        onblur="forgotUserName();"
                                         placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
                                              
                                                 </div>
@@ -311,7 +313,8 @@
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
                                                         <input type="text" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
-                                                        onkeypress="return isNumeric(event)">                                                                                                                
+                                                        onkeypress="return isNumeric(event)"
+                                                        onblur="validForgetUserPassword();">                                                                                                                
                                                
                                                
                                                 </div>
@@ -343,6 +346,7 @@
                                                     <input type="email"
                                                 name="emailAddress" class="form-control check-emp-forgotuserpassoword" id="emailAddress-forgotpassowrd"
                                                 onkeypress="return validationEmail(event);"
+												onblur="validForgetUserPassword();"
                                                 placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId" class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>
                                                 </div>
                                                 
@@ -376,7 +380,8 @@
                                                     <div class="form-group">
                                                 <input type="text" name="userName"
                                                 class="form-control check-emp-forgotuserpassoword" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />"
-                                                onkeypress="return validationUsername(event);">
+                                                onkeypress="return validationUsername(event);"
+                                                onblur="validForgetUserPassword();">
                                                 </div>
                                                 
                                                 
@@ -426,72 +431,68 @@
                         
 
     <script>
+	    function validForgetUserPassword(){
+	    	$('#forgotpassword-err-msg').hide();
+	        $('#success-message-password').hide();  	        
+	        var valid = true;
+	         
+	        var mobileNo = $('#mobileNo-forgotpassowrd').val();
+	        var emailId = $('#emailAddress-forgotpassowrd').val();
+	        var userName = $('#userName').val();        
+	        
+	          // Mobile Number Validation
+	        if (mobileNo.trim() == "") {
+	             $('#errorEmptyMob-forgotPassword').show();
+	             valid = false;
+	        }   else{
+	            
+	            if (mobile_pattern.test(mobileNo) == false) {
+	                $("#errorInvalidMob-forgotPassword").show();                   
+	                valid = false;
+	            }               
+	        }             
+	       
+	        // Email Address Validation
+	        if (emailId.trim() == "") {
+	           $('#errorEmptyEmailId-forgotpassword').show();
+	            valid = false;
+	            
+	        } else {
+	            if (emailreg.test(emailId) == false) {
+	                  $('#errorInvalidEmailId-forgotpassword').show();
+	                  valid = false;
+	                //document.getElementById("errorInvalidEmailId").style.display = "block";
+	                //valid = false;
+	            }
+	        }
+	        
+	        // UserName Validation
+	        if (userName.trim() == "") {
+	            $("#errorEmptyUName").show();
+	
+	            valid = false;
+	
+	        } else {                
+	            if (isAccountNumeric(userName)) {
+	            	$("#errorInvalidUName").show();
+	                valid = false;
+	            } else if (!plan_user.test(userName)) {
+	            	$("#errorInvalidUName").show();
+	                valid = false;
+	            } else if(userName.length < 6 || userName.length > 50) {
+	            	$("#errorInvalidUName").show();
+	                valid = false;
+	            }
+	        }
+	        return valid;
+	    }
+    
+    
         function forgotUserPassword() {
-        	$('#forgotpassword-err-msg').hide();
-            $('#success-message-password').hide();
-        	
-            
-            var valid = true;
-             
-            var mobileNo = $('#mobileNo-forgotpassowrd').val();
-            var emailId = $('#emailAddress-forgotpassowrd').val();
-            var userName = $('#userName').val();
-            
-            
-              // Mobile Number Validation
-            if (mobileNo.trim() == "") {
-                 $('#errorEmptyMob-forgotPassword').show();
-                 valid = false;
-            }   else{
-                
-                if (mobile_pattern.test(mobileNo) == false) {
-                    $("#errorInvalidMob-forgotPassword").show();                   
-                    valid = false;
-                }               
-            }          
-            
-           
-            
-            
-            
-            
-            // Email Address Validation
-            if (emailId.trim() == "") {
-               $('#errorEmptyEmailId-forgotpassword').show();
-                valid = false;
-                
-            } else {
-                if (emailreg.test(emailId) == false) {
-                      $('#errorInvalidEmailId-forgotpassword').show();
-                      valid = false;
-                    //document.getElementById("errorInvalidEmailId").style.display = "block";
-                    //valid = false;
-                }
-            }
-            
-            
-            
-            // UserName Validation
-            if (userName.trim() == "") {
-                $("#errorEmptyUName").show();
 
-                valid = false;
-
-            } else {                
-                if (isAccountNumeric(userName)) {
-                	$("#errorInvalidUName").show();
-                    valid = false;
-                } else if (!plan_user.test(userName)) {
-                	$("#errorInvalidUName").show();
-                    valid = false;
-                } else if(userName.length < 6 || userName.length > 50) {
-                	$("#errorInvalidUName").show();
-                    valid = false;
-                }
-            }
             
             
-            if( valid == true){
+            if( validForgetUserPassword() == true){
 
    
                 $('.login-ajax-loading').show();
