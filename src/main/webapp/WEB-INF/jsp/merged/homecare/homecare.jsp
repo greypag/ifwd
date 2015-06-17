@@ -715,7 +715,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							}
 								i++;
 						%>
-						<div class="col-lg-4 col-md-2 ">
+						<div class="col-md-4 ">
 							<button type="submit"
 								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
 								onclick="return msgAlertDesk('getHomeQuoteBottom')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
