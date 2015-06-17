@@ -460,8 +460,8 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col3" bundle="${msg}" /></strong></td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>
-			                                <tr>
-			                                  	<td rowspan="2" style="text-align:left;">
+			                                <tr style="text-align:left;">
+			                                  	<td rowspan="2">
 	                                                <strong><fmt:message key="member.account.referral.benefits.table.row5.col1" bundle="${msg}" /></strong>
 	                                            </td>
 			                                      <td><strong><fmt:message key="member.account.referral.benefits.table.row5.col2" bundle="${msg}" /></strong><a href="javascript:;" onclick="getPromoCode();" class="btn-box-2 color4 login-btn" style="padding:6px;font-size:14px;margin-left:10px;"><fmt:message key="partner.agoda.get" bundle="${msg}" /></a></td>
