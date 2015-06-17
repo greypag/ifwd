@@ -172,7 +172,7 @@
                                                 <div class="form-group">
                                              <input type="email"
                                         name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
-                                        onkeypress="return validationEmail(event);"
+                                        onkeypress="return validationUsername(event);"
                                         placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
                                              
                                                 </div>
@@ -356,7 +356,7 @@
                                                 </span>
 
                                     
-                                                 <span id="errorInvalidEmailId-forgotpassword" class="hide1"> 
+                                                 <span id="errorInvalidEmailId-forgotpassword" class="hide1 empHide"> 
                                                      <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
                                                  </span>
                                                 
