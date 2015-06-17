@@ -7060,3 +7060,34 @@ tr.product-landing-error-wrap {
 .bmg_custom_benelist .h4-5{
     text-align: left !important;
 }
+
+/*Travel landing partner logo*/
+.main-partner{
+
+}
+
+.main-partner-1, .main-partner-2{
+    padding: 0;
+}
+
+.main-partner-1 img{
+    display: inline-block;
+    float: left;
+}
+
+.main-partner-2 img{
+    margin: 3px 0 0 20px;
+    display: inline-block;
+    float: left;
+}
+
+.mob .main-partner-1 img{
+    display: inline-block;
+    float: right;
+}
+
+.mob .main-partner-2 img{
+    margin: 3px 0 0 20px;
+    display: inline-block;
+    float: left;
+}
