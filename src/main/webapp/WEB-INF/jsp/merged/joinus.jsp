@@ -156,6 +156,7 @@
 											<input type="text" class="form-control "
 												id="txtUserName1" value="${userDetails.getUserName() }"
                                                 onfocus="$('#errorEmptyUNameJoinUs').html('');"
+                                                onkeypress="return validationUsername(event);"
 												placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />" name="userName">
 
 										

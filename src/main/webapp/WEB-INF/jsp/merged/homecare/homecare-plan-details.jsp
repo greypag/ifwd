@@ -805,7 +805,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	                                   <input type="text"
                                                 class="form-control marginbt full-control input-white" id="Username"
-                                                name="userName"> <span id="UsernameError"
+                                                name="userName" onkeypress="return validationUsername(event);"> <span id="UsernameError"
                                                 class="text-red"> </span>
 	                               </div>
 	                            </div>

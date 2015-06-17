@@ -537,7 +537,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 							       </label>
 							   </div>
 							   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-							       <input type="text" name="userName" class="form-control full-control input-white" id="Username" onfocus="emptyMembershipError();">
+							       <input type="text" name="userName" class="form-control full-control input-white" id="Username" onfocus="emptyMembershipError();"
+							       onkeypress="return validationUsername(event);">
 							       <span id="UsernameError" class="text-red"></span>
 							   </div>
 							</div>

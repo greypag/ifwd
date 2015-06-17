@@ -113,7 +113,8 @@
 											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.userName" bundle="${msg}" />
 											</label></td>
 											<td class=""><input type="text" name="userName"
-												class="form-control" id="fUserName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />">
+												class="form-control" id="fUserName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />"
+												onkeypress="return validationUsername(event);">
 												<span id="errorFEmptyUName" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.userName.errorEmptyUName" bundle="${msg}" /></label>
 											</span> <span id="errorFInvalidUName" class="hide1"> <label
