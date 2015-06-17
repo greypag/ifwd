@@ -117,6 +117,9 @@ function activateUserAccountJoinUs() {
                 validateForm = false;   
             
             }
+
+
+            
             if (!validateForm){
                 return;
             }           
