@@ -20,6 +20,12 @@
 	}
 %>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
 <script>
 	this.rootUrl="<%=request.getContextPath()%>";
 	this.rootLang="/<%=session.getAttribute("language").toString()%>";
@@ -227,13 +233,15 @@ function activateUserAccountJoinUs() {
 	}
 %>
 
-
+</head>
+<body>
 <!--/#main-Content-->
 <section>
 	<div id="cn" class="container">
 		<div class="row">
 
-			<form:form name="frmYourDetails" id="frmYourDetails" method="post"
+			<form:form name="frmYourDetails" id="frmYourDetails"
+			    action="${pageContext.request.contextPath}/${language}/working-holiday-insurance/working-holiday-summary" method="post"
 				onsubmit="return confirmDetails(this);">
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message
@@ -1307,3 +1315,6 @@ function userLoginFnc() {
 </script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>
+	
+</body>
+</html>	

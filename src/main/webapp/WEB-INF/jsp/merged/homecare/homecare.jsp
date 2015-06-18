@@ -325,7 +325,7 @@ $(document).ready(function() {
 						<a href="" class="h4-4 scrollToTop"><fmt:message key="home.main.feature.getquote" bundle="${msg}" /></a>
 					</div>
 				</div>
-				<div class="text-red"><c:out value="${errMsgs}" /></div>
+				<div class="text-red"></div>
 			</div>
 			<div class="other-benefits col-lg-12">
 
@@ -338,6 +338,9 @@ $(document).ready(function() {
 							
 					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""> 
 					<u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> 
+					<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
+					<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
+					<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> 
 					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
 					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
 
