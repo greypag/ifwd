@@ -22,21 +22,21 @@
 
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
-									$('#success-message')
+									$('#eSuccess-message')
 											.html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
-									$('#success-message').show();
-									$('#user-details-main').hide();
+									$('#eSuccess-message').show();
+									$('#eUser-details-main').hide();
 									$('#hide-field').hide();
 								} else if (data.indexOf('~~~') > -1) {
-									$('#success-message').html(
+									$('#eSuccess-message').html(
 											data.slice(5, 68));
-									$('#success-message').show();
-									$('#user-details-main').hide();
+									$('#eSuccess-message').show();
+									$('#eUser-details-main').hide();
 									$('#hide-field').hide();
 								} else {
-									$('#success-message').html(
+									$('#eSuccess-message').html(
 											'Your Username is ' + data);
-									$('#success-message').show();
+									$('#eSuccess-message').show();
 								}
 
 							},
@@ -80,12 +80,12 @@
 						<P id="error-email-id">
 					</div>
 
-					<div id="success-message" class="alert alert-success" role="alert"
+					<div id="eSuccess-message" class="alert alert-success" role="alert"
 						style="display: none;">
 						<P id="error1">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-						id="user-details-main">
+						id="eUser-details-main">
 						<table class="table activation-form">
 							<tbody>
 								<tr>
