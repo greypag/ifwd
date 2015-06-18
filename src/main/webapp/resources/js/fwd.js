@@ -3520,7 +3520,9 @@ function forgotPassword()
 		valid = false;
 
 	}else if(userName.length < 6 || userName.length > 50) {
-		return getBundle(getBundleLanguage, "user.username.length.message");
+		document.getElementById("errorFInvalidUName").style.display = "block";
+		valid = false;
+		/*return getBundle(getBundleLanguage, "user.username.length.message");*/
 	}
 	/*else {
 		if (reg.test(userName) == false) {
