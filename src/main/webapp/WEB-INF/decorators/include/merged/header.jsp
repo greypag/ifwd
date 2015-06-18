@@ -75,6 +75,11 @@ function submitLoginForm(formID) {
 	                $('#ajax-loading').hide();
 	                $("#"+formID+' #login-err-msg').show();
 	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+				} else if (data == 'Please provide a valid User Name and Password.') {
+					try{$('.login-ajax-loading').hide();}catch(error){}
+	                $('#ajax-loading').hide();
+	                $("#"+formID+' #login-err-msg').show();
+	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.invalid"));
 				} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
 					try{$('.login-ajax-loading').hide();}catch(error){}
 	                $('#ajax-loading').hide();
