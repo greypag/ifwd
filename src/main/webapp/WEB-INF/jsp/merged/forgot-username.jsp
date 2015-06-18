@@ -4,14 +4,12 @@
 <fmt:setBundle basename="messages" var="msg" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<body class="homepage">
 
 	<!--/#main-Content-->
 	
 	<script>
-		function getForgotUserName() {
-			var validationFormVal = forgotUserName();
-			alert(validationFormVal);
+		function getForgotUserName1() {
+			var validationFormVal = forgotUserName1();
 			if (validationFormVal == true) {
 				$('#forgotusername-err-msg').hide();
 				$('#ajax-loading').show();
@@ -97,32 +95,37 @@
 								<tr>
 									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
 									<td class="pad-none"><input type="text" name="mobileNo" onkeypress="return isNumeric(event);" onblur="forgotUserName();"
-										class="form-control" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
-										<span id="errorEmptyMob" class="hide1"> <label
-											class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
-									</span> <span id="errorInvalidMob" class="hide1"> <label
-											class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
-									</span></td>
+										class="form-control" id="fMobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
+										<span id="fErrorEmptyMob" class="hide1">
+										    <label class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
+										</span>
+									    <span id="fErrorInvalidMob" class="hide1">
+									        <label class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
+									    </span>
+									</td>
 								</tr>
 								<tr>
 									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />
 									</label></td>
 									<td class="pad-none"><input type="email"
-										name="emailAddress" class="form-control" id="emailAddress"
+										name="emailAddress" class="form-control" id="fEmailAddress"
 										onkeypress="return validationEmail(event);"
 										onblur="forgotUserName();"
-										placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId"
-										class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
-									</span> <span id="errorInvalidEmailId" class="hide1"> <label
-											class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
-									</span></td>
+										placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />">
+										<span id="fErrorEmptyEmailId" class="hide1">
+										    <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
+									    </span>
+									    <span id="fErrorInvalidEmailId" class="hide1">
+									        <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
+									    </span>
+									</td>
 								</tr>
 
 
 								<tr></tr>
 								<tr>
 									<td colspan="2">
-										<button type="button" onclick="getForgotUserName()"
+										<button type="button" onclick="getForgotUserName1()"
 											class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>
 									</td>
 								</tr>

@@ -3531,31 +3531,21 @@ function forgotPassword()
 	return valid;
 }
 function forgotUserName() {
-
-
 	var valid = true;
-
-
 	var mobileNo = document.getElementById("mobileNo").value;
 	var emailId = document.getElementById("emailAddress").value;
-
-
 	document.getElementById("errorEmptyMob").style.display = "none";
 	document.getElementById("errorInvalidMob").style.display = "none";
 	document.getElementById("errorEmptyEmailId").style.display = "none";
 	document.getElementById("errorInvalidEmailId").style.display = "none";
 
-
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
 		document.getElementById("errorEmptyMob").style.display = "block";
-
 		valid = false;
-
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
 			document.getElementById("errorInvalidMob").style.display = "block";
-
 			valid = false;
 		}
 	}
@@ -3563,18 +3553,51 @@ function forgotUserName() {
 	// Email Address Validation
 	if (emailId.trim() == "") {
 		document.getElementById("errorEmptyEmailId").style.display = "block";
-
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
 			document.getElementById("errorInvalidEmailId").style.display = "block";
-
 			valid = false;
 		}
 	}
 
 	return valid;
 }
+
+function forgotUserName1() {
+	var valid = true;
+	var mobileNo = document.getElementById("fMobileNo").value;
+	var emailId = document.getElementById("fEmailAddress").value;
+	document.getElementById("fErrorEmptyMob").style.display = "none";
+	document.getElementById("fErrorInvalidMob").style.display = "none";
+	document.getElementById("fErrorEmptyEmailId").style.display = "none";
+	document.getElementById("fErrorInvalidEmailId").style.display = "none";
+
+	// Mobile Number Validation
+	if (mobileNo.trim() == "") {
+		document.getElementById("fErrorEmptyMob").style.display = "block";
+		valid = false;
+	} else {
+		if (mobile_pattern.test(mobileNo) == false) {
+			document.getElementById("fErrorInvalidMob").style.display = "block";
+			valid = false;
+		}
+	}
+
+	// Email Address Validation
+	if (emailId.trim() == "") {
+		document.getElementById("fErrorEmptyEmailId").style.display = "block";
+		valid = false;
+	} else {
+		if (emailreg.test(emailId) == false) {
+			document.getElementById("fErrorInvalidEmailId").style.display = "block";
+			valid = false;
+		}
+	}
+
+	return valid;
+}
+
 function resetPassword() {
 
 	var flag = true;
