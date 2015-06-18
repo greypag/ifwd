@@ -94,7 +94,7 @@
 								</tr>
 								<tr>
 									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input type="text" name="mobileNo" onkeypress="return isNumeric(event);" onblur="getForgotUserName1();"
+									<td class="pad-none"><input type="text" name="mobileNo" onkeypress="return isNumeric(event);" onblur="forgotUserName1();"
 										class="form-control" id="fMobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
 										<span id="fErrorEmptyMob" class="hide1">
 										    <label class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
@@ -110,7 +110,7 @@
 									<td class="pad-none"><input type="email"
 										name="emailAddress" class="form-control" id="fEmailAddress"
 										onkeypress="return validationEmail(event);"
-										onblur="getForgotUserName1();"
+										onblur="forgotUserName1();"
 										placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />">
 										<span id="fErrorEmptyEmailId" class="hide1">
 										    <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
