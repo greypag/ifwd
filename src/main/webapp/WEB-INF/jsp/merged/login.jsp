@@ -173,7 +173,7 @@
                                                 <div class="form-group">
                                              <input type="email"
                                         name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
-                                        onkeypress="return validationUsername(event);"
+                                        onkeypress="return validationEmail(event);"
                                         onblur="forgotUserName();"
                                         placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
                                              
