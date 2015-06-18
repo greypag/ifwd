@@ -705,7 +705,7 @@ function confirmDetails(form){
 			async : false,
 			success : function(data) {
 				if (data == 'success') {
-					form.action=rePage;
+					//form.action=rePage;
 					result=true;
 				} else {
 					$("#errorMsg").html(data);
