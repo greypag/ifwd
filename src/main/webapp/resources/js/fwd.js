@@ -3491,16 +3491,11 @@ function forgotPassword()
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
 		document.getElementById("errorFEmptyMob").style.display = "block";
-
-
-		alert(1 + "!!" + mobileNo.trim())
 		valid = false;
 
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
 			document.getElementById("errorFInvalidMob").style.display = "block";
-
-			alert(2 + "!!" + mobile_pattern.test(mobileNo))
 			valid = false;
 		}
 	}
@@ -3917,7 +3912,6 @@ function hc_planValid() {
     
     /*document.getElementById("errRegUser").innerHTML = "";
     var RegUserName = document.getElementById("inputRegUserName").value;
-    alert('jdj');
     document.getElementById("errRegPass").innerHTML = "";
     var RegPass = document.getElementById("inputRegPass").value;
     document.getElementById("errRegCPass").innerHTML = "";
@@ -4014,7 +4008,6 @@ function hc_planValid() {
     
     /*document.getElementById("errRegUser").innerHTML = "";
     var RegUserName = document.getElementById("inputRegUserName").value;
-    alert('jdj');
     document.getElementById("errRegPass").innerHTML = "";
     var RegPass = document.getElementById("inputRegPass").value;
     document.getElementById("errRegCPass").innerHTML = "";
@@ -5158,7 +5151,6 @@ function hkidOnkeypress(evt) {
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
 	var keychar = String.fromCharCode(charCode)
 	//alert("keychar:"+keychar+"\ncharCode:"+evt.charCode+"\nkeyCode:"+evt.keyCode);
-	//alert(keychar);
 	// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
 	// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
 	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
