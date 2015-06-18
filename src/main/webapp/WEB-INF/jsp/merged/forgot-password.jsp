@@ -90,7 +90,7 @@
 											<td class=""><input type="text" name="mobileNo"
 												class="form-control" id="fMobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
 												onkeypress="return isNumeric(event)"
-												onblur="replaceNumeric(this);"> <span
+												onblur="forgotPassword();"> <span
 												id="errorFEmptyMob" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /> </label>
 											</span> <span class="hide1" id="errorFInvalidMob"> <label
@@ -103,6 +103,7 @@
 											<td class=""><input type="email"
 												name="emailAddress" class="form-control" id="fEmailAddress"
 												onkeypress="return validationEmail(event);"
+												onblur="forgotPassword();"
 												placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorFEmptyEmailId"
 												class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /> </label>
 											</span> <span id="errorFInvalidEmailId" class="hide1"> <label
@@ -115,7 +116,8 @@
 											</label></td>
 											<td class=""><input type="text" name="userName"
 												class="form-control" id="fUserName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />"
-												onkeypress="return validationUsername(event);">
+												onkeypress="return validationUsername(event);"
+												onblur="forgotPassword();">
 												<span id="errorFEmptyUName" class="hide1"> <label
 													class="text-red"><fmt:message key="member.registration.details.label.userName.errorEmptyUName" bundle="${msg}" /></label>
 											</span> <span id="errorFInvalidUName" class="hide1"> <label
