@@ -201,7 +201,7 @@ function submitLoginForm(formID) {
 							 %>
 							 </li>
 							<%
-								if (session.getAttribute("authenticate") == null ) {
+								if (session.getAttribute("authenticate") == null || session.getAttribute("username")==null ) {
 							%>
 						
 							<li class="dropdown login-btn margin-left1" id="myDropdown">
