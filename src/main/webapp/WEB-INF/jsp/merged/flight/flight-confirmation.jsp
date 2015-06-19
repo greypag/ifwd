@@ -540,4 +540,24 @@ data : $('#frmTravelPlan').serialize()
 <noscript>
    <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
 </noscript>
+<script>
+$(document).ready(function() {
+	ga('create', 'UA-60032236-1', 'auto');
+	ga('require', 'ecommerce');
+	ga('ecommerce:addTransaction', {
+	  'id': '${transNo}', // Transaction ID. Required.
+	  'revenue': '${dueAmount}', // Grand Total.
+	  'affiliation': 'Flight', // Insurance type, e.g. Life
+	   'currency': 'HKD'
+	  });
+	ga('ecommerce:addItem', {
+	      'id': '${transNo}', // Transaction ID. Required
+	      'name': 'FlightCare', // Product name. Required
+	      'category': 'Travel', // Category or variation
+	      'price': '${dueAmount}', // Unit price
+	      'currency': 'HKD'
+	    });
+	ga('ecommerce:send');
+});
 
+</script>
