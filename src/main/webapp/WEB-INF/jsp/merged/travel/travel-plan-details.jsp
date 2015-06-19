@@ -650,7 +650,7 @@ function activateUserAccountJoinUs() {
                                                </h4>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                                <span class="#333"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" />123</span>
+                                                <span class="#333"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></span>
                                            </div>
                                        </div>
                                         <!-- english name start -->
