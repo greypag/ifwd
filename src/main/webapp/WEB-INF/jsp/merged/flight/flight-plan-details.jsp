@@ -988,7 +988,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 			                                   <h4 class="bold big-title" style="padding-left:0px !important;">
 			                                       <fmt:message
-			                                           key="flight.details.insured.firstInsuredHint"
+			                                           key="flight.details.insured.firstinsuredhint"
 			                                           bundle="${msg}" />
 			                                       <c:out value="${inx}"></c:out>
 			                                   </h4>
