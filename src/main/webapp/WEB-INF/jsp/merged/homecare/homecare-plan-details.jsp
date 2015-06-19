@@ -649,7 +649,7 @@ function activateUserAccountJoinUs() {
                                             class="form-control full-control" id="inputFullName" name="applicantName"
                                             value="${userDetails.getFullName().trim()}"
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
-                                            onkeypress=" return alphaOnly(event);" maxlength="100" /> <span
+                                            onkeypress=" return alphaOnly(event);" maxlength="50" /> <span
                                             id="appfullname" class="text-red"></span>
 	                               </div>
 	                           </div>

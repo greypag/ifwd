@@ -2311,24 +2311,26 @@ function tPlanValid()
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
          // check only when same "id" found
-         if(insured1Hkid != null && insured1Hkid == appHkid){   
-    		 if (age == 1) {
-    			 if ( difference > 18) {
-    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-    			     flag = false;		 
-    			 }  
-    		 } else if (age == 2) {
-    			 if ( difference < 18 || difference > 70) {
-    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-    			     flag = false;		 
-    			 }
-    		 } else if (age == 3) {
-    			 if ( difference < 70 || difference > 85) {
-    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-    			     flag = false;		 
-    			 }
-    		 }        	 
-         }
+//		 alert('age ' + age);
+//		 alert('difference ' + difference);
+//         if(insured1Hkid != null && insured1Hkid == appHkid){   
+//    		 if (age == 1) {
+//    			 if ( difference > 18) {
+//    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+//    			     flag = false;		 
+//    			 }  
+//    		 } else if (age == 2) {
+//    			 if ( difference < 18 || difference > 70) {
+//    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+//    			     flag = false;		 
+//    			 }
+//    		 } else if (age == 3) {
+//    			 if ( difference < 70 || difference > 85) {
+//    				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+//    			     flag = false;		 
+//    			 }
+//    		 }        	 
+//         }
 		 
 	 }
 	 
@@ -5189,7 +5191,7 @@ function hkidOnkeypress(evt) {
 //no chinese method
 $(':text').keyup(function(e) {
     var inputVal = $(this).val();
-    var newVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,]/g,'');
+    var newVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,-_]/g,'');
     if(inputVal != newVal){
     	$('#'+$(this).attr('id')).val(newVal);
     }
@@ -5352,7 +5354,7 @@ try{$("#txtUserName1").unbind("keyup");}catch(err){}
 try{$("#fUserName").unbind("keyup");}catch(err){}
 try{$("#headerUserName").unbind("keyup");}catch(err){}
 try{$("#userName").unbind("keyup");}catch(err){}
-
+try{$("#inputEmailId").unbind("keyup");}catch(err){}
 
 function validationEmail(evt){	
 	evt = (evt) ? evt : event;

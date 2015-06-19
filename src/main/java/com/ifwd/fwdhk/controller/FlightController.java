@@ -1529,8 +1529,13 @@ public class FlightController {
 		
 		JSONObject parameters = new JSONObject();
 		if (session.getAttribute("FlightResponseFrTrvl") != null) {
+			
 			parameters = (JSONObject) session
 					.getAttribute("FlightResponseFrTrvl");
+			JSONObject applicant = (JSONObject) parameters.get("applicant");
+			applicant.put("optIn1", createFlightPolicy.getCheckbox3());
+			applicant.put("optIn2", createFlightPolicy.getCheckbox4());
+			parameters.put("applicant", applicant);
 			parameters.put("planCode", selectPlanName);
 		}
 		PlanDetailsForm plandetailsForm = new PlanDetailsForm();

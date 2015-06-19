@@ -385,7 +385,7 @@ function activateUserAccountJoinUs() {
 										id="inputFullName" name="whAppFullName"
 										value="${userDetails.getFullName()}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
-										onkeypress=" return alphaOnly(event);" maxlength="100" />
+										onkeypress=" return alphaOnly(event);" maxlength="50" />
 										<span id="whAppFullName" class="text-red"></span>
 								</div>
 							</div>

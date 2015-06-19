@@ -361,7 +361,7 @@ function activateUserAccountJoinUs() {
                                         class="form-control full-control" id="inputFullName"
                                         value="${userDetails.getFullName()}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                        onkeypress="return alphaOnly(event);" maxlength="100" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
+                                        onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>

@@ -365,7 +365,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                   value="${userDetails.getFullName().trim()}" class="form-control full-control"
 	                                   id="inputFullName" name="fullName"
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-	                                   onkeypress="return alphaOnly(event);" maxlength="100" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
+	                                   onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>

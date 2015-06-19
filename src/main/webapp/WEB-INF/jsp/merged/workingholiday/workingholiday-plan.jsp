@@ -69,7 +69,10 @@ var promoCodeInsertFlag = true;
 	                }
 	
 	            });
+			} else {
+				promoCodeInsertFlag = true;
 			}
+				
 		}
 	}
 
