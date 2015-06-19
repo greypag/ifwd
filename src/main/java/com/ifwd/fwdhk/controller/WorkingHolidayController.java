@@ -711,6 +711,7 @@ public class WorkingHolidayController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
+		session.setAttribute("dueAmount", dueAmount);
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 
 		WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
@@ -867,7 +868,7 @@ public class WorkingHolidayController {
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
-				
+				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));

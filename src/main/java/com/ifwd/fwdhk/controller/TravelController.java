@@ -1005,6 +1005,8 @@ public class TravelController {
 		
 		UserDetails userDetails = new UserDetails();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		session.setAttribute("dueAmount", dueAmount);
+		
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
 		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
@@ -1858,6 +1860,9 @@ public class TravelController {
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
 				model.addAttribute("emailAddress",
 						session.getAttribute("emailAddress"));
+				
+				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+				
 				model.addAttribute("referralCode",
 						session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));

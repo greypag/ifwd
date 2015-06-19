@@ -31,6 +31,9 @@
   <loc>https://i.fwd.com.hk/tc/travel-insurance</loc>
 </url>
 <url>
+  <loc>https://i.fwd.com.hk/tc/working-holiday-insurance</loc>
+</url>
+<url>
   <loc>https://i.fwd.com.hk/tc/home-insurance</loc>
 </url>
 <url>
@@ -38,6 +41,9 @@
 </url>
 <url>
   <loc>https://i.fwd.com.hk/en/travel-insurance</loc>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/working-holiday-insurance</loc>
 </url>
 <url>
   <loc>https://i.fwd.com.hk/en/home-insurance</loc>
@@ -71,5 +77,9 @@
 <url>
   <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf</loc>
   <lastmod>2015-04-17T01:26:44+00:00</lastmod>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Working_HolidayCare_Provisions_May_2015.pdf</loc>
+  <lastmod>2015-06-19T11:38:44+00:00</lastmod>
 </url>
 </urlset>

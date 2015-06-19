@@ -1451,7 +1451,8 @@ public class FlightController {
 				session.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("createFlightPolicy", createFlightPolicy);
-
+				model.addAttribute("dueAmount", "0");
+				
 				request.setAttribute("fullName",
 						request.getParameter("fullName"));
 				request.setAttribute("hkid", request.getParameter("hkid"));

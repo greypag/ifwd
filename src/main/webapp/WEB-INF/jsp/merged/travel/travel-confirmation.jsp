@@ -514,13 +514,12 @@ $(document).ready(function() {
   ga('ecommerce:addTransaction', {
     'id': '${transNo}', // Transaction ID. Required.
     'revenue': '${dueAmount}', // Grand Total.
-    'affiliation': 'Travel', // Insurance type, e.g. Life
-     'currency': 'HKD'
+    'affiliation': 'Travel' // Insurance type, e.g. Life
     });
   ga('ecommerce:addItem', {
       'id': '${transNo}', // Transaction ID. Required
       'name': 'TravelCare', // Product name. Required
-      'category': 'TravelCare', // Category or variation
+      'category': 'Travel', // Category or variation
       'price': '${dueAmount}', // Unit price
       'currency': 'HKD'
     });

@@ -411,6 +411,7 @@ public class HomeCareController {
 		
 		
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
+		session.setAttribute("dueAmount", totalDue);
 		float itotalDue = Float.parseFloat(totalDue);
 		totalDue = formatter.format(itotalDue);
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
@@ -744,7 +745,7 @@ public class HomeCareController {
 		// model.addAttribute("finalize", finalize);
 		model.addAttribute("referenceNo", referenceNo);
 		session.setAttribute("referenceNo", referenceNo);
-		
+		model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 		String pageTitle = WebServiceUtils.getPageTitle("page.homeCarePlanConfirmation", lang);
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.homeCarePlanConfirmation",
