@@ -3482,7 +3482,10 @@ function forgotPassword()
 
 	var emailId = document.getElementById("fEmailAddress").value; 
 	var userName = document.getElementById("fUserName").value; 
-
+	
+	document.getElementById("forgotpassword-err-msg1").style.display = "none";
+	document.getElementById("success-message1").style.display = "none";
+	
 	document.getElementById("errorFEmptyMob").style.display = "none";
 	document.getElementById("errorFInvalidMob").style.display = "none";
 	document.getElementById("errorFEmptyEmailId").style.display = "none";

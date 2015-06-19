@@ -477,6 +477,7 @@ function activateUserAccountJoinUs() {
 										name="whAppEmailAdd"
 										value="${userDetails.getEmailAddress()}"
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
+										onkeypress="return validationEmail(event);"
 										maxlength="50"> <span id="whAppEmailAdd"
 										class="text-red"> </span>
 								</div>
