@@ -494,9 +494,11 @@ public class HomeCareController {
 			
 			session.setAttribute("homeCreatedPolicy", createdPolicy);
 			
+			
 		} else {
 			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+			session.setAttribute("transNo", transactionNumber);
 			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
 			String paymentFail = "1";
 			
@@ -529,6 +531,7 @@ public class HomeCareController {
 					createdPolicy.getReferenceNo());
 			session.setAttribute("HomeCareTransactionDate",
 					confirm.getTransactionDate());
+			session.setAttribute("transNo", confirm.getTransactionNo());
 			model.addAttribute("confirm", confirm);
 		} else {
 			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
@@ -716,7 +719,7 @@ public class HomeCareController {
 			header.put("token", token);
 			model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
 			session.setAttribute("policyNo", finalizePolicy.getPolicyNo());
-			
+			model.addAttribute("trasnNo", session.getAttribute("transNo"));
 			session.removeAttribute("referralCode"); // vincent - remove session attribute "referral code" if success
 		} 
 		else 

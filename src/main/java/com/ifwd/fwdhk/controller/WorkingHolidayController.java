@@ -599,19 +599,40 @@ public class WorkingHolidayController {
 		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
 		insured.put("ageRange", "4");
 		
-		insured.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
-		insured.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
+		insured.put("hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
+		insured.put(!"hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		insured.put("relationship", "SE");
 		JSONObject beneficiary = new JSONObject();
 		
 		if("SE".equals(planDetailsForm.getWhInsBeneficary())) {
 			beneficiary.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
-			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
-			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
+			if (planDetailsForm.getSelectWhAppHKID().toLowerCase().equals("hkid")) {
+				beneficiary.put("hkId", planDetailsForm.getWhAppHKID());
+				beneficiary.put("passport", "");
+			}
+			else {
+				beneficiary.put("hkId", "");
+				beneficiary.put("passport", planDetailsForm.getWhAppHKID());
+				
+			}
+				
+//			beneficiary.put("hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
+//			beneficiary.put(!"hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		} else {
 			beneficiary.put("name", planDetailsForm.getWhInsFullName().toUpperCase());
-			beneficiary.put("HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
-			beneficiary.put(!"HKID".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
+			if (planDetailsForm.getSelectWhInsHKID().toLowerCase().equals("hkid")) {
+				beneficiary.put("hkId", planDetailsForm.getWhInsHKID());
+				beneficiary.put("passport", "");
+				
+			}
+				
+			else {
+				beneficiary.put("hkId", "");
+				beneficiary.put("passport", planDetailsForm.getWhInsHKID());
+			}
+				
+//			beneficiary.put("hkId".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
+//			beneficiary.put(!"hkId".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
 		}
 		beneficiary.put("relationship", planDetailsForm.getWhInsBeneficary());
 		insured.put("beneficiary", beneficiary);
@@ -622,7 +643,17 @@ public class WorkingHolidayController {
 
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", planDetailsForm.getWhAppFullName().toUpperCase());
-		applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
+		
+		if (planDetailsForm.getSelectWhAppHKID().toLowerCase().equals("hkid")) {
+			applicantJsonObj.put("hkId", planDetailsForm.getWhAppHKID());
+			applicantJsonObj.put("passport", "");
+		}
+		else {
+			applicantJsonObj.put("hkId", "");
+			applicantJsonObj.put("passport", planDetailsForm.getWhAppHKID());
+			
+		}
+			
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd().toUpperCase());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
 		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
