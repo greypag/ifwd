@@ -640,19 +640,12 @@ function activateUserAccountJoinUs() {
                                 end="${corrTravelQuote.getTotalPersonalTraveller()}">
                                 <div class="form-wrap">
                                 <div class="personaltraveller">
-                                    
+                                    <h4 class="bold big-title" style="padding-left:0px !important;">
+                                        <fmt:message key="flight.details.insured.label.personal" bundle="${msg}" />
+                                        <c:out value="${inx}"></c:out>
+                                        <c:if test="${inx == 1}"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></c:if>
+                                    </h4>
                                     <div>
-                                       <div class="form-group float">
-                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <h4 class="bold big-title" style="padding-left:0px !important;">
-                                                   <fmt:message key="flight.details.insured.label.personal" bundle="${msg}" />
-                                                   <c:out value="${inx}"></c:out>
-                                               </h4>
-                                           </div>
-                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                                <span class="#333"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></span>
-                                           </div>
-                                       </div>
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -1030,20 +1023,14 @@ function activateUserAccountJoinUs() {
                                 end="${corrTravelQuote.getTotalAdultTraveller()}">
                                 <div class="form-wrap">
                                 <div class="adulttraveller">
+                                    <h4 class="bold big-title" style="padding-left:0px !important;">
+                                        <fmt:message
+                                            key="flight.details.insured.label.family.parent"
+                                            bundle="${msg}" />
+                                        <c:out value="${inx}"></c:out>
+                                        <c:if test="${inx == 1}"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></c:if>
+                                    </h4>
                                     <div>
-                                    	<div class="form-group float">
-                                    	   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-		                                       <h4 class="bold big-title" style="padding-left:0px !important;">
-		                                           <fmt:message
-		                                               key="flight.details.insured.label.family.parent"
-		                                               bundle="${msg}" />
-		                                           <c:out value="${inx}"></c:out>
-		                                       </h4>
-                                           </div>
-                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <span class="#333"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></span>
-                                           </div>
-                                    	</div>
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
