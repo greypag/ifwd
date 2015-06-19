@@ -438,7 +438,15 @@
     <script>
 	    function validForgetUserPassword(){
 	    	$('#forgotpassword-err-msg').hide();
-	        $('#success-message-password').hide();  	        
+	        $('#success-message-password').hide();
+	        
+	        $('#errorEmptyMob-forgotPassword').hide();
+	        $('#errorInvalidMob-forgotPassword').hide();
+	        $('#errorEmptyEmailId-forgotpassword').hide();
+	        $('#errorInvalidEmailId-forgotpassword').hide();
+	        $('#errorEmptyUName').hide();
+	        $('#errorInvalidUName').hide();
+	        
 	        var valid = true;
 	         
 	        var mobileNo = $('#mobileNo-forgotpassowrd').val();
