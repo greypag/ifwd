@@ -183,3 +183,24 @@
 <!--/end- Main Content-->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
+<script>
+$(document).ready(function() {
+	ga('create', 'UA-60032236-1', 'auto');
+	ga('require', 'ecommerce');
+	ga('ecommerce:addTransaction', {
+	  'id': '${transNo}', // Transaction ID. Required.
+	  'revenue': '${dueAmount}', // Grand Total.
+	  'affiliation': 'Working Holiday', // Insurance type, e.g. Life
+	   'currency': 'HKD'
+	  });
+	ga('ecommerce:addItem', {
+	      'id': '${transNo}', // Transaction ID. Required
+	      'name': 'Working HolidayCare', // Product name. Required
+	      'category': 'Travel', // Category or variation
+	      'price': '${dueAmount}', // Unit price
+	      'currency': 'HKD'
+	    });
+	ga('ecommerce:send');
+});
+
+</script>

@@ -551,7 +551,13 @@ $(document).ready(function() {
 	  'affiliation': 'Home', // Insurance type, e.g. Life
 	   'currency': 'HKD'
 	  });
-
+	ga('ecommerce:addItem', {
+	      'id': '${transNo}', // Transaction ID. Required
+	      'name': 'Easy HomeCare', // Product name. Required
+	      'category': 'Home', // Category or variation
+	      'price': '${dueAmount}', // Unit price
+	      'currency': 'HKD'
+	    });
 	ga('ecommerce:send');
 });
 
