@@ -373,7 +373,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /> <a
 									href="<fmt:message key="app.download.link" bundle="${msg}" />"
-									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
+									target="_blank"> <fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 							</p>
 						</div>
 					</div>
@@ -426,7 +426,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
 									href="<fmt:message key="app.download.link" bundle="${msg}" />"
-									target="_blank"><fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
+									target="_blank"> <fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 								</p>
 									
 								</div>
