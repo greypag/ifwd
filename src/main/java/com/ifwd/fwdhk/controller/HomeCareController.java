@@ -748,7 +748,7 @@ public class HomeCareController {
 		// model.addAttribute("finalize", finalize);
 		model.addAttribute("referenceNo", referenceNo);
 		session.setAttribute("referenceNo", referenceNo);
-		model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+		model.addAttribute("dueAmount", Methods.customFormat("#####.##", (String)session.getAttribute("dueAmount")));
 		String pageTitle = WebServiceUtils.getPageTitle("page.homeCarePlanConfirmation", lang);
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.homeCarePlanConfirmation",

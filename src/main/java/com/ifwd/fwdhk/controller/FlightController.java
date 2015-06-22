@@ -982,12 +982,12 @@ public class FlightController {
 										.getAdultBenificiaryFullName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",	checkPasswortAndHkid("hkId",
 								planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-								planDetailsForm.getAdultHKID()[inx].toUpperCase())
+								planDetailsForm.getAdultBenificiaryHkid()[inx].toUpperCase())
 						 );
 						 
 						beneficiary.put("passport", checkPasswortAndHkid("passport",
 								planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-								planDetailsForm.getAdultHKID()[inx].toUpperCase())
+								planDetailsForm.getAdultBenificiaryHkid()[inx].toUpperCase())
 						 );
 						beneficiary.put("relationship", StringHelper.emptyIfNull( 
 								planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase()); // input
@@ -1451,7 +1451,7 @@ public class FlightController {
 				session.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("createFlightPolicy", createFlightPolicy);
-				model.addAttribute("dueAmount", "0");
+				model.addAttribute("dueAmount", "0.00");
 				
 				request.setAttribute("fullName",
 						request.getParameter("fullName"));
