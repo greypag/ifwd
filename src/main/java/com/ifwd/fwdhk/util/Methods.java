@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.util;
 
 import java.util.regex.Pattern;
 import java.lang.reflect.Field;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +15,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -191,4 +193,11 @@ public class Methods {
     	else
     		return true;
     }
+    
+    public static String customFormat(String pattern, String value ) {
+        DecimalFormat myFormatter = new DecimalFormat(pattern);
+        String output = myFormatter.format(value);
+        
+        return output;
+     }
 }

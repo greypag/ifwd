@@ -899,7 +899,7 @@ public class WorkingHolidayController {
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
-				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+				model.addAttribute("dueAmount", Methods.customFormat("#####.##", (String)session.getAttribute("dueAmount")));
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
