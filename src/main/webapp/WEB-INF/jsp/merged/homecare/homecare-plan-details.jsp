@@ -5,6 +5,8 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -647,7 +649,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input type="text"
                                             class="form-control full-control" id="inputFullName" name="applicantName"
-                                            value="${userDetails.getFullName().trim()}"
+                                            value="${fn:escapeXml(userDetails.getFullName().trim())}"
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" /> <span
                                             id="appfullname" class="text-red"></span>
@@ -692,7 +694,7 @@ function activateUserAccountJoinUs() {
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                    <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-	                                          <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+	                                          <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" readonly>
 	                                      </div>
 	                                      <span id="dobInvalid" class="text-red"> </span></td>
 	                               </div>
@@ -708,7 +710,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input type="text"
                                             class="form-control full-control" id="inputMobileNo" name="mobileNo"
-                                            value="${userDetails.getMobileNo().trim()}"
+                                            value="${fn:escapeXml(userDetails.getMobileNo().trim())}"
                                             onkeypress="return isNumeric(event)"
                                             onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
                                             id="errMobileNo" class="text-red"> </span>
@@ -725,7 +727,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input class="form-control full-control"
                                             id="inputEmailId" name="emailAddress"
-                                            value="${userDetails.getEmailAddress().trim()}"
+                                            value="${fn:escapeXml(userDetails.getEmailAddress().trim())}"
                                             onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
                                             id="errEmailid" class="text-red"> </span>
 	                               </div>
@@ -1366,9 +1368,9 @@ function activateUserAccountJoinUs() {
                                             <c:forEach
                                                 var="floorAreaList" items="${mapNetFloorArea}">
                                                 <option
-                                                    value="${floorAreaList.key}">
+                                                    value="${fn:escapeXml(floorAreaList.key)}">
                                                     <c:out
-                                                        value="${floorAreaList.value}" />
+                                                        value="${fn:escapeXml(floorAreaList.value)}" />
                                                 </option>
                                             </c:forEach>
 
@@ -1671,11 +1673,11 @@ function activateUserAccountJoinUs() {
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.details.summary.amountDue" bundle="${msg}" /></h3>
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></h3>
 								     <input type="hidden" name="totalDue"
-									value="${ homeQuoteDetails.getTotalDue()}"> <input
+									value="${ fn:escapeXml(homeQuoteDetails.getTotalDue())}"> <input
 									type="hidden" name="planCode"
-									value="${ homeQuoteDetails.getPlanCode()}"> <input
-									type="hidden" name="answer1" value="${answer1}"> <input
-									type="hidden" name="answer2" value="${answer2}">
+									value="${ fn:escapeXml(homeQuoteDetails.getPlanCode())}"> <input
+									type="hidden" name="answer1" value="${fn:escapeXml(answer1)}"> <input
+									type="hidden" name="answer2" value="${fn:escapeXml(answer2)}">
                                 </div>
 							<!--mob-->
 							     
