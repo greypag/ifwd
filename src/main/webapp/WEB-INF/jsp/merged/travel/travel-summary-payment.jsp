@@ -3,6 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.ifwd.fwdhk.model.PlanDetailsForm"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -750,16 +752,16 @@ var enablePayment=true;
                        <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
                        <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
                     </div>
-                    <input type="hidden" name="merchantId" value="${createPolicy.getMerchantId()}">
-                    <input type="hidden" name="amount" value="${dueAmount.trim()}">
-                    <input type="hidden" name="remark" value="${referralCode.trim()}">
-                    <input type="hidden" name="orderRef" value="${createPolicy.getTransactionNo() }">
-                    <input type="hidden" name="currCode" value="${createPolicy.getCurrCode() }">
-                    <input type="hidden" name="successUrl" value="${path}">
-                    <input type="hidden" name="failUrl" value="${failurePath }">
-                    <input type="hidden" name="errorUrl" value="${failurePath }">
-                    <input type="hidden" name="payType" value="${createPolicy.getPaymentType()}">
-                    <input type="hidden" name="referenceNo" value="${createPolicy.getReferenceNo()}">
+                    <input type="hidden" name="merchantId" value="${fn:escapeXml(createPolicy.getMerchantId())}">
+                    <input type="hidden" name="amount" value="${fn:escapeXml(dueAmount.trim())}">
+                    <input type="hidden" name="remark" value="${fn:escapeXml(referralCode.trim())}">
+                    <input type="hidden" name="orderRef" value="${fn:escapeXml(createPolicy.getTransactionNo()) }">
+                    <input type="hidden" name="currCode" value="${fn:escapeXml(createPolicy.getCurrCode()) }">
+                    <input type="hidden" name="successUrl" value="${fn:escapeXml(path)}">
+                    <input type="hidden" name="failUrl" value="${fn:escapeXml(failurePath) }">
+                    <input type="hidden" name="errorUrl" value="${fn:escapeXml(failurePath) }">
+                    <input type="hidden" name="payType" value="${fn:escapeXml(createPolicy.getPaymentType())}">
+                    <input type="hidden" name="referenceNo" value="${fn:escapeXml(createPolicy.getReferenceNo())}">
                     <%
                         String payLang = (String) session.getAttribute("language");
                         //payLang = payLang.substring(0, 1);
@@ -772,11 +774,11 @@ var enablePayment=true;
 <%--                    <input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
                     <input type="hidden" name="lang" value="C"> <input
                         type="hidden" name="secureHash"
-                        value="${createPolicy.getSecureHash() }"> <input
+                        value="${fn:escapeXml(createPolicy.getSecureHash()) }"> <input
                         type="hidden" id="emailAddress" name="emailAddress"
-                        value="${userDetails.getEmailAddress()}"> <input
+                        value="${fn:escapeXml(userDetails.getEmailAddress())}"> <input
                         type="hidden" id="gateway" name="gateway"
-                        value="${createPolicy.getPaymentGateway()}">
+                        value="${fn:escapeXml(createPolicy.getPaymentGateway())}">
 
 
 
