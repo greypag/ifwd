@@ -490,10 +490,10 @@ $(function () {
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
 	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
-	// 70 year ago date
+	// 71 year ago date
 	var dob_70_date = new Date();
-	dob_70_date.setFullYear(dob_70_date.getFullYear()-70);
-	dob_70_date.setDate(dob_70_date.getDate()+1);
+	dob_70_date.setFullYear(dob_70_date.getFullYear()-71);
+	dob_70_date.setDate(dob_70_date.getDate());
 	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
