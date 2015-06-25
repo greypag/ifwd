@@ -1,6 +1,6 @@
 package com.ifwd.fwdhk.model;
 
-public class EmploymentInfoBean {
+public class SavieEmploymentInfoBean {
 	
 	private String employmentStatus;
 	private String occupation;

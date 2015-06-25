@@ -2,7 +2,7 @@ package com.ifwd.fwdhk.model;
 
 import java.util.Date;
 
-public class PaymentBean {
+public class SaviePaymentBean {
 	
 	private String paymentMethod;
 	private String amount;
