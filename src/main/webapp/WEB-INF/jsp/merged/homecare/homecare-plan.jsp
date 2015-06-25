@@ -4,8 +4,6 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -708,21 +706,21 @@ function checkPromoCodePlaceholder(){
                                 </div>
                                </div>
 							<input type="hidden" name="planCode" id="planCode"
-								value="${fn:escapeXml(planQuote.getPlanCode()) }">
+								value="${planQuote.getPlanCode() }">
 							<input type="hidden" name="grossPremium" id="grossPremium"
-								value="${fn:escapeXml(planQuote.getGrossPremium())}">
+								value="${planQuote.getGrossPremium()}">
 							<input type="hidden" name="discountAmount" id="discountAmount"
-								value="${fn:escapeXml(planQuote.getDiscountAmount())}">
+								value="${planQuote.getDiscountAmount()}">
 							<input type="hidden" name="totalDue" id="totalDue"
-								value="${fn:escapeXml(planQuote.getTotalDue())}">
+								value="${planQuote.getTotalDue()}">
 
 							<input type="hidden" name="referralCode" id="referralCode"
-								value="${fn:escapeXml(planQuote.getReferralCode())}">
+								value="${planQuote.getReferralCode()}">
 							<input type="hidden" name="referralName" id="referralName"
-								value="${fn:escapeXml(planQuote.getReferralName())}">
+								value="${planQuote.getReferralName()}">
 
-							<input type="hidden" name="answer1" value="${fn:escapeXml(answer1)}">
-							<input type="hidden" name="answer2" value="${fn:escapeXml(answer2)}">
+							<input type="hidden" name="answer1" value="${answer1}">
+							<input type="hidden" name="answer2" value="${answer2}">
 
 							
                             <!-- 

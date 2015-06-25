@@ -5,8 +5,6 @@
 <%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -123,7 +121,7 @@ perventRedirect=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc1" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createdPolicy.getReferenceNo() }<input type="hidden" name="referenceNo" value="${fn:escapeXml(createdPolicy.getReferenceNo())}"></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createdPolicy.getReferenceNo() }<input type="hidden" name="referenceNo" value="${createdPolicy.getReferenceNo()}"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc2" bundle="${msg}" /></div>
@@ -236,18 +234,18 @@ perventRedirect=true;
 					<div class="clearfix"></div>
 				</div>
 				<input type="hidden" name="merchantId"
-					value="${fn:escapeXml(createdPolicy.getMerchantId())}"> <input
-					type="hidden" name="amount" value="${fn:escapeXml(totalDue.trim())}"> <input
+					value="${createdPolicy.getMerchantId()}"> <input
+					type="hidden" name="amount" value="${totalDue.trim()}"> <input
 					type="hidden" name="orderRef"
-					value="${fn:escapeXml(confirm.getTransactionNo()) }"> <input
+					value="${confirm.getTransactionNo() }"> <input
 					type="hidden" name="currCode"
-					value="${fn:escapeXml(createdPolicy.getCurrCode()) }"> 
-					<input type="hidden" name="remark" value="${fn:escapeXml(referralCode.trim())}">
-					<input type="hidden" name="successUrl" value="${fn:escapeXml(path)}"> <input
-					type="hidden" name="failUrl" value="${fn:escapeXml(failurePath)}"> <input
-					type="hidden" name="errorUrl" value="${fn:escapeXml(failurePath)}"> <input
+					value="${createdPolicy.getCurrCode() }"> 
+					<input type="hidden" name="remark" value="${referralCode.trim()}">
+					<input type="hidden" name="successUrl" value="${path}"> <input
+					type="hidden" name="failUrl" value="${failurePath}"> <input
+					type="hidden" name="errorUrl" value="${failurePath}"> <input
 					type="hidden" name="payType"
-					value="${fn:escapeXml(createdPolicy.getPaymentType()) }">
+					value="${createdPolicy.getPaymentType() }">
 					<%
 						String payLang = (String)session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
@@ -263,12 +261,12 @@ perventRedirect=true;
 
 <%-- 				<input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
 				<input type="hidden" name="lang" value="C"> <input
-					type="hidden" name="secureHash" value="${fn:escapeXml(confirm.getSecureHash()) }">
+					type="hidden" name="secureHash" value="${confirm.getSecureHash() }">
 				<input type="hidden" id="emailAddress" name="emailAddress"
-					value="${fn:escapeXml(userDetails.getEmailAddress())}"> <input
+					value="${userDetails.getEmailAddress()}"> <input
 					type="hidden" id="transactionDate" name="transactionDate"
-					value="${fn:escapeXml(effectiveDate)}"> <input type="hidden" id="gateway"
-					name="gateway" value="${fn:escapeXml(createdPolicy.getPaymentGateway())}">
+					value="${effectiveDate}"> <input type="hidden" id="gateway"
+					name="gateway" value="${createdPolicy.getPaymentGateway()}">
 				<div class="gray-bg1">
                     <div style="width:80%;margin-left:10%;">
                     <div class="col-xs-12 pad-none">

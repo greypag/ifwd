@@ -5,8 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -1246,7 +1244,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div> -->
 	                            
 	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" readonly>
+                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                 </div>
 	                             <!-- departure date end -->
 	                             
@@ -1273,7 +1271,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                               </div> -->
                               
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" value="${fn:escapeXml(corrTravelQuote.getTrBackDate())}" readonly>
+                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.getTrBackDate()}" readonly>
                               </div>
                               
 								<!-- return date end  -->
@@ -1387,11 +1385,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                      </div>
                       -->
                       
-                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}"/>
-                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${fn:escapeXml(corrTravelQuote.getTotalFamilyTravellers())}">
-                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}"/>
-                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}"/>
-                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}"/>
+                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalPersonalTraveller()}"/>
+                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.getTotalFamilyTravellers()}">
+                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.getTotalAdultTraveller()}"/>
+                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalChildTraveller()}"/>
+                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
 								
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 

@@ -6,8 +6,6 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -361,7 +359,7 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="fullName"
                                         class="form-control full-control" id="inputFullName"
-                                        value="${fn:escapeXml(userDetails.getFullName())}"
+                                        value="${userDetails.getFullName()}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
                                     <span id="fullnameinvalid" class="text-red"></span>
@@ -407,7 +405,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" readonly>
+                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                     </div>
                                     <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -421,7 +419,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="text"
-                                        class="form-control full-control" value="${fn:escapeXml(userDetails.getMobileNo().trim())}"
+                                        class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"
                                         onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
@@ -438,7 +436,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control" name="emailAddress"
-                                        value="${fn:escapeXml(userDetails.getEmailAddress().trim())}" id="inputEmailId"
+                                        value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
@@ -607,7 +605,7 @@ function activateUserAccountJoinUs() {
                             </table>
                         </div> --%>
                         <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${fn:escapeXml(corrTravelQuote.getTotalTravellingDays())}">
+                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
                         
                         
                         <%
@@ -637,9 +635,9 @@ function activateUserAccountJoinUs() {
                             <!-- Personal -->
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
-                                value="${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}">
+                                value="${corrTravelQuote.getTotalPersonalTraveller()}">
                             <c:forEach var="inx" begin="1"
-                                end="${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}">
+                                end="${corrTravelQuote.getTotalPersonalTraveller()}">
                                 <div class="form-wrap">
                                 <div class="personaltraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -656,7 +654,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
                                                   <input type="text"
-                                                        id="txtInsuFullName${inx}" name="personalName" value="${fn:escapeXml(userDetails.getFullName())}"
+                                                        id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
@@ -1020,9 +1018,9 @@ function activateUserAccountJoinUs() {
                             
                             <input type="hidden" name="totalAdultTraveller"
                                 id="totalAdultTraveler"
-                                value="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}">
+                                value="${corrTravelQuote.getTotalAdultTraveller()}">
                             <c:forEach var="inx" begin="1"
-                                end="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}">
+                                end="${corrTravelQuote.getTotalAdultTraveller()}">
                                 <div class="form-wrap">
                                 <div class="adulttraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1041,7 +1039,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
                                                     <input type="text"
-                                                        id="txtInsuFullName${inx}" name="adultName" value="${fn:escapeXml(userDetails.getFullName())}"
+                                                        id="txtInsuFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
                                                         class="form-control full-control" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
@@ -1413,9 +1411,9 @@ function activateUserAccountJoinUs() {
                             
                             <input type="hidden" name="totalChildTraveller"
                                 id="totalCountOfChild"
-                                value="${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}">
+                                value="${corrTravelQuote.getTotalChildTraveller()}">
                             <c:forEach var="inx" begin="1"
-                                end="${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}">
+                                end="${corrTravelQuote.getTotalChildTraveller()}">
                                 <div class="form-wrap">
                                 <div class="childtraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1734,10 +1732,10 @@ function activateUserAccountJoinUs() {
                             <!--other traveller-->
                             <input type="hidden" name="totalOtherTraveller"
                                 id="totalCountOther"
-                                value="${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}">
+                                value="${corrTravelQuote.getTotalOtherTraveller()}">
                             
                             <c:forEach var="inx" begin="1"
-                                end="${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}">
+                                end="${corrTravelQuote.getTotalOtherTraveller()}">
                                 <div class="form-wrap">
                                 <div class="otherTraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -2152,7 +2150,7 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4> 
                                 <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" readonly>
+                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
                                 </div>
                              </h4>
                                 <input type="hidden" name="departureDate" id="departureDate"
@@ -2163,12 +2161,12 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4>
                                                     <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${fn:escapeXml(corrTravelQuote.getTrBackDate())}" readonly>
+                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.getTrBackDate()}" readonly>
                     </div>
                                 
                                 </h4>
                                 <input type="hidden" name="backDate" id="backDate"
-                                    value="${fn:escapeXml(corrTravelQuote.getTrBackDate())}">
+                                    value="${corrTravelQuote.getTrBackDate()}">
 
                                 <h3 class="txt-bold">
                                     <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
@@ -2178,14 +2176,14 @@ function activateUserAccountJoinUs() {
                                     if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
                                     { 
                                 %>
-                                        <c:if test="${ fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())!=0}">
+                                        <c:if test="${ corrTravelQuote.getTotalPersonalTraveller()!=0}">
                                             <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}
+                                            : ${corrTravelQuote.getTotalPersonalTraveller()}
                                         </c:if>
                                         <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-                                        <c:if test="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())!=0}">
+                                        <c:if test="${corrTravelQuote.getTotalAdultTraveller()!=0}">
                                             <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}
+                                            : ${corrTravelQuote.getTotalAdultTraveller()}
                                         </c:if>
 
                                 <%  }
@@ -2193,18 +2191,18 @@ function activateUserAccountJoinUs() {
                                     {                                       
                                 %>  
 
-                                    <c:if test="${ fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())+fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}</c:if>
-                                    <c:if test="${ fn:escapeXml(corrTravelQuote.getTotalChildTraveller())!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}</c:if>
-                                    <c:if test="${ fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}</c:if>
-                                    <c:if test="${fn:escapeXml(planDetailsForm.getTravellerCount())!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
+                                    <c:if test="${ corrTravelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.getTotalAdultTraveller()+corrTravelQuote.getTotalPersonalTraveller()}</c:if>
+                                    <c:if test="${ corrTravelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.getTotalChildTraveller()}</c:if>
+                                    <c:if test="${ corrTravelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.getTotalOtherTraveller()}</c:if>
+                                    <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
                                 <%  } %>
                                 </h4>
                                 
-                                <input type="hidden" name="planSelected" value="${fn:escapeXml(corrTravelQuote.getPlanSelected())}">
+                                <input type="hidden" name="planSelected" value="${corrTravelQuote.getPlanSelected()}">
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${fn:escapeXml(corrTravelQuote.getTotalTravellingDays())}</span>
+                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
                                 </h3>
-                                <input type="hidden" name="totalTravellingDays" value="${fn:escapeXml(corrTravelQuote.getTotalTravellingDays())}">
+                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
                                 <c:if test="${referralCode!=''}">
                                     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
                                     <h4>${referralCode}</h4>
