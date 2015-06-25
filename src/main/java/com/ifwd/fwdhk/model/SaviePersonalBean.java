@@ -7,7 +7,8 @@ import java.util.Date;
 public class SaviePersonalBean {
 	private String chineseName;
 	private String englishName;	
-	private String HKID;		
+	private String hkid;
+	private String passport;
 	private String gender;
 	private String maritalStatus;	
 	private Date dateOfBirth;
@@ -25,7 +26,6 @@ public class SaviePersonalBean {
 	private String address3;	
 	private String district;
 	
-	
 	public String getChineseName() {
 		return chineseName;
 	}
@@ -38,11 +38,17 @@ public class SaviePersonalBean {
 	public void setEnglishName(String englishName) {
 		this.englishName = englishName;
 	}
-	public String getHKID() {
-		return HKID;
+	public String getHkid() {
+		return hkid;
 	}
-	public void setHKID(String hKID) {
-		HKID = hKID;
+	public void setHkid(String hkid) {
+		this.hkid = hkid;
+	}
+	public String getPassport() {
+		return passport;
+	}
+	public void setPassport(String passport) {
+		this.passport = passport;
 	}
 	public String getGender() {
 		return gender;
@@ -139,7 +145,10 @@ public class SaviePersonalBean {
 	}
 	public void setDistrict(String district) {
 		this.district = district;
-	}	
+	}
+	
+	
+	
 	
 	
 	
