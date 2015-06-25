@@ -5,38 +5,47 @@ import java.util.Date;
 
 
 public class SaviePersonalBean {
+	
+	private String firstName;
+	private String lastName;
 	private String chineseName;
-	private String englishName;	
 	private String hkid;
 	private String passport;
 	private String gender;
 	private String maritalStatus;	
-	private Date dateOfBirth;
+	private Date birthday;
 	private String placeOfBirth;
 	private String nationality;
-	private String email;
-	private String telephone1;
-	private String telephone2;
-	private String telephone3;
-	private String mobile1;
-	private String mobile2;
-	private String mobile3;
-	private String address1;	
-	private String address2;	
-	private String address3;	
-	private String district;
+	private String emailAddress;
+	private String residentialTelNo1;
+	private String residentialTelNo2;
+	private String residentialTelNo3;
+	private String mobileNo1;
+	private String mobileNo2;
+	private String mobileNo3;
+	private String residentialAdress1;	
+	private String residentialAdress2;	
+	private String residentialAdress3;	
+	private String residentialDistrict;
 	
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public String getChineseName() {
 		return chineseName;
 	}
 	public void setChineseName(String chineseName) {
 		this.chineseName = chineseName;
-	}
-	public String getEnglishName() {
-		return englishName;
-	}
-	public void setEnglishName(String englishName) {
-		this.englishName = englishName;
 	}
 	public String getHkid() {
 		return hkid;
@@ -62,11 +71,11 @@ public class SaviePersonalBean {
 	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
-	public Date getDateOfBirth() {
-		return dateOfBirth;
+	public Date getBirthday() {
+		return birthday;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 	public String getPlaceOfBirth() {
 		return placeOfBirth;
@@ -80,72 +89,77 @@ public class SaviePersonalBean {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
-	public String getEmail() {
-		return email;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
-	public String getTelephone1() {
-		return telephone1;
+	public String getResidentialTelNo1() {
+		return residentialTelNo1;
 	}
-	public void setTelephone1(String telephone1) {
-		this.telephone1 = telephone1;
+	public void setResidentialTelNo1(String residentialTelNo1) {
+		this.residentialTelNo1 = residentialTelNo1;
 	}
-	public String getTelephone2() {
-		return telephone2;
+	public String getResidentialTelNo2() {
+		return residentialTelNo2;
 	}
-	public void setTelephone2(String telephone2) {
-		this.telephone2 = telephone2;
+	public void setResidentialTelNo2(String residentialTelNo2) {
+		this.residentialTelNo2 = residentialTelNo2;
 	}
-	public String getTelephone3() {
-		return telephone3;
+	public String getResidentialTelNo3() {
+		return residentialTelNo3;
 	}
-	public void setTelephone3(String telephone3) {
-		this.telephone3 = telephone3;
+	public void setResidentialTelNo3(String residentialTelNo3) {
+		this.residentialTelNo3 = residentialTelNo3;
 	}
-	public String getMobile1() {
-		return mobile1;
+	public String getMobileNo1() {
+		return mobileNo1;
 	}
-	public void setMobile1(String mobile1) {
-		this.mobile1 = mobile1;
+	public void setMobileNo1(String mobileNo1) {
+		this.mobileNo1 = mobileNo1;
 	}
-	public String getMobile2() {
-		return mobile2;
+	public String getMobileNo2() {
+		return mobileNo2;
 	}
-	public void setMobile2(String mobile2) {
-		this.mobile2 = mobile2;
+	public void setMobileNo2(String mobileNo2) {
+		this.mobileNo2 = mobileNo2;
 	}
-	public String getMobile3() {
-		return mobile3;
+	public String getMobileNo3() {
+		return mobileNo3;
 	}
-	public void setMobile3(String mobile3) {
-		this.mobile3 = mobile3;
+	public void setMobileNo3(String mobileNo3) {
+		this.mobileNo3 = mobileNo3;
 	}
-	public String getAddress1() {
-		return address1;
+	public String getResidentialAdress1() {
+		return residentialAdress1;
 	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setResidentialAdress1(String residentialAdress1) {
+		this.residentialAdress1 = residentialAdress1;
 	}
-	public String getAddress2() {
-		return address2;
+	public String getResidentialAdress2() {
+		return residentialAdress2;
 	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
+	public void setResidentialAdress2(String residentialAdress2) {
+		this.residentialAdress2 = residentialAdress2;
 	}
-	public String getAddress3() {
-		return address3;
+	public String getResidentialAdress3() {
+		return residentialAdress3;
 	}
-	public void setAddress3(String address3) {
-		this.address3 = address3;
+	public void setResidentialAdress3(String residentialAdress3) {
+		this.residentialAdress3 = residentialAdress3;
 	}
-	public String getDistrict() {
-		return district;
+	public String getResidentialDistrict() {
+		return residentialDistrict;
 	}
-	public void setDistrict(String district) {
-		this.district = district;
+	public void setResidentialDistrict(String residentialDistrict) {
+		this.residentialDistrict = residentialDistrict;
 	}
+	
+	
+	
+	
+	
 	
 	
 	

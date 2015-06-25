@@ -5,7 +5,8 @@ public class SavieEmploymentBean {
 	private String employmentStatus;
 	private String occupation;
 	private String natureOfBusiness;
-	private String monthlyPersonalIncomeHkd;
+	private String monthlyPersonalIncome;
+	
 	public String getEmploymentStatus() {
 		return employmentStatus;
 	}
@@ -24,12 +25,14 @@ public class SavieEmploymentBean {
 	public void setNatureOfBusiness(String natureOfBusiness) {
 		this.natureOfBusiness = natureOfBusiness;
 	}
-	public String getMonthlyPersonalIncomeHkd() {
-		return monthlyPersonalIncomeHkd;
+	public String getMonthlyPersonalIncome() {
+		return monthlyPersonalIncome;
 	}
-	public void setMonthlyPersonalIncomeHkd(String monthlyPersonalIncomeHkd) {
-		this.monthlyPersonalIncomeHkd = monthlyPersonalIncomeHkd;
+	public void setMonthlyPersonalIncome(String monthlyPersonalIncome) {
+		this.monthlyPersonalIncome = monthlyPersonalIncome;
 	}
+	
+	
 	
 	
 }
