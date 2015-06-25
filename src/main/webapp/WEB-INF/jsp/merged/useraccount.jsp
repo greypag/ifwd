@@ -652,7 +652,12 @@
                                               <h4 class="fwdpanel-title h4-4-full "><fmt:message key="partner.agoda.get.title" bundle="${msg}" /></h4>
                                           </div>
                                           <div class="fwdpanel-body" >
-                                              <h4 id="agoda_promo_code" style="font-weight:bold;"></h5>
+                                              <h4 id="agoda_promo_code" style="font-weight:bold;"></h4>
+                                              <h4 id="agoda_web_link">
+                                              	<fmt:message key="agoda.link.desc" bundle="${msg}" />
+                                              	<a href="<fmt:message key="agoda.link" bundle="${msg}" />" class="sub-link"><fmt:message key="agoda.link" bundle="${msg}" />
+                                              	</a>
+                                              </h4>
                                           </div>
                                       </div>
                                   </div>
