@@ -437,10 +437,13 @@ function submitLoginForm(formID) {
 <!--Mobile side-menu-->
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
+	
+    <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="bmg_mobile_login_mask" onclick="$('#fwd-login-mob').trigger('click');"></div>
+	
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
 		
 		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
+        <a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" onclick="$('.bmg_mobile_login_mask').toggle();"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
         <div class="dropdown-menu drop-width" style="left: -32px;top: 105px;max-width:300px;">
 									<form name="loginform" id="loginform2">
 										<div class="login-form" style="position: relative;">
