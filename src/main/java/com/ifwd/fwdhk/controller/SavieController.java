@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class SavieApplicationController {
+public class SavieController {
 	
-	private final static Logger logger = LoggerFactory.getLogger(SavieApplicationController.class);
+	private final static Logger logger = LoggerFactory.getLogger(SavieController.class);
 
 	@RequestMapping(value = {"/{lang}/getSaviePersonalinfo"})
 	public String getSaviePersonalinfo(Model model, HttpServletRequest request) {
