@@ -7,7 +7,7 @@ public class SavieIllustrationBean {
 	private String paymentPlan;
 	private String singlePremiumAmount;
 	
-	private List<SaviePolicyBean> saviePolicyBean;
+	private List<SavieRateBean> savieRateBean;
 
 	public String getPlanName() {
 		return planName;
@@ -33,13 +33,14 @@ public class SavieIllustrationBean {
 		this.singlePremiumAmount = singlePremiumAmount;
 	}
 
-	public List<SaviePolicyBean> getSaviePolicyBean() {
-		return saviePolicyBean;
+	public List<SavieRateBean> getSavieRateBean() {
+		return savieRateBean;
 	}
 
-	public void setSaviePolicyBean(List<SaviePolicyBean> saviePolicyBean) {
-		this.saviePolicyBean = saviePolicyBean;
+	public void setSavieRateBean(List<SavieRateBean> savieRateBean) {
+		this.savieRateBean = savieRateBean;
 	}
+
 	
 	
 

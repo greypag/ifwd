@@ -1,6 +1,6 @@
 package com.ifwd.fwdhk.model;
 
-public class SaviePolicyBean {
+public class SavieRateBean {
 	
 	private String endOfPolicyYear;
 	private String premiumPaid;
