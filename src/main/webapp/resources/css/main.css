@@ -7102,3 +7102,7 @@ tr.product-landing-error-wrap {
     display: inline-block;
     float: left;
 }
+
+.invalid-field{
+    border: 2px solid red !important;
+}
