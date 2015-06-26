@@ -97,7 +97,7 @@ $(function () {
 		setAtt("SelectWhAppHKID", $(this).val());
 	});
 	
-	$("#inputWhAppHKID").blur(function() {
+	/*$("#inputWhAppHKID").blur(function() {
 		var appHkid = $(this).val();
 		if($('#selectWhAppHKID').length > 0 && ($('#selectWhAppHKID').val().toLowerCase() == 'passport' || $('#selectWhAppHKID').val().toLowerCase() == 'apppassport')){
 
@@ -135,7 +135,7 @@ $(function () {
 		//$("#txtInsuHkid1").val($(this).val());
 		$('#whAppHKID').html('');
 		setAtt("WhAppHKID", $(this).val());
-	});
+	});*/
 	
 	$("#inputMobileNo").blur(function() {
 		var mobileNo = $(this).val();
@@ -200,7 +200,7 @@ $(function () {
 		setAtt("WhInsFullName", $(this).val());
 	});
 	
-	$( "#inputWhInsHKID" ).on( "blur", function() {
+	/*$( "#inputWhInsHKID" ).on( "blur", function() {
 		var appHkid = $(this).val();
 		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
 			if (appHkid.trim() == "") {
@@ -235,7 +235,7 @@ $(function () {
 		}
 		$("#whInsHKID").html('');
 		setAtt("WhInsHKID", $(this).val());
-	});
+	});*/
 	
 	$("#selectWhInsWorkingCty").change(function() {
 		setAtt("WhInsWorkingCty", $(this).val());
@@ -404,20 +404,19 @@ function whDetailsValid(){
 	if($('#selectWhAppHKID').length > 0 && ($('#selectWhAppHKID').val().toLowerCase() == 'passport' || $('#selectWhAppHKID').val().toLowerCase() == 'apppassport')){
 
 		if (WhAppHKID.trim() == "") {
-			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
+			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 			flag = false;
 		}else{
 			var tr = chkTravelHKPass(WhAppHKID.trim());
             var tr1 = chkTravelHKPassLen(WhAppHKID.trim());
-            
+            if (tr1 == false) {
+            	$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+            	flag = false;
+            }
 			if (tr == false) {
 				$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValid.message"));
 				flag = false;
 			}	
-			if (tr1 == false) {
-				$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
-				flag = false;
-			}
 		}
 		
 	}else{ 
@@ -466,7 +465,7 @@ function whDetailsValid(){
 		
 		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
 			if (WhInsHKID.trim() == "") {
-				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"));
+				$("#whInsHKID").html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 				flag = false;
 			}else{
 				var tr = chkTravelHKPass(WhInsHKID.trim());

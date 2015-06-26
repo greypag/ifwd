@@ -1646,8 +1646,7 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
             var tr1 = chkTravelHKPass(appHkid.trim());
             
 			if (tr == false) {
-				$('#'+errorId).html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
-				
+				$('#'+errorId).html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 				return false;
 			}	
 			if (tr1 == false) {
@@ -2822,33 +2821,36 @@ function tPlanValid()
 		}
 		var selectOtherBenefitiaryHkidPass = document.getElementById("selectOtherBenefitiaryHkidPass" + i).value;
 		if(selectedValue != "SE"){
-		if (hkid.trim() == "") {
-			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID') {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message")
-				flag = false;	
-			} else {
-				document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.passport.notNull.message")
-				flag = false;	
-			}
-		}
-		else
-		{
-			if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID') {
-				var tr=IsHKID(hkid.trim());
-				if(tr==false)
-				{
-					document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");;
-					flag = false;
-				}
-			} else {
-				var tr=chkTravelHKPass(hkid.trim());
-				if(tr==false)
-				{
-					document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
-					flag = false;
-				}
-			}
-		}
+			var benInsuHkid = document.getElementById("txtOtherBenInsuHkid" + i).value;
+		    
+			/*if (hkid.trim() == "") {
+			    if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID') {
+				    document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message")
+				    flag = false;	
+			    } else {
+				    document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.passport.notNull.message")
+				    flag = false;	
+			    }
+		    }
+		    else
+		    {
+			    if (selectOtherBenefitiaryHkidPass.toUpperCase() == 'HKID') {
+				    var tr=IsHKID(hkid.trim());
+				
+				    if(tr==false)
+				    {
+					    document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");;
+					    flag = false;
+				    }
+			    } else {
+				    var tr=chkTravelHKPass(hkid.trim());
+				    if(tr==false)
+				    {
+					    document.getElementById("errtxtOtherBenInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					    flag = false;
+				    }
+			    }
+		    }*/
 			
 			
 			if (document.getElementById("otherBenefitiaryName" + i).value == "")
@@ -2876,7 +2878,7 @@ function tPlanValid()
 					{	
 						$("#errtxtOtherBenInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
 			        	flag = false;
-					} else if (hkid.toUpperCase() == hkidc.toUpperCase()){
+					} else if (hkidc.toUpperCase() == hkid.toUpperCase()){
 						$('#errtxtOtherBenInsuHkid'+i).html(getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message"));
 						flag = false;
 					}	
@@ -2891,7 +2893,7 @@ function tPlanValid()
 						$("#errtxtOtherBenInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
 			        	flag = false;
 					} else if (hkidc.toUpperCase() == hkid.toUpperCase()){
-						$('#errpersonalBenefitiaryHKId'+i).html(getBundle(getBundleLanguage, "beneficiary.passport.duplicate.message"));
+						$('#errtxtOtherBenInsuHkid'+i).html(getBundle(getBundleLanguage, "beneficiary.passport.duplicate.message"));
 						flag = false;
 					}	 
 				}
@@ -4085,7 +4087,7 @@ function hc_planValid() {
 			flag = false;
 		}
 		else {
-			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
+			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 			flag = false;
 		}
 	}
@@ -4468,12 +4470,10 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 	}
 	if(type == "" || type == "香港身份證"){
 		type="HKID";
+	}else if(type == "護照號碼"){
+		type="Passport";
 	}
-	
-	
-
 	element.value = element.value.toUpperCase();
-	
 	if(isNull(element) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
 		msg = String.format(msg, type);
