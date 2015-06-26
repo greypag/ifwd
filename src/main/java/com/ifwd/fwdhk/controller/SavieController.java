@@ -35,4 +35,22 @@ public class SavieController {
 			lang = "CN";
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-beneficiaryinfo";
 	}
+	
+	@RequestMapping(value = {"/{lang}/savie-landing"})
+	public String getSavieLanding(Model model, HttpServletRequest request) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-illustration"})
+	public String getSavieIllustration(Model model, HttpServletRequest request) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-illustration";
+	}
+	
+	
 }
