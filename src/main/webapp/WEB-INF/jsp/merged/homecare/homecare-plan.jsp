@@ -335,11 +335,10 @@ function checkPromoCodePlaceholder(){
                                                             <br>
                                                             <table id="homecarePremium" class="table table-bordred">
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" />
-                                                                        </strong></td>
+                                                                    <tr style="background-color: #f68a1d;">
+                                                                        <td><strong style="color: #fff;"><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
+                                                                        <td><strong style="color: #fff;"><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
+                                                                        <td><strong style="color: #fff;"><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /></strong></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
