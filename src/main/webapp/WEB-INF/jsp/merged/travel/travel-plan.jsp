@@ -351,7 +351,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
+							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-5 pad-none">								
 								<h2>
 									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
@@ -362,7 +362,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 									
 								</h2>	
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
+							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-7">
 								
 								<h3><fmt:message key="travel.dollar" bundle="${msg}" /></h3>
 								<%
