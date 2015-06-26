@@ -519,7 +519,7 @@ function submitLoginForm(formID) {
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span> <a
 			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->
