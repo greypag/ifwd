@@ -362,7 +362,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                           </div>
 	                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                               <input type="text"
-	                                   value="${userDetails.getFullName().trim()}" class="form-control full-control"
+	                                   value="${userDetails.getFullName().trim()}" class="form-control full-control textUpper"
 	                                   id="inputFullName" name="fullName"
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
 	                                   onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
@@ -427,7 +427,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control"
+                                   <input class="form-control full-control textLower"
 					                value="${userDetails.getEmailAddress().trim()}" name="emailAddress"
 					                id="inputEmailId"
 					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
@@ -671,7 +671,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 			                                   <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
-                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
+                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>
@@ -773,7 +773,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 		                                           <input type="text"
                                                         name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" value="" class="form-control full-control"
+                                                        id="personalBenefitiaryId${inx}" value="" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
@@ -995,7 +995,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
-                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control"
+                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>
@@ -1093,7 +1093,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="adultBenificiaryFullName"
-                                                        id="adultBenefitiaryId${inx}" value="" class="form-control full-control"
+                                                        id="adultBenefitiaryId${inx}" value="" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="erradultBenefitiaryId${inx}" class="text-red"> </span>
@@ -1314,7 +1314,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                    type="text" name="childName" id="txtChldFullName${inx}"
-                                                   value="" class="form-control full-control"
+                                                   value="" class="form-control full-control textUpper"
                                                    onblur="replaceAlpha(this); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
                                                    onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                <span id="errtxtChldFullName${inx}" class="text-red"></span>
@@ -1406,7 +1406,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                    <input type="text"
                                                         name="childBenificiaryFullName"
                                                         id="childBenefitiaryName${inx}" value=""
-                                                        class="form-control full-control "
+                                                        class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
@@ -1632,7 +1632,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                         type="text" name="otherName" id="txtOtherFullName${inx}"
-                                                        value="" class="form-control full-control "
+                                                        value="" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
@@ -1731,7 +1731,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                    <input type="text"
                                                    name="otherBenificiaryFullName"
                                                    id="otherBenefitiaryName${inx}" value=""
-                                                   class="form-control full-control "
+                                                   class="form-control full-control textUpper"
                                                    onblur="replaceAlpha(this); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
                                                    onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                <span id="errotherBenefitiaryName${inx}" class="text-red"></span>

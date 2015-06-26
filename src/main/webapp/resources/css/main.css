@@ -5797,6 +5797,8 @@ font-family: 'Foco-bold';
 
 .textUpper{text-transform:uppercase;}
 
+.textLower{text-transform:lowercase;}
+
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:10%;}
 

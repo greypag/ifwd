@@ -159,7 +159,7 @@ $(document).ready(function() {
 	<section id="middle" class="hidden-sm hidden-xs">
         <div class="container bmg_flighttravel_main_container">
 	    <div class="row">
-	      <div class="col-lg-12 col-md-12 pad-none slide-form">
+	      <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
 	        <!-- <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2> -->
 	                <table class="table activation-form3">
 	              <tbody>

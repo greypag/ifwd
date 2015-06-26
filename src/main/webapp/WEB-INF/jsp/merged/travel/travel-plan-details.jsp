@@ -358,7 +358,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="fullName"
-                                        class="form-control full-control" id="inputFullName"
+                                        class="form-control full-control textUpper" id="inputFullName"
                                         value="${userDetails.getFullName()}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
@@ -435,7 +435,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control" name="emailAddress"
+                                   <input class="form-control full-control textLower" name="emailAddress"
                                         value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
@@ -655,14 +655,14 @@ function activateUserAccountJoinUs() {
                                                <c:if test="${inx == 1}">
                                                   <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
-                                                        class="form-control full-control" 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                 </c:if>
                                                 <c:if test="${inx > 1}">
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value=""
-                                                        class="form-control full-control" 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100"/>
                                                  </c:if>
@@ -796,7 +796,7 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" value="" class="form-control full-control"
+                                                        id="personalBenefitiaryId${inx}" value="" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
@@ -1040,14 +1040,14 @@ function activateUserAccountJoinUs() {
                                                <c:if test="${inx == 1}">
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
-                                                        class="form-control full-control" 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                     </c:if>
                                                     <c:if test="${inx > 1}">
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName" value=""
-                                                        class="form-control full-control" 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100"/>
                                                     </c:if>
@@ -1183,7 +1183,7 @@ function activateUserAccountJoinUs() {
                                                    <input type="text"
 	                                                  name="adultBenificiaryFullName"
 	                                                  id="adultBenefitiaryId${inx}" value=""
-	                                                  class="form-control full-control " 
+	                                                  class="form-control full-control textUpper" 
 	                                                  onblur="replaceAlpha(this); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
 	                                                  onkeypress="    return alphaOnly(event);" maxlength="100" />
 	                                              <span id="erradultBenefitiaryId${inx}" class="text-red">
@@ -1430,7 +1430,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
                                                         name="childName" id="txtChldFullName${inx}" value=""
-                                                        class="form-control full-control "
+                                                        class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtChldFullName${inx}" class="text-red"></span>
@@ -1539,7 +1539,7 @@ function activateUserAccountJoinUs() {
                                                    <input type="text"
                                                     name="childBenificiaryFullName"
                                                     id="childBenefitiaryName${inx}" value=""
-                                                    class="form-control full-control " 
+                                                    class="form-control full-control textUpper" 
                                                     onblur="replaceAlpha(this); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
                                                     onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                 <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
@@ -1752,7 +1752,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
                                                         name="otherName" id="txtOtherFullName${inx}" value=""
-                                                        class="form-control full-control " 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
@@ -1851,7 +1851,7 @@ function activateUserAccountJoinUs() {
                                                    <input type="text"
                                                         name="otherBenificiaryFullName"
                                                         id="otherBenefitiaryName${inx}" value=""
-                                                        class="form-control full-control " 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
