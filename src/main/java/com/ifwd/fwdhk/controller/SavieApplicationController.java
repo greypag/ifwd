@@ -33,6 +33,6 @@ public class SavieApplicationController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-employmentinfo";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-beneficiaryinfo";
 	}
 }

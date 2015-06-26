@@ -13,7 +13,7 @@
 	<div style="margin:20px 0;"></div>
 	<div>
 		<div style="padding:10px 60px 20px 60px">
-	    <form method="post" action="${pageContext.request.contextPath}/${language}/home-insurance/home-summary">
+	    <form method="post" action="${pageContext.request.contextPath}/${language}/getSavieBeneficiaryinfo">
 	    	<table>
 	    		<tr>
 	    			<td>Employment status:</td>
