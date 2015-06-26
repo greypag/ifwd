@@ -246,6 +246,10 @@
                         </div>
 
                         <script type="text/javascript">
+                        $("#checkbox1").change(function() {
+                            $("#errorDeclaration").html("");
+                        });
+
                         function showBubble(){
                             if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
                                 $(".checkboxBubble").fadeIn();
