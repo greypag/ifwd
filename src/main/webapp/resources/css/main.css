@@ -6699,6 +6699,10 @@ tr.product-landing-error-wrap {
     .bmg_recaptcha{
         margin-left:10%;
     }
+    
+    .bmg_flighttravel_main_container{
+        width:100% !important;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
