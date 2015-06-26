@@ -4083,7 +4083,7 @@ function hc_planValid() {
     var selectHkidPass = $("#selectHkidPass").val();
 	if (appHkid.trim() == "") {
 		if (selectHkidPass == "appHkid") {
-			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message"));
+			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));
 			flag = false;
 		}
 		else {
@@ -4474,7 +4474,8 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		type="Passport";
 	}
 	element.value = element.value.toUpperCase();
-	if(isNull(element) && type == 'HKID'){
+	
+	if(isNull(element.value) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
