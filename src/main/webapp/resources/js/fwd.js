@@ -4087,7 +4087,7 @@ function hc_planValid() {
 			flag = false;
 		}
 		else {
-			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
 			flag = false;
 		}
 	}
@@ -4106,8 +4106,11 @@ function hc_planValid() {
 				
 				flag = false;
 			}
-						
-			
+			var tr1 = chkTravelHKPassLen(appHkid.trim());
+			if (tr1 == false) {
+				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+				flag = false;
+			}
 		}
 	}
 //	var applicantDob = document.getElementById("applicantDob").value;
@@ -4475,7 +4478,7 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 	}
 	element.value = element.value.toUpperCase();
 	
-	if(isNull(element.value) && type == 'HKID'){
+	if(isNull(element) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
@@ -4485,13 +4488,13 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
-	}else if(!chkTravelHKPassLen(element.value) && type == 'Passport'){
-		var msg = getBundle(getBundleLanguage, "applicant.passport.notValidLength.message");
+	}else if(isNull(element) && type == 'Passport'){
+		var msg = getBundle(getBundleLanguage, "applicant.passport.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
-	}else if(isNull(element) && type == 'Passport'){
-		var msg = getBundle(getBundleLanguage, "applicant.missingHkidOrPassport.message");
+	}else if(!chkTravelHKPassLen(element.value) && type == 'Passport'){
+		var msg = getBundle(getBundleLanguage, "applicant.passport.notValidLength.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
 		return false;
