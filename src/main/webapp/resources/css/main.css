@@ -6979,6 +6979,11 @@ tr.product-landing-error-wrap {
        font-size:27px;
     }
     
+    .plan-box3 span.del del{
+        margin-left:0px;
+        font-size:24px;
+    }
+    
     .flightcare-hk{
        font-size:35px;
     }
