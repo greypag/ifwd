@@ -440,7 +440,7 @@ function submitLoginForm(formID) {
 		
 		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
 		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
-		<div class="dropdown-menu drop-width" style="left: -20px;">
+        <div class="dropdown-menu drop-width" style="left: -32px;top: 105px;max-width:300px;">
 									<form name="loginform" id="loginform2">
 										<div class="login-form" style="position: relative;">
 											<div
