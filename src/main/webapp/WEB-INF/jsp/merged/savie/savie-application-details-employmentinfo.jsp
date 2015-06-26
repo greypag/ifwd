@@ -17,39 +17,36 @@
 	    	<table>
 	    		<tr>
 	    			<td>Employment status:</td>
-	    			<td><select name="language">
-	    			        <option value="ar">Arabic</option>
-	    			        <option value="bg">Bulgarian</option>
-	    			        <option value="ca">Catalan</option>
-	    			        <option value="zh-cht">Chinese Traditional</option>
-	    			        <option value="cs">Czech</option>
-	    			    </select></td>
+	    			<td>
+	    			    <select name="employmentStatus">
+	    			        <option value="">-Please select-</option>
+	    			        <option value="Employed">Employed</option>
+	    			        <option value="Unemployed">Unemployed</option>
+	    			    </select>
+	    			</td>
 	    			<td>Nature of business:</td>
-	    			<td><select name="language">
-	    			        <option value="ar">Arabic</option>
-	    			        <option value="bg">Bulgarian</option>
-	    			        <option value="ca">Catalan</option>
-	    			        <option value="zh-cht">Chinese Traditional</option>
-	    			        <option value="cs">Czech</option>
-	    			    </select></td>
+	    			<td>
+	    			    <select name="natureOfBusiness">
+	    			        <option value="">-Please select-</option>
+	    			        <option value="Entertainment">Entertainment</option>
+	    			    </select>
+	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>Occupation:</td>
-	    			<td><select name="language">
-	    			        <option value="ar">Arabic</option>
-	    			        <option value="bg">Bulgarian</option>
-	    			        <option value="ca">Catalan</option>
-	    			        <option value="zh-cht">Chinese Traditional</option>
-	    			        <option value="cs">Czech</option>
-	    			    </select></td>
+	    			<td>
+	    			    <select name="occupation">
+	    			        <option value="">-Please select-</option>
+	    			        <option value="Artist">Artist</option>
+	    			    </select>
+	    			</td>
 	    			<td>Monthly personal income(HKD):</td>
-	    			<td><select name="language">
-	    			        <option value="ar">Arabic</option>
-	    			        <option value="bg">Bulgarian</option>
-	    			        <option value="ca">Catalan</option>
-	    			        <option value="zh-cht">Chinese Traditional</option>
-	    			        <option value="cs">Czech</option>
-	    			    </select></td>
+	    			<td>
+	    			    <select name="monthlyPersonalIncome">
+	    			        <option value="">-Please select-</option>
+	    			        <option value="55001">HK$55001 and above</option>
+	    			    </select>
+	    			</td>
 	    		</tr>
 	    		<tr align="center">
 	    			<td colspan="4">
