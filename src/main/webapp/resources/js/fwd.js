@@ -4686,9 +4686,12 @@ function chkNotNullApplicantName(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		
+		$(element).addClass('invalid-field');
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}
 }
@@ -4709,29 +4712,35 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(!IsHKID(element.value) && type == 'HKID'){
 		var msg = getBundle(getBundleLanguage, "applicant.hkId.notValid.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(isNull(element) && type == 'Passport'){
 		var msg = getBundle(getBundleLanguage, "applicant.passport.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(!chkTravelHKPassLen(element.value) && type == 'Passport'){
 		var msg = getBundle(getBundleLanguage, "applicant.passport.notValidLength.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(!chkTravelHKPass(element.value) && type == 'Passport'){
 		var msg = getBundle(getBundleLanguage, "applicant.passport.notEnglish.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}		
 }
@@ -4739,13 +4748,16 @@ function chkValidApplicantMobileNo(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(!mobile_pattern.test(element.value)){
 		var msg = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}	
 }
@@ -4753,13 +4765,16 @@ function chkValidApplicantEmail(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.email.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(!emailreg.test(element.value)){
 		var msg = getBundle(getBundleLanguage, "applicant.email.notValid.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}	
 }
@@ -4768,9 +4783,11 @@ function chkNotNullInsuredName(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "insured.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}
 }
@@ -4788,15 +4805,18 @@ function chkValidInsuredHkId(element, errElementId, typeId){
 		var msg = getBundle(getBundleLanguage, "insured.hkId.notNull.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else if(!IsHKID(element.value)){
 		var msg = getBundle(getBundleLanguage, "insured.hkId.notValid.message");
 		msg = String.format(msg, type);
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}
 	else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}
 }
@@ -4804,9 +4824,11 @@ function chkNotNullBeneficiary(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "insured.beneficiary.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$(element).addClass('invalid-field');
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$(element).removeClass('invalid-field');
 		return true;
 	}	
 }
@@ -4818,13 +4840,16 @@ function chkNotNullBeneficiaryName(element, errElementId, beneficiary){
 			if(isNull(element)){
 				var msg = getBundle(getBundleLanguage, "beneficiary.name.notNull.message");
 				document.getElementById(errElementId).innerHTML = msg;
+				$(element).addClass('invalid-field');
 				return false;
 			}else{
 				resetErrElement(errElementId);
+				$(element).removeClass('invalid-field');
 				return true;
 			}			
 		}else{
 			resetErrElement(errElementId);
+			$(element).removeClass('invalid-field');
 			return true;
 		}
 	}
@@ -4836,18 +4861,22 @@ function chkNotNullBeneficiaryHkId(element, errElementId, beneficiary){
 			if(isNull(element)){
 				var msg = getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message");
 				document.getElementById(errElementId).innerHTML = msg;
+				$(element).addClass('invalid-field');
 				return false;
 			}else if(!IsHKID(element.value)){
 				var msg = getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message");
 				document.getElementById(errElementId).innerHTML = msg;
+				$(element).addClass('invalid-field');
 				return false;
 			}
 			else{
 				resetErrElement(errElementId);
+				$(element).removeClass('invalid-field');
 				return true;
 			}			
 		}else{
 			resetErrElement(errElementId);
+			$(element).removeClass('invalid-field');
 			return true;
 		}
 		
@@ -4960,6 +4989,8 @@ function chkNotNullCreditCareName(element, errElementId)
 function chkNotNullCABuilding(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	
+	$(element).removeClass('invalid-field');
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
@@ -4973,6 +5004,8 @@ function chkNotNullCABuilding(element, errElementId){
 function chkNotNullCAEstate(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	
+	$(element).removeClass('invalid-field');
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.estate.notNull.message");

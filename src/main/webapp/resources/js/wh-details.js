@@ -25,6 +25,7 @@ $(function () {
 		$(".hidden-sm .form-container .topten").html($('#inputWhInseffectiveDate').val())
 		setAtt("WhInseffectiveDate", $('#inputWhInseffectiveDate').val())
 		$('#whInseffectiveDate').html('');
+		$('#dpEffectiveDate').removeClass('invalid-field');
 	});
 	
 //	// 18 year ago date
@@ -73,6 +74,7 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		setAtt("WhAppDob", $('#inputWhAppDob').val())
 		$('#whAppDob').html('');
+		$('#dpWhAppDob').removeClass('invalid-field');
 	});
 	//$('#dpWhAppDob').datepicker('setDate', dob_end_date);
 	
@@ -287,6 +289,7 @@ $(function () {
 	
 	$("#selectWhInsDistrict").change(function() {
 		$("#whInsDistrict").html('');
+		$('#inputDistrict').removeClass('invalid-field');
 		setAtt("WhInsDistrict", $(this).val());
 	});
 	
@@ -398,6 +401,7 @@ function whDetailsValid(){
 	
 	if (WhAppFullName.trim() == "") {
 		document.getElementById("whAppFullName").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");//"Please enter your Name in English.";
+		$("#inputFullName").addClass("invalid-field");
 		flag = false;
 	}
 
@@ -405,53 +409,63 @@ function whDetailsValid(){
 
 		if (WhAppHKID.trim() == "") {
 			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
+			$("#inputWhAppHKID").addClass("invalid-field");
 			flag = false;
 		}else{
 			var tr = chkTravelHKPass(WhAppHKID.trim());
             var tr1 = chkTravelHKPassLen(WhAppHKID.trim());
             if (tr == false) {
             	$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValid.message"));
-            	flag = false;
+            	$("#inputWhAppHKID").addClass("invalid-field");
+        		flag = false;
             }	
             if (tr1 == false) {
             	$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
-            	flag = false;
+            	$("#inputWhAppHKID").addClass("invalid-field");
+        		flag = false;
             }
 		}
 		
 	}else{ 
 		if (WhAppHKID.trim() == "") {
 			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));
+			$("#inputWhAppHKID").addClass("invalid-field");
 			flag = false;
 		}
 		var tr=IsHKID(WhAppHKID.trim());
 		if(tr==false){
 			$('#whAppHKID').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
+			$("#inputWhAppHKID").addClass("invalid-field");
 			flag = false;
 		}
 	}
 	
 	if (WhAppDob.trim() == "") {
 		$("#whAppDob").html(getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
+		$("#dpWhAppDob").addClass("invalid-field");
 		flag = false;
 	}
 		
 	if (WhAppMobileNO.trim() == "") {
 		$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
+		$("#inputMobileNo").addClass("invalid-field");
 		flag = false;
 	}else {        
 		if (mobile_pattern.test(WhAppMobileNO) == false) {
 			$("#whAppMobileNO").html(getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message"));
+			$("#inputMobileNo").addClass("invalid-field");
 			flag = false;
 		}
 	}
 	
 	if (WhAppEmailAdd.trim() == "") {
 		$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
+		$("#inputEmailId").addClass("invalid-field");
 		flag = false;
 	} else {
 		if (emailreg.test(WhAppEmailAdd) == false) {
 			$('#whAppEmailAdd').html(getBundle(getBundleLanguage, "applicant.email.notValid.message"));
+			$("#inputEmailId").addClass("invalid-field");
 			flag = false;
 		}
 	}
@@ -459,45 +473,52 @@ function whDetailsValid(){
 	if($("#selectWhInsBeneficary").val() != "" && $("#selectWhInsBeneficary").val() != 'SE'){
 		if (WhInsFullName.trim() == "") {
 			$("#whInsFullName").html( getBundle(getBundleLanguage, "insured.beneficiary.notNull.message"));
-			
+			$("#inputWhInsFullName").addClass("invalid-field");
 			flag = false;
 		}
 		
 		if($('#selectWhInsHKID').length > 0 && $('#selectWhInsHKID').val().toLowerCase() == 'passport'){
 			if (WhInsHKID.trim() == "") {
 				$("#whInsHKID").html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
+				$("#inputWhInsHKID").addClass("invalid-field");
 				flag = false;
 			}else{
 				var tr = chkTravelHKPass(WhInsHKID.trim());
 				if (tr == false) {
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+					$("#inputWhInsHKID").addClass("invalid-field");
 					flag = false;
 				}
 				
 				var tr1 = chkTravelHKPassLen(WhInsHKID.trim());
 				if (tr1 == false) {
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+					$("#inputWhInsHKID").addClass("invalid-field");
 					flag = false;
 				}
 				
 				if(WhInsHKID.trim() == WhAppHKID.trim()){
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.passport.same.message"));
+					$("#inputWhInsHKID").addClass("invalid-field");
 					flag = false;
 				}
 			}
 		}else{ 
 			if (WhInsHKID.trim() == "") {
 				$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+				$("#inputWhInsHKID").addClass("invalid-field");
 				flag = false;
 			}else {
 				var tr=IsHKID(WhInsHKID.trim());
 				if(tr==false){
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					$("#inputWhInsHKID").addClass("invalid-field");
 					flag = false;
 				}
 				
 				if(WhInsHKID.trim() == WhAppHKID.trim()){
 					$("#whInsHKID").html(getBundle(getBundleLanguage, "beneficiary.hkId.same.message"));
+					$("#inputWhInsHKID").addClass("invalid-field");
 					flag = false;
 				}
 			}
@@ -508,17 +529,21 @@ function whDetailsValid(){
 	if(WhInsEstate.trim() == "" && WhInsBuilding.trim() == ""){
 		$("#whInsBuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
 		$("#whInsEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+		$("#inputWhInsBuilding").addClass("invalid-field");
+		$("#inputWhInsEstate").addClass("invalid-field");
 		flag = false;
 	}
 	
 	
 	if (WhInsDistrict.trim() == "") {
 		$("#whInsDistrict").html(getBundle(getBundleLanguage, "workinghoilday.district.message"));
+		$("#inputDistrict").addClass("invalid-field");
 		flag = false;
 	}
 	
 	if (WhInseffectiveDate.trim() == "") {
 		$("#whInseffectiveDate").html(getBundle(getBundleLanguage, "workinghoilday.effectivedate.message"));
+		$("#dpEffectiveDate").addClass("invalid-field");
 		flag = false;
 	}
     if(wh_click)

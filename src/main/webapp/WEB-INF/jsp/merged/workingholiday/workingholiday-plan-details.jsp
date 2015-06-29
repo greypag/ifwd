@@ -752,7 +752,7 @@ function activateUserAccountJoinUs() {
 									<!-- district start -->
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<div class="styled-select">
+											<div class="styled-select" id="inputDistrict">
 												<select name="whInsDistrict"
 													class="form-control soflow full-control"
 													id="selectWhInsDistrict" onchange="setDropArea(this.value)">
