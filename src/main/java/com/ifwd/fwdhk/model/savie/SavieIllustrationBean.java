@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.model;
+package com.ifwd.fwdhk.model.savie;
 
 import java.util.List;
 

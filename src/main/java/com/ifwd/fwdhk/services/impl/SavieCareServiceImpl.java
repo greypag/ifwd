@@ -4,12 +4,12 @@ import java.util.List;
 
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
-import com.ifwd.fwdhk.model.CreateSaviePolicy;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.model.SavieRateBean;
-import com.ifwd.fwdhk.model.SavieServiceCentreBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.savie.CreateSaviePolicy;
+import com.ifwd.fwdhk.model.savie.SavieRateBean;
+import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 import com.ifwd.fwdhk.services.SavieCareService;
 
 public class SavieCareServiceImpl implements SavieCareService {
