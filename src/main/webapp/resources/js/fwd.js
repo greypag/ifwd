@@ -3517,20 +3517,20 @@ function validateJoinUsForm() {
 	// FULL NAME VALIDATION
 	if (fullName.trim() == "") {
 		document.getElementById("errorEmptyName").innerHTML = getBundle(getBundleLanguage, "memeber.name.notNull.message"); // "Please enter your Name in English.";
-
+		$('#txtFullName').addClass('invalid-field');
 		valid = false;
 
 	} 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
 		document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notNull.message"); // "Please enter your Mobile No.";
-
+		$('#txtMobileNo').addClass('invalid-field');
 		valid = false;
 
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
 			document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notValid.message"); // "Please enter an 8-digit Mobile No.";
-
+			$('#txtMobileNo').addClass('invalid-field');
 			valid = false;
 		}
 	}
@@ -3538,12 +3538,12 @@ function validateJoinUsForm() {
 	// Email Address Validation
 	if (emailId.trim() == "") {
 		document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notNull.message"); // "Please enter your Email Address.";
-
+		$('#txtEmailId').addClass('invalid-field');
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
 			document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notValid.message"); // "Please enter a valid Email Address.";
-
+			$('#txtEmailId').addClass('invalid-field');
 			valid = false;
 		}
 	}
@@ -3552,12 +3552,13 @@ function validateJoinUsForm() {
 	// UserName Validation
 	if (userName.trim() == "") {
 		document.getElementById("errorEmptyUName").innerHTML = getBundle(getBundleLanguage, "memeber.username.notNull.message"); // "Please enter your Username.";
-
+		$('#txtUserName1').addClass('invalid-field');
 		valid = false;
 
 	} else {
 		if (reg_user.test(userName) == false) {
 			document.getElementById("errorEmptyUName").innerHTML= getBundle(getBundleLanguage, "memeber.username.notValidLength.message"); // "Username must be between 6 and 50 characters.";
+			$('#txtUserName1').addClass('invalid-field');
 			valid = false;
 		}
 		
@@ -3571,12 +3572,15 @@ function validateJoinUsForm() {
 	var message = "";
 	if (password.trim() == ""){
 		message  = getBundle(getBundleLanguage, "memeber.password.notNull.message"); // "Please enter your Password.";
+		$('#txtPass1').addClass('invalid-field');
 		valid = false;
 	} else if(!rg.test(password)) {  
 		message += getBundle(getBundleLanguage, "memeber.password.notValidLength.message"); // "Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
+		$('#txtPass1').addClass('invalid-field');
 		valid = false;
 	} else if(spChar.test(password)){
 		message += getBundle(getBundleLanguage, "memeber.password.notValid.message"); // "\n Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
+		$('#txtPass1').addClass('invalid-field');
 		valid = false;
 	}
 	document.getElementById("errorJoinUsPassword").innerHTML = message;
@@ -3584,21 +3588,25 @@ function validateJoinUsForm() {
 
 	if (confirmPassword.trim() == "") {
 		document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notNull.message"); // "Please Confirm Password.";
+		$('#txtConfPass').addClass('invalid-field');
 		valid = false;
 	} else {
 		if (confirmPassword !== password) {
 			document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notMatch.message"); // "Passwords you entered do not match. Please enter the same Password in both fields.";
+			$('#txtConfPass').addClass('invalid-field');
 			valid = false;
 		}
 	}
 	if (document.getElementById("checkbox1").checked == false)
 	{
 		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.tnc.notChecked.message"); // "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
+
 		valid = false;
 	}
 	if (document.getElementById("checkbox2").checked == false)
 	{
 		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.pics.notChecked.message"); // "Please read and accept the Personal Information Collection Statement before submitting the application.";
+
 		valid = false;
 	}
 
@@ -5165,6 +5173,7 @@ if($('#txtFullName').length){
 	$('#txtFullName').on('blur', function(){
 		if($(this).val() == ''){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
+			$('#txtFullName').addClass('invalid-field');
 		}
 		else{
 			$('#errorEmptyName').text('');
@@ -5177,6 +5186,7 @@ if($('#txtMobileNo').length){
 		var value = $(this).val();
 		if(isMobileNo(value) != true){
 			$('#errorEmptyMobJoinUs').text(isMobileNo(value));
+			$('#txtMobileNo').addClass('invalid-field');
 		}
 		else{
 			$('#errorEmptyMobJoinUs').text('');
@@ -5189,6 +5199,7 @@ if($('#txtEmailId').length){
 		var value = $(this).val();
 		if(isEmail(value) != true){
 			$('#errorEmptyEmailIdJoinUs').text(isEmail(value));
+			$('#txtEmailId').addClass('invalid-field');
 		}
 		else{
 			$('#errorEmptyEmailIdJoinUs').text('');
@@ -5202,6 +5213,7 @@ if($('#txtUserName1').length){
 		value = $(this).val();
 		if(isValidUsername(value) !== true){
 			$('#errorEmptyUNameJoinUs').text(isValidUsername(value));
+			$('#txtUserName1').addClass('invalid-field');
 		}else
 			$('#errorEmptyUNameJoinUs').text('');
 	})
@@ -5214,8 +5226,10 @@ if($('#txtPass1').length){
 		value = $(this).val();
 		if(isValidPassword(value) !== true){
 			$('#errorJoinUsPassword').text(isValidPassword(value));
+			$('#txtPass1').addClass('invalid-field');
 		}else if(value == $("#txtUserName1").val().trim()){
 			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+			$('#txtPass1').addClass('invalid-field');
 		}else $('#errorJoinUsPassword').text('');
 	})
 }
@@ -5229,6 +5243,7 @@ if($('#txtConfPass').length && $('#txtPass1').length){
 		value = $(this).val();	
 		if(passMatch(passwordToMatch, value) !== true){
 			$('#errorEmptyConfPass').text(passMatch(passwordToMatch, value));
+			$('#txtConfPass').addClass('invalid-field');
 		} else $('#errorEmptyConfPass').text('');
 	})
 }
@@ -5248,16 +5263,19 @@ function activateUserAccount(){
 	
 	if(name == ''){
 		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
+		$("#txtFullName").addClass("invalid-field");
 		check = false;
 	} else {
 		if(name == password){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
+			$("#txtFullName").addClass("invalid-field");
 			check = false;
 		}
 	}
 	
 	if(userName == password){
 		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+		$("#txtPass1").addClass("invalid-field");
 		check = false;
 	}
 	
@@ -5265,23 +5283,28 @@ function activateUserAccount(){
 	
 	if(mobileValidateResult != true){
 		$('#errorEmptyMobJoinUs').text(mobileValidateResult);
+		$("#txtMobileNo").addClass("invalid-field");
 		check = false;
 	}
 	if(isEmail(email) !== true){
 		$('#errorEmptyEmailIdJoinUs').text(isEmail(email));
+		$("#txtEmailId").addClass("invalid-field");
 		check = false;
 	}
 	if(isValidUsername(userName) !== true){
 		$('#errorEmptyUNameJoinUs').text(isValidUsername(userName));
+		$("#txtUserName1").addClass("invalid-field");
 		check = false;
 	};
 	
 	if(isValidPassword(password) !== true){
 		$('#errorJoinUsPassword').text(isValidPassword(password));
+		$("#txtPass1").addClass("invalid-field");
 		check = false;
 	};
 	if(passMatch(password, checkPassword) !== true){
 		$('#errorEmptyConfPass').text(passMatch(password, checkPassword));
+		$("#txtConfPass").addClass("invalid-field");
 		check = false;
 	};
 	

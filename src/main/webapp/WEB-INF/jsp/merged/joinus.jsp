@@ -119,7 +119,7 @@
 										class="form-control" id="txtFullName" name="fullName"
 										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName.placeholder" bundle="${msg}" />"
 										onblur="replaceAlpha(this);"
-	                                    onfocus="$('#errorEmptyName').html('');"
+	                                    onfocus="$('#errorEmptyName').html('');$(this).removeClass('invalid-field');"
 										onkeypress="    return alphaOnly(event);" maxlength="100">
 										<span id="errorEmptyName" class="text-red"></span></td>
 									<td></td>
@@ -130,7 +130,7 @@
 									<td><input type="text"
 										class="form-control" id="txtMobileNo"
 										value="${userDetails.getMobileNo() }" name="mobileNo"
-										onfocus="$('#errorEmptyMobJoinUs').html('');"
+										onfocus="$('#errorEmptyMobJoinUs').html('');$(this).removeClass('invalid-field');"
 										placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />" onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this);" maxlength="8"> <span
 										id="errorEmptyMobJoinUs" class="text-red"></span></td>
@@ -143,7 +143,7 @@
 									<td><input type="email"
 										class="form-control" id="txtEmailId"
 										value="${userDetails.getEmailAddress() }" placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"
-                                        onfocus="$('#errorEmptyEmailIdJoinUs').html('');"
+                                        onfocus="$('#errorEmptyEmailIdJoinUs').html('');$(this).removeClass('invalid-field');"
 										name="EmailAddress" maxlength="50"> <span
 										id="errorEmptyEmailIdJoinUs" class="text-red"></span></td>
 									<td></td>
@@ -155,7 +155,7 @@
 										
 											<input type="text" class="form-control "
 												id="txtUserName1" value="${userDetails.getUserName() }"
-                                                onfocus="$('#errorEmptyUNameJoinUs').html('');"
+                                                onfocus="$('#errorEmptyUNameJoinUs').html('');$(this).removeClass('invalid-field');"
                                                 onkeypress="return validationUsername(event);"
 												placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />" name="userName">
 
@@ -176,7 +176,7 @@
 									</label></td>
 									<td>
 											<input type="password" class="form-control" autocomplete="off"
-                                                onfocus="$('#errorJoinUsPassword').html('');"
+                                                onfocus="$('#errorJoinUsPassword').html('');$(this).removeClass('invalid-field');"
 												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
 
 										 <span id="errorJoinUsPassword" class="text-red"></span>
@@ -195,7 +195,7 @@
 										class="join-us-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /> </label></td>
 									<td><input type="password" autocomplete="off"
 										name="confirmPassword" class="form-control" id="txtConfPass"
-                                        onfocus="$('#errorEmptyConfPass').html('');"
+                                        onfocus="$('#errorEmptyConfPass').html('');$(this).removeClass('invalid-field');"
 										placeholder="<fmt:message key="member.registration.details.label.confirmPassword.placeholder" bundle="${msg}" />"> <span
 										id="errorEmptyConfPass" class="text-red"></span></td>
 								</tr>
