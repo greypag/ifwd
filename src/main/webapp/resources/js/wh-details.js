@@ -256,10 +256,14 @@ $(function () {
 	});
 	
 	$( "#inputWhInsEstate" ).on( "blur", function() {
+		$("#inputWhInsEstate").removeClass("invalid-field");
+		$("#inputWhInsBuilding").removeClass("invalid-field");
 	    var whInsEstate = $(this).val();
 	    var whInsBuilding = $("#inputWhInsBuilding").val();
 		if (whInsEstate.trim() == "" && whInsBuilding.trim() == "" ) {
 			$("#whInsEstate").html( getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+			$("#inputWhInsEstate").addClass("invalid-field");
+			$("#inputWhInsBuilding").addClass("invalid-field");
 			return false;
 		}
 		$("#whInsEstate").html('');
@@ -268,10 +272,14 @@ $(function () {
 	});
 	
 	$( "#inputWhInsBuilding" ).on( "blur", function() {
+		$("#inputWhInsEstate").removeClass("invalid-field");
+		$("#inputWhInsBuilding").removeClass("invalid-field");
 	    var whInsBuilding = $(this).val();
 	    var whInsEstate = $("#inputWhInsEstate").val();
 		if (whInsBuilding.trim() == "" && whInsEstate.trim() == "" ) {
 			$("#whInsBuilding").html( getBundle(getBundleLanguage, "workinghoilday.building.message"));
+			$("#inputWhInsEstate").addClass("invalid-field");
+			$("#inputWhInsBuilding").addClass("invalid-field");
 			return false;
 		}
 		$("#whInsEstate").html('');

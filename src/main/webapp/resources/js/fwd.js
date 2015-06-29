@@ -4311,10 +4311,12 @@ function hc_planValid() {
 	if (appHkid.trim() == "") {
 		if (selectHkidPass == "appHkid") {
 			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));
+			$("#txtAppHkid").addClass("invalid-field");
 			flag = false;
 		}
 		else {
 			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
+			$("#txtAppHkid").addClass("invalid-field");
 			flag = false;
 		}
 	}
@@ -4323,6 +4325,7 @@ function hc_planValid() {
 			var tr = IsHKID(appHkid.trim());
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
+				$("#txtAppHkid").addClass("invalid-field");
 				flag = false;
 			}
 		}
@@ -4330,12 +4333,13 @@ function hc_planValid() {
 			var tr = chkTravelHKPass(appHkid.trim());
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
-				
+				$("#txtAppHkid").addClass("invalid-field");
 				flag = false;
 			}
 			var tr1 = chkTravelHKPassLen(appHkid.trim());
 			if (tr1 == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+				$("#txtAppHkid").addClass("invalid-field");
 				flag = false;
 			}
 		}
@@ -4344,36 +4348,42 @@ function hc_planValid() {
 	var applicantDob = $("#applicantDob").val();
 	if (applicantDob.trim() == "") {
 		document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
-        flag = false;
+		$("#input_dob").addClass("invalid-field");
+		flag = false;
     
 	}
     
 //    
     if (appFullName.trim() == "") {
         document.getElementById("appfullname").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
-        flag = false;
+        $("#inputFullName").addClass("invalid-field");
+		flag = false;
     }
     
     if (mobileNo.trim() == "") {
         document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
-        flag = false;
+        $("#inputMobileNo").addClass("invalid-field");
+		flag = false;
     }
     else {        
         if (mobile_pattern.test(mobileNo) == false) {
             document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
-            flag = false;
+            $("#inputMobileNo").addClass("invalid-field");
+			flag = false;
         }
     }
     
     if (EmailId.trim() == "") {
         document.getElementById("errEmailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notNull.message");
-        flag = false;
+        $("#inputEmailId").addClass("invalid-field");
+		flag = false;
     }
     else {
         if (emailreg.test(EmailId) == false) {
 
             document.getElementById("errEmailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notValid.message");
-            flag = false;
+            $("#inputEmailId").addClass("invalid-field");
+			flag = false;
         }
     }
     
@@ -4398,32 +4408,39 @@ function hc_planValid() {
         //document.getElementById("errCABuilding").innerHTML = "Name of Building is invalid.";
         $('#errCABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
         $('#errCAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
-        flag = false;
+        $("#inputCABuilding").addClass("invalid-field");
+        $("#inputCAEstate").addClass("invalid-field");
+		flag = false;
     }
     
     if (ABuilding.trim() == "" && AEstate.trim() == "") {
         //document.getElementById("errABuilding").innerHTML = "Please enter your Corresponding Address.";
         $('#errABuilding').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.building.notNull.message"));
         $('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
-        flag = false;
+        $("#inputABuilding").addClass("invalid-field");
+        $("#inputAEstate").addClass("invalid-field");
+		flag = false;
     }
      
     if (NFA.trim() == "") {
         //document.getElementById("errNFA").innerHTML = "Please select Net Floor Area.";
         $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
-        flag = false;
+        $("#inputNFA").addClass("invalid-field");
+		flag = false;
     }
     
     if (EffDate.trim() == "") {
        // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
         $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
-        flag = false;
+        $("#homecareDp").addClass("invalid-field");
+		flag = false;
     }
     else {
         if (startdays > 60) {
            // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
             $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
-            flag = false;
+            $("#homecareDp").addClass("invalid-field");
+			flag = false;
         }
     }
     if (document.getElementById("checkbox1").checked == false) {
@@ -4440,11 +4457,13 @@ function hc_planValid() {
     //Distrct Validation
     if($('#selectCADist').val() == ''){
     	$('#errCADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
-    	flag = false;
+    	$("#inputCADistrict").addClass("invalid-field");
+		flag = false;
     }
     if($('#selectADist').val() == ''){
     	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
-    	flag = false;
+    	$("#inputADistrict").addClass("invalid-field");
+		flag = false;
     }
     
     //Remove the disabled / area select
@@ -4988,9 +5007,11 @@ function chkNotNullCreditCareName(element, errElementId)
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
+	document.getElementById("errCAEstate").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	
 	$(element).removeClass('invalid-field');
+	$("#inputCAEstate").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
@@ -5003,9 +5024,11 @@ function chkNotNullCABuilding(element, errElementId){
 }
 function chkNotNullCAEstate(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
+	document.getElementById("errCABuilding").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	
 	$(element).removeClass('invalid-field');
+	$("#inputCABuilding").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.estate.notNull.message");
@@ -5018,7 +5041,10 @@ function chkNotNullCAEstate(element, errElementId){
 }
 function chkNotNullIABuilding(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
+	document.getElementById("errAEstate").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	$(element).removeClass('invalid-field');
+	$("#inputAEstate").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "insured.address.building.notNull.message");
@@ -5031,7 +5057,10 @@ function chkNotNullIABuilding(element, errElementId){
 }
 function chkNotNullIAEstate(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
+	document.getElementById("errABuilding").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
+	$(element).removeClass('invalid-field');
+	$("#inputABuilding").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "insured.address.estate.notNull.message");
@@ -5046,9 +5075,11 @@ function chkNotNullIANetFloorArea(element, errElementId){
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "insured.address.netFloorArea.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
+		$("#inputNFA").addClass("invalid-field");
 		return false;
 	}else{
 		resetErrElement(errElementId);
+		$("#inputNFA").removeClass("invalid-field");
 		return true;
 	}		
 }

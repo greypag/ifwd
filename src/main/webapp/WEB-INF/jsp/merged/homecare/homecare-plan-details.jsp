@@ -76,10 +76,12 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 
 <script>
 	function setDropArea(id) {
+		$("#inputCADistrict").removeClass("invalid-field");
 		
 		$('#errCADist').html('');
 		if($('#selectCADist').val() == ''){
 	    	$('#errCADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+	    	$("#inputCADistrict").addClass("invalid-field");
 	    }
 		
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
@@ -100,10 +102,12 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 	}
 
 	function setDropArea2(id2) {
+		$("#inputADistrict").removeClass("invalid-field");
 		
 		$('#errADist').html('');
 		if($('#selectADist').val() == ''){
 	    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+	    	$("#inputADistrict").addClass("invalid-field");
 	    }
 		
 		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
@@ -376,6 +380,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		}).on('changeDate', function (ev) {
 			$(".hidden-sm .form-container .topten").html($('#txtEffDate').val());
 			$('#errEffDate').html('');
+			$("#homecareDp").removeClass("invalid-field");
 		});
 	});
 	
@@ -992,7 +997,7 @@ function activateUserAccountJoinUs() {
 		                               <!-- district start -->
 		                               <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <div class="styled-select">
+                                                <div class="styled-select" id="inputCADistrict">
                                                 <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
                                                 <option value=""><fmt:message key="home.details.registration.district" bundle="${msg}" /></option>
                                                 <%
@@ -1267,7 +1272,7 @@ function activateUserAccountJoinUs() {
                                        <!-- district start -->
                                        <div class="row form-group">
                                            <div class="col-xs-12">
-                                                <div class="styled-select">
+                                                <div class="styled-select" id="inputADistrict">
                                             <select name="aDistrict"
                                                 class="form-control soflow full-control" id="selectADist"
                                                 onchange="setDropArea2(this.value)">
@@ -1354,7 +1359,7 @@ function activateUserAccountJoinUs() {
                                        </label>                                        
                                     </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                       <div class="styled-select">
+                                       <div class="styled-select" id="inputNFA">
                                         <select
                                             name="netFloorArea"
                                             class="form-control soflow full-control" id="selectNFA"
@@ -1386,15 +1391,14 @@ function activateUserAccountJoinUs() {
                                     </label>
                                     </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                       <div class="form-group">
                                         <div class="input-group date" id="homecareDp">
-                                            <span class="input-group-addon bg-img in"><span><img
+                                            <span class="input-group-addon in border-radius"><span><img
                                                     src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="" /></span></span> <input
                                                 name="effectiveDate" type="text"
                                                 class="datepicker form-control full-control" id="txtEffDate"
                                                 readonly />
                                         </div>
-                                    </div> <span id="errEffDate" class="text-red"></span>
+                                        <span id="errEffDate" class="text-red"></span>
                                    </div>
                                </div>
                                <!-- start date  -->
