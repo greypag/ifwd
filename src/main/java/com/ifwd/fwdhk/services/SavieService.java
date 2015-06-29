@@ -7,6 +7,9 @@ import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.savie.SavieAppointmentScheduleBean;
+import com.ifwd.fwdhk.model.savie.SavieFinancialNeedAnalysisBean;
+import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SavieRateBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
@@ -23,9 +26,9 @@ public interface SavieService {
 	
 	public SaviePolicy createSaviePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language, String referralCode);
 	
-	//getIllustration
-	//upsertFNA
-	//upsertAppointment
+	public SavieIllustrationBean getIllustration(String userName, String token, String language);
+	public String upsertFNA(String userName, String token, String language,SavieFinancialNeedAnalysisBean fna);
+	public String upsertAppointment(String userName, String token, String language,SavieAppointmentScheduleBean fna);
 	
 	//public String outFileName generatePdf(String inputFileName,<List> PdfAttribute)
 	

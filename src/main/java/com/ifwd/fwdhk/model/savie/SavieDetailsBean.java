@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SavieDetailsBean {
-	private List<SavieBeneficary> beneficaryList = new ArrayList<>();
+	
+	private List<SavieBeneficiaryBean> beneficaryList;
 
-	public List<SavieBeneficary> getBeneficaryList() {
+	public List<SavieBeneficiaryBean> getBeneficaryList() {
 		return beneficaryList;
 	}
 
-	public void setBeneficaryList(List<SavieBeneficary> beneficaryList) {
+	public void setBeneficaryList(List<SavieBeneficiaryBean> beneficaryList) {
 		this.beneficaryList = beneficaryList;
 	}
+	
+
+	
 }
