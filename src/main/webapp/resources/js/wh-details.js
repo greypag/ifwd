@@ -318,14 +318,17 @@ $(function () {
 	    var seccode = $(this).val();
 		if (seccode.trim() == "") {
 			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
+			$("#seccode").addClass("invalid-field");
 			return false;
 		}else{
 			if(seccode.length<3)
 			{
 				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+				$("#seccode").addClass("invalid-field");
 				return false;
 			}
 		}
+		$("#seccode").removeClass("invalid-field");
 		$("#errcode").html('');
 	});
 });
@@ -581,6 +584,7 @@ function whPayValid()
 	document.getElementById('erryear').innerHTML="";
 	document.getElementById('errname').innerHTML="";	
 	document.getElementById('errcode').innerHTML="";
+	$("#seccode").removeClass("invalid-field");
 	document.getElementById('errchk1').innerHTML="";
 	/*document.getElementById('errchk2').innerHTML="";*/
 
@@ -588,31 +592,37 @@ function whPayValid()
 	{
 		flag=false;
 		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
+		$("#cardnumber").addClass("invalid-field");
 	}
 	if(month=="" || month== 0)
 	{
 		flag=false;
 		$('#errmonth').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.month.notValid.message"));
+		$("#inputMonth").addClass("invalid-field");
 	}
 	if(year=="" || year == 0)
 	{
 		flag=false;
 		$('#erryear').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.year.notValid.message"));
+		$("#inputYear").addClass("invalid-field");
 	}
 	if(holdername.trim()=="")
 	{
 		flag=false;
 		$('#errname').html(getBundle(getBundleLanguage, "payment.creditCard.name.notValid.message"));
+		$("#holdername").addClass("invalid-field");
 	}
 	if(seccode.trim()=="")
 	{
 		flag=false;
 		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));
+		$("#seccode").addClass("invalid-field");
 	}else{
 		if(seccode.length<3)
 		{
 			flag=false;
 			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+			$("#seccode").addClass("invalid-field");
 		}
 	}
 	if (document.getElementById("checkbox3").checked == false)

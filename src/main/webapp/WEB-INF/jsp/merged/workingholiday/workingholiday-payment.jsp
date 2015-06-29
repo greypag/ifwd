@@ -415,7 +415,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                 <label class="control-label  h4-5"><fmt:message key="workingholiday.payment.card.expiryDate" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
-                                <div class="styled-select payment-select"><select class="pay-details-select"
+                                <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select"
                                     id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                         <option value="0"><fmt:message key="workingholiday.payment.card.expiryDate.month" bundle="${msg}" /></option>
                                         <option value="1">01</option>
@@ -435,7 +435,7 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                     class="error-msg"></span>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
-                                <div class="styled-select payment-select"><select class="pay-details-select" id="year"
+                                <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="workingholiday.payment.card.expiryDate.year" bundle="${msg}" /></option>
 <!--                                        <option value="2015">2015</option> -->
