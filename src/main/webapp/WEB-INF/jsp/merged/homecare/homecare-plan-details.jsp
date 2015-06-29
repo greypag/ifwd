@@ -208,9 +208,17 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 			$('#inputAStreetName').val(applicantStreetName);
 
 			$('#selectADist').val(selectCADist);
+			
+			$('#errAEstate').html('');
+			$('#errABuilding').html('');
+			$("#inputAEstate").removeClass("invalid-field");
+			$("#inputABuilding").removeClass("invalid-field");
+			
 			$('#errADist').html('');
+			$("#inputADistrict").removeClass("invalid-field");
 			if($('#selectADist').val() == ''){
 		    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+		    	$("#inputADistrict").addClass("invalid-field");
 		    }
 			
 			var element = document.getElementById('selectADist');
@@ -504,18 +512,21 @@ function activateUserAccountJoinUs() {
     		// not all the fields filled
     		if (name == ""){
     			$('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+    			$("#Username").addClass("invalid-field");
     		}else{
     			checkMembership("Username");
     		}
     		
     		if (password == ""){
     			$('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+    			$("#Password").addClass("invalid-field");
     		}else{
     			checkMembership("Password");
     		}
     		    		
     		if (password2 == ""){
     			$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+    			$("#Confirm-Password").addClass("invalid-field");
     		}else{
     			checkMembership("Confirm-Password");
     		}    		

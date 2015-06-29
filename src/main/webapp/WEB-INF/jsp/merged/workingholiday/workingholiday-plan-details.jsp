@@ -195,12 +195,14 @@ function activateUserAccountJoinUs() {
             // not all the fields filled
             if (name == ""){
                 $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+                $("#Username").addClass("invalid-field");
             }else{
                 checkMembership("Username");
             }
             
             if (password == ""){
                 $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+                $("#Password").addClass("invalid-field");
             }else{
                 checkMembership("Password");
             }
@@ -208,6 +210,7 @@ function activateUserAccountJoinUs() {
             
             if (password2 == ""){
                 $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+                $("#Confirm-Password").addClass("invalid-field");
             }else{
                 checkMembership("Confirm-Password");
             }

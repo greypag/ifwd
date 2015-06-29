@@ -5231,36 +5231,51 @@ function checkMembership(field){
 		$("#Username").val(value);
 		if(value == ''){
 			$('#UsernameError').text('');
+			$("#Username").removeClass("invalid-field");
 		}
 		else if(isValidUsername(value) !== true){
+			$("#Username").addClass("invalid-field");
 			$('#UsernameError').text(isValidUsername(value));
 			result = false;
-		}else
+		}else{
 			$('#UsernameError').text('');
+			$("#Username").removeClass("invalid-field");
+		}
 	}else if (field == "Password"){
 		value = $("#Password").val().trim();
 		$("#Password").val(value);
 		if(value == ''){
 			$('#PasswordError').text('');
+			$("#Password").removeClass("invalid-field");
 		}
 		else if(isValidPassword(value) !== true){
+			$("#Password").addClass("invalid-field");
 			$('#PasswordError').text(isValidPassword(value));
 			result = false;
 		}else if(value == $("#Username").val().trim()){
+			$("#Password").addClass("invalid-field");
 			$('#PasswordError').text(getBundle(getBundleLanguage, "user.password.same.message"));
 			result = false;
-		}else $('#PasswordError').text('');
+		}else{
+			$('#PasswordError').text('');
+			$("#Password").removeClass("invalid-field");
+		}
 	}else if (field == "Confirm-Password"){
 		var passwordToMatch = $('#Password').val();
 		value = $("#Confirm-Password").val().trim();
 		$("#Confirm-Password").val(value);
 		if(value == ''){
 			$('#Confirm-PasswordError').text('');
+			$("#Confirm-Password").removeClass("invalid-field");
 		}
 		else if(passMatch(passwordToMatch, value) !== true){
+			$("#Confirm-Password").addClass("invalid-field");
 			$('#Confirm-PasswordError').text(passMatch(passwordToMatch, value));
 			result = false;
-		} else $('#Confirm-PasswordError').text('');
+		} else {
+			$('#Confirm-PasswordError').text('');
+			$("#Confirm-Password").removeClass("invalid-field");
+		}
 	}
 	return result;
 }
