@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.services;
+package com.ifwd.fwdhk.services.impl;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.SavieRateBean;
 import com.ifwd.fwdhk.model.SavieServiceCentreBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.services.SavieCareService;
 
 public class SavieCareServiceImpl implements SavieCareService {
 

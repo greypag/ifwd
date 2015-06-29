@@ -23,4 +23,32 @@ public interface SavieCareService {
 	
 	public CreateSaviePolicy createSavieCarePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language, String referralCode);
 	
+	//getIllustration
+	//upsertFNA
+	//upsertAppointment
+	
+	
+	
+	//fileUpload?
+	//signature?
+	
+	
+	
+	//1/check session, and redirect to savie landing page if session expired
+	//2/validate the object
+	//3/check page flow object
+	    //define from page and to page
+	//4/create response object
+	//5/call service layer
+	    //4.1/store the response into response object
+	//6/put the required object into session
+	//7/return result
+	//8/return the next page (if applicable)
+	
+	
+	
+	
+	
+	
+	
 }
