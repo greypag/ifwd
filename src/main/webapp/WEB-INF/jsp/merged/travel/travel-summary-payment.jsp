@@ -139,23 +139,23 @@ var enablePayment=true;
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName() }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getHkid()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress() }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo() }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.getReferenceNo()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.referenceNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.plan" bundle="${msg}" /></div>
@@ -183,7 +183,7 @@ var enablePayment=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.period" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.getTrLeavingDate()} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.getTrBackDate()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
@@ -750,16 +750,16 @@ var enablePayment=true;
                        <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
                        <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
                     </div>
-                    <input type="hidden" name="merchantId" value="${createPolicy.getMerchantId()}">
+                    <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
                     <input type="hidden" name="amount" value="${dueAmount.trim()}">
                     <input type="hidden" name="remark" value="${referralCode.trim()}">
-                    <input type="hidden" name="orderRef" value="${createPolicy.getTransactionNo() }">
-                    <input type="hidden" name="currCode" value="${createPolicy.getCurrCode() }">
+                    <input type="hidden" name="orderRef" value="${createPolicy.transactionNo }">
+                    <input type="hidden" name="currCode" value="${createPolicy.currCode }">
                     <input type="hidden" name="successUrl" value="${path}">
                     <input type="hidden" name="failUrl" value="${failurePath }">
                     <input type="hidden" name="errorUrl" value="${failurePath }">
-                    <input type="hidden" name="payType" value="${createPolicy.getPaymentType()}">
-                    <input type="hidden" name="referenceNo" value="${createPolicy.getReferenceNo()}">
+                    <input type="hidden" name="payType" value="${createPolicy.paymentType}">
+                    <input type="hidden" name="referenceNo" value="${createPolicy.referenceNo}">
                     <%
                         String payLang = (String) session.getAttribute("language");
                         //payLang = payLang.substring(0, 1);
@@ -772,11 +772,11 @@ var enablePayment=true;
 <%--                    <input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
                     <input type="hidden" name="lang" value="C"> <input
                         type="hidden" name="secureHash"
-                        value="${createPolicy.getSecureHash() }"> <input
+                        value="${createPolicy.secureHash }"> <input
                         type="hidden" id="emailAddress" name="emailAddress"
-                        value="${userDetails.getEmailAddress()}"> <input
+                        value="${userDetails.emailAddress}"> <input
                         type="hidden" id="gateway" name="gateway"
-                        value="${createPolicy.getPaymentGateway()}">
+                        value="${createPolicy.paymentGateway}">
 
 
 

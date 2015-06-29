@@ -144,23 +144,23 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                         </div> -->
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.name" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.hkid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getHkid()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.email" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.mobileNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.requestNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${whCreatePolicy.getReferenceNo()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${whCreatePolicy.referenceNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.plan" bundle="${msg}" /></div>
@@ -310,18 +310,18 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 								<tbody>
 									<tr class="hidden-sm hidden-xs">
 										<td data-title="Other"><span class="h2-1-td"><fmt:message key="workingholiday.summary.insured.traveller" bundle="${msg}" /></span></td>
-										<td class=" h4-5" data-title="Full name">${userDetails.getFullName()}</td>
+										<td class=" h4-5" data-title="Full name">${userDetails.fullName}</td>
 										<!-- <td class=" h4-5" data-title="Age range"></td> --> 
-										<td class=" h4-5" data-title="HKID">${userDetails.getHkid()}</td>
+										<td class=" h4-5" data-title="HKID">${userDetails.hkid}</td>
 										<td data-title="Relationship"><span class="h4-5"></span></td>
 									</tr>
 									
-									<c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.getWhInsBeneficary() != 'SE'}" >
+									<c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whInsBeneficary != 'SE'}" >
 									<tr>
 										<td data-title="Personal1"><span class="h4-6-td"><fmt:message key="workingholiday.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsFullName()}</td>
+	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.whInsFullName}</td>
                                         <!-- <td data-title="Age range" class="travel-tb-h3">&nbsp;</td> -->
-                                        <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.getWhInsHKID()}</td>
+                                        <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.whInsHKID}</td>
 	                                    <td data-title="Relationship" class="travel-tb-h3">${whInsBeneficaryDesc}</td>
 									</tr>
 									</c:if>
@@ -339,15 +339,15 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						<h2 class="from-control" style="padding:0px !important;"><fmt:message key="workingholiday.payment" bundle="${msg}" /></h2>
 						<span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
 					</div>
-					<input type="hidden" name="merchantId" value="${whCreatePolicy.getMerchantId()}">
+					<input type="hidden" name="merchantId" value="${whCreatePolicy.merchantId}">
 					<input type="hidden" name="amount" value="${dueAmount.replace(',','').trim()}">
-					<input type="hidden" name="orderRef" value="${whCreatePolicy.getTransactionNo() }">
-					<input type="hidden" name="currCode" value="${whCreatePolicy.getCurrCode() }">
+					<input type="hidden" name="orderRef" value="${whCreatePolicy.transactionNo}">
+					<input type="hidden" name="currCode" value="${whCreatePolicy.currCode}">
 					<input type="hidden" name="successUrl" value="${path}">
 					<input type="hidden" name="failUrl" value="${failurePath }">
 					<input type="hidden" name="errorUrl" value="${failurePath }">
-					<input type="hidden" name="payType" value="${whCreatePolicy.getPaymentType()}">
-					<input type="hidden" name="referenceNo" value="${whCreatePolicy.getReferenceNo()}"> 
+					<input type="hidden" name="payType" value="${whCreatePolicy.paymentType}">
+					<input type="hidden" name="referenceNo" value="${whCreatePolicy.referenceNo}"> 
 					<%
 						String payLang = (String) session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
@@ -358,9 +358,9 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						
 					%>
 					<input type="hidden" name="lang" value="C">
-					<input type="hidden" name="secureHash" value="${whCreatePolicy.getSecureHash() }">
-					<input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.getEmailAddress()}">
-					<input type="hidden" id="gateway" name="gateway" value="${whCreatePolicy.getPaymentGateway()}">
+					<input type="hidden" name="secureHash" value="${whCreatePolicy.secureHash}">
+					<input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress}">
+					<input type="hidden" id="gateway" name="gateway" value="${whCreatePolicy.paymentGateway}">
 
     
                     <div class="col-xs-12 pad-none">

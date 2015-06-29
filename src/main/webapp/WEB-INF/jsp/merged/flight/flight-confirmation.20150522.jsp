@@ -109,21 +109,21 @@ class="image-order-status image-order-status-active  img-circle">
 
 <input type="hidden" name="totalAdultTraveller"
 id="totalAdultTraveller"
-value="${createFlightPolicy.getTotalAdultTraveller()}">
+value="${createFlightPolicy.totalAdultTraveller}">
 <input type="hidden" name="totalChildTraveller"
 id="totalChildTraveller"
-value="${createFlightPolicy.getTotalChildTraveller()}">
+value="${createFlightPolicy.totalChildTraveller}">
 <input type="hidden" name="totalOtherTraveller"
 id="totalOtherTraveller"
-value="${createFlightPolicy.getTotalOtherTraveller()}">
+value="${createFlightPolicy.totalOtherTraveller}">
 <input type="hidden" name="returnDate" id="returnDate"
-value="${createFlightPolicy.getReturnDate()}">
+value="${createFlightPolicy.returnDate}">
 <input type="hidden" name="departureDate" id="departureDate"
-value="${createFlightPolicy.getDepartureDate()}">
+value="${createFlightPolicy.departureDate}">
 <input type="hidden" name="days"
-value="${createFlightPolicy.getDays()}">
+value="${createFlightPolicy.days}">
 <input type="hidden" name="travellerCount"
-value="${createFlightPolicy.getTravellerCount()}">
+value="${createFlightPolicy.travellerCount}">
 <input type="hidden" name="fullName" value="${fullName}">
 <input type="hidden" name="hkid" value="${hkid}">
 <input type="hidden" name="mobileNo" value="${mobileNo}">

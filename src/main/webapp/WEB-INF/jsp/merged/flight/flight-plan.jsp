@@ -14,11 +14,11 @@
   var traveller;  
   
   // personal
-  var personalTraveller = parseInt("${planDetails.getTotalPersonalTraveller()}");
+  var personalTraveller = parseInt("${planDetails.totalPersonalTraveller}");
   // family
-  var familyAdult = parseInt("${planDetails.getTotalAdultTraveller()}");
-  var familyChild = parseInt("${planDetails.getTotalChildTraveller()}");
-  var familyOther = parseInt("${planDetails.getTotalOtherTraveller()}");
+  var familyAdult = parseInt("${planDetails.totalAdultTraveller}");
+  var familyChild = parseInt("${planDetails.totalChildTraveller}");
+  var familyOther = parseInt("${planDetails.totalOtherTraveller}");
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
  
 //bmg inline variable
@@ -40,7 +40,7 @@
   
   $(document).ready(function() {
 		 // update quote area to show headcounts
-	    if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+	    if("${planDetails.planSelected}".toLowerCase() == "family"){
 	        if (familyTraveller > 0){
 	            $('#family_plan_desk_spinner').show();
 	            $('#family_plan_btm_spinner').show();
@@ -131,7 +131,7 @@
 				<!-- <input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}"> -->
 			    <input type="hidden" id="days" name="days" value="${days}">
 			     <!-- <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> --> 
-			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.getToalDue()}"> 
+			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.toalDue}"> 
 			     <!-- <input type="hidden" name="planSelected" value="${planDetails.getPlanSelected()}"> -->
 			     
 			
@@ -301,7 +301,7 @@
 			                </div> -->
 			                
 			                <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                              <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetails.getDepartureDate()}" readonly>
+                              <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetails.departureDate}" readonly>
                             </div>
 			               <!-- departure date end  -->
 			               <!-- return date start  -->
@@ -327,7 +327,7 @@
 						      </div> -->
 						      
 						      <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="returnDate" class="datepicker form-control" value="${planDetails.getReturnDate()}" readonly>
+                                <input type="text" name="returnDate" class="datepicker form-control" value="${planDetails.returnDate}" readonly>
                               </div>
                               
 							<!-- return date end  -->
@@ -452,19 +452,19 @@
                             </div>
                             -->
                             
-                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersInline" value="${planDetails.getTotalPersonalTraveller()}"/>
-                            <input type="hidden" name="" id="family_desk_count" value="${planDetails.getTotalFamilyTravellers()}">
-                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
-                            <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
-                            <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
+                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersInline" value="${planDetails.totalPersonalTraveller}"/>
+                            <input type="hidden" name="" id="family_desk_count" value="${planDetails.totalFamilyTravellers}">
+                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${planDetails.totalAdultTraveller}"/>
+                            <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="14" value="${planDetails.totalChildTraveller}"/>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="14" value="${planDetails.totalOtherTraveller}"/>
                             
                             <div id="show-traveller" class="form-group likeDatePicker bcg-trans">
                                 <div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
                                 <%-- <input type="text" class="datepicker form-control" value=" --%>
-                                <c:if test="${planDetails.getTotalAdultTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.getTotalAdultTraveller()} <br></c:if>
-                                <c:if test="${planDetails.getTotalChildTraveller() !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.getTotalChildTraveller()} <br></c:if>
-                                <c:if test="${planDetails.getTotalOtherTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.getTotalOtherTraveller()} <br></c:if>
-                                <c:if test="${planDetails.getTotalPersonalTraveller() !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.getTotalPersonalTraveller()}</c:if><!-- readonly> --> 
+                                <c:if test="${planDetails.totalAdultTraveller !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.totalAdultTraveller} <br></c:if>
+                                <c:if test="${planDetails.totalChildTraveller !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.totalChildTraveller} <br></c:if>
+                                <c:if test="${planDetails.totalOtherTraveller !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.totalOtherTraveller} <br></c:if>
+                                <c:if test="${planDetails.totalPersonalTraveller !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.totalPersonalTraveller}</c:if><!-- readonly> --> 
                                     
                             </div>
                             </div>

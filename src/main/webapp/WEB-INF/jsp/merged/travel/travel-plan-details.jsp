@@ -359,7 +359,7 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="fullName"
                                         class="form-control full-control textUpper" id="inputFullName"
-                                        value="${userDetails.getFullName()}"
+                                        value="${userDetails.fullName}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
                                     <span id="fullnameinvalid" class="text-red"></span>
@@ -405,7 +405,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>
                                     </div>
                                     <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -419,7 +419,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="text"
-                                        class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
+                                        class="form-control full-control" value="${userDetails.mobileNo.trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"
                                         onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
@@ -436,7 +436,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control textLower" name="emailAddress"
-                                        value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
+                                        value="${userDetails.emailAddress.trim()}" id="inputEmailId"
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
@@ -605,7 +605,7 @@ function activateUserAccountJoinUs() {
                             </table>
                         </div> --%>
                         <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
+                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
                         
                         
                         <%
@@ -635,9 +635,9 @@ function activateUserAccountJoinUs() {
                             <!-- Personal -->
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
-                                value="${corrTravelQuote.getTotalPersonalTraveller()}">
+                                value="${corrTravelQuote.totalPersonalTraveller}">
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalPersonalTraveller()}">
+                                end="${corrTravelQuote.totalPersonalTraveller}">
                                 <div class="form-wrap">
                                 <div class="personaltraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -654,7 +654,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
                                                   <input type="text"
-                                                        id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
+                                                        id="txtInsuFullName${inx}" name="personalName" value="${userDetails.fullName}"
                                                         class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
@@ -1018,9 +1018,9 @@ function activateUserAccountJoinUs() {
                             
                             <input type="hidden" name="totalAdultTraveller"
                                 id="totalAdultTraveler"
-                                value="${corrTravelQuote.getTotalAdultTraveller()}">
+                                value="${corrTravelQuote.totalAdultTraveller}">
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalAdultTraveller()}">
+                                end="${corrTravelQuote.totalAdultTraveller}">
                                 <div class="form-wrap">
                                 <div class="adulttraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1039,7 +1039,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
                                                     <input type="text"
-                                                        id="txtInsuFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
+                                                        id="txtInsuFullName${inx}" name="adultName" value="${userDetails.fullName}"
                                                         class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
@@ -1411,9 +1411,9 @@ function activateUserAccountJoinUs() {
                             
                             <input type="hidden" name="totalChildTraveller"
                                 id="totalCountOfChild"
-                                value="${corrTravelQuote.getTotalChildTraveller()}">
+                                value="${corrTravelQuote.totalChildTraveller}">
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalChildTraveller()}">
+                                end="${corrTravelQuote.totalChildTraveller}">
                                 <div class="form-wrap">
                                 <div class="childtraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1732,10 +1732,10 @@ function activateUserAccountJoinUs() {
                             <!--other traveller-->
                             <input type="hidden" name="totalOtherTraveller"
                                 id="totalCountOther"
-                                value="${corrTravelQuote.getTotalOtherTraveller()}">
+                                value="${corrTravelQuote.totalOtherTraveller}">
                             
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalOtherTraveller()}">
+                                end="${corrTravelQuote.totalOtherTraveller}">
                                 <div class="form-wrap">
                                 <div class="otherTraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -2150,7 +2150,7 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4> 
                                 <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" readonly>
                                 </div>
                              </h4>
                                 <input type="hidden" name="departureDate" id="departureDate"
@@ -2161,12 +2161,12 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4>
                                                     <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" readonly>
                     </div>
                                 
                                 </h4>
                                 <input type="hidden" name="backDate" id="backDate"
-                                    value="${corrTravelQuote.getTrBackDate()}">
+                                    value="${corrTravelQuote.trBackDate}">
 
                                 <h3 class="txt-bold">
                                     <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
@@ -2176,14 +2176,14 @@ function activateUserAccountJoinUs() {
                                     if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
                                     { 
                                 %>
-                                        <c:if test="${ corrTravelQuote.getTotalPersonalTraveller()!=0}">
+                                        <c:if test="${ corrTravelQuote.totalPersonalTraveller!=0}">
                                             <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.getTotalPersonalTraveller()}
+                                            : ${corrTravelQuote.totalPersonalTraveller}
                                         </c:if>
                                         <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-                                        <c:if test="${corrTravelQuote.getTotalAdultTraveller()!=0}">
+                                        <c:if test="${corrTravelQuote.totalAdultTraveller!=0}">
                                             <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.getTotalAdultTraveller()}
+                                            : ${corrTravelQuote.totalAdultTraveller}
                                         </c:if>
 
                                 <%  }
@@ -2191,18 +2191,18 @@ function activateUserAccountJoinUs() {
                                     {                                       
                                 %>  
 
-                                    <c:if test="${ corrTravelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.getTotalAdultTraveller()+corrTravelQuote.getTotalPersonalTraveller()}</c:if>
-                                    <c:if test="${ corrTravelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.getTotalChildTraveller()}</c:if>
-                                    <c:if test="${ corrTravelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.getTotalOtherTraveller()}</c:if>
-                                    <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
+                                    <c:if test="${ corrTravelQuote.totalAdultTraveller!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.totalAdultTraveller+corrTravelQuote.totalPersonalTraveller}</c:if>
+                                    <c:if test="${ corrTravelQuote.totalChildTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.totalChildTraveller}</c:if>
+                                    <c:if test="${ corrTravelQuote.totalOtherTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.totalOtherTraveller}</c:if>
+                                    <c:if test="${planDetailsForm.travellerCount!=0}"> ${planDetailsForm.travellerCount}</c:if>
                                 <%  } %>
                                 </h4>
                                 
-                                <input type="hidden" name="planSelected" value="${corrTravelQuote.getPlanSelected()}">
+                                <input type="hidden" name="planSelected" value="${corrTravelQuote.planSelected}">
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
+                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.totalTravellingDays}</span>
                                 </h3>
-                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
+                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
                                 <c:if test="${referralCode!=''}">
                                     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
                                     <h4>${referralCode}</h4>

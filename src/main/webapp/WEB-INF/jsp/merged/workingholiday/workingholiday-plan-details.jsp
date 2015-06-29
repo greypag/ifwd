@@ -383,7 +383,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control textUpper"
 										id="inputFullName" name="whAppFullName"
-										value="${userDetails.getFullName()}"
+										value="${userDetails.fullName}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
 										onkeypress=" return alphaOnly(event);" maxlength="50" />
 										<span id="whAppFullName" class="text-red"></span>
@@ -456,7 +456,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
-										value="${userDetails.getMobileNo()}"
+										value="${userDetails.mobileNo}"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');"
 										maxlength="8" /> <span id="whAppMobileNO" class="text-red"></span>
@@ -475,7 +475,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input class="form-control full-control textLower" id="inputEmailId"
 										name="whAppEmailAdd"
-										value="${userDetails.getEmailAddress()}"
+										value="${userDetails.emailAddress}"
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
 										onkeypress="return validationEmail(event);"
 										maxlength="50"> <span id="whAppEmailAdd"
@@ -543,7 +543,7 @@ function activateUserAccountJoinUs() {
 							<!-- beneficiary end -->
 							<!-- personalbenificiaryId start -->
 							<div
-								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>"
+								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.whInsBeneficary == null || workingHolidayPlanDetailsForm.whInsBeneficary == 'SE'}">hide</c:if>"
 								id="whbenificiaryId">
 								<div
 									class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -572,7 +572,7 @@ function activateUserAccountJoinUs() {
 							<!-- personalbenificiaryId end -->
 							<!-- personalbenificiaryId b start -->
 							<div
-								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>"
+								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.whInsBeneficary == null || workingHolidayPlanDetailsForm.whInsBeneficary == 'SE'}">hide</c:if>"
 								id="whbenificiaryIdb">
 								<div
 									class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -605,7 +605,7 @@ function activateUserAccountJoinUs() {
 							<!-- personalbenificiaryId b end -->
 							<!-- personalbenificiaryId c start -->
 							<div
-								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>"
+								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.whInsBeneficary == null || workingHolidayPlanDetailsForm.whInsBeneficary == 'SE'}">hide</c:if>"
 								id="whbenificiaryIdc">
 								<div
 									class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">

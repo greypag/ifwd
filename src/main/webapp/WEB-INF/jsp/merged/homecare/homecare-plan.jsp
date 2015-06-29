@@ -705,18 +705,18 @@ function checkPromoCodePlaceholder(){
                                 </div>
                                </div>
 							<input type="hidden" name="planCode" id="planCode"
-								value="${planQuote.getPlanCode() }">
+								value="${planQuote.planCode}">
 							<input type="hidden" name="grossPremium" id="grossPremium"
-								value="${planQuote.getGrossPremium()}">
+								value="${planQuote.grossPremium}">
 							<input type="hidden" name="discountAmount" id="discountAmount"
-								value="${planQuote.getDiscountAmount()}">
+								value="${planQuote.discountAmount}">
 							<input type="hidden" name="totalDue" id="totalDue"
-								value="${planQuote.getTotalDue()}">
+								value="${planQuote.totalDue}">
 
 							<input type="hidden" name="referralCode" id="referralCode"
-								value="${planQuote.getReferralCode()}">
+								value="${planQuote.referralCode}">
 							<input type="hidden" name="referralName" id="referralName"
-								value="${planQuote.getReferralName()}">
+								value="${planQuote.referralName}">
 
 							<input type="hidden" name="answer1" value="${answer1}">
 							<input type="hidden" name="answer2" value="${answer2}">

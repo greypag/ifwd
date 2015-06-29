@@ -647,7 +647,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input type="text"
                                             class="form-control full-control textUpper" id="inputFullName" name="applicantName"
-                                            value="${userDetails.getFullName().trim()}"
+                                            value="${userDetails.fullName.trim()}"
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" /> <span
                                             id="appfullname" class="text-red"></span>
@@ -692,7 +692,7 @@ function activateUserAccountJoinUs() {
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                    <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-	                                          <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+	                                          <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>
 	                                      </div>
 	                                      <span id="dobInvalid" class="text-red"> </span></td>
 	                               </div>
@@ -708,7 +708,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input type="text"
                                             class="form-control full-control" id="inputMobileNo" name="mobileNo"
-                                            value="${userDetails.getMobileNo().trim()}"
+                                            value="${userDetails.mobileNo.trim()}"
                                             onkeypress="return isNumeric(event)"
                                             onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'errMobileNo');" maxlength="8" /> <span
                                             id="errMobileNo" class="text-red"> </span>
@@ -725,7 +725,7 @@ function activateUserAccountJoinUs() {
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input class="form-control full-control textLower"
                                             id="inputEmailId" name="emailAddress"
-                                            value="${userDetails.getEmailAddress().trim()}"
+                                            value="${userDetails.emailAddress.trim()}"
                                             onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
                                             id="errEmailid" class="text-red"> </span>
 	                               </div>
@@ -1671,9 +1671,9 @@ function activateUserAccountJoinUs() {
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.details.summary.amountDue" bundle="${msg}" /></h3>
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></h3>
 								     <input type="hidden" name="totalDue"
-									value="${ homeQuoteDetails.getTotalDue()}"> <input
+									value="${ homeQuoteDetails.totalDue}"> <input
 									type="hidden" name="planCode"
-									value="${ homeQuoteDetails.getPlanCode()}"> <input
+									value="${ homeQuoteDetails.planCode}"> <input
 									type="hidden" name="answer1" value="${answer1}"> <input
 									type="hidden" name="answer2" value="${answer2}">
                                 </div>
