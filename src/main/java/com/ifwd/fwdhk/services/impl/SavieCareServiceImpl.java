@@ -7,12 +7,12 @@ import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savie.CreateSaviePolicy;
+import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SavieRateBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
-import com.ifwd.fwdhk.services.SavieCareService;
+import com.ifwd.fwdhk.services.SavieService;
 
-public class SavieCareServiceImpl implements SavieCareService {
+public class SavieCareServiceImpl implements SavieService {
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
@@ -49,7 +49,7 @@ public class SavieCareServiceImpl implements SavieCareService {
 	}
 
 	@Override
-	public CreateSaviePolicy createSavieCarePolicy(String userName,
+	public SaviePolicy createSavieCarePolicy(String userName,
 			String token, HomeCareDetailsBean homeCareDetails,
 			UserDetails userDetails, String language, String referralCode) {
 		// TODO Auto-generated method stub

@@ -1,6 +1,6 @@
 package com.ifwd.fwdhk.model.savie;
 
-public class CreateSaviePolicy {
+public class SaviePolicy {
 	
 	
 	private String currCode;

@@ -7,26 +7,27 @@ import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savie.CreateSaviePolicy;
+import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SavieRateBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 
 
-public interface SavieCareService {
+public interface SavieService {
 
 	public List<SavieServiceCentreBean> getServiceCentre(String userName, String token, String language); 
-	public List<SavieRateBean> getRate(String userName, String token, String language); 
+	public List<SavieRateBean> getSavieRate(String userName, String token, String language); 
 	public List<DistrictBean> getDistrict(String userName, String token, String language); 
 	public List<BankBean> getBank(String userName, String token, String language); 
 	public List<BankBranchBean> getBankBranch(String userName, String token, String language,Integer bankCode); 
 	
 	
-	public CreateSaviePolicy createSavieCarePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language, String referralCode);
+	public SaviePolicy createSaviePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language, String referralCode);
 	
 	//getIllustration
 	//upsertFNA
 	//upsertAppointment
 	
+	//public String outFileName generatePdf(String inputFileName,<List> PdfAttribute)
 	
 	
 	//fileUpload?
