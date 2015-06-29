@@ -187,19 +187,24 @@ function submitLoginForm(formID) {
 							
 							<% } %>
 							<li>
+						<% if ("en".equals(session.getAttribute("language").toString())) { %>
+				
+							<% if (request.getServletPath().equals("/en")) { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
+							<% } else { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>	
+								
 							<%
-							//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
-							if ("en".equals(session.getAttribute("language").toString())) {
-							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
-							<%
-							} else {
-							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">EN</a>
-							<%
-							}
-							
-							 %>
+							} 
+						} else {
+						%>
+							<% if (request.getServletPath().equals("/tc")) { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/">EN</a>
+							<% } else { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>						
+							<% } %>
+						
+						<% } %>
 							 </li>
 							<%
 								if (session.getAttribute("authenticate") == null || session.getAttribute("username")==null ) {
@@ -403,18 +408,24 @@ function submitLoginForm(formID) {
              
 	   
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
-			<%
-				if ("en".equals(session.getAttribute("language").toString())) {
-				%>
-					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
-				<%
-				} else {
-				%>
-					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
-				<%
-				}
+			<% if ("en".equals(session.getAttribute("language").toString())) { %>
 				
+				<% if (request.getServletPath().equals("/en")) { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
+				<% } else { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>	
+					
+				<%
+				} 
+			} else {
 			%>
+				<% if (request.getServletPath().equals("/tc")) { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/">EN</a>
+				<% } else { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>						
+				<% } %>
+			
+			<% } %>
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">
