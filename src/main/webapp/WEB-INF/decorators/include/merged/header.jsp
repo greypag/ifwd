@@ -55,82 +55,83 @@ function submitLoginForm(formID) {
 	$('.login-ajax-loading').show();
 	$("#"+formID+' #login-err-msg').html("");
 	$("#"+formID+' #login-err-msg').hide();
-	if (validUser(formID)) {
-		$.ajax({
-			type : "POST",
-			url : "<%=request.getContextPath()%>/userLogin",
-			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
-			async : false,
-			success : function(data) {				
-				if (data == 'success') {
-					//$('.login-ajax-loading').hide();
-					//var Backlen = history.length;
-					//history.go(-Backlen);
-					
-					perventRedirect=false;
-					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
-					location.reload();
-				} else if (data == 'Provided User Account Details Does Not Exist') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
-				} else if (data == 'Please provide a valid User Name and Password.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.invalid"));
-				} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
-				} else if (data == 'Internet Connection Error') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Connection.lost.message"));
-				} else if (data == 'Invaild Username or password. Please try again.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
-				} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.second"));
-				} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.third"));					
-				} else if (data == 'fail') {
+    setTimeout(function(){
+		if (validUser(formID)) {
+			$.ajax({
+				type : "POST",
+				url : "<%=request.getContextPath()%>/userLogin",
+				data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
+				async : false,
+				success : function(data) {				
+					if (data == 'success') {
+						//$('.login-ajax-loading').hide();
+						//var Backlen = history.length;
+						//history.go(-Backlen);
+						
+						perventRedirect=false;
+						//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+						location.reload();
+					} else if (data == 'Provided User Account Details Does Not Exist') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+					} else if (data == 'Please provide a valid User Name and Password.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.invalid"));
+					} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
+					} else if (data == 'Internet Connection Error') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Connection.lost.message"));
+					} else if (data == 'Invaild Username or password. Please try again.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+					} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.second"));
+					} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.third"));					
+					} else if (data == 'fail') {
+						$('.login-ajax-loading').hide();
+						$("#"+formID+' #login-err-msg').show();
+						$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
+					} else {
+						$('.login-ajax-loading').hide();
+						$("#"+formID+' #login-err-msg').show();
+						$("#"+formID+' #login-err-msg').html(data);
+					} 
+	
+				},
+				error : function() {
 					$('.login-ajax-loading').hide();
-					$("#"+formID+' #login-err-msg').show();
-					$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
-				} else {
+					
 					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
 					$("#"+formID+' #login-err-msg').html(data);
-				} 
+					
+				}
+			});
+		}else{
+			$('.login-ajax-loading').hide();	
+		}
+		$('.login-ajax-loading').hide();
+    }, 1000);
 
-			},
-			error : function() {
-				$('.login-ajax-loading').hide();
-				
-				$('.login-ajax-loading').hide();
-				$("#"+formID+' #login-err-msg').show();
-				$("#"+formID+' #login-err-msg').html(data);
-				
-			}
-		});
-	}else{
-		$('.login-ajax-loading').hide();	
-	}
-	$('.login-ajax-loading').hide();
-
-	return false;
 }
 </script>
 
@@ -447,11 +448,14 @@ function submitLoginForm(formID) {
 <!--Mobile side-menu-->
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
+	
+    <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="bmg_mobile_login_mask" onclick="$('#fwd-login-mob').trigger('click');"></div>
+	
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
 		
 		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
-		<div class="dropdown-menu drop-width" style="left: -20px;">
+        <a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" onclick="$('.bmg_mobile_login_mask').toggle();"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
+        <div class="dropdown-menu drop-width" style="left: -32px;top: 105px;max-width:300px;">
 									<form name="loginform" id="loginform2">
 										<div class="login-form" style="position: relative;">
 											<div
@@ -530,7 +534,7 @@ function submitLoginForm(formID) {
 		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span> <a
 			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->

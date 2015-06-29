@@ -58,8 +58,7 @@
                                                         
                                                 </h4>
                                                 <div class="form-group">
-                                                    <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off"
-                                                        id="headerPassword">
+                                                    <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off" id="headerPassword">
                                                 </div>
                                                 <span id="errPass" class="empHide" style="color: red"></span> <br>
                                                 <div class="row">

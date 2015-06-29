@@ -5797,6 +5797,8 @@ font-family: 'Foco-bold';
 
 .textUpper{text-transform:uppercase;}
 
+.textLower{text-transform:lowercase;}
+
 .mar-bot-10{margin-bottom:10px;}
 select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:10%;}
 
@@ -6699,6 +6701,10 @@ tr.product-landing-error-wrap {
     .bmg_recaptcha{
         margin-left:10%;
     }
+    
+    .bmg_flighttravel_main_container{
+        width:100% !important;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -6975,6 +6981,11 @@ tr.product-landing-error-wrap {
        font-size:27px;
     }
     
+    .plan-box3 span.del del{
+        margin-left:0px;
+        font-size:24px;
+    }
+    
     .flightcare-hk{
        font-size:35px;
     }
@@ -7090,4 +7101,8 @@ tr.product-landing-error-wrap {
     margin: 3px 0 0 20px;
     display: inline-block;
     float: left;
+}
+
+.invalid-field{
+    border: 2px solid red !important;
 }
