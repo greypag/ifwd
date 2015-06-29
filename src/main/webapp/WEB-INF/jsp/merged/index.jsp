@@ -47,7 +47,7 @@
 <!--   Main Content-->
     <section id="main-slider" class="no-margin clearfix">
         <!--Mobile-logo-->
-        <img src="<%=request.getContextPath()%>/<fmt:message key="index.hero.image" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md" />
+        <img src="<%=request.getContextPath()%>/<fmt:message key="index.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md" />
         <!--Mobile-logo-->
         <div class="carousel slide hidden-xs hidden-sm">
             <div class="carousel-inner">
