@@ -71,9 +71,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			$("#loadingPromo").hide();
 			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			$('#inputPromo').addClass('invalid-field');
 			flag = false;
-		} else
+		} else {
+			$('#inputPromo').removeClass('invalid-field');
 			flag = true;
+		}
 
 		return flag;
 	}
@@ -120,6 +123,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                }
 
 	            });
+	        }else{
+	        	promoCodeInsertFlag = true;
 	        }
 		}
 	}
@@ -164,8 +169,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		var selValue = document.getElementById("inputseletedplanname").value;
 		if(result['errMsgs'] !== null){
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+			$('#inputPromo').addClass('invalid-field');
 		}else{
 			$("#errPromoCode").html("");
+			$('#inputPromo').removeClass('invalid-field');
 			
 			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
@@ -1422,7 +1429,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="inputPromo">
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 									<a class="input-group-addon in black-bold pointer sub-link" onclick="applyTravelPromoCode()"><fmt:message key="travel.action.apply" bundle="${msg}" /></a>
 								</div>

@@ -52,9 +52,12 @@ function checkPromoCodePlaceholder(){
 	
 		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			$('#inputPromo').addClass('invalid-field');
 			flag = false;
-		} else
+		} else {
+			$('#inputPromo').removeClass('invalid-field');
 			flag = true;
+		}
 	
 		return flag;
 	}
@@ -92,7 +95,11 @@ function checkPromoCodePlaceholder(){
 	function setValue(result) {
 		if(result['errMsgs'] !== null){
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
-		}else{
+            $('#inputPromo').addClass('invalid-field');
+        }else{
+            $("#errPromoCode").html("");
+            $('#inputPromo').removeClass('invalid-field');
+            
 			var totalDue = parseInt(result["priceInfo"].totalDue);
 			$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
 			$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
@@ -678,7 +685,7 @@ function checkPromoCodePlaceholder(){
 	                            <span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 	                            <span class="text-red" id="errPromoCode"></span>
 	                            <div id="promo-wrap" class="form-group">
-	                                <div class="input-group">
+	                                <div class="input-group" id="inputPromo">
 	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
 	                                </div>

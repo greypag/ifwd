@@ -24,11 +24,14 @@ var promoCodeInsertFlag = true;
 		var promoCode = document.getElementById("promoCode").value;
 		promoCode=promoCode.trim();
 		document.getElementById("promoCode").value = promoCode;
-		if (promoCode == "" || promoCode == '<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />' ) {
+		if (promoCode == "" || promoCode == "<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />" ) {
 			flag = false;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
-		} else
+			$('#inputPromo').addClass('invalid-field');
+		} else{
 			flag = true;
+			$('#inputPromo').removeClass('invalid-field');
+		}
 		return flag;
 	}
 	function chkDueAmount() {
@@ -81,8 +84,10 @@ var promoCodeInsertFlag = true;
 		var selValue = document.getElementById("inputseletedplanname").value;
 		if(result['errMsgs'] !== null){
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+			$('#inputPromo').addClass('invalid-field');
 		}else{
 			$("#errPromoCode").html("");
+			$('#inputPromo').removeClass('invalid-field');
 			
 			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
@@ -697,7 +702,7 @@ var promoCodeInsertFlag = true;
 								
 								
 								<div id="promo-wrap" class="form-group">
-	                                <div class="input-group">
+	                                <div class="input-group" id="inputPromo">
 	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
 	                                </div>
