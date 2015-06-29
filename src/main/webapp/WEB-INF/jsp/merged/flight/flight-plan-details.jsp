@@ -263,7 +263,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                     <fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
                 </ol>
                 <input type="hidden" name="planSelected"
-                    value="${planDetailsForm.getPlanSelected()}">
+                    value="${planDetailsForm.planSelected}">
                 <div class="container ">
                     <div id="tr-steps"
                         class="col-md-12 col-lg-12 col-sm-12 col-xs-12 shop-tracking-status">
@@ -362,7 +362,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                           </div>
 	                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                               <input type="text"
-	                                   value="${userDetails.getFullName().trim()}" class="form-control full-control textUpper"
+	                                   value="${userDetails.fullName.trim()}" class="form-control full-control textUpper"
 	                                   id="inputFullName" name="fullName"
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
 	                                   onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
@@ -396,7 +396,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-					                    <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+					                    <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>
 					                </div>
 					                <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -411,7 +411,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input type="text"
-						                value="${userDetails.getMobileNo().trim()}" class="form-control full-control"
+						                value="${userDetails.mobileNo.trim()}" class="form-control full-control"
 						                name="mobileNo" id="inputMobileNo"
 						                onkeypress="return isNumeric(event)"
 						                onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" /> 
@@ -428,7 +428,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control textLower"
-					                value="${userDetails.getEmailAddress().trim()}" name="emailAddress"
+					                value="${userDetails.emailAddress.trim()}" name="emailAddress"
 					                id="inputEmailId"
 					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
 					                <span id="emailid" class="text-red"></span>
@@ -649,8 +649,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             <!-- Personal -->
                             
                             <input type="hidden" name="totalPersonalTraveller"
-                                id="totalPersonalTraveller" value="${planDetailsForm.getTotalPersonalTraveller()}">
-                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalPersonalTraveller()}">
+                                id="totalPersonalTraveller" value="${planDetailsForm.totalPersonalTraveller}">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.totalPersonalTraveller}">
                                 <div class="form-wrap">
                                 <div class="personaltraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -671,7 +671,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 			                                   <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
-                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control textUpper"
+                                                        value="${userDetails.fullName.trim()}" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>
@@ -973,8 +973,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             <!-- adult  -->
                         
                             <input type="hidden" name="totalAdultTraveller"
-                                id="totalAdultTraveler" value="${planDetailsForm.getTotalAdultTraveller()}">
-                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalAdultTraveller()}">
+                                id="totalAdultTraveler" value="${planDetailsForm.totalAdultTraveller}">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.totalAdultTraveller}">
                                 <div class="form-wrap">
                                 <div class="adulttraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -995,7 +995,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
-                                                        value="${userDetails.getFullName().trim()}" class="form-control full-control textUpper"
+                                                        value="${userDetails.fullName().trim()}" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>
@@ -1295,8 +1295,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             <!-- child  -->
 
                             <input type="hidden" name="totalChildTraveller"
-                                value="${planDetailsForm.getTotalChildTraveller()}" id="totalCountOfChild">
-                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalChildTraveller()}">
+                                value="${planDetailsForm.totalChildTraveller}" id="totalCountOfChild">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.totalChildTraveller}">
                                 <div class="form-wrap">
                                 <div class="childtraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1612,9 +1612,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             </c:forEach>
 
                             <input type="hidden" name="totalOtherTraveller"
-                                value="${planDetailsForm.getTotalOtherTraveller()}" id="totalCountOther">
+                                value="${planDetailsForm.totalOtherTraveller}" id="totalCountOther">
 
-                            <c:forEach var="inx" begin="1" end="${planDetailsForm.getTotalOtherTraveller()}">
+                            <c:forEach var="inx" begin="1" end="${planDetailsForm.totalOtherTraveller}">
                                 <div class="form-wrap">
                                  <div class="otherTraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -2072,7 +2072,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetailsForm.getDepartureDate()}" readonly>
                 </div>-->
                 <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-               <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${planDetailsForm.getDepartureDate()}" readonly>
+               <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${planDetailsForm.departureDate}" readonly>
                 </div>
     
                 
@@ -2119,7 +2119,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.getReturnDate()}" readonly>
                  </div>-->
                  <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.getReturnDate()}" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.returnDate}" readonly>
                  </div>  
                         
                             
@@ -2135,32 +2135,32 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     </span> -->
                                 </h3>
                                 <h4>
-                                    <c:if test="${planDetailsForm.getTotalAdultTraveller() !=0 }">
+                                    <c:if test="${planDetailsForm.totalAdultTraveller !=0 }">
                                         <fmt:message key="flight.sidebar.summary.label.family.parent"
-                                            bundle="${msg}" />: ${planDetailsForm.getTotalAdultTraveller()} <br>
+                                            bundle="${msg}" />: ${planDetailsForm.totalAdultTraveller} <br>
                                     </c:if>
-                                    <c:if test="${planDetailsForm.getTotalChildTraveller() !=0 }">
+                                    <c:if test="${planDetailsForm.totalChildTraveller !=0 }">
                                         <fmt:message key="flight.sidebar.summary.label.family.child"
-                                            bundle="${msg}" />: ${planDetailsForm.getTotalChildTraveller()} <br>
+                                            bundle="${msg}" />: ${planDetailsForm.totalChildTraveller} <br>
                                     </c:if>
-                                    <c:if test="${planDetailsForm.getTotalOtherTraveller() !=0}">
+                                    <c:if test="${planDetailsForm.totalOtherTraveller !=0}">
                                         <fmt:message key="flight.sidebar.summary.label.family.others"
-                                            bundle="${msg}" />: ${planDetailsForm.getTotalOtherTraveller()} <br>
+                                            bundle="${msg}" />: ${planDetailsForm.totalOtherTraveller} <br>
                                     </c:if>
-                                    <c:if test="${planDetailsForm.getTotalPersonalTraveller() !=0}">
+                                    <c:if test="${planDetailsForm.totalPersonalTraveller !=0}">
                                         <fmt:message key="flight.sidebar.summary.label.personal"
-                                            bundle="${msg}" />: ${planDetailsForm.getTotalPersonalTraveller()}</c:if>
+                                            bundle="${msg}" />: ${planDetailsForm.totalPersonalTraveller}</c:if>
                                 </h4>
                                 <input type="hidden" name="otherInput"
-                                    value="${planDetailsForm.getTotalOtherTraveller()}"> <input
+                                    value="${planDetailsForm.totalOtherTraveller}"> <input
                                     type="hidden" name="childInput"
-                                    value="${planDetailsForm.getTotalChildTraveller()}"> <br>
+                                    value="${planDetailsForm.totalChildTraveller}"> <br>
                                 <input type="hidden" name="days"
-                                    value="${planDetailsForm.getDays()}">
+                                    value="${planDetailsForm.days}">
                                 <h3 class="txt-bold">
                                     <fmt:message key="flight.details.summary.option4"
                                         bundle="${msg}" />
-                                    <span>${planDetailsForm.getDays()}</span>
+                                    <span>${planDetailsForm.days}</span>
                                     <fmt:message key="flight.details.summary.option5"
                                         bundle="${msg}" />
                                 </h3>

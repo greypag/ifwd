@@ -28,16 +28,16 @@ perventRedirect=true;
 // personal or family
 var traveller;  
 // personal
-var personalTraveller = parseInt("${corrTravelQuote.getTotalPersonalTraveller()}");
+var personalTraveller = parseInt("${corrTravelQuote.totalPersonalTraveller}");
 // family
-var familyAdult = parseInt("${corrTravelQuote.getTotalAdultTraveller()}");
-var familyChild = parseInt("${corrTravelQuote.getTotalChildTraveller()}");
-var familyOther = parseInt("${corrTravelQuote.getTotalOtherTraveller()}");  
+var familyAdult = parseInt("${corrTravelQuote.totalAdultTraveller}");
+var familyChild = parseInt("${corrTravelQuote.totalChildTraveller}");
+var familyOther = parseInt("${corrTravelQuote.totalOtherTraveller}");  
 var familyTraveller = familyAdult+familyChild+familyOther;
 
-var t1 = "${corrTravelQuote.getTotalAdultTraveller()}";
-var t2 = "${corrTravelQuote.getTotalChildTraveller()}";
-var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";
+var t1 = "${corrTravelQuote.totalAdultTraveller}";
+var t2 = "${corrTravelQuote.totalChildTraveller}";
+var t3 = "${corrTravelQuote.totalOtherTraveller}";
 var promoData = '';
 
 //bmg inline variable
@@ -223,7 +223,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	}
 	$(document).ready(function() {
 	   // update quote area to show headcounts
-	    if("${corrTravelQuote.getPlanSelected()}".toLowerCase() == "family"){
+	    if("${corrTravelQuote.planSelected}".toLowerCase() == "family"){
 	        if (familyTraveller > 0){
 	            $('#family_plan_desk_spinner').show();
 	            $('#family_plan_btm_spinner').show();
@@ -1244,7 +1244,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div> -->
 	                            
 	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.trLeavingDate}" readonly>
                                 </div>
 	                             <!-- departure date end -->
 	                             
@@ -1271,16 +1271,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                               </div> -->
                               
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.trBackDate}" readonly>
                               </div>
                               
 								<!-- return date end  -->
 								<!-- traveller start -->
 								<div id="numOfDays">
-                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
+                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.totalTravellingDays} <input
                                         type="hidden" name="totalTravellingDays"
                                         id="totalTravellingDays"
-                                        value="${travelQuoteBean.getTotalTravellingDays()}">
+                                        value="${travelQuoteBean.totalTravellingDays}">
                                     </span>
                                     <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
                                 </div>
@@ -1385,11 +1385,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                      </div>
                       -->
                       
-                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalPersonalTraveller()}"/>
-                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.getTotalFamilyTravellers()}">
-                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.getTotalAdultTraveller()}"/>
-                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalChildTraveller()}"/>
-                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
+                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
+                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.totalFamilyTravellers}">
+                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
+                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
+                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
 								
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
@@ -1400,14 +1400,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
 							{ 
 						%>
-								<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.getTotalPersonalTraveller()}    </c:if>
+								<c:if test="${travelQuoteBean.totalPersonalTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.totalPersonalTraveller}    </c:if>
 						<% } 
 						   else 
 						   {
 						%>
-								<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.getTotalAdultTraveller()}  <br></c:if>
-								<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.getTotalChildTraveller()} <br></c:if>
-								<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.getTotalOtherTraveller()} <br></c:if>
+								<c:if test="${travelQuoteBean.totalAdultTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.totalAdultTraveller}  <br></c:if>
+								<c:if test="${travelQuoteBean.totalChildTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.totalChildTraveller} <br></c:if>
+								<c:if test="${travelQuoteBean.totalOtherTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.totalOtherTraveller} <br></c:if>
 						<% }
 						%>
 						</div>
