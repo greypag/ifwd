@@ -1862,7 +1862,7 @@ public class TravelController {
 						session.getAttribute("emailAddress"));
 				
 				
-				model.addAttribute("dueAmount", Methods.customFormat("#####.##", (String)session.getAttribute("dueAmount")));
+				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 				
 				model.addAttribute("referralCode",
 						session.getAttribute("referralCode"));

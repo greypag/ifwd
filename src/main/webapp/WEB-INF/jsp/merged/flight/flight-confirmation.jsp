@@ -352,7 +352,13 @@ class="image-order-status image-order-status-active  img-circle">
                     showBubble();
                 });
                 </script>
-                
+                <!-- Provision Link -->
+                <p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
+				<a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
+				<fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
+				<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" /><br>
+				<fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
+				
 				<!-- submit -->
 				<input style="width:250px; margin-top:50px;" type="button" onclick="return checkbox();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 				<script>
