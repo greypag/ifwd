@@ -351,7 +351,12 @@ $(document).ready(function() {
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
-             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label> </label>
+             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.home.adult.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label> </label>
           </div>
           <div class="clearfix"></div>
           <hr>
@@ -934,7 +939,12 @@ $(document).ready(function() {
                       </div>
                       <div class="col-lg-6">
                           <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.home.adult.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label></label>
 
 
                       </div>
