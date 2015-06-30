@@ -37,7 +37,7 @@
 								} else if (data.indexOf('[')==0&data.indexOf(']')>0) {
                                 	$('#eSuccess-message').html('');
                                     $('#eSuccess-message').hide();
-                                    $('#eForgotusername-err-msg').html(data);
+                                    $('#eForgotusername-err-msg').html(data.slice(2, data.length-2));
                                     $('#eForgotusername-err-msg').show();
                                 }  else {
 									$('#eSuccess-message').html('Your Username is ' + data);
