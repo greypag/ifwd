@@ -5458,18 +5458,28 @@ function activateUserAccount(){
 	var password = $('#txtPass1').val();
 	var checkPassword = $('#txtConfPass').val();
 	var declaration = $('#checkbox1').is(':checked');
-
 	
+	
+
+	//first error element
+	var firstErrorElementId="";
 	
 	
 	if(name == ''){
 		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
 		$("#txtFullName").addClass("invalid-field");
+		
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtFullName";
+		}
 		check = false;
 	} else {
 		if(name == password){
 			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
 			$("#txtFullName").addClass("invalid-field");
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtFullName";
+			}
 			check = false;
 		}
 	}
@@ -5477,6 +5487,9 @@ function activateUserAccount(){
 	if(userName == password){
 		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		$("#txtPass1").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtPass1";
+		}
 		check = false;
 	}
 	
@@ -5485,27 +5498,42 @@ function activateUserAccount(){
 	if(mobileValidateResult != true){
 		$('#errorEmptyMobJoinUs').text(mobileValidateResult);
 		$("#txtMobileNo").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtMobileNo";
+		}
 		check = false;
 	}
 	if(isEmail(email) !== true){
 		$('#errorEmptyEmailIdJoinUs').text(isEmail(email));
 		$("#txtEmailId").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtEmailId";
+		}
 		check = false;
 	}
 	if(isValidUsername(userName) !== true){
 		$('#errorEmptyUNameJoinUs').text(isValidUsername(userName));
 		$("#txtUserName1").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtUserName1";
+		}
 		check = false;
 	};
 	
 	if(isValidPassword(password) !== true){
 		$('#errorJoinUsPassword').text(isValidPassword(password));
 		$("#txtPass1").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtPass1";
+		}
 		check = false;
 	};
 	if(passMatch(password, checkPassword) !== true){
 		$('#errorEmptyConfPass').text(passMatch(password, checkPassword));
 		$("#txtConfPass").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtConfPass";
+		}
 		check = false;
 	};
 	
@@ -5514,9 +5542,17 @@ function activateUserAccount(){
 	
 	if(!declaration){
 		$('#errorDeclaration').text(getBundle(getBundleLanguage, "membership.declaration.notChecked.message"));
-		
 		check = false;
 	}
+	
+	if(firstErrorElementId!=""){
+		$('html, body').animate({
+            scrollTop: $("#"+firstErrorElementId).offset().top - 100
+        }, 1000, function() {
+            $("#"+firstErrorElementId).focus();
+        });
+	}
+	
 	return check;
 }
 
