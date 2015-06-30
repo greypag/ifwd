@@ -1084,7 +1084,7 @@ function fPlanValid()
 	   if( verifyUserBookingRegistration() === false)
 		   flag = false;
 	}
-	if (applicantDob.trim() == "") {
+	if (mobile_pattern.trim() == "") {
         document.getElementById("mobileNoInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         $("#inputMobileNo").addClass("invalid-field");
         flag = false;

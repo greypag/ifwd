@@ -9,6 +9,9 @@
 	
 	<script>
 		function getForgotUserName1() {
+			$('#eForgotusername-err-msg').hide();
+        	$('#eSuccess-message').hide();
+			
 			var validationFormVal = forgotUserName1();
 			if (validationFormVal == true) {
 				$('#forgotusername-err-msg').hide();
@@ -22,20 +25,22 @@
 
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
-									$('#eSuccess-message')
-											.html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
-									$('#eSuccess-message').show();
+									$('#eForgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+									$('#eForgotusername-err-msg').show();
 									$('#eUser-details-main').hide();
-									$('#hide-field').hide();
+									$('#eHide-field').hide();
 								} else if (data.indexOf('~~~') > -1) {
-									$('#eSuccess-message').html(
-											data.slice(5, 68));
+									$('#eSuccess-message').html(data.slice(5, 68));
 									$('#eSuccess-message').show();
 									$('#eUser-details-main').hide();
-									$('#hide-field').hide();
-								} else {
-									$('#eSuccess-message').html(
-											'Your Username is ' + data);
+									$('#eHide-field').hide();
+								} else if (data.indexOf('[')==0&data.indexOf(']')>0) {
+                                	$('#eSuccess-message').html('');
+                                    $('#eSuccess-message').hide();
+                                    $('#eForgotusername-err-msg').html(data);
+                                    $('#eForgotusername-err-msg').show();
+                                }  else {
+									$('#eSuccess-message').html('Your Username is ' + data);
 									$('#eSuccess-message').show();
 								}
 
@@ -72,9 +77,9 @@
 				<form name="forgotUserNameForm" id="forgotUserNameForm"
 					action="forgotUserNameFields" method="post"
 					commandName="forgotUserName">
-					<div id="hide-field"></div>
+					<div id="eHide-field"></div>
 
-					<div id="forgotusername-err-msg" class="alert alert-danger"
+					<div id="eForgotusername-err-msg" class="alert alert-danger"
 						role="alert" style="display: none;">
 						<P id="error-mobile-no">
 						<P id="error-email-id">
