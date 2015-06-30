@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SaviePaymentBean {
 	
+	private boolean payOnline;
 	private String paymentMethod;
 	private String amount;
 	private String accountNo;
@@ -11,6 +12,12 @@ public class SaviePaymentBean {
 	private String branchName;
 	private Date expiryDate;
 	
+	public boolean isPayOnline() {
+		return payOnline;
+	}
+	public void setPayOnline(boolean payOnline) {
+		this.payOnline = payOnline;
+	}
 	public String getPaymentMethod() {
 		return paymentMethod;
 	}
