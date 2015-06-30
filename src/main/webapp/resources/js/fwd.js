@@ -3719,15 +3719,21 @@ function forgotPassword()
 	document.getElementById("errorFInvalidEmailId").style.display = "none";
 	document.getElementById("errorFEmptyUName").style.display = "none";    
 	document.getElementById("errorFInvalidUName").style.display = "none";
+	
+	$("#fMobileNo").removeClass("invalid-field");
+	$("#fEmailAddress").removeClass("invalid-field");
+	$("#fUserName").removeClass("invalid-field");
 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
 		document.getElementById("errorFEmptyMob").style.display = "block";
+		$("#fMobileNo").addClass("invalid-field");
 		valid = false;
 
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
 			document.getElementById("errorFInvalidMob").style.display = "block";
+			$("#fMobileNo").addClass("invalid-field");
 			valid = false;
 		}
 	}
@@ -3735,12 +3741,12 @@ function forgotPassword()
 	// Email Address Validation
 	if (emailId.trim() == "") {
 		document.getElementById("errorFEmptyEmailId").style.display = "block";
-
+		$("#fEmailAddress").addClass("invalid-field");
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
 			document.getElementById("errorFInvalidEmailId").style.display = "block";
-
+			$("#fEmailAddress").addClass("invalid-field");
 			valid = false;
 		}
 	}
@@ -3748,11 +3754,12 @@ function forgotPassword()
 	// UserName Validation
 	if (userName.trim() == "") {
 		document.getElementById("errorFEmptyUName").style.display = "block";
-
+		$("#fUserName").addClass("invalid-field");
 		valid = false;
 
 	}else if(userName.length < 6 || userName.length > 50) {
 		document.getElementById("errorFInvalidUName").style.display = "block";
+		$("#fUserName").addClass("invalid-field");
 		valid = false;
 		/*return getBundle(getBundleLanguage, "user.username.length.message");*/
 	}
@@ -3772,14 +3779,18 @@ function forgotUserName() {
 	document.getElementById("errorInvalidMob").style.display = "none";
 	document.getElementById("errorEmptyEmailId").style.display = "none";
 	document.getElementById("errorInvalidEmailId").style.display = "none";
+	$("#mobileNo").removeClass("invalid-field");
+	$("#emailAddress").removeClass("invalid-field");
 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
 		document.getElementById("errorEmptyMob").style.display = "block";
+		$("#mobileNo").addClass("invalid-field");
 		valid = false;
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
 			document.getElementById("errorInvalidMob").style.display = "block";
+			$("#mobileNo").addClass("invalid-field");
 			valid = false;
 		}
 	}
@@ -3787,10 +3798,12 @@ function forgotUserName() {
 	// Email Address Validation
 	if (emailId.trim() == "") {
 		document.getElementById("errorEmptyEmailId").style.display = "block";
+		$("#emailAddress").addClass("invalid-field");
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
 			document.getElementById("errorInvalidEmailId").style.display = "block";
+			$("#emailAddress").addClass("invalid-field");
 			valid = false;
 		}
 	}
@@ -3806,14 +3819,18 @@ function forgotUserName1() {
 	document.getElementById("fErrorInvalidMob").style.display = "none";
 	document.getElementById("fErrorEmptyEmailId").style.display = "none";
 	document.getElementById("fErrorInvalidEmailId").style.display = "none";
+	$("#fMobileNo").removeClass("invalid-field");
+	$("#fEmailAddress").removeClass("invalid-field");
 
 	// Mobile Number Validation
 	if (mobileNo.trim() == "") {
 		document.getElementById("fErrorEmptyMob").style.display = "block";
+		$("#fMobileNo").addClass("invalid-field");
 		valid = false;
 	} else {
 		if (mobile_pattern.test(mobileNo) == false) {
 			document.getElementById("fErrorInvalidMob").style.display = "block";
+			$("#fMobileNo").addClass("invalid-field");
 			valid = false;
 		}
 	}
@@ -3821,10 +3838,12 @@ function forgotUserName1() {
 	// Email Address Validation
 	if (emailId.trim() == "") {
 		document.getElementById("fErrorEmptyEmailId").style.display = "block";
+		$("#fEmailAddress").addClass("invalid-field");
 		valid = false;
 	} else {
 		if (emailreg.test(emailId) == false) {
 			document.getElementById("fErrorInvalidEmailId").style.display = "block";
+			$("#fEmailAddress").addClass("invalid-field");
 			valid = false;
 		}
 	}
