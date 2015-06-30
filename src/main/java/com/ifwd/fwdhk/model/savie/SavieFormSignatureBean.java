@@ -4,26 +4,27 @@ import java.awt.Image;
 
 public class SavieFormSignatureBean {
 	
-	private boolean digitalSignature;
+	private boolean signatureType;
 	
-	private Image signature;
+	private Image signatureImage;
 
-	public boolean isDigitalSignature() {
-		return digitalSignature;
+	public boolean isSignatureType() {
+		return signatureType;
 	}
 
-	public void setDigitalSignature(boolean digitalSignature) {
-		this.digitalSignature = digitalSignature;
+	public void setSignatureType(boolean signatureType) {
+		this.signatureType = signatureType;
 	}
 
-	public Image getSignature() {
-		return signature;
+	public Image getSignatureImage() {
+		return signatureImage;
 	}
 
-	public void setSignature(Image signature) {
-		this.signature = signature;
+	public void setSignatureImage(Image signatureImage) {
+		this.signatureImage = signatureImage;
 	}
-	
+
+
 	
 	
 }
