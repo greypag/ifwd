@@ -1,8 +1,35 @@
 <%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%> %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	
+	<!-- Bootstrap -->
+		<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
+		<link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
+		<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
+		<link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
+		
+		<!--Font Awesome Css-->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-slider.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
+		<link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
+		
+		
+		<!--Mini Calculator Css-->
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.min.css">
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/style.css">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
 	</head>
 	<body class="page-sales-illustration">
 		<%!
@@ -23,7 +50,7 @@
 					</ol>
 				</div>
 				<div id="questions" class="text-center pull-right">
-					<img src="assets/images/question.png">              
+					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
 					<a href="#">
 						<div class="right">                 
 							<h3>Questions ?</h3> <p>Talk to us now<i class="glyphicon glyphicon-play"></i></p> 
@@ -40,10 +67,10 @@
 
 				<form class="fwd-container-limit">
 					<div id="triangle"></div>
-					<img class="money" src="assets/images/money-logo.png">
+					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 					<div id="investment-amount">    
 						<div id="desktop-left">
-							<h3 class="saving">Savings amount<img class="i" src="assets/images/i.png"></h3>
+							<h3 class="saving">Savings amount<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h3>
 							<div id="left" class="pull-left">
 								<p>Min</p>
 								<p>30,000</p>
@@ -61,8 +88,8 @@
 						</div>
 
 						<div id="desktop-right">
-							<img class="promo-code hidden-xs hidden-sm" src="assets/images/promo-img.png">
-							<h2 id="promo">Promo Code<img class="i" src="assets/images/i.png"></h2>
+							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
+							<h2 id="promo">Promo Code<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
 							<input name="promocode" type="text" placeholder="eg: SAVIE50" class="promocode">
 						</div>
 
@@ -71,15 +98,15 @@
 
 					<div id="information">
 						<div id="pictures">
-							<img id="birthday" src="assets/images/birthday.png">
+							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/birthday.png">
 						</div>
 
-						<h2>Date of Birth<img class="i" src="assets/images/i.png"></h2>
+						<h2>Date of Birth<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
 
 						<div id="birthday">
 							<div class="input-group input-append date" id="datePicker">
 								<input type="text" class="date" name="dob" id="dates" placeholder="28th May 1996" readonly />
-								<span class="input-group-addon add-on"><img class="arrow" src="assets/images/arrow-down.png"></span>                        
+								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 							</div>
 						</div>
 					</div>
@@ -93,17 +120,17 @@
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2>Summary<img src="assets/images/salesIllustration/investment-info.png" class="img-desktop-only"> </h2>
+	                                <h2>Summary<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"> </h2>
 	                                <h3>1-3 year guaranteed (HK$)</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border">End of<span>policy year<img src="assets/images/salesIllustration/investment-info.png" class="img-desktop-only"></span></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm">Total premium paid</span><span class="hidden-md hidden-lg">Premium paid</span><img src="assets/images/salesIllustration/investment-info.png" class="img-desktop-only"></th>
-	                                        <th class="desktop-only">Account value<img src="assets/images/salesIllustration/investment-info.png" class="img-desktop-only"></th>
-	                                        <th class="right-border">Surrender benefit<img src="assets/images/salesIllustration/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="left-border">End of<span>policy year<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></span></th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm">Total premium paid</span><span class="hidden-md hidden-lg">Premium paid</span><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="desktop-only">Account value<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="right-border">Surrender benefit<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
@@ -163,7 +190,7 @@
 			<div class="fwd-container container-fluid">     
 				<div class="row email-row">
 					<div class="col-xs-12 col-md-6 email-me pull-left">
-						<img src="assets/images/email-mob.png">
+						<img src="<%=request.getContextPath()%>/resources/images/savie/email-mob.png">
 						<h5>Email me a complete sales Illustration table<span class="hidden-xs hidden-sm">.</span></h5>
 					</div>
 					<div class="col-xs-12 col-md-6 email-input pull-right">
@@ -222,7 +249,7 @@
 				<div class="fwd-container-limit padding-to-zero">
 					<div class="clearfix">
 						<div class="pull-left left-width">
-							<img src="assets/images/salesIllustration/explanation-image.png" class="img-responsive img-padding-left">
+							<img src="<%=request.getContextPath()%>/resources/images/savie/explanation-image.png" class="img-responsive img-padding-left">
 						</div>
 						<div class="pull-left right-width">
 							<div class="row">
@@ -240,14 +267,27 @@
 				</div>
 			</div>
 
-			<a href="#" id="gotop" class="go-top go-top-default"><img src="assets/images/back-to-top.png"></a> 
+			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a> 
 			
 			<!-- FOOTER -->
 		</div>
 		<!-- JS INCLUDES -->
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/placeholders.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
+		
 		<!--For Sales Illustration page js-->
-		<script src="assets/js/bootstrap-slider.js"></script>
-		<script src="assets/js/highcharts.js"></script>
-		<script src="assets/js/fwd-chart.js"></script>		
+		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
 	</body>
 </html>
