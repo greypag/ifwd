@@ -3,16 +3,10 @@ package com.ifwd.fwdhk.model.savie;
 public class SaviePolicy {
 	
 	
-	private String currCode;
     private String policyNo;
     private String lang;
     private String errMsgs;
-	public String getCurrCode() {
-		return currCode;
-	}
-	public void setCurrCode(String currCode) {
-		this.currCode = currCode;
-	}
+
 	public String getPolicyNo() {
 		return policyNo;
 	}

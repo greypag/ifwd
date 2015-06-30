@@ -12,7 +12,7 @@ public class SavieIllustrationBean {
 	private float guarantee2ndYearRate;
 	private float guarantee3rdYearRate;
 	
-	private List<PolicyAccountBalance> policyAccountBalance;
+	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceBean;
 
 	public String getPlanName() {
 		return planName;
@@ -62,14 +62,16 @@ public class SavieIllustrationBean {
 		this.guarantee3rdYearRate = guarantee3rdYearRate;
 	}
 
-	public List<PolicyAccountBalance> getPolicyAccountBalance() {
-		return policyAccountBalance;
+	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceBean() {
+		return saviePolicyAccountBalanceBean;
 	}
 
-	public void setPolicyAccountBalance(
-			List<PolicyAccountBalance> policyAccountBalance) {
-		this.policyAccountBalance = policyAccountBalance;
+	public void setSaviePolicyAccountBalanceBean(
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceBean) {
+		this.saviePolicyAccountBalanceBean = saviePolicyAccountBalanceBean;
 	}
+
+
 	
 	
 	
