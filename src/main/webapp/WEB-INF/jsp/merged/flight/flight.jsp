@@ -474,9 +474,9 @@ $(document).ready(function() {
 
 <!--/#main-slider-->
 
-<section id="feature" >
-  <div class="container">
-    <div class="center"> 
+<section id="feature" style="margin-top:40px;">
+  <div class="container pad-none">
+    <div class="center wow fadeInDown"> 
       <!--desktop-->
       <h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
       <!--end-desktop--> 
@@ -487,35 +487,53 @@ $(document).ready(function() {
     </div>
     
     <!--desktop Features-->
-    <div class="hidden-xs hidden-sm">
-      <div class="col-md-10 col-md-offset-1 pad-none home-features">
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt=""  /> </div>
-        <div class="col-md-6 col-lg-6">
-          <div class="content">
-            <h2><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
-            <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-        </div>
-        <div class="clearfix"></div>
-        <br>
-        <div class="col-md-6 col-lg-6">
-          <div class="content">
-            <h2><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
-            <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-        </div>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt=""  /> </div>
-        <div class="clearfix"></div>
-        <br>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt=""  /> </div>
-        <div class="col-md-6 col-lg-6">
-          <div class="content">
-            <h2><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
-            <p class="details-text"><fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
+    <div class="center wow fadeInDown">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	        <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	            <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	              <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                <fmt:message key="flight.main.feature1.heading" bundle="${msg}" />
+	              </h3>
+	              <div style="margin-top:25px;">
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" />
+	              </div>
+	              <div style="margin-top:10px;">
+	                   <fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" />
+	              </div>
+	              </div>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	               <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	              <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                 <fmt:message key="flight.main.feature2.heading" bundle="${msg}" />
+	              </h3>
+	              <div style="margin-top:25px;">
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" />
+	              </div>
+	              <div style="margin-top:10px;">
+	                    <fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" />
+	              </div>
+	              </div>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	              <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	                   <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                     <fmt:message key="flight.main.feature3.heading" bundle="${msg}" />
+	                  </h3>
+	                  <div style="margin-top:25px;">
+	                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" />
+	                  </div>
+	                  <div style="margin-top:10px;">
+	                      <fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" />
+	                  </div>
+	              </div>
+	          </div>
+	          <div class="clearfix"></div>
+	      </div>
+	      <div class="clearfix"></div>
+      </div>
+    
+    <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
           <h2><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
           <ul class="bullets">
             <li>
@@ -536,42 +554,19 @@ $(document).ready(function() {
             <li>
               <p class="h4-5 "> <fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /> </p>
             </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="flight.main.other.tnc.desc7" bundle="${msg}" /> </p>
+            </li>
           </ul>
+          <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
+		    <div class="main-partner-1">
+		        <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+		    </div>
+		  </div>
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         </div>
-      </div>
-    </div>
-    
-    <!--mobile-Features-->
-    <div class="hidden-lg hidden-md mob-features">
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt=""  /> </div>
-      <div class="col-xs-8 col-sm-8">
-        <div>
-          <h2 class="h2-3"><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
-          <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-      </div>
-      <div class="clearfix"></div>
-      <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt=""  /> </div>
-      <div class="col-xs-8 col-sm-8">
-        <div>
-          <h2 class="h2-3"><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
-          <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-      </div>
-      <div class="clearfix"></div>
-      <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt=""  /> </div>
-      <div class="col-xs-8 col-sm-8">
-        <div>
-          <h2 class="h2-3"><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
-          <p class="details-text"><fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-      </div>
-      <div class="clearfix"></div>
       
       <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
           <h2 style="text-align: center;"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
@@ -627,6 +622,26 @@ $(document).ready(function() {
                   </div>
               </div>
               <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
             </div>
             <!--/.carousel-inner-->
             <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
@@ -635,12 +650,15 @@ $(document).ready(function() {
           <!--/.carousel-->
           <div class="clearfix"></div>
           
+          <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
+		    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="" style="float:initial;">
+		  </div>
+          
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         <!--/.container-->
         </div>
-    </div>
     
     <!--/.row--> 
   </div>
