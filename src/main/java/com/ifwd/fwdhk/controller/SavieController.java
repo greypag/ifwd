@@ -77,7 +77,7 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-illustration";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
 	}
 	
 	
