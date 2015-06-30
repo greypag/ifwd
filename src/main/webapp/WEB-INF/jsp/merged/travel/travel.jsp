@@ -33,6 +33,12 @@
 		//System.out.println("default session TravelQuote");
 	}
 %>
+<script>
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>
+
 <script type="text/javascript">
   // personal or family
   var traveller;  
@@ -226,7 +232,12 @@ $(document).ready(function() {
 	                       <!-- start of family plan bottom spinner-->
 	                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
 	                         <div class="col-lg-6">
-	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
+	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.home.adult.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></h4>
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
