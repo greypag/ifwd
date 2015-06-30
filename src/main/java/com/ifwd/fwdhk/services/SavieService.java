@@ -16,14 +16,14 @@ import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
 import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
-import com.ifwd.fwdhk.model.savie.SavieRateBean;
+import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 
 
 public interface SavieService {
 
 	public List<SavieServiceCentreBean> getServiceCentre(String userName, String token, String language); 
-	public List<SavieRateBean> getSavieRate(String userName, String token, String language); 
+	public List<SaviePolicyAccountBalanceBean> getSavieRate(String userName, String token, String language); 
 	public List<DistrictBean> getDistrict(String userName, String token, String language); 
 	public List<BankBean> getBank(String userName, String token, String language); 
 	public List<BankBranchBean> getBankBranch(String userName, String token, String language,Integer bankCode); 

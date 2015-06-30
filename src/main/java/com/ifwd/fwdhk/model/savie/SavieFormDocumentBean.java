@@ -2,17 +2,21 @@ package com.ifwd.fwdhk.model.savie;
 
 import java.util.List;
 
+import com.ifwd.fwdhk.util.CommonEnum.UploadDocumentEnum;
+
+
+
 public class SavieFormDocumentBean {
-	private String uploadDocument; enum 
+	private UploadDocumentEnum uploadDocument; 
 	private boolean isHongKongPermanentResident;
-	private List<SavieFileBean> hkidFiles;
+	private List<SavieFileBean> hkIdFiles;
 	private List<SavieFileBean> passportFiles;
 	private List<SavieFileBean> addressFiles;
-	public String getUploadType() {
-		return uploadType;
+	public UploadDocumentEnum getUploadDocument() {
+		return uploadDocument;
 	}
-	public void setUploadType(String uploadType) {
-		this.uploadType = uploadType;
+	public void setUploadDocument(UploadDocumentEnum uploadDocument) {
+		this.uploadDocument = uploadDocument;
 	}
 	public boolean isHongKongPermanentResident() {
 		return isHongKongPermanentResident;
@@ -20,11 +24,11 @@ public class SavieFormDocumentBean {
 	public void setHongKongPermanentResident(boolean isHongKongPermanentResident) {
 		this.isHongKongPermanentResident = isHongKongPermanentResident;
 	}
-	public List<SavieFileBean> getHkidFiles() {
-		return hkidFiles;
+	public List<SavieFileBean> getHkIdFiles() {
+		return hkIdFiles;
 	}
-	public void setHkidFiles(List<SavieFileBean> hkidFiles) {
-		this.hkidFiles = hkidFiles;
+	public void setHkIdFiles(List<SavieFileBean> hkIdFiles) {
+		this.hkIdFiles = hkIdFiles;
 	}
 	public List<SavieFileBean> getPassportFiles() {
 		return passportFiles;
@@ -38,6 +42,10 @@ public class SavieFormDocumentBean {
 	public void setAddressFiles(List<SavieFileBean> addressFiles) {
 		this.addressFiles = addressFiles;
 	}
+	
+	
+	
+	
 	
 	
 	

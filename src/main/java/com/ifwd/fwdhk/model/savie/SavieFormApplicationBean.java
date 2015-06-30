@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SavieFormApplicationBean {
 	
-	private SaviePersonalBean saviePersonalBean;
+	private SavieApplicantBean savieApplicantBean;
 	
 	private SavieEmploymentBean savieEmploymentBean;
 	
@@ -12,12 +12,12 @@ public class SavieFormApplicationBean {
 	
 	private SaviePaymentBean saviePaymentBean;
 
-	public SaviePersonalBean getSaviePersonalBean() {
-		return saviePersonalBean;
+	public SavieApplicantBean getSavieApplicantBean() {
+		return savieApplicantBean;
 	}
 
-	public void setSaviePersonalBean(SaviePersonalBean saviePersonalBean) {
-		this.saviePersonalBean = saviePersonalBean;
+	public void setSavieApplicantBean(SavieApplicantBean savieApplicantBean) {
+		this.savieApplicantBean = savieApplicantBean;
 	}
 
 	public SavieEmploymentBean getSavieEmploymentBean() {
@@ -44,6 +44,8 @@ public class SavieFormApplicationBean {
 	public void setSaviePaymentBean(SaviePaymentBean saviePaymentBean) {
 		this.saviePaymentBean = saviePaymentBean;
 	}
+
+	
 	
 	
 	

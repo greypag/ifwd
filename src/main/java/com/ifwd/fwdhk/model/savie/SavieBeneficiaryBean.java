@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.model.savie;
 
+import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
+
+
 public class SavieBeneficiaryBean {
 	
 	private boolean ownEstate;
@@ -8,11 +11,9 @@ public class SavieBeneficiaryBean {
 	private String chineseName;
 	private String hkId; 
 	private String passport;
-	private String gender; enum  
+	private GenderEnum gender;  
 	private String relationship; 
-	private float entitlement; 
-	
-	
+	private float entitlement;
 	public boolean isOwnEstate() {
 		return ownEstate;
 	}
@@ -37,11 +38,11 @@ public class SavieBeneficiaryBean {
 	public void setChineseName(String chineseName) {
 		this.chineseName = chineseName;
 	}
-	public String getHkid() {
-		return hkid;
+	public String getHkId() {
+		return hkId;
 	}
-	public void setHkid(String hkid) {
-		this.hkid = hkid;
+	public void setHkId(String hkId) {
+		this.hkId = hkId;
 	}
 	public String getPassport() {
 		return passport;
@@ -49,10 +50,10 @@ public class SavieBeneficiaryBean {
 	public void setPassport(String passport) {
 		this.passport = passport;
 	}
-	public String getGender() {
+	public GenderEnum getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(GenderEnum gender) {
 		this.gender = gender;
 	}
 	public String getRelationship() {
@@ -61,12 +62,15 @@ public class SavieBeneficiaryBean {
 	public void setRelationship(String relationship) {
 		this.relationship = relationship;
 	}
-	public String getEntitlement() {
+	public float getEntitlement() {
 		return entitlement;
 	}
-	public void setEntitlement(String entitlement) {
+	public void setEntitlement(float entitlement) {
 		this.entitlement = entitlement;
-	}
+	} 
+	
+	
+	
 	
 	
 	

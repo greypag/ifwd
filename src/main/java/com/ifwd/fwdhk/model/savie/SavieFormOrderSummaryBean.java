@@ -1,7 +1,7 @@
 package com.ifwd.fwdhk.model.savie;
 
 
-public class SavieFromOrderSummaryBean {
+public class SavieFormOrderSummaryBean {
 	
 	private SavieIllustrationBean savieIllustrationBean;
 	private SavieFormApplicationBean savieFormApplicationBean;

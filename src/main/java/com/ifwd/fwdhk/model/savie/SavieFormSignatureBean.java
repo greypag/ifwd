@@ -5,8 +5,10 @@ import java.awt.Image;
 public class SavieFormSignatureBean {
 	
 	private boolean signatureType;
-	base64
-	private browser information
+	//base64
+	//private browser information
+	
+	
 	private Image signatureImage;
 
 	public boolean isSignatureType() {

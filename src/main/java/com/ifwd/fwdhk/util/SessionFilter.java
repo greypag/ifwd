@@ -30,6 +30,12 @@ public class SessionFilter implements Filter {
         HttpSession session = request.getSession();   
         String url = request.getServletPath();   
         
+        if(url.indexOf("/tc/")>=0)
+        {
+	        	session.setAttribute("language", "tc");
+	        	session.setAttribute("uiLocale", "zh-HK");
+        }
+        
         if(url.indexOf("/resources/")<0)
         {
 	        if (session.getAttribute("language") == null)
@@ -38,6 +44,8 @@ public class SessionFilter implements Filter {
 	        	session.setAttribute("uiLocale", "zh-HK");
 	        }
         }
+        
+       
         
         filterChain.doFilter(servletRequest, servletResponse);
 	

@@ -9,24 +9,26 @@ public class SavieAppointmentScheduleBean {
 	private Date dateTime;
 	private String branch;
 	private String phoneNo;
-	public DateTime getaDateTime() {
-		return aDateTime;
+	
+	public Date getDateTime() {
+		return dateTime;
 	}
-	public void setaDateTime(DateTime aDateTime) {
-		this.aDateTime = aDateTime;
+	public void setDateTime(Date dateTime) {
+		this.dateTime = dateTime;
 	}
-	public String getaBranch() {
-		return aBranch;
+	public String getBranch() {
+		return branch;
 	}
-	public void setaBranch(String aBranch) {
-		this.aBranch = aBranch;
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
-	public String getaPhoneNo() {
-		return aPhoneNo;
+	public String getPhoneNo() {
+		return phoneNo;
 	}
-	public void setaPhoneNo(String aPhoneNo) {
-		this.aPhoneNo = aPhoneNo;
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
+	
 	
 	
 	

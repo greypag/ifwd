@@ -1,17 +1,24 @@
 package com.ifwd.fwdhk.model.savie;
 
-public class SavieRateBean {
+public class SaviePolicyAccountBalanceBean {
 	
-	private String endOfPolicyYear;
+	/*	PolicyAccountBalance
+	- policyYear
+	- Premium paid
+	- account value
+	- surrend*/
+	
+	
+	
+	private String policyYear;
 	private String premiumPaid;
 	private String accountValue;
 	private String surrenderBenefit;
-	
-	public String getEndOfPolicyYear() {
-		return endOfPolicyYear;
+	public String getPolicyYear() {
+		return policyYear;
 	}
-	public void setEndOfPolicyYear(String endOfPolicyYear) {
-		this.endOfPolicyYear = endOfPolicyYear;
+	public void setPolicyYear(String policyYear) {
+		this.policyYear = policyYear;
 	}
 	public String getPremiumPaid() {
 		return premiumPaid;
@@ -31,6 +38,9 @@ public class SavieRateBean {
 	public void setSurrenderBenefit(String surrenderBenefit) {
 		this.surrenderBenefit = surrenderBenefit;
 	}
+	
+	
+	
 	
 	
 	

@@ -7,21 +7,12 @@ public class SavieIllustrationBean {
 	private String paymentPlan;
 	private String singlePremiumAmount;
 	
-	3, 3, 4%
-	float guarantee1stYearRate
-	float guarantee2ndYearRate
-	float guarantee3rdYearRate
+	//3, 3, 4%
+	private float guarantee1stYearRate;
+	private float guarantee2ndYearRate;
+	private float guarantee3rdYearRate;
 	
-	<List>policyAccountBalance
-	
-	PolicyAccountBalance
-	- policyYear
-	- Premium paid
-	- account value
-	- surrend
-	
-	
-	private List<SavieRateBean> savieRateBean;
+	private List<PolicyAccountBalance> policyAccountBalance;
 
 	public String getPlanName() {
 		return planName;
@@ -47,13 +38,44 @@ public class SavieIllustrationBean {
 		this.singlePremiumAmount = singlePremiumAmount;
 	}
 
-	public List<SavieRateBean> getSavieRateBean() {
-		return savieRateBean;
+	public float getGuarantee1stYearRate() {
+		return guarantee1stYearRate;
 	}
 
-	public void setSavieRateBean(List<SavieRateBean> savieRateBean) {
-		this.savieRateBean = savieRateBean;
+	public void setGuarantee1stYearRate(float guarantee1stYearRate) {
+		this.guarantee1stYearRate = guarantee1stYearRate;
 	}
+
+	public float getGuarantee2ndYearRate() {
+		return guarantee2ndYearRate;
+	}
+
+	public void setGuarantee2ndYearRate(float guarantee2ndYearRate) {
+		this.guarantee2ndYearRate = guarantee2ndYearRate;
+	}
+
+	public float getGuarantee3rdYearRate() {
+		return guarantee3rdYearRate;
+	}
+
+	public void setGuarantee3rdYearRate(float guarantee3rdYearRate) {
+		this.guarantee3rdYearRate = guarantee3rdYearRate;
+	}
+
+	public List<PolicyAccountBalance> getPolicyAccountBalance() {
+		return policyAccountBalance;
+	}
+
+	public void setPolicyAccountBalance(
+			List<PolicyAccountBalance> policyAccountBalance) {
+		this.policyAccountBalance = policyAccountBalance;
+	}
+	
+	
+	
+	
+
+
 
 	
 	

@@ -11,12 +11,11 @@ public class SavieFormFNABean {
 	private String name;
 	private String version;
 	
-	
-	public String getCountry() {
-		return country;
+	public String getIsUsCitizen() {
+		return isUsCitizen;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+	public void setIsUsCitizen(String isUsCitizen) {
+		this.isUsCitizen = isUsCitizen;
 	}
 	public Boolean getFinancialNeedsAnalysisQuestionnaireOption() {
 		return financialNeedsAnalysisQuestionnaireOption;
@@ -50,12 +49,21 @@ public class SavieFormFNABean {
 			String financialNeedsAnalysisQuestion) {
 		this.financialNeedsAnalysisQuestion = financialNeedsAnalysisQuestion;
 	}
-	public String getYourName() {
-		return yourName;
+	public String getName() {
+		return name;
 	}
-	public void setYourName(String yourName) {
-		this.yourName = yourName;
+	public void setName(String name) {
+		this.name = name;
 	}
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	
+	
+	
 	
 	
 	
