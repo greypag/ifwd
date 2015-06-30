@@ -6,9 +6,9 @@ import org.joda.time.DateTime;
 
 public class SavieAppointmentScheduleBean {
 	
-	private DateTime aDateTime;
-	private String aBranch;
-	private String aPhoneNo;
+	private Date dateTime;
+	private String branch;
+	private String phoneNo;
 	public DateTime getaDateTime() {
 		return aDateTime;
 	}

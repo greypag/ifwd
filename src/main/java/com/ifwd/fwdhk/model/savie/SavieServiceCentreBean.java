@@ -2,11 +2,13 @@ package com.ifwd.fwdhk.model.savie;
 
 public class SavieServiceCentreBean {
 
-	private int sId;
-	private String sName;
-	private String sAddress;
-	private String sOperationHours;
-	private String sTelephoneNo;
+
+	private String name;
+	private String address;
+	private String operationHours;
+	private String phoneNo;
+	
+	
 	
 	public int getsId() {
 		return sId;

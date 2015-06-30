@@ -6,11 +6,11 @@ public class SavieBeneficiaryBean {
 	private String firstName;
 	private String lastName;
 	private String chineseName;
-	private String hkid;
+	private String hkId; 
 	private String passport;
-	private String gender;
-	private String relationship;
-	private String entitlement;
+	private String gender; enum  
+	private String relationship; 
+	private float entitlement; 
 	
 	
 	public boolean isOwnEstate() {

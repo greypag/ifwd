@@ -3,9 +3,24 @@ package com.ifwd.fwdhk.model.savie;
 import java.util.Date;
 
 public class SavieFileBean {
-	private String fileId;
+	
 	private String fileName;
-	private Date fileDatetime;
+	
+	private String documentType; //hkId / passport / addressProof
+	private String base64;
+	private String version;
+	
+	browser -> tomcat -> jboss
+	           baes64
+				Image
+	           
+	plugin
+	binary / base64
+	
+	
+	base64
+	
+	
 	public String getFileId() {
 		return fileId;
 	}

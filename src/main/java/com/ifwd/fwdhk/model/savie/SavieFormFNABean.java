@@ -2,13 +2,15 @@ package com.ifwd.fwdhk.model.savie;
 
 public class SavieFormFNABean {
 	
-	private String country;
+	private String isUsCitizen;
 	private Boolean financialNeedsAnalysisQuestionnaireOption;
 	private Boolean confirmAnnualIncome;
 	private Boolean past12months;
 	private Boolean next12months;
 	private String financialNeedsAnalysisQuestion;
-	private String yourName;
+	private String name;
+	private String version;
+	
 	
 	public String getCountry() {
 		return country;

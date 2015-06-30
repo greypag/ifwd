@@ -4,30 +4,30 @@ import java.util.Date;
 
 
 
-public class SaviePersonalBean {
+public class SavieApplicantBean {
 	
 	private String firstName;
 	private String lastName;
 	private String chineseName;
-	private String hkid;
+	private String hkId;
 	private String passport;
-	private String gender;
-	private String maritalStatus;	
+	private String gender; enum
+	private String maritalStatus; enum	
 	private Date birthday;
 	private String placeOfBirth;
 	private String nationality;
 	private String emailAddress;
-	private String residentialTelNo1;
-	private String residentialTelNo2;
-	private String residentialTelNo3;
-	private String mobileNo1;
+	private String residentialTelNoCountryCode;
+	private String residentialTelNo;
+	
+	private String ;
 	private String mobileNo2;
 	private String mobileNo3;
 	private String residentialAdress1;	
 	private String residentialAdress2;	
 	private String residentialAdress3;	
 	private String residentialDistrict;
-	
+	<List>FNA
 	
 	public String getFirstName() {
 		return firstName;

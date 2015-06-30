@@ -28,7 +28,7 @@ public class SavieController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/getSavieEmploymentinfo"})
-	public String getSavieEmploymentinfo(Model model, HttpServletRequest request) {
+	public String getSavieEmploymentInfo(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
@@ -53,7 +53,7 @@ public class SavieController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/getSavieBeneficiaryinfo"})
-	public String getSavieBeneficiaryinfo(Model model, HttpServletRequest request) {
+	public String getSavieBeneficiaryInfo(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";

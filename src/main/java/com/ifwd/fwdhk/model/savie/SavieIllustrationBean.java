@@ -7,6 +7,20 @@ public class SavieIllustrationBean {
 	private String paymentPlan;
 	private String singlePremiumAmount;
 	
+	3, 3, 4%
+	float guarantee1stYearRate
+	float guarantee2ndYearRate
+	float guarantee3rdYearRate
+	
+	<List>policyAccountBalance
+	
+	PolicyAccountBalance
+	- policyYear
+	- Premium paid
+	- account value
+	- surrend
+	
+	
 	private List<SavieRateBean> savieRateBean;
 
 	public String getPlanName() {

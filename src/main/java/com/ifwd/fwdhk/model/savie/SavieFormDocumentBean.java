@@ -3,7 +3,7 @@ package com.ifwd.fwdhk.model.savie;
 import java.util.List;
 
 public class SavieFormDocumentBean {
-	private String uploadType;
+	private String uploadDocument; enum 
 	private boolean isHongKongPermanentResident;
 	private List<SavieFileBean> hkidFiles;
 	private List<SavieFileBean> passportFiles;

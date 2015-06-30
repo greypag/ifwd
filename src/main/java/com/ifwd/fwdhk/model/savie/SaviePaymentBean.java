@@ -5,7 +5,7 @@ import java.util.Date;
 public class SaviePaymentBean {
 	
 	private boolean paymentType;
-	private String amount;
+	private float amount;
 	private String paymentMethod;	
 	private String bankNameCode;	
 	private String branchName;
