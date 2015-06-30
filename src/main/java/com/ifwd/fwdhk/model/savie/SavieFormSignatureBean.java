@@ -4,29 +4,34 @@ import java.awt.Image;
 
 public class SavieFormSignatureBean {
 	
-	private boolean signatureType;
 	//base64
 	//private browser information
+	private boolean signatureType;
+	private String base64;
+	private SavieBrowserBean browser;
 	
-	
-	private Image signatureImage;
-
 	public boolean isSignatureType() {
 		return signatureType;
 	}
-
 	public void setSignatureType(boolean signatureType) {
 		this.signatureType = signatureType;
 	}
-
-	public Image getSignatureImage() {
-		return signatureImage;
+	public String getBase64() {
+		return base64;
 	}
-
-	public void setSignatureImage(Image signatureImage) {
-		this.signatureImage = signatureImage;
+	public void setBase64(String base64) {
+		this.base64 = base64;
 	}
-
+	public SavieBrowserBean getBrowser() {
+		return browser;
+	}
+	public void setBrowser(SavieBrowserBean browser) {
+		this.browser = browser;
+	}
+	
+	
+	
+	
 
 	
 	
