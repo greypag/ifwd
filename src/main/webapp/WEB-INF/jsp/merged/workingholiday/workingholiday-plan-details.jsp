@@ -1318,7 +1318,13 @@ function userLoginFnc() {
 	}
 </script>
 <script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>
-	
+	src="<%=request.getContextPath()%>/resources/js/wh-details.js">
+</script>
+
+<script>
+window.onload = function(){
+	activeDiv('whbenificiaryId','selectWhInsBeneficary');
+};
+</script>
 </body>
 </html>	
