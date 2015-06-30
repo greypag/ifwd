@@ -242,7 +242,7 @@
                                 } else if (data.indexOf('[')==0&data.indexOf(']')>0) {
                                 	$('#success-message').html('');
                                     $('#success-message').hide();
-                                    $('#forgotusername-err-msg').html(data);
+                                    $('#forgotusername-err-msg').html(data.slice(2, data.length-2));
                                     $('#forgotusername-err-msg').show();
                                 } else {             
                                     $('#success-message').html('Your Username is ' + data);

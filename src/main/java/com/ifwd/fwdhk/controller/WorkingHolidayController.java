@@ -74,7 +74,8 @@ public class WorkingHolidayController {
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.checkLangSetPage(request) + "workingholiday/workingholiday";
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		HttpSession session = request.getSession();
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		WorkingHolidayQuoteBean workingholidayQuote;
@@ -234,7 +235,8 @@ public class WorkingHolidayController {
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		try {
 			
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
@@ -390,7 +392,8 @@ public class WorkingHolidayController {
 		}
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
@@ -740,7 +743,8 @@ public class WorkingHolidayController {
 		}
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
 		session.setAttribute("dueAmount", dueAmount.replace(",","").trim());
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
@@ -861,7 +865,8 @@ public class WorkingHolidayController {
 		
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		
 		JSONObject responsObject = new JSONObject();
 
