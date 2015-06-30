@@ -205,7 +205,12 @@ $(document).ready(function() {
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.home.adult.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label></label>
 	                          </div>
 	                          <div class="clearfix"></div>
 	                          <hr>
@@ -232,12 +237,7 @@ $(document).ready(function() {
 	                       <!-- start of family plan bottom spinner-->
 	                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
 	                         <div class="col-lg-6">
-	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /><a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="travel.home.adult.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></h4>
+	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
