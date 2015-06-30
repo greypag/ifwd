@@ -2395,3 +2395,23 @@ function BackMe() {
     window.history.back();
 }
 </script>
+<script>
+window.onload = function(){
+	$('select[id^="personalselectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('personalbenificiaryId' + index,'personalselectBenificiary' + index, 'personalBenefitiaryId' + index, 'personalBenefitiaryHKId' + index);
+	});
+	$('select[id^="adultsselectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('adultsbenificiaryId' + index,'adultsselectBenificiary' + index, 'adultBenefitiaryId' + index, 'adultBenefitiaryHKId' + index);
+	});
+	$('select[id^="childselectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('childbenificiaryId' + index,'childselectBenificiary' + index, 'childBenefitiaryName' + index, 'txtchildInsuHkid' + index);
+	});
+	$('select[id^="otherSelectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('otherbenificiaryId' + index,'otherSelectBenificiary' + index, 'otherBenefitiaryName' + index, 'txtOtherBenInsuHkid' + index);
+	});
+};
+</script>
