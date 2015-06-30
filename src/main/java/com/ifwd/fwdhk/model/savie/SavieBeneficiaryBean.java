@@ -2,7 +2,7 @@ package com.ifwd.fwdhk.model.savie;
 
 public class SavieBeneficiaryBean {
 	
-	
+	private boolean ownEstate;
 	private String firstName;
 	private String lastName;
 	private String chineseName;
@@ -13,6 +13,12 @@ public class SavieBeneficiaryBean {
 	private String entitlement;
 	
 	
+	public boolean isOwnEstate() {
+		return ownEstate;
+	}
+	public void setOwnEstate(boolean ownEstate) {
+		this.ownEstate = ownEstate;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

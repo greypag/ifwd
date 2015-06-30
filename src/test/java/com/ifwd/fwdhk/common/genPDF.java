@@ -1,13 +1,18 @@
+package com.ifwd.fwdhk.common;
+
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.client.utils.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import com.ifwd.fwdhk.model.savie.SavieBeneficiaryBean;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.BaseFont;
@@ -19,6 +24,31 @@ import com.itextpdf.text.pdf.PdfStamper;
 public class genPDF {
 	
 	
+	public String generatePdf(String inputFileName,String outputFilePath,List<PdfAttribute> attributeList) throws FileNotFoundException, DocumentException, IOException
+	{
+		String outFileName="";
+		
+		try {
+			outFileName = DateUtils.formatDate(new java.util.Date(),"yyyyMMddHHmmss") + ".pdf";
+			PdfReader reader = new PdfReader(inputFileName);
+			PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(outputFilePath + outFileName));
+			AcroFields form = stamper.getAcroFields();
+			if (attributeList.size() > 0) {
+				for (PdfAttribute pdfAttribute : attributeList) {
+					if (StringUtils.isEmpty(pdfAttribute.getKey())) {
+						form.setField(pdfAttribute.getKey(),
+								pdfAttribute.getValue());
+					}
+				}
+			}
+			stamper.setFormFlattening(true);
+			stamper.close();
+			reader.close();
+		} catch (Exception e) {
+			
+		}
+		return  outFileName;
+	}
 	
 	public static void readFormFields(String file) throws IOException, DocumentException{
 		PdfReader reader = new PdfReader(file);
