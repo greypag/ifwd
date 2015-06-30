@@ -8,7 +8,12 @@ import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savie.SavieAppointmentScheduleBean;
-import com.ifwd.fwdhk.model.savie.SavieFinancialNeedAnalysisBean;
+import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
+import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
+import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
+import com.ifwd.fwdhk.model.savie.SavieFormFNABean;
+import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
+import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
 import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SavieRateBean;
@@ -24,13 +29,16 @@ public interface SavieService {
 	public List<BankBranchBean> getBankBranch(String userName, String token, String language,Integer bankCode); 
 	
 	
-	public SaviePolicy createSaviePolicy(String userName, String token,HomeCareDetailsBean homeCareDetails, UserDetails userDetails, String language, String referralCode);
+	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
 	public SavieIllustrationBean getIllustration(String userName, String token, String language);
-	public String upsertFNA(String userName, String token, String language,SavieFinancialNeedAnalysisBean fna);
-	public String upsertAppointment(String userName, String token, String language,SavieAppointmentScheduleBean fna);
+	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
+	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
+	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);
+	public String upsertSignature(String userName, String token, String language,SavieFormSignatureBean signature);
+	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
+	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
 	
-	//public String outFileName generatePdf(String inputFileName,<List> PdfAttribute)
 	
 	
 	//fileUpload?

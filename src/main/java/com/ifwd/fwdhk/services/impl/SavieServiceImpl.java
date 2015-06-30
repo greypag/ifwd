@@ -8,7 +8,12 @@ import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savie.SavieAppointmentScheduleBean;
-import com.ifwd.fwdhk.model.savie.SavieFinancialNeedAnalysisBean;
+import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
+import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
+import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
+import com.ifwd.fwdhk.model.savie.SavieFormFNABean;
+import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
+import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
 import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SavieRateBean;
@@ -53,8 +58,11 @@ public class SavieServiceImpl implements SavieService {
 
 	@Override
 	public SaviePolicy createSaviePolicy(String userName, String token,
-			HomeCareDetailsBean homeCareDetails, UserDetails userDetails,
-			String language, String referralCode) {
+			String language, SavieFormApplicationBean application,
+			SavieFormSetAppointmentBean appointment,
+			SavieFormSignatureBean signature,
+			SavieFormDeclarationAuthorizationBean authorization,
+			SavieFormDocumentBean documents) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -68,17 +76,52 @@ public class SavieServiceImpl implements SavieService {
 
 	@Override
 	public String upsertFNA(String userName, String token, String language,
-			SavieFinancialNeedAnalysisBean fna) {
+			SavieFormFNABean fna) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String upsertApplication(String userName, String token,
+			String language, SavieFormApplicationBean application) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String upsertAppointment(String userName, String token,
-			String language, SavieAppointmentScheduleBean fna) {
+			String language, SavieFormSetAppointmentBean appointment) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String upsertSignature(String userName, String token,
+			String language, SavieFormSignatureBean signature) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String upsertDeclarationAuthorization(String userName, String token,
+			String language, SavieFormDeclarationAuthorizationBean authorization) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String upsertDocument(String userName, String token,
+			String language, SavieFormDocumentBean documents) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
+	
+
+	
 
 
 
