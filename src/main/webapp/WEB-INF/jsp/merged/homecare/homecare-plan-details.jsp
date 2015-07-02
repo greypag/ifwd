@@ -417,6 +417,15 @@ function activateUserAccountJoinUs() {
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;
      
+    $("#UsernameError").text("");
+    $("#PasswordError").text("");
+    $("#Confirm-PasswordError").text("");
+    $("#Username").removeClass("invalid-field");
+    $("#Password").removeClass("invalid-field");
+    $("#Confirm-Password").removeClass("invalid-field");
+    
+    //first error element
+    var firstErrorElementId="";
     
     if(name == "" && password == "" && password2 == ""){
         $('#frmYourDetails').submit()
@@ -424,27 +433,50 @@ function activateUserAccountJoinUs() {
     	if(name != "" && password != "" && password2 != ""){
     		validateForm = true;
     		if (!checkMembership("Username")){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+    	            firstErrorElementId="Username";
+    	        }
+    	        validateForm = false;	
     		}
     		if (!checkMembership("Password")){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+    	            firstErrorElementId="Password";
+    	        }
+    	        validateForm = false;	
     		}
     		if (!checkMembership("Confirm-Password")){
-    			validateForm = false;	
-    		}
-    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
-    			validateForm = false;	
-    		}    		
-    		if (!validateEmail('inputEmailId','emailid')){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+    	            firstErrorElementId="Confirm-Password";
+    	        }
+    	        validateForm = false;	
     		}
     		var applicantDob = $("#applicantDob").val();
-    		if (applicantDob.trim() == "") {
-    			
-    			document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+            if (applicantDob.trim() == "") {
+                
+                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+                $("#input_dob").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="applicantDob";
+                }
+                validateForm = false;   
+            
+            }
+    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
+    			if(firstErrorElementId==""){
+    	            firstErrorElementId="inputMobileNo";
+    	        }
     	        validateForm = false;	
-    	    
+    		}    		
+    		if (!validateEmail('inputEmailId','emailid')){
+    			if(firstErrorElementId==""){
+    	            firstErrorElementId="inputEmailId";
+    	        }
+    	        validateForm = false;	
     		}
+    		
+    		if(firstErrorElementId!=""){
+    	        scrollToElement(firstErrorElementId);
+    	    }
     		    		    		
         	if (!validateForm){
         		return;
@@ -513,24 +545,49 @@ function activateUserAccountJoinUs() {
     		if (name == ""){
     			$('#UsernameError').text(isValidUsername($("#Username").val().trim()));
     			$("#Username").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Username";
+                }
     		}else{
-    			checkMembership("Username");
+    			if (!checkMembership("Username")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Username";
+                    } 
+                }
     		}
     		
     		if (password == ""){
     			$('#PasswordError').text(isValidPassword($("#Password").val().trim()));
     			$("#Password").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Password";
+                }
     		}else{
-    			checkMembership("Password");
+    			if (!checkMembership("Password")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Password";
+                    } 
+                }
     		}
     		    		
     		if (password2 == ""){
     			$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
     			$("#Confirm-Password").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Confirm-Password";
+                }
     		}else{
-    			checkMembership("Confirm-Password");
+    			if (!checkMembership("Confirm-Password")){
+                    if(firstErrorElementId==""){
+                    	firstErrorElementId="Confirm-Password";
+                    } 
+                }
     		}    		
     	}
+    }
+    
+    if(firstErrorElementId!=""){
+        scrollToElement(firstErrorElementId);
     }
     
     return;
