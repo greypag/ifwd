@@ -4808,19 +4808,42 @@ function hc_planValid() {
     $('#errCADist').html('');
     $('#errADist').html('');
     
+    
+    
+    //first error element
+	var firstErrorElementId="";
+    
+    
+    
+	
+	
+	if (appFullName.trim() == "") {
+        document.getElementById("appfullname").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
+        $("#inputFullName").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="inputFullName";
+		}
+		flag = false;
+    }
+    
     /**** VAlidation for HKID and Passport ***/
-	 
 //    var selectHkidPass = document.getElementById("selectHkidPass").value;
     var selectHkidPass = $("#selectHkidPass").val();
 	if (appHkid.trim() == "") {
 		if (selectHkidPass == "appHkid") {
 			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));
 			$("#txtAppHkid").addClass("invalid-field");
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtAppHkid";
+			}
 			flag = false;
 		}
 		else {
 			$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
 			$("#txtAppHkid").addClass("invalid-field");
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtAppHkid";
+			}
 			flag = false;
 		}
 	}
@@ -4830,6 +4853,9 @@ function hc_planValid() {
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
 				$("#txtAppHkid").addClass("invalid-field");
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtAppHkid";
+				}
 				flag = false;
 			}
 		}
@@ -4838,12 +4864,18 @@ function hc_planValid() {
 			if (tr == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
 				$("#txtAppHkid").addClass("invalid-field");
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtAppHkid";
+				}
 				flag = false;
 			}
 			var tr1 = chkTravelHKPassLen(appHkid.trim());
 			if (tr1 == false) {
 				$('#errAppHkid').html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
 				$("#txtAppHkid").addClass("invalid-field");
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtAppHkid";
+				}
 				flag = false;
 			}
 		}
@@ -4853,33 +4885,39 @@ function hc_planValid() {
 	if (applicantDob.trim() == "") {
 		document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
 		$("#input_dob").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="input_dob";
+		}
 		flag = false;
     
 	}
     
-//    
-    if (appFullName.trim() == "") {
-        document.getElementById("appfullname").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
-        $("#inputFullName").addClass("invalid-field");
-		flag = false;
-    }
     
     if (mobileNo.trim() == "") {
         document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message");
         $("#inputMobileNo").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="inputMobileNo";
+		}
 		flag = false;
     }
     else {        
         if (mobile_pattern.test(mobileNo) == false) {
             document.getElementById("errMobileNo").innerHTML = getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message");
             $("#inputMobileNo").addClass("invalid-field");
-			flag = false;
+            if(firstErrorElementId==""){
+    			firstErrorElementId="inputMobileNo";
+    		}
+    		flag = false;
         }
     }
     
     if (EmailId.trim() == "") {
         document.getElementById("errEmailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notNull.message");
         $("#inputEmailId").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="inputEmailId";
+		}
 		flag = false;
     }
     else {
@@ -4887,7 +4925,10 @@ function hc_planValid() {
 
             document.getElementById("errEmailid").innerHTML = getBundle(getBundleLanguage, "applicant.email.notValid.message");
             $("#inputEmailId").addClass("invalid-field");
-			flag = false;
+            if(firstErrorElementId==""){
+    			firstErrorElementId="inputEmailId";
+    		}
+    		flag = false;
         }
     }
     
@@ -4914,6 +4955,17 @@ function hc_planValid() {
         $('#errCAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
         $("#inputCABuilding").addClass("invalid-field");
         $("#inputCAEstate").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="inputCABuilding";
+		}
+		flag = false;
+    }
+    if($('#selectCADist').val() == ''){
+    	$('#errCADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+    	$("#inputCADistrict").addClass("invalid-field");
+    	if(firstErrorElementId==""){
+			firstErrorElementId="inputCADistrict";
+		}
 		flag = false;
     }
     
@@ -4923,6 +4975,17 @@ function hc_planValid() {
         $('#errAEstate').html(getBundle(getBundleLanguage, "homecare.correspondingAddress.estate.notNull.message"));
         $("#inputABuilding").addClass("invalid-field");
         $("#inputAEstate").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="inputABuilding";
+		}
+		flag = false;
+    }
+    if($('#selectADist').val() == ''){
+    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
+    	$("#inputADistrict").addClass("invalid-field");
+    	if(firstErrorElementId==""){
+			firstErrorElementId="inputADistrict";
+		}
 		flag = false;
     }
      
@@ -4930,6 +4993,9 @@ function hc_planValid() {
         //document.getElementById("errNFA").innerHTML = "Please select Net Floor Area.";
         $('#errNFA').html(getBundle(getBundleLanguage, "homecare.netFloorArea.notNull.message"));
         $("#inputNFA").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="inputNFA";
+		}
 		flag = false;
     }
     
@@ -4937,6 +5003,9 @@ function hc_planValid() {
        // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
         $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
         $("#homecareDp").addClass("invalid-field");
+        if(firstErrorElementId==""){
+			firstErrorElementId="homecareDp";
+		}
 		flag = false;
     }
     else {
@@ -4944,31 +5013,34 @@ function hc_planValid() {
            // document.getElementById("errEffDate").innerHTML = "Effective Date must be within 60 days of Application Date.";
             $('#errEffDate').html(getBundle(getBundleLanguage, "homecare.effectiveDate.notValid.message"));
             $("#homecareDp").addClass("invalid-field");
-			flag = false;
+            if(firstErrorElementId==""){
+    			firstErrorElementId="homecareDp";
+    		}
+    		flag = false;
         }
     }
     if (document.getElementById("checkbox1").checked == false) {
         //document.getElementById("chk1").innerHTML = "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
         $('#chk1').html(getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message"));
-        flag = false;
+        if(firstErrorElementId==""){
+			firstErrorElementId="checkbox1";
+		}
+		flag = false;
     }
     if (document.getElementById("checkbox2").checked == false) {
         //document.getElementById("chk2").innerHTML = "Please read and accept the Personal Information Collection Statement before submitting the application.";
         $('#chk2').html(getBundle(getBundleLanguage, "homecare.tnc.notChecked.message"));
-        flag = false;
+        if(firstErrorElementId==""){
+			firstErrorElementId="checkbox2";
+		}
+		flag = false;
     }
     
-    //Distrct Validation
-    if($('#selectCADist').val() == ''){
-    	$('#errCADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
-    	$("#inputCADistrict").addClass("invalid-field");
-		flag = false;
-    }
-    if($('#selectADist').val() == ''){
-    	$('#errADist').html(getBundle(getBundleLanguage, "homecare.district.notNull.message"));
-    	$("#inputADistrict").addClass("invalid-field");
-		flag = false;
-    }
+    
+    
+    if(firstErrorElementId!=""){
+		scrollToElement(firstErrorElementId);
+	}
     
     //Remove the disabled / area select
     if(flag){
