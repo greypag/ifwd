@@ -85,19 +85,24 @@ public class SavieController {
 			lang = "CN";
 		
 		HttpSession session = request.getSession();
-		boolean editFrom=(boolean) session.getAttribute("editFrom");
 		String redirectUrl="";
-		if(editFrom != true)
+		if(session.getAttribute("editFrom")==null)
+		{
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
+		}
+		else if((boolean)session.getAttribute("editFrom") != true)
 		{
 			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
 		}
 		else
 		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
 		}
 		
 		return redirectUrl;
 	}
+	
+
 	
 	
 }
