@@ -217,7 +217,7 @@ $(document).ready(function() {
                           <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
                         class="tool-tip show-inline-md"
                         data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="flight.home.adult.help" bundle="${msg}" />">
+                        title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
                         alt=""></a></label>
                           </label>
@@ -375,7 +375,7 @@ $(document).ready(function() {
               <label for="family_plan_mob"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
                         class="tool-tip show-inline-md"
                         data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="flight.home.adult.help" bundle="${msg}" />">
+                        title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
                         alt=""></a></label>
            </label> 
@@ -878,7 +878,7 @@ $(document).ready(function() {
                           <label for="family_plan_btm"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
                         class="tool-tip show-inline-md"
                         data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="flight.home.adult.help" bundle="${msg}" />">
+                        title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
                         alt=""></a></label>
                           </label>
