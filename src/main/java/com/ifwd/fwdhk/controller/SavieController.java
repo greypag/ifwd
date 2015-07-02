@@ -1,12 +1,16 @@
 package com.ifwd.fwdhk.controller;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ifwd.fwdhk.util.StringHelper;
 
 @Controller
 public class SavieController {
@@ -23,7 +27,7 @@ public class SavieController {
 		logger.debug(request.getParameter("beneChineseName"));
 		logger.debug(request.getParameter("hkidOrPassportNo"));
 		logger.debug(request.getParameter("beneGender"));
-		logger.debug(request.getParameter("beneEntitlement"));
+		logger.debug(request.getParameter("beneEntitlement"));		
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-personalinfo";
 	}
 	
@@ -69,6 +73,8 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
+		HttpSession session = request.getSession();
+		session.setAttribute("editFrom", false);
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
@@ -77,7 +83,20 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
+		
+		HttpSession session = request.getSession();
+		boolean editFrom=(boolean) session.getAttribute("editFrom");
+		String redirectUrl="";
+		if(editFrom != true)
+		{
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
+		}
+		else
+		{
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
+		}
+		
+		return redirectUrl;
 	}
 	
 	
