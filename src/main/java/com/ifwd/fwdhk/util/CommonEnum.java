@@ -16,12 +16,12 @@ public class CommonEnum {
 		}    
 	}
 	
-	public enum MaritalEnum
+	public enum MaritalStatusEnum
 	{
 		Single("S"), 
 		Married("M");            
 		private final String value;        
-		MaritalEnum(String value) 
+		MaritalStatusEnum(String value) 
 		{
 			this.value = value;        
 		}                

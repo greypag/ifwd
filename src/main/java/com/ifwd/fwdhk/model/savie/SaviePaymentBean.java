@@ -7,11 +7,12 @@ public class SaviePaymentBean {
 	private boolean paymentType;
 	private float amount;
 	private String paymentMethod;	
-	private String bankNameCode;	
+	private String bankName;	
 	private String branchName;
 	private String accountNo;
 	private Date expiryDate;
 	private boolean paymentConfirmAuthorize;
+	
 	public boolean isPaymentType() {
 		return paymentType;
 	}
@@ -30,11 +31,11 @@ public class SaviePaymentBean {
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
 	}
-	public String getBankNameCode() {
-		return bankNameCode;
+	public String getBankName() {
+		return bankName;
 	}
-	public void setBankNameCode(String bankNameCode) {
-		this.bankNameCode = bankNameCode;
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
 	}
 	public String getBranchName() {
 		return branchName;
@@ -60,6 +61,9 @@ public class SaviePaymentBean {
 	public void setPaymentConfirmAuthorize(boolean paymentConfirmAuthorize) {
 		this.paymentConfirmAuthorize = paymentConfirmAuthorize;
 	}
+	
+	
+	
 	
 	
 	

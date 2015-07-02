@@ -208,12 +208,7 @@ public class Methods {
         return output;
      }
     
-    /**
-     * <p>将文件转成base64 字符串</p>
-     * @param path 文件路径
-     * @return
-     * @throws Exception
-     */
+
     public static String encodeBase64File(String path) throws Exception {
         File  file = new File(path);
         FileInputStream inputFile = new FileInputStream(file);
@@ -222,24 +217,13 @@ public class Methods {
         inputFile.close();
         return new sun.misc.BASE64Encoder().encode(buffer);
     }
-    /**
-     * <p>将base64字符解码保存文件</p>
-     * @param base64Code
-     * @param targetPath
-     * @throws Exception
-     */
+
     public static void decoderBase64File(String base64Code,String targetPath) throws Exception {
         byte[] buffer = new sun.misc.BASE64Decoder().decodeBuffer(base64Code);
         FileOutputStream out = new FileOutputStream(targetPath);
         out.write(buffer);
         out.close();
     }
-    /**
-     * <p>将base64字符保存文本文件</p>
-     * @param base64Code
-     * @param targetPath
-     * @throws Exception
-     */ 
     
     public static void toFile(String base64Code,String targetPath) throws Exception {
         byte[] buffer = base64Code.getBytes();
@@ -248,12 +232,7 @@ public class Methods {
         out.close();
     }
 
-    /** 
-     * 对文件进行编码 
-     * @param file 需要编码的问家 
-     * @return 对文件进行base64编码后的字符串 
-     * @throws Exception 
-     */  
+
     public static String file2String(File file) throws Exception{  
         StringBuffer sb = new StringBuffer();  
         FileInputStream in = new FileInputStream(file);  
@@ -264,36 +243,26 @@ public class Methods {
             sb.append(ch);  
         }  
         in.close();  
-        //将buffer转化为string  
         String oldString = new String(sb);  
           
-        //使用base64编码  
         String newString = compressData(oldString);  
           
         return newString;  
     }  
       
-    /** 
-     * 对文件进行解码 
-     * @param oldString 需要解码的字符串 
-     * @param filePath  将字符串解码到filepath文件路径 
-     * @return  返回解码后得到的文件 
-     * @throws Exception 
-     */  
+
     public static File string2File(String oldString,String filePath) throws Exception{  
         File file = new File(filePath);  
         if(file.exists()){  
-            System.out.println("文件已经存在，不能将base64编码转换为文件");  
+            System.out.println("file exist");  
             return null;  
         }else{  
             file.createNewFile();  
         }  
         FileOutputStream out = new FileOutputStream(file);  
           
-        //对oldString进行解码  
         String newString = decompressData(oldString);  
           
-        //将问件内容转为byte[]  
         char[] str = newString.toCharArray();  
         for(char ch:str){  
             byte b = (byte)ch;  
@@ -303,11 +272,7 @@ public class Methods {
         return file;  
     }  
       
-    /** 
-     * 使用base64编码字符串 
-     * @param data 
-     * @return 编码后的字符串 
-     */  
+
     public static String compressData(String data) {  
         try {  
             ByteArrayOutputStream bos = new ByteArrayOutputStream();  
@@ -321,11 +286,7 @@ public class Methods {
         }  
     }  
     
-    /** 
-     * 使用base64解码字符串 
-     * @param encdata 
-     * @return 解码后的字符串 
-     */  
+
     public static String decompressData(String encdata) {  
         try {  
             ByteArrayOutputStream bos = new ByteArrayOutputStream();  
@@ -339,19 +300,14 @@ public class Methods {
         }  
     }  
       
-      
-    /** 
-     * 调用apache的编码方法 
-     */  
+
     public static String getenBASE64inCodec(byte [] b) {  
         if (b == null)  
             return null;  
         return new String((new Base64()).encode(b));  
     }  
       
-    /** 
-     * 调用apache的解码方法 
-     */  
+
     public static byte[] getdeBASE64inCodec(String s) {  
         if (s == null)  
             return null;  
@@ -362,7 +318,7 @@ public class Methods {
 }
 
 
-/*//base64字符串测试  
+/*
 @Test  
 public void testStringBase64() throws Exception{  
     String str = "我们都是中国人";  
@@ -373,11 +329,12 @@ public void testStringBase64() throws Exception{
     System.out.println("base64解码：："+newStr);  
 }  
   
-//base64文件测试  
+
 @Test  
 public void testFileBase64() throws Exception{  
     File oldFile = new File("/home/samforit/Pictures/321.doc");   
     String comStr = Base64UTIL.file2String(oldFile);  
     System.out.println(comStr);  
     File newFile = Base64UTIL.string2File(comStr, "/home/samforit/Pictures/123.doc");  
-}  */
+}  
+*/

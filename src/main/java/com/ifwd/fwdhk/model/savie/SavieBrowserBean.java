@@ -15,9 +15,9 @@ public class SavieBrowserBean {
 	private String ServerName;//获得服务器的名字  
 	private String ServerPort;//获得服务器的端口号  	
 */	
-	private String RemoteAddr;//获得客户端的IP地址  
-	private String RemoteHost;//获得客户端电脑的名字，
-	private String Protocol;
+	private String remoteAddr;//获得客户端的IP地址  
+	private String remoteHost;//获得客户端电脑的名字，
+	private String protocol;
 	public String getOsName() {
 		return osName;
 	}
@@ -49,23 +49,27 @@ public class SavieBrowserBean {
 		this.method = method;
 	}
 	public String getRemoteAddr() {
-		return RemoteAddr;
+		return remoteAddr;
 	}
 	public void setRemoteAddr(String remoteAddr) {
-		RemoteAddr = remoteAddr;
+		this.remoteAddr = remoteAddr;
 	}
 	public String getRemoteHost() {
-		return RemoteHost;
+		return remoteHost;
 	}
 	public void setRemoteHost(String remoteHost) {
-		RemoteHost = remoteHost;
+		this.remoteHost = remoteHost;
 	}
 	public String getProtocol() {
-		return Protocol;
+		return protocol;
 	}
 	public void setProtocol(String protocol) {
-		Protocol = protocol;
+		this.protocol = protocol;
 	}
+	
+	
+	
+	
 
 	
 
