@@ -10,13 +10,11 @@
 </head>
 <body>
 <div align="center">
-<c:choose>
-	<c:when test="${step == '1'}">
+<form id="" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-">
 	    <h2>Personal info</h2>
 		<div style="margin:20px 0;"></div>
 		<div>
 			<div style="padding:10px 60px 20px 60px">
-		    <form id="personalInfo" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-detail2">
 		    	<table>
 		    		<tr>
 		    			<td>Name in English:</td>
@@ -103,20 +101,16 @@
 		    		</tr>
 		    		<tr align="center">
 		    			<td colspan="4">
-		    			   <input type="submit" value="NEXT"/>
+		    			   <input type="button" value="NEXT"/>
 		    			</td>
 		    		</tr>
 		    	</table>
-		    </form>
 		    </div>
 		</div>
-	</c:when>
-	<c:when test="${step == '2'}">
 	    <h2>Employment info</h2>
 		<div style="margin:20px 0;"></div>
 		<div>
 			<div style="padding:10px 60px 20px 60px">
-		    <form id="employmentInfo" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-detail3">
 		    	<table>
 		    		<tr>
 		    			<td>Employment status:</td>
@@ -153,21 +147,17 @@
 		    		</tr>
 		    		<tr align="center">
 		    			<td colspan="4">
-		    			   <input type="submit" value="NEXT"/>
+		    			   <input type="button" value="NEXT"/>
 		    			</td>
 		    		</tr>
 		    	</table>
-		    </form>
 		    </div>
 		</div>
-	</c:when>
-	<c:when test="${step == '3'}">
 	    <h2>Beneficiary info</h2>
 	    <p>You may add up to three(3) persons</p>
 		<div style="margin:20px 0;"></div>
 		<div>
 			<div style="padding:10px 60px 20px 60px">
-		    <form id="beneficiaryInfo" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-detail1">
 		    	<table>
 		    		<tr>
 		    			<td><input type="radio" name="ownEstate" value="true" id="ownEstate1"/>Own estate<input type="radio" name="ownEstate" value="false" id="ownEstate2"/>Name others</td>
@@ -207,15 +197,13 @@
 		    		</tr>
 		    		<tr align="center">
 		    			<td colspan="4">
-		    			   <input type="submit" value="NEXT"/>
+		    			   <input type="button" value="NEXT"/>
 		    			</td>
 		    		</tr>
 		    	</table>
-		    </form>
 		    </div>
 		</div>
-	</c:when>
-</c:choose>
+</form>
 </div>
 <script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 </body>
