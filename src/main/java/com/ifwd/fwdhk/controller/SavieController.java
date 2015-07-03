@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.util.StringHelper;
 
@@ -34,7 +37,7 @@ public class SavieController {
 	@Autowired
 	private RestServiceDao restService;
 
-	@RequestMapping(value = {"/{lang}/getSaviePersonalinfo"})
+	@RequestMapping(value = {"/{lang}/savie-application-detail1"})
 	public String getSaviePersonalinfo(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
@@ -44,11 +47,13 @@ public class SavieController {
 		logger.debug(request.getParameter("beneChineseName"));
 		logger.debug(request.getParameter("hkidOrPassportNo"));
 		logger.debug(request.getParameter("beneGender"));
-		logger.debug(request.getParameter("beneEntitlement"));		
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-personalinfo";
+		logger.debug(request.getParameter("beneEntitlement"));	
+		
+		setupStepAttributes(model, "1");
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
 	}
 	
-	@RequestMapping(value = {"/{lang}/getSavieEmploymentinfo"})
+	@RequestMapping(value = {"/{lang}/savie-application-detail2"})
 	public String getSavieEmploymentInfo(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
@@ -70,10 +75,12 @@ public class SavieController {
 		logger.debug(request.getParameter("placeOfBirth"));
 		logger.debug(request.getParameter("nationality"));
 		logger.debug(request.getParameter("addressIsSame"));
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-employmentinfo";
+		
+		setupStepAttributes(model, "2");
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
 	}
 	
-	@RequestMapping(value = {"/{lang}/getSavieBeneficiaryinfo"})
+	@RequestMapping(value = {"/{lang}/savie-application-detail3"})
 	public String getSavieBeneficiaryInfo(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
@@ -82,7 +89,13 @@ public class SavieController {
 		logger.debug(request.getParameter("natureOfBusiness"));
 		logger.debug(request.getParameter("occupation"));
 		logger.debug(request.getParameter("monthlyPersonalIncome"));
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-beneficiaryinfo";
+		
+		setupStepAttributes(model, "3");
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
+	}
+	
+	private void setupStepAttributes(Model model, String step) {
+    	model.addAttribute("step", step);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-landing"})
@@ -90,8 +103,6 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		HttpSession session = request.getSession();
-		session.setAttribute("editFrom", false);
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
@@ -101,20 +112,12 @@ public class SavieController {
 		if (lang.equals("tc"))
 			lang = "CN";
 		
-		HttpSession session = request.getSession();
-		String redirectUrl="";
-		if(session.getAttribute("editFrom")==null)
-		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
-		}
-		else if((boolean)session.getAttribute("editFrom") != true)
-		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
-		}
-		else
-		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
-		}
+		
+		
+		
+		String redirectUrl=SaviePageFlowControl.pageFlow(request);
+		
+		
 		
 		return redirectUrl;
 	}
