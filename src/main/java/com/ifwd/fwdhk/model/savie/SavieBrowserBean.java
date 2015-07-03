@@ -1,22 +1,22 @@
 package com.ifwd.fwdhk.model.savie;
 
 public class SavieBrowserBean {
-	private String osName;//操作系统名称  
-	private String osArch;//操作系统构架
-	private String osVersion; //操作系统版本
-	private String agent;//获取浏览器名称 
+	private String osName;// operating system name; 
+	private String osArch;// operating system architecture
+	private String osVersion;  //operating system version
+	private String agent;//Get the name of the browser 
 	
 	
-	private String method;//获得客户端向服务器端传送数据的方法有GET、POST、PUT等类型  
+	private String method;//method to get the client to transmit data to a server, there are GET, POST, PUT, and other types  
 	
 /*	
-	private String RequestURI;//获得发出请求字符串的客户端地址  
-	private String ServletPath;//获得客户端所请求的脚本文件的文件路径  
-	private String ServerName;//获得服务器的名字  
-	private String ServerPort;//获得服务器的端口号  	
+	private String RequestURI;// get a string requesting client address  
+	private String ServletPath;//get the script file on the client requested the file path 
+	private String ServerName;//get server's name  
+	private String ServerPort;//get server port number  	
 */	
-	private String remoteAddr;//获得客户端的IP地址  
-	private String remoteHost;//获得客户端电脑的名字，
+	private String remoteAddr;//obtain the IP address of the client 
+	private String remoteHost;//get the client computer's name
 	private String protocol;
 	public String getOsName() {
 		return osName;
