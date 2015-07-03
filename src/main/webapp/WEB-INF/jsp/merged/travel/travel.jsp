@@ -205,7 +205,12 @@ $(document).ready(function() {
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label></label>
 	                          </div>
 	                          <div class="clearfix"></div>
 	                          <hr>
@@ -232,12 +237,7 @@ $(document).ready(function() {
 	                       <!-- start of family plan bottom spinner-->
 	                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
 	                         <div class="col-lg-6">
-	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /><a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="travel.home.adult.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></h4>
+	                           <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
 	                         </div>
 	                         <div class="col-lg-6">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
@@ -351,7 +351,12 @@ $(document).ready(function() {
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
-             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label> </label>
+             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label> </label>
           </div>
           <div class="clearfix"></div>
           <hr>
@@ -485,92 +490,70 @@ $(document).ready(function() {
 
 <!--/#main slider-->
 
-<section id="feature" >
+<section id="feature" style="margin-top:40px;">
   <div class="container pad-none">
     <div class="center wow fadeInDown"> 
       <!--desktop-->
-<h2 class="hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h2>
-<!--end desktop--> 
+		<h2 class="hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h2>
+		<!--end desktop--> 
+		
+		<!--Mobile-->
+		<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
+		<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
+		<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" />
+		<fmt:message key="travel.main.mobile.desc3" bundle="${msg}" />
+		</h2>
+		<!--end Mobile-->
+	</div>
+	
+	
+	<!--desktop Features-->
+    <div class="center wow fadeInDown">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /><fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
+                  </h3>
+                  <div style="margin-top:25px;">
+                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" />
+                  </div>
+                  <div style="margin-top:10px;">
+                       <fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" />
+                  </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /><fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
+                  </h3>
+                  <div style="margin-top:25px;">
+                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" />
+                  </div>
+                  <div style="margin-top:10px;">
+                        <fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" />
+                  </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                  <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                       <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                         <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
+                      </h3>
+                      <div style="margin-top:25px;">
+                           <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" />
+                      </div>
+                      <div style="margin-top:10px;">
+                          <fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" />
+                      </div>
+                  </div>
+              </div>
+              <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+      </div>
 
-<!--Mobile-->
-<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
-<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
-<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" />
-<fmt:message key="travel.main.mobile.desc3" bundle="${msg}" />
-</h2>
-<!--end Mobile-->
-</div>
-
-<!--desktop Features-->
-<div class="hidden-xs hidden-sm">
-    <div class="col-md-10 col-md-offset-1 home-features"  >
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" alt="" /> </div>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
-        <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="clearfix"></div>
-    <br>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" /></p>
-        <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" alt=""  /> </div>
-    <div class="clearfix"></div>
-    <br>
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt=""  /> </div>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" /></p>
-        <a href="#" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  
-  <!--mobile Features--> 
-  
-  <!--/.row--> 
-</div>
-
-<!--mob Features-->
-<div class="mob-features hidden-lg hidden-md">
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /><br/>
-                <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
-      <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-  <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /><br/>
-      <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" /></p>
-      <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-  <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" /></p>
-      <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-</div>
-<div class="clearfix"></div>
 <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
   <h2><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
@@ -956,7 +939,12 @@ $(document).ready(function() {
                       </div>
                       <div class="col-lg-6">
                           <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label></label>
 
 
                       </div>

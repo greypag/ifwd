@@ -80,6 +80,9 @@ class="image-order-status image-order-status-active  img-circle">
 			"policyNo")%></span>
 		</h4>
 		
+		<h5><fmt:message key="flight.confirmation.Y5Buddy" bundle="${msg}" /></h5>
+		<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" style="margin:0px;">
+		
 		<div class="gray-bg1-content" style="padding:0px !important">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
 			     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>

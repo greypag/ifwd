@@ -88,7 +88,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
             <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
+		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
 		        <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
 		      </h3>
 	          <div style="margin-top:25px;">
@@ -104,7 +104,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	      </div>
 	      <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
+	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
 	             <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
 	          </h3>
 	          <div style="margin-top:25px;">
@@ -117,7 +117,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px;">
+	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
 	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
 	              </h3>
 	              <div style="margin-top:25px;">
@@ -128,7 +128,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	              </div>
 	          </div>
           </div>
+          <div class="clearfix"></div>
       </div>
+      <div class="clearfix"></div>
       
       
 
@@ -138,10 +140,6 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 </div>
 
 
-
-
-
-<div class="clearfix"></div>
 <div id="other-benefits" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
   <h2><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
@@ -234,6 +232,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
 <!--/.container-->
+</div>
 </div>
 </section>
 <!--/#feature-->
