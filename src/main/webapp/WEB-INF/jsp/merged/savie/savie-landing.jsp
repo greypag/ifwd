@@ -156,10 +156,10 @@
 	                    </div>
 	                    <div class="col-xs-12 col-md-4 fwd-col">
 	                        <div class="col-content">
-	                            <h2><fmt:message key="savie.landing.Simple.H2" bundle="${msg}" /></h2>
-	                            <h3><fmt:message key="savie.landing.Simple.H3" bundle="${msg}" /></h3>
+	                            <h2><fmt:message key="savie.landing.Nocharges.H2" bundle="${msg}" /></h2>
+	                            <h3><fmt:message key="savie.landing.Nocharges.H3" bundle="${msg}" /></h3>
 	                            <img src="<%=request.getContextPath()%>/resources/images/savie/no-commitment.png">
-	                            <p><fmt:message key="savie.landing.Simple.p" bundle="${msg}" /></p>
+	                            <p><fmt:message key="savie.landing.Nocharges.p" bundle="${msg}" /></p>
 	                        </div>
 	                    </div>
 	                    <div class="col-xs-12 col-md-4 fwd-col">
