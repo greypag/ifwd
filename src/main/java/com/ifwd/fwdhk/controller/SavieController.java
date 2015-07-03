@@ -38,8 +38,7 @@ public class SavieController {
 		logger.debug(bene.getLastName());
 		logger.debug(bene.getPassport());
 		logger.debug(bene.getRelationship());	
-		logger.debug(bene.getGender().toString());	
-		
+
 		setupStepAttributes(model, "1");
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
 	}
@@ -92,11 +91,11 @@ public class SavieController {
 		
 		
 		
-		String redirectUrl=SaviePageFlowControl.pageFlow(request);
+		//String redirectUrl=SaviePageFlowControl.pageFlow(request);
 		
 		
 		
-		return redirectUrl;
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
 	}
 
 	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})

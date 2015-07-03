@@ -1,5 +1,13 @@
 <%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -42,25 +50,25 @@
 			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
 				<div class="breadcrumbs pull-left">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-						<li><a href="#">Save</a></li>
+						<li><a href="#"><fmt:message key="savie.sales.illustration.Save" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#">Savie</a></li>
+						<li><a href="#"><fmt:message key="savie.sales.illustration.Savie" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></li>
-						<li class="active-bc">Sales illustration</li>
+						<li class="active-bc"><fmt:message key="savie.sales.illustration.Sales.illustration" bundle="${msg}" /></li>
 					</ol>
 				</div>
 				<div id="questions" class="text-center pull-right">
 					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
 					<a href="#">
 						<div class="right">                 
-							<h3>Questions ?</h3> <p>Talk to us now<i class="glyphicon glyphicon-play"></i></p> 
+							<h3><fmt:message key="savie.sales.illustration.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.sales.illustration.Talk.to.us.now" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="fwd-full-container container-fluid text-center sales-head">
-				<h1>Sales illustration</h1>
+				<h1><fmt:message key="savie.sales.illustration.Sales.illustration" bundle="${msg}" /></h1>
 			</div>
 			
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
@@ -70,21 +78,21 @@
 					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 					<div id="investment-amount">    
 						<div id="desktop-left">
-							<h3 class="saving">Savings amount<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h3>
+							<h3 class="saving"><fmt:message key="savie.sales.illustration.Savings.amount" bundle="${msg}" /><img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h3>
 							<div id="left" class="pull-left">
-								<p>Min</p>
+								<p><fmt:message key="savie.sales.illustration.Min" bundle="${msg}" /></p>
 								<p>30,000</p>
 							</div>
 
 							<div id="right" class="pull-right">
-								<p>Max</p>
+								<p><fmt:message key="savie.sales.illustration.Max" bundle="${msg}" /></p>
 								<p>400,000</p>
 							</div>
 
 							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
 							<h3 class="pull-right total"><span id="range">60,000</span></h3>
-							<label id="hkd" class="pull-right total">HK<span>$</span></label>
+							<label id="hkd" class="pull-right total"><fmt:message key="savie.sales.illustration.HK" bundle="${msg}" /></label>
 						</div>
 
 						<div id="desktop-right">
@@ -93,7 +101,7 @@
 							<input name="promocode" type="text" placeholder="eg: SAVIE50" class="promocode">
 						</div>
 
-					   <p id="crediting-rate" class="text-center">Guaranteed crediting rate 3%, 3%, 4%</p>
+					   <p id="crediting-rate" class="text-center"><fmt:message key="savie.sales.illustration.Guaranteed.crediting.rate" bundle="${msg}" /></p>
 					</div>
 
 					<div id="information">
@@ -101,7 +109,7 @@
 							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/birthday.png">
 						</div>
 
-						<h2>Date of Birth<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
+						<h2><fmt:message key="savie.sales.illustration.Date.of.Birth" bundle="${msg}" /><img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
 
 						<div id="birthday">
 							<div class="input-group input-append date" id="datePicker">
@@ -120,17 +128,17 @@
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2>Summary<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"> </h2>
-	                                <h3>1-3 year guaranteed (HK$)</h3>
+	                                <h2><fmt:message key="savie.sales.illustration.Summary" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"> </h2>
+	                                <h3><fmt:message key="savie.sales.illustration.year.guaranteed" bundle="${msg}" /></h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border">End of<span>policy year<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></span></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm">Total premium paid</span><span class="hidden-md hidden-lg">Premium paid</span><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
-	                                        <th class="desktop-only">Account value<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
-	                                        <th class="right-border">Surrender benefit<img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="left-border"><fmt:message key="savie.sales.illustration.End.of" bundle="${msg}" /><span><fmt:message key="savie.sales.illustration.policy.year" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></span></th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.sales.illustration.Total.premium.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.sales.illustration.Premium.paid" bundle="${msg}" /></span><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.sales.illustration.Account.value" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="right-border"><fmt:message key="savie.sales.illustration.Surrender.benefit" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
@@ -147,13 +155,13 @@
 	                            <div class="investment-summary-title-desktop">
 	                                <div class="row percent-buttons" >
 										<div class="col-md-6 col-xs-12 after-year-three">
-	                                        <h3>After year 3 non guaranteed (HK$)</h3>
-											<p class="hidden-md hidden-lg text-center">Check the return of different crediting rate</p>
+	                                        <h3><fmt:message key="savie.sales.illustration.After.year.3.non.guaranteed" bundle="${msg}" /></h3>
+											<p class="hidden-md hidden-lg text-center"><fmt:message key="savie.sales.illustration.Check.the.return.of.different.crediting.rate" bundle="${msg}" /></p>
 	                                    </div>  
 	                                    <div class="col-md-6 col-xs-12 fwd-chart-col">
 	                                        <div class="clearfix right-side">
 	                                            <div class="left-side hidden-xs hidden-sm">
-	                                                <p class="rate-text">Crediting rate</p>
+	                                                <p class="rate-text"><fmt:message key="savie.sales.illustration.Crediting.rate" bundle="${msg}" /></p>
 	                                            </div>
 	                                            <div class="left-side chart-button-left">
 	                                                <button id="zero-rate" type="button">0%</button>
@@ -172,11 +180,11 @@
 	                                </div>                                
 	                            </div>
 	                            <div class="investment-summary">
-									<p class="surrender-benefit">Surrender <span>benefit</span> (HK$ ‘000)</p>
+									<p class="surrender-benefit"><fmt:message key="savie.sales.illustration.Surrender" bundle="${msg}" /> <span><fmt:message key="savie.sales.illustration.benefit" bundle="${msg}" /></span> (HK$ ‘000)</p>
 									<div id="illustration-chart"></div>
 									<div class="drag-more">
 										<div>
-											<span class="drag-more-text">Drag to<br />view more <span class="glyphicon glyphicon-play"></span></span>
+											<span class="drag-more-text"><fmt:message key="savie.sales.illustration.Drag.to" bundle="${msg}" /><br /><fmt:message key="savie.sales.illustration.view.more" bundle="${msg}" /> <span class="glyphicon glyphicon-play"></span></span>
 										</div>
 									</div>
 	                            </div>
@@ -191,12 +199,12 @@
 				<div class="row email-row">
 					<div class="col-xs-12 col-md-6 email-me pull-left">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/email-mob.png">
-						<h5>Email me a complete sales Illustration table<span class="hidden-xs hidden-sm">.</span></h5>
+						<h5><fmt:message key="savie.sales.illustration.Email.me.a.complete.sales.Illustration.table" bundle="${msg}" /><span class="hidden-xs hidden-sm">.</span></h5>
 					</div>
 					<div class="col-xs-12 col-md-6 email-input pull-right">
 						<form class="text-center">
 							<input name="email" type="email" class="email-text" onkeyup="return forceLower(this);" placeholder="Enter your email address" />
-							<button type="submit" class="email-btn">Submit</button>
+							<button type="submit" class="email-btn"><fmt:message key="savie.sales.illustration.Submit" bundle="${msg}" /></button>
 						</form>
 					</div>
 				</div>
@@ -206,34 +214,34 @@
 			<!--Explanation Block-->
 			<div class="fwd-container container-fluid reset-padding explanation-block">
 				<button class="btn btn-gray explanation-button" type="button" data-toggle="collapse" data-target="#collapseExplanation" aria-expanded="false" aria-controls="collapseExplanation" id="explanation-button">
-					Explanation
+					<fmt:message key="savie.sales.illustration.Explanation" bundle="${msg}" />
 				</button>
-				<span class="explanation">Explanation</span>
+				<span class="explanation"><fmt:message key="savie.sales.illustration.Explanation" bundle="${msg}" /></span>
 				<div class="collapse" id="collapseExplanation">
 					<ul class="explanation-list">
 						<li class="explanation-li">
-							<p class="expl-txt">The above is only a summary illustration of the major benefits of your Policy. You should refer to the Company for more information or, if appropriate, a more detailed proposal.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.The.above.is.only.a.summary.illustration.of.the.major.benefits.of.your.Policy.You.should.refer.to.the.Company.for.more.information.or.if.appropriate.a.more.detailed.proposal" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">The Basic Plan Illustration in Section 1 and 2 relates only to your Basic Plan and assumes that all premiums are paid in full when due without exercising skip premium option (premium holiday) and the current scale of charges remain unchanged. </p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.The.Basic.Plan.Illustration.in.Section.1.and.2.relates.only.to.your.Basic.Plan.and.assumes.that.all.premiums.are.paid.in.full.when.due.without.exercising.skip.premium.option.(premium.holiday).and.the.current.scale.of.charges.remain.unchanged" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">Death Benefit is equal to the sum of initial sum insured and account value throughout the policy term. Besides Death Benefit, an additional accidental death benefit equivalent to 100% of the Account Value or HK$400,000, whichever is lower, will be offered.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.Death.Benefit.is.equal.to.the.sum.of.initial.sum.insured.and.account.value.throughout.the.policy.term.Besides.Death.Benefit.an.additional.accidental.death.benefit.equivalent.to.100%.of.the.Account.Value.or.HK$400,000.whichever.is.lower.will.be.offered" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">All values in this illustration are rounded to the nearest dollar and will be different comparing to actual values. Illustrated values in Section 1 and 2 apply only when the Policy is inforce.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.All.values.in.this.illustration.are" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">Withdrawal Charges are 3% of the withdrawal amount for the first 3 policy years. The Withdrawal Charges will be deducted from the Account Value if you fully surrender your policy or partially withdraw an amount during the first 3 policy years.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.Withdrawal.Charges.are.3%.of.the.withdrawal.amount.for" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">The total surrender value and death benefits payable shown in Section 1 Guaranteed Basis are calculated based on "Guaranteed Crediting Rate" in the first 3 policy years. You may decide fully surrender your policy after first 3 policy years or keep your Policy for longer period.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.The.total.surrender.value.and.death" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">The total surrender value and death benefits payable shown in Section 2 Non-guaranteed Basis are applicable after policy year 3 and calculated based on "Assumed Declared Rates" remain unchanged throughout the term of the policy. These rates are for illustrative purposes only and are neither guaranteed nor based on past performance. The actual return may be different.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.The.total.surrender.value.and.death.benefits.payable" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">Current Rate declared by the Company shall in no way be interpreted as a projection or estimation of the future return after policy year 3. Future declared rate after policy year 3 may be higher or lower than the illustrated rate. Please refer to the Company’s website for the latest declared rate.</p>
+							<p class="expl-txt"><fmt:message key="savie.sales.illustration.Current Rate.declared.by.the.Company.shall.in.no.way.be" bundle="${msg}" /></p>
 						</li>
 					</ul>
 				</div>
@@ -254,12 +262,11 @@
 						<div class="pull-left right-width">
 							<div class="row">
 								<div class="col-xs-12 col-md-8 text-padding">
-									<h6>Made your decision?</h6>
-									<p class="started">If you are happy with the numbers above, 
-									let’s get started.</p>
+									<h6><fmt:message key="savie.sales.illustration.Made.your.decision" bundle="${msg}" /></h6>
+									<p class="started"><fmt:message key="savie.sales.illustration.If.you.are.happy.with" bundle="${msg}" /></p>
 								</div>
 								<div class="col-xs-12 col-md-4 button-padding">
-									<button id="made-decision-next-btn" type="button" class="btn btn-orange btn-explanation">Next</button>
+									<button id="made-decision-next-btn" type="button" class="btn btn-orange btn-explanation"><fmt:message key="savie.sales.illustration.Next" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
