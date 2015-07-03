@@ -3,6 +3,8 @@ package com.ifwd.fwdhk.util;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
+
 
 
 
@@ -27,8 +29,8 @@ public class SaviePageFlowControl {
 		savie-edit-view
 
 
-referer : http://localhost:8080/FWDHKPH1A/tc/savie-landing
-current : /tc/savie-illustration
+		referer : http://localhost:8080/FWDHKPH1A/tc/savie-landing
+		current : /tc/savie-illustration
 
 		*/
 		
@@ -36,12 +38,12 @@ current : /tc/savie-illustration
 		String current = request.getServletPath();
 		System.out.println("referer : "+referer);
 		System.out.println("current : "+current);	
-		if(!referer.isEmpty())
+		if(referer!=null)
 		{
 			referer=referer.substring(referer.lastIndexOf("/")+1);
 		}
 		
-		if(!current.isEmpty())
+		if(current!=null)
 		{
 			current=current.substring(current.lastIndexOf("/")+1);
 		}
@@ -52,23 +54,24 @@ current : /tc/savie-illustration
         
 	    
 	    String to="";
-		if (current.equals("savie-sales-illustration")) 
+		if (current.equals("savie-sales-illustration")||current.equals("savie-illustration")) 
 		{
-			if(referer.isEmpty())
+			if(referer==null)
 			{
 				to="savie-landing";
 			}
 			else if (referer.endsWith("savie-landing")) 
 			{
-				to="savie-fna";
+				to="savie-application-detail1";
 			} 
 			else if(referer.endsWith("savie-edit-view")) 
 			{
 				to="savie-edit-view";
 			}			
 		}
+
 		
-	
+		System.out.println("to : "+to);
 		
 		return to; 
 		

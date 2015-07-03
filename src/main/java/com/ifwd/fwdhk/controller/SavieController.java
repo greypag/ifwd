@@ -106,20 +106,16 @@ public class SavieController {
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-illustration"})
+	@RequestMapping(value = {"/{lang}/savie-illustration","/{lang}/savie-sales-illustration"})
 	public String getSavieIllustration(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
 		
 		
+		model.addAttribute("nextPageFlow", SaviePageFlowControl.pageFlow(request));
 		
-		
-		String redirectUrl=SaviePageFlowControl.pageFlow(request);
-		
-		
-		
-		return redirectUrl;
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
 	}
 
 	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})
