@@ -36,4 +36,7 @@
 </bean>
 
 
+<bean class="com.ifwd.fwdhk.util.InitApplicationMessage">
+</bean>
+
 </beans>
