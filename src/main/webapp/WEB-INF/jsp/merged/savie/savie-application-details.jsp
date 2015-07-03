@@ -10,7 +10,7 @@
 </head>
 <body>
 <div align="center">
-<form id="" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-">
+<form id="detailInfo" method="post" action="${pageContext.request.contextPath}/${language}/savie-order-summary">
 	    <h2>Personal info</h2>
 		<div style="margin:20px 0;"></div>
 		<div>
@@ -18,47 +18,47 @@
 		    	<table>
 		    		<tr>
 		    			<td>Name in English:</td>
-		    			<td><input type="text" name="firstName" id="firstName"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.firstName" id="firstName"></input></td>
 		    			<td>Email address:</td>
-		    			<td><input type="text" name="emailAddress" id="emailAddress"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.emailAddress" id="emailAddress"></input></td>
 		    		</tr>
 		    		<tr>
 		    			<td></td>
-		    			<td><input type="text" name="lastName" id="lastName"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.lastName" id="lastName"></input></td>
 		    			<td>Residential tel no:</td>
-		    			<td><input type="text" name="residentialTelNo" id="residentialTelNo"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.residentialTelNo" id="residentialTelNo"></input></td>
 		    		</tr>
 		    		<tr>
 		    			<td>Name in Chinese:</td>
-		    			<td><input type="text" name="chineseName" id="chineseName"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.chineseName" id="chineseName"></input></td>
 		    			<td>Mobile no:</td>
-		    			<td><input type="text" name="mobileNo" id="mobileNo"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.mobileNo" id="mobileNo"></input></td>
 		    		</tr>
 		    		<tr>
 		    			<td>HKID:</td>
-		    			<td><input type="text" name="hkId" id="hkId"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.hkId" id="hkId"></input></td>
 		    			<td>Residential address:</td>
-		    			<td><input type="text" name="residentialAdress1" id="residentialAdress1"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.residentialAdress1" id="residentialAdress1"></input></td>
 		    		</tr>
 		    		<tr>
 		    			<td>Gender:</td>
-		    			<td><input type="radio" name="gender" id="gender1" value="M"></input>Male
-		    			    <input type="radio" name="gender" id="gender2" value="F"></input>Female
+		    			<td><input type="radio" name="savieApplicantBean.gender" id="gender1" value="M"></input>Male
+		    			    <input type="radio" name="savieApplicantBean.gender" id="gender2" value="F"></input>Female
 		    			</td>
 		    			<td></td>
-		    			<td><input type="text" name="residentialAdress2" id="residentialAdress2"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.residentialAdress2" id="residentialAdress2"></input></td>
 		    		</tr>
 		    		<tr>
 		    			<td>Marital status:</td>
 		    			<td>
-		    			    <select name="maritalStatus" id="maritalStatus">
+		    			    <select name="savieApplicantBean.maritalStatus" id="maritalStatus">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="Married">Married</option>
 		    			        <option value="Unmarried">Unmarried</option>
 		    			    </select>
 		    			</td>
 		    			<td></td>
-		    			<td><input type="text" name="residentialAdress3" id="residentialAdress3"></input></td>
+		    			<td><input type="text" name="savieApplicantBean.residentialAdress3" id="residentialAdress3"></input></td>
 		    		</tr>
 		    		<tr>
 		    			<td>Date of birth:</td>
@@ -71,7 +71,7 @@
 		    			</td>
 		    			<td></td>
 		    			<td>
-		    			    <select name="residentialDistrict" id="residentialDistrict">
+		    			    <select name="savieApplicantBean.residentialDistrict" id="residentialDistrict">
 		    			        <option value="">district</option>
 		    			        <option value="hk">hk</option>
 		    			    </select>
@@ -80,7 +80,7 @@
 		    		<tr>
 		    			<td>Place of birth:</td>
 		    			<td>
-		    			    <select name="placeOfBirth" id="placeOfBirth">
+		    			    <select name="savieApplicantBean.placeOfBirth" id="placeOfBirth">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="hk">hk</option>
 		    			    </select>
@@ -91,13 +91,13 @@
 		    		<tr>
 		    			<td>Nationality:</td>
 		    			<td>
-		    			    <select name="nationality" id="nationality">
+		    			    <select name="savieApplicantBean.nationality" id="nationality">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="hk">hk</option>
 		    			    </select>
 		    			</td>
 		    			<td></td>
-		    			<td><input type="checkbox" name="addressIsSame" id="addressIsSame" value="Y"/>My conrrespondance address is same as my residential address</td>
+		    			<td><input type="checkbox" name="" id="addressIsSame" value="Y"/>My conrrespondance address is same as my residential address</td>
 		    		</tr>
 		    		<tr align="center">
 		    			<td colspan="4">
@@ -115,7 +115,7 @@
 		    		<tr>
 		    			<td>Employment status:</td>
 		    			<td>
-		    			    <select name="employmentStatus" id="employmentStatus">
+		    			    <select name="savieEmploymentBean.employmentStatus" id="employmentStatus">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="Employed">Employed</option>
 		    			        <option value="Unemployed">Unemployed</option>
@@ -123,7 +123,7 @@
 		    			</td>
 		    			<td>Nature of business:</td>
 		    			<td>
-		    			    <select name="natureOfBusiness" id="natureOfBusiness">
+		    			    <select name="savieEmploymentBean.natureOfBusiness" id="natureOfBusiness">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="Entertainment">Entertainment</option>
 		    			    </select>
@@ -132,14 +132,14 @@
 		    		<tr>
 		    			<td>Occupation:</td>
 		    			<td>
-		    			    <select name="occupation" id="occupation">
+		    			    <select name="savieEmploymentBean.occupation" id="occupation">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="Artist">Artist</option>
 		    			    </select>
 		    			</td>
 		    			<td>Monthly personal income(HKD):</td>
 		    			<td>
-		    			    <select name="monthlyPersonalIncome" id="monthlyPersonalIncome">
+		    			    <select name="savieEmploymentBean.monthlyPersonalIncome" id="monthlyPersonalIncome">
 		    			        <option value="">-Please select-</option>
 		    			        <option value="55001">HK$55001 and above</option>
 		    			    </select>
@@ -197,7 +197,7 @@
 		    		</tr>
 		    		<tr align="center">
 		    			<td colspan="4">
-		    			   <input type="button" value="NEXT"/>
+		    			   <input type="submit" value="NEXT"/>
 		    			</td>
 		    		</tr>
 		    	</table>
