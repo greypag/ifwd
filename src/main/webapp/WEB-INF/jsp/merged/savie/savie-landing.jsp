@@ -57,7 +57,7 @@
 					</div>
 				</div>		
 				<div class="widget-btns">
-					<a href="#">Buy now</a>						
+					<a href="<%=request.getContextPath()%>/${language}/savie-illustration">Buy now</a>						
 				</div>
 				<div class="widget-link">
 					<a href="#">Learn more</a>
@@ -254,7 +254,7 @@
 	                        </div>
 	                    </button>
 	                </div>
-	                <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now">Buy now</button>
+	                <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savie-illustration">Buy now</a></button>
 	            </div>
 	        </div>
 			

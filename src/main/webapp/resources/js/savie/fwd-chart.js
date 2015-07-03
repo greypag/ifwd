@@ -61,7 +61,7 @@ function showFWDChart(rate, zoom) {
 	var maxData = chartData[1];
 	var tickIntervalData = chartData[2];
 	var thirdYear = chartData[3];
-	
+	var contextPath = window.location.pathname.split("/")[1];
 	$('#illustration-chart').highcharts({
 		chart: {
 			type: 'area',
@@ -121,7 +121,7 @@ function showFWDChart(rate, zoom) {
 			}, { // age
 				id: "age-no",
 				label: {
-					text: "<img src=\"assets/images/age-icon.png\" class=\"img-responsive fwd-chart-age-img\"><span class=\"fwd-chart-age\">Age 66</span>",
+					text: "<img src=\"/"+contextPath+"/resources/images/savie/age-icon.png\" class=\"img-responsive fwd-chart-age-img\"><span class=\"fwd-chart-age\">Age 66</span>",
 					align: "center",
 					rotation: 0,
 					verticalAlign: "bottom",
