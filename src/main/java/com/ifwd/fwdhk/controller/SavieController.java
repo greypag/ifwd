@@ -25,6 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.util.StringHelper;
 
@@ -102,8 +103,6 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		HttpSession session = request.getSession();
-		session.setAttribute("editFrom", false);
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
@@ -113,20 +112,12 @@ public class SavieController {
 		if (lang.equals("tc"))
 			lang = "CN";
 		
-		HttpSession session = request.getSession();
-		String redirectUrl="";
-		if(session.getAttribute("editFrom")==null)
-		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
-		}
-		else if((boolean)session.getAttribute("editFrom") != true)
-		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
-		}
-		else
-		{
-			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
-		}
+		
+		
+		
+		String redirectUrl=SaviePageFlowControl.pageFlow(request);
+		
+		
 		
 		return redirectUrl;
 	}

@@ -1,19 +1,15 @@
 package com.ifwd.fwdhk.util;
 
-import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.servlet.ModelAndView;
 
 
 
 
 public class SaviePageFlowControl {
 
-	@SuppressWarnings("null")
-	public static ModelAndView pageFlow(HttpServletRequest request, HttpServletResponse response, String current, String from) throws IOException 
+	public static String pageFlow(HttpServletRequest request)
 	{		
 		
 		
@@ -30,29 +26,51 @@ public class SaviePageFlowControl {
 		savie-signature
 		savie-edit-view
 
+
+referer : http://localhost:8080/FWDHKPH1A/tc/savie-landing
+current : /tc/savie-illustration
+
 		*/
 		
+		String referer = request.getHeader("referer");
+		String current = request.getServletPath();
+		System.out.println("referer : "+referer);
+		System.out.println("current : "+current);	
+		if(!referer.isEmpty())
+		{
+			referer=referer.substring(referer.lastIndexOf("/")+1);
+		}
+		
+		if(!current.isEmpty())
+		{
+			current=current.substring(current.lastIndexOf("/")+1);
+		}
+		
+		System.out.println("referer : "+referer);
+		System.out.println("current : "+current);
+
         
 	    
 	    String to="";
 		if (current.equals("savie-sales-illustration")) 
 		{
-			if (from.equals("savie-landing")) 
+			if(referer.isEmpty())
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-landing")) 
 			{
 				to="savie-fna";
 			} 
-			else if(from.equals("savie-edit-view")) 
+			else if(referer.endsWith("savie-edit-view")) 
 			{
 				to="savie-edit-view";
-			}
-			else if(from.equals("error"))
-			{
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-				return null;
-			}
+			}			
 		}
 		
-		return new ModelAndView("redirect:" + to);
+	
+		
+		return to; 
 		
 	}
 		
