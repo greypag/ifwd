@@ -3,14 +3,14 @@ package com.ifwd.fwdhk.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.ifwd.fwdhk.controller.UserRestURIConstants;
-
-
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class SaviePageFlowControl {
-
+	
+	private final static Logger logger = LoggerFactory.getLogger(SaviePageFlowControl.class);
+	
 	public static String pageFlow(HttpServletRequest request)
 	{		
 		
@@ -32,12 +32,15 @@ public class SaviePageFlowControl {
 		referer : http://localhost:8080/FWDHKPH1A/tc/savie-landing
 		current : /tc/savie-illustration
 
-		*/
+*/
+		
+		
+	
 		
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
-		System.out.println("referer : "+referer);
-		System.out.println("current : "+current);	
+		//logger.info("referer : "+referer);
+		//logger.info("current : "+current);	
 		if(referer!=null)
 		{
 			referer=referer.substring(referer.lastIndexOf("/")+1);
@@ -48,13 +51,13 @@ public class SaviePageFlowControl {
 			current=current.substring(current.lastIndexOf("/")+1);
 		}
 		
-		System.out.println("referer : "+referer);
-		System.out.println("current : "+current);
+		logger.info("referer : "+referer);
+		logger.info("current : "+current);
 
         
 	    
 	    String to="";
-		if (current.equals("savie-sales-illustration")||current.equals("savie-illustration")) 
+		if (current.equals("savie-sales-illustration")) 
 		{
 			if(referer==null)
 			{
@@ -68,10 +71,136 @@ public class SaviePageFlowControl {
 			{
 				to="savie-edit-view";
 			}			
+		}		
+		
+		if (current.equals("savie-fna")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-sales-illustration")) 
+			{
+				to="savie-application-details";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
 		}
 
 		
-		System.out.println("to : "+to);
+		if (current.equals("savie-application-details")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-fna")) 
+			{
+				to="savie-order-summary";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
+		}
+		
+		if (current.equals("savie-order-summary")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-application-details")) 
+			{
+				to="savie-appointment";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
+		}
+		
+		if (current.equals("savie-appointment")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-order-summary")) 
+			{
+				to="savie-document-upload";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
+		}
+		
+		if (current.equals("savie-document-upload")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-appointment")) 
+			{
+				to="savie-thankyou";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
+		}
+		
+		
+		if (current.equals("savie-thankyou")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-document-upload")) 
+			{
+				to="savie-declaration-authorization";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
+		}
+		
+		if (current.equals("savie-declaration-authorization")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else if (referer.endsWith("savie-thankyou")) 
+			{
+				to="savie-signature";
+			} 
+			else if(referer.endsWith("savie-edit-view")) 
+			{
+				to="savie-edit-view";
+			}			
+		}
+		
+		if (current.equals("savie-signature")) 
+		{
+			if(referer==null)
+			{
+				to="savie-landing";
+			}
+			else
+			{
+				to="savie-edit-view";
+			}			
+		}
+
+		
+		logger.info("to : "+to);
 		
 		return to; 
 		
