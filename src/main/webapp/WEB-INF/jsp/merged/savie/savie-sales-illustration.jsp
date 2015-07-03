@@ -61,7 +61,11 @@
 					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
 					<a href="#">
 						<div class="right">                 
+<<<<<<< HEAD
 							<h3><fmt:message key="savie.sales.illustration.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.sales.illustration.Talk.to.us.now" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
+=======
+							<h3>${nextPageFlow} Questions ?</h3> <p>Talk to us now<i class="glyphicon glyphicon-play"></i></p> 
+>>>>>>> branch 'fwdhk_savie' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
 						</div>
 					</a>
 				</div>
