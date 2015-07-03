@@ -64,7 +64,13 @@
 		    		</tr>
 		    		<tr>
 		    			<td>Date of birth:</td>
-		    			<td><input type="text" name="" id="birthday"></input></td>
+		    			<td>
+		    			    <div class="input-group date" id="birthdayDiv">
+								<span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+								<input name="birthday" type="text" class="datepicker form-control border-radius" id="birthday" readonly>
+							</div>
+							<span id="birthdayMsg" class="text-red"></span>
+		    			</td>
 		    			<td></td>
 		    			<td>
 		    			    <select name="residentialDistrict" id="residentialDistrict">
@@ -211,5 +217,6 @@
 	</c:when>
 </c:choose>
 </div>
+<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 </body>
 </html>
