@@ -1,6 +1,12 @@
 package com.ifwd.fwdhk.util;
 
 import java.util.regex.Pattern;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.InflaterOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -16,6 +22,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -200,4 +207,134 @@ public class Methods {
         
         return output;
      }
+    
+
+    public static String encodeBase64File(String path) throws Exception {
+        File  file = new File(path);
+        FileInputStream inputFile = new FileInputStream(file);
+        byte[] buffer = new byte[(int)file.length()];
+        inputFile.read(buffer);
+        inputFile.close();
+        return new sun.misc.BASE64Encoder().encode(buffer);
+    }
+
+    public static void decoderBase64File(String base64Code,String targetPath) throws Exception {
+        byte[] buffer = new sun.misc.BASE64Decoder().decodeBuffer(base64Code);
+        FileOutputStream out = new FileOutputStream(targetPath);
+        out.write(buffer);
+        out.close();
+    }
+    
+    public static void toFile(String base64Code,String targetPath) throws Exception {
+        byte[] buffer = base64Code.getBytes();
+        FileOutputStream out = new FileOutputStream(targetPath);
+        out.write(buffer);
+        out.close();
+    }
+
+
+    public static String file2String(File file) throws Exception{  
+        StringBuffer sb = new StringBuffer();  
+        FileInputStream in = new FileInputStream(file);  
+        int b;  
+        char ch;  
+        while((b=in.read())!=-1){  
+            ch = (char)b;  
+            sb.append(ch);  
+        }  
+        in.close();  
+        String oldString = new String(sb);  
+          
+        String newString = compressData(oldString);  
+          
+        return newString;  
+    }  
+      
+
+    public static File string2File(String oldString,String filePath) throws Exception{  
+        File file = new File(filePath);  
+        if(file.exists()){  
+            System.out.println("file exist");  
+            return null;  
+        }else{  
+            file.createNewFile();  
+        }  
+        FileOutputStream out = new FileOutputStream(file);  
+          
+        String newString = decompressData(oldString);  
+          
+        char[] str = newString.toCharArray();  
+        for(char ch:str){  
+            byte b = (byte)ch;  
+            out.write(b);  
+        }  
+        out.close();  
+        return file;  
+    }  
+      
+
+    public static String compressData(String data) {  
+        try {  
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();  
+            DeflaterOutputStream zos = new DeflaterOutputStream(bos);  
+            zos.write(data.getBytes());  
+            zos.close();  
+            return new String(getenBASE64inCodec(bos.toByteArray()));  
+        } catch (Exception ex) {  
+            ex.printStackTrace();  
+            return "ZIP_ERR";  
+        }  
+    }  
+    
+
+    public static String decompressData(String encdata) {  
+        try {  
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();  
+            InflaterOutputStream zos = new InflaterOutputStream(bos);  
+            zos.write(getdeBASE64inCodec(encdata));   
+            zos.close();  
+            return new String(bos.toByteArray());  
+        } catch (Exception ex) {  
+            ex.printStackTrace();  
+            return "UNZIP_ERR";  
+        }  
+    }  
+      
+
+    public static String getenBASE64inCodec(byte [] b) {  
+        if (b == null)  
+            return null;  
+        return new String((new Base64()).encode(b));  
+    }  
+      
+
+    public static byte[] getdeBASE64inCodec(String s) {  
+        if (s == null)  
+            return null;  
+        return new Base64().decode(s.getBytes());  
+    }  
+    
+    
 }
+
+
+/*
+@Test  
+public void testStringBase64() throws Exception{  
+    String str = "我们都是中国人";  
+    String oldStr = Base64UTIL.compressData(str);  
+    String newStr = Base64UTIL.decompressData(oldStr);  
+    System.out.println("base64原串：："+str);  
+    System.out.println("base64编码：："+oldStr);  
+    System.out.println("base64解码：："+newStr);  
+}  
+  
+
+@Test  
+public void testFileBase64() throws Exception{  
+    File oldFile = new File("/home/samforit/Pictures/321.doc");   
+    String comStr = Base64UTIL.file2String(oldFile);  
+    System.out.println(comStr);  
+    File newFile = Base64UTIL.string2File(comStr, "/home/samforit/Pictures/123.doc");  
+}  
+*/

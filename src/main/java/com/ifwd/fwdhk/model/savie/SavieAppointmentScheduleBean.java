@@ -7,8 +7,9 @@ import org.joda.time.DateTime;
 public class SavieAppointmentScheduleBean {
 	
 	private Date dateTime;
-	private String branch;
+	private String branchName;
 	private String phoneNo;
+	
 	
 	public Date getDateTime() {
 		return dateTime;
@@ -16,11 +17,11 @@ public class SavieAppointmentScheduleBean {
 	public void setDateTime(Date dateTime) {
 		this.dateTime = dateTime;
 	}
-	public String getBranch() {
-		return branch;
+	public String getBranchName() {
+		return branchName;
 	}
-	public void setBranch(String branch) {
-		this.branch = branch;
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
 	public String getPhoneNo() {
 		return phoneNo;
@@ -29,7 +30,7 @@ public class SavieAppointmentScheduleBean {
 		this.phoneNo = phoneNo;
 	}
 	
-	
+
 	
 	
 

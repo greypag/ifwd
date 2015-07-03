@@ -1,6 +1,9 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+import javax.mail.Session;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.util.StringHelper;
 
 @Controller
 public class SavieController {
@@ -40,7 +44,7 @@ public class SavieController {
 		logger.debug(request.getParameter("beneChineseName"));
 		logger.debug(request.getParameter("hkidOrPassportNo"));
 		logger.debug(request.getParameter("beneGender"));
-		logger.debug(request.getParameter("beneEntitlement"));
+		logger.debug(request.getParameter("beneEntitlement"));		
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details-personalinfo";
 	}
 	
@@ -86,6 +90,8 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
+		HttpSession session = request.getSession();
+		session.setAttribute("editFrom", false);
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
@@ -94,9 +100,25 @@ public class SavieController {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
+		
+		HttpSession session = request.getSession();
+		String redirectUrl="";
+		if(session.getAttribute("editFrom")==null)
+		{
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
+		}
+		else if((boolean)session.getAttribute("editFrom") != true)
+		{
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
+		}
+		else
+		{
+			redirectUrl=UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
+		}
+		
+		return redirectUrl;
 	}
-	
+
 	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})
 	public void getSavieIllustrationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -180,8 +202,5 @@ public class SavieController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-		
-		
-	
+	}	
 }
