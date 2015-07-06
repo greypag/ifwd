@@ -158,49 +158,55 @@
 		<div style="margin:20px 0;"></div>
 		<div>
 			<div style="padding:10px 60px 20px 60px">
-		    	<table>
-		    		<tr>
-		    			<td><input type="radio" name="ownEstate" value="true" id="ownEstate1"/>Own estate<input type="radio" name="ownEstate" value="false" id="ownEstate2"/>Name others</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Name in English</td>
-		    		</tr>
-		    		<tr>
-		    			<td><input type="text" name="firstName" id="firstName"></input></td>
-		    		</tr>
-		    		<tr>
-		    			<td><input type="text" name="lastName" id="lastName"></input></td>
-		    		</tr>
-		    		<tr>
-		    			<td>Name in Chinese:</td>
-		    		</tr>
-		    		<tr>
-		    			<td><input type="text" name="chineseName" id="chineseName"></input></td>
-		    		</tr>
-		    		<tr>
-		    			<td>HKID/Passport No:</td>
-		    		</tr>
-		    		<tr>
-		    			<td><input type="text" name="hkId" id="hkId"></input></td>
-		    		</tr>
-		    		<tr>
-		    			<td>Gender:</td>
-		    		</tr>
-		    		<tr>
-		    			<td><input type="radio" name="gender" id="gender1" value="M" />Male<input type="radio" name="gender" id="gender2" value="F"/>Female</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Entitlement(%):</td>
-		    		</tr>
-		    		<tr>
-		    			<td><input type="text" name="entitlement" id="entitlement"></input></td>
-		    		</tr>
-		    		<tr align="center">
-		    			<td colspan="4">
-		    			   <input type="submit" value="NEXT"/>
-		    			</td>
-		    		</tr>
-		    	</table>
+			<table>
+			     <tr>
+				     <td>
+					     <table>
+				    		<tr>
+				    			<td><input type="radio" name="savieBeneficiaryBeans[0].ownEstate" value="true" id="ownEstate1"/>Own estate<input type="radio" name="savieBeneficiaryBeans[0].ownEstate" value="false" id="ownEstate2"/>Name others</td>
+				    		</tr>
+				    		<tr>
+				    			<td>Name in English</td>
+				    		</tr>
+				    		<tr>
+				    			<td><input type="text" name="savieBeneficiaryBeans[0].firstName" id="firstName"></input></td>
+				    		</tr>
+				    		<tr>
+				    			<td><input type="text" name="savieBeneficiaryBeans[0].lastName" id="lastName"></input></td>
+				    		</tr>
+				    		<tr>
+				    			<td>Name in Chinese:</td>
+				    		</tr>
+				    		<tr>
+				    			<td><input type="text" name="savieBeneficiaryBeans[0].chineseName" id="chineseName"></input></td>
+				    		</tr>
+				    		<tr>
+				    			<td>HKID/Passport No:</td>
+				    		</tr>
+				    		<tr>
+				    			<td><input type="text" name="savieBeneficiaryBeans[0].hkId" id="hkId"></input></td>
+				    		</tr>
+				    		<tr>
+				    			<td>Gender:</td>
+				    		</tr>
+				    		<tr>
+				    			<td><input type="radio" name="savieBeneficiaryBeans[0].gender" id="gender1" value="M" />Male<input type="radio" name="savieBeneficiaryBeans[0].gender" id="gender2" value="F"/>Female</td>
+				    		</tr>
+				    		<tr>
+				    			<td>Entitlement(%):</td>
+				    		</tr>
+				    		<tr>
+				    			<td><input type="text" name="savieBeneficiaryBeans[0].entitlement" id="entitlement"></input></td>
+				    		</tr>
+				    	</table>
+				     </td>
+			     </tr>
+			     <tr align="center">
+	    			<td colspan="4">
+	    			   <input type="submit" value="NEXT"/>
+	    			</td>
+	    		</tr>
+			</table>
 		    </div>
 		</div>
 </form>

@@ -598,8 +598,10 @@ $(function() {
 				var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 				if (getWidth() >= 992) {
 					$('#dates').val(dateVal.format('jS M Y'));
+					$('#birthOfDay').val(dateVal.format('Y-m-d'));
 				} else {
 					$('#dates').val(dateVal.format('Y-m-d'));
+					$('#birthOfDay').val(dateVal.format('Y-m-d'));
 				}
 			}
 		}
@@ -794,8 +796,10 @@ function changeDatePickerValue($datePicker) {
 		var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 		if (getWidth() >= 992) {
 			$('#dates').val(dateVal.format('jS M Y'));
+			$('#birthOfDay').val(dateVal.format('Y-m-d'));
 		} else {
 			$('#dates').val(dateVal.format('Y-m-d'));
+			$('#birthOfDay').val(dateVal.format('Y-m-d'));
 		}
 	});
 }

@@ -12,7 +12,8 @@
 <div align="center">
 success<br/>
 ${savieDetail.savieApplicantBean.firstName }<br/>
-${savieDetail.savieEmploymentBean.employmentStatus }
+${savieDetail.savieEmploymentBean.employmentStatus }<br/>
+${savieDetail.savieBeneficiaryBeans }
 </div>
 </body>
 </html>

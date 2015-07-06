@@ -77,6 +77,9 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_TERRITORY = SERVICE_URL + "/option/itemDesc?itemTable=HKTerritory";
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
+	/*API For Savie*/
+	public static final String GET_SAVIE_ILLUSTRATION = SERVICE_URL + "/savie/salesIllustration";
+	
 	/* lang constants */
 	public static final String LANG_TC_SLASH = "/tc/";
 	public static final String LANG_EN_SLASH = "/en/";
