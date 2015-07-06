@@ -55,16 +55,6 @@ public class CommonUtils {
 		
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		
-		if(language=="CH")
-		{
-			if(param=="maritalStatuses")
-			{
-				if(InitApplicationMessage.maritalStatusesCH!=null)
-				{
-					return InitApplicationMessage.maritalStatusesCH;
-				}
-			}
-		}
 		
 		try {
 			String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable="+param;

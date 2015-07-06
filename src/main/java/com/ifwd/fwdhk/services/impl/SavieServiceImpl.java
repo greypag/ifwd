@@ -22,6 +22,7 @@ import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -816,46 +817,270 @@ public class SavieServiceImpl implements SavieService {
 	@Override
 	public List<OptionItemDesc> getMaritalStatus(String language) {
 		
-		return commonUtils.getOptionItemDescList("maritalStatuses",language);
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.maritalStatusesEN!=null)
+			{
+				return InitApplicationMessage.maritalStatusesEN;
+			}
+			else
+			{
+				InitApplicationMessage.maritalStatusesEN=commonUtils.getOptionItemDescList("maritalStatuses",language);
+				return InitApplicationMessage.maritalStatusesEN;
+			}			
+		}
+		else
+		{
+			if(InitApplicationMessage.maritalStatusesCH!=null)
+			{
+				return InitApplicationMessage.maritalStatusesCH;
+			}
+			else
+			{
+				InitApplicationMessage.maritalStatusesCH=commonUtils.getOptionItemDescList("maritalStatuses",language);
+				return InitApplicationMessage.maritalStatusesCH;
+			}
+		}
+		
+		
+		//return commonUtils.getOptionItemDescList("maritalStatuses",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getSavieDistrict(String language) {
-		return commonUtils.getOptionItemDescList("savieDistrict",language);
+		
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.savieDistrictEN!=null)
+			{
+				return InitApplicationMessage.savieDistrictEN;
+			}
+			else
+			{
+				InitApplicationMessage.savieDistrictEN=commonUtils.getOptionItemDescList("savieDistrict",language);
+				return InitApplicationMessage.savieDistrictEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.savieDistrictCH!=null)
+			{
+				return InitApplicationMessage.savieDistrictCH;
+			}
+			else
+			{
+				InitApplicationMessage.savieDistrictCH=commonUtils.getOptionItemDescList("savieDistrict",language);
+				return InitApplicationMessage.savieDistrictCH;
+			}
+			
+		}
+		
+		//return commonUtils.getOptionItemDescList("savieDistrict",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getEmploymentStatus(String language) {
-		return commonUtils.getOptionItemDescList("employmentStatus",language);
+		
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.employmentStatusEN!=null)
+			{
+				return InitApplicationMessage.employmentStatusEN;
+			}
+			else
+			{
+				InitApplicationMessage.employmentStatusEN=commonUtils.getOptionItemDescList("employmentStatus",language);
+				return InitApplicationMessage.employmentStatusEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.employmentStatusCH!=null)
+			{
+				return InitApplicationMessage.employmentStatusCH;
+			}
+			else
+			{
+				InitApplicationMessage.employmentStatusCH=commonUtils.getOptionItemDescList("employmentStatus",language);
+				return InitApplicationMessage.employmentStatusCH;
+			}
+			
+		}
+		
+		//return commonUtils.getOptionItemDescList("employmentStatus",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getNationality(String language) {
-		return commonUtils.getOptionItemDescList("nationality",language);
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.nationalityEN!=null)
+			{
+				return InitApplicationMessage.nationalityEN;
+			}
+			else
+			{
+				InitApplicationMessage.nationalityEN=commonUtils.getOptionItemDescList("nationality",language);
+				return InitApplicationMessage.nationalityEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.nationalityCH!=null)
+			{
+				return InitApplicationMessage.nationalityCH;
+			}
+			else
+			{
+				InitApplicationMessage.nationalityCH=commonUtils.getOptionItemDescList("employmentStatus",language);
+				return InitApplicationMessage.nationalityCH;
+			}			
+		}
+		//return commonUtils.getOptionItemDescList("nationality",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getNatureOfBusiness(String language) {
-		return commonUtils.getOptionItemDescList("natureOfBusiness",language);
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.natureOfBusinessEN!=null)
+			{
+				return InitApplicationMessage.natureOfBusinessEN;
+			}
+			else
+			{
+				InitApplicationMessage.natureOfBusinessEN=commonUtils.getOptionItemDescList("natureOfBusiness",language);
+				return InitApplicationMessage.natureOfBusinessEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.natureOfBusinessCH!=null)
+			{
+				return InitApplicationMessage.natureOfBusinessCH;
+			}
+			else
+			{
+				InitApplicationMessage.natureOfBusinessCH=commonUtils.getOptionItemDescList("natureOfBusiness",language);
+				return InitApplicationMessage.natureOfBusinessCH;
+			}			
+		}
+		//return commonUtils.getOptionItemDescList("natureOfBusiness",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getPlaceOfBirth(String language) {
-		return commonUtils.getOptionItemDescList("placeOfBirth",language);
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.placeOfBirthEN!=null)
+			{
+				return InitApplicationMessage.placeOfBirthEN;
+			}
+			else
+			{
+				InitApplicationMessage.placeOfBirthEN=commonUtils.getOptionItemDescList("placeOfBirth",language);
+				return InitApplicationMessage.placeOfBirthEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.placeOfBirthCH!=null)
+			{
+				return InitApplicationMessage.placeOfBirthCH;
+			}
+			else
+			{
+				InitApplicationMessage.placeOfBirthCH=commonUtils.getOptionItemDescList("placeOfBirth",language);
+				return InitApplicationMessage.placeOfBirthCH;
+			}			
+		}
+		//return commonUtils.getOptionItemDescList("placeOfBirth",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getMonthlyPersonalIncome(String language) {
-		return commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.monthlyPersonalIncomeEN!=null)
+			{
+				return InitApplicationMessage.monthlyPersonalIncomeEN;
+			}
+			else
+			{
+				InitApplicationMessage.monthlyPersonalIncomeEN=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
+				return InitApplicationMessage.monthlyPersonalIncomeEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.monthlyPersonalIncomeCH!=null)
+			{
+				return InitApplicationMessage.monthlyPersonalIncomeCH;
+			}
+			else
+			{
+				InitApplicationMessage.monthlyPersonalIncomeCH=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
+				return InitApplicationMessage.monthlyPersonalIncomeCH;
+			}			
+		}
+		//return commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language) {
-		return commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
+		if(language.equalsIgnoreCase("EN"))
+		{
+			if(InitApplicationMessage.savieBeneficiaryRelationshipEN!=null)
+			{
+				return InitApplicationMessage.savieBeneficiaryRelationshipEN;
+			}
+			else
+			{
+				InitApplicationMessage.savieBeneficiaryRelationshipEN=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
+				return InitApplicationMessage.savieBeneficiaryRelationshipEN;
+			}
+		}
+		else
+		{
+			if(InitApplicationMessage.savieBeneficiaryRelationshipCH!=null)
+			{
+				return InitApplicationMessage.savieBeneficiaryRelationshipCH;
+			}
+			else
+			{
+				InitApplicationMessage.savieBeneficiaryRelationshipCH=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
+				return InitApplicationMessage.savieBeneficiaryRelationshipCH;
+			}			
+		}
+		//return commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
 	}
 
 	@Override
 	public List<OptionItemDesc> getOccupation(String language) {
-		return commonUtils.getOptionItemDescList("occupation",language);
+			if(language.equalsIgnoreCase("EN"))
+			{
+				if(InitApplicationMessage.occupationEN!=null)
+				{
+					return InitApplicationMessage.occupationEN;
+				}
+				else
+				{
+					InitApplicationMessage.occupationEN=commonUtils.getOptionItemDescList("occupation",language);
+					return InitApplicationMessage.occupationEN;
+				}
+			}
+			else
+			{
+				if(InitApplicationMessage.occupationCH!=null)
+				{
+					return InitApplicationMessage.occupationCH;
+				}
+				else
+				{
+					InitApplicationMessage.occupationCH=commonUtils.getOptionItemDescList("occupation",language);
+					return InitApplicationMessage.occupationCH;
+				}			
+			}
+		//return commonUtils.getOptionItemDescList("occupation",language);
 	}
 }
