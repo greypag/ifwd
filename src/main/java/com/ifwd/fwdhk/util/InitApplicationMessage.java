@@ -26,52 +26,65 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> maritalStatusesEN;	
 	public static List<OptionItemDesc> maritalStatusesCH;
 	
-	@Autowired
-	private List<OptionItemDesc> savieDistrictEN;	
-	@Autowired
-	private List<OptionItemDesc> savieDistrictCH;
 	
-	@Autowired
-	private List<OptionItemDesc> employmentStatusEN;
-	@Autowired
-	private List<OptionItemDesc> employmentStatusCH;
-	
-	@Autowired
-	private List<OptionItemDesc> nationalityEN;
-	@Autowired
-	private List<OptionItemDesc> nationalityCH;
-	
-	@Autowired
-	private List<OptionItemDesc> occupationEN;
-	@Autowired
-	private List<OptionItemDesc> occupationCH;
-	
-	@Autowired
-	private List<OptionItemDesc> natureOfBusinessEN;
-	@Autowired
-	private List<OptionItemDesc> natureOfBusinessCH;
-	
-	@Autowired
-	private List<OptionItemDesc> monthlyPersonalIncomeEN;
-	@Autowired
-	private List<OptionItemDesc> monthlyPersonalIncomeCH;
-	
-	@Autowired
-	private List<OptionItemDesc> savieBeneficiaryRelationshipEN;
-	@Autowired
-	private List<OptionItemDesc> savieBeneficiaryRelationshipCH;
+	public static List<OptionItemDesc> savieDistrictEN;
+	public static List<OptionItemDesc> savieDistrictCH;
+	public static List<OptionItemDesc> employmentStatusEN;
+	public static List<OptionItemDesc> employmentStatusCH;
+	public static List<OptionItemDesc> nationalityEN;
+	public static List<OptionItemDesc> nationalityCH;
+	public static List<OptionItemDesc> occupationEN;
+	public static List<OptionItemDesc> occupationCH;
+	public static List<OptionItemDesc> natureOfBusinessEN;
+	public static List<OptionItemDesc> natureOfBusinessCH;
+	public static List<OptionItemDesc> monthlyPersonalIncomeEN;
+	public static List<OptionItemDesc> monthlyPersonalIncomeCH;
+	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
+	public static List<OptionItemDesc> savieBeneficiaryRelationshipCH;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
 			
 			try {
-				nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
+				savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
 				nationalityEN=null;
 			}
-			logger.info("nationalityEN : " + nationalityEN);
+			logger.info("savieDistrictEN : " + savieDistrictEN);
+			
+			try {
+				savieDistrictCH = commonUtils.getOptionItemDescList("savieDistrict","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("savieDistrictCH : " + savieDistrictCH);
+			
+			try {
+				employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("employmentStatusEN : " + employmentStatusEN);
+			
+			try {
+				employmentStatusCH = commonUtils.getOptionItemDescList("employmentStatus","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("employmentStatusCH : " + employmentStatusCH);
+			
+			try {
+				nationalityCH = commonUtils.getOptionItemDescList("nationality","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("nationalityCH : " + nationalityCH);
 			
 			try {
 				nationalityCH = commonUtils.getOptionItemDescList("nationality","CH");
@@ -80,6 +93,70 @@ public class InitApplicationMessage implements ApplicationListener{
 				nationalityCH=null;
 			}
 			logger.info("nationalityCH : " + nationalityCH);
+			
+			try {
+				occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("occupationEN : " + occupationEN);
+			
+			try {
+				occupationCH = commonUtils.getOptionItemDescList("occupation","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("occupationCH : " + occupationCH);
+			
+			try {
+				natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("natureOfBusinessEN : " + natureOfBusinessEN);
+			
+			try {
+				natureOfBusinessCH = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("natureOfBusinessCH : " + nationalityCH);
+			
+			try {
+				monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("monthlyPersonalIncomeEN : " + monthlyPersonalIncomeEN);
+			
+			try {
+				monthlyPersonalIncomeCH = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("monthlyPersonalIncomeCH : " + monthlyPersonalIncomeCH);
+			
+			try {
+				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
+			
+			try {
+				savieBeneficiaryRelationshipCH = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("savieBeneficiaryRelationshipCH : " + savieBeneficiaryRelationshipCH);
 			
 		}
 	}
