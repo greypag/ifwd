@@ -51,9 +51,20 @@ public class CommonUtils {
 	}
 
 	
-	public List<OptionItemDesc> getOptionItemDescList(String param) {
+	public List<OptionItemDesc> getOptionItemDescList(String param,String language) {
 		
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+		
+		if(language=="CH")
+		{
+			if(param=="maritalStatuses")
+			{
+				if(InitApplicationMessage.maritalStatusesCH!=null)
+				{
+					return InitApplicationMessage.maritalStatusesCH;
+				}
+			}
+		}
 		
 		try {
 			String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable="+param;
@@ -63,6 +74,7 @@ public class CommonUtils {
 			
 			header.put("userName", "*DIRECTGI");
 			header.put("token", getToken());
+			header.put("language", WebServiceUtils.transformLanaguage("language"));
 			
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);

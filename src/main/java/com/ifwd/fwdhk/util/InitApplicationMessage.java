@@ -23,41 +23,63 @@ public class InitApplicationMessage implements ApplicationListener{
 	@Autowired
 	private CommonUtils commonUtils;
 	
-	@Autowired
-	private List<OptionItemDesc> maritalStatuses;
+	public static List<OptionItemDesc> maritalStatusesEN;	
+	public static List<OptionItemDesc> maritalStatusesCH;
 	
 	@Autowired
-	private List<OptionItemDesc> savieDistrict;
+	private List<OptionItemDesc> savieDistrictEN;	
+	@Autowired
+	private List<OptionItemDesc> savieDistrictCH;
 	
 	@Autowired
-	private List<OptionItemDesc> employmentStatus;
+	private List<OptionItemDesc> employmentStatusEN;
+	@Autowired
+	private List<OptionItemDesc> employmentStatusCH;
 	
 	@Autowired
-	private List<OptionItemDesc> nationality;
+	private List<OptionItemDesc> nationalityEN;
+	@Autowired
+	private List<OptionItemDesc> nationalityCH;
 	
 	@Autowired
-	private List<OptionItemDesc> occupation;
+	private List<OptionItemDesc> occupationEN;
+	@Autowired
+	private List<OptionItemDesc> occupationCH;
 	
 	@Autowired
-	private List<OptionItemDesc> natureOfBusiness;
+	private List<OptionItemDesc> natureOfBusinessEN;
+	@Autowired
+	private List<OptionItemDesc> natureOfBusinessCH;
 	
 	@Autowired
-	private List<OptionItemDesc> monthlyPersonalIncome;
+	private List<OptionItemDesc> monthlyPersonalIncomeEN;
+	@Autowired
+	private List<OptionItemDesc> monthlyPersonalIncomeCH;
 	
 	@Autowired
-	private List<OptionItemDesc> savieBeneficiaryRelationship;
+	private List<OptionItemDesc> savieBeneficiaryRelationshipEN;
+	@Autowired
+	private List<OptionItemDesc> savieBeneficiaryRelationshipCH;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
 			
 			try {
-				nationality = commonUtils.getOptionItemDescList("nationality");
+				nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				nationality=null;
+				nationalityEN=null;
 			}
-			logger.info("nationality : " + nationality);
+			logger.info("nationalityEN : " + nationalityEN);
+			
+			try {
+				nationalityCH = commonUtils.getOptionItemDescList("nationality","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("nationalityCH : " + nationalityCH);
 			
 		}
 	}

@@ -37,15 +37,15 @@ public interface SavieService {
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
 	
-	public List<OptionItemDesc> getMaritalStatus();
-	public List<OptionItemDesc> getSavieDistrict();
-	public List<OptionItemDesc> getEmploymentStatus();
-	public List<OptionItemDesc> getNationality();
-	public List<OptionItemDesc> getNatureOfBusiness();
-	public List<OptionItemDesc> getPlaceOfBirth();
-	public List<OptionItemDesc> getMonthlyPersonalIncome();
-	public List<OptionItemDesc> getSavieBeneficiaryRelationship();
-	public List<OptionItemDesc> getOccupation();
+	public List<OptionItemDesc> getMaritalStatus(String language);
+	public List<OptionItemDesc> getSavieDistrict(String language);
+	public List<OptionItemDesc> getEmploymentStatus(String language);
+	public List<OptionItemDesc> getNationality(String language);
+	public List<OptionItemDesc> getNatureOfBusiness(String language);
+	public List<OptionItemDesc> getPlaceOfBirth(String language);
+	public List<OptionItemDesc> getMonthlyPersonalIncome(String language);
+	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language);
+	public List<OptionItemDesc> getOccupation(String language);
 	
 	//fileUpload?
 	//signature?

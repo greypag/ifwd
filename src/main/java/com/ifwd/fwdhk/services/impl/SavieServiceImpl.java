@@ -814,48 +814,48 @@ public class SavieServiceImpl implements SavieService {
 	}
 
 	@Override
-	public List<OptionItemDesc> getMaritalStatus() {
+	public List<OptionItemDesc> getMaritalStatus(String language) {
 		
-		return commonUtils.getOptionItemDescList("maritalStatuses");
+		return commonUtils.getOptionItemDescList("maritalStatuses",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getSavieDistrict() {
-		return commonUtils.getOptionItemDescList("savieDistrict");
+	public List<OptionItemDesc> getSavieDistrict(String language) {
+		return commonUtils.getOptionItemDescList("savieDistrict",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getEmploymentStatus() {
-		return commonUtils.getOptionItemDescList("employmentStatus");
+	public List<OptionItemDesc> getEmploymentStatus(String language) {
+		return commonUtils.getOptionItemDescList("employmentStatus",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getNationality() {
-		return commonUtils.getOptionItemDescList("nationality");
+	public List<OptionItemDesc> getNationality(String language) {
+		return commonUtils.getOptionItemDescList("nationality",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getNatureOfBusiness() {
-		return commonUtils.getOptionItemDescList("natureOfBusiness");
+	public List<OptionItemDesc> getNatureOfBusiness(String language) {
+		return commonUtils.getOptionItemDescList("natureOfBusiness",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getPlaceOfBirth() {
-		return commonUtils.getOptionItemDescList("placeOfBirth");
+	public List<OptionItemDesc> getPlaceOfBirth(String language) {
+		return commonUtils.getOptionItemDescList("placeOfBirth",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getMonthlyPersonalIncome() {
-		return commonUtils.getOptionItemDescList("monthlyPersonalIncome");
+	public List<OptionItemDesc> getMonthlyPersonalIncome(String language) {
+		return commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getSavieBeneficiaryRelationship() {
-		return commonUtils.getOptionItemDescList("savieBeneficiaryRelationship");
+	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language) {
+		return commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
 	}
 
 	@Override
-	public List<OptionItemDesc> getOccupation() {
-		return commonUtils.getOptionItemDescList("occupation");
+	public List<OptionItemDesc> getOccupation(String language) {
+		return commonUtils.getOptionItemDescList("occupation",language);
 	}
 }
