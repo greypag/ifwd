@@ -1,11 +1,8 @@
 package com.ifwd.fwdhk.util;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
-import org.joda.time.LocalDate;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
@@ -18,6 +15,9 @@ import org.springframework.stereotype.Component;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.QuoteDetails;
+import com.ifwd.fwdhk.model.savie.OptionItemDesc;
+
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 @SuppressWarnings("rawtypes")
 @Component
@@ -27,31 +27,62 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	@Autowired
 	private RestServiceDao restService;
+	
+	@Autowired
+	private List<OptionItemDesc> maritalStatuses;
+	
+	@Autowired
+	private List<OptionItemDesc> savieDistrict;
+	
+	@Autowired
+	private List<OptionItemDesc> employmentStatus;
+	
+	@Autowired
+	private List<OptionItemDesc> nationality;
+	
+	@Autowired
+	private List<OptionItemDesc> occupation;
+	
+	@Autowired
+	private List<OptionItemDesc> natureOfBusiness;
+	
+	@Autowired
+	private List<OptionItemDesc> monthlyPersonalIncome;
+	
+	@Autowired
+	private List<OptionItemDesc> savieBeneficiaryRelationship;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
-			quoteDetails = new QuoteDetails();
-			LocalDate commencementDate = new LocalDate(new Date());
-			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
-					+ "&commencementDate=" + commencementDate + "&referralCode=" + "";
-	
+			
+			String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable=maritalStatus";
+			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			
 			header.put("userName", "*DIRECTGI");
 			header.put("token", "a5684816-51b4-a2bc-fdd8-33887464726b");
 			
-			
-			
-			header.put("language", WebServiceUtils.transformLanaguage("CN"));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 			
-			quoteDetails.setReferralCode((String)responseJsonObj.get("referralCode"));
-			quoteDetails.setReferralName((String)responseJsonObj.get("referralName"));
-			quoteDetails.setPlanCode((String)responseJsonObj.get("planCode"));
 			System.out.println("***********responseJsonObj****************:"+responseJsonObj);
+			
+			/*if (responseJsonObj.get("errMsgs") == null) {
+				OptionItemDesc maritalStatus = new OptionItemDesc();
+				
+				JSONObject jsonOptionItemDescs = new JSONObject();
+				jsonOptionItemDescs = (JSONObject)responseJsonObj.get("optionItemDesc");
+				
+				maritalStatus.setItemTable((String)jsonOptionItemDescs.get("itemTable"));
+				maritalStatus.setItemDesc((String)jsonOptionItemDescs.get("itemDesc"));
+				maritalStatus.setItemCode((String)jsonOptionItemDescs.get("itemCode"));
+				maritalStatus.setItemLang((String)jsonOptionItemDescs.get("itemLang"));
+				
+			}
+			System.out.println("***********responseJsonObj****************:"+responseJsonObj);*/
+			
 			
 		}
 	}
