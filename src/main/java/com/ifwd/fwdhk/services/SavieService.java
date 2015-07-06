@@ -5,9 +5,6 @@ import java.util.List;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savie.SavieAppointmentScheduleBean;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -39,7 +36,7 @@ public interface SavieService {
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
 	
-	
+
 	
 	//fileUpload?
 	//signature?
