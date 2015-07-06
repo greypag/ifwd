@@ -100,12 +100,12 @@ public class SavieController {
 		
 		List<JSONObject> inputTableList = new ArrayList<JSONObject>();
 		JSONObject inputTable = new JSONObject();
-		inputTable.accumulate("type", "Savie");
-		inputTable.accumulate("issueAge", "19");
+		inputTable.accumulate("type", product);
+		inputTable.accumulate("issueAge", issueAge);
 		inputTable.accumulate("paymode", "monthly");
-		inputTable.accumulate("premium", "1000");
-		inputTable.accumulate("paymentTerm", "10");
-		inputTable.accumulate("promoCode", "threeYearGuarantee");
+		inputTable.accumulate("premium", premium);
+		inputTable.accumulate("paymentTerm", paymentTerm);
+		inputTable.accumulate("promoCode", referralCode);
 		inputTableList.add(inputTable);
 		
 		JSONObject salesIllustrationJsonObject = new JSONObject();
