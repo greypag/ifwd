@@ -33,17 +33,21 @@ public class CommonUtils {
 	public String getToken() {
 		String token = "";
 		
-		JSONObject params = new JSONObject();
-		params.put("userName", "*DIRECTGI");
-		params.put("password", "");
-		
-		logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
-		JSONObject response = restService.consumeApi(HttpMethod.POST,
-				UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
-				params);
-		logger.info("response: " + response);
-		if (response.get("errMsgs") == null && response != null) {
-			token= response.get("token").toString();
+		try {
+			JSONObject params = new JSONObject();
+			params.put("userName", "*DIRECTGI");
+			params.put("password", "");
+			
+			logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
+			JSONObject response = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
+					params);
+			logger.info("response: " + response);
+			if (response.get("errMsgs") == null && response != null) {
+				token= response.get("token").toString();
+			}
+		} catch (Exception e) {
+			logger.info("error : " + e.getMessage());
 		}
 	
 		return token;
@@ -51,41 +55,46 @@ public class CommonUtils {
 
 	
 	public List<OptionItemDesc> getOptionItemDescList(String param) {
+		
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		
-		String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable="+param;
-		
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
-		
-		header.put("userName", "*DIRECTGI");
-		header.put("token", getToken());
-		
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-				Url, header, null);
-		
-		logger.info("***********responseJsonObj****************:"+responseJsonObj);
-		
-		if (responseJsonObj.get("errMsgs") == null) {
+		try {
+			String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable="+param;
 			
-			JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
 			
-			if(jsonOptionItemDescs.size()>0){
-				for(int i = 0; i<jsonOptionItemDescs.size(); i++){
-					
-					JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
-					
-					OptionItemDesc optionItemDesc = new OptionItemDesc();				
-					
-					optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
-					optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
-					optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
-					optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
-					
-					OptionItemDescList.add(optionItemDesc);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", getToken());
+			
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+					Url, header, null);
+			
+			logger.info("***********responseJsonObj****************:"+responseJsonObj);
+			
+			if (responseJsonObj.get("errMsgs") == null) {
+				
+				JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+				
+				if(jsonOptionItemDescs.size()>0){
+					for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+						
+						JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+						
+						OptionItemDesc optionItemDesc = new OptionItemDesc();				
+						
+						optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+						optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+						optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+						optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+						
+						OptionItemDescList.add(optionItemDesc);
+					}
 				}
+				
 			}
-			
+		} catch (Exception e) {
+			logger.info("error : " + e.getMessage());
 		}
 		return OptionItemDescList;
 	}
