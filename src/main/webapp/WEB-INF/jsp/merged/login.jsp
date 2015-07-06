@@ -788,7 +788,7 @@ function userLoginFnc() {
             } else if (data == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
-                $('#login-err-msg').html('Please Check Login Credential');
+                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
             }
         }
     });

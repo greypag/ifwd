@@ -93,7 +93,7 @@ public class UserController {
 				logger.info("USER_LOGIN Response" + JsonUtils.jsonPrint(response));
 
 				// check by error message is null then valid response
-				if (response.get("errMsgs") == null && response != null) {
+				if (response != null && !response.isEmpty() && response.get("errMsgs") == null) {
 					HttpSession session = servletRequest.getSession(true);
 					session.setAttribute("authenticate", "true");
 					session.setAttribute("token", response.get("token")
@@ -130,7 +130,9 @@ public class UserController {
 					session.setAttribute("userDetails", userDetails);
 
 					return "success";
-				} else {
+				}else if (response.isEmpty()) {
+					return "fail";
+				}else {
 					String errMessage = response.get("errMsgs").toString();
 					return errMessage.replaceAll("\"", "").replace("[", "")
 							.replace("]", "");
