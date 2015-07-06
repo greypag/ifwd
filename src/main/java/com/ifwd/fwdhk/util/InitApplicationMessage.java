@@ -41,6 +41,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> monthlyPersonalIncomeCH;
 	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
 	public static List<OptionItemDesc> savieBeneficiaryRelationshipCH;
+	
+	public static List<OptionItemDesc> placeOfBirthEN;
+	public static List<OptionItemDesc> PlaceOfBirthCH;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -157,6 +160,22 @@ public class InitApplicationMessage implements ApplicationListener{
 				nationalityCH=null;
 			}
 			logger.info("savieBeneficiaryRelationshipCH : " + savieBeneficiaryRelationshipCH);
+			
+			try {
+				placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("placeOfBirthEN : " + placeOfBirthEN);
+			
+			try {
+				PlaceOfBirthCH = commonUtils.getOptionItemDescList("PlaceOfBirth","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				nationalityCH=null;
+			}
+			logger.info("PlaceOfBirthCH : " + PlaceOfBirthCH);
 			
 		}
 	}
