@@ -514,8 +514,22 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false; window.history.back();"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <a id="button_confirm" onclick="perventRedirect=false;confirmWorkingHolidayPayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" /></a>
+                                
+                                <c:choose>
+	<c:when test="${language=='en'}">
+    	<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','','','Regis_Working_Holiday_Step3 EN','USD');perventRedirect=false;confirmWorkingHolidayPayment('paymentForm', 'gateway', 'paymentForm');"
+        class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" /></a>
+	</c:when>
+	<c:otherwise>
+		<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','','','Regis_Working_Holiday_Step3 ZH','USD');perventRedirect=false;confirmWorkingHolidayPayment('paymentForm', 'gateway', 'paymentForm');"
+        class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="workingholiday.payment.confirmPayment" bundle="${msg}" /></a>
+	</c:otherwise>
+</c:choose>
+                                
+                                
+                                
+                                
+                                
                             </div>
                         </div>
                             <div class="clearfix"></div>

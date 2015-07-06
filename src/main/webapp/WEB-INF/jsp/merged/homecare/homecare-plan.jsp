@@ -749,14 +749,16 @@ function checkPromoCodePlaceholder(){
 		                            </div>
 		                            <div class="top35 pull-right pad-none" style="width:47%">
 		                                <c:choose>
-										<c:when test="${language=='en'}">
-											<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','HKD');"><fmt:message key="home.action.next" bundle="${msg}" />
-											</button>
-										</c:when>
-										<c:otherwise>
-											<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','HKD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
-										</c:otherwise>
-										</c:choose>	  
+	<c:when test="${language=='en'}">
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
+</button>
+	</c:when>
+<c:otherwise>
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+</c:otherwise>
+</c:choose>
+
+
 		                                
 		                            </div>
 		                            
@@ -789,14 +791,15 @@ function checkPromoCodePlaceholder(){
 		                </div>
 		                <div class="top35 pull-right pad-none" style="width:47%">
 		                    <c:choose>
-							<c:when test="${language=='en'}">
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','HKD');"><fmt:message key="home.action.next" bundle="${msg}" />
-							</button>
-								</c:when>
-							<c:otherwise>
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','HKD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
-							</c:otherwise>
-							</c:choose>	  
+	<c:when test="${language=='en'}">
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
+</button>
+	</c:when>
+<c:otherwise>
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+</c:otherwise>
+</c:choose>
+
 		                </div>
 		                <div class="clearfix"></div>
 		            </div>

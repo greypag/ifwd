@@ -83,7 +83,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!-- End Visual Website Optimizer Asynchronous Code -->
 
 <!-- Kenshoo Button Click Code -->
-<!-- Kenshoo Button Click Code -->
 <script type=text/javascript>
 function kVoid() { return; }
 function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {

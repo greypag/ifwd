@@ -1181,9 +1181,18 @@ function activateUserAccountJoinUs() {
 											key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width: 47%">
-									<input type="button" class="bdr-curve btn btn-primary nxt-btn"
-										value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />"
-										onclick="activateUserAccountJoinUs();" />
+									<c:choose>
+	<c:when test="${language=='en'}">
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 EN','USD');activateUserAccountJoinUs();" />
+	</c:when>
+	<c:otherwise>
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 ZH','USD');activateUserAccountJoinUs();" />
+	</c:otherwise>
+</c:choose>
+									
+									
+									
+									
 								</div>
 							</div>
 						</div>
@@ -1221,9 +1230,15 @@ function activateUserAccountJoinUs() {
 									key="workingholiday.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="top35 pull-right pad-none" style="width: 47%">
-							<input type="button" class="bdr-curve btn btn-primary nxt-btn"
-								value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />"
-								onclick="activateUserAccountJoinUs();" />
+							<c:choose>
+	<c:when test="${language=='en'}">
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 EN','USD');activateUserAccountJoinUs();" />
+	</c:when>
+	<c:otherwise>
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 ZH','USD');activateUserAccountJoinUs();" />
+	</c:otherwise>
+</c:choose>
+							
 						</div>
 						<div class="clearfix"></div>
 					</div>

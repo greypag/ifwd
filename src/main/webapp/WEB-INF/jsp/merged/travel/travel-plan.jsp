@@ -1465,14 +1465,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="top35 pull-right pad-none" style="width:47%">
                                 <c:choose>
 	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','HKD');perventRedirect=false;">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:when>
 	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','HKD');perventRedirect=false;">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:otherwise>
                             </c:choose>
+
+                                
 
                             </div>
                             <div class="clearfix"></div>
@@ -1503,15 +1505,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		        </div>
 		        <div class="top35 pull-right pad-none" style="width:47%">
 		            <c:choose>
-                          <c:when test="${language=='en'}">
-                              <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','HKD');perventRedirect=false;">
-                                  <fmt:message key="travel.action.next" bundle="${msg}" /></button>
-                          </c:when>
-                          <c:otherwise>
-                              <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','HKD');perventRedirect=false;">
-                                  <fmt:message key="travel.action.next" bundle="${msg}" /></button>
-                          </c:otherwise>
-                         </c:choose>
+	                            <c:when test="${language=='en'}">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:when>
+	                            <c:otherwise>
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:otherwise>
+                            </c:choose>
+
+		            
            
 		        </div>
 		        <div class="clearfix"></div>

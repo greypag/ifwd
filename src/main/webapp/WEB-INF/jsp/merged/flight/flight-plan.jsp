@@ -487,13 +487,14 @@
 	                            </div>
 	                            <div class="top35 pull-right pad-none" style="width:47%">
 	                                <c:choose>
-										<c:when test="${language=='en'}">
-										<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','HKD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-										</c:when>
-										<c:otherwise>
-										<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','HKD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-									</c:otherwise>
-									</c:choose>
+	<c:when test="${language=='en'}">
+	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','USD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	</c:when>
+	<c:otherwise>
+	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+</c:otherwise>
+</c:choose>
+	                                
 	                                
 	                            </div>
 	                            <div class="clearfix"></div>
@@ -533,13 +534,14 @@
 	                        </div>
 	                        <div class="top35 pull-right pad-none" style="width:47%">
 	                            <c:choose>
-									<c:when test="${language=='en'}">
-									<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','HKD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-									</c:when>
-									<c:otherwise>
-										<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','HKD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-									</c:otherwise>
-								</c:choose>
+	<c:when test="${language=='en'}">
+	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','USD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	</c:when>
+	<c:otherwise>
+	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+</c:otherwise>
+</c:choose>
+	                            
 	                            
 	                        </div>
 					        <div class="clearfix"></div>

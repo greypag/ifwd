@@ -518,7 +518,6 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
 <!--End of addthis -->
-
 <script type=text/javascript>
    var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
    document.write('<scr'+'ipt src="', hostProtocol+
@@ -535,7 +534,7 @@
    } else {
 	   params[4]='promoCode=Regis_Home ZH_Sc';   
    }
-   params[5]='valueCurrency=HKD';
+   params[5]='valueCurrency=USD';
    params[6]='GCID='; //For Live Tracking only
    params[7]='kw='; //For Live Tracking only
    params[8]='product='; //For Live Tracking only
@@ -545,14 +544,13 @@
 <noscript>
 	<c:choose>
 		<c:when test="${language=='en'}">
-   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Home&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home EN_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Home&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home EN_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
    		</c:when>
    		<c:otherwise>
-   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home ZH_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home ZH_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
    		</c:otherwise>
    </c:choose>
 </noscript>
-
 <script>
 $(document).ready(function() {
 	ga('create', 'UA-60032236-1', 'auto');
@@ -560,20 +558,22 @@ $(document).ready(function() {
 	ga('ecommerce:addTransaction', {
 	  'id': '${transNo}', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
-	  'affiliation': 'Home' // Insurance type, e.g. Life
-	   
+	  'affiliation': 'Home', // Insurance type, e.g. Life
+	   'currency': 'HKD'
 	  });
 	ga('ecommerce:addItem', {
 	      'id': '${transNo}', // Transaction ID. Required
 	      'name': 'Easy HomeCare', // Product name. Required
 	      'category': 'Home', // Category or variation
 	      'price': '${dueAmount}', // Unit price
+	      'quantity': '1',
 	      'currency': 'HKD'
 	    });
 	ga('ecommerce:send');
 });
 
 </script>
+
 
 </body>
 

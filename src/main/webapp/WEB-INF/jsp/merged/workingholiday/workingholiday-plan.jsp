@@ -754,10 +754,20 @@ var promoCodeInsertFlag = true;
 								<a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 							</div>
-							<div class="top35 pull-right pad-none" style="width:47%">
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
-									<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
-							</div>
+							<div class="top35 pull-right pad-none" style="width:47%" >
+<c:choose>
+	<c:when test="${language=='en'}">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
+	</c:when>
+	<c:otherwise>
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
+	</c:otherwise>
+</c:choose>
+				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
+</div>
+							
+							
+							
 							<div class="clearfix"></div>
 							<br> <span class="text-red" id="errDue"></span> <br>
 						</div>
@@ -781,10 +791,18 @@ var promoCodeInsertFlag = true;
                     <a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
                         class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
-                <div class="top35 pull-right pad-none" style="width:47%">
-                    <button type="submit" class="bdr-curve btn btn-primary nxt-btn">
-                        <fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
-                </div>
+                <div class="top35 pull-right pad-none" style="width:47%" >
+<c:choose>
+	<c:when test="${language=='en'}">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
+	</c:when>
+	<c:otherwise>
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
+	</c:otherwise>
+</c:choose>
+				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
+</div>
+
                 <div class="clearfix"></div>
                 <br> <span class="text-red" id="errDueMobile"></span> <br>
             </div>

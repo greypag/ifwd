@@ -2245,17 +2245,18 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%"> 
                                 <c:choose>
-								<c:when test="${language=='en'}">
-								       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','HKD');return activateUserAccountJoinUs();"
-								                                		class="bdr-curve btn btn-primary nxt-btn"
-								                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-								       </c:when>
-								       <c:otherwise>
-								                                		<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','HKD');return activateUserAccountJoinUs();"
-								                                		class="bdr-curve btn btn-primary nxt-btn"
-								                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-									</c:otherwise>
-								</c:choose>
+<c:when test="${language=='en'}">
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');return activateUserAccountJoinUs();"
+                                		class="bdr-curve btn btn-primary nxt-btn"
+                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+       </c:when>
+       <c:otherwise>
+                                		<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');return activateUserAccountJoinUs();"
+                                		class="bdr-curve btn btn-primary nxt-btn"
+                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	</c:otherwise>
+</c:choose>
+                                
 								                                
                             </div>
                         </div>
@@ -2293,17 +2294,18 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 				        </div>
 				        <div class="top35 pull-right pad-none" style="width:47%">
 							<c:choose>
-							<c:when test="${language=='en'}">
-							       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','HKD');return activateUserAccountJoinUs();"
-							                                		class="bdr-curve btn btn-primary nxt-btn"
-							                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-							       </c:when>
-							       <c:otherwise>
-									<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','HKD');return activateUserAccountJoinUs();"
-							                                		class="bdr-curve btn btn-primary nxt-btn"
-							                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-								</c:otherwise>
-							</c:choose>
+<c:when test="${language=='en'}">
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');return activateUserAccountJoinUs();"
+                                		class="bdr-curve btn btn-primary nxt-btn"
+                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+       </c:when>
+       <c:otherwise>
+                                		<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');return activateUserAccountJoinUs();"
+                                		class="bdr-curve btn btn-primary nxt-btn"
+                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	</c:otherwise>
+</c:choose>
+							
 											            
 				        </div>
 				        <div class="clearfix"></div>
