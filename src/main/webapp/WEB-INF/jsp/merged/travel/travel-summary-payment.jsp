@@ -961,8 +961,17 @@ var enablePayment=true;
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <a id="button_confirm" onclick="perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+                                <c:choose>
+						       <c:when test="${language=='en'}">
+						                                	<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','HKD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+						                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+						       </c:when>
+						       <c:otherwise>
+							                                <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','HKD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+						                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+								</c:otherwise>
+								</c:choose>
+                                
                             </div>
                         </div>
                         

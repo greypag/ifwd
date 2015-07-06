@@ -1463,8 +1463,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%">
-                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+                                <c:choose>
+	                            <c:when test="${language=='en'}">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','HKD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:when>
+	                            <c:otherwise>
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','HKD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:otherwise>
+                            </c:choose>
+
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-xs-12"><span class="text-red errDue"></span></div>
@@ -1493,8 +1502,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 		        </div>
 		        <div class="top35 pull-right pad-none" style="width:47%">
-		            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-                                <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+		            <c:choose>
+                          <c:when test="${language=='en'}">
+                              <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','HKD');perventRedirect=false;">
+                                  <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+                          </c:when>
+                          <c:otherwise>
+                              <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','HKD');perventRedirect=false;">
+                                  <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+                          </c:otherwise>
+                         </c:choose>
+           
 		        </div>
 		        <div class="clearfix"></div>
 		        <span class="text-red errDue"></span>

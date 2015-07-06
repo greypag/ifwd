@@ -162,7 +162,8 @@ public class ECommController {
 	
 	@RequestMapping(value = "/{lang}/maintenace")
 	public ModelAndView maintenace(HttpServletRequest request,HttpServletResponse response) {
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
 	

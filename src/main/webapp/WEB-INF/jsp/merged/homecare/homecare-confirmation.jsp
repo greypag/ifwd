@@ -527,10 +527,14 @@
 <script type=text/javascript>
    var params = new Array();
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-   params[1]='type=Registration';
-   params[2]='val=0.0';
-   params[3]='orderId=';
-   params[4]='promoCode=';
+   params[1]='type=Registration_Home';
+   params[2]='val=${dueAmount}';
+   params[3]='orderId=${transNo}';
+   if ('${language}'==='en'){
+	   params[4]='promoCode=Regis_Home EN_Sc';
+   } else {
+	   params[4]='promoCode=Regis_Home ZH_Sc';   
+   }
    params[5]='valueCurrency=HKD';
    params[6]='GCID='; //For Live Tracking only
    params[7]='kw='; //For Live Tracking only
@@ -539,8 +543,16 @@
 </script>
 
 <noscript>
-   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+	<c:choose>
+		<c:when test="${language=='en'}">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Home&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home EN_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   		</c:when>
+   		<c:otherwise>
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home ZH_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   		</c:otherwise>
+   </c:choose>
 </noscript>
+
 <script>
 $(document).ready(function() {
 	ga('create', 'UA-60032236-1', 'auto');

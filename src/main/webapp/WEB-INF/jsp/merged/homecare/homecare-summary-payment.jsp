@@ -435,8 +435,19 @@ perventRedirect=true;
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <a id="button_confirm" onclick="perventRedirect=false;confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+<!--                                 <a id="button_confirm" onclick="perventRedirect=false;confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');" -->
+<%--                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a> --%>
+
+								<c:choose>
+									<c:when test="${language=='en'}">
+								<a id="button_confirm" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','HKD');confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+								                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+								</c:when>
+								       <c:otherwise>
+								       <a id="button_confirm" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 ZH','HKD');confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+								                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+								</c:otherwise>
+								</c:choose>
                             </div>
                         </div>
                             <div class="clearfix"></div>

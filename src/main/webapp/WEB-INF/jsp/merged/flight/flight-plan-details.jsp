@@ -800,9 +800,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
                                                 <select name="personalBeneficiary" class="form-control soflow select-label" id="personalselectBenificiary${inx}" onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
-	                                                <c:forEach var="relationshipList" items="${mapRelationshipCode}">
-                                                       <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
-                                                    </c:forEach>
+	                                                <option value="SE"><fmt:message
+														key="flight.details.insured.beneficiary.default"
+														bundle="${msg}" /></option>
                                                 </select>
                                                </div>
                                                <span id="errpersonalselectBenificiary${inx}" class="text-red"></span>
@@ -1123,9 +1123,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
                                                <select name="adultBeneficiary" class="form-control soflow select-label" id="adultsselectBenificiary${inx}" onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')">
-		                                                <c:forEach var="relationshipList" items="${mapRelationshipCode}">
-                                                       <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
-                                                    </c:forEach>
+		                                                <option value="SE"><fmt:message
+															key="flight.details.insured.beneficiary.default"
+															bundle="${msg}" /></option>
                                                </select></div> <span id="erradultsselectBenificiary${inx}" class="text-red"></span>
                                            </div>
                                        </div>
@@ -1436,9 +1436,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                        name="childBeneficiary"
                                                        onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
                                                        class="form-control soflow select-label">
-                                                        <c:forEach var="relationshipList" items="${mapRelationshipCode}">
-                                                       <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
-                                                    </c:forEach>
+                                                        <option value="SE"><fmt:message
+														key="flight.details.insured.beneficiary.default"
+														bundle="${msg}" /></option>
+                                                        
+                                                        
                                                    </select></div> <span id="errselectChildbenificiary${inx}" class="text-red"></span>
                                            </div>
                                        </div>
@@ -1755,9 +1757,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         name="otherBeneficiary"
                                                         onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
-		                                                        <c:forEach var="relationshipList" items="${mapRelationshipCode}">
-                                                       <option value="${relationshipList.key}"><c:out value="${relationshipList.value}" /></option>
-                                                    </c:forEach>
+		                                                        <option value="SE"><fmt:message
+																key="flight.details.insured.beneficiary.default"
+																bundle="${msg}" /></option>
                                                     </select></div> <span id="benificiary" style="display: none"> <label
                                                         style="color: red">Beneficiary which is blank</label>
                                                     </span>
@@ -2242,9 +2244,19 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                  <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%"> 
-                                <input type="button" onclick="return activateUserAccountJoinUs();"
-                                class="bdr-curve btn btn-primary nxt-btn"
-                                value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+                                <c:choose>
+								<c:when test="${language=='en'}">
+								       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','HKD');return activateUserAccountJoinUs();"
+								                                		class="bdr-curve btn btn-primary nxt-btn"
+								                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+								       </c:when>
+								       <c:otherwise>
+								                                		<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','HKD');return activateUserAccountJoinUs();"
+								                                		class="bdr-curve btn btn-primary nxt-btn"
+								                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+									</c:otherwise>
+								</c:choose>
+								                                
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -2280,9 +2292,19 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 				            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 				        </div>
 				        <div class="top35 pull-right pad-none" style="width:47%">
-				            <input type="button" onclick="return activateUserAccountJoinUs();"
-                                class="bdr-curve btn btn-primary nxt-btn"
-                                value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+							<c:choose>
+							<c:when test="${language=='en'}">
+							       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','HKD');return activateUserAccountJoinUs();"
+							                                		class="bdr-curve btn btn-primary nxt-btn"
+							                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+							       </c:when>
+							       <c:otherwise>
+									<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','HKD');return activateUserAccountJoinUs();"
+							                                		class="bdr-curve btn btn-primary nxt-btn"
+							                                        value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+								</c:otherwise>
+							</c:choose>
+											            
 				        </div>
 				        <div class="clearfix"></div>
 				    </div>
