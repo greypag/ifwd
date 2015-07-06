@@ -54,7 +54,7 @@ function getSavieIllustration() {
 					referralCode: referralCode
 				},
 				function(data) {
-					alert(data);
+					alert(JSON.stringify(data));
 				})
 				.fail(function(data) {
 				});
