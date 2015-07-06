@@ -9,6 +9,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
+import com.ifwd.fwdhk.model.savie.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -20,6 +21,7 @@ import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 import com.ifwd.fwdhk.services.SavieService;
+import com.ifwd.fwdhk.util.CommonUtils;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -27,6 +29,9 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Autowired
 	private RestServiceDao restService;
+	
+	@Autowired
+	private CommonUtils commonUtils;
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
@@ -806,5 +811,51 @@ public class SavieServiceImpl implements SavieService {
 */
 		
 		return null;
+	}
+
+	@Override
+	public List<OptionItemDesc> getMaritalStatus() {
+		
+		return commonUtils.getOptionItemDescList("maritalStatuses");
+	}
+
+	@Override
+	public List<OptionItemDesc> getSavieDistrict() {
+		return commonUtils.getOptionItemDescList("savieDistrict");
+	}
+
+	@Override
+	public List<OptionItemDesc> getEmploymentStatus() {
+		return commonUtils.getOptionItemDescList("employmentStatus");
+	}
+
+	@Override
+	public List<OptionItemDesc> getNationality() {
+		return commonUtils.getOptionItemDescList("nationality");
+	}
+
+	@Override
+	public List<OptionItemDesc> getNatureOfBusiness() {
+		return commonUtils.getOptionItemDescList("natureOfBusiness");
+	}
+
+	@Override
+	public List<OptionItemDesc> getPlaceOfBirth() {
+		return commonUtils.getOptionItemDescList("placeOfBirth");
+	}
+
+	@Override
+	public List<OptionItemDesc> getMonthlyPersonalIncome() {
+		return commonUtils.getOptionItemDescList("monthlyPersonalIncome");
+	}
+
+	@Override
+	public List<OptionItemDesc> getSavieBeneficiaryRelationship() {
+		return commonUtils.getOptionItemDescList("savieBeneficiaryRelationship");
+	}
+
+	@Override
+	public List<OptionItemDesc> getOccupation() {
+		return commonUtils.getOptionItemDescList("occupation");
 	}
 }

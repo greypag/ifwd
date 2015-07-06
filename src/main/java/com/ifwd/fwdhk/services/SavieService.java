@@ -5,6 +5,7 @@ import java.util.List;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
+import com.ifwd.fwdhk.model.savie.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -36,7 +37,15 @@ public interface SavieService {
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
 	
-
+	public List<OptionItemDesc> getMaritalStatus();
+	public List<OptionItemDesc> getSavieDistrict();
+	public List<OptionItemDesc> getEmploymentStatus();
+	public List<OptionItemDesc> getNationality();
+	public List<OptionItemDesc> getNatureOfBusiness();
+	public List<OptionItemDesc> getPlaceOfBirth();
+	public List<OptionItemDesc> getMonthlyPersonalIncome();
+	public List<OptionItemDesc> getSavieBeneficiaryRelationship();
+	public List<OptionItemDesc> getOccupation();
 	
 	//fileUpload?
 	//signature?
