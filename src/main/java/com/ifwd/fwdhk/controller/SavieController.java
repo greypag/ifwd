@@ -1,12 +1,17 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import javax.servlet.http.HttpServletRequest;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +19,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.savie.SavieApplicantBean;
 import com.ifwd.fwdhk.model.savie.SavieBeneficiaryBean;
 import com.ifwd.fwdhk.model.savie.SavieEmploymentBean;
+import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 @Controller
 public class SavieController {
@@ -27,54 +34,6 @@ public class SavieController {
 	@Autowired
 	private RestServiceDao restService;
 
-	@RequestMapping(value = {"/{lang}/savie-application-detail1"})
-	public String getSaviePersonalinfo(Model model, HttpServletRequest request,@ModelAttribute("beneficiaryInfo")SavieBeneficiaryBean bene) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		logger.debug(bene.getChineseName());
-		logger.debug(bene.getFirstName());
-		logger.debug(bene.getHkId());
-		logger.debug(bene.getLastName());
-		logger.debug(bene.getPassport());
-		logger.debug(bene.getRelationship());	
-		logger.debug(bene.getGender().toString());	
-		
-		setupStepAttributes(model, "1");
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-application-detail2"})
-	public String getSavieEmploymentInfo(Model model, HttpServletRequest request,@ModelAttribute("personalInfo")SavieApplicantBean savie) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		logger.debug(savie.getFirstName());
-		
-		logger.debug(request.getParameter("addressIsSame"));
-		
-		setupStepAttributes(model, "2");
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-application-detail3"})
-	public String getSavieBeneficiaryInfo(Model model, HttpServletRequest request,@ModelAttribute("employmentInfo")SavieEmploymentBean emp) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		logger.debug(emp.getEmploymentStatus());
-		logger.debug(emp.getMonthlyPersonalIncome());
-		logger.debug(emp.getNatureOfBusiness());
-		logger.debug(emp.getOccupation());
-		
-		setupStepAttributes(model, "3");
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
-	}
-	
-	private void setupStepAttributes(Model model, String step) {
-    	model.addAttribute("step", step);
-	}
-	
 	@RequestMapping(value = {"/{lang}/savie-landing"})
 	public String getSavieLanding(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -92,7 +51,8 @@ public class SavieController {
 		
 		model.addAttribute("nextPageFlow", SaviePageFlowControl.pageFlow(request));
 		
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
+		String redirectUrl=SaviePageFlowControl.pageFlow(request);
+		return redirectUrl;
 	}
 
 	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})
@@ -189,7 +149,7 @@ public class SavieController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-application-details"})
-	public String getSavieApplicationDetails(Model model, HttpServletRequest request) {
+	public String getSaviePersonalinfo(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
@@ -197,10 +157,14 @@ public class SavieController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-order-summary"})
-	public String getSavieOrderSummary(Model model, HttpServletRequest request) {
+	public String getSavieOrderSummary(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
+		
+		logger.debug(savieDetail.getSavieApplicantBean().getFirstName());
+		logger.debug(savieDetail.getSavieEmploymentBean().getEmploymentStatus());
+		request.getSession().setAttribute("savieDetail", savieDetail);
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-order-summary";
 	}
 	
