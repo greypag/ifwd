@@ -28,3 +28,73 @@ $(function () {
 	});
 	
 });
+
+
+function getSavieIllustration() {
+	var amount = $('#R').val();
+	var promocode = $('#promocode').val();
+	var birthOfDay = $('#birthOfDay').val();
+	
+	//var contextPath = window.location.pathname.split("/")[1];
+	//var language = $('#language').val();
+	
+	var product = "savie";
+	var issueAge = jsGetAge(birthOfDay);
+	var paymentTerm = 100-issueAge+1;
+	var premium = amount;
+	var referralCode = promocode;
+	
+	if(issueAge !=null && issueAge>17 && issueAge < 100 && premium !=null){
+		$.get('getSavieIllustrationByAjax',
+				{ 
+					product : product,
+					issueAge: issueAge,
+					paymentTerm: paymentTerm,
+					premium: premium,
+					referralCode: referralCode
+				},
+				function(data) {
+					alert(data);
+				})
+				.fail(function(data) {
+				});
+	}
+}
+
+function jsGetAge(strBirthday){       
+	var returnAge;
+	var strBirthdayArr=strBirthday.split("-");
+	var birthYear = strBirthdayArr[0];
+	var birthMonth = strBirthdayArr[1];
+	var birthDay = strBirthdayArr[2];
+	
+	d = new Date();
+	var nowYear = d.getFullYear();
+	var nowMonth = d.getMonth() + 1;
+	var nowDay = d.getDate();
+	
+	if(nowYear == birthYear){
+		returnAge = 0;
+	}
+	else{
+		var ageDiff = nowYear - birthYear ; 
+		if(ageDiff > 0){
+			if(nowMonth == birthMonth){
+				var dayDiff = nowDay - birthDay;
+				if(dayDiff < 0)
+				{returnAge = ageDiff - 1;}
+				else
+				{returnAge = ageDiff ;}
+			}else{
+				var monthDiff = nowMonth - birthMonth;
+				if(monthDiff < 0)
+				{returnAge = ageDiff - 1;}
+				else
+				{returnAge = ageDiff ;}
+			}
+		}
+		else{returnAge = -1;
+		}
+	}
+	return returnAge;
+}

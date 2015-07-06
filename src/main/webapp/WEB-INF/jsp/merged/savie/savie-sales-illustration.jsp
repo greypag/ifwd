@@ -61,11 +61,7 @@
 					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
 					<a href="#">
 						<div class="right">                 
-<<<<<<< HEAD
-							<h3><fmt:message key="savie.sales.illustration.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.sales.illustration.Talk.to.us.now" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
-=======
-							<h3>${nextPageFlow} Questions ?</h3> <p>Talk to us now<i class="glyphicon glyphicon-play"></i></p> 
->>>>>>> branch 'fwdhk_savie' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
+							<h3>${nextPageFlow} <fmt:message key="savie.sales.illustration.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.sales.illustration.Talk.to.us.now" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
 						</div>
 					</a>
 				</div>
@@ -78,6 +74,7 @@
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
 
 				<form class="fwd-container-limit">
+				    <input type="hidden" id="language" value="${language }"/>
 					<div id="triangle"></div>
 					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 					<div id="investment-amount">    
@@ -93,7 +90,7 @@
 								<p>400,000</p>
 							</div>
 
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" class="span2" name="amount" value="" onchange="getSavieIllustration();" data-slider-min="30000" data-slider-max="400000" data-slider-step="1" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
 							<h3 class="pull-right total"><span id="range">60,000</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="savie.sales.illustration.HK" bundle="${msg}" /></label>
@@ -102,7 +99,7 @@
 						<div id="desktop-right">
 							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 							<h2 id="promo">Promo Code<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
-							<input name="promocode" type="text" placeholder="eg: SAVIE50" class="promocode">
+							<input name="promocode" id="promocode" type="text" onblur="getSavieIllustration();" placeholder="eg: SAVIE50" class="promocode">
 						</div>
 
 					   <p id="crediting-rate" class="text-center"><fmt:message key="savie.sales.illustration.Guaranteed.crediting.rate" bundle="${msg}" /></p>
@@ -117,7 +114,8 @@
 
 						<div id="birthday">
 							<div class="input-group input-append date" id="datePicker">
-								<input type="text" class="date" name="dob" id="dates" placeholder="28th May 1996" readonly />
+								<input type="text" class="date" name="dob" onchange="getSavieIllustration();" id="dates" placeholder="28th May 1996" readonly />
+								<input type="hidden" id="birthOfDay"/>
 								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 							</div>
 						</div>
@@ -300,5 +298,6 @@
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 	</body>
 </html>
