@@ -831,14 +831,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.maritalStatusesCH!=null)
+			if(InitApplicationMessage.maritalStatusesCN!=null)
 			{
-				return InitApplicationMessage.maritalStatusesCH;
+				return InitApplicationMessage.maritalStatusesCN;
 			}
 			else
 			{
-				InitApplicationMessage.maritalStatusesCH=commonUtils.getOptionItemDescList("maritalStatuses",language);
-				return InitApplicationMessage.maritalStatusesCH;
+				InitApplicationMessage.maritalStatusesCN=commonUtils.getOptionItemDescList("maritalStatuses",language);
+				return InitApplicationMessage.maritalStatusesCN;
 			}
 		}
 		
@@ -863,14 +863,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.savieDistrictCH!=null)
+			if(InitApplicationMessage.savieDistrictCN!=null)
 			{
-				return InitApplicationMessage.savieDistrictCH;
+				return InitApplicationMessage.savieDistrictCN;
 			}
 			else
 			{
-				InitApplicationMessage.savieDistrictCH=commonUtils.getOptionItemDescList("savieDistrict",language);
-				return InitApplicationMessage.savieDistrictCH;
+				InitApplicationMessage.savieDistrictCN=commonUtils.getOptionItemDescList("savieDistrict",language);
+				return InitApplicationMessage.savieDistrictCN;
 			}
 			
 		}
@@ -895,14 +895,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.employmentStatusCH!=null)
+			if(InitApplicationMessage.employmentStatusCN!=null)
 			{
-				return InitApplicationMessage.employmentStatusCH;
+				return InitApplicationMessage.employmentStatusCN;
 			}
 			else
 			{
-				InitApplicationMessage.employmentStatusCH=commonUtils.getOptionItemDescList("employmentStatus",language);
-				return InitApplicationMessage.employmentStatusCH;
+				InitApplicationMessage.employmentStatusCN=commonUtils.getOptionItemDescList("employmentStatus",language);
+				return InitApplicationMessage.employmentStatusCN;
 			}
 			
 		}
@@ -926,14 +926,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.nationalityCH!=null)
+			if(InitApplicationMessage.nationalityCN!=null)
 			{
-				return InitApplicationMessage.nationalityCH;
+				return InitApplicationMessage.nationalityCN;
 			}
 			else
 			{
-				InitApplicationMessage.nationalityCH=commonUtils.getOptionItemDescList("employmentStatus",language);
-				return InitApplicationMessage.nationalityCH;
+				InitApplicationMessage.nationalityCN=commonUtils.getOptionItemDescList("employmentStatus",language);
+				return InitApplicationMessage.nationalityCN;
 			}			
 		}
 		//return commonUtils.getOptionItemDescList("nationality",language);
@@ -955,14 +955,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.natureOfBusinessCH!=null)
+			if(InitApplicationMessage.natureOfBusinessCN!=null)
 			{
-				return InitApplicationMessage.natureOfBusinessCH;
+				return InitApplicationMessage.natureOfBusinessCN;
 			}
 			else
 			{
-				InitApplicationMessage.natureOfBusinessCH=commonUtils.getOptionItemDescList("natureOfBusiness",language);
-				return InitApplicationMessage.natureOfBusinessCH;
+				InitApplicationMessage.natureOfBusinessCN=commonUtils.getOptionItemDescList("natureOfBusiness",language);
+				return InitApplicationMessage.natureOfBusinessCN;
 			}			
 		}
 		//return commonUtils.getOptionItemDescList("natureOfBusiness",language);
@@ -984,14 +984,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.placeOfBirthCH!=null)
+			if(InitApplicationMessage.placeOfBirthCN!=null)
 			{
-				return InitApplicationMessage.placeOfBirthCH;
+				return InitApplicationMessage.placeOfBirthCN;
 			}
 			else
 			{
-				InitApplicationMessage.placeOfBirthCH=commonUtils.getOptionItemDescList("placeOfBirth",language);
-				return InitApplicationMessage.placeOfBirthCH;
+				InitApplicationMessage.placeOfBirthCN=commonUtils.getOptionItemDescList("placeOfBirth",language);
+				return InitApplicationMessage.placeOfBirthCN;
 			}			
 		}
 		//return commonUtils.getOptionItemDescList("placeOfBirth",language);
@@ -1013,14 +1013,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.monthlyPersonalIncomeCH!=null)
+			if(InitApplicationMessage.monthlyPersonalIncomeCN!=null)
 			{
-				return InitApplicationMessage.monthlyPersonalIncomeCH;
+				return InitApplicationMessage.monthlyPersonalIncomeCN;
 			}
 			else
 			{
-				InitApplicationMessage.monthlyPersonalIncomeCH=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
-				return InitApplicationMessage.monthlyPersonalIncomeCH;
+				InitApplicationMessage.monthlyPersonalIncomeCN=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
+				return InitApplicationMessage.monthlyPersonalIncomeCN;
 			}			
 		}
 		//return commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
@@ -1042,14 +1042,14 @@ public class SavieServiceImpl implements SavieService {
 		}
 		else
 		{
-			if(InitApplicationMessage.savieBeneficiaryRelationshipCH!=null)
+			if(InitApplicationMessage.savieBeneficiaryRelationshipCN!=null)
 			{
-				return InitApplicationMessage.savieBeneficiaryRelationshipCH;
+				return InitApplicationMessage.savieBeneficiaryRelationshipCN;
 			}
 			else
 			{
-				InitApplicationMessage.savieBeneficiaryRelationshipCH=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
-				return InitApplicationMessage.savieBeneficiaryRelationshipCH;
+				InitApplicationMessage.savieBeneficiaryRelationshipCN=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
+				return InitApplicationMessage.savieBeneficiaryRelationshipCN;
 			}			
 		}
 		//return commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
@@ -1071,14 +1071,14 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				if(InitApplicationMessage.occupationCH!=null)
+				if(InitApplicationMessage.occupationCN!=null)
 				{
-					return InitApplicationMessage.occupationCH;
+					return InitApplicationMessage.occupationCN;
 				}
 				else
 				{
-					InitApplicationMessage.occupationCH=commonUtils.getOptionItemDescList("occupation",language);
-					return InitApplicationMessage.occupationCH;
+					InitApplicationMessage.occupationCN=commonUtils.getOptionItemDescList("occupation",language);
+					return InitApplicationMessage.occupationCN;
 				}			
 			}
 		//return commonUtils.getOptionItemDescList("occupation",language);

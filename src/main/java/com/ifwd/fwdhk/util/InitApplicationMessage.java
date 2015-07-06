@@ -24,26 +24,26 @@ public class InitApplicationMessage implements ApplicationListener{
 	private CommonUtils commonUtils;
 	
 	public static List<OptionItemDesc> maritalStatusesEN;	
-	public static List<OptionItemDesc> maritalStatusesCH;
+	public static List<OptionItemDesc> maritalStatusesCN;
 	
 	
 	public static List<OptionItemDesc> savieDistrictEN;
-	public static List<OptionItemDesc> savieDistrictCH;
+	public static List<OptionItemDesc> savieDistrictCN;
 	public static List<OptionItemDesc> employmentStatusEN;
-	public static List<OptionItemDesc> employmentStatusCH;
+	public static List<OptionItemDesc> employmentStatusCN;
 	public static List<OptionItemDesc> nationalityEN;
-	public static List<OptionItemDesc> nationalityCH;
+	public static List<OptionItemDesc> nationalityCN;
 	public static List<OptionItemDesc> occupationEN;
-	public static List<OptionItemDesc> occupationCH;
+	public static List<OptionItemDesc> occupationCN;
 	public static List<OptionItemDesc> natureOfBusinessEN;
-	public static List<OptionItemDesc> natureOfBusinessCH;
+	public static List<OptionItemDesc> natureOfBusinessCN;
 	public static List<OptionItemDesc> monthlyPersonalIncomeEN;
-	public static List<OptionItemDesc> monthlyPersonalIncomeCH;
+	public static List<OptionItemDesc> monthlyPersonalIncomeCN;
 	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
-	public static List<OptionItemDesc> savieBeneficiaryRelationshipCH;
+	public static List<OptionItemDesc> savieBeneficiaryRelationshipCN;
 	
 	public static List<OptionItemDesc> placeOfBirthEN;
-	public static List<OptionItemDesc> placeOfBirthCH;
+	public static List<OptionItemDesc> placeOfBirthCN;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -58,12 +58,12 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("savieDistrictEN : " + savieDistrictEN);
 			
 			try {
-				savieDistrictCH = commonUtils.getOptionItemDescList("savieDistrict","CH");
+				savieDistrictCN = commonUtils.getOptionItemDescList("savieDistrict","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				savieDistrictCH=null;
+				savieDistrictCN=null;
 			}
-			logger.info("savieDistrictCH : " + savieDistrictCH);
+			logger.info("savieDistrictCH : " + savieDistrictCN);
 			
 			try {
 				employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN");
@@ -74,28 +74,28 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("employmentStatusEN : " + employmentStatusEN);
 			
 			try {
-				employmentStatusCH = commonUtils.getOptionItemDescList("employmentStatus","CH");
+				employmentStatusCN = commonUtils.getOptionItemDescList("employmentStatus","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				employmentStatusCH=null;
+				employmentStatusCN=null;
 			}
-			logger.info("employmentStatusCH : " + employmentStatusCH);
+			logger.info("employmentStatusCH : " + employmentStatusCN);
 			
 			try {
 				nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				nationalityCH=null;
+				nationalityEN=null;
 			}
-			logger.info("nationalityCH : " + nationalityCH);
+			logger.info("nationalityCH : " + nationalityEN);
 			
 			try {
-				nationalityCH = commonUtils.getOptionItemDescList("nationality","CH");
+				nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				nationalityCH=null;
+				nationalityCN=null;
 			}
-			logger.info("nationalityCH : " + nationalityCH);
+			logger.info("nationalityCH : " + nationalityCN);
 			
 			try {
 				occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
@@ -106,12 +106,12 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("occupationEN : " + occupationEN);
 			
 			try {
-				occupationCH = commonUtils.getOptionItemDescList("occupation","CH");
+				occupationCN = commonUtils.getOptionItemDescList("occupation","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				occupationCH=null;
+				occupationCN=null;
 			}
-			logger.info("occupationCH : " + occupationCH);
+			logger.info("occupationCH : " + occupationCN);
 			
 			try {
 				natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
@@ -122,12 +122,12 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("natureOfBusinessEN : " + natureOfBusinessEN);
 			
 			try {
-				natureOfBusinessCH = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
+				natureOfBusinessCN = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				natureOfBusinessCH=null;
+				natureOfBusinessCN=null;
 			}
-			logger.info("natureOfBusinessCH : " + nationalityCH);
+			logger.info("natureOfBusinessCH : " + natureOfBusinessCN);
 			
 			try {
 				monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
@@ -138,12 +138,12 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("monthlyPersonalIncomeEN : " + monthlyPersonalIncomeEN);
 			
 			try {
-				monthlyPersonalIncomeCH = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH");
+				monthlyPersonalIncomeCN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				monthlyPersonalIncomeCH=null;
+				monthlyPersonalIncomeCN=null;
 			}
-			logger.info("monthlyPersonalIncomeCH : " + monthlyPersonalIncomeCH);
+			logger.info("monthlyPersonalIncomeCH : " + monthlyPersonalIncomeCN);
 			
 			try {
 				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","EN");
@@ -154,12 +154,12 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
 			
 			try {
-				savieBeneficiaryRelationshipCH = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","CH");
+				savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipCH=null;
+				savieBeneficiaryRelationshipCN=null;
 			}
-			logger.info("savieBeneficiaryRelationshipCH : " + savieBeneficiaryRelationshipCH);
+			logger.info("savieBeneficiaryRelationshipCH : " + savieBeneficiaryRelationshipCN);
 			
 			try {
 				placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
@@ -170,12 +170,12 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("placeOfBirthEN : " + placeOfBirthEN);
 			
 			try {
-				placeOfBirthCH = commonUtils.getOptionItemDescList("placeOfBirth","CH");
+				placeOfBirthCN = commonUtils.getOptionItemDescList("placeOfBirth","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				placeOfBirthCH=null;
+				placeOfBirthCN=null;
 			}
-			logger.info("PlaceOfBirthCH : " + placeOfBirthCH);
+			logger.info("PlaceOfBirthCH : " + placeOfBirthCN);
 			
 		}
 	}
