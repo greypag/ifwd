@@ -90,7 +90,7 @@
 								<p>400,000</p>
 							</div>
 
-							<input type="text" class="span2" name="amount" value="" onchange="getSavieIllustration();" data-slider-min="30000" data-slider-max="400000" data-slider-step="1" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
 							<h3 class="pull-right total"><span id="range">60,000</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="savie.sales.illustration.HK" bundle="${msg}" /></label>
@@ -99,7 +99,7 @@
 						<div id="desktop-right">
 							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 							<h2 id="promo">Promo Code<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
-							<input name="promocode" id="promocode" type="text" onblur="getSavieIllustration();" placeholder="eg: SAVIE50" class="promocode">
+							<input name="promocode" id="promocode" type="text" placeholder="eg: SAVIE50" class="promocode">
 						</div>
 
 					   <p id="crediting-rate" class="text-center"><fmt:message key="savie.sales.illustration.Guaranteed.crediting.rate" bundle="${msg}" /></p>
@@ -114,13 +114,16 @@
 
 						<div id="birthday">
 							<div class="input-group input-append date" id="datePicker">
-								<input type="text" class="date" name="dob" onchange="getSavieIllustration();" id="dates" placeholder="28th May 1996" readonly />
-								<input type="hidden" id="birthOfDay"/>
+								<input type="text" class="date" name="dob" id="dates" placeholder="28th May 1996" readonly />
+								<input type="hidden" id="birthOfDay" value="1996-05-28"/>
 								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 							</div>
 						</div>
 					</div>
 				</form>
+			</div>
+			<div align="center" style="margin-top: 10px;">
+			    <input type="button" onclick='getSavieIllustration()' class="btn btn-orange" value="getData"/>
 			</div>
 			
 			<!-- Investment Summary and Table Block-->

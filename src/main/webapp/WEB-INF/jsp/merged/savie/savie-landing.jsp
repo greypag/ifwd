@@ -65,7 +65,7 @@
 					</div>
 				</div>		
 				<div class="widget-btns">
-					<a href="<%=request.getContextPath()%>/${language}/savie-illustration"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a>						
+					<a href="<%=request.getContextPath()%>/${language}/savie-sales-illustration"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a>						
 				</div>
 				<div class="widget-link">
 					<a href="#"><fmt:message key="savie.landing.learnmore" bundle="${msg}" /></a>
@@ -262,7 +262,7 @@
 	                        </div>
 	                    </button>
 	                </div>
-	                <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savie-illustration"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
+	                <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savie-sales-illustration"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
 	            </div>
 	        </div>
 			

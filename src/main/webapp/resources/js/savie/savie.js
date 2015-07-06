@@ -44,7 +44,13 @@ function getSavieIllustration() {
 	var premium = amount;
 	var referralCode = promocode;
 	
-	if(issueAge !=null && issueAge>17 && issueAge < 100 && premium !=null){
+	if(issueAge ==null || issueAge<18 || issueAge > 100){
+		alert("Invalid date of birth!");
+	}
+	else if(premium ==null || premium <30000 || premium > 400000){
+		alert("Invalid Savings amount!");
+	}
+	else{
 		$.get('getSavieIllustrationByAjax',
 				{ 
 					product : product,
