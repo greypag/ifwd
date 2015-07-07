@@ -321,12 +321,12 @@ public class Methods {
 /*
 @Test  
 public void testStringBase64() throws Exception{  
-    String str = "hello";  
+    String str = "我们都是中国人";  
     String oldStr = Base64UTIL.compressData(str);  
     String newStr = Base64UTIL.decompressData(oldStr);  
-    System.out.println("base64 source：："+str);  
-    System.out.println("base64 compress：："+oldStr);  
-    System.out.println("base64 decompress：："+newStr);  
+    System.out.println("base64原串：："+str);  
+    System.out.println("base64编码：："+oldStr);  
+    System.out.println("base64解码：："+newStr);  
 }  
   
 

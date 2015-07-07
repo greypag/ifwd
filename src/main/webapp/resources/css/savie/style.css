@@ -24,7 +24,7 @@ body{
     background-size: contain;
 }
 .wrapper .letgo_btn{
-    background-image: url("../img/sliced_FWD_interface_v03_out_letsgo_btn.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_letsgo_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 175px;
@@ -37,7 +37,7 @@ body{
     z-index: 4;
 }
 .wrapper .car_dream_btn{
-    background-image: url("../img/sliced_FWD_interface_v03_out_dream_car_btn.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_car_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 410px;
@@ -51,7 +51,7 @@ body{
     cursor:pointer;
 }
 .wrapper .wedding_dream_btn{
-    background-image: url("../img/sliced_FWD_interface_v03_out_dream_marriage_btn.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_marriage_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 364px;
@@ -65,7 +65,7 @@ body{
     cursor:pointer;
 }
 .wrapper .trip_dream_btn{
-    background-image: url("../img/sliced_FWD_interface_v03_out_dream_travel_btn.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_travel_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 165px;
@@ -79,7 +79,7 @@ body{
     cursor:pointer;
 }
 .wrapper .saving_dream_btn{
-    background-image: url("../img/sliced_FWD_interface_v03_out_dream_other_btn.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_other_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 354px;
@@ -132,22 +132,22 @@ body{
 }
 
 .wrapper .boy_figure.young{
-	background-image: url("../img/img_man_young.png");
+	background-image: url("../../images/mini-calculator/img_man_young.png");
 }
 .wrapper .boy_figure.young.wink .animationDiv{
-	background-image: url("../img/sprite/img_man_young_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_man_young_sprite.png");
 }
 .wrapper .boy_figure.middle{
-	background-image: url("../img/img_man_middle.png");
+	background-image: url("../../images/mini-calculator/img_man_middle.png");
 }
 .wrapper .boy_figure.middle.wink .animationDiv{
-	background-image: url("../img/sprite/img_man_middle_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_man_middle_sprite.png");
 }
 .wrapper .boy_figure.old{
-	background-image: url("../img/img_man_old.png");
+	background-image: url("../../images/mini-calculator/img_man_old.png");
 }
 .wrapper .boy_figure.old.wink .animationDiv{
-	background-image: url("../img/sprite/img_man_old_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_man_old_sprite.png");
 }
 
 .wrapper .boy_figure_desc{
@@ -186,22 +186,22 @@ body{
 }
 
 .wrapper .girl_figure.young{
-	background-image: url("../img/img_woman_young.png");
+	background-image: url("../../images/mini-calculator/img_woman_young.png");
 }
 .wrapper .girl_figure.young.wink .animationDiv{
-	background-image: url("../img/sprite/img_woman_young_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_woman_young_sprite.png");
 }
 .wrapper .girl_figure.middle{
-	background-image: url("../img/img_woman_middle.png");
+	background-image: url("../../images/mini-calculator/img_woman_middle.png");
 }
 .wrapper .girl_figure.middle.wink .animationDiv{
-	background-image: url("../img/sprite/img_woman_middle_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_woman_middle_sprite.png");
 }
 .wrapper .girl_figure.old{
-	background-image: url("../img/img_woman_old.png");
+	background-image: url("../../images/mini-calculator/img_woman_old.png");
 }
 .wrapper .girl_figure.old.wink .animationDiv{
-	background-image: url("../img/sprite/img_woman_old_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_woman_old_sprite.png");
 }
 
 .wrapper .girl_figure_desc{
@@ -219,7 +219,7 @@ body{
 	left:305px;
 	width:350px;
 	height:363px;
-	background-image: url("../img/sprite/img_bubble_sprite_12f.png");
+	background-image: url("../../images/mini-calculator/sprite/img_bubble_sprite_12f.png");
 	z-index: 6;
 	display:none;
 }
@@ -252,7 +252,7 @@ body{
 .wrapper .levelSelectionDiv div.carSmoke{
 	width:44px;
 	height:46px;
-	background-image: url("../img/sprite/car_smoke_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/car_smoke_sprite.png");
 	background-size: 484px 46px;
 	display:none;
 }
@@ -287,7 +287,7 @@ body{
 	left:235px; 
 }
 .wrapper .levelSelectionDiv div.pinContainer div.pin{
-	background-image: url("../img/img_pin.png");
+	background-image: url("../../images/mini-calculator/img_pin.png");
 	width:53px;
 	height:63px;
 }
@@ -336,7 +336,7 @@ body{
 	left:344.5px; 
 }
 .wrapper .levelSelectionDiv div.low.couple{
-	background-image: url("../img/img_couple_young.png");
+	background-image: url("../../images/mini-calculator/img_couple_young.png");
 }
 .wrapper .levelSelectionDiv div.couple .animationDiv{
 	width:271px;
@@ -344,7 +344,7 @@ body{
 }
 
 .wrapper .levelSelectionDiv div.saving{
-	background-image: url("../img/img_pig.png");
+	background-image: url("../../images/mini-calculator/img_pig.png");
 	background-repeat:no-repeat;
 }
 
@@ -370,7 +370,7 @@ body{
 }
 
 .wrapper .levelSelectionDiv div.coin{
-	background-image: url("../img/img_coin.png");
+	background-image: url("../../images/mini-calculator/img_coin.png");
 	background-repeat:no-repeat;
 	display:none;
 }
@@ -406,21 +406,21 @@ body{
 }
 
 .wrapper .levelSelectionDiv div.low.couple.wink .animationDiv{
-	background-image: url("../img/sprite/img_couple_young_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_couple_young_sprite.png");
 	background-size: 543px 306px;
 }
 .wrapper .levelSelectionDiv div.mid.couple{
-	background-image: url("../img/img_couple_mid.png");
+	background-image: url("../../images/mini-calculator/img_couple_mid.png");
 }
 .wrapper .levelSelectionDiv div.mid.couple.wink .animationDiv{
-	background-image: url("../img/sprite/img_couple_mid_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_couple_mid_sprite.png");
 	background-size: 543px 306px;
 }
 .wrapper .levelSelectionDiv div.high.couple{
-	background-image: url("../img/img_couple_old.png");
+	background-image: url("../../images/mini-calculator/img_couple_old.png");
 }
 .wrapper .levelSelectionDiv div.high.couple.wink .animationDiv{
-	background-image: url("../img/sprite/img_couple_old_sprite.png");
+	background-image: url("../../images/mini-calculator/sprite/img_couple_old_sprite.png");
 	background-size: 543px 306px;
 }
 .wrapper .levelSelectionDiv div.couple.init{
@@ -444,7 +444,7 @@ body{
 	background-size: contain;
 }
 .wrapper .car.middle{
-	background-image: url("../img/sprite/car_mid.png");
+	background-image: url("../../images/mini-calculator/sprite/car_mid.png");
 	width:313px;
 	height:155px;
 	top:100px;
@@ -462,7 +462,7 @@ body{
     width: 105px;
     height: 71px;
     background-size: contain;
-    background-image: url("../img/sliced_FWD_interface_v03_out_cs5_arrow_l.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_l.png");
     background-repeat: no-repeat;
     cursor:pointer;
 }
@@ -488,7 +488,7 @@ body{
     top: 230px;
     right: 60px;
     background-size: contain;
-    background-image: url("../img/sliced_FWD_interface_v03_out_cs5_arrow_r.png");
+    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_r.png");
     background-repeat: no-repeat;
     cursor:pointer;
 }
@@ -571,7 +571,7 @@ body{
 }
 #slider .ui-slider-handle {
     border: none;
-    background: url("../img/img_button_short.png");
+    background: url("../../images/mini-calculator/img_button_short.png");
     background-position: right; 
     width: 100px;
     height: 40px;
@@ -583,16 +583,16 @@ body{
 }
 
 #slider .ui-slider-handle.mid {
-	background: url("../img/img_button_mid.png");
+	background: url("../../images/mini-calculator/img_button_mid.png");
 	width: 150px;
 }
 #slider .ui-slider-handle.long {
-	background: url("../img/img_button_long.png");
+	background: url("../../images/mini-calculator/img_button_long.png");
 	width: 170px;
 }
 
 #slider .ui-slider-range {
-    /*background-image: url("../img/sliced_FWD_interface_v03_out_cs5_slider_bar_fill.png");*/
+    /*background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_cs5_slider_bar_fill.png");*/
     background-color:#fab531;
     background-repeat: repeat;
     -webkit-border-radius: 10px;

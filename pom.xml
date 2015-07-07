@@ -149,12 +149,12 @@
 		    <version>2.4</version>  
 		    <classifier>jdk15</classifier>  
 		 </dependency>
-		 <dependency>
-	<groupId>commons-fileupload</groupId>
-	<artifactId>commons-fileupload</artifactId>
-	<version>1.3</version>
-</dependency>
-		 
+		  <dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+ 
 		
 	</dependencies>
 	<profiles>
@@ -164,7 +164,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<build>
-				<finalName>ROOT</finalName>
+				<finalName>FWDHKPH1A</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -242,7 +242,7 @@
 		<profile>
 			<id>sit</id>
 			<build>
-				<finalName>ROOT</finalName>
+				<finalName>FWDHKPH1A</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -320,7 +320,7 @@
 		<profile>
 			<id>uat</id>
 			<build>
-				<finalName>ROOT</finalName>
+				<finalName>FWDHKPH1A</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -398,7 +398,7 @@
 		<profile>
 			<id>prd</id>
 			<build>
-				<finalName>ROOT</finalName>
+				<finalName>FWDHKPH1A</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -474,4 +474,19 @@
 			</build>
 		</profile>
 	</profiles>
+	
+	<build>
+		<finalName>FWDHKPH1A</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://localhost:8080/manager</url>
+					<server>TomcatServer</server>
+					<path>/fwd-savie-dev</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
