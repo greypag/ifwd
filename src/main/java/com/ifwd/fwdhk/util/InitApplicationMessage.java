@@ -90,7 +90,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				nationalityEN=null;
 			}
-			logger.info("nationalityCN : " + nationalityEN);
+			logger.info("nationalityEN : " + nationalityEN);
 			
 			try {
 				nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
@@ -98,7 +98,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				nationalityCN=null;
 			}
-			logger.info("nationalityCH : " + nationalityCN);
+			logger.info("nationalityCN : " + nationalityCN);
 			
 			try {
 				occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
