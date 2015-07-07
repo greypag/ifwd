@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
