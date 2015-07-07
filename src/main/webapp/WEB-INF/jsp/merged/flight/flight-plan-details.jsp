@@ -772,20 +772,39 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select"><select
-                                                        name="personalAgeRange" class="form-control soflow select-label"
-                                                        id="selectAgeRange${inx}">
-                                                        <c:forEach var="ageList" items="${mapSelfType}">
-                                                            <c:choose>
-                                                                <c:when test="${ageList.key == '2'}">
-                                                                    <option value="${ageList.key}" selected>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <option value="${ageList.key}">
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            <c:out value="${ageList.value}" />
-                                                            </option>
-                                                        </c:forEach>
+                                                    name="personalAgeRange" class="form-control soflow select-label"
+                                                    id="selectAgeRange${inx}">
+                                                    <c:choose>
+                                                        <c:when test="${inx == 1}">
+                                                            <c:forEach var="ageList" items="${mapSelfType}">
+                                                                <c:choose>
+                                                                    <c:when test="${ageList.key == '2'}">
+                                                                        <option value="${ageList.key}" selected>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <option value="${ageList.key}">
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                                <c:out value="${ageList.value}" />
+                                                                </option>
+                                                            </c:forEach>
+                                                        </c:when>
+                                                        <c:otherwise>
+	                                                        <c:forEach var="ageList" items="${mapAgeType}">
+	                                                            <c:choose>
+	                                                                <c:when test="${ageList.key == '2'}">
+	                                                                    <option value="${ageList.key}" selected>
+	                                                                </c:when>
+	                                                                <c:otherwise>
+	                                                                    <option value="${ageList.key}">
+	                                                                </c:otherwise>
+	                                                            </c:choose>
+	                                                            <c:out value="${ageList.value}" />
+	                                                            </option>
+	                                                        </c:forEach>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                        
                                                     </select></div><span id="errselectAgeRange${inx}" class="text-red">
                                                     </span>
                                            </div>
