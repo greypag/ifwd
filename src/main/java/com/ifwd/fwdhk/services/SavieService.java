@@ -5,7 +5,7 @@ import java.util.List;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.savie.OptionItemDesc;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -29,7 +29,7 @@ public interface SavieService {
 	
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
-	public SavieIllustrationBean getIllustration(String userName, String token, String language);
+	public SavieIllustrationBean getIllustration(String userName, String token, String language,String referralCode);
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);

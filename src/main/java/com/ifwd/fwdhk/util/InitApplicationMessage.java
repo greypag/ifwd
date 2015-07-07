@@ -11,7 +11,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
 
-import com.ifwd.fwdhk.model.savie.OptionItemDesc;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @SuppressWarnings("rawtypes")
 @Component
@@ -44,6 +44,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	public static List<OptionItemDesc> placeOfBirthEN;
 	public static List<OptionItemDesc> placeOfBirthCN;
+	
+	public static String initToken;
+	public static String initUsername;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -79,7 +82,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				employmentStatusCN=null;
 			}
-			logger.info("employmentStatusCH : " + employmentStatusCN);
+			logger.info("employmentStatusCN : " + employmentStatusCN);
 			
 			try {
 				nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
@@ -87,7 +90,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				nationalityEN=null;
 			}
-			logger.info("nationalityCH : " + nationalityEN);
+			logger.info("nationalityEN : " + nationalityEN);
 			
 			try {
 				nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
@@ -95,7 +98,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				nationalityCN=null;
 			}
-			logger.info("nationalityCH : " + nationalityCN);
+			logger.info("nationalityCN : " + nationalityCN);
 			
 			try {
 				occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
@@ -111,7 +114,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				occupationCN=null;
 			}
-			logger.info("occupationCH : " + occupationCN);
+			logger.info("occupationCN : " + occupationCN);
 			
 			try {
 				natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
@@ -127,7 +130,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				natureOfBusinessCN=null;
 			}
-			logger.info("natureOfBusinessCH : " + natureOfBusinessCN);
+			logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
 			
 			try {
 				monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
@@ -143,7 +146,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				monthlyPersonalIncomeCN=null;
 			}
-			logger.info("monthlyPersonalIncomeCH : " + monthlyPersonalIncomeCN);
+			logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
 			
 			try {
 				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","EN");
@@ -159,7 +162,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				savieBeneficiaryRelationshipCN=null;
 			}
-			logger.info("savieBeneficiaryRelationshipCH : " + savieBeneficiaryRelationshipCN);
+			logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
 			
 			try {
 				placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
@@ -175,7 +178,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				placeOfBirthCN=null;
 			}
-			logger.info("PlaceOfBirthCH : " + placeOfBirthCN);
+			logger.info("PlaceOfBirthCN : " + placeOfBirthCN);
 			
 		}
 	}
