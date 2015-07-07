@@ -85,8 +85,7 @@ public class SavieServiceImpl implements SavieService {
 	}
 
 	@Override
-	public SavieIllustrationBean getIllustration(String userName, String token,
-			String language) {
+	public SavieIllustrationBean getIllustration(String userName, String token, String language,String referralCode) {
 		
 		
 	
