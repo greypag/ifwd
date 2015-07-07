@@ -1791,6 +1791,9 @@ function activateUserAccountJoinUs() {
 							class="sub-link"
 							href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
 							target="_blank"><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+							<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
+							<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
+							<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> 
 							<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /> <br> 
 							<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 					</p>

@@ -777,11 +777,14 @@ function checkPromoCodePlaceholder(){
 					<div class="clearfix"></div>
 				</div>
 				<p class="padding1 workingholiday-plan-disclaimer">
-					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" />
+					<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 					<a class="sub-link" href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank">
-						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a>
-						<fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
-						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
+						<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+						<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
+						<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
+						<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> 
+						<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
+						<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 				</p>				
 				
 				<div class="col-xs-12 hidden-md hidden-lg pad-none">

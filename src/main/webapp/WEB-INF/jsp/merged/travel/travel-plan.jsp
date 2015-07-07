@@ -1494,8 +1494,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
-				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
-				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /> <fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
+				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+				<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
+				<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
+					<u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
+				</a> 
+				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" />
+				<br>
+				<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
 		
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
