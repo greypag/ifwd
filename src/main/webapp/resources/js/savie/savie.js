@@ -51,7 +51,7 @@ function getSavieIllustration() {
 		alert("Invalid Savings amount!");
 	}
 	else{
-		$.get('getSavieIllustrationByAjax',
+		$.get('getPlanDetailsByAjax',
 				{ 
 					product : product,
 					issueAge: issueAge,

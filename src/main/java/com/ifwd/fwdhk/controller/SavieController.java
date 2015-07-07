@@ -56,13 +56,13 @@ public class SavieController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})
+	@RequestMapping(value = {"/{lang}/getPlanDetailsByAjax"})
 	public void getSavieIllustrationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
 		
-		String product = request.getParameter("product");
+		String planCode = request.getParameter("planCode");
 		String issueAge = request.getParameter("issueAge");
 		String paymentTerm = request.getParameter("paymentTerm");
 		String premium = request.getParameter("premium");
@@ -70,8 +70,8 @@ public class SavieController {
 		
 		StringBuffer Url = new StringBuffer();
 		Url.append(UserRestURIConstants.SAVIE_GET_ILLUSTRATION);
-		Url.append("?product=");
-		Url.append(product);
+		Url.append("?planCode=");
+		Url.append("Savie");
 		Url.append("&issueAge=");
 		Url.append(issueAge);
 		Url.append("&paymentTerm=");
@@ -95,14 +95,14 @@ public class SavieController {
 			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
 			logger.info("getSavieIllustrationByAjax API:" + responseJsonObj);
 			
-			List<JSONObject> SalesIllustration0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
-			List<JSONObject> SalesIllustration2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");
-			List<JSONObject> SalesIllustration3Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration3Rate");
-			List<JSONObject> SalesIllustration4Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration4Rate");
+			List<JSONObject> planDetails0Rate = (List<JSONObject>) responseJsonObj.get("planDetails0Rate");
+			List<JSONObject> planDetails2Rate = (List<JSONObject>) responseJsonObj.get("planDetails2Rate");
+			List<JSONObject> planDetails3Rate = (List<JSONObject>) responseJsonObj.get("planDetails3Rate");
+			List<JSONObject> planDetails4Rate = (List<JSONObject>) responseJsonObj.get("planDetails4Rate");
 			
 			List<JSONObject> inputTableList = new ArrayList<JSONObject>();
 			JSONObject inputTable = new JSONObject();
-			inputTable.accumulate("type", product);
+			inputTable.accumulate("type", planCode);
 			inputTable.accumulate("issueAge", issueAge);
 			inputTable.accumulate("paymode", "monthly");
 			inputTable.accumulate("premium", premium);
@@ -110,42 +110,42 @@ public class SavieController {
 			inputTable.accumulate("promoCode", referralCode);
 			inputTableList.add(inputTable);
 			
-			JSONObject salesIllustrationJsonObject = new JSONObject();
-			salesIllustrationJsonObject.accumulate("inputTable", inputTableList);
+			JSONObject planDetailsJsonObject = new JSONObject();
+			planDetailsJsonObject.accumulate("inputTable", inputTableList);
 			
 			List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
 			
-			for(int i =0;i<SalesIllustration0Rate.size();i++){
+			for(int i =0;i<planDetails0Rate.size();i++){
 				JSONObject yesrPlan = new JSONObject();
-				yesrPlan.accumulate("year", Integer.valueOf(SalesIllustration0Rate.get(i).getString("type").substring(1)));
+				yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getString("type").substring(1)));
 				
 				List<JSONObject> plansList = new ArrayList<JSONObject>();
 				
 				JSONObject plan0 = new JSONObject();
-				plan0.accumulate("accountBalance", Float.valueOf(SalesIllustration0Rate.get(i).getString("accountEOP")));
+				plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getString("accountEOP")));
 				plan0.accumulate("rate","zero");
 				plansList.add(plan0);
 				
 				JSONObject plan2 = new JSONObject();
-				plan2.accumulate("accountBalance", Float.valueOf(SalesIllustration2Rate.get(i).getString("accountEOP")));
+				plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getString("accountEOP")));
 				plan2.accumulate("rate","two");
 				plansList.add(plan2);
 				
 				JSONObject plan3 = new JSONObject();
-				plan3.accumulate("accountBalance", Float.valueOf(SalesIllustration3Rate.get(i).getString("accountEOP")));
+				plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getString("accountEOP")));
 				plan3.accumulate("rate","three");
 				plansList.add(plan3);
 				
 				JSONObject plan4 = new JSONObject();
-				plan4.accumulate("accountBalance", Float.valueOf(SalesIllustration4Rate.get(i).getString("accountEOP")));
+				plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getString("accountEOP")));
 				plan4.accumulate("rate","four");
 				plansList.add(plan4);
 				
 				yesrPlan.accumulate("plans", plansList);
 				yearPlansList.add(yesrPlan);
 			}
-	        salesIllustrationJsonObject.accumulate("yearPlans", yearPlansList);
-			resultJsonObject.accumulate("salesIllustration", salesIllustrationJsonObject);
+			planDetailsJsonObject.accumulate("yearPlans", yearPlansList);
+			resultJsonObject.accumulate("salesIllustration", planDetailsJsonObject);
 		}
 		else{
 			resultJsonObject.accumulate("salesIllustration", apiJsonObj.get("errMsgs"));
