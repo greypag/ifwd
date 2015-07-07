@@ -1053,7 +1053,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                <c:if test="${inx == 1}">
                                                         <input
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
-                                                        value="${userDetails.fullName().trim()}" class="form-control full-control textUpper"
+                                                        value="${userDetails.fullName.trim()}" class="form-control full-control textUpper"
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" />
                                                             </c:if>

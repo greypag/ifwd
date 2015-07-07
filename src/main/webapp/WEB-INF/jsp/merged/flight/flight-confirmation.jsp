@@ -572,7 +572,7 @@ $(document).ready(function() {
 	ga('ecommerce:addItem', {
 	      'id': '${transNo}', // Transaction ID. Required
 	      'name': 'FlightCare', // Product name. Required
-	      'category': 'Travel', // Category or variation
+	      'category': 'Flight', // Category or variation
 	      'price': '${dueAmount}', // Unit price
 	      'quantity': '1',
 	      'currency': 'HKD'
