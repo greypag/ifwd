@@ -1,11 +1,19 @@
 package com.ifwd.fwdhk.services.impl;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
@@ -23,6 +31,7 @@ import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -78,6 +87,56 @@ public class SavieServiceImpl implements SavieService {
 	@Override
 	public SavieIllustrationBean getIllustration(String userName, String token,
 			String language) {
+		
+		
+		
+		
+		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+		
+		
+		try {
+			///savie/salesIllustration?product=savie&issueAge=19&paymentTerm=82&premium=1000&referralCode=nathaniel.kw.cheung@fwd.com
+			String Url = UserRestURIConstants.SAVIE_GET_ILLUSTRATION;
+			
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			
+			header.put("userName", "*DIRECTGI");
+			header.put("token", getToken());
+			header.put("language", WebServiceUtils.transformLanaguage("language"));
+			
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+					Url, header, null);
+			
+			logger.info("***********responseJsonObj****************:"+responseJsonObj);
+			
+			if (responseJsonObj.get("errMsgs") == null) {
+				
+				JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+				
+				if(jsonOptionItemDescs.size()>0){
+					for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+						
+						JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+						
+						OptionItemDesc optionItemDesc = new OptionItemDesc();				
+						
+						optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+						optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+						optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+						optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+						
+						OptionItemDescList.add(optionItemDesc);
+					}
+				}
+				
+			}
+		} catch (Exception e) {
+			logger.info("error : " + e.getMessage());
+		}
+		return OptionItemDescList;
+		
+		
 /*		getSavieIllustration	GET	/savie/salesIllustrations	"QUERY STRING
 
 		product [string:10][M],

@@ -13,7 +13,7 @@ public class UserRestURIConstants {
 	 * http://10.10.18.11:8080/eCommerce-ws
 	 */
 
-	private static final String SERVICE_URL = getUrl();
+	public static final String SERVICE_URL = getUrl();
 
 	/* validate token */
 	public static final String VALIDATE_TOKEN = "/member/token";
@@ -78,7 +78,13 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
 	/*API For Savie*/
-	public static final String GET_SAVIE_ILLUSTRATION = SERVICE_URL + "/savie/salesIllustration";
+	public static final String SAVIE_GET_ILLUSTRATION = SERVICE_URL + "/savie/salesIllustration";
+	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
+	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/savie/documents";
+	public static final String SAVIE_UPSERT_APPOINTMENT = SERVICE_URL + "/customer/appointment";
+	
+	
+
 	
 	/* lang constants */
 	public static final String LANG_TC_SLASH = "/tc/";

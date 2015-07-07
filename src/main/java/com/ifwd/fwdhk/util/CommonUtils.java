@@ -57,7 +57,7 @@ public class CommonUtils {
 		
 		
 		try {
-			String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable="+param;
+			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+param;
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
