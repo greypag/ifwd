@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
-import com.ifwd.fwdhk.model.savie.OptionItemDesc;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @Component
 public class CommonUtils {
@@ -28,24 +29,37 @@ public class CommonUtils {
 	
 	@SuppressWarnings("unchecked")
 	public String getToken() {
+		
 		String token = "";
 		
-		try {
-			JSONObject params = new JSONObject();
-			params.put("userName", "*DIRECTGI");
-			params.put("password", "");
-			
-			logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
-			JSONObject response = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
-					params);
-			logger.info("response: " + response);
-			if (response.get("errMsgs") == null && response != null) {
-				token= response.get("token").toString();
+		if(StringUtils.isEmpty(InitApplicationMessage.initToken)){
+			try {
+				JSONObject params = new JSONObject();
+				params.put("userName", "*DIRECTGI");
+				params.put("password", "");
+				
+				logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
+				JSONObject response = restService.consumeApi(HttpMethod.POST,
+						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
+						params);
+				logger.info("response: " + response);
+				if (response.get("errMsgs") == null && response != null) {
+					token= response.get("token").toString();
+					InitApplicationMessage.initToken = token;
+				}
+				
+			} catch (Exception e) {
+				logger.info("error : " + e.getMessage());
 			}
-		} catch (Exception e) {
-			logger.info("error : " + e.getMessage());
 		}
+		else
+		{
+			token = InitApplicationMessage.initToken ;
+		}
+		
+		
+		
+		
 	
 		return token;
 	}
@@ -57,7 +71,7 @@ public class CommonUtils {
 		
 		
 		try {
-			String Url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA + "?itemTable="+param;
+			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+param;
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
