@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.model.savie;
+package com.ifwd.fwdhk.model;
 
 import org.springframework.stereotype.Component;
 

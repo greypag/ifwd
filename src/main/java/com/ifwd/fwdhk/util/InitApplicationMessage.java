@@ -11,7 +11,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
 
-import com.ifwd.fwdhk.model.savie.OptionItemDesc;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @SuppressWarnings("rawtypes")
 @Component

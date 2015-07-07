@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
-import com.ifwd.fwdhk.model.savie.OptionItemDesc;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @Component
 public class CommonUtils {
