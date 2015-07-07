@@ -44,6 +44,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	public static List<OptionItemDesc> placeOfBirthEN;
 	public static List<OptionItemDesc> placeOfBirthCN;
+	
+	public static String initToken;
+	public static String initUsername;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {

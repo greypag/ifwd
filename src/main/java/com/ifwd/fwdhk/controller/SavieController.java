@@ -2,12 +2,11 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
@@ -41,6 +40,7 @@ public class SavieController {
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
+	@SuppressWarnings("unused")
 	@RequestMapping(value = {"/{lang}/savie-sales-illustration"})
 	public String getSavieIllustration(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -54,6 +54,7 @@ public class SavieController {
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sales-illustration";
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})
 	public void getSavieIllustrationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String lang = UserRestURIConstants.getLanaguage(request);
