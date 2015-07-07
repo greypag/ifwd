@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -20,15 +21,16 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.util.StringHelper;
 
 @Component
 public class RestServiceImpl implements RestServiceDao {
@@ -185,6 +187,7 @@ public class RestServiceImpl implements RestServiceDao {
 		return responseJsonObj;
 	}
 
+	@SuppressWarnings("deprecation")
 	public JSONObject callByGetMethod(String url, Map<String, String> header) {
 		JSONObject responseJsonObj = new JSONObject();
 		try {
@@ -244,8 +247,6 @@ public class RestServiceImpl implements RestServiceDao {
 		return responseJsonObj;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Autowired
 	public void consumeLoginApi(HttpServletRequest request) {
 
 		JSONObject responseJsonObj = new JSONObject();
