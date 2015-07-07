@@ -67,7 +67,7 @@ public class SavieController {
 		String referralCode = request.getParameter("referralCode");
 		
 		StringBuffer Url = new StringBuffer();
-		Url.append(UserRestURIConstants.GET_SAVIE_ILLUSTRATION);
+		Url.append(UserRestURIConstants.SAVIE_GET_ILLUSTRATION);
 		Url.append("?product=");
 		Url.append(product);
 		Url.append("&issueAge=");
