@@ -14,7 +14,7 @@ import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormFNABean;
 import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
-import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
+import com.ifwd.fwdhk.model.savie.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
@@ -31,7 +31,7 @@ public interface SavieService {
 	
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
-	public SavieIllustrationBean getIllustration(String userName, String token, String language);
+	public SaviePlanDetailsBean getPlanDetails(String userName, String token, String language);
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);

@@ -3,13 +3,14 @@ package com.ifwd.fwdhk.model.savie;
 
 public class SavieFormOrderSummaryBean {
 	
-	private SavieIllustrationBean savieIllustrationBean;
+	private SaviePlanDetailsBean saviePlanDetailsBean;
 	private SavieFormApplicationBean savieFormApplicationBean;
-	public SavieIllustrationBean getSavieIllustrationBean() {
-		return savieIllustrationBean;
+	
+	public SaviePlanDetailsBean getSaviePlanDetailsBean() {
+		return saviePlanDetailsBean;
 	}
-	public void setSavieIllustrationBean(SavieIllustrationBean savieIllustrationBean) {
-		this.savieIllustrationBean = savieIllustrationBean;
+	public void setSaviePlanDetailsBean(SaviePlanDetailsBean saviePlanDetailsBean) {
+		this.saviePlanDetailsBean = saviePlanDetailsBean;
 	}
 	public SavieFormApplicationBean getSavieFormApplicationBean() {
 		return savieFormApplicationBean;
@@ -18,6 +19,8 @@ public class SavieFormOrderSummaryBean {
 			SavieFormApplicationBean savieFormApplicationBean) {
 		this.savieFormApplicationBean = savieFormApplicationBean;
 	}
+	
+	
 	
 	
 	

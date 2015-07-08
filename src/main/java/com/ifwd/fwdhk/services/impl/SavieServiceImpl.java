@@ -14,7 +14,7 @@ import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormFNABean;
 import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
-import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
+import com.ifwd.fwdhk.model.savie.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
@@ -68,7 +68,7 @@ public class SavieServiceImpl implements SavieService {
 	}
 
 	@Override
-	public SavieIllustrationBean getIllustration(String userName, String token,
+	public SaviePlanDetailsBean getPlanDetails(String userName, String token,
 			String language) {
 		// TODO Auto-generated method stub
 		return null;
