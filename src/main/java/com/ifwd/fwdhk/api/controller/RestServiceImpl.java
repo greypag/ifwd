@@ -350,11 +350,8 @@ public class RestServiceImpl implements RestServiceDao {
 		String subject = "html testing";//request.getParameter("subject");//
 		String attachment = null;//request.getParameter("attachment");//
 		String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
-		String isHtml = "true";//request.getParameter("isHTML");// 
-		boolean isHTML = false;
-		if("TRUE".equals(isHtml.toUpperCase())){
-			 isHTML = true;
-		}
+		//String isHtml = "true";//request.getParameter("isHTML");// 
+		boolean isHTML = true;
 		
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("to", to);
