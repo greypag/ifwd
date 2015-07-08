@@ -490,7 +490,7 @@ $(function() {
 				$('#overlay').removeClass('hidden');
 			},400);
 			
-			var screenheight = ($('.fwd-wrapper').height() - 170) + 'px';
+			var screenheight = ($('.fwd-savie-wrapper').height() - 170) + 'px';
 			$('#overlay').css({"height":screenheight});
 		})
 		.on('hide.bs.dropdown', function(e){
@@ -598,10 +598,8 @@ $(function() {
 				var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 				if (getWidth() >= 992) {
 					$('#dates').val(dateVal.format('jS M Y'));
-					$('#birthOfDay').val(dateVal.format('Y-m-d'));
 				} else {
 					$('#dates').val(dateVal.format('Y-m-d'));
-					$('#birthOfDay').val(dateVal.format('Y-m-d'));
 				}
 			}
 		}
@@ -666,10 +664,10 @@ $(function() {
 	var windowHeight = ($(window).height()) + 'px';
 	$('#headerNavmenu')
 		.on('show.bs.offcanvas', function() {
-			$('.fwd-wrapper').css({'position': 'relative', 'overflow' : 'hidden', 'height' : windowHeight});
+			$('.fwd-savie-wrapper').css({'position': 'relative', 'overflow' : 'hidden', 'height' : windowHeight});
 		})
 		.on('hide.bs.offcanvas', function() {
-			$('.fwd-wrapper').removeAttr('style');
+			$('.fwd-savie-wrapper').removeAttr('style');
 		});
 		
 	// Made your decision sticky
@@ -796,10 +794,8 @@ function changeDatePickerValue($datePicker) {
 		var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 		if (getWidth() >= 992) {
 			$('#dates').val(dateVal.format('jS M Y'));
-			$('#birthOfDay').val(dateVal.format('Y-m-d'));
 		} else {
 			$('#dates').val(dateVal.format('Y-m-d'));
-			$('#birthOfDay').val(dateVal.format('Y-m-d'));
 		}
 	});
 }

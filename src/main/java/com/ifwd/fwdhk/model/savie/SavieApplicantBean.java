@@ -21,7 +21,7 @@ public class SavieApplicantBean {
 	private Date birthday;
 	private String placeOfBirth;
 	private String nationality;
-	private String email;
+	private String emailAddress;
 	private String residentialTelNoCountryCode;
 	private String residentialTelNo;
 	
@@ -33,12 +33,9 @@ public class SavieApplicantBean {
 	private String residentialAdress3;	
 	private String residentialDistrict;
 	
-	private String correspondenceAdress1;   
-    private String correspondenceAdress2;   
-    private String correspondenceAdress3;   
-    private String correspondenceDistrict;
-    
-    
+	//<List>FNA
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -99,11 +96,11 @@ public class SavieApplicantBean {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
-	public String getEmail() {
-		return email;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 	public String getResidentialTelNoCountryCode() {
 		return residentialTelNoCountryCode;
@@ -153,35 +150,7 @@ public class SavieApplicantBean {
 	public void setResidentialDistrict(String residentialDistrict) {
 		this.residentialDistrict = residentialDistrict;
 	}
-	public String getCorrespondenceAdress1() {
-		return correspondenceAdress1;
-	}
-	public void setCorrespondenceAdress1(String correspondenceAdress1) {
-		this.correspondenceAdress1 = correspondenceAdress1;
-	}
-	public String getCorrespondenceAdress2() {
-		return correspondenceAdress2;
-	}
-	public void setCorrespondenceAdress2(String correspondenceAdress2) {
-		this.correspondenceAdress2 = correspondenceAdress2;
-	}
-	public String getCorrespondenceAdress3() {
-		return correspondenceAdress3;
-	}
-	public void setCorrespondenceAdress3(String correspondenceAdress3) {
-		this.correspondenceAdress3 = correspondenceAdress3;
-	}
-	public String getCorrespondenceDistrict() {
-		return correspondenceDistrict;
-	}
-	public void setCorrespondenceDistrict(String correspondenceDistrict) {
-		this.correspondenceDistrict = correspondenceDistrict;
-	}
 	
-	//<List>FNA
-	
-	
-
 	
 	
 	

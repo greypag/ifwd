@@ -12,6 +12,12 @@
 		
 	</decorator>
 	
+	<decorator name="fwdsavie" page="template_savie.jsp">
+		<pattern>/*/savie-landing</pattern>
+		<pattern>/*/savie-illustration</pattern>
+		<pattern>/*/savie-application-detail*</pattern>
+	</decorator>
+	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">
 		<pattern>/content/**</pattern>
 		<pattern>/*</pattern>

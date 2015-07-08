@@ -474,4 +474,19 @@
 			</build>
 		</profile>
 	</profiles>
+	
+	<build>
+		<finalName>FWDHKPH1A</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://localhost:8080/manager</url>
+					<server>TomcatServer</server>
+					<path>/fwd-savie-dev</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

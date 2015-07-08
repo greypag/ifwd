@@ -55,7 +55,7 @@ public class SavieController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/{lang}/getSavieIllustrationByAjax"})
+	@RequestMapping(value = {"/{lang}/getSaviePlanDetailsByAjax"})
 	public void getSavieIllustrationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
@@ -93,7 +93,7 @@ public class SavieController {
 		if(null == apiJsonObj.get("errMsgs")){
 			String jsonStr = apiJsonObj.toJSONString();
 			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
-			logger.info("getSavieIllustrationByAjax API:" + responseJsonObj);
+			logger.info("getSaviePlanDetailsByAjax API:" + responseJsonObj);
 			
 			List<JSONObject> salesIllustration0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
 			List<JSONObject> salesIllustration2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");

@@ -1,187 +1,59 @@
 package com.ifwd.fwdhk.util;
 
-import java.util.List;
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Date;
+import java.util.HashMap;
+
+import org.joda.time.LocalDate;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
-import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.model.QuoteDetails;
 
 @SuppressWarnings("rawtypes")
 @Component
 public class InitApplicationMessage implements ApplicationListener{
 	
-	private final static Logger logger = LoggerFactory.getLogger(InitApplicationMessage.class);
-	
+	public static QuoteDetails quoteDetails ;
 	
 	@Autowired
-	private CommonUtils commonUtils;
-	
-	public static List<OptionItemDesc> maritalStatusesEN;	
-	public static List<OptionItemDesc> maritalStatusesCN;
-	
-	
-	public static List<OptionItemDesc> savieDistrictEN;
-	public static List<OptionItemDesc> savieDistrictCN;
-	public static List<OptionItemDesc> employmentStatusEN;
-	public static List<OptionItemDesc> employmentStatusCN;
-	public static List<OptionItemDesc> nationalityEN;
-	public static List<OptionItemDesc> nationalityCN;
-	public static List<OptionItemDesc> occupationEN;
-	public static List<OptionItemDesc> occupationCN;
-	public static List<OptionItemDesc> natureOfBusinessEN;
-	public static List<OptionItemDesc> natureOfBusinessCN;
-	public static List<OptionItemDesc> monthlyPersonalIncomeEN;
-	public static List<OptionItemDesc> monthlyPersonalIncomeCN;
-	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
-	public static List<OptionItemDesc> savieBeneficiaryRelationshipCN;
-	
-	public static List<OptionItemDesc> placeOfBirthEN;
-	public static List<OptionItemDesc> placeOfBirthCN;
-	
-	public static String initToken;
-	public static String initUsername;
+	private RestServiceDao restService;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
+			quoteDetails = new QuoteDetails();
+			LocalDate commencementDate = new LocalDate(new Date());
+			String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
+					+ "&commencementDate=" + commencementDate + "&referralCode=" + "";
+	
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
 			
-			try {
-				savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieDistrictEN=null;
-			}
-			logger.info("savieDistrictEN : " + savieDistrictEN);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", "a5684816-51b4-a2bc-fdd8-33887464726b");
 			
-			try {
-				savieDistrictCN = commonUtils.getOptionItemDescList("savieDistrict","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieDistrictCN=null;
-			}
-			logger.info("savieDistrictCH : " + savieDistrictCN);
 			
-			try {
-				employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				employmentStatusEN=null;
-			}
-			logger.info("employmentStatusEN : " + employmentStatusEN);
 			
-			try {
-				employmentStatusCN = commonUtils.getOptionItemDescList("employmentStatus","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				employmentStatusCN=null;
-			}
-			logger.info("employmentStatusCN : " + employmentStatusCN);
+			header.put("language", WebServiceUtils.transformLanaguage("CN"));
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+					Url, header, null);
 			
-			try {
-				nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				nationalityEN=null;
-			}
-			logger.info("nationalityEN : " + nationalityEN);
-			
-			try {
-				nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				nationalityCN=null;
-			}
-			logger.info("nationalityCN : " + nationalityCN);
-			
-			try {
-				occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				occupationEN=null;
-			}
-			logger.info("occupationEN : " + occupationEN);
-			
-			try {
-				occupationCN = commonUtils.getOptionItemDescList("occupation","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				occupationCN=null;
-			}
-			logger.info("occupationCN : " + occupationCN);
-			
-			try {
-				natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				natureOfBusinessEN=null;
-			}
-			logger.info("natureOfBusinessEN : " + natureOfBusinessEN);
-			
-			try {
-				natureOfBusinessCN = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				natureOfBusinessCN=null;
-			}
-			logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
-			
-			try {
-				monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				monthlyPersonalIncomeEN=null;
-			}
-			logger.info("monthlyPersonalIncomeEN : " + monthlyPersonalIncomeEN);
-			
-			try {
-				monthlyPersonalIncomeCN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				monthlyPersonalIncomeCN=null;
-			}
-			logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
-			
-			try {
-				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipEN=null;
-			}
-			logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
-			
-			try {
-				savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipCN=null;
-			}
-			logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
-			
-			try {
-				placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				placeOfBirthEN=null;
-			}
-			logger.info("placeOfBirthEN : " + placeOfBirthEN);
-			
-			try {
-				placeOfBirthCN = commonUtils.getOptionItemDescList("placeOfBirth","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				placeOfBirthCN=null;
-			}
-			logger.info("PlaceOfBirthCN : " + placeOfBirthCN);
+			quoteDetails.setReferralCode((String)responseJsonObj.get("referralCode"));
+			quoteDetails.setReferralName((String)responseJsonObj.get("referralName"));
+			quoteDetails.setPlanCode((String)responseJsonObj.get("planCode"));
+			System.out.println("***********responseJsonObj****************:"+responseJsonObj);
 			
 		}
 	}
-	
 	
 }

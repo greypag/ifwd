@@ -59,31 +59,31 @@
         fwd = {
         	preloadImg:function(){
         		$.loadImages([
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_dream_car_btn.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_dream_marriage_btn.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_dream_other_btn.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_dream_travel_btn.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_title_screen.png',
-        			'mini-calcu/img//img_button_long.png',
-        			'mini-calcu/img//img_button_mid.png',
-        			'mini-calcu/img//img_button_short.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_cs5_land.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_cs5_arrow_l.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_cs5_arrow_r.png',
-        			'mini-calcu/img//img_man_young.png', 
-        			'mini-calcu/img//img_man_middle.png',
-        			'mini-calcu/img//img_man_old.png',
-        			'mini-calcu/img//img_woman_young.png',
-        			'mini-calcu/img//img_woman_middle.png',
-        			'mini-calcu/img//img_woman_old.png',
-        			'mini-calcu/img//sprite/img_man_young_sprite.png',
-        			'mini-calcu/img//sprite/img_woman_young_sprite.png',
-        			'mini-calcu/img//img_couple_young.png',
-        			'mini-calcu/img//sprite/img_couple_young_sprite.png',
-        			'mini-calcu/img//img_map_low.png',
-        			'mini-calcu/img//img_map_mid.png',
-        			'mini-calcu/img//img_map_high.png',
-        			'mini-calcu/img//sliced_FWD_interface_v03_out_cs5_slider_bar_base.png'
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_car_btn.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_marriage_btn.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_other_btn.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_travel_btn.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_title_screen.png',
+        			'../resources/images/mini-calculator/img_button_long.png',
+        			'../resources/images/mini-calculator/img_button_mid.png',
+        			'../resources/images/mini-calculator/img_button_short.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_land.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_l.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_r.png',
+        			'../resources/images/mini-calculator/img_man_young.png', 
+        			'../resources/images/mini-calculator/img_man_middle.png',
+        			'../resources/images/mini-calculator/img_man_old.png',
+        			'../resources/images/mini-calculator/img_woman_young.png',
+        			'../resources/images/mini-calculator/img_woman_middle.png',
+        			'../resources/images/mini-calculator/img_woman_old.png',
+        			'../resources/images/mini-calculator/sprite/img_man_young_sprite.png',
+        			'../resources/images/mini-calculator/sprite/img_woman_young_sprite.png',
+        			'../resources/images/mini-calculator/img_couple_young.png',
+        			'../resources/images/mini-calculator/sprite/img_couple_young_sprite.png',
+        			'../resources/images/mini-calculator/img_map_low.png',
+        			'../resources/images/mini-calculator/img_map_mid.png',
+        			'../resources/images/mini-calculator/img_map_high.png',
+        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_slider_bar_base.png'
         		], function(){
 //         			alert('');
         		});
@@ -350,7 +350,7 @@
                     fwd.hideObj(fwd.dreamTxt);
                     $.when(fwd.hideCommon()).then(fwd.showObj($(".wrapper")));
                     var cssObj = {
-                        "background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_cs5-01.png')",
+                        "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5-01.png')",
                         "height": "100%"
                     };
                     fwd.tplCss(fwd.main_background, cssObj);
@@ -380,7 +380,7 @@
 								fwd.showObj(fwd.dreamTxt);
 								fwd.showObj(fwd.secondPageDreaming);
 								var cssObj = {
-									"background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_title_screen.png')",
+									"background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_title_screen.png')",
 									"height": "100%"
 								};
 								fwd.tplCss(fwd.main_background, cssObj);
@@ -392,7 +392,7 @@
                 third: function () {
                 	fwd.runningAnimation = true;
                 	var cssObj = {
-						"background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_land_bg.png')",
+						"background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
 						"height": "100%"
 					};
 					fwd.tplCss(fwd.main_background, cssObj);
@@ -571,16 +571,16 @@
                             sliderTest:"Budget for your car",
                             bannerTxt :"What is your dream car?",
                             cssObj:{
-                                "background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
                                 cssObj:{
                                     top:"40%"
                                 },
-                                low:"mini-calcu/img//img_car_low.png",
-                                high:"mini-calcu/img//img_car_high.png",
-                                mid:"mini-calcu/img//img_car_mid.png"
+                                low:"../resources/images/mini-calculator/img_car_low.png",
+                                high:"../resources/images/mini-calculator/img_car_high.png",
+                                mid:"../resources/images/mini-calculator/img_car_mid.png"
                             },
                             shakeFunction:null,
 //                             smokeAnimationFunction:null,
@@ -698,16 +698,16 @@
                             sliderTest:"Budget for your trip",
                             bannerTxt :"What is your trip?",
                             cssObj:{
-                                "background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
                                 cssObj:{
                                     top:"25%"
                                 },
-                                low:"mini-calcu/img//img_map_low.png",
-                                high:"mini-calcu/img//img_map_high.png",
-                                mid:"mini-calcu/img//img_map_mid.png"
+                                low:"../resources/images/mini-calculator/img_map_low.png",
+                                high:"../resources/images/mini-calculator/img_map_high.png",
+                                mid:"../resources/images/mini-calculator/img_map_mid.png"
                             },
                             shakeFunction:null,
                             startAnimation:function(){
@@ -803,16 +803,16 @@
                             sliderTest:"Budget for your wedding",
                             bannerTxt :"What is your wedding?",
                             cssObj:{
-                                "background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
                                 cssObj:{
                                     top:"25%"
                                 },
-                                low:"mini-calcu/img//img_couple_young.png",
-                                high:"mini-calcu/img//img_couple_young.png",
-                                mid:"mini-calcu/img//img_couple_young.png"
+                                low:"../resources/images/mini-calculator/img_couple_young.png",
+                                high:"../resources/images/mini-calculator/img_couple_young.png",
+                                mid:"../resources/images/mini-calculator/img_couple_young.png"
                             },
                             winkFunction:null,
                             startAnimation:function(classname){
@@ -925,16 +925,16 @@
                             sliderTest:"Budget for your saving plan",
                             bannerTxt :"What is your saving plan?",
                             cssObj:{
-                                "background-image": "url('mini-calcu/img//sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
                                 cssObj:{
                                     top:"-2%"
                                 },
-                                low:"mini-calcu/img//sliced_FWD_interface_v03_out_cs5_others_low.png",
-                                high:"mini-calcu/img//sliced_FWD_interface_v03_out_cs5_pig_high.png",
-                                mid:"mini-calcu/img//sliced_FWD_interface_v03_out_cs5_pig_mid.png"
+                                low:"../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_others_low.png",
+                                high:"../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_pig_high.png",
+                                mid:"../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_pig_mid.png"
                             },
                             prevPigLevel:0,
                             showImg:function(firstTime, callback){
