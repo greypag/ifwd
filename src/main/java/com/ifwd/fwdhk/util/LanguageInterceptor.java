@@ -15,13 +15,13 @@ public class LanguageInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();   
 		String url = request.getServletPath();   
         
-        if(url.indexOf("/tc/")>=0)
+        if(url.indexOf("/en/")>=0)
         {
-        	session.setAttribute("language", "tc");
-        	session.setAttribute("uiLocale", "zh-HK");
-        }else{
         	session.setAttribute("language", "en");
         	session.setAttribute("uiLocale", "en-US");
+        }else{
+        	session.setAttribute("language", "tc");
+        	session.setAttribute("uiLocale", "zh-HK");        	
         }
 		
 		
