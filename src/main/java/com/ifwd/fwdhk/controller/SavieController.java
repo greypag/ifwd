@@ -56,7 +56,7 @@ public class SavieController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/getSaviePlanDetailsByAjax"})
-	public void getSavieIllustrationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+	public void getSaviePlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
