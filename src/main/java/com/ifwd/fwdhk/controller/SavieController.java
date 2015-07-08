@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -150,6 +151,70 @@ public class SavieController {
 		else{
 			resultJsonObject.accumulate("salesIllustration", apiJsonObj.get("errMsgs"));
 		}
+		
+		logger.info(resultJsonObject.toString());
+		
+		response.setContentType("text/json;charset=utf-8");
+		//return data
+		try {
+			response.getWriter().print(resultJsonObject.toString());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/sendEmailByAjax"})
+	public void sendEmailByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
+		HttpSession session = request.getSession();
+		
+		String token = null, username = null;
+		if ((session.getAttribute("token") != null)
+				&& (session.getAttribute("username") != null)) {
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		} 
+		restService.consumeLoginApi(request);
+		if ((session.getAttribute("token") != null)) {
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		}
+		
+		String to = request.getParameter("to"); //"nathaniel.kw.cheung@fwd.com";//
+		String message = request.getParameter("message");//"<h1>my testing</h1><u>underline</u>";//
+		String subject = request.getParameter("subject");//"html testing";//
+		String attachment = request.getParameter("attachment");//null;//
+		String from = request.getParameter("from");//"sit@ecomm.fwd.com";//
+		String isHtml = request.getParameter("isHTML");//"true"; 
+		boolean isHTML = false;
+		if("TRUE".equals(isHtml.toUpperCase())){
+			 isHTML = true;
+		}
+		
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("to", to);
+		parameters.put("message", message);
+		parameters.put("subject", subject);
+		parameters.put("attachment", attachment);
+		parameters.put("from", from);
+		parameters.put("isHtml", isHTML);
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		//header.put("language", WebServiceUtils.transformLanaguage(lang));
+		header.put("userName", username);
+		header.put("token", token);
+		
+		org.json.simple.JSONObject apiJsonObj = restService.consumeApi(HttpMethod.POST,UserRestURIConstants.SEND_EMAIL, header, parameters);
+		
+		logger.info("apiJsonObj:"+apiJsonObj);
+		
+		JSONObject resultJsonObject = new JSONObject();
+		
+		resultJsonObject.accumulate("errMsgs", apiJsonObj.get("errMsgs"));
 		
 		logger.info(resultJsonObject.toString());
 		
