@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -163,52 +164,48 @@ public class SavieController {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/sendEmailByAjax"})
+	@RequestMapping(value = {"/sendEmailByAjax"} )
 	public void sendEmailByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		
 		HttpSession session = request.getSession();
-		
 		String token = null, username = null;
-		if ((session.getAttribute("token") != null)
-				&& (session.getAttribute("username") != null)) {
+		if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
 			token = session.getAttribute("token").toString();
 			username = session.getAttribute("username").toString();
-		} 
-		restService.consumeLoginApi(request);
-		if ((session.getAttribute("token") != null)) {
-			token = session.getAttribute("token").toString();
-			username = session.getAttribute("username").toString();
+		}else{
+			restService.consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
 		}
 		
-		String to = request.getParameter("to"); //"nathaniel.kw.cheung@fwd.com";//
-		String message = request.getParameter("message");//"<h1>my testing</h1><u>underline</u>";//
-		String subject = request.getParameter("subject");//"html testing";//
-		String attachment = request.getParameter("attachment");//null;//
-		String from = request.getParameter("from");//"sit@ecomm.fwd.com";//
-		String isHtml = request.getParameter("isHTML");//"true"; 
-		boolean isHTML = false;
-		if("TRUE".equals(isHtml.toUpperCase())){
-			 isHTML = true;
-		}
+		String dream_name = request.getParameter("dream_name");
+		String dream_level_description = request.getParameter("dream_level_description");
+		int dream_budget = Integer.valueOf(request.getParameter("dream_budget"));
+		int current_savings = Integer.valueOf(request.getParameter("current_savings"));
+		int saving_period = Integer.valueOf(request.getParameter("saving_period"));
+		int annual_return_rate = Integer.valueOf(request.getParameter("annual_return_rate"));
+		float month_savings_no_interest = Float.valueOf(request.getParameter("month_savings_no_interest"));
+		float month_savings_with_interest = Float.valueOf(request.getParameter("month_savings_with_interest"));
+		String player_email = request.getParameter("player_email");
+		SendEmailInfo sei = new SendEmailInfo();
+		sei.setDream_name(dream_name);
+		sei.setDream_level_description(dream_level_description);
+		sei.setDream_budget(dream_budget);
+		sei.setCurrent_savings(current_savings);
+		sei.setSaving_period(saving_period);
+		sei.setAnnual_return_rate(annual_return_rate);
+		sei.setMonth_savings_no_interest(month_savings_no_interest);
+		sei.setMonth_savings_with_interest(month_savings_with_interest);
+		sei.setPlayer_email(player_email);
+		sei.setUsername(username);
+		sei.setToken(token);
 		
-		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-		parameters.put("to", to);
-		parameters.put("message", message);
-		parameters.put("subject", subject);
-		parameters.put("attachment", attachment);
-		parameters.put("from", from);
-		parameters.put("isHtml", isHTML);
 		
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		//header.put("language", WebServiceUtils.transformLanaguage(lang));
-		header.put("userName", username);
-		header.put("token", token);
-		
-		org.json.simple.JSONObject apiJsonObj = restService.consumeApi(HttpMethod.POST,UserRestURIConstants.SEND_EMAIL, header, parameters);
+		org.json.simple.JSONObject apiJsonObj = restService.SendEmail(sei);
 		
 		logger.info("apiJsonObj:"+apiJsonObj);
 		
@@ -225,6 +222,14 @@ public class SavieController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = {"/{lang}/sendEmail"})
+	public String getsendEmailInfo(Model model, HttpServletRequest request) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-fna"})
