@@ -82,6 +82,7 @@ public class UserRestURIConstants {
 	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
 	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/savie/documents";
 	public static final String SAVIE_UPSERT_APPOINTMENT = SERVICE_URL + "/customer/appointment";
+	public static final String SEND_EMAIL = SERVICE_URL +"/messages/email";
 	
 	
 
