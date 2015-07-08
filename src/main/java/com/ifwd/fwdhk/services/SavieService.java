@@ -5,9 +5,7 @@ import java.util.List;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savie.SavieAppointmentScheduleBean;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -31,7 +29,7 @@ public interface SavieService {
 	
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
-	public SaviePlanDetailsBean getPlanDetails(String userName, String token, String language);
+	public SaviePlanDetailsBean getPlanDetails(String userName, String token, String language,String referralCode);
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);
@@ -39,7 +37,15 @@ public interface SavieService {
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
 	
-	
+	public List<OptionItemDesc> getMaritalStatus(String language);
+	public List<OptionItemDesc> getSavieDistrict(String language);
+	public List<OptionItemDesc> getEmploymentStatus(String language);
+	public List<OptionItemDesc> getNationality(String language);
+	public List<OptionItemDesc> getNatureOfBusiness(String language);
+	public List<OptionItemDesc> getPlaceOfBirth(String language);
+	public List<OptionItemDesc> getMonthlyPersonalIncome(String language);
+	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language);
+	public List<OptionItemDesc> getOccupation(String language);
 	
 	//fileUpload?
 	//signature?
