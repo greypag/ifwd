@@ -83,6 +83,7 @@ public class UserRestURIConstants {
 	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/savie/documents";
 	public static final String SAVIE_UPSERT_APPOINTMENT = SERVICE_URL + "/customer/appointment";
 	public static final String SEND_EMAIL = SERVICE_URL +"/messages/email";
+	public static final String SEND_LEAD = SERVICE_URL +"/savie/lead";
 	
 	
 	/* Page Flow Control For Savie */
