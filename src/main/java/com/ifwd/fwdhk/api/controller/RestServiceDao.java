@@ -17,5 +17,7 @@ public interface RestServiceDao {
 
 	public void consumeLoginApi(HttpServletRequest request);
 	
-	public JSONObject SendEmail(SendEmailInfo sei);
+	public JSONObject SendEmail(HttpServletRequest request,SendEmailInfo sei);
+	
+	public JSONObject sendLead(String email,String answer1,String step);
 }
