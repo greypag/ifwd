@@ -85,6 +85,21 @@ public class UserRestURIConstants {
 	public static final String SEND_EMAIL = SERVICE_URL +"/messages/email";
 	
 	
+	/* Page Flow For Savie */
+	
+	public static final String SAVIE_LANDING = SERVICE_URL + "/savie/savie-landing";
+	public static final String SAVIE_PLAN_DETAILS = SERVICE_URL + "/savie/savie-plan-details";
+	public static final String SAVIE_FNA = SERVICE_URL + "/savie/savie-fna";
+	public static final String SAVIE_APPLICATION_DETAILS = SERVICE_URL + "/savie/savie-application-details";
+	public static final String SAVIE_ORDER_SUMMARY = SERVICE_URL + "/savie/savie-order-summary";
+	public static final String SAVIE_APPOINTMENT = SERVICE_URL + "/savie/savie-appointment";
+	public static final String SAVIE_DOCUMENT_UPLOAD = SERVICE_URL + "/savie/savie-document-upload";
+	public static final String SAVIE_THANKYOU = SERVICE_URL + "/savie/savie-thankyou";
+	public static final String SAVIE_DECLARATION_AUTHORIZATION = SERVICE_URL + "/savie/savie-declaration-authorization";
+	public static final String SAVIE_SIGNATURE = SERVICE_URL + "/savie/savie-signature";
+	public static final String SAVIE_EDIT_VIEW = SERVICE_URL + "/savie/savie-edit-view";	
+	
+	
 
 	
 	/* lang constants */
