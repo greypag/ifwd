@@ -2,6 +2,11 @@ package com.ifwd.fwdhk.services;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.ui.Model;
+
 import net.sf.json.JSONObject;
 
 import com.ifwd.fwdhk.model.BankBean;
@@ -31,8 +36,7 @@ public interface SavieService {
 	
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
-	public SaviePlanDetailsBean getPlanDetails(org.json.simple.JSONObject apiJsonObj,String product,String issueAge,String paymentTerm,String premium,String referralCode);
-	public JSONObject getPlanDetailsAjax(org.json.simple.JSONObject apiJsonObj,String product,String issueAge,String paymentTerm,String premium,String referralCode);
+	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response);
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);

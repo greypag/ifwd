@@ -78,7 +78,7 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
 	/*API For Savie*/
-	public static final String SAVIE_PLAN_DETAIL = SERVICE_URL + "/savie/planDetails";
+	public static final String SAVIE_PLAN_DETAIL = "/savie/planDetails";
 	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
 	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/savie/documents";
 	public static final String SAVIE_UPSERT_APPOINTMENT = SERVICE_URL + "/customer/appointment";

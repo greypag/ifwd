@@ -57,53 +57,9 @@ public class SavieController {
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-plan-details";
 	}
 
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/{lang}/planDetailByAjax"})
-	public void planDetailByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		
-		String product = request.getParameter("product");
-		String issueAge = request.getParameter("issueAge");
-		String paymentTerm = request.getParameter("paymentTerm");
-		String premium = request.getParameter("premium");
-		String referralCode = request.getParameter("referralCode");
-		
-		StringBuffer url = new StringBuffer();
-		url.append(UserRestURIConstants.SAVIE_PLAN_DETAIL);
-		url.append("?planCode=");
-		url.append(product);
-		url.append("&issueAge=");
-		url.append(issueAge);
-		url.append("&paymentTerm=");
-		url.append(paymentTerm);
-		url.append("&premium=");
-		url.append(premium);
-		url.append("&referralCode=");
-		url.append(referralCode);
-
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		logger.debug(url.toString());
-		
-		org.json.simple.JSONObject apiJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, null);
-		
-		logger.info("apiJsonObj:"+apiJsonObj);
-		
-		
-		SaviePlanDetailsBean planDetail = savieService.getPlanDetails(apiJsonObj, product, issueAge, paymentTerm, premium, referralCode);
-		request.getSession().setAttribute("planDetail", planDetail);
-		
-		JSONObject resultJsonObject = savieService.getPlanDetailsAjax(apiJsonObj, product, issueAge, paymentTerm, premium, referralCode);
-		
-		response.setContentType("text/json;charset=utf-8");
-		//return data
-		try {
-			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+	@RequestMapping(value = {"/planDetailsByAjax"})
+	public void planDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+		savieService.getPlanDetails(model, request, response);
 	}
 	
 	@RequestMapping(value = {"/sendEmailByAjax"} )
