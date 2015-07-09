@@ -53,7 +53,7 @@ public class SavieController {
 		
 		model.addAttribute("nextPageFlow", SaviePageFlowControl.pageFlow(request));
 		
-		String redirectUrl=SaviePageFlowControl.pageFlow(request);
+		//String redirectUrl=SaviePageFlowControl.pageFlow(request);
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-plan-details";
 	}
 
