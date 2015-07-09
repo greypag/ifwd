@@ -78,26 +78,26 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
 	/*API For Savie*/
-	public static final String SAVIE_PLAN_DETAIL = SERVICE_URL + "/savie/planDetails";
+	public static final String SAVIE_PLAN_DETAILS = SERVICE_URL + "/savie/planDetails";
 	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
 	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/savie/documents";
 	public static final String SAVIE_UPSERT_APPOINTMENT = SERVICE_URL + "/customer/appointment";
 	public static final String SEND_EMAIL = SERVICE_URL +"/messages/email";
 	
 	
-	/* Page Flow For Savie */
+	/* Page Flow Control For Savie */
 	
-	public static final String SAVIE_LANDING = SERVICE_URL + "/savie/savie-landing";
-	public static final String SAVIE_PLAN_DETAILS = SERVICE_URL + "/savie/savie-plan-details";
-	public static final String SAVIE_FNA = SERVICE_URL + "/savie/savie-fna";
-	public static final String SAVIE_APPLICATION_DETAILS = SERVICE_URL + "/savie/savie-application-details";
-	public static final String SAVIE_ORDER_SUMMARY = SERVICE_URL + "/savie/savie-order-summary";
-	public static final String SAVIE_APPOINTMENT = SERVICE_URL + "/savie/savie-appointment";
-	public static final String SAVIE_DOCUMENT_UPLOAD = SERVICE_URL + "/savie/savie-document-upload";
-	public static final String SAVIE_THANKYOU = SERVICE_URL + "/savie/savie-thankyou";
-	public static final String SAVIE_DECLARATION_AUTHORIZATION = SERVICE_URL + "/savie/savie-declaration-authorization";
-	public static final String SAVIE_SIGNATURE = SERVICE_URL + "/savie/savie-signature";
-	public static final String SAVIE_EDIT_VIEW = SERVICE_URL + "/savie/savie-edit-view";	
+	public static final String PAGE_SAVIE_LANDING = "savie-landing";
+	public static final String PAGE_SAVIE_PLAN_DETAILS = "savie-plan-details";
+	public static final String PAGE_SAVIE_FNA = "savie-fna";
+	public static final String PAGE_SAVIE_APPLICATION_DETAILS = "savie-application-details";
+	public static final String PAGE_SAVIE_ORDER_SUMMARY = "savie-order-summary";
+	public static final String PAGE_SAVIE_APPOINTMENT = "savie-appointment";
+	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "savie-document-upload";
+	public static final String PAGE_SAVIE_THANKYOU = "savie-thankyou";
+	public static final String PAGE_SAVIE_DECLARATION_AUTHORIZATION = "savie-declaration-authorization";
+	public static final String PAGE_SAVIE_SIGNATURE = "savie-signature";
+	public static final String PAGE_SAVIE_EDIT_VIEW = "savie-edit-view";	
 	
 	
 

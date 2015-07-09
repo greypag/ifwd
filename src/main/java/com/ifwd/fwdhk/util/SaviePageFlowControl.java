@@ -6,41 +6,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
+
 
 public class SaviePageFlowControl {
 	
 	private final static Logger logger = LoggerFactory.getLogger(SaviePageFlowControl.class);
 	
 	public static String pageFlow(HttpServletRequest request)
-	{		
-		
-		
-/*		
-		savie-landing
-		savie-plan-details
-		savie-fna
-		savie-application-details
-		savie-order-summary
-		savie-appointment
-		savie-document-upload
-		savie-thankyou
-		savie-declaration-authorization
-		savie-signature
-		savie-edit-view
-
-
-		referer : http://localhost:8080/FWDHKPH1A/tc/savie-landing
-		current : /tc/savie-plan-details
-
-*/
-		
-		
-	
-		
+	{	
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
-		//logger.info("referer : "+referer);
-		//logger.info("current : "+current);	
 		if(referer!=null)
 		{
 			referer=referer.substring(referer.lastIndexOf("/")+1);
@@ -57,11 +33,11 @@ public class SaviePageFlowControl {
         
 	    
 	    String to="";
-		if (current.equals("savie-plan-details")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
 			else if (referer.endsWith("savie-landing")) 
 			{
