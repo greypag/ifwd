@@ -114,9 +114,45 @@ public class SavieServiceImpl implements SavieService {
 				}
 			}
 			
-			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList = new ArrayList<SaviePolicyAccountBalanceBean>();
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList0 = new ArrayList<SaviePolicyAccountBalanceBean>();
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList2 = new ArrayList<SaviePolicyAccountBalanceBean>();
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList3 = new ArrayList<SaviePolicyAccountBalanceBean>();
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList4 = new ArrayList<SaviePolicyAccountBalanceBean>();
 			
-			saviePlanDetailsBean.setSaviePolicyAccountBalanceList(saviePolicyAccountBalanceList);
+			for(int i =0;i<planDetail0Rate.size();i++){
+				SaviePolicyAccountBalanceBean saPolAccBal0 = new SaviePolicyAccountBalanceBean();
+				saPolAccBal0.setPolicyYear(planDetail0Rate.get(i).getString("type").substring(1));
+				saPolAccBal0.setPremiumPaid(planDetail0Rate.get(i).getString("totalPremium"));
+				saPolAccBal0.setAccountValue(planDetail0Rate.get(i).getString("accountEOP"));
+				saPolAccBal0.setSurrenderBenefit(planDetail0Rate.get(i).getString("guranteedDeathBenefit"));
+				saviePolicyAccountBalanceList0.add(saPolAccBal0);
+				
+				SaviePolicyAccountBalanceBean saPolAccBal2 = new SaviePolicyAccountBalanceBean();
+				saPolAccBal2.setPolicyYear(planDetail2Rate.get(i).getString("type").substring(1));
+				saPolAccBal2.setPremiumPaid(planDetail2Rate.get(i).getString("totalPremium"));
+				saPolAccBal2.setAccountValue(planDetail2Rate.get(i).getString("accountEOP"));
+				saPolAccBal2.setSurrenderBenefit(planDetail2Rate.get(i).getString("guranteedDeathBenefit"));
+				saviePolicyAccountBalanceList2.add(saPolAccBal2);
+				
+				SaviePolicyAccountBalanceBean saPolAccBal3 = new SaviePolicyAccountBalanceBean();
+				saPolAccBal3.setPolicyYear(planDetail3Rate.get(i).getString("type").substring(1));
+				saPolAccBal3.setPremiumPaid(planDetail3Rate.get(i).getString("totalPremium"));
+				saPolAccBal3.setAccountValue(planDetail3Rate.get(i).getString("accountEOP"));
+				saPolAccBal3.setSurrenderBenefit(planDetail3Rate.get(i).getString("guranteedDeathBenefit"));
+				saviePolicyAccountBalanceList3.add(saPolAccBal3);
+				
+				SaviePolicyAccountBalanceBean saPolAccBal4 = new SaviePolicyAccountBalanceBean();
+				saPolAccBal4.setPolicyYear(planDetail4Rate.get(i).getString("type").substring(1));
+				saPolAccBal4.setPremiumPaid(planDetail4Rate.get(i).getString("totalPremium"));
+				saPolAccBal4.setAccountValue(planDetail4Rate.get(i).getString("accountEOP"));
+				saPolAccBal4.setSurrenderBenefit(planDetail4Rate.get(i).getString("guranteedDeathBenefit"));
+				saviePolicyAccountBalanceList4.add(saPolAccBal4);
+			}
+			
+			saviePlanDetailsBean.setSaviePolicyAccountBalanceList0(saviePolicyAccountBalanceList0);
+			saviePlanDetailsBean.setSaviePolicyAccountBalanceList2(saviePolicyAccountBalanceList2);
+			saviePlanDetailsBean.setSaviePolicyAccountBalanceList3(saviePolicyAccountBalanceList3);
+			saviePlanDetailsBean.setSaviePolicyAccountBalanceList4(saviePolicyAccountBalanceList4);
 		}
 		return saviePlanDetailsBean;
 	}

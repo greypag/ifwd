@@ -12,7 +12,10 @@ public class SaviePlanDetailsBean {
 	private float guarantee2ndYearRate;
 	private float guarantee3rdYearRate;
 	
-	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList;
+	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList0;
+	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList2;
+	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList3;
+	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList4;
 	
 	public String getPlanName() {
 		return planName;
@@ -50,26 +53,32 @@ public class SaviePlanDetailsBean {
 	public void setGuarantee3rdYearRate(float guarantee3rdYearRate) {
 		this.guarantee3rdYearRate = guarantee3rdYearRate;
 	}
-	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceList() {
-		return saviePolicyAccountBalanceList;
+	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceList0() {
+		return saviePolicyAccountBalanceList0;
 	}
-	public void setSaviePolicyAccountBalanceList(
-			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList) {
-		this.saviePolicyAccountBalanceList = saviePolicyAccountBalanceList;
+	public void setSaviePolicyAccountBalanceList0(
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList0) {
+		this.saviePolicyAccountBalanceList0 = saviePolicyAccountBalanceList0;
 	}
-	
-	
-	
-	
-
-	
-	
-	
-	
-
-
-
-	
-	
-
+	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceList2() {
+		return saviePolicyAccountBalanceList2;
+	}
+	public void setSaviePolicyAccountBalanceList2(
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList2) {
+		this.saviePolicyAccountBalanceList2 = saviePolicyAccountBalanceList2;
+	}
+	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceList3() {
+		return saviePolicyAccountBalanceList3;
+	}
+	public void setSaviePolicyAccountBalanceList3(
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList3) {
+		this.saviePolicyAccountBalanceList3 = saviePolicyAccountBalanceList3;
+	}
+	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceList4() {
+		return saviePolicyAccountBalanceList4;
+	}
+	public void setSaviePolicyAccountBalanceList4(
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList4) {
+		this.saviePolicyAccountBalanceList4 = saviePolicyAccountBalanceList4;
+	}
 }
