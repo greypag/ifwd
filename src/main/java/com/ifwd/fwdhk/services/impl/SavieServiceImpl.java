@@ -86,13 +86,13 @@ public class SavieServiceImpl implements SavieService {
 			String jsonStr = apiJsonObj.toJSONString();
 			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
 			
-			List<JSONObject> planDetail0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
-			List<JSONObject> planDetail2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");
-			List<JSONObject> planDetail3Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration3Rate");
-			List<JSONObject> planDetail4Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration4Rate");
+			List<JSONObject> planDetails0Rate = (List<JSONObject>) responseJsonObj.get("planDetails0Rate");
+			List<JSONObject> planDetails2Rate = (List<JSONObject>) responseJsonObj.get("planDetails2Rate");
+			List<JSONObject> planDetails3Rate = (List<JSONObject>) responseJsonObj.get("planDetails3Rate");
+			List<JSONObject> planDetails4Rate = (List<JSONObject>) responseJsonObj.get("planDetails4Rate");
 			
-			if(planDetail0Rate.size()>0){
-				String type = planDetail0Rate.get(0).getString("type").substring(0, 1);
+			if(planDetails0Rate.size()>0){
+				String type = planDetails0Rate.get(0).getString("type").substring(0, 1);
 				if(null != type && "Y".equals(type)){
 					saviePlanDetailsBean.setPaymentPlan("Yearly plan");
 				}
@@ -100,8 +100,8 @@ public class SavieServiceImpl implements SavieService {
 					saviePlanDetailsBean.setPaymentPlan("Monthly plan");
 				}
 				saviePlanDetailsBean.setSinglePremiumAmount(responseJsonObj.getString("premium"));
-				for(int i=0;i<planDetail0Rate.size();i++){
-					JSONObject rate = planDetail0Rate.get(i);
+				for(int i=0;i<planDetails0Rate.size();i++){
+					JSONObject rate = planDetails0Rate.get(i);
 					if("Y1".equals(rate.get("type"))){
 						saviePlanDetailsBean.setGuarantee1stYearRate(Float.valueOf(rate.getString("interestedRate")));
 					}
@@ -119,33 +119,33 @@ public class SavieServiceImpl implements SavieService {
 			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList3 = new ArrayList<SaviePolicyAccountBalanceBean>();
 			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList4 = new ArrayList<SaviePolicyAccountBalanceBean>();
 			
-			for(int i =0;i<planDetail0Rate.size();i++){
+			for(int i =0;i<planDetails0Rate.size();i++){
 				SaviePolicyAccountBalanceBean saPolAccBal0 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal0.setPolicyYear(planDetail0Rate.get(i).getString("type").substring(1));
-				saPolAccBal0.setPremiumPaid(planDetail0Rate.get(i).getString("totalPremium"));
-				saPolAccBal0.setAccountValue(planDetail0Rate.get(i).getString("accountEOP"));
-				saPolAccBal0.setSurrenderBenefit(planDetail0Rate.get(i).getString("guranteedDeathBenefit"));
+				saPolAccBal0.setPolicyYear(planDetails0Rate.get(i).getString("type").substring(1));
+				saPolAccBal0.setPremiumPaid(planDetails0Rate.get(i).getString("totalPremium"));
+				saPolAccBal0.setAccountValue(planDetails0Rate.get(i).getString("accountEOP"));
+				saPolAccBal0.setSurrenderBenefit(planDetails0Rate.get(i).getString("guranteedSurrenderBenefit"));
 				saviePolicyAccountBalanceList0.add(saPolAccBal0);
 				
 				SaviePolicyAccountBalanceBean saPolAccBal2 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal2.setPolicyYear(planDetail2Rate.get(i).getString("type").substring(1));
-				saPolAccBal2.setPremiumPaid(planDetail2Rate.get(i).getString("totalPremium"));
-				saPolAccBal2.setAccountValue(planDetail2Rate.get(i).getString("accountEOP"));
-				saPolAccBal2.setSurrenderBenefit(planDetail2Rate.get(i).getString("guranteedDeathBenefit"));
+				saPolAccBal2.setPolicyYear(planDetails2Rate.get(i).getString("type").substring(1));
+				saPolAccBal2.setPremiumPaid(planDetails2Rate.get(i).getString("totalPremium"));
+				saPolAccBal2.setAccountValue(planDetails2Rate.get(i).getString("accountEOP"));
+				saPolAccBal2.setSurrenderBenefit(planDetails2Rate.get(i).getString("guranteedSurrenderBenefit"));
 				saviePolicyAccountBalanceList2.add(saPolAccBal2);
 				
 				SaviePolicyAccountBalanceBean saPolAccBal3 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal3.setPolicyYear(planDetail3Rate.get(i).getString("type").substring(1));
-				saPolAccBal3.setPremiumPaid(planDetail3Rate.get(i).getString("totalPremium"));
-				saPolAccBal3.setAccountValue(planDetail3Rate.get(i).getString("accountEOP"));
-				saPolAccBal3.setSurrenderBenefit(planDetail3Rate.get(i).getString("guranteedDeathBenefit"));
+				saPolAccBal3.setPolicyYear(planDetails3Rate.get(i).getString("type").substring(1));
+				saPolAccBal3.setPremiumPaid(planDetails3Rate.get(i).getString("totalPremium"));
+				saPolAccBal3.setAccountValue(planDetails3Rate.get(i).getString("accountEOP"));
+				saPolAccBal3.setSurrenderBenefit(planDetails3Rate.get(i).getString("guranteedSurrenderBenefit"));
 				saviePolicyAccountBalanceList3.add(saPolAccBal3);
 				
 				SaviePolicyAccountBalanceBean saPolAccBal4 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal4.setPolicyYear(planDetail4Rate.get(i).getString("type").substring(1));
-				saPolAccBal4.setPremiumPaid(planDetail4Rate.get(i).getString("totalPremium"));
-				saPolAccBal4.setAccountValue(planDetail4Rate.get(i).getString("accountEOP"));
-				saPolAccBal4.setSurrenderBenefit(planDetail4Rate.get(i).getString("guranteedDeathBenefit"));
+				saPolAccBal4.setPolicyYear(planDetails4Rate.get(i).getString("type").substring(1));
+				saPolAccBal4.setPremiumPaid(planDetails4Rate.get(i).getString("totalPremium"));
+				saPolAccBal4.setAccountValue(planDetails4Rate.get(i).getString("accountEOP"));
+				saPolAccBal4.setSurrenderBenefit(planDetails4Rate.get(i).getString("guranteedSurrenderBenefit"));
 				saviePolicyAccountBalanceList4.add(saPolAccBal4);
 			}
 			
@@ -164,10 +164,10 @@ public class SavieServiceImpl implements SavieService {
 			String jsonStr = apiJsonObj.toJSONString();
 			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
 			
-			List<JSONObject> planDetail0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
-			List<JSONObject> planDetail2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");
-			List<JSONObject> planDetail3Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration3Rate");
-			List<JSONObject> planDetail4Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration4Rate");
+			List<JSONObject> planDetails0Rate = (List<JSONObject>) responseJsonObj.get("planDetails0Rate");
+			List<JSONObject> planDetails2Rate = (List<JSONObject>) responseJsonObj.get("planDetails2Rate");
+			List<JSONObject> planDetails3Rate = (List<JSONObject>) responseJsonObj.get("planDetails3Rate");
+			List<JSONObject> planDetails4Rate = (List<JSONObject>) responseJsonObj.get("planDetails4Rate");
 			
 			List<JSONObject> inputTableList = new ArrayList<JSONObject>();
 			JSONObject inputTable = new JSONObject();
@@ -184,29 +184,29 @@ public class SavieServiceImpl implements SavieService {
 			
 			List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
 			
-			for(int i =0;i<planDetail0Rate.size();i++){
+			for(int i =0;i<planDetails0Rate.size();i++){
 				JSONObject yesrPlan = new JSONObject();
-				yesrPlan.accumulate("year", Integer.valueOf(planDetail0Rate.get(i).getString("type").substring(1)));
+				yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getString("type").substring(1)));
 				
 				List<JSONObject> plansList = new ArrayList<JSONObject>();
 				
 				JSONObject plan0 = new JSONObject();
-				plan0.accumulate("accountBalance", Float.valueOf(planDetail0Rate.get(i).getString("accountEOP")));
+				plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getString("accountEOP")));
 				plan0.accumulate("rate","zero");
 				plansList.add(plan0);
 				
 				JSONObject plan2 = new JSONObject();
-				plan2.accumulate("accountBalance", Float.valueOf(planDetail2Rate.get(i).getString("accountEOP")));
+				plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getString("accountEOP")));
 				plan2.accumulate("rate","two");
 				plansList.add(plan2);
 				
 				JSONObject plan3 = new JSONObject();
-				plan3.accumulate("accountBalance", Float.valueOf(planDetail3Rate.get(i).getString("accountEOP")));
+				plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getString("accountEOP")));
 				plan3.accumulate("rate","three");
 				plansList.add(plan3);
 				
 				JSONObject plan4 = new JSONObject();
-				plan4.accumulate("accountBalance", Float.valueOf(planDetail4Rate.get(i).getString("accountEOP")));
+				plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getString("accountEOP")));
 				plan4.accumulate("rate","four");
 				plansList.add(plan4);
 				
