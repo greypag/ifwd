@@ -1,5 +1,7 @@
 package com.ifwd.fwdhk.api.controller;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,6 +31,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.util.StringHelper;
 
@@ -337,6 +340,35 @@ public class RestServiceImpl implements RestServiceDao {
 		}
 
 		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public JSONObject SendEmail(SendEmailInfo sei) {
+		String to = sei.getPlayer_email() ;//request.getParameter("to"); //"nathaniel.kw.cheung@fwd.com";//
+		String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
+		String subject = "html testing";//request.getParameter("subject");//
+		String attachment = null;//request.getParameter("attachment");//
+		String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+		//String isHtml = "true";//request.getParameter("isHTML");// 
+		boolean isHTML = true;
+		
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("to", to);
+		parameters.put("message", message);
+		parameters.put("subject", subject);
+		parameters.put("attachment", attachment);
+		parameters.put("from", from);
+		parameters.put("isHtml", isHTML);
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		//header.put("language", WebServiceUtils.transformLanaguage(lang));
+		header.put("userName", sei.getUsername());
+		header.put("token", sei.getToken());
+		
+		JSONObject jsobj = consumeApi(HttpMethod.POST,UserRestURIConstants.SEND_EMAIL, header, parameters);
+		
+		return jsobj;
 	}
 
 }

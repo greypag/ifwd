@@ -54,7 +54,7 @@
 						<li class="divider"><i class="fa fa-play"></i></li>
 						<li><a href="#"><fmt:message key="savie.plan.details.Savie" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></li>
-						<li class="active-bc"><fmt:message key="savie.plan.details.Sales.illustration" bundle="${msg}" /></li>
+						<li class="active-bc"><fmt:message key="savie.plan.details.plan.details" bundle="${msg}" /></li>
 					</ol>
 				</div>
 				<div id="questions" class="text-center pull-right">
@@ -68,7 +68,7 @@
 			</div>
 
 			<div class="fwd-full-container container-fluid text-center sales-head">
-				<h1><fmt:message key="savie.plan.details.Sales.illustration" bundle="${msg}" /></h1>
+				<h1><fmt:message key="savie.plan.details.plan.details" bundle="${msg}" /></h1>
 			</div>
 			
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
@@ -246,7 +246,7 @@
 							<p class="expl-txt"><fmt:message key="savie.plan.details.The.total.surrender.value.and.death.benefits.payable" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.plan.details.Current Rate.declared.by.the.Company.shall.in.no.way.be" bundle="${msg}" /></p>
+							<p class="expl-txt"><fmt:message key="savie.plan.details.CurrentRate.declared.by.the.Company.shall.in.no.way.be" bundle="${msg}" /></p>
 						</li>
 					</ul>
 				</div>
