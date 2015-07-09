@@ -27,8 +27,8 @@ public class SaviePageFlowControl {
 			current=current.substring(current.lastIndexOf("/")+1);
 		}
 		
-		logger.info("referer : "+referer);
-		logger.info("current : "+current);
+		logger.debug("referer : "+referer);
+		logger.debug("current : "+current);
 
         
 	    
@@ -39,144 +39,144 @@ public class SaviePageFlowControl {
 			{
 				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-landing")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_LANDING)) 
 			{
-				to="savie-application-details";
+				to=UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}		
 		
-		if (current.equals("savie-fna")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_FNA)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-plan-details")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)) 
 			{
-				to="savie-application-details";
+				to=UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 
 		
-		if (current.equals("savie-application-details")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-fna")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) 
 			{
-				to="savie-order-summary";
+				to=UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 		
-		if (current.equals("savie-order-summary")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-application-details")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS)) 
 			{
-				to="savie-appointment";
+				to=UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 		
-		if (current.equals("savie-appointment")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_APPOINTMENT)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-order-summary")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY)) 
 			{
-				to="savie-document-upload";
+				to=UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 		
-		if (current.equals("savie-document-upload")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-appointment")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_APPOINTMENT)) 
 			{
-				to="savie-thankyou";
+				to=UserRestURIConstants.PAGE_SAVIE_THANKYOU;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 		
 		
-		if (current.equals("savie-thankyou")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_THANKYOU)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-document-upload")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD)) 
 			{
-				to="savie-declaration-authorization";
+				to=UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 		
-		if (current.equals("savie-declaration-authorization")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
-			else if (referer.endsWith("savie-thankyou")) 
+			else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_THANKYOU)) 
 			{
-				to="savie-signature";
+				to=UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
 			} 
-			else if(referer.endsWith("savie-edit-view")) 
+			else if(referer.endsWith(UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW)) 
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 		
-		if (current.equals("savie-signature")) 
+		if (current.equals(UserRestURIConstants.PAGE_SAVIE_SIGNATURE)) 
 		{
 			if(referer==null)
 			{
-				to="savie-landing";
+				to=UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
 			else
 			{
-				to="savie-edit-view";
+				to=UserRestURIConstants.PAGE_SAVIE_EDIT_VIEW;
 			}			
 		}
 
 		
-		logger.info("to : "+to);
+		logger.debug("to : "+to);
 		
 		return to; 
 		
