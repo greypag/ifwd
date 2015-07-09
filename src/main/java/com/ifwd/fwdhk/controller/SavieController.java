@@ -2,10 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -35,6 +32,7 @@ public class SavieController {
 	
 	@Autowired
 	private RestServiceDao restService;
+	@Autowired
 	private SavieService savieService;
 
 	@RequestMapping(value = {"/{lang}/savie-landing"})
@@ -74,7 +72,7 @@ public class SavieController {
 		
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.SAVIE_PLAN_DETAIL);
-		url.append("?product=");
+		url.append("?planCode=");
 		url.append(product);
 		url.append("&issueAge=");
 		url.append(issueAge);
