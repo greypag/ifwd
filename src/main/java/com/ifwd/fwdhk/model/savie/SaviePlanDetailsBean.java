@@ -11,6 +11,9 @@ public class SaviePlanDetailsBean {
 	private float guarantee1stYearRate;
 	private float guarantee2ndYearRate;
 	private float guarantee3rdYearRate;
+	
+	private List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList;
+	
 	public String getPlanName() {
 		return planName;
 	}
@@ -46,6 +49,13 @@ public class SaviePlanDetailsBean {
 	}
 	public void setGuarantee3rdYearRate(float guarantee3rdYearRate) {
 		this.guarantee3rdYearRate = guarantee3rdYearRate;
+	}
+	public List<SaviePolicyAccountBalanceBean> getSaviePolicyAccountBalanceList() {
+		return saviePolicyAccountBalanceList;
+	}
+	public void setSaviePolicyAccountBalanceList(
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList) {
+		this.saviePolicyAccountBalanceList = saviePolicyAccountBalanceList;
 	}
 	
 	

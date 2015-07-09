@@ -1,6 +1,9 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -76,11 +79,111 @@ public class SavieServiceImpl implements SavieService {
 	}
 
 	@Override
-	public SaviePlanDetailsBean getPlanDetails(String userName, String token, String language,String referralCode) {
-		
-		
+	public SaviePlanDetailsBean getPlanDetails(org.json.simple.JSONObject apiJsonObj,String product,String issueAge,String paymentTerm,String premium,String referralCode) {
+		SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
+		saviePlanDetailsBean.setPlanName(product.toUpperCase());
+		if(null == apiJsonObj.get("errMsgs")){
+			String jsonStr = apiJsonObj.toJSONString();
+			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
+			
+			List<JSONObject> planDetail0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
+			List<JSONObject> planDetail2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");
+			List<JSONObject> planDetail3Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration3Rate");
+			List<JSONObject> planDetail4Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration4Rate");
+			
+			if(planDetail0Rate.size()>0){
+				String type = planDetail0Rate.get(0).getString("type").substring(0, 1);
+				if(null != type && "Y".equals(type)){
+					saviePlanDetailsBean.setPaymentPlan("Yearly plan");
+				}
+				else{
+					saviePlanDetailsBean.setPaymentPlan("Monthly plan");
+				}
+				saviePlanDetailsBean.setSinglePremiumAmount(responseJsonObj.getString("premium"));
+				for(int i=0;i<planDetail0Rate.size();i++){
+					JSONObject rate = planDetail0Rate.get(i);
+					if("Y1".equals(rate.get("type"))){
+						saviePlanDetailsBean.setGuarantee1stYearRate(Float.valueOf(rate.getString("interestedRate")));
+					}
+					if("Y2".equals(rate.get("type"))){
+						saviePlanDetailsBean.setGuarantee2ndYearRate(Float.valueOf(rate.getString("interestedRate")));
+					}
+					if("Y3".equals(rate.get("type"))){
+						saviePlanDetailsBean.setGuarantee3rdYearRate(Float.valueOf(rate.getString("interestedRate")));
+					}
+				}
+			}
+			
+			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList = new ArrayList<SaviePolicyAccountBalanceBean>();
+			
+			saviePlanDetailsBean.setSaviePolicyAccountBalanceList(saviePolicyAccountBalanceList);
+		}
+		return saviePlanDetailsBean;
+	}
 	
-		return null;
+	@Override
+	public JSONObject getPlanDetailsAjax(org.json.simple.JSONObject apiJsonObj,String product,String issueAge,String paymentTerm,String premium,String referralCode) {
+		JSONObject resultJsonObject = new JSONObject();
+		if(null == apiJsonObj.get("errMsgs")){
+			String jsonStr = apiJsonObj.toJSONString();
+			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
+			
+			List<JSONObject> planDetail0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
+			List<JSONObject> planDetail2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");
+			List<JSONObject> planDetail3Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration3Rate");
+			List<JSONObject> planDetail4Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration4Rate");
+			
+			List<JSONObject> inputTableList = new ArrayList<JSONObject>();
+			JSONObject inputTable = new JSONObject();
+			inputTable.accumulate("type", product);
+			inputTable.accumulate("issueAge", issueAge);
+			inputTable.accumulate("paymode", "monthly");
+			inputTable.accumulate("premium", premium);
+			inputTable.accumulate("paymentTerm", paymentTerm);
+			inputTable.accumulate("promoCode", referralCode);
+			inputTableList.add(inputTable);
+			
+			JSONObject planDetailJsonObject = new JSONObject();
+			planDetailJsonObject.accumulate("inputTable", inputTableList);
+			
+			List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
+			
+			for(int i =0;i<planDetail0Rate.size();i++){
+				JSONObject yesrPlan = new JSONObject();
+				yesrPlan.accumulate("year", Integer.valueOf(planDetail0Rate.get(i).getString("type").substring(1)));
+				
+				List<JSONObject> plansList = new ArrayList<JSONObject>();
+				
+				JSONObject plan0 = new JSONObject();
+				plan0.accumulate("accountBalance", Float.valueOf(planDetail0Rate.get(i).getString("accountEOP")));
+				plan0.accumulate("rate","zero");
+				plansList.add(plan0);
+				
+				JSONObject plan2 = new JSONObject();
+				plan2.accumulate("accountBalance", Float.valueOf(planDetail2Rate.get(i).getString("accountEOP")));
+				plan2.accumulate("rate","two");
+				plansList.add(plan2);
+				
+				JSONObject plan3 = new JSONObject();
+				plan3.accumulate("accountBalance", Float.valueOf(planDetail3Rate.get(i).getString("accountEOP")));
+				plan3.accumulate("rate","three");
+				plansList.add(plan3);
+				
+				JSONObject plan4 = new JSONObject();
+				plan4.accumulate("accountBalance", Float.valueOf(planDetail4Rate.get(i).getString("accountEOP")));
+				plan4.accumulate("rate","four");
+				plansList.add(plan4);
+				
+				yesrPlan.accumulate("plans", plansList);
+				yearPlansList.add(yesrPlan);
+			}
+			planDetailJsonObject.accumulate("yearPlans", yearPlansList);
+			resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
+		}
+		else{
+			resultJsonObject.accumulate("salesIllustration", apiJsonObj.get("errMsgs"));
+		}
+		return resultJsonObject;
 	}
 
 	@Override
