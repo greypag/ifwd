@@ -38,16 +38,13 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-plan-details"})
-	public String getSavieIllustration(Model model, HttpServletRequest request) {
+	public String getSaviePlanDetails(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		
-		
 		model.addAttribute("nextPageFlow", SaviePageFlowControl.pageFlow(request));
-		
-		//String redirectUrl=SaviePageFlowControl.pageFlow(request);
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-plan-details";
+		String redirectUrl=SaviePageFlowControl.pageFlow(request);
+		return redirectUrl;
 	}
 
 	@RequestMapping(value = {"/planDetailsByAjax"})
