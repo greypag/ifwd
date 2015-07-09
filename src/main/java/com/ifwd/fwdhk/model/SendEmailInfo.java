@@ -9,116 +9,95 @@ public class SendEmailInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	String dream_name;
+	String dreamName;
 	
-	String dream_level_description;
+	String dreamLevelDescription;
 	
-	int dream_budget;
+	int dreamBudget;
 	
-	int current_savings;
+	int currentSavings;
 	
-	int saving_period;
+	int savingPeriod;
 	
-	int annual_return_rate;
+	int annualReturnRate;
 	
-	float month_savings_no_interest;
+	float monthSavingsNoInterest;
 	
-	float month_savings_with_interest;
+	float monthSavingsWithInterest;
 	
-	String player_email;
-	
-	String token;
-	
-	String username;
+	String playerEmail;
 
-	public String getDream_name() {
-		return dream_name;
+	public String getDreamName() {
+		return dreamName;
 	}
 
-	public void setDream_name(String dream_name) {
-		this.dream_name = dream_name;
+	public void setDreamName(String dreamName) {
+		this.dreamName = dreamName;
 	}
 
-	public String getDream_level_description() {
-		return dream_level_description;
+	public String getDreamLevelDescription() {
+		return dreamLevelDescription;
 	}
 
-	public void setDream_level_description(String dream_level_description) {
-		this.dream_level_description = dream_level_description;
+	public void setDreamLevelDescription(String dreamLevelDescription) {
+		this.dreamLevelDescription = dreamLevelDescription;
 	}
 
-	public int getDream_budget() {
-		return dream_budget;
+	public int getDreamBudget() {
+		return dreamBudget;
 	}
 
-	public void setDream_budget(int dream_budget) {
-		this.dream_budget = dream_budget;
+	public void setDreamBudget(int dreamBudget) {
+		this.dreamBudget = dreamBudget;
 	}
 
-	public int getCurrent_savings() {
-		return current_savings;
+	public int getCurrentSavings() {
+		return currentSavings;
 	}
 
-	public void setCurrent_savings(int current_savings) {
-		this.current_savings = current_savings;
+	public void setCurrentSavings(int currentSavings) {
+		this.currentSavings = currentSavings;
 	}
 
-	public int getSaving_period() {
-		return saving_period;
+	public int getSavingPeriod() {
+		return savingPeriod;
 	}
 
-	public void setSaving_period(int saving_period) {
-		this.saving_period = saving_period;
+	public void setSavingPeriod(int savingPeriod) {
+		this.savingPeriod = savingPeriod;
 	}
 
-	public int getAnnual_return_rate() {
-		return annual_return_rate;
+	public int getAnnualReturnRate() {
+		return annualReturnRate;
 	}
 
-	public void setAnnual_return_rate(int annual_return_rate) {
-		this.annual_return_rate = annual_return_rate;
+	public void setAnnualReturnRate(int annualReturnRate) {
+		this.annualReturnRate = annualReturnRate;
 	}
 
-	public float getMonth_savings_no_interest() {
-		return month_savings_no_interest;
+	public float getMonthSavingsNoInterest() {
+		return monthSavingsNoInterest;
 	}
 
-	public void setMonth_savings_no_interest(float month_savings_no_interest) {
-		this.month_savings_no_interest = month_savings_no_interest;
+	public void setMonthSavingsNoInterest(float monthSavingsNoInterest) {
+		this.monthSavingsNoInterest = monthSavingsNoInterest;
 	}
 
-	public float getMonth_savings_with_interest() {
-		return month_savings_with_interest;
+	public float getMonthSavingsWithInterest() {
+		return monthSavingsWithInterest;
 	}
 
-	public void setMonth_savings_with_interest(float month_savings_with_interest) {
-		this.month_savings_with_interest = month_savings_with_interest;
+	public void setMonthSavingsWithInterest(float monthSavingsWithInterest) {
+		this.monthSavingsWithInterest = monthSavingsWithInterest;
 	}
 
-	public String getPlayer_email() {
-		return player_email;
+	public String getPlayerEmail() {
+		return playerEmail;
 	}
 
-	public void setPlayer_email(String player_email) {
-		this.player_email = player_email;
+	public void setPlayerEmail(String playerEmail) {
+		this.playerEmail = playerEmail;
 	}
 
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	
 	
 }

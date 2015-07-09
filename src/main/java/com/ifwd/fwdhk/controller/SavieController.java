@@ -3,10 +3,9 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import net.sf.json.JSONObject;
 
 import org.slf4j.Logger;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.SendEmailInfo;
@@ -26,7 +26,7 @@ import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
-public class SavieController {
+public class SavieController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(SavieController.class);
 	
@@ -107,63 +107,50 @@ public class SavieController {
 	}
 	
 	@RequestMapping(value = {"/sendEmailByAjax"} )
-	public void sendEmailByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		HttpSession session = request.getSession();
-		String token = null, username = null;
-		if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
-			token = session.getAttribute("token").toString();
-			username = session.getAttribute("username").toString();
-		}else{
-			restService.consumeLoginApi(request);
-			if ((session.getAttribute("token") != null)) {
-				token = session.getAttribute("token").toString();
-				username = session.getAttribute("username").toString();
-			}
-		}
+	public void sendEmailByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam String dreamName,
+			@RequestParam String dreamLevelDescription,
+			@RequestParam int dreamBudget,
+			@RequestParam int currentSavings,
+			@RequestParam int savingPeriod,
+			@RequestParam int annualReturnRate,
+			@RequestParam float monthSavingsNoInterest,
+			@RequestParam float monthSavingsWithInterest,
+			@RequestParam String playerEmail) {
 		
-		String dream_name = request.getParameter("dream_name");
-		String dream_level_description = request.getParameter("dream_level_description");
-		int dream_budget = Integer.valueOf(request.getParameter("dream_budget"));
-		int current_savings = Integer.valueOf(request.getParameter("current_savings"));
-		int saving_period = Integer.valueOf(request.getParameter("saving_period"));
-		int annual_return_rate = Integer.valueOf(request.getParameter("annual_return_rate"));
-		float month_savings_no_interest = Float.valueOf(request.getParameter("month_savings_no_interest"));
-		float month_savings_with_interest = Float.valueOf(request.getParameter("month_savings_with_interest"));
-		String player_email = request.getParameter("player_email");
 		SendEmailInfo sei = new SendEmailInfo();
-		sei.setDream_name(dream_name);
-		sei.setDream_level_description(dream_level_description);
-		sei.setDream_budget(dream_budget);
-		sei.setCurrent_savings(current_savings);
-		sei.setSaving_period(saving_period);
-		sei.setAnnual_return_rate(annual_return_rate);
-		sei.setMonth_savings_no_interest(month_savings_no_interest);
-		sei.setMonth_savings_with_interest(month_savings_with_interest);
-		sei.setPlayer_email(player_email);
-		sei.setUsername(username);
-		sei.setToken(token);
+		sei.setDreamName(dreamName);
+		sei.setDreamLevelDescription(dreamLevelDescription);
+		sei.setDreamBudget(dreamBudget);
+		sei.setCurrentSavings(currentSavings);
+		sei.setSavingPeriod(savingPeriod);
+		sei.setAnnualReturnRate(annualReturnRate);
+		sei.setMonthSavingsNoInterest(monthSavingsNoInterest);
+		sei.setMonthSavingsWithInterest(monthSavingsWithInterest);
+		sei.setPlayerEmail(playerEmail);
 		
 		
-		org.json.simple.JSONObject apiJsonObj = restService.SendEmail(sei);
-		
+		org.json.simple.JSONObject apiJsonObj = restService.SendEmail(request,sei);
 		logger.info("apiJsonObj:"+apiJsonObj);
 		
-		JSONObject resultJsonObject = new JSONObject();
+		ajaxReturn(response,apiJsonObj);
 		
-		resultJsonObject.accumulate("errMsgs", apiJsonObj.get("errMsgs"));
+	}
+	
+	@RequestMapping(value = {"/sendLeadByAjax"} )
+	public void sendLeadByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam String email,
+			@RequestParam String answer1,
+			@RequestParam String step) {
 		
-		logger.info(resultJsonObject.toString());
-		
-		response.setContentType("text/json;charset=utf-8");
-		//return data
-		try {
-			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+			org.json.simple.JSONObject apiJsonObj = restService.sendLead(email,answer1,step);
+			
+			logger.info("apiJsonObj:"+apiJsonObj);
+			
+			ajaxReturn(response,apiJsonObj);
+	
 	}
 	
 	@RequestMapping(value = {"/{lang}/sendEmail"})
