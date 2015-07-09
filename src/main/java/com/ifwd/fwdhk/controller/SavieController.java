@@ -47,8 +47,8 @@ public class SavieController extends BaseController{
 		return redirectUrl;
 	}
 
-	@RequestMapping(value = {"/planDetailsByAjax"})
-	public void planDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping(value = {"/getPlanDetailsByAjax"})
+	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
 		savieService.getPlanDetails(model, request, response);
 	}
 	
