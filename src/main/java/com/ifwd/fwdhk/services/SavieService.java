@@ -2,19 +2,24 @@ package com.ifwd.fwdhk.services;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.ui.Model;
+
+import net.sf.json.JSONObject;
+
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savie.SavieAppointmentScheduleBean;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormFNABean;
 import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
-import com.ifwd.fwdhk.model.savie.SavieIllustrationBean;
+import com.ifwd.fwdhk.model.savie.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
@@ -31,7 +36,7 @@ public interface SavieService {
 	
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
-	public SavieIllustrationBean getIllustration(String userName, String token, String language);
+	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response);
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);
@@ -39,7 +44,15 @@ public interface SavieService {
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
 	
-	
+	public List<OptionItemDesc> getMaritalStatus(String language);
+	public List<OptionItemDesc> getSavieDistrict(String language);
+	public List<OptionItemDesc> getEmploymentStatus(String language);
+	public List<OptionItemDesc> getNationality(String language);
+	public List<OptionItemDesc> getNatureOfBusiness(String language);
+	public List<OptionItemDesc> getPlaceOfBirth(String language);
+	public List<OptionItemDesc> getMonthlyPersonalIncome(String language);
+	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language);
+	public List<OptionItemDesc> getOccupation(String language);
 	
 	//fileUpload?
 	//signature?

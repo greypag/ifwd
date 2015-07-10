@@ -38,11 +38,11 @@ public class CommonUtils {
 				params.put("userName", "*DIRECTGI");
 				params.put("password", "");
 				
-				logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
+				//logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
 				JSONObject response = restService.consumeApi(HttpMethod.POST,
 						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
 						params);
-				logger.info("response: " + response);
+				//logger.info("response: " + response);
 				if (response.get("errMsgs") == null && response != null) {
 					token= response.get("token").toString();
 					InitApplicationMessage.initToken = token;

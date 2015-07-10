@@ -1,16 +1,9 @@
 package com.ifwd.fwdhk.controller;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import net.sf.json.JSONObject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,19 +13,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
+import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
-public class SavieController {
+public class SavieController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(SavieController.class);
 	
 	@Autowired
 	private RestServiceDao restService;
+	@Autowired
+	private SavieService savieService;
 
 	@RequestMapping(value = {"/{lang}/savie-landing"})
 	public String getSavieLanding(Model model, HttpServletRequest request) {
@@ -42,126 +40,61 @@ public class SavieController {
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
-	@SuppressWarnings("unused")
 	@RequestMapping(value = {"/{lang}/savie-plan-details"})
-	public String getSavieIllustration(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		
-		
-		model.addAttribute("nextPageFlow", SaviePageFlowControl.pageFlow(request));
-		
-		String redirectUrl=SaviePageFlowControl.pageFlow(request);
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-plan-details";
+	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/{lang}/getSaviePlanDetailsByAjax"})
-	public void getSaviePlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
+	@RequestMapping(value = {"/getPlanDetailsByAjax"})
+	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+		savieService.getPlanDetails(model, request, response);
+	}
+	
+	@RequestMapping(value = {"/sendEmailByAjax"} )
+	public void sendEmailByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam String dreamName,
+			@RequestParam String dreamLevelDescription,
+			@RequestParam int dreamBudget,
+			@RequestParam int currentSavings,
+			@RequestParam int savingPeriod,
+			@RequestParam int annualReturnRate,
+			@RequestParam float monthSavingsNoInterest,
+			@RequestParam float monthSavingsWithInterest,
+			@RequestParam String playerEmail) {
 		
-		String product = request.getParameter("product");
-		String issueAge = request.getParameter("issueAge");
-		String paymentTerm = request.getParameter("paymentTerm");
-		String premium = request.getParameter("premium");
-		String referralCode = request.getParameter("referralCode");
+		SendEmailInfo sei = new SendEmailInfo();
+		sei.setDreamName(dreamName);
+		sei.setDreamLevelDescription(dreamLevelDescription);
+		sei.setDreamBudget(dreamBudget);
+		sei.setCurrentSavings(currentSavings);
+		sei.setSavingPeriod(savingPeriod);
+		sei.setAnnualReturnRate(annualReturnRate);
+		sei.setMonthSavingsNoInterest(monthSavingsNoInterest);
+		sei.setMonthSavingsWithInterest(monthSavingsWithInterest);
+		sei.setPlayerEmail(playerEmail);
 		
-		StringBuffer Url = new StringBuffer();
-		Url.append(UserRestURIConstants.SAVIE_GET_ILLUSTRATION);
-		Url.append("?product=");
-		Url.append(product);
-		Url.append("&issueAge=");
-		Url.append(issueAge);
-		Url.append("&paymentTerm=");
-		Url.append(paymentTerm);
-		Url.append("&premium=");
-		Url.append(premium);
-		Url.append("&referralCode=");
-		Url.append(referralCode);
-
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		logger.debug(Url.toString());
 		
-		org.json.simple.JSONObject apiJsonObj = restService.consumeApi(HttpMethod.GET,Url.toString(), header, null);
-		
+		org.json.simple.JSONObject apiJsonObj = restService.SendEmail(request,sei);
 		logger.info("apiJsonObj:"+apiJsonObj);
 		
-		JSONObject resultJsonObject = new JSONObject();
-		if(null == apiJsonObj.get("errMsgs")){
-			String jsonStr = apiJsonObj.toJSONString();
-			JSONObject responseJsonObj = JSONObject.fromObject(jsonStr);
-			logger.info("getSaviePlanDetailsByAjax API:" + responseJsonObj);
-			
-			List<JSONObject> salesIllustration0Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration0Rate");
-			List<JSONObject> salesIllustration2Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration2Rate");
-			List<JSONObject> salesIllustration3Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration3Rate");
-			List<JSONObject> salesIllustration4Rate = (List<JSONObject>) responseJsonObj.get("salesIllustration4Rate");
-			
-			List<JSONObject> inputTableList = new ArrayList<JSONObject>();
-			JSONObject inputTable = new JSONObject();
-			inputTable.accumulate("type", product);
-			inputTable.accumulate("issueAge", issueAge);
-			inputTable.accumulate("paymode", "monthly");
-			inputTable.accumulate("premium", premium);
-			inputTable.accumulate("paymentTerm", paymentTerm);
-			inputTable.accumulate("promoCode", referralCode);
-			inputTableList.add(inputTable);
-			
-			JSONObject salesIllustrationJsonObject = new JSONObject();
-			salesIllustrationJsonObject.accumulate("inputTable", inputTableList);
-			
-			List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
-			
-			for(int i =0;i<salesIllustration0Rate.size();i++){
-				JSONObject yesrPlan = new JSONObject();
-				yesrPlan.accumulate("year", Integer.valueOf(salesIllustration0Rate.get(i).getString("type").substring(1)));
-				
-				List<JSONObject> plansList = new ArrayList<JSONObject>();
-				
-				JSONObject plan0 = new JSONObject();
-				plan0.accumulate("accountBalance", Float.valueOf(salesIllustration0Rate.get(i).getString("accountEOP")));
-				plan0.accumulate("rate","zero");
-				plansList.add(plan0);
-				
-				JSONObject plan2 = new JSONObject();
-				plan2.accumulate("accountBalance", Float.valueOf(salesIllustration2Rate.get(i).getString("accountEOP")));
-				plan2.accumulate("rate","two");
-				plansList.add(plan2);
-				
-				JSONObject plan3 = new JSONObject();
-				plan3.accumulate("accountBalance", Float.valueOf(salesIllustration3Rate.get(i).getString("accountEOP")));
-				plan3.accumulate("rate","three");
-				plansList.add(plan3);
-				
-				JSONObject plan4 = new JSONObject();
-				plan4.accumulate("accountBalance", Float.valueOf(salesIllustration4Rate.get(i).getString("accountEOP")));
-				plan4.accumulate("rate","four");
-				plansList.add(plan4);
-				
-				yesrPlan.accumulate("plans", plansList);
-				yearPlansList.add(yesrPlan);
-			}
-	        salesIllustrationJsonObject.accumulate("yearPlans", yearPlansList);
-			resultJsonObject.accumulate("salesIllustration", salesIllustrationJsonObject);
-		}
-		else{
-			resultJsonObject.accumulate("salesIllustration", apiJsonObj.get("errMsgs"));
-		}
+		ajaxReturn(response,apiJsonObj);
 		
-		logger.info(resultJsonObject.toString());
+	}
+	
+	@RequestMapping(value = {"/sendLeadByAjax"} )
+	public void sendLeadByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam String email,
+			@RequestParam String answer1,
+			@RequestParam String step) {
 		
-		response.setContentType("text/json;charset=utf-8");
-		//return data
-		try {
-			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+			org.json.simple.JSONObject apiJsonObj = restService.sendLead(email,answer1,step);
+			
+			logger.info("apiJsonObj:"+apiJsonObj);
+			
+			ajaxReturn(response,apiJsonObj);
+	
 	}
 	
 	@RequestMapping(value = {"/{lang}/sendEmail"})

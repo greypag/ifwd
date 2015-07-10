@@ -35,10 +35,10 @@ function getSavieIllustration() {
 	var promocode = $('#promocode').val();
 	var birthOfDay = $('#birthOfDay').val();
 	
-	//var contextPath = window.location.pathname.split("/")[1];
-	//var language = $('#language').val();
+	var hostPath = window.location.host;
+	var contextPath = window.location.pathname.split("/")[1];
 	
-	var product = "savie";
+	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
 	var paymentTerm = 100-issueAge+1;
 	var premium = amount;
@@ -53,7 +53,7 @@ function getSavieIllustration() {
 	else{
 		$.get('getSaviePlanDetailsByAjax',
 				{ 
-					product : product,
+			        planCode : planCode,
 					issueAge: issueAge,
 					paymentTerm: paymentTerm,
 					premium: premium,

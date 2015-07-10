@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -21,7 +20,6 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -29,8 +27,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.util.StringHelper;
 
 @Component
 public class RestServiceImpl implements RestServiceDao {
@@ -187,7 +185,6 @@ public class RestServiceImpl implements RestServiceDao {
 		return responseJsonObj;
 	}
 
-	@SuppressWarnings("deprecation")
 	public JSONObject callByGetMethod(String url, Map<String, String> header) {
 		JSONObject responseJsonObj = new JSONObject();
 		try {
@@ -247,6 +244,8 @@ public class RestServiceImpl implements RestServiceDao {
 		return responseJsonObj;
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
 	public void consumeLoginApi(HttpServletRequest request) {
 
 		JSONObject responseJsonObj = new JSONObject();
@@ -337,6 +336,69 @@ public class RestServiceImpl implements RestServiceDao {
 		}
 
 		return result;
+	}
+	
+	String token = null, username = null;
+	/**
+	 * get token and username
+	 * @param request
+	 */
+	public void getTokenAndUsername(HttpServletRequest request){
+		
+		HttpSession session = request.getSession();
+		if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		}else{
+			consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public JSONObject SendEmail(HttpServletRequest request,SendEmailInfo sei) {
+		getTokenAndUsername(request);
+		String to = sei.getPlayerEmail() ;//request.getParameter("to"); //"nathaniel.kw.cheung@fwd.com";//
+		String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
+		String subject = "html testing";//request.getParameter("subject");//
+		String attachment = null;//request.getParameter("attachment");//
+		String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+		//String isHtml = "true";//request.getParameter("isHTML");// 
+		boolean isHTML = true;
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("to", to);
+		parameters.put("message", message);
+		parameters.put("subject", subject);
+		parameters.put("attachment", attachment);
+		parameters.put("from", from);
+		parameters.put("isHtml", isHTML);
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", username);
+		header.put("token", token);
+		
+		JSONObject jsobj = consumeApi(HttpMethod.POST,UserRestURIConstants.SEND_EMAIL, header, parameters);
+		
+		return jsobj;
+	}
+	
+	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public JSONObject sendLead(String email,String answer1,String step){
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		JSONObject parameters = new JSONObject();
+		parameters.put("email", email);
+		parameters.put("answer1", answer1);
+		parameters.put("step", step);
+		JSONObject jsobj = consumeApi(HttpMethod.PUT,UserRestURIConstants.SEND_LEAD, header, parameters);
+		return jsobj;
 	}
 
 }
