@@ -15,6 +15,27 @@ public class SaviePageFlowControl {
 			.getLogger(SaviePageFlowControl.class);
 
 	public static ModelAndView pageFlow(Model model, HttpServletRequest request) {
+		
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.savie", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.savie", UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle("savie.og.title", UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle("savie.og.type", UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle("savie.og.url", UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle("savie.og.image", UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle("savie.og.description", UserRestURIConstants.getLanaguage(request));
+		
+		
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
+		
+		logger.debug("-----------------------------------start--------------------------------------------");
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
@@ -137,6 +158,8 @@ public class SaviePageFlowControl {
 		to=UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
 		logger.debug("return to : " + to);
 		model.addAttribute("nextPageFlow", to);	
+		
+		logger.debug("-----------------------------------end--------------------------------------------");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savie/"+ current);
 
