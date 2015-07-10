@@ -86,7 +86,7 @@ public class SaviePageFlowControl {
 			if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) {
-				to = UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION;
+				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
 				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
 			} else if (referer
 					.endsWith(UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY)) {
@@ -100,9 +100,9 @@ public class SaviePageFlowControl {
 				.equals(UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION)) {
 			if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else if (referer
-					.endsWith(UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS)) {
+			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
+				to2 = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
 			}
 		}
 
@@ -121,7 +121,8 @@ public class SaviePageFlowControl {
 			if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
+				to = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
+				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
 			}
 		}
 
@@ -130,7 +131,7 @@ public class SaviePageFlowControl {
 			if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
+				to = UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION;
 				to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS;
 			}
 		}
@@ -146,12 +147,9 @@ public class SaviePageFlowControl {
 		if (current.equals(UserRestURIConstants.PAGE_SAVIE_APPOINTMENT)) {
 			if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else if (referer
-					.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) {
-				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
-			} else if (referer
-					.endsWith(UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS)) {
-				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
+			} else {
+				to = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
+				to2 = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
 			}
 		}
 
