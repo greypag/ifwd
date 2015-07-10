@@ -1,11 +1,24 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.UserDetails"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+
+<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
+
+
+
 <header class="clearfix">
 	<!--Top Header-->
 	<nav class="navbar-fixed-top">
 		<div class="fwd-container container-fluid">
 			<div class="row">
 				<div class="col-xs-6 col-md-4 header-hotline" >
-					<p>24-HOUR HOTLINE 3123 3123</p>
+					<p><fmt:message key="header.hotline" bundle="${msg}" /></p>
 				</div>
 				<div class="col-xs-6 col-md-8 clear-padding">
 					<div class="clearfix">
@@ -14,17 +27,17 @@
 								<span class="chinese">中文</span>
 								<span class="login" >LOGIN <i class="fa fa-caret-right"></i></span>
 							</button>
-							<button type="button" class="btn btn-chat">FWD HK</button>
+							<button type="button" class="btn btn-chat">CHAT NOW</button>
 						</div>
 						<div class="pull-right desktop-add-menu">
 							<div class="header-top-menu">
 								<ul class="clearfix">
 									<li>
-										<a title="Find affordable insurance | FWD Hong Kong" href="https://i.fwd.com.hk/en">HOME</a>
+										<a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a>
 									</li>
 									<li class="reset-padding-menu">|</li>
 									<li>
-										<a href="https://i.fwd.com.hk/en/about-fwd-insurance">ABOUT</a>
+										<a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a>
 									</li>
 									<li class="reset-padding-menu">|</li>
 									<li>
@@ -73,8 +86,8 @@
 											</div>
 											<div class="col-md-3 savie-col promo-banner">
 												<div class="promo-container">
-													<img src="<%=request.getContextPath()%>/resources/images/savie/promo-banner.jpg" class="img-responsive">
-													<a href="#" class="find-more">Find out here <i class="fa fa-play"></i></a>
+													<!-- <img src="<%=request.getContextPath()%>/resources/images/savie/promo-banner.jpg" class="img-responsive">
+													<a href="#" class="find-more">Find out here <i class="fa fa-play"></i></a>  -->
 												</div>
 											</div>
 										</div>
@@ -110,8 +123,8 @@
 											</div>
 											<div class="col-md-3 savie-col promo-banner">
 												<div class="promo-container">
-													<img src="<%=request.getContextPath()%>/resources/images/savie/promo-banner.jpg" class="img-responsive">
-													<a href="#" class="find-more">Find out here <i class="fa fa-play"></i></a>
+													<!-- <img src="<%=request.getContextPath()%>/resources/images/savie/promo-banner.jpg" class="img-responsive">
+													<a href="#" class="find-more">Find out here <i class="fa fa-play"></i></a> -->
 												</div>
 											</div>
 										</div>
@@ -135,8 +148,8 @@
 											</div>
 											<div class="col-md-3 savie-col promo-banner">
 												<div class="promo-container">
-													<img src="<%=request.getContextPath()%>/resources/images/savie/promo-banner.jpg" class="img-responsive">
-													<a href="#" class="find-more">Find out here <i class="fa fa-play"></i></a>
+													<!-- <img src="<%=request.getContextPath()%>/resources/images/savie/promo-banner.jpg" class="img-responsive">
+													<a href="#" class="find-more">Find out here <i class="fa fa-play"></i></a>  -->
 												</div>
 											</div>
 										</div>
@@ -253,6 +266,7 @@
 							<a href="#" data-dismiss="modal">Register here</a>
 					</div>
 				</div>
+				<h6>For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</h6>
 			</div>
 		</div>
 	</div>

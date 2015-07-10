@@ -14,7 +14,7 @@
 	
 	<decorator name="fwdsavie" page="template_savie.jsp">
 		<pattern>/*/savie-landing</pattern>
-		<pattern>/*/savie-illustration</pattern>
+		<pattern>/*/savie-plan-details</pattern>
 		<pattern>/*/savie-application-detail*</pattern>
 	</decorator>
 	

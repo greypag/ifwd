@@ -8,44 +8,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	
-	<!-- Bootstrap -->
-		<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
-		<link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
-		<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
-		<link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
-		
-		<!--Font Awesome Css-->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-slider.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
-		<link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
-		
-		
-		<!--Mini Calculator Css-->
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.min.css">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/style.css">
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-	</head>
-	<body class="page-sales-illustration">
-		<%!
-			boolean isSaleActiveClass = false;
-		%>
-		<div class="fwd-wrapper">			
-			<!--Top Header-->
-		
+	<div class="page-sales-illustration">
 			<!--Sales Illustration Block-->
 			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
 				<div class="breadcrumbs pull-left">
@@ -54,21 +17,21 @@
 						<li class="divider"><i class="fa fa-play"></i></li>
 						<li><a href="#"><fmt:message key="savie.plan.details.Savie" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></li>
-						<li class="active-bc"><fmt:message key="savie.plan.details.Sales.illustration" bundle="${msg}" /></li>
+						<li class="active-bc"><fmt:message key="savie.plan.details.plan.details" bundle="${msg}" /></li>
 					</ol>
 				</div>
 				<div id="questions" class="text-center pull-right">
 					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
-					<a href="#">
+					<a href="${nextPageFlow}">
 						<div class="right">                 
-							<h3>${nextPageFlow} <fmt:message key="savie.plan.details.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.plan.details.Talk.to.us.now" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
+							<h3><fmt:message key="savie.plan.details.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.plan.details.Talk.to.us.now" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="fwd-full-container container-fluid text-center sales-head">
-				<h1><fmt:message key="savie.plan.details.Sales.illustration" bundle="${msg}" /></h1>
+				<h1><fmt:message key="savie.plan.details.plan.details" bundle="${msg}" /></h1>
 			</div>
 			
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
@@ -82,15 +45,15 @@
 							<h3 class="saving"><fmt:message key="savie.plan.details.Savings.amount" bundle="${msg}" /><img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h3>
 							<div id="left" class="pull-left">
 								<p><fmt:message key="savie.plan.details.Min" bundle="${msg}" /></p>
-								<p>30,000</p>
+								<p>$30,000</p>
 							</div>
 
 							<div id="right" class="pull-right">
 								<p><fmt:message key="savie.plan.details.Max" bundle="${msg}" /></p>
-								<p>400,000</p>
+								<p>$400,000</p>
 							</div>
 
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
 							<h3 class="pull-right total"><span id="range">60,000</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="savie.plan.details.HK" bundle="${msg}" /></label>
@@ -119,12 +82,16 @@
 								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 							</div>
 						</div>
+						
+						<div class="apply">
+							<button onclick='getSavieIllustration()' class="next" type="button" id="sales-illu-apply-now">Apply now<span class="icon icon-chevron-thin-right"></span></button>
+						</div>
 					</div>
 				</form>
 			</div>
-			<div align="center" style="margin-top: 10px;">
+			<!-- <div align="center" style="margin-top: 10px;">
 			    <input type="button" onclick='getSavieIllustration()' class="btn btn-orange" value="getData"/>
-			</div>
+			</div> -->
 			
 			<!-- Investment Summary and Table Block-->
 			<div class="fwd-full-container container-fluid investment">		
@@ -209,7 +176,10 @@
 					<div class="col-xs-12 col-md-6 email-input pull-right">
 						<form class="text-center">
 							<input name="email" type="email" class="email-text" onkeyup="return forceLower(this);" placeholder="Enter your email address" />
-							<button type="submit" class="email-btn"><fmt:message key="savie.plan.details.Submit" bundle="${msg}" /></button>
+							<button type="submit" class="email-btn"><fmt:message key="savie.plan.details.Submit" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
+							<input id="email-checkbox" name="email-disclaimer" type="checkbox" />
+							<label for="email-checkbox"></label>
+							<p>I have read, understand and accept the <a href="#">Personal Information Collection Statement</a></p>
 						</form>
 					</div>
 				</div>
@@ -225,6 +195,15 @@
 				<div class="collapse" id="collapseExplanation">
 					<ul class="explanation-list">
 						<li class="explanation-li">
+							<p class="expl-txt">The above is only a summary illustration of the major benefits of your Policy. You should refer to the Company for more information or, if appropriate, a more detailed proposal.</p>
+						</li>
+						<li class="explanation-li">
+							<p class="expl-txt">The Basic Plan Illustration in Section 1 and 2 relates only to your Basic Plan and assumes that all premiums are paid in full when due without exercising skip premium option (premium holiday) and the current scale of charges remain unchanged.</p>
+						</li>
+						<li class="explanation-li">
+							<p class="expl-txt">Death Benefit is equal to the sum of initial sum insured and account value throughout the policy term. Besides Death Benefit, an additional accidental death benefit equivalent to 100% of the Account Value or HK$400,000, whichever is lower, will be offered.</p>
+						</li>
+						<!-- <li class="explanation-li">
 							<p class="expl-txt"><fmt:message key="savie.plan.details.The.above.is.only.a.summary.illustration.of.the.major.benefits.of.your.Policy.You.should.refer.to.the.Company.for.more.information.or.if.appropriate.a.more.detailed.proposal" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
@@ -246,8 +225,8 @@
 							<p class="expl-txt"><fmt:message key="savie.plan.details.The.total.surrender.value.and.death.benefits.payable" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.plan.details.Current Rate.declared.by.the.Company.shall.in.no.way.be" bundle="${msg}" /></p>
-						</li>
+							<p class="expl-txt"><fmt:message key="savie.plan.details.CurrentRate.declared.by.the.Company.shall.in.no.way.be" bundle="${msg}" /></p>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -271,7 +250,7 @@
 									<p class="started"><fmt:message key="savie.plan.details.If.you.are.happy.with" bundle="${msg}" /></p>
 								</div>
 								<div class="col-xs-12 col-md-4 button-padding">
-									<button id="made-decision-next-btn" type="button" class="btn btn-orange btn-explanation"><fmt:message key="savie.plan.details.Next" bundle="${msg}" /></button>
+									<button id="made-decision-next-btn" type="button" class="btn btn-orange btn-explanation"><fmt:message key="savie.plan.details.Next" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
 								</div>
 							</div>
 						</div>
@@ -280,27 +259,11 @@
 			</div>
 
 			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a> 
-			
-			<!-- FOOTER -->
-		</div>
+	</div>	
 		<!-- JS INCLUDES -->
-		
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/placeholders.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
 		
 		<!--For Sales Illustration page js-->
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
-	</body>
-</html>

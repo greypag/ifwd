@@ -4,15 +4,34 @@ body{
 }
 */
 
+#calculatorDiv.second{
+	/*background: url("../../images/mini-calculator/selectDream_bg.png") repeat-x;*/
+	background: url("../../images/mini-calculator/orange_spacer.jpg") repeat;
+}
+#calculatorDiv.third{
+	background: url("../../images/mini-calculator/frame_bg.png") repeat-x;
+}
+
 .wrapper{
     display: none;
     width: 960px;
     /*height: 590px;*/
-    height: 331px;
-    margin:auto;
+    height: 332px;
+    margin:0 auto;
     position: relative;
     /*background-color:white;*/
 }
+
+.wrapper div, .wrapper span, .wrapper a{
+	outline: none;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .wrapper .main_background{
     font-family:calibri, "Trebuchet MS", arial, helvetica, sans-serif;
     background-repeat: no-repeat;
@@ -23,27 +42,44 @@ body{
     margin-right: auto;
     background-size: contain;
 }
+#welcomePageText{
+	position: absolute;
+    top: 30px;
+	left: 30px;
+	color:#FFFFFF;
+}
+#welcomePageText .title{
+	font-size:50px;
+	line-height: 40px;
+}
+#welcomePageText .desc{
+	font-size:12px;
+	width:350px;
+	margin-top:8px;
+}
+
 .wrapper .letgo_btn{
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_letsgo_btn.png");
-    background-repeat: no-repeat;
+    background: url("../../images/mini-calculator/img_letsstart_btn.png") left no-repeat;
     position: absolute;
-    top: 175px;
+    top: 190px;
     left: 34px;
-    width: 116px;
-    height: 71px;
+    width: 200px;
+    height: 70px;
     margin-left: auto;
     margin-right: auto;
-    background-size: contain;
     z-index: 4;
 }
+.wrapper .letgo_btn:active{
+	background: url("../../images/mini-calculator/img_letsstart_btn.png") right no-repeat;
+}
 .wrapper .car_dream_btn{
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_car_btn.png");
+    background-image: url("../../images/mini-calculator/img_dream_car_btn.png");
     background-repeat: no-repeat;
     position: absolute;
-    top: 410px;
-    left: 198px;
-    width: 18%;
-    height: 26%;
+    top: 392px;
+	left: 124px;
+    width: 241px;
+    height: 151px;
     margin-left: auto;
     margin-right: auto;
     background-size: contain;
@@ -51,13 +87,13 @@ body{
     cursor:pointer;
 }
 .wrapper .wedding_dream_btn{
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_marriage_btn.png");
+    background-image: url("../../images/mini-calculator/img_dream_marriage_btn.png");
     background-repeat: no-repeat;
     position: absolute;
-    top: 364px;
-    left: 380px;
-    width: 21%;
-    height: 26%;
+    top: 330px;
+	left: 364px;
+    width: 197px;
+    height: 151px;
     margin-left: auto;
     margin-right: auto;
     background-size: contain;
@@ -65,13 +101,13 @@ body{
     cursor:pointer;
 }
 .wrapper .trip_dream_btn{
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_travel_btn.png");
+    background-image: url("../../images/mini-calculator/img_dream_travel_btn.png");
     background-repeat: no-repeat;
     position: absolute;
-    top: 165px;
-    left: 272px;
-    width: 17%;
-    height: 19%;
+    top: 142px;
+	left: 251px;
+    width: 193px;
+    height: 108px;
     margin-left: auto;
     margin-right: auto;
     background-size: contain;
@@ -79,13 +115,13 @@ body{
     cursor:pointer;
 }
 .wrapper .saving_dream_btn{
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_dream_other_btn.png");
+    background-image: url("../../images/mini-calculator/img_dream_other_btn.png");
     background-repeat: no-repeat;
     position: absolute;
-    top: 354px;
-    left: 580px;
-    width: 7.5%;
-    height: 30%;
+    top: 336px;
+    left: 564px;
+    width: 69px;
+    height: 175px;
     margin-left: auto;
     margin-right: auto;
     background-size: contain;
@@ -112,7 +148,7 @@ body{
     top: 415px;
     left: 351px;
     background-repeat: no-repeat;
-    z-index: 5;
+    z-index: 6;
     width: 20px;
     height: 55.51px;
     margin-left: auto;
@@ -167,7 +203,7 @@ body{
     left: 556px;
     background-repeat: no-repeat;
     /*left: 55%;*/
-    z-index: 5;
+    z-index: 6;
     width: 20px;
     height: 51.02px;
     margin-left: auto;
@@ -219,7 +255,8 @@ body{
 	left:305px;
 	width:350px;
 	height:363px;
-	background-image: url("../../images/mini-calculator/sprite/img_bubble_sprite_12f.png");
+	/*background-image: url("../../images/mini-calculator/sprite/img_bubble_sprite_12f.png");*/
+	background-image: url("../../images/mini-calculator/sprite/img_bubble_sprite_12f_03.png");
 	z-index: 6;
 	display:none;
 }
@@ -230,95 +267,200 @@ body{
 	z-index:6;
 }
 
-.wrapper .levelSelectionDiv img.low.car{
-	width:375px;
-	height:155px;
-	top: 300px;
-	left:323px; 
-}
-.wrapper .levelSelectionDiv img.mid.car{
-	width:375px;
-	height:155px;
-	top: 300px;
-	left:323px; 
-}
-.wrapper .levelSelectionDiv img.high.car{
-	width:375px;
-	height:155px;
-	top: 300px;
-	left:323px; 
-}
-
-.wrapper .levelSelectionDiv div.carSmoke{
-	width:44px;
-	height:46px;
-	background-image: url("../../images/mini-calculator/sprite/car_smoke_sprite.png");
-	background-size: 484px 46px;
+.wrapper .levelSelectionDiv div.car{
+	background-size: contain;
+	width:520px;
+	height:221px;
+	top: 216px;
+	left:220px; 
 	display:none;
 }
 
+.wrapper .levelSelectionDiv div.low.car{
+	background-image: url("../../images/mini-calculator/img_car_low.png");
+}
+.wrapper .levelSelectionDiv div.mid.car{
+	background-image: url("../../images/mini-calculator/img_car_mid.png"); 
+}
+.wrapper .levelSelectionDiv div.high.car{
+	background-image: url("../../images/mini-calculator/img_car_high.png");
+}
+.wrapper .levelSelectionDiv div.car.transition{
+	width: 541px;
+	height: 230px; 
+	top: 207px;
+	left: 209.5px;
+}
+
+.wrapper .levelSelectionDiv div.car.low div.person{
+	width: 120px;
+	height: 120px; 
+	top: -25px;
+	left: 168px;
+	background-size: 240px 120px;
+}
+.wrapper .levelSelectionDiv div.car.low.transition div.person{
+	top: -18px;
+	left: 172px;
+}
+.wrapper .levelSelectionDiv div.car.low.transition div.person.old{
+	top: -11px;
+	left: 172px;
+}
+.wrapper .levelSelectionDiv div.car.low div.person.young.transition{
+	top: -18px;
+	left: 172px;
+}
+.wrapper .levelSelectionDiv div.car.low div.person.old.transition{
+	top: -11px;
+	left: 172px;
+}
+.wrapper .levelSelectionDiv div.car.low div.person.man.young{
+	background-image: url("../../images/mini-calculator/sprite/img_car_low_man_young_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.low div.person.man.middle{
+	background-image: url("../../images/mini-calculator/sprite/img_car_low_man_middle_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.low div.person.man.old{
+	background-image: url("../../images/mini-calculator/sprite/img_car_low_man_old_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.low div.person.woman.young{
+	background-image: url("../../images/mini-calculator/sprite/img_car_low_woman_young_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.low div.person.woman.middle{
+	background-image: url("../../images/mini-calculator/sprite/img_car_low_woman_middle_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.low div.person.woman.old{
+	background-image: url("../../images/mini-calculator/sprite/img_car_low_woman_old_sprite.png");
+}
+
+.wrapper .levelSelectionDiv div.car.mid div.person{
+	width: 120px;
+	height: 120px; 
+	top: -7px;
+	left: 208px;
+	background-size: 240px 120px;
+}
+.wrapper .levelSelectionDiv div.car.mid.transition div.person{
+	top: -3px;
+	left: 214px;
+}
+.wrapper .levelSelectionDiv div.car.mid div.person.man.young{
+	background-image: url("../../images/mini-calculator/sprite/img_car_mid_man_young_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.mid div.person.man.middle{
+	background-image: url("../../images/mini-calculator/sprite/img_car_mid_man_middle_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.mid div.person.man.old{
+	background-image: url("../../images/mini-calculator/sprite/img_car_mid_man_old_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.mid div.person.woman.young{
+	background-image: url("../../images/mini-calculator/sprite/img_car_mid_woman_young_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.mid div.person.woman.middle{
+	background-image: url("../../images/mini-calculator/sprite/img_car_mid_woman_middle_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.mid div.person.woman.old{
+	background-image: url("../../images/mini-calculator/sprite/img_car_mid_woman_old_sprite.png");
+}
+
+.wrapper .levelSelectionDiv div.car.high div.person{
+	width: 120px;
+	height: 120px; 
+	top: -12px;
+	left: 226px;
+	background-size: 240px 120px;
+}
+.wrapper .levelSelectionDiv div.car.high.transition div.person{
+	top: -12px;
+	left: 226px;
+}
+.wrapper .levelSelectionDiv div.car.high div.person.man.young{
+	background-image: url("../../images/mini-calculator/sprite/img_car_high_man_young_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.high div.person.man.middle{
+	background-image: url("../../images/mini-calculator/sprite/img_car_high_man_middle_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.high div.person.man.old{
+	background-image: url("../../images/mini-calculator/sprite/img_car_high_man_old_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.high div.person.woman.young{
+	background-image: url("../../images/mini-calculator/sprite/img_car_high_woman_young_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.high div.person.woman.middle{
+	background-image: url("../../images/mini-calculator/sprite/img_car_high_woman_middle_sprite.png");
+}
+.wrapper .levelSelectionDiv div.car.high div.person.woman.old{
+	background-image: url("../../images/mini-calculator/sprite/img_car_high_woman_old_sprite.png");
+}
+
+
+.wrapper .levelSelectionDiv div.carSmoke{
+	/*
+	width:44px;
+	height:46px;
+	*/
+	width:60px;
+	height:64px;
+	background-image: url("../../images/mini-calculator/sprite/car_smoke_sprite.png");
+	/*background-size: 484px 46px;*/
+	background-size: 660px 64px;
+	display:none;
+}
 .wrapper .levelSelectionDiv div.carSmoke.low{
-	top: 395px;
-	left:315px; 
+	top: 365px;
+	left:700px; 
 }
-
 .wrapper .levelSelectionDiv div.carSmoke.mid{
-	top: 380px;
-	left:310px; 
+	top: 365px;
+	left:690px; 
 }
-
 .wrapper .levelSelectionDiv div.carSmoke.high{
-	top: 390px;
-	left:280px; 
-}
-
-.wrapper .levelSelectionDiv img.car.transition{
-	width: 404px;
-	height: 167px; 
-	top: 288px;
-	left: 308.5px;
+	top: 375px;
+	left:730px;  
 }
 
 .wrapper .levelSelectionDiv div.pinContainer{
 	display:none;
-	width:490px;
-	height:295px;
-	top: 140px;
-	left:235px; 
+	width:504px;
+	height:314px;
+	top: 121px;
+	left:228px; 
+	background: url("../../images/mini-calculator/img_map_clouds.png") center 10px no-repeat;
 }
 .wrapper .levelSelectionDiv div.pinContainer div.pin{
 	background-image: url("../../images/mini-calculator/img_pin.png");
-	width:53px;
-	height:63px;
+	width:21px;
+	height:36px;
 }
 .wrapper .levelSelectionDiv div.pinContainer.low div.pin{
-	top:50px;
-	left:288px;
+	top:56px;
+	left:335px;
 }
 .wrapper .levelSelectionDiv div.pinContainer.mid div.pin{
-	top:34px;
-	left:258px;
+	top:119px;
+	left:278px;
 }
 .wrapper .levelSelectionDiv div.pinContainer.high div.pin{
-	top:100px;
-	left:198px;
+	top:137px;
+	left:253px;
 }
 
 .wrapper .levelSelectionDiv img.trip{
-	width:490px;
-	height:295px;
-	top: 140px;
-	left:235px; 
+	width:504px;
+	height:314px;
+	top: 121px;
+	left:228px; 
 }
 .wrapper .levelSelectionDiv img.trip.init{
 	width:0px;
 	left:480px; 
 }
 .wrapper .levelSelectionDiv img.trip.transition{
-	width:510px;
-	height:307px;
-	top: 128px;
-	left:225px; 
+	width:520px;
+	height:324px;
+	top: 111px;
+	left:220px; 
 }
 
 
@@ -330,17 +472,84 @@ body{
 }
 .wrapper .levelSelectionDiv div.couple{
 	display:none;
-	width:271px;
-	height:304px;
-	top: 140px;
-	left:344.5px; 
-}
-.wrapper .levelSelectionDiv div.low.couple{
-	background-image: url("../../images/mini-calculator/img_couple_young.png");
+	width:214px;
+	height:242px;
+	top: 196px;
+	left:373px; 
 }
 .wrapper .levelSelectionDiv div.couple .animationDiv{
-	width:271px;
-	height:304px;
+	width:214px;
+	height:242px;
+}
+
+.wrapper .levelSelectionDiv div.young.couple{
+	background-image: url("../../images/mini-calculator/img_couple_young.png");
+}
+.wrapper .levelSelectionDiv div.young.couple.wink .animationDiv{
+	background-image: url("../../images/mini-calculator/sprite/img_couple_young_sprite.png");
+	background-size: 428px 242px;
+}
+.wrapper .levelSelectionDiv div.middle.couple{
+	background-image: url("../../images/mini-calculator/img_couple_mid.png");
+}
+.wrapper .levelSelectionDiv div.middle.couple.wink .animationDiv{
+	background-image: url("../../images/mini-calculator/sprite/img_couple_mid_sprite.png");
+	background-size: 428px 242px;
+}
+.wrapper .levelSelectionDiv div.old.couple{
+	background-image: url("../../images/mini-calculator/img_couple_old.png");
+}
+.wrapper .levelSelectionDiv div.old.couple.wink .animationDiv{
+	background-image: url("../../images/mini-calculator/sprite/img_couple_old_sprite.png");
+	background-size: 428px 242px;
+}
+.wrapper .levelSelectionDiv div.couple.init{
+	width:20px;
+	height:22.44px;
+	top: 424px;
+	left:470px; 
+}
+
+.wrapper .levelSelectionDiv #weddingElegant{
+	width: 521.6px;
+	height: 328.8px;
+	top:100px;
+	left: 210px;
+	display:block;
+}
+.wrapper .levelSelectionDiv #weddingElegant.init{
+	height: 0px;
+	top:428.8px;
+}
+.wrapper .levelSelectionDiv #weddingDeluxe{
+	width: 612.8px;
+	height: 255.2px;
+	top:210px;
+	left: 170px;
+	display:block;
+}
+.wrapper .levelSelectionDiv #weddingDeluxe.init{
+	height: 0px;
+	top:465.2px;
+}
+
+.wrapper .levelSelectionDiv div.couple.transition{
+	width:287px;
+	height:322px;
+	top: 122px;
+	left:336.5px; 
+}
+
+.wrapper .levelSelectionDiv div.ball{
+	background-image: url("../../images/mini-calculator/img_wed_simple_ball_1.png");
+	background-size: contain;
+	width:216px;
+	height:200.8px;
+	top: 89px;
+	left:366px;
+}
+.wrapper .levelSelectionDiv div.ball.open{
+	background-image: url("../../images/mini-calculator/img_wed_simple_ball_2.png");
 }
 
 .wrapper .levelSelectionDiv div.saving{
@@ -349,24 +558,24 @@ body{
 }
 
 .wrapper .levelSelectionDiv div.saving.low{
-	width:163px;
-	height:124px;
-	top:350px;
-	left:398.5px;
+	width:152px;
+	height:125.6px;
+	top:320px;
+	left:404px;
 }
 
 .wrapper .levelSelectionDiv div.saving.mid{
-	width:264px;
-	height:201px;
-	top:273px;
-	left:348px;
+	width:266px;
+	height:219.8px;
+	top:236.2px;
+	left:347px;
 }
 
 .wrapper .levelSelectionDiv div.saving.high{
-	width:386px;
-	height:294px;
-	top:180px;
-	left:287px;
+	width:380px;
+	height:314px;
+	top:142px;
+	left:290px;
 }
 
 .wrapper .levelSelectionDiv div.coin{
@@ -382,7 +591,7 @@ body{
 	left:468px;
 }
 .wrapper .levelSelectionDiv div.coin.low.drop{
-	top:370px;
+	top:340px;
 }
 
 .wrapper .levelSelectionDiv div.coin.mid{
@@ -392,7 +601,7 @@ body{
 	left:448px;
 }
 .wrapper .levelSelectionDiv div.coin.mid.drop{
-	top:280px;
+	top:240px;
 }
 
 .wrapper .levelSelectionDiv div.coin.high{
@@ -405,53 +614,6 @@ body{
 	top:200px;
 }
 
-.wrapper .levelSelectionDiv div.low.couple.wink .animationDiv{
-	background-image: url("../../images/mini-calculator/sprite/img_couple_young_sprite.png");
-	background-size: 543px 306px;
-}
-.wrapper .levelSelectionDiv div.mid.couple{
-	background-image: url("../../images/mini-calculator/img_couple_mid.png");
-}
-.wrapper .levelSelectionDiv div.mid.couple.wink .animationDiv{
-	background-image: url("../../images/mini-calculator/sprite/img_couple_mid_sprite.png");
-	background-size: 543px 306px;
-}
-.wrapper .levelSelectionDiv div.high.couple{
-	background-image: url("../../images/mini-calculator/img_couple_old.png");
-}
-.wrapper .levelSelectionDiv div.high.couple.wink .animationDiv{
-	background-image: url("../../images/mini-calculator/sprite/img_couple_old_sprite.png");
-	background-size: 543px 306px;
-}
-.wrapper .levelSelectionDiv div.couple.init{
-	width:20px;
-	height:22.44px;
-	top: 424px;
-	left:470px; 
-}
-
-.wrapper .levelSelectionDiv div.couple.transition{
-	width:287px;
-	height:322px;
-	top: 122px;
-	left:336.5px; 
-}
-
-/*
-.wrapper .car{
-	position: absolute;
-	display:none;
-	background-size: contain;
-}
-.wrapper .car.middle{
-	background-image: url("../../images/mini-calculator/sprite/car_mid.png");
-	width:313px;
-	height:155px;
-	top:100px;
-	left:100px;
-}
-*/
-
 .wrapper .arrow_left{
 	font-family: Arial;
     text-align: center;
@@ -462,7 +624,7 @@ body{
     width: 105px;
     height: 71px;
     background-size: contain;
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_l.png");
+    background-image: url("../../images/mini-calculator/img_arrow_l.png");
     background-repeat: no-repeat;
     cursor:pointer;
 }
@@ -488,7 +650,7 @@ body{
     top: 230px;
     right: 60px;
     background-size: contain;
-    background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_r.png");
+    background-image: url("../../images/mini-calculator/img_arrow_r.png");
     background-repeat: no-repeat;
     cursor:pointer;
 }
@@ -531,9 +693,15 @@ body{
     width: 100%;
     height: auto;
     color: #fd8224;
-    font-size:1.8em;
+    font-size:36px;
 }
 .wrapper .pageTitle.init{
+	top:-50px;
+}
+.wrapper .pageTitle.wedding{
+	top:20px;
+}
+.wrapper .pageTitle.init.wedding{
 	top:-50px;
 }
 .wrapper .txtDialog{
@@ -544,82 +712,542 @@ body{
 .txtDialog .text{
     padding: 10px;
 }
-.wrapper .calAge{
+.wrapper #sliderDiv{
     position: absolute;
-    top:482px;
+    top:450px;
     width: 100%;
     height:auto;
     text-align: center;
-}
-.wrapper .selectSlider{
-    width: 580px;
-    margin: 0 auto;
-    border: none;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    position: relative;
-}
-#slider.selectSlider.ui-widget-content{
-	background-image:none;
-	background-color:#dddddd;
-	display: inline-block;
+    color:#6D6E71;
+    z-index: 10;
 }
 
-#slider.selectSlider.ui-slider-horizontal{
-	height:10px;
+.wrapper #sliderDiv div.valueLevelDiv{
+	padding-bottom:34px;
 }
-#slider .ui-slider-handle {
-    border: none;
-    background: url("../../images/mini-calculator/img_button_short.png");
-    background-position: right; 
-    width: 100px;
-    height: 40px;
-    margin: -12px 0px 0px -50px;
-    text-align:center;
+.wrapper #sliderDiv div.valueLevelDiv.hidden{
+	padding-bottom:50px;
 }
-#slider .ui-slider-handle.ui-state-active{
-	background-position: left; 
+.wrapper #sliderDiv div.valueLevelDiv.hidden div.valueLevelButton{
+	display:none;
 }
-
-#slider .ui-slider-handle.mid {
-	background: url("../../images/mini-calculator/img_button_mid.png");
-	width: 150px;
-}
-#slider .ui-slider-handle.long {
-	background: url("../../images/mini-calculator/img_button_long.png");
-	width: 170px;
-}
-
-#slider .ui-slider-range {
-    /*background-image: url("../../images/mini-calculator/sliced_FWD_interface_v03_out_cs5_slider_bar_fill.png");*/
-    background-color:#fab531;
-    background-repeat: repeat;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-#slider .slider_val{
-    width: 100%;
-    height: 100%;
-    z-index: 4;
-    font-weight: normal;
-    color: #ffffff;
-    font-size: 30px;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1.4em; /*set line height back to normal*/
-}
-
-.wrapper .sliderRange{
+.wrapper #sliderDiv div.valueLevelButton, .wrapper #sliderDiv div.valueLevelButton div{
 	display:inline-block;
-	color: #6b6b6b;
-    font-size: 1.5em;
+	width:60px;
+	height:65px;
+	vertical-align: middle;
+	cursor:pointer;
+}
+.wrapper #sliderDiv div.valueLevelButton{
+	background: url("../../images/mini-calculator/valueLevel_btn.png") no-repeat;
+	margin:0 60px;
+}
+.wrapper #sliderDiv div.valueLevelButton.active{
+	background: url("../../images/mini-calculator/valueLevel_btn.png") right no-repeat;
+}
+.wrapper #sliderDiv div.valueLevelButton .simple{
+	background: url("../../images/mini-calculator/valueLevelBtn_simple.png") no-repeat;
+}
+.wrapper #sliderDiv div.valueLevelButton.active .simple{
+	background: url("../../images/mini-calculator/valueLevelBtn_simple.png") right no-repeat;
+}
+.wrapper #sliderDiv div.valueLevelButton .elegant{
+	background: url("../../images/mini-calculator/valueLevelBtn_elegant.png") no-repeat;
+}
+.wrapper #sliderDiv div.valueLevelButton.active .elegant{
+	background: url("../../images/mini-calculator/valueLevelBtn_elegant.png") right no-repeat;
+}
+.wrapper #sliderDiv div.valueLevelButton .deluxe{
+	background: url("../../images/mini-calculator/valueLevelBtn_deluxe.png") no-repeat;
+}
+.wrapper #sliderDiv div.valueLevelButton.active .deluxe{
+	background: url("../../images/mini-calculator/valueLevelBtn_deluxe.png") right no-repeat;
 }
 
-.wrapper .sliderRange.under{
-    padding-right: 10px;
+.wrapper .sliderUnit{
+	display:inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    margin-top:-5px;
 }
-.wrapper .sliderRange.over{
-    padding-left: 10px;
+
+.wrapper #sliderDiv .sliderContainer{
+	display: inline-block;
+	vertical-align: top;
 }
+
+.wrapper #slider{
+	border: 1px solid #636463;
+	background: #636463 none;
+	width:614px;
+	height:8px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+	z-index:2;
+}
+
+#slider .ui-slider-handle, #slider .ui-slider-handle.ui-state-active {
+    border: none;
+    background: none;
+}
+
+.wrapper #slider .ui-widget-header{
+	background: #ec8d32 none;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+}
+
+.wrapper #slider #tooltip, .wrapper #sliderSaving #tooltipSaving, .wrapper #sliderSavingPeriod #tooltipSavingPeriod{
+	position: absolute;
+    top: -28px;
+    left:-38px;
+    width:100px;
+    height:21px;
+    line-height: 21px;
+    text-align:center;
+    background: #ea8b2d none;
+    border:0px;
+    font-size:14px;
+    color:white;
+    z-index:10;
+}
+
+.wrapper #slider #tooltip span.unitLabel, .wrapper #sliderSaving #tooltipSaving span.unitLabel, .wrapper #sliderSavingPeriod #tooltipSavingPeriod span.unitLabel{
+	font-size:12px;
+}
+
+.ui-slider .ui-tooltip-pointer-down{
+	border-left: 7px dashed transparent; 
+	border-right: 7px dashed transparent;
+	border-top-width: 8px;
+	bottom:	-8px;
+	right: auto;
+	left: 50%;
+	top:-8px;
+	margin-left: -7px;
+}
+
+.ui-slider .ui-tooltip-pointer-down, .ui-slider .ui-tooltip-pointer-down-inner{
+	position: absolute; 
+	display: block;
+	width:0; 
+	height:0; 
+	border-bottom-width: 0;
+	background: none;
+	border-top-width: 7px; 
+	border-top-style: solid; 
+	border-top-color: #ea8b2d;
+}
+
+.ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down-inner{
+	border-left: 6px dashed transparent; 
+	border-right: 6px dashed transparent;
+	border-top: 7px solid #fff;
+	bottom:	auto;
+	top: -9px;
+	left: -6px;
+}
+
+.slidersteps{
+	margin-top: -8px;
+	font-size:14px;
+	text-align: left;
+	display:none;
+	position: relative;
+	z-index:1;
+}
+
+.slidersteps span{
+	display:inline-block;
+	width: 40px;
+	text-align:center;
+	margin-right: 74px;
+}
+
+#sliderDiv.age.hidden #ageScale, #sliderDiv.age.hidden #carScale, #sliderDiv.age.hidden #tripScale, 
+#sliderDiv.car.hidden #ageScale, #sliderDiv.car.hidden #carScale, #sliderDiv.car.hidden #tripScale, 
+#sliderDiv.trip.hidden #ageScale, #sliderDiv.trip.hidden #carScale, #sliderDiv.trip.hidden #tripScale, 
+#sliderDiv.wedding.hidden #ageScale, #sliderDiv.wedding.hidden #carScale, #sliderDiv.wedding.hidden #tripScale, 
+#sliderDiv.saving.hidden #ageScale, #sliderDiv.saving.hidden #carScale, #sliderDiv.saving.hidden #tripScale
+{
+	display:none;
+}
+
+/** age **/
+#sliderDiv.age #slider #tooltip{
+	width:50px;
+	left:-14px;
+	left: 23px;
+}
+#sliderDiv.age #ageScale{
+	display:block;
+}
+#sliderDiv.age #carScale{
+	display:none;
+}
+#sliderDiv.age #tripScale{
+	display:none;
+}
+#sliderDiv.age #ageScale.slidersteps span.head{
+	text-align:left;
+	width: 307px;
+	margin:0px 0px 0px -3px;
+}
+#sliderDiv.age #ageScale.slidersteps span.tail{
+	text-align:right;
+	width: 307px;
+	margin:0px 0px 0px 4px;
+}
+
+/** car, wedding, saving **/
+#sliderDiv.car #slider #tooltip, #sliderDiv.wedding #slider #tooltip, #sliderDiv.saving #slider #tooltip{
+	width:100px;
+	left:-38px;
+}
+#sliderDiv.car #ageScale, #sliderDiv.wedding #ageScale, #sliderDiv.saving #ageScale{
+	display:none;
+}
+#sliderDiv.car #carScale, #sliderDiv.wedding #carScale, #sliderDiv.saving #carScale{
+	display:block;
+}
+#sliderDiv.car #tripScale, #sliderDiv.wedding #tripScale, #sliderDiv.saving #tripScale{
+	display:none;
+}
+
+/** trip **/
+#sliderDiv.trip #slider #tooltip{
+	width:100px;
+	left:-38px;
+}
+#sliderDiv.trip #ageScale{
+	display:none;
+}
+#sliderDiv.trip #carScale{
+	display:none;
+}
+#sliderDiv.trip #tripScale{
+	display:block;
+}
+/*
+#sliderDiv.car #carScale.slidersteps span{
+	width:70px;
+	margin-right: 50px;
+}
+#sliderDiv.car #carScale.slidersteps span.head{
+	text-align:left;
+	margin-right: 18px;
+	margin-left: -3px;
+}
+#sliderDiv.car #carScale.slidersteps span.sixth{
+	margin-right: 18px;
+}
+#sliderDiv.car #carScale.slidersteps span.tail{
+	text-align:right;
+	margin-right: 0px;
+}
+*/
+#sliderDiv.car #carScale.slidersteps span, 
+#sliderDiv.wedding #carScale.slidersteps span, 
+#sliderDiv.saving #carScale.slidersteps span,
+#sliderDiv.trip #tripScale.slidersteps span{
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+}
+#sliderDiv.car #carScale.slidersteps span.first, 
+#sliderDiv.wedding #carScale.slidersteps span.first, 
+#sliderDiv.saving #carScale.slidersteps span.first, 
+#sliderDiv.trip #tripScale.slidersteps span.first{
+	left:-5.6%;
+}
+#sliderDiv.car #carScale.slidersteps span.second, 
+#sliderDiv.wedding #carScale.slidersteps span.second, 
+#sliderDiv.saving #carScale.slidersteps span.second, 
+#sliderDiv.trip #tripScale.slidersteps span.second{
+	left:14.16%;
+}
+#sliderDiv.car #carScale.slidersteps span.third, 
+#sliderDiv.wedding #carScale.slidersteps span.third,
+#sliderDiv.saving #carScale.slidersteps span.third, 
+#sliderDiv.trip #tripScale.slidersteps span.third{
+	left:34.16%;
+}
+#sliderDiv.car #carScale.slidersteps span.forth, 
+#sliderDiv.wedding #carScale.slidersteps span.forth, 
+#sliderDiv.saving #carScale.slidersteps span.forth, 
+#sliderDiv.trip #tripScale.slidersteps span.forth{
+	left:54.16%;
+}
+#sliderDiv.car #carScale.slidersteps span.fifth, 
+#sliderDiv.wedding #carScale.slidersteps span.fifth, 
+#sliderDiv.saving #carScale.slidersteps span.fifth, 
+#sliderDiv.trip #tripScale.slidersteps span.fifth{
+	left:74.16%;
+}
+#sliderDiv.car #carScale.slidersteps span.sixth, 
+#sliderDiv.wedding #carScale.slidersteps span.sixth, 
+#sliderDiv.saving #carScale.slidersteps span.sixth, 
+#sliderDiv.trip #tripScale.slidersteps span.sixth{
+	left:94.16%;
+}
+
+
+
+.wrapper #sliderDivSaving{
+    position: absolute;
+    top:500px;
+    width: 100%;
+    height:auto;
+    text-align: center;
+    color:#6D6E71;
+    z-index: 10;
+}
+
+.wrapper #sliderDivSaving div.divLeft{
+	display: inline-block;
+	float:left;
+	margin-left:40px;
+}
+.wrapper #sliderDivSaving div.divRight{
+	display: inline-block;
+	float:right;
+	margin-right:40px;
+}
+
+.wrapper #sliderDivSaving .sliderContainerSaving, .wrapper #sliderDivSaving .sliderContainerSavingPeriod{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.wrapper #sliderSaving, .wrapper #sliderSavingPeriod{
+	border: 1px solid #636463;
+	background: #636463 none;
+	width:474px;
+	height:8px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+	z-index:2;
+}
+.wrapper #sliderSaving{
+	width:474px;
+}
+.wrapper #sliderSavingPeriod{
+	width:236px;
+}
+
+#sliderSaving .ui-slider-handle, #sliderSaving .ui-slider-handle.ui-state-active, 
+#sliderSavingPeriod .ui-slider-handle, #sliderSavingPeriod .ui-slider-handle.ui-state-active {
+    border: none;
+    background: none;
+}
+
+.wrapper #sliderSaving .ui-widget-header, .wrapper #sliderSavingPeriod .ui-widget-header{
+	background: #ec8d32 none;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+}
+
+.wrapper #sliderSavingPeriod #tooltipSavingPeriod{
+	width: 50px;
+	left:-14px;
+}
+
+#sliderDivSaving .slidersteps{
+	display:block;
+}
+#sliderDivSaving .sliderContainerSaving .slidersteps span.head{
+	text-align:left;
+	width: 306px;
+	margin:0px 0px 0px -3px;
+}
+#sliderDivSaving .sliderContainerSaving .slidersteps span.tail{
+	text-align:right;
+	width: 168px;
+	margin:0px 0px 0px 4px;
+}
+#sliderDivSaving .sliderContainerSavingPeriod .slidersteps span.head{
+	text-align:left;
+	width: 206px;
+	margin:0px 0px 0px -3px;
+}
+#sliderDivSaving .sliderContainerSavingPeriod .slidersteps span.tail{
+	text-align:right;
+	width: 30px;
+	margin:0px 0px 0px 4px;
+}
+#sliderDivSaving .sliderContainerSaving .slidersteps span.max{
+	text-align:right;
+	width: 140px;
+	margin-right: 0px;
+}
+
+#sliderDivSaving .sliderTitle{
+	font-size:20px;
+}
+
+
+.wrapper #calculationResult{
+	display:none;
+	position: absolute;
+    top:10px;
+    width: 100%;
+    height:auto;
+    text-align: center;
+    z-index:100;
+}
+
+#calculationResult img{
+	position: absolute;
+	top:0px;
+	left:99.5px;
+	width:761px;
+	height:166px;
+}
+#calculationResult img.init{
+	width:0px;
+	left: 480px;
+}
+
+#calculationResult div.resultContent{
+	position: absolute;
+	width:100%;
+	top:20px;
+	color:#727272;
+}
+#calculationResult div.resultContent{
+	display:none;
+}
+
+#calculationResult div.resultContent .first{
+	font-size:18px;
+}
+#calculationResult div.resultContent .second{
+	font-size:20px;
+}
+#calculationResult div.resultContent .second span.compoundInterest{
+	font-size:28px;
+	color:#F58220;
+}
+#calculationResult div.resultContent .third{
+	font-size:14px;
+	margin-top:10px
+}
+
+#rorAddBtn{
+	display:inline-block;
+	width:30px;
+	height: 29px;
+	margin: 0px 4px;
+	background: url("../../images/mini-calculator/img_button_tiny_plus.png") right no-repeat;
+	vertical-align:middle;
+	cursor:pointer;
+}
+#rorAddBtn:active{
+	background: url("../../images/mini-calculator/img_button_tiny_plus.png") left no-repeat;
+}
+#rorReduceBtn{
+	display:inline-block;
+	width:30px;
+	height: 29px;
+	margin: 0px 4px;
+	background: url("../../images/mini-calculator/img_button_tiny_minus.png") right no-repeat;
+	vertical-align:middle;
+	cursor:pointer;
+}
+#rorReduceBtn:active{
+	background: url("../../images/mini-calculator/img_button_tiny_minus.png") left no-repeat;
+}
+#ror{
+	display:inline-block;
+	vertical-align:middle;
+	margin: 0px 4px;
+	font-size:18px;
+}
+
+#emailDiv{
+	display:none;
+	position: absolute;
+    top:480px;
+    width: 100%;
+    height:auto;
+    text-align: center;
+    color:#999999;
+    font-size:18px;
+}
+
+#emailDiv div.inputDiv{
+	width:553px;
+	height:39px;
+	margin: 0 auto;
+}
+
+#emailDiv span.emailAddressText{
+	color:#666666;
+}
+
+#emailDiv .textfield{
+	position: relative;
+	display:inline-block;
+	vertical-align:bottom;
+	background: url("../../images/mini-calculator/img_textfield_email.png") bottom no-repeat;
+	width:370px;
+	height:39px;
+}
+#emailDiv .textfield input[type="text"]{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	font-size: 16px;
+	width:346px;
+	padding: 4px 10px;
+	border: none;
+    background-color: transparent;
+    color:#727272;
+}
+
+#emailBtn{
+	position: relative;
+	display:inline-block;
+	vertical-align:bottom;
+	background: url("../../images/mini-calculator/email_me_btn.png") left no-repeat;
+	width:183px;
+	height:39px;
+	color:#FFFFFF;
+	cursor:pointer;
+}
+#emailBtn:active{
+	background: url("../../images/mini-calculator/email_me_btn.png") right no-repeat;
+}
+#emailBtn div{
+	position: absolute;
+	bottom:3px;
+	left:64px;
+	font-size: 22px;
+}
+
+#emailDiv .startoverDiv{
+	display:none;
+	margin-top:10px;
+}
+#startoverBtn{
+	width:180px;
+	height:30px;
+	margin:0 auto;
+	background: url("../../images/mini-calculator/img_rect_btn.png") right no-repeat;
+	text-align:center;
+	color:#FFFFFF;
+	font-size:22px;
+	cursor:pointer;
+}
+#startoverBtn:active{
+	background: url("../../images/mini-calculator/img_rect_btn.png") left no-repeat;
+}
+

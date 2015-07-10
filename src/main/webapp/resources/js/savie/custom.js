@@ -1,5 +1,36 @@
 $(function() {
+	
+	
 
+	//Thank You Page
+	//by: RMN
+	//$('#membership-account').bootstrapValidator();
+	
+	$('#activate-fwd-account').click(function(){
+		$('html, body').animate({
+			scrollTop: $('#member-account').offset().top - $('.navbar-fixed-top').height()
+		}, 1000);
+
+	});
+	
+	//Form Validation
+	$("#activate-account-now").click(function(){
+		var username = $("#member-username").val();
+		var password = $("#member-password").val();
+		var confirmPassword = $("#confirmPassword").val();
+		
+		if(( (username.match('^[a-zA-Z0-9]+$'))   && (username.length >= 6 && username.length <= 50)) &&
+			 (password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)) &&
+			 (confirmPassword == password)
+		){
+			$('#account-created-divider').removeClass('hidden');
+			$('#account-created').removeClass('hidden');
+		}else{
+			//do nothing
+		}
+		
+    });
+	
 	//change border color set-appointment
 	var radioId = $('input[name=set-appointment-select]:checked', '#service-centre').attr("id");
 	changeBorder(radioId);
@@ -13,8 +44,8 @@ $(function() {
 	//added by: RMN
 	$("#own-estate-now").click(function() {
 		$('#beneficiary-contents').addClass('hidden');
+		$('#add-beneficiary-1').addClass('hidden');
 		$('#add-beneficiary-2').addClass('hidden');
-		$('#add-beneficiary-3').addClass('hidden');
 	});
 	
 	$("#name-others-now").click(function() {
@@ -22,12 +53,12 @@ $(function() {
 			$('#beneficiary-contents').removeClass('hidden');
 		}
 		
-		if($('#add-beneficiary-2').hasClass('hidden')){
-			$('#add-beneficiary-2').removeClass('hidden');
+		if($('#add-beneficiary-1').hasClass('hidden')){
+			$('#add-beneficiary-1').removeClass('hidden');
 		}
 		
-		if($('#add-beneficiary-3').hasClass('hidden')){
-			$('#add-beneficiary-3').removeClass('hidden');
+		if($('#add-beneficiary-2').hasClass('hidden')){
+			$('#add-beneficiary-2').removeClass('hidden');
 		}
 	
 	});
@@ -104,104 +135,104 @@ $(function() {
 	
 	// Sales Illustration Page to FNA Page
 	$("#made-decision-next-btn").on('click', function(){
-         window.location = "fna.jsp";    
+        window.location = "fna";    
     });	
 
 	// FNA Page to Application Page
 	$("#fna-next-btn").on('click', function(){
-         window.location = "application.jsp";    
+        window.location = "application";    
     });
 
 	// FNA Page to Sales Illustration Page
 	$("#fna-return-btn").on('click', function(){
-         window.location = "sales-illustration.jsp";    
+        window.location = "plan-details";    
     });    
 
 	// Application Page to Order Page
 	$("#application-proceed-btn").on('click', function(){
-         window.location = "order-summary.jsp";    
+        window.location = "order-summary";    
     });
 
 	// Application Page to Fna Page
 	$("#application-return-btn").on('click', function(){
-         window.location = "fna.jsp";    
+        window.location = "fna";    
     });    
 
 	// Order Page to Declaration Page
 	$("#order-summary-proceed-btn").on('click', function(){
-         window.location = "declaration-authorization.jsp";    
+        window.location = "declaration-authorization";    
     });    
 
 	// Order Page to Application Page
 	$("#order-summary-return-btn").on('click', function(){
-         window.location = "application.jsp";    
+        window.location = "application";    
     });    
 
 	// Declaration Page to Signature Page
 	$("#declaration-proceed-btn").on('click', function(){
-         window.location = "signature.jsp";    
+        window.location = "signature";    
     });   
 
 	// Declaration Page to Order Page
 	$("#declaration-return-btn").on('click', function(){
-         window.location = "order-summary.jsp";    
+        window.location = "order-summary";    
     });    
 
 	// Signature Page to Set Appointment Page
 	$("#signature-proceed-btn").on('click', function(){
-         window.location = "set-appointment.jsp";    
+        window.location = "set-appointment";    
     });         
 
 	// Signature Page to Declaration Page
 	$("#signature-return-btn").on('click', function(){
-         window.location = "declaration-authorization.jsp";    
+        window.location = "declaration-authorization";    
     });    
     
 	// Set Appointment Page to Upload Document Page
 	$("#set-application-confirm-btn").on('click', function(){
-		window.location = "upload-document.jsp";    
+		window.location = "upload-document";    
 	});     
 
 	// Set Appointment Page to Signature Page
 	$("#set-appointment-return-btn").on('click', function(){
-         window.location = "signature.jsp";    
+         window.location = "signature";    
     });       
 
 	// Upload Document Page to Thank You Page
 	$("#upload-doc-submit-btn").on('click', function(){
- 	window.location = "overall.jsp";    
+		window.location = "overall";    
  	});    
 
 	// Upload Document Page to Set Appointment Page
 	$("#upload-doc-return-btn").on('click', function(){
-         window.location = "set-appointment.jsp";    
+        window.location = "set-appointment";    
     });    
 
 	// Overall Page Links
 	// Sales Illustration Page
 	$("#sales-edit-btn").on('click', function(){
-         window.location = "sales-illustration.jsp";    
+        window.location = "plan-details";    
     });
 
 	// FNA Page
 	$("#fna-edit-btn").on('click', function(){
-         window.location = "fna.jsp";    
+        window.location = "fna";    
     });
 
 	// Application Page
 	$("#application-edit-btn").on('click', function(){
-         window.location = "application.jsp";    
+        window.location = "application";    
     });    
 
 	// Order Summary Page
 	$("#application-view-btn").on('click', function(){
-         window.location = "order-summary.jsp";    
+        window.location = "order-summary";    
     });    
 
 	// Set Appointment Page
 	$("#appointment-change-btn").on('click', function(){
-         window.location = "set-appointment.jsp";    
-    });    
+        window.location = "set-appointment";    
+    });    	
 	
 	//Signature Radio Buttons
 	//by: RMN
@@ -223,8 +254,8 @@ $(function() {
 	    }
 	}
 	
-	if ($('#male-1').length > 0) {
-		changeColorRadioButtonLabel (1);
+	if ($('#male-0').length > 0) {
+		changeColorRadioButtonLabel(1);
 	}
 
 	$("#own-estate, #name-others").change(function () {
@@ -319,23 +350,23 @@ $(function() {
 	}
 
 	if($("#personal-info").length > 0) {
-		$("#personal-info-next").click(function(){
-        	$('html, body').animate({
-				scrollTop: $('#employment-info').offset().top - $('.navbar-fixed-top').height()
-			}, 1000);
-    	});
+		//$("#personal-info-next").click(function(){
+        //	$('html, body').animate({
+		//		scrollTop: $('#employment-info').offset().top - $('.navbar-fixed-top').height()
+		//	}, 1000);
+    	//});
 
-    	$("#employment-info-next").click(function(){
-        	$('html, body').animate({
-				scrollTop: $('#beneficiary-info').offset().top - $('.navbar-fixed-top').height()
-			}, 1000);
-    	});
+    	//$("#employment-info-next").click(function(){
+        //	$('html, body').animate({
+		//		scrollTop: $('#beneficiary-info').offset().top - $('.navbar-fixed-top').height()
+		//	}, 1000);
+    	//});
 
-    	$("#beneficiary-info-next").click(function(){
-        	$('html, body').animate({
-				scrollTop: $('#payment').offset().top - $('.navbar-fixed-top').height()
-			}, 1000);
-    	});
+    	//$("#beneficiary-info-next").click(function(){
+        //	$('html, body').animate({
+		//		scrollTop: $('#payment').offset().top - $('.navbar-fixed-top').height()
+		//	}, 1000);
+    	//});
 	}
 
 	if($("#illustration-next-btn").length > 0) {
@@ -363,14 +394,14 @@ $(function() {
 	}	
 
 
-	if($("#add-beneficiary-2").length > 0) { 
+	if($("#add-beneficiary-1").length > 0) { 
 		$("#add-beneficiary-button-2").click(function(){
-			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
+			$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
 			//add form
 			addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
 		});
 		$("#add-beneficiary-button-3").click(function(){
-			$("#add-beneficiary-3 .add-beneficiary" ).addClass("hidden");
+			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
 			//add form
 			addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
 		});
@@ -391,13 +422,7 @@ $(function() {
 	});
 
 	
-	//Date Picker for Application Page
-	//by: RMN
-	if($("#personal-info-datePicker").length > 0) {
-		$('#personal-info-datePicker').datepicker({
-			autoclose: true,
-		});
-	}
+	
 	//Input number only
 	//by: RMN
 	$('#residential-first').keypress(function(e) {
@@ -456,12 +481,18 @@ $(function() {
 	});
 	
 	//DATE PICKER
-	if($("#datePicker").length > 0) {
+	if($("#datePicker").length > 0 && getWidth() >= 992) {
 		var datePlaceholder = (getWidth() >= 992) ? "28th May 1996" : "1996-05-28";
 		var $datePicker = $("#datePicker");
 		$('#dates').attr('placeholder', datePlaceholder);
 		changeDatePickerValue($datePicker);
 	}
+	
+	if ($("#mobile-date").length > 0) {
+		var currentDate = new Date();
+		$("#mobile-date").attr('max', currentDate.format('Y-m-d'));			
+	}
+	
 	//SET-APPOINTMENT PAGE DATEPICKER
 	if($("#scheduler-datePicker").length > 0) {
 		var $sched_datePicker = $("#scheduler-datePicker");
@@ -512,9 +543,7 @@ $(function() {
 		size: 3
 	});
 	
-	window.onresize = function() {
-		
-		
+	window.onresize = function() {		
 		if(parseInt($(document).width() )>= 992) {
 			//description: add the modal attr for login button
 			$('#login-button').attr("data-toggle","modal");
@@ -556,9 +585,9 @@ $(function() {
 		}
 
 		//change color radio button
+			changeColorRadioButtonLabel(0);
 			changeColorRadioButtonLabel(1);
 			changeColorRadioButtonLabel(2);
-			changeColorRadioButtonLabel(3);
 
 
 		if(getWidth()>=992)
@@ -590,7 +619,7 @@ $(function() {
 
 		// sales illustration date picker
 		if ($('#dates').length > 0) {
-			var datePlaceholder = (getWidth() >= 992) ? "28th May 1996" : "1996-05-28";
+			var datePlaceholder = (getWidth() >= 992) ? "28-05-1995" : "1996-05-28";
 			$('#dates').attr('placeholder', datePlaceholder);
 			
 			var dateVal = new Date($('#dates').val());
@@ -603,6 +632,10 @@ $(function() {
 				}
 			}
 		}
+		
+		// modals
+		var top = $('header .navbar-fixed-top').height();
+		$('.modal.in').css('margin-top', top + 'px');
 	};	
 	$(window).resize();
 
@@ -667,7 +700,7 @@ $(function() {
 			$('.fwd-savie-wrapper').css({'position': 'relative', 'overflow' : 'hidden', 'height' : windowHeight});
 		})
 		.on('hide.bs.offcanvas', function() {
-			$('.fwd-savie-wrapper').removeAttr('style');
+			$('.fwd--savie-wrapper').removeAttr('style');
 		});
 		
 	// Made your decision sticky
@@ -689,6 +722,16 @@ $(function() {
 		.on('hide.bs.collapse', function() {
 			$('.made-your-decision-section, footer').removeAttr('style');
 		});
+	
+	// Login Modal
+	$('#loginModal, #american-citizen, #fna-no, #illustration-result').on('show.bs.modal', function() {
+		var top = $('header .navbar-fixed-top').height();
+		$(this).css('margin-top', top + 'px');	
+	});
+	$('#loginModal, #american-citizen, #fna-no, #illustration-result').on('hide.bs.modal', function() {
+		//$('header .navbar-menu').removeClass('modal-display');
+		//$('.fwd-savie-wrapper').removeAttr('style');
+	});
 });
 
 function getWidth() {
@@ -784,16 +827,28 @@ function madeDecisionSticky() {
 	}
 }
 
+// 18 year ago date
+var dob_end_date = new Date();
+dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+
+// 86 year ago date
+var dob_start_date = new Date();
+dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+dob_start_date.setDate(dob_start_date.getDate()+1);
+
 function changeDatePickerValue($datePicker) {
 	$datePicker.datepicker({
-        endDate: '+0d',
        	autoclose: true,
+		startView: "decade",
+		startDate: dob_start_date,
+		endDate: dob_end_date,
     }).on("changeDate", function(e) {
         $datePicker.datepicker('hide');
 		
 		var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 		if (getWidth() >= 992) {
-			$('#dates').val(dateVal.format('jS M Y'));
+			//$('#dates').val(dateVal.format('jS M Y'));
+			$('#dates').val(dateVal.format('d-m-Y'));
 		} else {
 			$('#dates').val(dateVal.format('Y-m-d'));
 		}
@@ -861,39 +916,42 @@ function addFormBeneficiary (counter) {
 	$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
 	
 	
-	$('<form class="content tabs-margin"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
+	$('<form class="content tabs-margin" id="beneficiaryInfoForm['+counter+']" method="post" action="application-richie.php" onsubmit="return false"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
 
-	$('<div class="beneficiary-info-row">'
-		+ '<label for="first-name-'+counter+'">Name in English</label>'
-		+ '<input type="text" id="first-name-'+counter+'" name="first-name-'+counter+'" class="form-control gray-textbox form-textbox" placeholder="Given name">'
-		+ '<input type="text" id="last-name-'+counter+'" name="last-name-'+counter+'" class="form-control gray-textbox form-textbox" placeholder="Last name">'
+	$('<div class="form-group beneficiary-info-row" >'
+		+ '<label for="savieBeneficiaryBean['+counter+'].firstName">Name in English</label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].fullName" hidden>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].firstName" name="savieBeneficiaryBean['+counter+'].firstName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">'
+		+ '<span class="error-msg" id="beneficiaryFnameMessage['+counter+']"></span>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].lastName" name="savieBeneficiaryBean['+counter+'].lastName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="Last name" maxlength="25">'
+		+ '<span class="error-msg" id="beneficiaryLnameMessage['+counter+']"></span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-english-name['+counter+']">Duplicate English Name</span>'
+		+ '</div>'
+
+		+ '<div class="form-group beneficiary-info-row">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">Name in Chinese</label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].chineseName" name="savieBeneficiaryBean['+counter+'].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">'
+		+ '<span class="error-msg" id="beneficiaryChineseNameMessage['+counter+']"></span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">Duplicate Chinese Name</span>'
+		+ '</div>'
+
+		+ '<div class="form-group beneficiary-info-row">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].hkId">HKID / Passport No</label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" class="form-control gray-textbox form-textbox" placeholder="HKID/Passport No">'
+		+ '<span class="error-msg" id="hkidOrPassportMessage['+counter+']"></span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">Duplicate Beneficiaries</span>'
 		+ '</div>'
 
 		+ '<div class="beneficiary-info-row">'
-		+ '<label for="name-chinese-'+counter+'">Name in Chinese</label>'
-		+ '<input type="text" id="name-chinese-'+counter+'" name="name-chinese-'+counter+'" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">'
-		+ '</div>'
-
-		+ '<div class="beneficiary-info-row">'
-		+ '<label for="hkid-'+counter+'">HKID / Passport No</label>'
-		+ '<select class="selectpicker" id="hkid-'+counter+'" name="hkid" data-style="application-select" style="display: none">'
-			+ '<option disabled selected>- Please select -</option>'
-			+ '<option>Lorem ipsum</option>'
-			+ '<option>Lorem ipsum</option>'
-		   +'</select>'
-		+ '<div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle selectpicker application-select" data-toggle="dropdown" data-id="hkid" title="- Please select -"><span class="filter-option pull-left">- Please select -</span>&nbsp;<span class="icon-chevron-thin-down"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner selectpicker" role="menu"><li data-original-index="0" class="disabled selected"><a tabindex="-1" class="" data-normalized-text="<span class=&quot;text&quot;>- Please select -</span>" href="#"><span class="text">- Please select -</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Lorem ipsum</span>"><span class="text">Lorem ipsum</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Lorem ipsum</span>"><span class="text">Lorem ipsum</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>'
-		+ '</div>'
-
-		+ '<div class="beneficiary-info-row">'
-		+ '<label for="gender-'+counter+'">Gender</label>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].gender">Gender</label>'
 		+ '<div id="gender-'+counter+'" class="clearfix radio-buttons">'
-		+ '<input type="radio" name="gender-'+counter+'" value="male" id="male-'+counter+'" checked>'
+		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="male" id="male-'+counter+'" checked>'
 		+ '<label for="male-'+counter+'" class="male" >'
 		+ '<span class="hidden-lg hidden-md">Male</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
 		+ '</label>'
 		+ '<span id="male-label-'+counter+'" class="pull-left second-label">Male</span>'
-		+ '<input type="radio" name="gender-'+counter+'" value="female" id="female-'+counter+'">'
+		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="female" id="female-'+counter+'">'
 		+ '<label for="female-'+counter+'" class="female">'
 		+ '<span class="hidden-lg hidden-md">Female</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
@@ -901,18 +959,24 @@ function addFormBeneficiary (counter) {
 		+ '<span id="female-label-'+counter+'" class="pull-left second-label-female">Female</span>'
 		+ '</div>'
 		+ '</div>'
-		+ '<div class="beneficiary-info-row relationship">'
-		+ '<label for="relationship-'+counter+'">Relationship with you</label>'
-		+ '<select class="selectpicker" id="relationship-'+counter+'" name="relationship-'+counter+'" data-style="application-select" style="display: none">'
-		+ '<option disabled selected>- Please select -</option>'
-		+ '<option>Lorem ipsum</option>'
-		+ '<option>Lorem ipsum</option>'
+		
+		+ '<div class="form-group beneficiary-info-row relationship">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].relationship">Relationship with you</label>'
+		+ '<div class="selectBeneficiary">'
+		+ '<span class="icon-chevron-thin-down orange-caret"></span>'
+		+ '<select class="form-control gray-dropdown"  id="savieBeneficiaryBean['+counter+'].relationship" name="savieBeneficiaryBean['+counter+'].relationship" data-style="application-select">'
+		+ '<option selected disabled value="">- Please select -</option>'
+		+ '<option value="father">Father</option>'
+		+ '<option value="mother">Mother</option>'	
 		+ '</select>'
-		+ '<div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle selectpicker application-select" data-toggle="dropdown" data-id="hkid" title="- Please select -"><span class="filter-option pull-left">- Please select -</span>&nbsp;<span class="icon-chevron-thin-down"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner selectpicker" role="menu"><li data-original-index="0" class="disabled selected"><a tabindex="-1" class="" data-normalized-text="<span class=&quot;text&quot;>- Please select -</span>" href="#"><span class="text">- Please select -</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Lorem ipsum</span>"><span class="text">Lorem ipsum</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Lorem ipsum</span>"><span class="text">Lorem ipsum</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>'
 		+ '</div>'
-		+ '<div class="beneficiary-info-row entitle">'
-		+ '<label for="entitlement-'+counter+'">Entitlement (%)</label>'
-		+ '<input type="text" id="entitlement-'+counter+'" name="entitlement-'+counter+'" class="form-control gray-textbox percentage" placeholder="100%">'
+		+ '	<span class="error-msg" id="relationshipMessage['+counter+']"></span>'
+		+ '</div>'
+		
+		+ '<div class="form-group beneficiary-info-row entitle">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">Entitlement (%)</label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="">'
+		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
 		+ '</div>'
 		).appendTo("#add-beneficiary-"+counter+" .content");
 	changeColorRadioButtonLabel (counter);
@@ -930,4 +994,20 @@ function changeBorder (radioId) {
    		var newContent = parent.find('.col-md-9').html();
    		$("#view-selected-appointment .view-selected-box .service-centre-cells").html('<h4 class="title-margin">'+newTitle+'</h4> <div class="content">'+newContent+'</div>');
    	}
+}
+
+// Getting the Final Residential Tel No Value
+function getResidentialFinalValue() {
+	var firstValue = document.getElementById("residential-first").value;
+	var secondValue = document.getElementById("residential-second").value;
+	var thirdValue = document.getElementById("residential-third").value;
+	document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue + thirdValue;
+}   
+
+// Getting the Final Mobile No Value
+function getMobileFinalValue() {
+	var fMobileValue = document.getElementById("mobile-first").value;
+	var sMobileValue = document.getElementById("mobile-second").value;
+	var tMobileValue = document.getElementById("mobile-third").value;
+	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue + tMobileValue;
 }
