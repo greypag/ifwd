@@ -17,6 +17,8 @@ public class SaviePageFlowControl {
 	public static ModelAndView pageFlow(Model model, HttpServletRequest request) {
 		
 		
+		logger.debug("-----------------------------------page flow start--------------------------------------------");
+		
 		String pageTitle = WebServiceUtils.getPageTitle("page.savie", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.savie", UserRestURIConstants.getLanaguage(request));
 		String ogTitle = WebServiceUtils.getPageTitle("savie.og.title", UserRestURIConstants.getLanaguage(request));
@@ -35,7 +37,7 @@ public class SaviePageFlowControl {
 		model.addAttribute("ogDescription", ogDescription);
 		
 		
-		logger.debug("-----------------------------------start--------------------------------------------");
+		
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
@@ -155,11 +157,12 @@ public class SaviePageFlowControl {
 		}
 
 		logger.debug("to : " + to);
-		to=UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
-		logger.debug("return to : " + to);
+		//to=UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
+		//logger.debug("return to : " + to);
+		
 		model.addAttribute("nextPageFlow", to);	
 		
-		logger.debug("-----------------------------------end--------------------------------------------");
+		logger.debug("-----------------------------------page flow end--------------------------------------------");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savie/"+ current);
 
