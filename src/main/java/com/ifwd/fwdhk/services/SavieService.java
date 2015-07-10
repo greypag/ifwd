@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 
-import net.sf.json.JSONObject;
-
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
@@ -20,7 +19,6 @@ import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormFNABean;
 import com.ifwd.fwdhk.model.savie.SavieFormSetAppointmentBean;
 import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
-import com.ifwd.fwdhk.model.savie.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
@@ -54,6 +52,8 @@ public interface SavieService {
 	public List<OptionItemDesc> getMonthlyPersonalIncome(String language);
 	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language);
 	public List<OptionItemDesc> getOccupation(String language);
+	
+	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException;;
 	
 	//fileUpload?
 	//signature?

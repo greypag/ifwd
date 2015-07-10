@@ -1,19 +1,27 @@
 package com.ifwd.fwdhk.services.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
@@ -558,5 +566,19 @@ public class SavieServiceImpl implements SavieService {
 				}			
 			}
 		//return commonUtils.getOptionItemDescList("occupation",language);
+	}
+	
+	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			 br = connector.sendLead(email,answer1,step);
+		}catch(Exception e){
+			
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+
+		 return br;
 	}
 }

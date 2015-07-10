@@ -77,20 +77,7 @@ public class SavieController extends BaseController{
 		
 	}
 	
-	@RequestMapping(value = {"/sendLeadByAjax"} )
-	public void sendLeadByAjax(Model model, HttpServletRequest request,
-			HttpServletResponse response,
-			@RequestParam String email,
-			@RequestParam String answer1,
-			@RequestParam String step) {
-		
-			org.json.simple.JSONObject apiJsonObj = restService.sendLead(email,answer1,step);
-			
-			logger.info("apiJsonObj:"+apiJsonObj);
-			
-			ajaxReturn(response,apiJsonObj);
 	
-	}
 	
 	@RequestMapping(value = {"/{lang}/sendEmail"})
 	public String getsendEmailInfo(Model model, HttpServletRequest request) {
