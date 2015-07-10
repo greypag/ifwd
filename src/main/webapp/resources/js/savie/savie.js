@@ -51,7 +51,11 @@ function getSavieIllustration() {
 		alert("Invalid Savings amount!");
 	}
 	else{
+<<<<<<< HEAD
 		$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/planDetails/get',
+=======
+		$.get('getSaviePlanDetailsByAjax',
+>>>>>>> remotes/origin/fwdhk_savie_smartdrop
 				{ 
 			        planCode : planCode,
 					issueAge: issueAge,
