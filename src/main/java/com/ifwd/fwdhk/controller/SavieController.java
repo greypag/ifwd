@@ -43,11 +43,6 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 
-	@RequestMapping(value = {"/getPlanDetailsByAjax"})
-	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
-		savieService.getPlanDetails(model, request, response);
-	}
-	
 	@RequestMapping(value = {"/sendEmailByAjax"} )
 	public void sendEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
