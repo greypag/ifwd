@@ -2311,11 +2311,15 @@ function activateUserAccountJoinUs() {
      </div>
 </div>
 
-<p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
+<p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 <a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
-<fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
-<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" /><br>
-<fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
+<fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
+<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
+    <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
+</a> 
+<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><br>
+<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
    <div style="width: 80%;margin-left: 10%;  margin-bottom: 50px;">
@@ -2454,7 +2458,7 @@ function userLoginFnc() {
             } else if (data == 'fail') {
                 $('#ajax-loading').hide();
                 $('#login-err-msg').show();
-                $('#login-err-msg').html('Please Check Login Credential');
+                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
             }
 
         }

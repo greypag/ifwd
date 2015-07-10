@@ -109,7 +109,7 @@ function submitLoginForm(formID) {
 					} else if (data == 'fail') {
 						$('.login-ajax-loading').hide();
 						$("#"+formID+' #login-err-msg').show();
-						$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
+						$("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
 					} else {
 						$('.login-ajax-loading').hide();
 						$("#"+formID+' #login-err-msg').show();

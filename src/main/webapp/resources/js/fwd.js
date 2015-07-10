@@ -3767,6 +3767,7 @@ function flightValidateDeskTravel()
 	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
+
 	if(startDate.trim()=="")
 	{
 		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
@@ -3821,10 +3822,12 @@ function flightValidateMobTravel() {
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	
-	startDates=startDate.split("-");
+	var startDates=startDate.split("-");
 	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
 	
-	var new_end = new Date(endDate);
+	var endDates=endDate.split("-");
+	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
+	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
