@@ -531,9 +531,9 @@ $(document).ready(function() {
   ga('ecommerce:addItem', {
       'id': '${transNo}', // Transaction ID. Required
       'name': 'TravelCare', // Product name. Required
-      'category': 'TravelCare', // Category or variation
+      'category': 'Travel', // Category or variation
       'price': '${dueAmount}', // Unit price
-      'quantity': '[NUMBER OF TRAVELLERS]', // SUGGEST TO ADD NUMBER OF TRAVELLERS
+      'quantity': '1', // SUGGEST TO ADD NUMBER OF TRAVELLERS
       'currency': 'HKD'
     });
   ga('ecommerce:send');

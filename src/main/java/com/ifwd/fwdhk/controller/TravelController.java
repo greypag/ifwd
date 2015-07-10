@@ -1910,7 +1910,6 @@ public class TravelController {
 						session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				
 				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
 				model.addAttribute("utm_nooverride", 1);
 				model.addAttribute("pageTitle", pageTitle);

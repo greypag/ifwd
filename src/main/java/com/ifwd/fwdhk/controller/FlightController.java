@@ -1525,6 +1525,7 @@ public class FlightController {
 			session.setAttribute("upgradeCreateFlightPolicy", createFlightPolicy);
 			session.setAttribute("upgradeSelectPlanName", selectPlanName);
 			session.setAttribute("upgradeDueAmount", dueAmount);
+			session.setAttribute("dueAmount", dueAmount);
 		}
 		
 		JSONObject parameters = new JSONObject();

@@ -1238,7 +1238,6 @@ function activateUserAccountJoinUs() {
 		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 ZH','USD');activateUserAccountJoinUs();" />
 	</c:otherwise>
 </c:choose>
-							
 						</div>
 						<div class="clearfix"></div>
 					</div>
