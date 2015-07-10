@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -36,6 +38,7 @@ import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 
 @Component
 public class ECommWsConnector {
@@ -73,6 +76,14 @@ public class ECommWsConnector {
 		url.append("&referralCode=");
 		url.append(referralCode);
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, locale);
+	}
+	
+	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
+		JSONObject parameters = new JSONObject();
+		parameters.put("email", email);
+		parameters.put("answer1", answer1);
+		parameters.put("step", step);
+		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,null);
 	}
 	
 	private <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Locale locale) {

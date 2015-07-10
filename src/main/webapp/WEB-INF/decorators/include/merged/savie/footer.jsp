@@ -13,6 +13,8 @@
 							<li class="blog"><a title="Read more on adventures &amp; insurance | FWD Hong Kong" href="https://blog.fwd.com.hk">Blog</a></li>
 							<li class="reset-padding">|</li>
 							<li class="claims-procedure"><a href="#">Claims Procedure</a></li>
+							<li class="reset-padding">|</li><span><br /></span>
+							<li class="faq"><a href="#">FAQ</a></li>
 						</ul>
 					</div>
 					<div class="footer-menu-right">

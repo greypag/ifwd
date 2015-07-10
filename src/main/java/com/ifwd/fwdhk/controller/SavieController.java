@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,7 @@ import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class SavieController extends BaseController{
 	
@@ -43,11 +45,6 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 
-	@RequestMapping(value = {"/getPlanDetailsByAjax"})
-	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
-		savieService.getPlanDetails(model, request, response);
-	}
-	
 	@RequestMapping(value = {"/sendEmailByAjax"} )
 	public void sendEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
@@ -80,20 +77,7 @@ public class SavieController extends BaseController{
 		
 	}
 	
-	@RequestMapping(value = {"/sendLeadByAjax"} )
-	public void sendLeadByAjax(Model model, HttpServletRequest request,
-			HttpServletResponse response,
-			@RequestParam String email,
-			@RequestParam String answer1,
-			@RequestParam String step) {
-		
-			org.json.simple.JSONObject apiJsonObj = restService.sendLead(email,answer1,step);
-			
-			logger.info("apiJsonObj:"+apiJsonObj);
-			
-			ajaxReturn(response,apiJsonObj);
 	
-	}
 	
 	@RequestMapping(value = {"/{lang}/sendEmail"})
 	public String getsendEmailInfo(Model model, HttpServletRequest request) {
@@ -104,11 +88,8 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-fna"})
-	public String getSavieFNA(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
+	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-application-details"})

@@ -1,7 +1,5 @@
 package com.ifwd.fwdhk.services.impl;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,10 +18,11 @@ import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
-import com.ifwd.fwdhk.controller.SavieController;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
@@ -96,150 +95,161 @@ public class SavieServiceImpl implements SavieService {
 		return null;
 	}
 
-	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response) {
-		String planCode = request.getParameter("planCode");
-		String issueAge = request.getParameter("issueAge");
-		String paymentTerm = request.getParameter("paymentTerm");
-		String premium = request.getParameter("premium");
-		String referralCode = request.getParameter("referralCode");
-		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
-		
-		SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
-		saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
-		if(!apiResponse.hasError()){
-			List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
-			List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
-			List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
-			List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
-			
-			if(planDetails0Rate.size()>0){
-				String type = planDetails0Rate.get(0).getType().substring(0, 1);
-				if(null != type && "Y".equals(type)){
-					saviePlanDetailsBean.setPaymentPlan("Yearly plan");
-				}
-				else{
-					saviePlanDetailsBean.setPaymentPlan("Monthly plan");
-				}
-				saviePlanDetailsBean.setSinglePremiumAmount(apiResponse.getPremium());
-				for(int i=0;i<planDetails0Rate.size();i++){
-					SaviePlanDetailsRate rate = planDetails0Rate.get(i);
-					if("Y1".equals(rate.getType())){
-						saviePlanDetailsBean.setGuarantee1stYearRate(Float.valueOf(rate.getInterestedRate()));
-					}
-					if("Y2".equals(rate.getType())){
-						saviePlanDetailsBean.setGuarantee2ndYearRate(Float.valueOf(rate.getInterestedRate()));
-					}
-					if("Y3".equals(rate.getType())){
-						saviePlanDetailsBean.setGuarantee3rdYearRate(Float.valueOf(rate.getInterestedRate()));
-					}
-				}
-			}
-			
-			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList0 = new ArrayList<SaviePolicyAccountBalanceBean>();
-			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList2 = new ArrayList<SaviePolicyAccountBalanceBean>();
-			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList3 = new ArrayList<SaviePolicyAccountBalanceBean>();
-			List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList4 = new ArrayList<SaviePolicyAccountBalanceBean>();
-			
-			for(int i =0;i<planDetails0Rate.size();i++){
-				SaviePolicyAccountBalanceBean saPolAccBal0 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal0.setPolicyYear(planDetails0Rate.get(i).getType().substring(1));
-				saPolAccBal0.setPremiumPaid(planDetails0Rate.get(i).getTotalPremium());
-				saPolAccBal0.setAccountValue(planDetails0Rate.get(i).getAccountEOP());
-				saPolAccBal0.setSurrenderBenefit(planDetails0Rate.get(i).getGuranteedSurrenderBenefit());
-				saviePolicyAccountBalanceList0.add(saPolAccBal0);
-				
-				SaviePolicyAccountBalanceBean saPolAccBal2 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal2.setPolicyYear(planDetails2Rate.get(i).getType().substring(1));
-				saPolAccBal2.setPremiumPaid(planDetails2Rate.get(i).getTotalPremium());
-				saPolAccBal2.setAccountValue(planDetails2Rate.get(i).getAccountEOP());
-				saPolAccBal2.setSurrenderBenefit(planDetails2Rate.get(i).getGuranteedSurrenderBenefit());
-				saviePolicyAccountBalanceList2.add(saPolAccBal2);
-				
-				SaviePolicyAccountBalanceBean saPolAccBal3 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal3.setPolicyYear(planDetails3Rate.get(i).getType().substring(1));
-				saPolAccBal3.setPremiumPaid(planDetails3Rate.get(i).getTotalPremium());
-				saPolAccBal3.setAccountValue(planDetails3Rate.get(i).getAccountEOP());
-				saPolAccBal3.setSurrenderBenefit(planDetails3Rate.get(i).getGuranteedSurrenderBenefit());
-				saviePolicyAccountBalanceList3.add(saPolAccBal3);
-				
-				SaviePolicyAccountBalanceBean saPolAccBal4 = new SaviePolicyAccountBalanceBean();
-				saPolAccBal4.setPolicyYear(planDetails4Rate.get(i).getType().substring(1));
-				saPolAccBal4.setPremiumPaid(planDetails4Rate.get(i).getTotalPremium());
-				saPolAccBal4.setAccountValue(planDetails4Rate.get(i).getAccountEOP());
-				saPolAccBal4.setSurrenderBenefit(planDetails4Rate.get(i).getGuranteedSurrenderBenefit());
-				saviePolicyAccountBalanceList4.add(saPolAccBal4);
-			}
-			
-			saviePlanDetailsBean.setSaviePolicyAccountBalanceList0(saviePolicyAccountBalanceList0);
-			saviePlanDetailsBean.setSaviePolicyAccountBalanceList2(saviePolicyAccountBalanceList2);
-			saviePlanDetailsBean.setSaviePolicyAccountBalanceList3(saviePolicyAccountBalanceList3);
-			saviePlanDetailsBean.setSaviePolicyAccountBalanceList4(saviePolicyAccountBalanceList4);
-		}
-		request.getSession().setAttribute("planDetail", saviePlanDetailsBean);
-		
-		JSONObject resultJsonObject = new JSONObject();
-		if(!apiResponse.hasError()){
-			List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
-			List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
-			List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
-			List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
-			
-			List<JSONObject> inputTableList = new ArrayList<JSONObject>();
-			JSONObject inputTable = new JSONObject();
-			inputTable.accumulate("type", planCode);
-			inputTable.accumulate("issueAge", issueAge);
-			inputTable.accumulate("paymode", "monthly");
-			inputTable.accumulate("premium", premium);
-			inputTable.accumulate("paymentTerm", paymentTerm);
-			inputTable.accumulate("promoCode", referralCode);
-			inputTableList.add(inputTable);
-			
-			JSONObject planDetailJsonObject = new JSONObject();
-			planDetailJsonObject.accumulate("inputTable", inputTableList);
-			
-			List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
-			
-			for(int i =0;i<planDetails0Rate.size();i++){
-				JSONObject yesrPlan = new JSONObject();
-				yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getType().substring(1)));
-				
-				List<JSONObject> plansList = new ArrayList<JSONObject>();
-				
-				JSONObject plan0 = new JSONObject();
-				plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getAccountEOP()));
-				plan0.accumulate("rate","zero");
-				plansList.add(plan0);
-				
-				JSONObject plan2 = new JSONObject();
-				plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getAccountEOP()));
-				plan2.accumulate("rate","two");
-				plansList.add(plan2);
-				
-				JSONObject plan3 = new JSONObject();
-				plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getAccountEOP()));
-				plan3.accumulate("rate","three");
-				plansList.add(plan3);
-				
-				JSONObject plan4 = new JSONObject();
-				plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getAccountEOP()));
-				plan4.accumulate("rate","four");
-				plansList.add(plan4);
-				
-				yesrPlan.accumulate("plans", plansList);
-				yearPlansList.add(yesrPlan);
-			}
-			planDetailJsonObject.accumulate("yearPlans", yearPlansList);
-			resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
-		}
-		else{
-			resultJsonObject.accumulate("salesIllustration", apiResponse.getErrMsgs());
-		}
-		
-		response.setContentType("text/json;charset=utf-8");
-		//return data
+	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException {
 		try {
-			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
+			String planCode = request.getParameter("planCode");
+			String issueAge = request.getParameter("issueAge");
+			String paymentTerm = request.getParameter("paymentTerm");
+			String premium = request.getParameter("premium");
+			String referralCode = request.getParameter("referralCode");
+			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
+			
+			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
+			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
+			if(!apiResponse.hasError()){
+				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
+				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
+				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
+				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+				
+				if(planDetails0Rate.size()>0){
+					String type = planDetails0Rate.get(0).getType().substring(0, 1);
+					if(null != type && "Y".equals(type)){
+						saviePlanDetailsBean.setPaymentPlan("Yearly plan");
+					}
+					else{
+						saviePlanDetailsBean.setPaymentPlan("Monthly plan");
+					}
+					saviePlanDetailsBean.setSinglePremiumAmount(apiResponse.getPremium());
+					for(int i=0;i<planDetails0Rate.size();i++){
+						SaviePlanDetailsRate rate = planDetails0Rate.get(i);
+						if("Y1".equals(rate.getType())){
+							saviePlanDetailsBean.setGuarantee1stYearRate(Float.valueOf(rate.getInterestedRate()));
+						}
+						if("Y2".equals(rate.getType())){
+							saviePlanDetailsBean.setGuarantee2ndYearRate(Float.valueOf(rate.getInterestedRate()));
+						}
+						if("Y3".equals(rate.getType())){
+							saviePlanDetailsBean.setGuarantee3rdYearRate(Float.valueOf(rate.getInterestedRate()));
+						}
+					}
+				}
+				
+				List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList0 = new ArrayList<SaviePolicyAccountBalanceBean>();
+				List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList2 = new ArrayList<SaviePolicyAccountBalanceBean>();
+				List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList3 = new ArrayList<SaviePolicyAccountBalanceBean>();
+				List<SaviePolicyAccountBalanceBean> saviePolicyAccountBalanceList4 = new ArrayList<SaviePolicyAccountBalanceBean>();
+				
+				for(int i =0;i<planDetails0Rate.size();i++){
+					SaviePolicyAccountBalanceBean saPolAccBal0 = new SaviePolicyAccountBalanceBean();
+					saPolAccBal0.setPolicyYear(planDetails0Rate.get(i).getType().substring(1));
+					saPolAccBal0.setPremiumPaid(planDetails0Rate.get(i).getTotalPremium());
+					saPolAccBal0.setAccountValue(planDetails0Rate.get(i).getAccountEOP());
+					saPolAccBal0.setSurrenderBenefit(planDetails0Rate.get(i).getGuranteedSurrenderBenefit());
+					saviePolicyAccountBalanceList0.add(saPolAccBal0);
+					
+					SaviePolicyAccountBalanceBean saPolAccBal2 = new SaviePolicyAccountBalanceBean();
+					saPolAccBal2.setPolicyYear(planDetails2Rate.get(i).getType().substring(1));
+					saPolAccBal2.setPremiumPaid(planDetails2Rate.get(i).getTotalPremium());
+					saPolAccBal2.setAccountValue(planDetails2Rate.get(i).getAccountEOP());
+					saPolAccBal2.setSurrenderBenefit(planDetails2Rate.get(i).getGuranteedSurrenderBenefit());
+					saviePolicyAccountBalanceList2.add(saPolAccBal2);
+					
+					SaviePolicyAccountBalanceBean saPolAccBal3 = new SaviePolicyAccountBalanceBean();
+					saPolAccBal3.setPolicyYear(planDetails3Rate.get(i).getType().substring(1));
+					saPolAccBal3.setPremiumPaid(planDetails3Rate.get(i).getTotalPremium());
+					saPolAccBal3.setAccountValue(planDetails3Rate.get(i).getAccountEOP());
+					saPolAccBal3.setSurrenderBenefit(planDetails3Rate.get(i).getGuranteedSurrenderBenefit());
+					saviePolicyAccountBalanceList3.add(saPolAccBal3);
+					
+					SaviePolicyAccountBalanceBean saPolAccBal4 = new SaviePolicyAccountBalanceBean();
+					saPolAccBal4.setPolicyYear(planDetails4Rate.get(i).getType().substring(1));
+					saPolAccBal4.setPremiumPaid(planDetails4Rate.get(i).getTotalPremium());
+					saPolAccBal4.setAccountValue(planDetails4Rate.get(i).getAccountEOP());
+					saPolAccBal4.setSurrenderBenefit(planDetails4Rate.get(i).getGuranteedSurrenderBenefit());
+					saviePolicyAccountBalanceList4.add(saPolAccBal4);
+				}
+				
+				saviePlanDetailsBean.setSaviePolicyAccountBalanceList0(saviePolicyAccountBalanceList0);
+				saviePlanDetailsBean.setSaviePolicyAccountBalanceList2(saviePolicyAccountBalanceList2);
+				saviePlanDetailsBean.setSaviePolicyAccountBalanceList3(saviePolicyAccountBalanceList3);
+				saviePlanDetailsBean.setSaviePolicyAccountBalanceList4(saviePolicyAccountBalanceList4);
+			}
+			request.getSession().setAttribute("planDetail", saviePlanDetailsBean);
+			
+			JSONObject resultJsonObject = new JSONObject();
+			if(!apiResponse.hasError()){
+				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
+				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
+				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
+				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+				
+				List<JSONObject> inputTableList = new ArrayList<JSONObject>();
+				JSONObject inputTable = new JSONObject();
+				inputTable.accumulate("type", planCode);
+				inputTable.accumulate("issueAge", issueAge);
+				inputTable.accumulate("paymode", "monthly");
+				inputTable.accumulate("premium", premium);
+				inputTable.accumulate("paymentTerm", paymentTerm);
+				inputTable.accumulate("promoCode", referralCode);
+				inputTableList.add(inputTable);
+				
+				JSONObject planDetailJsonObject = new JSONObject();
+				planDetailJsonObject.accumulate("inputTable", inputTableList);
+				
+				List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
+				
+				for(int i =0;i<planDetails0Rate.size();i++){
+					JSONObject yesrPlan = new JSONObject();
+					yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getType().substring(1)));
+					
+					List<JSONObject> plansList = new ArrayList<JSONObject>();
+					
+					JSONObject plan0 = new JSONObject();
+					plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getAccountEOP()));
+					plan0.accumulate("rate","zero");
+					plansList.add(plan0);
+					
+					JSONObject plan2 = new JSONObject();
+					plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getAccountEOP()));
+					plan2.accumulate("rate","two");
+					plansList.add(plan2);
+					
+					JSONObject plan3 = new JSONObject();
+					plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getAccountEOP()));
+					plan3.accumulate("rate","three");
+					plansList.add(plan3);
+					
+					JSONObject plan4 = new JSONObject();
+					plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getAccountEOP()));
+					plan4.accumulate("rate","four");
+					plansList.add(plan4);
+					
+					yesrPlan.accumulate("plans", plansList);
+					yearPlansList.add(yesrPlan);
+				}
+				planDetailJsonObject.accumulate("yearPlans", yearPlansList);
+				resultJsonObject.accumulate("result", "success");
+				resultJsonObject.accumulate("errMsgs", "");
+				resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
+			}
+			else{
+				resultJsonObject.accumulate("result", "fail");
+				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
+				throw new ECOMMAPIException("API savie/planDetails occurs an exception!");
+			}
+			
+			response.setContentType("text/json;charset=utf-8");
+			//return data
+			try {
+				logger.info(resultJsonObject.toString());
+				response.getWriter().print(resultJsonObject.toString());
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		} catch (ECOMMAPIException e) {
+			logger.info("SavieServiceImpl getPlanDetails occurs an exception!");
+			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -556,5 +566,19 @@ public class SavieServiceImpl implements SavieService {
 				}			
 			}
 		//return commonUtils.getOptionItemDescList("occupation",language);
+	}
+	
+	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			 br = connector.sendLead(email,answer1,step);
+		}catch(Exception e){
+			
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+
+		 return br;
 	}
 }

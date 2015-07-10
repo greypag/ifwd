@@ -46,7 +46,7 @@
 		format("svg")
 }
 
-.fwd-savie-wrapper {
+body {
 	font-size: 18px;
 	font-family: 'Calibri', Arial;
 	position: relative
@@ -193,7 +193,7 @@
 	bottom: 0;
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 5;
-	opacity: 1;
+	opacity: 1
 }
 
 .fwd-savie-wrapper header .navbar-fixed-top {
@@ -317,7 +317,7 @@
 	font-size: 16px;
 	color: #fff;
 	height: 33px;
-	width: 85px;
+	width: 100px;
 	border: 0
 }
 
@@ -629,7 +629,7 @@
 
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu .savie-dropdown .promo-container
 	{
-	border-left: 1px solid #bbbbbb;
+	height: 376px;
 	padding-left: 13px;
 	padding-bottom: 30px
 }
@@ -797,7 +797,7 @@
 
 .fwd-savie-wrapper .header-nav-mobile .header-nav-menu-mobile .mobile-accrdn-list .mobile-top-menu i.arrow-right
 	{
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -16px -9px;
 	width: 31px;
 	height: 31px
@@ -805,7 +805,7 @@
 
 .fwd-savie-wrapper .header-nav-mobile .header-nav-menu-mobile .mobile-accrdn-list .mobile-top-menu i.arrow-down
 	{
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -57px -9px;
 	width: 31px;
 	height: 31px
@@ -1060,7 +1060,7 @@
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu
 		{
-		padding: 52px 15px 31px 0
+		padding: 52px 0 31px
 	}
 }
 
@@ -1140,6 +1140,13 @@
 	}
 }
 
+@media ( min-width : 1200px) {
+	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li.fwd-home
+		{
+		padding-left: 11px
+	}
+}
+
 .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li.blog
 	{
 	border-right: 0
@@ -1155,6 +1162,25 @@
 	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li.reset-padding
 		{
 		color: #df7f1e
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1020px) {
+	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li.faq
+		{
+		padding-left: 0
+	}
+}
+
+.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu span
+	{
+	display: none
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1020px) {
+	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu span
+		{
+		display: block
 	}
 }
 
@@ -1288,7 +1314,13 @@
 		max-width: none;
 		margin-top: 5px;
 		padding-top: 0px;
-		height: 277px
+		height: 380px
+	}
+}
+
+@media ( min-width : 1200px) {
+	.fwd-savie-wrapper #other-benefits {
+		height: 340px
 	}
 }
 
@@ -1304,7 +1336,7 @@
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper #other-benefits img {
 		padding-right: 40px;
-		margin-top: -67px
+		margin-top: -33px
 	}
 }
 
@@ -1620,13 +1652,13 @@
 }
 
 .fwd-savie-wrapper #features .carousel-control.right {
-	background-image: url(../images/carousel/right-nav.png);
+	background-image: url(../../images/savie/carousel/right-nav.png);
 	background-position: right;
 	margin-right: 30px
 }
 
 .fwd-savie-wrapper #features .carousel-control.left {
-	background-image: url(../images/carousel/left-nav.png);
+	background-image: url(../../images/savie/carousel/left-nav.png);
 	margin-left: 30px
 }
 
@@ -1768,9 +1800,20 @@
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .banner-widget .buy-now {
-		max-width: 300px;
+		max-width: 310px;
 		font-size: 48px;
 		margin-top: 50px
+	}
+}
+
+.fwd-savie-wrapper .banner-widget .buy-now span {
+	padding-left: 5px;
+	font-size: 21px
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .banner-widget .buy-now span {
+		font-size: 35px
 	}
 }
 
@@ -2173,7 +2216,7 @@
 	.fwd-savie-wrapper .three-column-widget .fwd-col .col-content {
 		height: 452px;
 		max-width: 379px;
-		padding: 0 39px
+		padding: 0 16px
 	}
 }
 
@@ -2205,7 +2248,8 @@
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .three-column-widget .fwd-col .col-content img {
-		padding-bottom: 23px
+		padding-top: 0;
+		padding-bottom: 15px
 	}
 }
 
@@ -2510,6 +2554,17 @@
 	}
 }
 
+.fwd-savie-wrapper .email-row .email-input .email-btn span {
+	font-size: 16px;
+	padding-left: 5px
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .email-row .email-input .email-btn span {
+		font-size: 18px
+	}
+}
+
 .fwd-savie-wrapper .email-row .email-input p {
 	font-family: 'Calibri';
 	text-align: left;
@@ -2714,6 +2769,13 @@
 	{
 	color: #9fb1b2;
 	border-bottom: 1px solid #9fb1b2
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers h6
+	{
+	font-size: 14px;
+	padding-top: 10px;
+	text-align: justify
 }
 
 .fwd-savie-wrapper .login-mobile {
@@ -3095,6 +3157,54 @@
 	}
 }
 
+.datepicker.dropdown-menu {
+	margin-top: 30px
+}
+
+.datepicker.datepicker-dropdown .datepicker-days table thead tr:first-child,
+	.datepicker.datepicker-dropdown .datepicker-months table thead tr:first-child,
+	.datepicker.datepicker-dropdown .datepicker-years table thead tr:first-child
+	{
+	background-color: #061d2a;
+	color: #fff;
+	height: 35px
+}
+
+.datepicker thead tr:first-child th {
+	border-radius: 0
+}
+
+.datepicker thead tr:first-child th:hover, .datepicker thead tr:first-child th:focus
+	{
+	background: #061d2a !important;
+	color: #fff !important
+}
+
+.datepicker table tr td.active.active {
+	background-color: #ff8200
+}
+
+.datepicker th.datepicker-switch {
+	width: 210px !important
+}
+
+.datepicker table tr td.day:hover {
+	background: #ff8200 !important
+}
+
+.datepicker table tr td span:hover {
+	background: #ff8200 !important;
+	color: #fff
+}
+
+.datepicker table tr td.active.active {
+	background-color: #ff8200 !important
+}
+
+.datepicker table tr td span.active.active {
+	background-color: #ff8200 !important
+}
+
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing {
 	position: absolute;
 	margin-top: 9px
@@ -3154,7 +3264,7 @@
 }
 
 .fwd-savie-wrapper .product-details .carousel .carousel-control.right {
-	background-image: url(../images/carousel/right-nav.png);
+	background-image: url(../../images/savie/carousel/right-nav.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	margin-right: 30px
@@ -3164,11 +3274,11 @@
 	.fwd-savie-wrapper .product-details .carousel .carousel-control.right:focus,
 	.fwd-savie-wrapper .product-details .carousel .carousel-control.right:active
 	{
-	background-image: url(../images/carousel/right-nav-productDetails.png)
+	background-image: url(../../images/savie/carousel/right-nav-productDetails.png)
 }
 
 .fwd-savie-wrapper .product-details .carousel .carousel-control.left {
-	background-image: url(../images/carousel/left-nav.png);
+	background-image: url(../../images/savie/carousel/left-nav.png);
 	background-repeat: no-repeat;
 	background-position: left;
 	margin-left: 30px
@@ -3178,12 +3288,12 @@
 	.fwd-savie-wrapper .product-details .carousel .carousel-control.left:focus,
 	.fwd-savie-wrapper .product-details .carousel .carousel-control.left:active
 	{
-	background-image: url(../images/carousel/left-nav-productDetails.png)
+	background-image: url(../../images/savie/carousel/left-nav-productDetails.png)
 }
 
 .fwd-savie-wrapper .product-details .carousel .carousel-inner .product-details-images
 	{
-	background: url(../images/productDetails/power-of-savings-mobile.png)
+	background: url(../../images/savie/productDetails/power-of-savings-mobile.png)
 		no-repeat center center;
 	background-size: cover
 }
@@ -3191,7 +3301,7 @@
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .product-details .carousel .carousel-inner .product-details-images
 		{
-		background: url(../images/productDetails/power-of-savings.png) no-repeat
+		background: url(../../images/savie/productDetails/power-of-savings.png) no-repeat
 			center center;
 		background-size: cover
 	}
@@ -3443,7 +3553,7 @@
 }
 
 .fwd-savie-wrapper #product-highlights ul li {
-	background-image: url(../images/bullet.png);
+	background-image: url(../../images/savie/bullet.png);
 	background-repeat: no-repeat;
 	background-position: 0 7px;
 	padding-left: 18px;
@@ -3555,7 +3665,7 @@
 	}
 	.fwd-savie-wrapper #product-highlights-desktop.desktop-info .right .col-1 ul li
 		{
-		background-image: url(../images/bullet.png);
+		background-image: url(../../images/savie/bullet.png);
 		background-repeat: no-repeat;
 		background-position: 0 10px;
 		padding-left: 22px;
@@ -3632,7 +3742,7 @@
 	}
 	.fwd-savie-wrapper #product-highlights-desktop.desktop-info .right .col-2 #right-text ul li
 		{
-		background-image: url(../images/bullet.png);
+		background-image: url(../../images/savie/bullet.png);
 		background-repeat: no-repeat;
 		background-position: 0 10px;
 		padding-left: 22px;
@@ -3643,18 +3753,17 @@
 	}
 }
 
-.fwd-savie-wrapper .page-sales-illustration header .navbar-menu {
-	border-bottom: 1px solid #ff8200
+.fwd-savie-wrapper .page-sales-illustration {
+	border-top: 1px solid #ff8200
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .page-sales-illustration header .navbar-menu {
-		border-bottom: 1px solid #bbb
+	.fwd-savie-wrapper .page-sales-illustration {
+		border-top: 1px solid #bbb
 	}
 }
 
 .fwd-savie-wrapper .page-sales-illustration .sales-head h1 {
-	display: none;
 	font-family: 'Calibri';
 	font-weight: bold;
 	font-size: 36px;
@@ -3666,33 +3775,33 @@
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .page-sales-illustration .sales-head h1 {
 		font-size: 36px;
-		padding: 2px 0 45px;
+		padding: 2px 0 55px;
 		display: block
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters {
+#illustration-filters {
 	position: relative;
 	background: #b6c2cc
 }
 
-.fwd-savie-wrapper #illustration-filters form {
+#illustration-filters form {
 	padding: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters form {
+	#illustration-filters form {
 		padding: 0 20px;
 		height: 261px
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters .money {
+#illustration-filters .money {
 	display: none
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters .money {
+	#illustration-filters .money {
 		display: block;
 		position: absolute;
 		top: -40px;
@@ -3701,12 +3810,12 @@
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #triangle {
+#illustration-filters #triangle {
 	display: none
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #triangle {
+	#illustration-filters #triangle {
 		display: block;
 		width: 0;
 		height: 0;
@@ -3718,18 +3827,18 @@
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount {
+#illustration-filters #investment-amount {
 	background: #061d29;
 	padding: 18px 30px 15px;
 	overflow: visible
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount .i {
+#illustration-filters #investment-amount .i {
 	display: none
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount {
+	#illustration-filters #investment-amount {
 		padding: 80px 40px 57px;
 		margin-top: -22px;
 		max-width: 700px;
@@ -3739,13 +3848,13 @@
 		float: left;
 		position: relative
 	}
-	.fwd-savie-wrapper #illustration-filters #investment-amount .i {
+	#illustration-filters #investment-amount .i {
 		display: inline-block;
 		padding-left: 10px
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount h3 {
+#illustration-filters #investment-amount h3 {
 	color: white;
 	font-family: 'foco_bold';
 	font-size: 24px;
@@ -3753,47 +3862,47 @@
 	margin: 0 0 5px
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount h3.saving {
+#illustration-filters #investment-amount h3.saving {
 	padding-left: 3px
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount h3.saving {
+	#illustration-filters #investment-amount h3.saving {
 		padding-left: 0
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount .total {
+#illustration-filters #investment-amount .total {
 	margin-top: 7px
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #hkd {
+#illustration-filters #investment-amount #hkd {
 	color: white;
 	font-family: 'foco_regular';
 	font-size: 24px;
 	margin: 3px 5px 0
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #hkd span {
+#illustration-filters #investment-amount #hkd span {
 	font-family: 'Calibri';
 	font-weight: normal
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #left,
-	.fwd-savie-wrapper #illustration-filters #investment-amount #right {
+#illustration-filters #investment-amount #left, #illustration-filters #investment-amount #right
+	{
 	color: white;
 	text-align: center;
 	font-family: 'foco_regular';
 	font-size: 12px
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #left p,
-	.fwd-savie-wrapper #illustration-filters #investment-amount #right p {
+#illustration-filters #investment-amount #left p, #illustration-filters #investment-amount #right p
+	{
 	margin: 0;
 	line-height: 15px
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #promo {
+#illustration-filters #investment-amount #promo {
 	font-size: 24px;
 	color: white;
 	margin-bottom: 0;
@@ -3803,17 +3912,17 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount #promo {
+	#illustration-filters #investment-amount #promo {
 		margin: 0 0 5px;
 		padding-left: 0
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #add {
+#illustration-filters #investment-amount #add {
 	margin-right: 10px
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount .promocode {
+#illustration-filters #investment-amount .promocode {
 	height: 40px;
 	border: none;
 	padding: 0;
@@ -3827,15 +3936,14 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount .promocode {
+	#illustration-filters #investment-amount .promocode {
 		margin-left: 0;
 		max-width: 250px;
 		position: relative
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #investment-amount #crediting-rate
-	{
+#illustration-filters #investment-amount #crediting-rate {
 	font-family: 'foco_bold';
 	font-size: 18px;
 	color: #cd6e08;
@@ -3845,35 +3953,30 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount #crediting-rate
-		{
+	#illustration-filters #investment-amount #crediting-rate {
 		font-size: 24px;
 		margin-top: 136px
 	}
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount #desktop-left
-		{
+	#illustration-filters #investment-amount #desktop-left {
 		max-width: 325px;
 		width: 50%;
 		float: left
 	}
-	.fwd-savie-wrapper #illustration-filters #investment-amount #desktop-right
-		{
+	#illustration-filters #investment-amount #desktop-right {
 		width: 40%;
 		margin-left: 10%;
 		float: left
 	}
-	.fwd-savie-wrapper #illustration-filters #investment-amount #desktop-right .promo-code
-		{
+	#illustration-filters #investment-amount #desktop-right .promo-code {
 		display: none
 	}
 }
 
 @media ( min-width : 992px) and (min-width: 992px) {
-	.fwd-savie-wrapper #illustration-filters #investment-amount #desktop-right .promo-code
-		{
+	#illustration-filters #investment-amount #desktop-right .promo-code {
 		display: block;
 		position: absolute;
 		top: -15px;
@@ -3881,18 +3984,18 @@
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #information {
+#illustration-filters #information {
 	background: #b6c2cc;
 	padding: 0 30px 20px;
 	overflow: hidden
 }
 
-.fwd-savie-wrapper #illustration-filters #information .i {
+#illustration-filters #information .i {
 	display: none
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information {
+	#illustration-filters #information {
 		padding-left: 50px;
 		position: relative;
 		padding-right: 0;
@@ -3903,34 +4006,39 @@
 		float: left;
 		width: 33%
 	}
-	.fwd-savie-wrapper #illustration-filters #information .i {
+	#illustration-filters #information .i {
 		display: inline-block;
 		padding-left: 10px
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #information #pictures {
+#illustration-filters #information #pictures {
 	display: none
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information #pictures {
+	#illustration-filters #information #pictures {
 		margin-bottom: 25px;
 		display: block
 	}
-	.fwd-savie-wrapper #illustration-filters #information #pictures img {
+	#illustration-filters #information #pictures img {
 		vertical-align: bottom
 	}
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information .apply .next {
+	#illustration-filters #information .apply .next {
 		min-width: 245px;
 		margin-top: 25px
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #information h2 {
+#illustration-filters #information .apply span {
+	font-size: 20px;
+	padding-left: 5px
+}
+
+#illustration-filters #information h2 {
 	color: white;
 	margin: 0;
 	font-size: 23.9px;
@@ -3940,19 +4048,18 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information h2 {
+	#illustration-filters #information h2 {
 		padding: 5px 0 4px 0
 	}
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information #birthday {
+	#illustration-filters #information #birthday {
 		position: relative
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #information #birthday #mobile-date
-	{
+#illustration-filters #information #birthday #mobile-date {
 	width: 100%;
 	height: 46px;
 	border: 0;
@@ -3963,17 +4070,16 @@
 	-moz-appearance: none
 }
 
-.fwd-savie-wrapper #illustration-filters #information #birthday>div {
+#illustration-filters #information #birthday>div {
 	display: inline-block;
 	margin-top: 2px;
 	width: 100%;
 	position: relative
 }
 
-.fwd-savie-wrapper #illustration-filters #information #birthday>div .date
-	{
+#illustration-filters #information #birthday>div .date {
 	height: 40px;
-	background-image: url(../images/calendar.png);
+	background-image: url(../../images/savie/calendar.png);
 	background-repeat: no-repeat;
 	border: none;
 	padding: 0;
@@ -3986,14 +4092,12 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information #birthday>div .date
-		{
+	#illustration-filters #information #birthday>div .date {
 		max-width: 245px
 	}
 }
 
-.fwd-savie-wrapper #illustration-filters #information #birthday>div .add-on
-	{
+#illustration-filters #information #birthday>div .add-on {
 	width: auto;
 	background-color: transparent;
 	border: none;
@@ -4005,48 +4109,45 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper #illustration-filters #information #birthday>div .add-on
-		{
+	#illustration-filters #information #birthday>div .add-on {
 		left: 202px;
 		right: inherit;
 		top: 9px
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.investment .fwd-container-limit.investment-summary-and-table
+.fwd-full-container.container-fluid.investment .fwd-container-limit.investment-summary-and-table
 	{
 	padding: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.investment .fwd-container-limit.investment-summary-and-table
+	.fwd-full-container.container-fluid.investment .fwd-container-limit.investment-summary-and-table
 		{
 		padding: 0 15px
 	}
 }
 
-.fwd-savie-wrapper .collapse.in {
+.collapse.in {
 	display: inline-block
 }
 
-.fwd-savie-wrapper .fwd-container-limit.padding-to-zero {
+.fwd-container-limit.padding-to-zero {
 	padding: 0 !important
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section
-	{
+.fwd-full-container.container-fluid.made-your-decision-section {
 	background-color: #ffd100;
 	padding: 10px 15px 10px 20px
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section
-		{
+	.fwd-full-container.container-fluid.made-your-decision-section {
 		padding: 25px 15px 20px 30px
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .left-width
+.fwd-full-container.container-fluid.made-your-decision-section .left-width
 	{
 	padding-right: 20px;
 	width: 40%;
@@ -4054,63 +4155,63 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .left-width
+	.fwd-full-container.container-fluid.made-your-decision-section .left-width
 		{
 		max-width: 200px
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .left-width .img-padding-left
+.fwd-full-container.container-fluid.made-your-decision-section .left-width .img-padding-left
 	{
 	padding-left: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .left-width .img-padding-left
+	.fwd-full-container.container-fluid.made-your-decision-section .left-width .img-padding-left
 		{
 		padding-left: 10px
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .right-width
+.fwd-full-container.container-fluid.made-your-decision-section .right-width
 	{
 	width: 58%
 }
 
 @media ( min-width : 768px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .right-width
+	.fwd-full-container.container-fluid.made-your-decision-section .right-width
 		{
 		width: 60%
 	}
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .right-width
+	.fwd-full-container.container-fluid.made-your-decision-section .right-width
 		{
 		padding-left: 45px;
 		width: 73%
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .explanation-image-padding
+.fwd-full-container.container-fluid.made-your-decision-section .explanation-image-padding
 	{
 	padding: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .explanation-image-padding
+	.fwd-full-container.container-fluid.made-your-decision-section .explanation-image-padding
 		{
 		padding-left: 18px
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .button-padding
+.fwd-full-container.container-fluid.made-your-decision-section .button-padding
 	{
 	padding-top: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .button-padding
+	.fwd-full-container.container-fluid.made-your-decision-section .button-padding
 		{
 		padding-top: 25px;
 		padding-left: 40px;
@@ -4118,14 +4219,27 @@
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .text-padding
+.fwd-full-container.container-fluid.made-your-decision-section .button-padding span
+	{
+	font-size: 20px;
+	padding-left: 5px
+}
+
+@media ( min-width : 992px) {
+	.fwd-full-container.container-fluid.made-your-decision-section .button-padding span
+		{
+		font-size: 24px
+	}
+}
+
+.fwd-full-container.container-fluid.made-your-decision-section .text-padding
 	{
 	padding-top: 0;
 	padding-right: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .text-padding
+	.fwd-full-container.container-fluid.made-your-decision-section .text-padding
 		{
 		padding-top: 10px;
 		padding-left: 0;
@@ -4133,7 +4247,7 @@
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .btn.btn-orange.btn-explanation
+.fwd-full-container.container-fluid.made-your-decision-section .btn.btn-orange.btn-explanation
 	{
 	font-size: 30px;
 	width: 100%;
@@ -4142,7 +4256,7 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section .btn.btn-orange.btn-explanation
+	.fwd-full-container.container-fluid.made-your-decision-section .btn.btn-orange.btn-explanation
 		{
 		width: 100%;
 		height: 80px;
@@ -4150,8 +4264,7 @@
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section h6
-	{
+.fwd-full-container.container-fluid.made-your-decision-section h6 {
 	font-size: 30px;
 	color: #061d2a;
 	font-family: Calibri-Bold;
@@ -4160,13 +4273,12 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section h6
-		{
+	.fwd-full-container.container-fluid.made-your-decision-section h6 {
 		font-size: 41px
 	}
 }
 
-.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section p.started
+.fwd-full-container.container-fluid.made-your-decision-section p.started
 	{
 	color: #061d2a;
 	font-size: 18px;
@@ -4177,7 +4289,7 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-full-container.container-fluid.made-your-decision-section p.started
+	.fwd-full-container.container-fluid.made-your-decision-section p.started
 		{
 		font-size: 30px;
 		line-height: 30px;
@@ -4186,29 +4298,29 @@
 	}
 }
 
-.fwd-savie-wrapper .fwd-container.container-fluid.reset-padding {
+.fwd-container.container-fluid.reset-padding {
 	padding: 0
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .fwd-container.container-fluid.reset-padding {
+	.fwd-container.container-fluid.reset-padding {
 		padding-left: 15px;
 		padding-right: 15px;
 		padding-bottom: 15px
 	}
 }
 
-.fwd-savie-wrapper .explanation-button {
+.explanation-button {
 	display: block
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .explanation-button {
+	.explanation-button {
 		display: none
 	}
 }
 
-.fwd-savie-wrapper .btn-gray {
+.btn-gray {
 	color: #fff;
 	background-color: #b0bdbd;
 	font-weight: bold;
@@ -4216,21 +4328,21 @@
 	width: 100%
 }
 
-.fwd-savie-wrapper .btn-gray:hover, .fwd-savie-wrapper .btn-gray:focus {
+.btn-gray:hover, .btn-gray:focus {
 	color: #fff
 }
 
-.fwd-savie-wrapper .explanation-block {
+.explanation-block {
 	margin-top: 30px
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper .explanation-block {
+	.explanation-block {
 		margin-top: 35px
 	}
 }
 
-.fwd-savie-wrapper ul.explanation-list {
+ul.explanation-list {
 	color: #ff8200;
 	font-size: 13px;
 	margin-top: 10px;
@@ -4238,7 +4350,7 @@
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper ul.explanation-list {
+	ul.explanation-list {
 		margin-top: 0;
 		padding-left: 22px;
 		padding-top: 5px;
@@ -4246,22 +4358,22 @@
 	}
 }
 
-.fwd-savie-wrapper ul li.explanation-li {
+ul li.explanation-li {
 	padding-bottom: 1px
 }
 
-.fwd-savie-wrapper ul li p.expl-txt {
+ul li p.expl-txt {
 	color: #838282;
 	margin: 0
 }
 
-.fwd-savie-wrapper span.explanation {
+span.explanation {
 	display: none;
 	color: #838282
 }
 
 @media ( min-width : 992px) {
-	.fwd-savie-wrapper span.explanation {
+	span.explanation {
 		display: block
 	}
 }
@@ -4563,7 +4675,7 @@
 
 .fwd-savie-wrapper #RC .slider-handle, .fwd-savie-wrapper #RC2 .slider-handle
 	{
-	background-image: url(../images/handle.png);
+	background-image: url(../../images/savie/handle.png);
 	height: 20px;
 	width: 11px;
 	background-repeat: no-repeat;
@@ -4746,7 +4858,7 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url("../images/salesIllustration/dropdown-image.png")
+	background: url("../../images/savie/salesIllustration/dropdown-image.png")
 		no-repeat;
 	background-position: 80px;
 	height: 40px
@@ -5599,7 +5711,7 @@
 	bottom: -8px;
 	width: 18px;
 	height: 8px;
-	background: url("../images/tooltip-tip.png")
+	background: url("../../images/savie/tooltip-tip.png")
 }
 
 .fwd-savie-wrapper .investment-summary .fwd-chart .x-axis-label {
@@ -5645,6 +5757,22 @@
 
 .fwd-savie-wrapper .investment-summary .drag-more .glyphicon-play {
 	font-size: 11px
+}
+
+.bv-form .help-block {
+	color: #e4002b !important;
+	font-family: 'Calibri'
+}
+
+span.error-msg {
+	display: block;
+	margin-bottom: 10px
+}
+
+span.dup-error-msg {
+	font-size: 15px;
+	color: #e4002b;
+	font-family: 'Calibri'
 }
 
 .fwd-savie-wrapper .page-application h2 {
@@ -5701,7 +5829,12 @@
 	padding-left: 18px;
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 	font-size: 18px;
-	cursor: pointer
+	cursor: pointer;
+	border: 0;
+	outline: none;
+	outline-offset: 0;
+	-webkit-appearance: none;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0)
 }
 
 @media ( min-width : 992px) {
@@ -5718,12 +5851,62 @@
 
 .fwd-savie-wrapper .page-application .selectDiv .icon-chevron-thin-down.orange-caret
 	{
+	height: 40px;
 	position: absolute;
 	font-size: 18px;
 	color: #ff8200;
-	top: 11px;
+	padding-top: 11px;
 	right: 0;
-	padding-right: 12px;
+	padding-right: 17px;
+	background-color: #f1f3f5;
+	cursor: pointer;
+	bottom: 10px;
+	top: 0
+}
+
+.fwd-savie-wrapper .page-application .selectEmployment {
+	width: 100%;
+	position: relative
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .page-application .selectEmployment {
+		width: 65.5%;
+		float: left
+	}
+}
+
+.fwd-savie-wrapper .page-application .selectEmployment .icon-chevron-thin-down.orange-caret
+	{
+	height: 40px;
+	position: absolute;
+	font-size: 18px;
+	color: #ff8200;
+	padding-top: 11px;
+	top: 0;
+	bottom: 10px;
+	right: 0;
+	padding-right: 17px;
+	background-color: #f1f3f5;
+	cursor: pointer
+}
+
+.fwd-savie-wrapper .page-application .selectBeneficiary {
+	width: 100%;
+	position: relative
+}
+
+.fwd-savie-wrapper .page-application .selectBeneficiary .icon-chevron-thin-down.orange-caret
+	{
+	height: 40px;
+	position: absolute;
+	font-size: 18px;
+	color: #ff8200;
+	padding-top: 11px;
+	top: 0;
+	bottom: 10px;
+	right: 0;
+	padding-right: 17px;
 	background-color: #f1f3f5;
 	cursor: pointer
 }
@@ -6136,7 +6319,7 @@
 }
 
 .fwd-savie-wrapper .personal-info-widget .form-control.date-textbox {
-	background-image: url(../images/calendar.png);
+	background-image: url(../../images/savie/calendar.png);
 	background-repeat: no-repeat;
 	padding-left: 50px;
 	border-radius: 0;
@@ -6793,7 +6976,9 @@
 	font-family: 'Calibri-bold';
 	font-size: 18px;
 	margin-bottom: 7px;
-	color: #061d2a
+	color: #061d2a;
+	font-weight: normal;
+	font-weight: normal
 }
 
 @media ( min-width : 992px) {
@@ -8608,7 +8793,7 @@
 .fwd-savie-wrapper .signature .tooltip.right .tooltip-arrow {
 	top: 38% !important;
 	border: 0;
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	width: 11px;
 	height: 20px;
 	display: inline-block;
@@ -8641,7 +8826,7 @@
 }
 
 .fwd-savie-wrapper .signature span.check-correct-signature {
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -94px -13px;
 	width: 26px;
 	height: 26px;
@@ -8670,7 +8855,7 @@
 
 .fwd-savie-wrapper .signature .info {
 	display: none;
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -129px -15px;
 	width: 20px;
 	height: 20px;
@@ -8905,7 +9090,7 @@
 .fwd-savie-wrapper .document-upload .upload-now-section .dropzone .dz-preview .dz-success-mark,
 	.fwd-savie-wrapper .document-upload .upload-now-section .dropzone .dz-preview.dz-error .dz-error-mark
 	{
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -232px 0;
 	width: 50px;
 	height: 50px;
@@ -8915,7 +9100,7 @@
 }
 
 .fwd-savie-wrapper .document-upload .upload-now-section span.info {
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -129px -15px;
 	width: 20px;
 	height: 20px;
@@ -8953,7 +9138,7 @@
 
 .fwd-savie-wrapper .document-upload .upload-now-section .finish-upload span.finish-upload-check
 	{
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -232px 0;
 	width: 50px;
 	height: 50px;
@@ -8998,7 +9183,7 @@
 
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file span.mobile-camera
 	{
-	background: url("../images/sprite-icons.png") no-repeat center center;
+	background: url("../../images/savie/sprite-icons.png") no-repeat center center;
 	background-position: -193px -13px;
 	width: 30px;
 	height: 25px;
@@ -10995,7 +11180,7 @@
 
 .fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler div.date
 	{
-	background-image: url(../images/calendar.png);
+	background-image: url(../../images/savie/calendar.png);
 	background-repeat: no-repeat;
 	padding-left: 60px;
 	border-radius: 0;
@@ -11235,4 +11420,197 @@
 .strike .right {
 	right: 1.3%;
 	width: 42.3%
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog.willToSave {
+	background-color: #fff;
+	width: 665px
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave {
+	background-color: #fff;
+	padding: 35px 0
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-header.willToSave
+	{
+	padding: 0 40px 25px 70px
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-header.willToSave h2
+	{
+	font-size: 30px;
+	margin: 0;
+	font-family: 'Calibri-Bold';
+	color: #ff8200
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave
+	{
+	background-color: #f1f3f5;
+	margin: 0;
+	padding: 40px 90px
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave h3
+	{
+	text-align: center;
+	color: #373a36;
+	font-family: 'foco_bold';
+	margin: 0
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave p
+	{
+	margin: 0;
+	color: #061d2a;
+	font-family: 'foco_regular';
+	font-size: 15px
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave span.amount
+	{
+	color: #ff8200;
+	font-size: 30px;
+	font-family: 'foco_regular'
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-footer.willToSave
+	{
+	padding-top: 30px;
+	text-align: center
+}
+
+.fwd-savie-wrapper .modal.fade .modal-content.willToSave .btn.btn-orange.submitToSave
+	{
+	height: 50px;
+	width: 315px
+}
+
+.fwd-savie-wrapper .sign-up-teaser {
+	width: 500px;
+	position: absolute;
+	top: 600px;
+	z-index: 10;
+	background-color: #fff;
+	right: 0;
+	padding: 40px 60px
+}
+
+.fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
+	color: #ff8200;
+	font-size: 30px;
+	font-family: 'Calibri-Bold';
+	text-align: center
+}
+
+.fwd-savie-wrapper .sign-up-teaser .btn.btn-orange.btn-sign-up {
+	width: 100%;
+	height: 60px
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox {
+	width: 38px
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label {
+	width: 16px;
+	border: solid 1px #ff8200;
+	height: 16px;
+	cursor: pointer
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label:after {
+	content: '';
+	width: 12px;
+	height: 6px;
+	position: absolute;
+	top: 3px;
+	left: 2px;
+	border: 2px solid #ff8200;
+	border-top: none;
+	border-right: none;
+	background: transparent;
+	opacity: 0;
+	transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg)
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label:hover::after
+	{
+	opacity: 0.5
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox input[type=checkbox]
+	{
+	visibility: hidden
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox input[type=checkbox]:checked+label:after
+	{
+	opacity: 1
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.text {
+	width: 90%;
+	font-family: 'Calibri';
+	color: #061d2a;
+	font-size: 14px
+}
+
+.fwd-savie-wrapper .sign-up-teaser .pull-left.text a {
+	color: #ff8200;
+	border-bottom: solid 1px #ff8200
+}
+
+.fwd-savie-wrapper .sign-up-teaser .form-control.email {
+	font-size: 24px;
+	color: #9ba5a7;
+	background-color: #eaeced;
+	border: 0;
+	height: 50px;
+	width: 100%
+}
+
+.fwd-savie-wrapper .sign-up-teaser .form-control.email:focus,
+	.fwd-savie-wrapper .sign-up-teaser .form-control.email:hover {
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px rgba(0, 0, 0, 0)
+}
+
+.fwd-savie-wrapper .teaser {
+	background-color: #061d29;
+	padding-top: 40px;
+	padding-bottom: 60px;
+	color: #fff
+}
+
+.fwd-savie-wrapper p {
+	margin: 0
+}
+
+.fwd-savie-wrapper p.guaranteed {
+	font-family: 'foco_bold';
+	color: #ff8200;
+	font-size: 30px
+}
+
+.fwd-savie-wrapper p.additional {
+	font-size: 24px;
+	color: #fff;
+	font-family: 'Calibri'
+}
+
+.fwd-savie-wrapper p.sign-up {
+	font-family: 'Calibri-Bold';
+	color: #fff;
+	font-size: 24px
+}
+
+.fwd-savie-wrapper span.add {
+	color: #ff8200;
+	font-size: 24px;
+	font-family: 'Calibri-Bold'
 }

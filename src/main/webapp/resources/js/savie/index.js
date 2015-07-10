@@ -36,7 +36,8 @@
     		}
             else if(fwd._this =="fourth"){
                 fwd.dreamVal = ui.value;
-                fwd.sliderVal(fwd.dreamVal+"K");
+                fwd.sliderVal(addFormatComma(fwd.dreamVal));
+                fwd.updateValueLevelButtons();
             }else{
             }
         },
@@ -50,26 +51,27 @@
             else if(fwd._this =="fourth"){
             	fwd.runningAnimation=true;
                 fwd.dreamVal = ui.value;
-                fwd.sliderVal(fwd.dreamVal+"K");
+                fwd.sliderVal(addFormatComma(fwd.dreamVal));
                 // change image
                 fwd.storyFlow.fourth.dream[fwd.dreamSelect].showImg(false, function(){fwd.runningAnimation=false;});
+                fwd.updateValueLevelButtons();
             }else{
             }
         },
         fwd = {
         	preloadImg:function(){
         		$.loadImages([
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_car_btn.png',
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_marriage_btn.png',
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_other_btn.png',
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_dream_travel_btn.png',
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_title_screen.png',
+        			'../resources/images/mini-calculator/img_dream_car_btn.png',
+        			'../resources/images/mini-calculator/img_dream_marriage_btn.png',
+        			'../resources/images/mini-calculator/img_dream_other_btn.png',
+        			'../resources/images/mini-calculator/img_dream_travel_btn.png',
+        			'../resources/images/mini-calculator/img_title_screen.png',
         			'../resources/images/mini-calculator/img_button_long.png',
         			'../resources/images/mini-calculator/img_button_mid.png',
         			'../resources/images/mini-calculator/img_button_short.png',
         			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_land.png',
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_l.png',
-        			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_arrow_r.png',
+        			'../resources/images/mini-calculator/img_arrow_l.png',
+        			'../resources/images/mini-calculator/img_arrow_r.png',
         			'../resources/images/mini-calculator/img_man_young.png', 
         			'../resources/images/mini-calculator/img_man_middle.png',
         			'../resources/images/mini-calculator/img_man_old.png',
@@ -123,17 +125,25 @@
                 },
             },
             //gender: {},
-            userAge: 11,
+            userAge: 10,
             currentAgeGroup: "young",
-            calAgeTpl: $(".calAge"),
             user_sex: {},
             resetData:function(){
-            	fwd.userAge = 11;
+            	fwd.userAge = 10;
             	fwd.user_sex={};
+            	fwd.dreamVal = 0;
+            	fwd.savingVal = 0;
+            	fwd.savingPeriodVal = 1;
+            	fwd.rorVal = 0;
+            	fwd.emailAddress = "";
             },
             _this: '',
             dreamSelect: "car",
-            dreamVal: 200+"K",
+            dreamVal: 0,
+            savingVal: 0,
+            savingPeriodVal: 1,
+            rorVal: 0,
+            emailAddress: "",
             dreamBudgetTxt :$(".calAge .budget"),
             rootHead: $('.wrapper'),
             calSize:{
@@ -147,6 +157,7 @@
                 height:"297px"
             },
             girlConfig: {
+            	name:"woman",
                 desc:$(".wrapper .girl_figure_desc"),
                 tpl: $(".girl_figure"),
                 originalWidth:"92px",
@@ -159,6 +170,8 @@
                 selectedGenderTransitionHeight:"333px",
                 selectedGenderTransitionPositionLeft:"408px",
                 selectedGenderTransitionPositionTop:"108px",
+                tripPositionLeft:"673px",
+                tripPositionTop:"186px",
                 dreamPositionTop:"35%",
                 dreamPositionLeft:"75%",
                 movementLeft: "",
@@ -196,6 +209,7 @@
                 }
             },
             manConfig: {
+            	name:"man",
                 desc:$(".wrapper .boy_figure_desc"),
                 tpl: $(".boy_figure"),
                 originalWidth:"92px",
@@ -208,6 +222,8 @@
                 selectedGenderTransitionHeight:"333px",
                 selectedGenderTransitionPositionLeft:"408px",
                 selectedGenderTransitionPositionTop:"108px",
+                tripPositionLeft:"673px",
+                tripPositionTop:"186px",
                 dreamPositionTop:"35%",
                 dreamPositionLeft:"75%",
                 movementLeft: "",
@@ -336,29 +352,37 @@
             },
             selectionPage: $(".wrapper .selectionPage"),
             hideCommon:function(){
-                var hideArray  = [fwd.headerBanner, fwd.manConfig.tpl, fwd.girlConfig.tpl, fwd.manConfig.tpl, fwd.leftArrow, fwd.rightArrow, fwd.calAgeTpl];
+                var hideArray  = [fwd.headerBanner, fwd.manConfig.tpl, fwd.girlConfig.tpl, 
+                fwd.manConfig.tpl, fwd.leftArrow, fwd.rightArrow, fwd.sliderDivTpl, 
+                fwd.sliderDivSavingTpl, $("#calculationResult div.resultContent"), 
+                $("#calculationResult"), $("#emailDiv")];
                 for (var i in hideArray) {
                     fwd.hideObj(hideArray[i]);
                 }
+                fwd.storyFlow.fourth.dream.img.html('');
             },
             
             storyFlow: { // main story flow and the initial state 
                 first: function () {
                 	fwd.runningAnimation = true;
                     fwd.showObj(fwd.firstPageLetgoBtn);
+                    fwd.showObj(fwd.welcomePageText);
                     fwd.hideObj(fwd.secondPageDreaming);
                     fwd.hideObj(fwd.dreamTxt);
                     $.when(fwd.hideCommon()).then(fwd.showObj($(".wrapper")));
                     var cssObj = {
-                        "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5-01.png')",
+                        "background-image": "url('../resources/images/mini-calculator/img_banner.png')",
                         "height": "100%"
                     };
                     fwd.tplCss(fwd.main_background, cssObj);
+                    $("#calculatorDiv").removeClass("second");
+                    $("#calculatorDiv").removeClass("third");
                     fwd.runningAnimation = false;
                 },
                 second: function () {
                 	fwd.runningAnimation = true;
                     fwd.hideObj(fwd.firstPageLetgoBtn);
+                    fwd.hideObj(fwd.welcomePageText);
                     var cssObj = {
                         "background-image": "none",
                         "height": "100%"
@@ -376,11 +400,13 @@
 						}, useTime))
 						.then(
 							function(){
+								$("#calculatorDiv").removeClass("third");
+								$("#calculatorDiv").addClass("second");
 								fwd.user_sex={};
 								fwd.showObj(fwd.dreamTxt);
 								fwd.showObj(fwd.secondPageDreaming);
 								var cssObj = {
-									"background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_title_screen.png')",
+									"background-image": "url('../resources/images/mini-calculator/img_title_screen.png')",
 									"height": "100%"
 								};
 								fwd.tplCss(fwd.main_background, cssObj);
@@ -392,12 +418,14 @@
                 third: function () {
                 	fwd.runningAnimation = true;
                 	var cssObj = {
-						"background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
+						"background-image": "url('../resources/images/mini-calculator/img_land_bg.png')",
 						"height": "100%"
 					};
 					fwd.tplCss(fwd.main_background, cssObj);
 					fwd.manConfig.stopAnimation();
 					fwd.girlConfig.stopAnimation();
+					$("#calculatorDiv").removeClass("second");
+					$("#calculatorDiv").addClass("third");
                     $.when(
                     	fwd.showObj(fwd.main_background),
                         fwd.showObj(fwd.leftArrow),
@@ -410,6 +438,7 @@
                         fwd.hideObj(fwd.secondPageDreaming),
                         fwd.storyFlow.fourth.dream.img.html(''),
                         //hide header text
+                        fwd.resetHeaderBannerClass(),
                         fwd.hideObj(fwd.dreamTxt),
                         fwd.setText(fwd.headerBannerDialog, "How old are you?")
                     ).then(
@@ -425,9 +454,9 @@
 							//reset slider
 							fwd.sliderObj.min = 10;
 							fwd.sliderObj.max = 80;
-		
-							fwd.setText(fwd.sliderRange.under, "under "+fwd.sliderObj.min);
-							fwd.setText(fwd.sliderRange.over, "over "+fwd.sliderObj.max);
+							fwd.sliderObj.unit = "Years";
+							fwd.sliderObj.unitLabel = "";
+							fwd.sliderObj.step = 1;
 							fwd.hideObj(fwd.headerBannerDialog);
 							if(!jQuery.isEmptyObject(fwd.user_sex)){
 								//back to select age
@@ -440,29 +469,39 @@
 									movementLeft: fwd.user_sex.selectedGenderPositionLeft,
 									movementTop: fwd.user_sex.selectedGenderPositionTop
 								};
+								fwd.user_sex.stopAnimation();
+								fwd.user_sex.tpl.removeClass("wink big");
 								fwd.fadeInAnimate(fwd.user_sex.tpl);
-								$.when(
-									fwd.moveAnimation(genderObj)
-								).then(
-									fwd.showHeaderBannerDialog(function(){fwd.runningAnimation=false;})
+								fwd.user_sex.tpl.animate({
+									left: fwd.user_sex.movementLeft,
+									top: fwd.user_sex.movementTop,
+									width: fwd.resize_figure.width,
+									height: fwd.resize_figure.height
+								}, {
+									duration: 251, queue: false, complete: function () {
+										fwd.user_sex.tpl.addClass("wink big");
+										fwd.user_sex.startAnimation();
+										fwd.sliderObj.value = fwd.userAge;
+										$.when(
+											fwd.createSlider(),
+											fwd.sliderDivTpl.addClass("age"),
+											fwd.hideSliderValueLevelDiv(),
+											fwd.showObj(fwd.sliderDivTpl)
+										).then(
+											function(){
+												fwd.sliderVal(fwd.userAge);
+											}
+										);
+										fwd.showHeaderBannerDialog(function(){fwd.runningAnimation=false;});
+									}}
 								);
-								fwd.sliderObj.value = fwd.userAge;
-								$.when(
-									fwd.createSlider(),
-									fwd.showObj(fwd.calAgeTpl)
-								).then(
-									function(){
-										fwd.sliderVal(fwd.userAge);
-									}
-								);
-		
 							}else{
 								fwd.setText(fwd.headerBannerDialog, "Are you a man or a woman?");
 								fwd.manConfig.tpl.removeClass("wink big");
 								fwd.girlConfig.tpl.removeClass("wink big");
 								fwd.disableRightArrow();
-								fwd.applyAgeToCharImg(fwd.manConfig, false, function(){fwd.runningAnimation=false;});
-								fwd.applyAgeToCharImg(fwd.girlConfig, false, function(){fwd.runningAnimation=false;});
+								fwd.applyAgeToCharImg(fwd.manConfig, false, function(){});
+								fwd.applyAgeToCharImg(fwd.girlConfig, false, function(){});
 								$.when(
 									fwd.showObj(fwd.manConfig.tpl),
 									fwd.showObj(fwd.girlConfig.tpl),
@@ -491,7 +530,8 @@
 											fwd.showObj(fwd.girlConfig.desc),
 											fwd.showObj(fwd.manConfig.desc),
 											fwd.createSlider(), 
-											fwd.hideObj(fwd.calAgeTpl)
+											fwd.sliderDivTpl.addClass("age"),
+											fwd.hideObj(fwd.sliderDivTpl)
 										).then(
 											function(){
 												fwd.showHeaderBannerDialog();
@@ -525,7 +565,8 @@
 												});
 											}}),
 											fwd.createSlider(), 
-											fwd.hideObj(fwd.calAgeTpl)
+											fwd.sliderDivTpl.addClass("age"),
+											fwd.hideObj(fwd.sliderDivTpl)
 										).then(
 											function(){
 												fwd.showHeaderBannerDialog();
@@ -543,35 +584,45 @@
                 },
                 fourth: {
                     dream: {
-                        common:function(specificFunction){
-                            //fwd.user_sex.movementLeft = fwd.user_sex.dreamPositionLeft;
-                            //fwd.user_sex.movementTop = fwd.user_sex.dreamPositionTop;
-                            //fwd.moveAnimation(fwd.user_sex);
-                            fwd.manConfig.stopAnimation();
-							fwd.girlConfig.stopAnimation();
-                            setTimeout(function(){fwd.hideObj(fwd.user_sex.tpl);}, fwd.smoke.waitTime);
-                            fwd.smoke.play(function(){
-								$("#smoke").hide();
-								fwd.hideObj(fwd.firstPageLetgoBtn);
-								fwd.hideObj(fwd.dreamTxt);
-								fwd.hideObj(fwd.headerBannerDialog);
-								var dreamObj = fwd.storyFlow.fourth.dream;
-								fwd.setText(fwd.headerBannerDialog, dreamObj[fwd.dreamSelect].bannerTxt);
-								specificFunction(function(){
+                        common:function(isForward, specificFunction){
+                        	if(isForward){
+								//fwd.user_sex.movementLeft = fwd.user_sex.dreamPositionLeft;
+								//fwd.user_sex.movementTop = fwd.user_sex.dreamPositionTop;
+								//fwd.moveAnimation(fwd.user_sex);
+								fwd.manConfig.stopAnimation();
+								fwd.girlConfig.stopAnimation();
+								setTimeout(function(){fwd.hideObj(fwd.user_sex.tpl);}, fwd.smoke.waitTime);
+								fwd.smoke.play(function(){
+									$("#smoke").hide();
+									fwd.hideObj(fwd.firstPageLetgoBtn);
+									fwd.hideObj(fwd.dreamTxt);
+									fwd.hideObj(fwd.headerBannerDialog);
 									var dreamObj = fwd.storyFlow.fourth.dream;
-									fwd.setText(fwd.dreamBudgetTxt, dreamObj[fwd.dreamSelect].sliderTest);
-									fwd.showHeaderBannerDialog();
-									fwd.tplCss(fwd.main_background, dreamObj[fwd.dreamSelect].cssObj);
-									fwd.runningAnimation=false;
+									fwd.setText(fwd.headerBannerDialog, dreamObj[fwd.dreamSelect].bannerTxt);
+									specificFunction(function(){
+										var dreamObj = fwd.storyFlow.fourth.dream;
+										fwd.setText(fwd.dreamBudgetTxt, dreamObj[fwd.dreamSelect].sliderTest);
+										fwd.showHeaderBannerDialog();
+										fwd.tplCss(fwd.main_background, dreamObj[fwd.dreamSelect].cssObj);
+										fwd.runningAnimation=false;
+									});
 								});
-							});
+							}
+							else{
+								fwd.hideObj(fwd.sliderDivSavingTpl);
+								$("#sliderDiv").removeClass("hidden");
+								fwd.showObj(fwd.sliderDivTpl);
+								fwd.setText(fwd.headerBannerDialog, fwd.storyFlow.fourth.dream[fwd.dreamSelect].bannerTxt);
+								fwd.hideObj(fwd.headerBannerDialog);
+								fwd.showHeaderBannerDialog(function(){fwd.runningAnimation = false;});
+							}
                         },
                         img: $(".wrapper .levelSelectionDiv"),
                         car: {
                             sliderTest:"Budget for your car",
                             bannerTxt :"What is your dream car?",
                             cssObj:{
-                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/img_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
@@ -583,11 +634,10 @@
                                 mid:"../resources/images/mini-calculator/img_car_mid.png"
                             },
                             shakeFunction:null,
-//                             smokeAnimationFunction:null,
                             startAnimation:function(){
                             	fwd.storyFlow.fourth.dream.car.stopAnimation();
                             	fwd.storyFlow.fourth.dream.car.shakeFunction = setInterval(function(){
-                            		fwd.storyFlow.fourth.dream.img.find('img:visible').effect('bounce',{times: 3, distance:7}, 100, function(){});
+                            		fwd.storyFlow.fourth.dream.img.find('div.car:visible').effect('bounce',{times: 3, distance:7}, 100, function(){});
                             		fwd.storyFlow.fourth.dream.car.startSmokeAnimation();
                             	}, 3000);
 							},
@@ -598,6 +648,25 @@
 								}
 								fwd.storyFlow.fourth.dream.car.stopSmokeAnimation();
 // 								imgObj.finish();
+							},
+							startPersonAnimation:function(){
+                            	fwd.storyFlow.fourth.dream.car.stopPersonAnimation();
+								$(".levelSelectionDiv div.car div.person").animateSprite({
+									fps: 4,
+									columns:2,
+									animations: {
+										shake: [0,1]
+									},
+									autoplay:true,
+									loop: true
+								});
+							},
+							stopPersonAnimation:function(){
+								if ($(".levelSelectionDiv div.car div.person").data("animateSprite")){
+									$(".levelSelectionDiv div.car div.person").animateSprite('stop');
+									$(".levelSelectionDiv div.car div.person").animateSprite('frame', 0);
+									$.removeData($(".levelSelectionDiv div.car div.person")[0],"animateSprite");
+								}
 							},
 							startSmokeAnimation:function(){
                             	fwd.storyFlow.fourth.dream.car.stopSmokeAnimation();
@@ -619,9 +688,6 @@
 								});
 							},
 							stopSmokeAnimation:function(){
-// 								if(fwd.storyFlow.fourth.dream.car.smokeAnimationFunction!=null){
-// 									clearInterval(fwd.storyFlow.fourth.dream.car.smokeAnimationFunction);
-// 								}
 								$(".levelSelectionDiv .carSmoke").hide();
 								if ($(".levelSelectionDiv .carSmoke").data("animateSprite")){
 									$(".levelSelectionDiv .carSmoke").animateSprite('stop');
@@ -634,39 +700,42 @@
                             	var prevObj = null;
 								var targetObj = null;
 								carSmoke.hide();
-								if(fwd.storyFlow.fourth.dream.img.find('img.low').is(':visible')){
-									prevObj = fwd.storyFlow.fourth.dream.img.find('img.low');
+								if(fwd.storyFlow.fourth.dream.img.find('div.car.low').is(':visible')){
+									prevObj = fwd.storyFlow.fourth.dream.img.find('div.car.low');
 									carSmoke.removeClass('low');
 								}
-								else if(fwd.storyFlow.fourth.dream.img.find('img.mid').is(':visible')){
-									prevObj = fwd.storyFlow.fourth.dream.img.find('img.mid');
+								else if(fwd.storyFlow.fourth.dream.img.find('div.car.mid').is(':visible')){
+									prevObj = fwd.storyFlow.fourth.dream.img.find('div.car.mid');
 									carSmoke.removeClass('mid');
 								}
-								else if(fwd.storyFlow.fourth.dream.img.find('img.high').is(':visible')){
-									prevObj = fwd.storyFlow.fourth.dream.img.find('img.high');
+								else if(fwd.storyFlow.fourth.dream.img.find('div.car.high').is(':visible')){
+									prevObj = fwd.storyFlow.fourth.dream.img.find('div.car.high');
 									carSmoke.removeClass('high');
 								}
-								if(fwd.dreamVal<200){
-									targetObj = fwd.storyFlow.fourth.dream.img.find('img.low');
+								if(fwd.dreamVal<=fwd.sliderValueLow){
+									targetObj = fwd.storyFlow.fourth.dream.img.find('div.car.low');
 									carSmoke.addClass('low');
-								}else if(fwd.dreamVal>350){
-									targetObj = fwd.storyFlow.fourth.dream.img.find('img.high');
+								}else if(fwd.dreamVal>=fwd.sliderValueHigh){
+									targetObj = fwd.storyFlow.fourth.dream.img.find('div.car.high');
 									carSmoke.addClass('high');
 								}else{
-									targetObj = fwd.storyFlow.fourth.dream.img.find('img.mid');
+									targetObj = fwd.storyFlow.fourth.dream.img.find('div.car.mid');
 									carSmoke.addClass('mid');
 								}
 								if(firstTime){
 									targetObj.fadeIn( "slow", function(){
 										fwd.storyFlow.fourth.dream.car.startAnimation();
+										fwd.storyFlow.fourth.dream.car.startPersonAnimation();
 										callback();
 									});
 								}
-								else{
+								else if(prevObj!=null){
 									fwd.storyFlow.fourth.dream.car.stopAnimation();
 									targetObj.addClass("transition");
+									prevObj.find("div.person").addClass("transition");
 									prevObj.addClass("transition", 100, "", function(){
 										prevObj.hide();
+										prevObj.find("div.person").removeClass("transition");
 										prevObj.removeClass("transition");
 										$.when(targetObj.show())
 										.then(
@@ -678,17 +747,24 @@
 									});
 								}
                             },
-                            layout:function (){
-                                fwd.storyFlow.fourth.dream.common(
+                            layout:function (isForward){
+                                fwd.storyFlow.fourth.dream.common(isForward, 
                                 	function(callback){
                                 		var dreamObj = fwd.storyFlow.fourth.dream;
-										$(dreamObj.img).html('<div class="carSmoke"></div><img class="low car" src="'+dreamObj[fwd.dreamSelect].img.low+'" alt=""/><img class="mid car" src="'+dreamObj[fwd.dreamSelect].img.mid+'" alt=""/><img class="high car" src="'+dreamObj[fwd.dreamSelect].img.high+'" alt=""/>');
-                                		fwd.sliderObj.min = 10;
-										fwd.sliderObj.max = 500;
-										fwd.sliderObj.value = 200;
-										$.when(fwd.createSlider()).then(fwd.sliderVal(fwd.dreamVal));
-										fwd.setText(fwd.sliderRange.under, fwd.sliderObj.min+"K");
-										fwd.setText(fwd.sliderRange.over, fwd.sliderObj.max+"K");
+										$(dreamObj.img).html('<div class="carSmoke"></div><div class="low car"><div class="person '+fwd.user_sex.name+' '+fwd.currentAgeGroup+'"></div></div><div class="mid car"><div class="person '+fwd.user_sex.name+' '+fwd.currentAgeGroup+'"></div></div><div class="high car"><div class="person '+fwd.user_sex.name+' '+fwd.currentAgeGroup+'"></div></div>');
+                                		fwd.sliderObj.min = 0;
+										fwd.sliderObj.max = 1000000;
+										fwd.sliderObj.value = 2000;
+										fwd.sliderObj.step = 1;
+										fwd.sliderObj.unit = "HKD";
+										fwd.sliderObj.unitLabel = "$";
+										fwd.sliderValueLow = 200000;
+										fwd.sliderValueMid = 400000;
+										fwd.sliderValueHigh = 800000;
+										fwd.updateValueLevelButtons();
+										fwd.showSliderValueLevelDiv();
+										$.when(fwd.createSlider()).then(fwd.sliderTpl.slider("value",fwd.dreamVal));
+										fwd.sliderDivTpl.addClass(fwd.dreamSelect);
 										fwd.storyFlow.fourth.dream[fwd.dreamSelect].showImg(true,callback);
                                 	}
                                 );
@@ -698,7 +774,7 @@
                             sliderTest:"Budget for your trip",
                             bannerTxt :"What is your trip?",
                             cssObj:{
-                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/img_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
@@ -739,10 +815,10 @@
 									prevClass = 'high';
 									prevObj = fwd.storyFlow.fourth.dream.img.find('img.high');
 								}
-								if(fwd.dreamVal<200){
+								if(fwd.dreamVal<=fwd.sliderValueLow){
 									targetClass = 'low';
 									targetObj = fwd.storyFlow.fourth.dream.img.find('img.low');
-								}else if(fwd.dreamVal>350){
+								}else if(fwd.dreamVal>=fwd.sliderValueHigh){
 									targetClass = 'high';
 									targetObj = fwd.storyFlow.fourth.dream.img.find('img.high');
 								}else{
@@ -756,11 +832,24 @@
 										pinContainer.addClass(targetClass);
 										pinContainer.fadeIn( "fast", function() {
 											fwd.storyFlow.fourth.dream.trip.startAnimation();
+											fwd.user_sex.tpl.removeClass("wink big");
+											fwd.user_sex.tpl.animate({
+												left: fwd.user_sex.tripPositionLeft,
+												top: fwd.user_sex.tripPositionTop,
+												width: fwd.user_sex.originalWidth,
+												height: fwd.user_sex.originalHeight
+											}, {
+												duration: 0, queue: false, complete: function () {
+													fwd.user_sex.tpl.addClass("wink");
+													fwd.user_sex.startAnimation();
+												}}
+											);
+											fwd.showObj(fwd.user_sex.tpl);
 											callback();
 										});
 									});
 								}
-								else if(prevClass!=targetClass){
+								else if(prevClass!=targetClass && prevObj!=null){
 									fwd.storyFlow.fourth.dream.trip.stopAnimation();
 									pinContainer.fadeOut( "fast", function() {
 										pinContainer.switchClass(prevClass,targetClass);
@@ -784,16 +873,23 @@
 									callback();
 								}
                             },
-                            layout:function (){
-                                fwd.storyFlow.fourth.dream.common(
+                            layout:function (isForward){
+                                fwd.storyFlow.fourth.dream.common(isForward, 
                                 	function(callback){
                                 		fwd.storyFlow.fourth.dream.switchImage('trip', '<div class="pinContainer"><div class="pin"></div></div>');
-                                		fwd.sliderObj.min = 10;
-										fwd.sliderObj.max = 500;
-										fwd.sliderObj.value = 200;
-										$.when(fwd.createSlider()).then(fwd.sliderVal(fwd.dreamVal));
-										fwd.setText(fwd.sliderRange.under, fwd.sliderObj.min+"K");
-										fwd.setText(fwd.sliderRange.over, fwd.sliderObj.max+"K");
+                                		fwd.sliderObj.min = 0;
+										fwd.sliderObj.max = 500000;
+										fwd.sliderObj.value = 2000;
+										fwd.sliderObj.step = 1;
+										fwd.sliderObj.unit = "HKD";
+										fwd.sliderObj.unitLabel = "$";
+										fwd.sliderValueLow = 100000;
+										fwd.sliderValueMid = 200000;
+										fwd.sliderValueHigh = 400000;
+										fwd.updateValueLevelButtons();
+										fwd.showSliderValueLevelDiv();
+										$.when(fwd.createSlider()).then(fwd.sliderTpl.slider("value",fwd.dreamVal));
+										fwd.sliderDivTpl.addClass(fwd.dreamSelect);
 										fwd.storyFlow.fourth.dream[fwd.dreamSelect].showImg(true,callback);
                                 	}
                                 );
@@ -803,7 +899,7 @@
                             sliderTest:"Budget for your wedding",
                             bannerTxt :"What is your wedding?",
                             cssObj:{
-                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/img_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
@@ -814,13 +910,11 @@
                                 high:"../resources/images/mini-calculator/img_couple_young.png",
                                 mid:"../resources/images/mini-calculator/img_couple_young.png"
                             },
+                            prevWeddingLevel:0,
                             winkFunction:null,
-                            startAnimation:function(classname){
+                            startAnimation:function(){
                             	fwd.storyFlow.fourth.dream.wedding.stopAnimation();
-                            	var divObj = fwd.storyFlow.fourth.dream.img.find('div.'+classname+' .animationDiv');
-                            	if (divObj.data("animateSprite")){
-									$.removeData(divObj[0],"animateSprite");
-								}
+                            	var divObj = fwd.storyFlow.fourth.dream.img.find('div.couple .animationDiv');
 								divObj.animateSprite({
 									fps: 2,
 									columns:2,
@@ -832,11 +926,11 @@
 								});
 								var rand = Math.floor(Math.random() * (fwd.winkMax-fwd.winkMin)) + fwd.winkMin;
 								fwd.storyFlow.fourth.dream.wedding.winkFunction = setTimeout(function() {
-										fwd.storyFlow.fourth.dream.wedding.startAnimation(classname);
+										fwd.storyFlow.fourth.dream.wedding.startAnimation();
 								}, rand);
 							},
-							stopAnimation:function(classname){
-								var divObj = fwd.storyFlow.fourth.dream.img.find('div.'+classname+' .animationDiv');
+							stopAnimation:function(){
+								var divObj = fwd.storyFlow.fourth.dream.img.find('div.couple .animationDiv');
 								if(fwd.storyFlow.fourth.dream.wedding.winkFunction!=null){
 									clearTimeout(fwd.storyFlow.fourth.dream.wedding.winkFunction);
 								}
@@ -847,76 +941,123 @@
 								}
 							},
                             showImg:function(firstTime, callback){
-                            	var weddingObj = fwd.storyFlow.fourth.dream.wedding;
-                            	var levelSelectionDivObj = fwd.storyFlow.fourth.dream.img;
-                            	var prevClass = '';
-                            	var targetClass = '';
-                            	var prevObj = null;
-                            	var targetObj = null;
-								if(fwd.storyFlow.fourth.dream.img.find('div.low').is(':visible')){
-									prevClass = 'low';
-									prevObj = levelSelectionDivObj.find('div.low');
-								}
-								else if(fwd.storyFlow.fourth.dream.img.find('div.mid').is(':visible')){
-									prevClass = 'mid';
-									prevObj = levelSelectionDivObj.find('div.mid');
-								}
-								else if(fwd.storyFlow.fourth.dream.img.find('div.high').is(':visible')){
-									prevClass = 'high';
-									prevObj = levelSelectionDivObj.find('div.high');
-								}
-								if(fwd.dreamVal<200){
-									targetClass = "low";
-									targetObj = levelSelectionDivObj.find('div.low');
-								}else if(fwd.dreamVal>350){
-									targetClass = "high";
-									targetObj = levelSelectionDivObj.find('div.high');
+                            	var prevLevel = fwd.storyFlow.fourth.dream.wedding.prevWeddingLevel;
+                            	var targetLevel = 0;
+                            	if(fwd.dreamVal<=fwd.sliderValueLow){
+                            		fwd.storyFlow.fourth.dream.wedding.prevWeddingLevel = 1;
+									targetLevel = 1;
+								}else if(fwd.dreamVal>=fwd.sliderValueHigh){
+									fwd.storyFlow.fourth.dream.wedding.prevWeddingLevel = 3;
+									targetLevel = 3;
 								}else{
-									targetClass = "mid";
-									targetObj = levelSelectionDivObj.find('div.mid');
+									fwd.storyFlow.fourth.dream.wedding.prevWeddingLevel = 2;
+									targetLevel = 2;
 								}
-								weddingObj.stopAnimation(prevClass);
-								levelSelectionDivObj.find('div.couple').removeClass('wink');
-                            	if(firstTime){
-									targetObj.addClass('init');
-									targetObj.show();
-									targetObj.switchClass('init','',500,"easeOutElastic", function(){
-										targetObj.addClass("wink");
-										weddingObj.startAnimation(targetClass);
-										callback();
+								if(firstTime){
+									$.when(
+										$(".wrapper .levelSelectionDiv div.ball").switchClass("","open",100,function(){
+											return true;
+										})
+									)
+									.then(function(){
+										if(targetLevel>=2){
+											$("#weddingElegant").removeClass("init",100, "easeOutBack", function(){
+												if(targetLevel>=3){
+													$("#weddingDeluxe").removeClass("init",100, "easeOutBack", function(){
+														callback();
+													});
+												}
+												else{
+													callback();
+												}
+											});
+										}
+										else{
+											callback();
+										}
 									});
 								}
-								else if(prevClass!=targetClass){
-									weddingObj.stopAnimation(prevClass);
-									targetObj.addClass("transition");
-									prevObj.addClass("transition", 100, "", function(){
-										prevObj.hide();
-										prevObj.removeClass("transition");
-										$.when(targetObj.show())
-										.then(
-											targetObj.removeClass("transition", 100, "", function(){
-												weddingObj.startAnimation(targetClass);
-												callback();
-											})
-										);
-									});
-								} 	
 								else{
-									callback();
+									if(prevLevel>targetLevel){
+										switch(prevLevel) {
+											case 1:
+												callback();
+												break;
+											case 2:
+												$("#weddingElegant").addClass("init",100, function(){
+													callback();
+												});
+												break;
+											case 3:
+												$("#weddingDeluxe").addClass("init",100, function(){
+													if(targetLevel==2){
+														callback();
+													}
+													else{
+														$("#weddingElegant").addClass("init",100, function(){
+															callback();
+														});
+													}
+												});
+												break;
+										}
+									}
+									else if(targetLevel>prevLevel){
+										switch(prevLevel) {
+											case 1:
+												$("#weddingElegant").removeClass("init",100, "easeOutBack", function(){
+													if(targetLevel==2){
+														callback();
+													}
+													else{
+														$("#weddingDeluxe").removeClass("init",100, "easeOutBack", function(){
+															callback();
+														});
+													}
+												});
+												break;
+											case 2:
+												$("#weddingDeluxe").removeClass("init",100, "easeOutBack", function(){
+													callback();
+												});
+												break;
+											case 3:
+												callback();
+												break;
+										}
+									}
+									else{
+										callback();
+									}
 								}
                             },
-                            layout:function () {
-                                fwd.storyFlow.fourth.dream.common(
+                            layout:function (isForward) {
+                                fwd.storyFlow.fourth.dream.common(isForward, 
                                 	function(callback){
                                 		var dreamObj = fwd.storyFlow.fourth.dream;
-										$(dreamObj.img).html('<div class="low couple"><div class="animationDiv"></div></div><div class="mid couple"><div class="animationDiv"></div></div><div class="high couple"><div class="animationDiv"></div></div>');
-                                		fwd.sliderObj.min = 10;
-										fwd.sliderObj.max = 500;
-										fwd.sliderObj.value = 200;
-										$.when(fwd.createSlider()).then(fwd.sliderVal(fwd.dreamVal));
-										fwd.setText(fwd.sliderRange.under, fwd.sliderObj.min+"K");
-										fwd.setText(fwd.sliderRange.over, fwd.sliderObj.max+"K");
-										fwd.storyFlow.fourth.dream[fwd.dreamSelect].showImg(true,callback);
+										$(dreamObj.img).html('<img id="weddingDeluxe" class="init" src="../resources/images/mini-calculator/img_wed_lux.png"/><img id="weddingElegant" class="init" src="../resources/images/mini-calculator/img_wed_elegant.png"/><div class="'+fwd.currentAgeGroup+' couple init"><div class="animationDiv"></div></div><div class="ball"></div>');
+                                		fwd.sliderObj.min = 0;
+										fwd.sliderObj.max = 1000000;
+										fwd.sliderObj.value = 2000;
+										fwd.sliderObj.step = 1;
+										fwd.sliderObj.unit = "HKD";
+										fwd.sliderObj.unitLabel = "$";
+										fwd.sliderValueLow = 200000;
+										fwd.sliderValueMid = 400000;
+										fwd.sliderValueHigh = 800000;
+										fwd.updateValueLevelButtons();
+										fwd.showSliderValueLevelDiv();
+										$.when(fwd.createSlider()).then(fwd.sliderTpl.slider("value",fwd.dreamVal));
+										fwd.sliderDivTpl.addClass(fwd.dreamSelect);
+										fwd.resetHeaderBannerClass();
+										fwd.headerBanner.addClass("wedding");
+										var coupleObj = fwd.storyFlow.fourth.dream.img.find('div.couple');
+										coupleObj.show();
+										coupleObj.switchClass('init','',500,"easeOutElastic", function(){
+											coupleObj.addClass("wink");
+											fwd.storyFlow.fourth.dream.wedding.startAnimation();
+											fwd.storyFlow.fourth.dream[fwd.dreamSelect].showImg(true,callback);
+										});
                                 	}
                                 );
                             }
@@ -925,7 +1066,7 @@
                             sliderTest:"Budget for your saving plan",
                             bannerTxt :"What is your saving plan?",
                             cssObj:{
-                                "background-image": "url('../resources/images/mini-calculator/sliced_FWD_interface_v03_out_land_bg.png')",
+                                "background-image": "url('../resources/images/mini-calculator/img_land_bg.png')",
                                 "height": "100%"
                             },
                             img:{
@@ -946,11 +1087,11 @@
                             	var targetLevel = 0;
 								$(pig).stop(true, true);
                             	$(coin).stop(true, true).animate({opacity:'100'},{duration:0});
-								if(fwd.dreamVal<200){
+								if(fwd.dreamVal<=fwd.sliderValueLow){
 									targetClass = 'low';
 									fwd.storyFlow.fourth.dream.saving.prevPigLevel = 1;
 									targetLevel = 1;
-								}else if(fwd.dreamVal>350){
+								}else if(fwd.dreamVal>=fwd.sliderValueHigh){
 									targetClass = 'high';
 									fwd.storyFlow.fourth.dream.saving.prevPigLevel = 3;
 									targetLevel = 3;
@@ -1012,16 +1153,23 @@
 									callback();
 								}
                             },
-                            layout:function (){
-                                fwd.storyFlow.fourth.dream.common(
+                            layout:function (isForward){
+                                fwd.storyFlow.fourth.dream.common(isForward, 
                                 	function(callback){
                                 		$(fwd.storyFlow.fourth.dream.img).html('<div class="coin"></div><div class="saving"></div>');
-                                		fwd.sliderObj.min = 10;
-										fwd.sliderObj.max = 500;
-										fwd.sliderObj.value = 200;
-										$.when(fwd.createSlider()).then(fwd.sliderVal(fwd.dreamVal));
-										fwd.setText(fwd.sliderRange.under, fwd.sliderObj.min+"K");
-										fwd.setText(fwd.sliderRange.over, fwd.sliderObj.max+"K");
+                                		fwd.sliderObj.min = 0;
+										fwd.sliderObj.max = 1000000;
+										fwd.sliderObj.value = 2000;
+										fwd.sliderObj.step = 1;
+										fwd.sliderObj.unit = "HKD";
+										fwd.sliderObj.unitLabel = "$";
+										fwd.sliderValueLow = 200000;
+										fwd.sliderValueMid = 400000;
+										fwd.sliderValueHigh = 800000;
+										fwd.updateValueLevelButtons();
+										fwd.showSliderValueLevelDiv();
+										$.when(fwd.createSlider()).then(fwd.sliderTpl.slider("value",fwd.dreamVal));
+										fwd.sliderDivTpl.addClass(fwd.dreamSelect);
 										var dreamObj = fwd.storyFlow.fourth.dream;
 										var defaultImg={
 											src:dreamObj[fwd.dreamSelect].img.mid
@@ -1041,10 +1189,42 @@
                     }
                 },
                 fifth: function () {
-
+                	fwd.showObj(fwd.rightArrow);
+                	$("#calculationResult div.resultContent").hide();
+                	$("#calculationResult").hide();
+                	$("#emailDiv").hide();
+                	$("#sliderDiv").addClass("hidden");
+                	fwd.hideObj(fwd.sliderDivTpl);
+                	fwd.sliderSavingTpl.slider("option", "max", fwd.dreamVal);
+                	fwd.sliderSavingTpl.slider("value", fwd.sliderSavingTpl.slider("value"));
+                	fwd.sliderDivSavingTpl.find(".divLeft span.max").text(addFormatComma(fwd.dreamVal));
+                	fwd.sliderSavingPeriodTpl.slider("value", fwd.savingPeriodVal);
+                	fwd.showObj(fwd.sliderDivSavingTpl);
+                    fwd.setText(fwd.headerBannerDialog, "What is your current savings & targeted saving period?");
+                    fwd.hideObj(fwd.headerBannerDialog);
+                    fwd.showHeaderBannerDialog(function(){fwd.runningAnimation = false;});
                 },
                 sixth: function () {
-
+                	fwd.hideObj(fwd.rightArrow);
+                	fwd.hideObj(fwd.headerBannerDialog);
+                	fwd.hideObj(fwd.sliderDivSavingTpl);
+                	var nonCompVal= fwd.nonCompoundedInterestResult();
+                	var compVal= fwd.compoundedInterestResult();
+                	$("#calculationResult .nonCompoundInterest").html('HK$ '+addFormatComma(nonCompVal));
+                	$("#calculationResult .compoundInterest").html('HK$ '+addFormatComma(compVal));
+                	$("#ror").html(fwd.rorVal+"%");
+                	$("#calculationResult img").addClass('init');
+                	$("#rorReduceBtn").show();
+                	$("#rorAddBtn").show();
+					$("#calculationResult").show();
+					$("#emailDiv .startoverDiv").hide();
+					$("#emailDiv .desc").html("Please provide your email address. We'll send you the calculation result.");
+					$("#emailDiv .inputDiv").show();
+					$("#emailDiv").show();
+					$("#calculationResult img").switchClass('init','',1000,"easeOutElastic", function(){
+						$("#calculationResult div.resultContent").show();
+						fwd.runningAnimation = false;
+					});
                 }
             },
             init: function () {
@@ -1053,7 +1233,11 @@
             ResetAllThing:function(){
                 var f = fwd.flow;
                 fwd._this =f.flow[f.current].status;
+                fwd.resetData();
                 fwd.storyFlow[fwd._this]();
+                fwd.createSavingSlider();
+                fwd.createSavingPeriodSlider();
+                $("#emailAddress").val("");
             },
             flow: new state([{status:"first"},{status:"second"}, {status:"third"},{status:"fourth"},{status:"fifth"},{status:"sixth"}]),
 
@@ -1087,17 +1271,19 @@
 						case "third":
 							if(!jQuery.isEmptyObject(fwd.user_sex)) {
 								fwd.flow.next();
-								fwd.storyFlow.fourth.dream[fwd.dreamSelect].layout();
+								fwd.storyFlow.fourth.dream[fwd.dreamSelect].layout(true);
 							}
 							break;
 						case "fourth":
-							fwd.runningAnimation = false;
+							fwd.flow.next();
+							fwd.storyFlow[fwd._this]();
 							break;
 						case "fifth":
-							fwd.runningAnimation = false;
+							fwd.flow.next();
+							fwd.storyFlow[fwd._this]();
 							break;
-						case "sixth":
-							fwd.runningAnimation = false;
+						default:
+							fwd.runningAnimation=false;
 							break;
 					}
 				}
@@ -1112,28 +1298,31 @@
 							break;
 						case "third":
 							if(!jQuery.isEmptyObject(fwd.user_sex)) {
-								console.log("go to select gender!");
 								fwd.user_sex = null;
 							}else{
 								fwd.flow.prev();
 							}
+							fwd.storyFlow[fwd._this]();
 							break;
 						case "fourth":
 							if(!jQuery.isEmptyObject(fwd.user_sex)) {
 								fwd.flow.prev();
 							}
 							fwd.storyFlow.fourth.dream.car.stopAnimation();
+							fwd.storyFlow.fourth.dream.car.stopPersonAnimation();
 							fwd.storyFlow.fourth.dream.trip.stopAnimation();
 							fwd.storyFlow.fourth.dream.wedding.stopAnimation();
+							fwd.storyFlow[fwd._this]();
 							break;
 						case "fifth":
 							fwd.flow.prev();
+							fwd.storyFlow.fourth.dream[fwd.dreamSelect].layout(false);
 							break;
 						case "sixth":
 							fwd.flow.prev();
+							fwd.storyFlow[fwd._this]();
 							break;
 					}
-					fwd.storyFlow[fwd._this]();
                 }
             },
             sexSelection: function (sex) {
@@ -1156,7 +1345,9 @@
 						duration: 251, queue: false, complete: function () {
 							fwd.user_sex.tpl.addClass("wink big");
 							fwd.user_sex.startAnimation();
-							fwd.fadeInAnimate(fwd.calAgeTpl);
+							fwd.sliderDivTpl.addClass("age");
+							fwd.hideSliderValueLevelDiv(),
+							fwd.fadeInAnimate(fwd.sliderDivTpl);
 							fwd.enableRightArrow();
 							fwd.hideObj(fwd.headerBannerDialog);
 							fwd.setText(fwd.headerBannerDialog, "How old are you?");
@@ -1164,6 +1355,31 @@
 						}}
 					);
                 }
+            },
+            valueLevelSelection: function (element, level) {
+            	if(fwd.runningAnimation==false){
+            		fwd.runningAnimation=true;
+            		var value = fwd.sliderValueLow;
+            		if(level==2){
+            			value = fwd.sliderValueMid;
+            		}
+            		else if(level==3){
+            			value = fwd.sliderValueHigh;
+            		}
+            		fwd.sliderValueLevelButtons.removeClass("active");
+            		$(element).addClass("active");
+            		fwd.sliderTpl.slider('value',value);
+                }
+            },
+            updateValueLevelButtons:function(){
+            	fwd.sliderValueLevelButtons.removeClass("active");
+                if(fwd.dreamVal<=fwd.sliderValueLow){
+					fwd.sliderValueLevelButtonSimple.addClass("active");
+				}else if(fwd.dreamVal>=fwd.sliderValueHigh){
+					fwd.sliderValueLevelButtonDeluxe.addClass("active");
+				}else{
+					fwd.sliderValueLevelButtonElegant.addClass("active");
+				}
             },
             tplCss: function (tpl, cssObj) {
                 tpl.css(cssObj);
@@ -1192,6 +1408,7 @@
                     }
                 )
             },
+            welcomePageText: $("#welcomePageText"),
             dreamTxt: $(".wrapper .dream_text"),
             headerBanner: $('.wrapper .pageTitle'),
             headerBannerDialog: $('.wrapper .pageTitle .txtDialog'),
@@ -1202,6 +1419,9 @@
             	if (typeof callback != 'undefined')
                         		callback();
             },
+            resetHeaderBannerClass: function(){
+            	fwd.headerBanner.removeClass("wedding");
+            },
             main_background: $(".wrapper .main_background"),
             setText: function (tpl, msg) {
                 tpl.text(msg);
@@ -1210,6 +1430,8 @@
             	var p = $(fwd.sliderValueSelector);
                 p.html(val);
             },
+            sliderDivTpl: $("#sliderDiv"),
+            sliderUnit: $("#sliderDiv .sliderUnit"),
             sliderTpl: $("#slider"),
             sliderObj: {
                 orientation: "horizontal",
@@ -1219,21 +1441,166 @@
                 max: 80,
                 step: 1,
                 slide: slideSlider,
-                change: changeSlider
+                change: changeSlider,
+                unit: "",
+                unitLabel:"$"
             },
-            sliderValueSelector:"#slider .slider_val",
+            sliderValueLow:0,
+            sliderValueMid:0,
+            sliderValueHigh:0,
+            sliderClasses:["age","car","trip","wedding","saving"],
+            sliderValueSelector:"#slider #tooltip span.valueLabel",
+            sliderValueLevelDiv:$(".wrapper #sliderDiv div.valueLevelDiv"),
+            sliderValueLevelButtons:$("#sliderDiv div.valueLevelButton"),
+            sliderValueLevelButtonSimple:$("#valueLevelBtn_simple"),
+            sliderValueLevelButtonElegant:$("#valueLevelBtn_elegant"),
+            sliderValueLevelButtonDeluxe:$("#valueLevelBtn_deluxe"),
+            hideSliderValueLevelDiv:function(){
+            	fwd.sliderValueLevelDiv.addClass("hidden");
+            },
+            showSliderValueLevelDiv:function(){
+            	fwd.sliderValueLevelDiv.removeClass("hidden");
+            },
             createSlider:function(){
             	if (fwd.sliderTpl.data("ui-slider")){
             		fwd.sliderTpl.slider("destroy");
             	}
-            	fwd.sliderTpl.slider(fwd.sliderObj);
-				var p = $(".ui-slider-handle", fwd.sliderTpl);
-				p.html("<span class='slider_val'></span>");
+            	fwd.sliderTpl.slider(fwd.sliderObj).find(".ui-slider-handle").append(
+            		'<span id="tooltip" class="ui-slider-tooltip ui-widget-content ui-corner-all"><span class="unitLabel"></span><span class="valueLabel"></span></span>'
+            		+'<span class="ui-tooltip-pointer-down ui-widget-content"><span class="ui-tooltip-pointer-down-inner"></span></span>'
+            	);
+            	fwd.sliderUnit.html(fwd.sliderObj.unit);
+            	$("#slider #tooltip span.unitLabel").html(fwd.sliderObj.unitLabel);
+            	for (var i in fwd.sliderClasses) {
+                    fwd.sliderDivTpl.removeClass(fwd.sliderClasses[i]);
+                }
+            	
+            }, 
+            sliderDivSavingTpl: $("#sliderDivSaving"),
+            sliderSavingTpl: $("#sliderSaving"), 
+            sliderSavingUnit: $("#sliderDivSaving .sliderUnit.saving"),
+            sliderSavingPeriodTpl: $("#sliderSavingPeriod"),
+            sliderSavingPeriodUnit: $("#sliderDivSaving .sliderUnit.savingPeriod"), 
+            sliderSavingVal: function (val) {
+            	var p = $("#tooltipSaving span.valueLabel");
+                p.html(val);
             },
-            sliderRange: {
-                over: $(".calAge .sliderRange.over"),
-                under: $(".calAge .sliderRange.under")
-            }
+            sliderSavingPeriodVal: function (val) {
+            	var p = $("#tooltipSavingPeriod span.valueLabel");
+                p.html(val);
+            },
+            createSavingSlider: function(){
+            	var sliderObj = {
+					orientation: "horizontal",
+					range: "min",
+					value: fwd.savingVal,
+					min: 0,
+					max: 80,
+					step: 1,
+					slide: function(event, ui){
+						fwd.savingVal = ui.value;
+                		fwd.sliderSavingVal(addFormatComma(fwd.savingVal));
+					},
+					change: function(event, ui){
+						fwd.savingVal = ui.value;
+                		fwd.sliderSavingVal(addFormatComma(fwd.savingVal));
+					}
+				};
+            	//slider of saving
+                if (fwd.sliderSavingTpl.data("ui-slider")){
+            		fwd.sliderSavingTpl.slider("destroy");
+            	}
+                fwd.sliderSavingTpl.slider(sliderObj).find(".ui-slider-handle").append(
+            		'<span id="tooltipSaving" class="ui-slider-tooltip ui-widget-content ui-corner-all"><span class="unitLabel"></span><span class="valueLabel"></span></span>'
+            		+'<span class="ui-tooltip-pointer-down ui-widget-content"><span class="ui-tooltip-pointer-down-inner"></span></span>'
+            	);
+            	fwd.sliderSavingUnit.html("HKD");
+            },
+            createSavingPeriodSlider: function(){
+            	var sliderObj = {
+					orientation: "horizontal",
+					range: "min",
+					value: 1,
+					min: 1,
+					max: 99,
+					step: 1,
+					slide: function(event, ui){
+						fwd.savingPeriodVal = ui.value;
+                		fwd.sliderSavingPeriodVal(addFormatComma(fwd.savingPeriodVal));
+					},
+					change: function(event, ui){
+						fwd.savingPeriodVal = ui.value;
+                		fwd.sliderSavingPeriodVal(addFormatComma(fwd.savingPeriodVal));
+					},
+				};
+            	//slider of saving period
+                if (fwd.sliderSavingPeriodTpl.data("ui-slider")){
+            		fwd.sliderSavingPeriodTpl.slider("destroy");
+            	}
+                fwd.sliderSavingPeriodTpl.slider(sliderObj).find(".ui-slider-handle").append(
+            		'<span id="tooltipSavingPeriod" class="ui-slider-tooltip ui-widget-content ui-corner-all"><span class="unitLabel"></span><span class="valueLabel"></span></span>'
+            		+'<span class="ui-tooltip-pointer-down ui-widget-content"><span class="ui-tooltip-pointer-down-inner"></span></span>'
+            	);
+            	fwd.sliderSavingPeriodUnit.html("Years");
+            }, 
+            addROR: function(){
+            	if(fwd.rorVal<100){
+					fwd.rorVal+=1;
+					$("#ror").html(fwd.rorVal+"%");
+					var nonCompVal= fwd.nonCompoundedInterestResult();
+                	var compVal= fwd.compoundedInterestResult();
+                	$("#calculationResult .nonCompoundInterest").html('HK$ '+addFormatComma(nonCompVal));
+                	$("#calculationResult .compoundInterest").html('HK$ '+addFormatComma(compVal));
+            	}
+            }, 
+            reduceROR: function(){
+            	if(fwd.rorVal>0){
+					fwd.rorVal-=1;
+					$("#ror").html(fwd.rorVal+"%");
+					var nonCompVal= fwd.nonCompoundedInterestResult();
+                	var compVal= fwd.compoundedInterestResult();
+                	$("#calculationResult .nonCompoundInterest").html('HK$ '+addFormatComma(nonCompVal));
+                	$("#calculationResult .compoundInterest").html('HK$ '+addFormatComma(compVal));
+            	}
+            }, 
+            PMT: function(rate, nper, pv, fv, type) {
+				rate = parseFloat(rate);
+				nper = parseFloat(nper);
+				pv = parseFloat(pv);
+				fv = parseFloat(fv);
+				
+				// Validate parameters
+				if (type != 0 && type != 1) {
+					return 0;
+				}
+			
+				// Calculate
+				if (rate != 0.0) {
+					return (-fv - (pv * Math.pow(1 + rate, nper))) * rate / (1 + rate * type) / (Math.pow(1 + rate, nper) - 1);
+				} else {
+					return (-fv - pv) / nper;
+				}
+			}, 
+			nonCompoundedInterestResult:function(){
+				return (fwd.dreamVal-fwd.savingVal)/(fwd.savingPeriodVal*12);
+			}, 
+			compoundedInterestResult:function(){
+				return -fwd.PMT(fwd.rorVal/12/100,fwd.savingPeriodVal*12,0,fwd.dreamVal,0)+fwd.PMT(fwd.rorVal/12/100,fwd.savingPeriodVal*12,0,fwd.savingVal,0);
+			}, 
+			sendEmail: function(){
+				fwd.hideObj(fwd.leftArrow);
+				$("#rorReduceBtn").hide();
+				$("#rorAddBtn").hide();
+				fwd.emailAddress = $("#emailAddress").val(),
+				$("#emailDiv .inputDiv").hide();
+				$("#emailDiv .desc").html("The calculated result is mailed to <span class='emailAddressText'>"+fwd.emailAddress+"</span>. Thanks for visiting.");
+				$("#emailDiv .startoverDiv").show();
+			}, 
+			startOver:function(){
+				var f = fwd.flow;
+				f.current = 0;
+				fwd.ResetAllThing();
+			}
         }
     window.fwd = fwd;
 })(window);
@@ -1242,4 +1609,43 @@ $(window).on('load', function (e) {
 	fwd.preloadImg();
     fwd.init();
     $("body").nodoubletapzoom();
-})
+});
+
+function addFormatComma(objValue)
+{
+	var res = objValue.toFixed(2).split(".");
+	var fieldValue = res[0];
+	var decimalVal = res.length>1?"."+res[1]:"";
+	if(decimalVal==".00"){
+		decimalVal = "";
+	}
+	var fieldLength = fieldValue.length;
+	var commaSeparatedFieldValue = "";
+	var count = 0;
+	for(var i=fieldLength-1 ; i>=0;i--)
+	{
+		count++;
+		commaSeparatedFieldValue = commaSeparatedFieldValue + fieldValue.charAt(i) ;
+		if(count == 3)
+		{
+			count = 0;
+			commaSeparatedFieldValue = commaSeparatedFieldValue + ",";
+		}
+	}
+	if(commaSeparatedFieldValue.charAt(commaSeparatedFieldValue.length-1) == ",")
+	{
+		commaSeparatedFieldValue = commaSeparatedFieldValue.substr(0,commaSeparatedFieldValue.length-1) ;
+	}
+	return reverse(commaSeparatedFieldValue)+decimalVal ;
+}
+
+function reverse(inp) 
+{ 	
+	var outp = "" 
+	for (i = 0; i < inp.length; i++) 
+	{ 
+		outp = inp.charAt (i) + outp 
+	} 
+	return outp ;
+} 
+
