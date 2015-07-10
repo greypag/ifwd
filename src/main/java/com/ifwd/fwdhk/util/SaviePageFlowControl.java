@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
@@ -12,7 +14,7 @@ public class SaviePageFlowControl {
 	private final static Logger logger = LoggerFactory
 			.getLogger(SaviePageFlowControl.class);
 
-	public static String pageFlow(HttpServletRequest request) {
+	public static ModelAndView pageFlow(Model model, HttpServletRequest request) {
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
@@ -132,8 +134,11 @@ public class SaviePageFlowControl {
 		}
 
 		logger.debug("to : " + to);
-
-		return UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
+		to=UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
+		logger.debug("return to : " + to);
+		model.addAttribute("nextPageFlow", to);	
+		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savie/"+ current);
 
 	}
 

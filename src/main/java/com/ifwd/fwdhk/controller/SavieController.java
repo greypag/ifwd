@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.SendEmailInfo;
@@ -38,13 +39,8 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-plan-details"})
-	public String getSaviePlanDetails(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		model.addAttribute("nextPageFlow", SaviePageFlowControl.pageFlow(request));
-		String redirectUrl=SaviePageFlowControl.pageFlow(request);
-		return redirectUrl;
+	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 
 	@RequestMapping(value = {"/getPlanDetailsByAjax"})
