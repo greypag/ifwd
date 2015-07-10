@@ -229,15 +229,19 @@ public class SavieServiceImpl implements SavieService {
 				yearPlansList.add(yesrPlan);
 			}
 			planDetailJsonObject.accumulate("yearPlans", yearPlansList);
+			resultJsonObject.accumulate("result", "success");
+			resultJsonObject.accumulate("errMsgs", "");
 			resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
 		}
 		else{
-			resultJsonObject.accumulate("salesIllustration", apiResponse.getErrMsgs());
+			resultJsonObject.accumulate("result", "fail");
+			resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
 		}
 		
 		response.setContentType("text/json;charset=utf-8");
 		//return data
 		try {
+			logger.info(resultJsonObject.toString());
 			response.getWriter().print(resultJsonObject.toString());
 		}catch(Exception e) {
 			e.printStackTrace();
