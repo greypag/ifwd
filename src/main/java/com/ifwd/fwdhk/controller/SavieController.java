@@ -99,11 +99,8 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-fna"})
-	public String getSavieFNA(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
+	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-application-details"})
