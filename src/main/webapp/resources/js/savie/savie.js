@@ -67,12 +67,12 @@ function getSavieIllustration() {
 	}
 }
 
-function jsGetAge(strBirthday){       
+function jsGetAge(strBirthday){ 
 	var returnAge;
-	var strBirthdayArr=strBirthday.split("-");
-	var birthYear = strBirthdayArr[0];
-	var birthMonth = strBirthdayArr[1];
-	var birthDay = strBirthdayArr[2];
+	var strBirthdayArr=strBirthday.split("/");
+	var birthYear = strBirthdayArr[2];
+	var birthMonth = strBirthdayArr[0];
+	var birthDay = strBirthdayArr[1];
 	
 	d = new Date();
 	var nowYear = d.getFullYear();

@@ -78,7 +78,7 @@
 						<div id="birthday">
 							<div class="input-group input-append date" id="datePicker">
 								<input type="text" class="date" name="dob" id="dates" placeholder="28th May 1996" readonly />
-								<input type="hidden" id="birthOfDay" value="1996-05-28"/>
+								<input type="hidden" id="birthOfDay" value="05/28/1995"/>
 								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 							</div>
 						</div>
