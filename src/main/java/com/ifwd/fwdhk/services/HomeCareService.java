@@ -10,15 +10,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.ui.Model;
-
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.DistrictBean;
-import com.ifwd.fwdhk.model.FinalizePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
-import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.UserDetails;
 
 public interface  HomeCareService {

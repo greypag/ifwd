@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -39,6 +41,16 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 
 @Component
 public class ECommWsConnector {
+	public static final Map<String, String> COMMON_HEADERS;
+
+	static {
+		Map<String, String> realMap = new HashMap<String, String>();
+		realMap.put("Content-Type", "application/json");
+		realMap.put("country", "HK");
+		realMap.put("language", "EN");
+		
+		COMMON_HEADERS = Collections.unmodifiableMap(realMap);
+	}
 	
 	private static Logger logger = LoggerFactory.getLogger(ECommWsConnector.class);
 
@@ -80,12 +92,18 @@ public class ECommWsConnector {
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
 	
-	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
-		JSONObject parameters = new JSONObject();
-		parameters.put("email", email);
-		parameters.put("answer1", answer1);
-		parameters.put("step", step);
-		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,null);
+	public BaseResponse sendLead(JSONObject parameters)throws ECOMMAPIException{
+		final Map<String,String> header = Maps.newHashMap();
+		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,header);
+	}
+	
+	public BaseResponse SendEmail(org.json.simple.JSONObject parameters,String username,String token)throws ECOMMAPIException{
+		final Map<String,String> header = Maps.newHashMap();
+		header.put("country", "HK");
+		header.put("language", "EN");
+		header.put("token", token);
+		header.put("username", username);
+		return consumeECommWs(UserRestURIConstants.SEND_EMAIL,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
 	private <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {

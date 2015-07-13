@@ -28,7 +28,7 @@
 		<td>month_savings_with_interest:</td><td><input type="text" id="month_savings_with_interest" size="20" value="100006.2"/></td>
 	</tr>
 	<tr>
-		<td>player_email:</td><td><input type="text" id="player_email" size="20" value="1014237767@qq.com"/></td>
+		<td>player_email:</td><td><input type="text" id="player_email" size="20" value="Xiangyan_Chen@vandagroup.com"/></td>
 		<td></td><td></td>
 	</tr>
 	<tr>
@@ -48,18 +48,18 @@ function sendEmail() {
 	var month_savings_with_interest = $("#month_savings_with_interest").val();
 	var player_email = $("#player_email").val();
 	$.ajax({     
-	    url:'<%=request.getContextPath()%>/sendEmailByAjax',     
+	    url:'<%=request.getContextPath()%>/ajax/savie/sendEmailByAjax',     
 	    type:'post',     
 	    data:{    
-	    	"dream_name" : dream_name, 
-	    	"dream_level_description" : dream_level_description, 
-	    	"dream_budget" : dream_budget, 
-	    	"current_savings" : current_savings, 
-	    	"saving_period" : saving_period, 
-	    	"annual_return_rate" : annual_return_rate, 
-	    	"month_savings_no_interest" : month_savings_no_interest, 
-	    	"month_savings_with_interest" : month_savings_with_interest, 
-	    	"player_email" : player_email    
+	    	"dreamName" : dream_name, 
+	    	"dreamLevelDescription" : dream_level_description, 
+	    	"dreamBudget" : dream_budget, 
+	    	"currentSavings" : current_savings, 
+	    	"savingPeriod" : saving_period, 
+	    	"annualReturnRate" : annual_return_rate, 
+	    	"monthSavingsNoInterest" : month_savings_no_interest, 
+	    	"monthSavingsWithInterest" : month_savings_with_interest, 
+	    	"playerEmail" : player_email    
    		},     
 	    //async : false, //默认为true 异步     
 	    error:function(){     
@@ -76,7 +76,7 @@ function sendlead() {
 	    url:'<%=request.getContextPath()%>/ajax/savie/sendLeadByAjax',     
 	    type:'post',     
 	    data:{    
-	    	"email": "natsdsshaniel.kw.cheung2@fwd.com",
+	    	"email": "natssssdsshaniel.kw.cheung2@fwd.com",
 	        "answer1": "",
 	        "step": "1"    
    		},     

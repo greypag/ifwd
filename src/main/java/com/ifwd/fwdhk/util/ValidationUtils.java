@@ -1,7 +1,5 @@
 package com.ifwd.fwdhk.util;
 
-import java.util.HashMap;
-
 import org.json.simple.JSONObject;
 import org.springframework.http.HttpMethod;
 

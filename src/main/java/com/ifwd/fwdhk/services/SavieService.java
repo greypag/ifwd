@@ -13,6 +13,7 @@ import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -53,7 +54,9 @@ public interface SavieService {
 	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language);
 	public List<OptionItemDesc> getOccupation(String language);
 	
-	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException;;
+	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException;
+	
+	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
 	
 	//fileUpload?
 	//signature?

@@ -1,7 +1,5 @@
 package com.ifwd.fwdhk.model.savie;
 
-import java.awt.Image;
-
 public class SavieFormSignatureBean {
 	
 	//base64

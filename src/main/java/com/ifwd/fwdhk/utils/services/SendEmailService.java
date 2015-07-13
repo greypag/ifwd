@@ -1,8 +1,5 @@
 package com.ifwd.fwdhk.utils.services;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.util.HashMap;
 
 import org.json.simple.JSONObject;

@@ -629,7 +629,7 @@ public class HomeCareController {
 		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
 			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
 				try {
-					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr((String)request.getParameter("cardNo")));
+					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr(request.getParameter("cardNo")));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

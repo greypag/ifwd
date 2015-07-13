@@ -1,18 +1,17 @@
 package com.ifwd.fwdhk.services.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -21,12 +20,12 @@ import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
-import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -95,6 +94,7 @@ public class SavieServiceImpl implements SavieService {
 		return null;
 	}
 
+	@Override
 	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException {
 		try {
 			String planCode = request.getParameter("planCode");
@@ -574,10 +574,59 @@ public class SavieServiceImpl implements SavieService {
 		//return commonUtils.getOptionItemDescList("occupation",language);
 	}
 	
+	@Override
 	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
-			 br = connector.sendLead(email,answer1,step);
+			JSONObject parameters = new JSONObject();
+			parameters.put("email", email);
+			parameters.put("answer1", answer1);
+			parameters.put("step", step);
+			br = connector.sendLead(parameters);
+		}catch(Exception e){
+			
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+
+		 return br;
+	}
+	
+	
+	@Override
+	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			String token = null, username = null;
+			HttpSession session = request.getSession();
+			if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}else{
+				restService.consumeLoginApi(request);
+				if ((session.getAttribute("token") != null)) {
+					token = session.getAttribute("token").toString();
+					username = session.getAttribute("username").toString();
+				}
+			}
+			String to = sei.getPlayerEmail() ;//request.getParameter("to"); //"nathaniel.kw.cheung@fwd.com";//
+			String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
+			String subject = "html testing";//request.getParameter("subject");//
+			String attachment = request.getParameter("attachment");//
+			String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+			//String isHtml = "true";//request.getParameter("isHTML");// 
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			
+			br = connector.SendEmail(parameters,username,token);
 		}catch(Exception e){
 			
 			logger.info("SavieServiceImpl sendLead occurs an exception!");
