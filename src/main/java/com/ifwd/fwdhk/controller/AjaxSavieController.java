@@ -37,7 +37,7 @@ public class AjaxSavieController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/savie/sendEmailByAjax"} )
+	@RequestMapping(value = {"/ajax/savie/miniCaculator/sendEmail"} )
 	public void sendEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String dreamName,
@@ -78,7 +78,7 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	
-	@RequestMapping(value = {"/ajax/savie/sendLeadByAjax"} )
+	@RequestMapping(value = {"/ajax/savie/interestedGather/get"} )
 	public void sendLeadByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String email,

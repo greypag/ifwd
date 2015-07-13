@@ -48,7 +48,7 @@ function sendEmail() {
 	var month_savings_with_interest = $("#month_savings_with_interest").val();
 	var player_email = $("#player_email").val();
 	$.ajax({     
-	    url:'<%=request.getContextPath()%>/ajax/savie/sendEmailByAjax',     
+	    url:'<%=request.getContextPath()%>/ajax/savie/miniCaculator/sendEmail',     
 	    type:'post',     
 	    data:{    
 	    	"dreamName" : dream_name, 
@@ -73,7 +73,7 @@ function sendEmail() {
 
 function sendlead() {
 	$.ajax({     
-	    url:'<%=request.getContextPath()%>/ajax/savie/sendLeadByAjax',     
+	    url:'<%=request.getContextPath()%>/ajax/savie/interestedGather/get',     
 	    type:'post',     
 	    data:{    
 	    	"email": "natssssdsshaniel.kw.cheung2@fwd.com",
