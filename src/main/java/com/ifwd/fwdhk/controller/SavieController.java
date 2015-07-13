@@ -3,25 +3,19 @@ package com.ifwd.fwdhk.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
-import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class SavieController extends BaseController{
 	
@@ -43,38 +37,6 @@ public class SavieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savie-plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
 		return SaviePageFlowControl.pageFlow(model,request);
-	}
-	
-	@RequestMapping(value = {"/sendEmailByAjax"} )
-	public void sendEmailByAjax(Model model, HttpServletRequest request,
-			HttpServletResponse response,
-			@RequestParam String dreamName,
-			@RequestParam String dreamLevelDescription,
-			@RequestParam int dreamBudget,
-			@RequestParam int currentSavings,
-			@RequestParam int savingPeriod,
-			@RequestParam int annualReturnRate,
-			@RequestParam float monthSavingsNoInterest,
-			@RequestParam float monthSavingsWithInterest,
-			@RequestParam String playerEmail) {
-		
-		SendEmailInfo sei = new SendEmailInfo();
-		sei.setDreamName(dreamName);
-		sei.setDreamLevelDescription(dreamLevelDescription);
-		sei.setDreamBudget(dreamBudget);
-		sei.setCurrentSavings(currentSavings);
-		sei.setSavingPeriod(savingPeriod);
-		sei.setAnnualReturnRate(annualReturnRate);
-		sei.setMonthSavingsNoInterest(monthSavingsNoInterest);
-		sei.setMonthSavingsWithInterest(monthSavingsWithInterest);
-		sei.setPlayerEmail(playerEmail);
-		
-		
-		org.json.simple.JSONObject apiJsonObj = restService.SendEmail(request,sei);
-		logger.info("apiJsonObj:"+apiJsonObj);
-		
-		ajaxReturn(response,apiJsonObj);
-		
 	}
 	
 	@RequestMapping(value = {"/sendLeadByAjax"} )

@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ifwd.fwdhk.controller.UserRestURIConstants;
-import com.opensymphony.sitemesh.webapp.SiteMeshFilter;
-
 
 public class SessionFilter implements Filter {
 	

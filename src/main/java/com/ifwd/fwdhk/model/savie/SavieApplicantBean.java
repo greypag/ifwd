@@ -1,8 +1,6 @@
 package com.ifwd.fwdhk.model.savie;
 
 import java.util.Date;
-import java.util.List;
-
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
 

@@ -28,13 +28,26 @@
 		<td>month_savings_with_interest:</td><td><input type="text" id="month_savings_with_interest" size="20" value="100006.2"/></td>
 	</tr>
 	<tr>
-		<td>player_email:</td><td><input type="text" id="player_email" size="20" value="1014237767@qq.com"/></td>
+		<td>player_email:</td><td><input type="text" id="player_email" size="20" value="Xiangyan_Chen@vandagroup.com"/></td>
 		<td></td><td></td>
 	</tr>
 	<tr>
-		<td colspan="4" align="center"><input type="button"  onclick="sendEmail()" value="	sendEmail	"/></td>
+		<td colspan="2" align="center"><input type="button"  onclick="sendEmail()" value="	miniCaculator	"/></td>
+		<td colspan="2" align="center"></td>
 	</tr>
 </table>
+<br/>
+	<table style="margin-left: auto;margin-right: auto;" border="1">
+		<tr>
+			<td>email:</td><td><input type="text" id="email" size="40" value="Xiangyan_Chen@vandagroup.com"/></td>
+			<td><input type="button"  onclick="interestedGatherStep1()" value="	interestedGatherStep1	"/></td>
+		</tr>
+		<tr>
+			<td>answer1:</td><td><input type="text" id="answer1" size="40" value="some answer"/></td>
+			<td><input type="button"  onclick="interestedGatherStep2()" value="	interestedGatherStep2	"/></td>
+		</tr>
+	</table>
+<br/>
 <script type="text/javascript">
 function sendEmail() {
 	var dream_name = $("#dream_name").val();
@@ -47,18 +60,51 @@ function sendEmail() {
 	var month_savings_with_interest = $("#month_savings_with_interest").val();
 	var player_email = $("#player_email").val();
 	$.ajax({     
-	    url:'<%=request.getContextPath()%>/sendEmailByAjax',     
+	    url:'<%=request.getContextPath()%>/ajax/savie/miniCaculator/sendEmail',     
 	    type:'post',     
 	    data:{    
-	    	"dream_name" : dream_name, 
-	    	"dream_level_description" : dream_level_description, 
-	    	"dream_budget" : dream_budget, 
-	    	"current_savings" : current_savings, 
-	    	"saving_period" : saving_period, 
-	    	"annual_return_rate" : annual_return_rate, 
-	    	"month_savings_no_interest" : month_savings_no_interest, 
-	    	"month_savings_with_interest" : month_savings_with_interest, 
-	    	"player_email" : player_email    
+	    	"dreamName" : dream_name, 
+	    	"dreamLevelDescription" : dream_level_description, 
+	    	"dreamBudget" : dream_budget, 
+	    	"currentSavings" : current_savings, 
+	    	"savingPeriod" : saving_period, 
+	    	"annualReturnRate" : annual_return_rate, 
+	    	"monthSavingsNoInterest" : month_savings_no_interest, 
+	    	"monthSavingsWithInterest" : month_savings_with_interest, 
+	    	"playerEmail" : player_email    
+   		},     
+	    //async : false, //默认为true 异步     
+	    error:function(){     
+	       alert('error');     
+	    },     
+	    success:function(data){     
+	    	alert('OK');       
+	    }  
+	});
+}
+
+function interestedGatherStep1() {
+	var email = $("#email").val();
+	sendlead(email,"","1");
+}
+
+function interestedGatherStep2() {
+	var email = $("#email").val();
+	var answer1 = $("#answer1").val();
+	sendlead(email,answer1,"2");
+}
+
+function sendlead(email,answer1,step) {
+	//var email = $("#email").val();
+	//var answer1 = $("#answer1").val();
+	//var step = $("#step").val();
+	$.ajax({     
+	    url:'<%=request.getContextPath()%>/ajax/savie/interestedGather/get',     
+	    type:'post',     
+	    data:{    
+	    	"email": email,
+	        "answer1": answer1,
+	        "step": step    
    		},     
 	    //async : false, //默认为true 异步     
 	    error:function(){     

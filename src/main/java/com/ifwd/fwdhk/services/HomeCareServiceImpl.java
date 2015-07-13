@@ -42,6 +42,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	
 	private final static Logger logger = LoggerFactory.getLogger(HomeCareServiceImpl.class);
 
+	@Override
 	public List<HomeCareQuetionaries> getHomeQuetionaries(String token,
 			String userName, String language) {
 
@@ -103,6 +104,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		}
 	}
 
+	@Override
 	public HomeQuoteBean getHomePlan(String token, String userName,
 			String userReferralCode, String answer1, String answer2,
 			String language) {
@@ -221,6 +223,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		return quoteDetails;
 	}
 
+	@Override
 	public String getHomePlanToString(String token, String userName,
 			String userReferralCode, String answer1, String answer2,
 			String language) {
@@ -263,6 +266,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		return jsonGetPlanResponse.toJSONString();
 	}
 
+	@Override
 	public List<DistrictBean> getDistrict(String userName, String token, String language) {
 		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
 		String UrlTerritory = UserRestURIConstants.HOMECARE_GET_TERRITORY_DISTRICT;

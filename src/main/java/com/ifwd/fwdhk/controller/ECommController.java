@@ -1,7 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,7 +1,5 @@
 package com.ifwd.fwdhk.model.savie;
 
-import java.util.Date;
-
 public class SavieFileBean {
 	
 	private String fileName;

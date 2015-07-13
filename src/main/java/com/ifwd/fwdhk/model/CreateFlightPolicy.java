@@ -45,9 +45,11 @@ public class CreateFlightPolicy extends PlanDetailsForm{
 	public void setErrMsgs(String errMsgs) {
 		this.errMsgs = errMsgs;
 	}
+	@Override
 	public String getPlanCode() {
 		return planCode;
 	}
+	@Override
 	public void setPlanCode(String planCode) {
 		this.planCode = planCode;
 	}

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
 @Controller
 public class AjaxSavieController extends BaseController{
@@ -36,8 +37,48 @@ public class AjaxSavieController extends BaseController{
 		}
 	}
 	
+	@RequestMapping(value = {"/ajax/savie/miniCaculator/sendEmail"} )
+	public void sendEmailByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam String dreamName,
+			@RequestParam String dreamLevelDescription,
+			@RequestParam int dreamBudget,
+			@RequestParam int currentSavings,
+			@RequestParam int savingPeriod,
+			@RequestParam int annualReturnRate,
+			@RequestParam float monthSavingsNoInterest,
+			@RequestParam float monthSavingsWithInterest,
+			@RequestParam String playerEmail) {
+		
+		SendEmailInfo sei = new SendEmailInfo();
+		sei.setDreamName(dreamName);
+		sei.setDreamLevelDescription(dreamLevelDescription);
+		sei.setDreamBudget(dreamBudget);
+		sei.setCurrentSavings(currentSavings);
+		sei.setSavingPeriod(savingPeriod);
+		sei.setAnnualReturnRate(annualReturnRate);
+		sei.setMonthSavingsNoInterest(monthSavingsNoInterest);
+		sei.setMonthSavingsWithInterest(monthSavingsWithInterest);
+		sei.setPlayerEmail(playerEmail);
+		
+		try {
+			BaseResponse br = savieService.SendEmail(request,sei);
+			
+			logger.info("apiJsonObj:"+br);
+			
+			ajaxReturn(response,br);
+			
+			
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
-	@RequestMapping(value = {"/ajax/savie/sendLeadByAjax"} )
+	
+	@RequestMapping(value = {"/ajax/savie/interestedGather/get"} )
 	public void sendLeadByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String email,
