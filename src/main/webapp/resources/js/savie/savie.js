@@ -1,3 +1,4 @@
+var items = [[],[],[],[]];
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
@@ -44,7 +45,7 @@ function getSavieIllustration() {
 	var premium = amount;
 	var referralCode = promocode;
 	
-	if(issueAge ==null || issueAge<18 || issueAge > 100){
+	if(issueAge == null || issueAge < 18 || issueAge > 100){
 		alert("Invalid date of birth!");
 	}
 	else if(premium ==null || premium <30000 || premium > 400000){
@@ -52,40 +53,46 @@ function getSavieIllustration() {
 	}
 	else{
 		$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/planDetails/get',
-				{ 
-			        planCode : planCode,
-					issueAge: issueAge,
-					paymentTerm: paymentTerm,
-					premium: premium,
-					referralCode: referralCode
-				},
-				function(data) {
-					alert(JSON.stringify(data));
-					console.log(JSON.stringify(data));
-					var json = $.parseJSON(JSON.stringify(data));
-					
-					
-					var concatRateIsZero,concatRateIsTwo,concatRateIsThree,concatRateIsFour;
-					for(var i = 0; i < json.salesIllustration.yearPlans.length;i++) {
-						for(var j =0; j < 4;j++){
-							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
-								var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-							}
-							if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
-								var rateIsTwo =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-							}
-							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
-								var rateIsThree =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-							}
-							if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
-								var rateIsFour =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-							}	
-						}
-						
+		{ 
+			planCode : planCode,
+			issueAge: issueAge,
+			paymentTerm: paymentTerm,
+			premium: premium,
+			referralCode: referralCode
+		},
+		function(data) {
+			//alert(JSON.stringify(data));
+			
+			var json = $.parseJSON(JSON.stringify(data));					
+			
+			for(var i = 0; i < json.salesIllustration.yearPlans.length;i++) {
+				for(var j=0; j<4; j++){
+					if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
+						var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+						items[3][i] = rateIsZero;
 					}
-				})
-				.fail(function(data) {
-				});
+					if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
+						var rateIsTwo =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+						items[2][i] = rateIsTwo;
+					}
+					if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
+						var rateIsThree =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+						items[1][i] = rateIsThree;
+					}
+					if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
+						var rateIsFour =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+						items[0][i] = rateIsFour;
+					}	
+				}
+				
+			}
+			isCurrentDefault = false;
+			zoomCtr = 4;
+			currentRate = 3;
+			showFWDChart(currentRate, zoomCtr, isCurrentDefault);
+		})
+		.fail(function(data) {
+		});
 	}
 }
 
