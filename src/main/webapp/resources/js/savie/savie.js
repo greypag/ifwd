@@ -61,6 +61,28 @@ function getSavieIllustration() {
 				},
 				function(data) {
 					alert(JSON.stringify(data));
+					console.log(JSON.stringify(data));
+					var json = $.parseJSON(JSON.stringify(data));
+					
+					
+					var concatRateIsZero,concatRateIsTwo,concatRateIsThree,concatRateIsFour;
+					for(var i = 0; i < json.salesIllustration.yearPlans.length;i++) {
+						for(var j =0; j < 4;j++){
+							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
+								var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							}
+							if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
+								var rateIsTwo =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							}
+							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
+								var rateIsThree =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							}
+							if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
+								var rateIsFour =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							}	
+						}
+						
+					}
 				})
 				.fail(function(data) {
 				});
