@@ -32,10 +32,22 @@
 		<td></td><td></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="button"  onclick="sendEmail()" value="	sendEmail	"/></td>
-		<td colspan="2" align="center"><input type="button"  onclick="sendlead()" value="	sendlead	"/></td>
+		<td colspan="2" align="center"><input type="button"  onclick="sendEmail()" value="	miniCaculator	"/></td>
+		<td colspan="2" align="center"></td>
 	</tr>
 </table>
+<br/>
+	<table style="margin-left: auto;margin-right: auto;" border="1">
+		<tr>
+			<td>email:</td><td><input type="text" id="email" size="40" value="Xiangyan_Chen@vandagroup.com"/></td>
+			<td><input type="button"  onclick="interestedGatherStep1()" value="	interestedGatherStep1	"/></td>
+		</tr>
+		<tr>
+			<td>answer1:</td><td><input type="text" id="answer1" size="40" value="some answer"/></td>
+			<td><input type="button"  onclick="interestedGatherStep2()" value="	interestedGatherStep2	"/></td>
+		</tr>
+	</table>
+<br/>
 <script type="text/javascript">
 function sendEmail() {
 	var dream_name = $("#dream_name").val();
@@ -71,14 +83,28 @@ function sendEmail() {
 	});
 }
 
-function sendlead() {
+function interestedGatherStep1() {
+	var email = $("#email").val();
+	sendlead(email,"","1");
+}
+
+function interestedGatherStep2() {
+	var email = $("#email").val();
+	var answer1 = $("#answer1").val();
+	sendlead(email,answer1,"2");
+}
+
+function sendlead(email,answer1,step) {
+	//var email = $("#email").val();
+	//var answer1 = $("#answer1").val();
+	//var step = $("#step").val();
 	$.ajax({     
 	    url:'<%=request.getContextPath()%>/ajax/savie/interestedGather/get',     
 	    type:'post',     
 	    data:{    
-	    	"email": "natssssdsshaniel.kw.cheung2@fwd.com",
-	        "answer1": "",
-	        "step": "1"    
+	    	"email": email,
+	        "answer1": answer1,
+	        "step": step    
    		},     
 	    //async : false, //默认为true 异步     
 	    error:function(){     

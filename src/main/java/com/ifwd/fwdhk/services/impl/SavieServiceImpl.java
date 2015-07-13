@@ -594,6 +594,7 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
