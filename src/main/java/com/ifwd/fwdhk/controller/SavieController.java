@@ -39,20 +39,7 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/sendLeadByAjax"} )
-	public void sendLeadByAjax(Model model, HttpServletRequest request,
-			HttpServletResponse response,
-			@RequestParam String email,
-			@RequestParam String answer1,
-			@RequestParam String step) {
-		
-			org.json.simple.JSONObject apiJsonObj = restService.sendLead(email,answer1,step);
-			
-			logger.info("apiJsonObj:"+apiJsonObj);
-			
-			ajaxReturn(response,apiJsonObj);
 	
-	}
 	
 	@RequestMapping(value = {"/{lang}/sendEmail"})
 	public String getsendEmailInfo(Model model, HttpServletRequest request) {
@@ -63,11 +50,8 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-fna"})
-	public String getSavieFNA(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-fna";
+	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-application-details"})

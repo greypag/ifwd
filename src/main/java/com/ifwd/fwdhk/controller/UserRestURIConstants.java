@@ -92,13 +92,17 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_PLAN_DETAILS = "savie-plan-details";
 	public static final String PAGE_SAVIE_FNA = "savie-fna";
 	public static final String PAGE_SAVIE_APPLICATION_DETAILS = "savie-application-details";
-	public static final String PAGE_SAVIE_ORDER_SUMMARY = "savie-order-summary";
-	public static final String PAGE_SAVIE_APPOINTMENT = "savie-appointment";
-	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "savie-document-upload";
-	public static final String PAGE_SAVIE_THANKYOU = "savie-thankyou";
 	public static final String PAGE_SAVIE_DECLARATION_AUTHORIZATION = "savie-declaration-authorization";
 	public static final String PAGE_SAVIE_SIGNATURE = "savie-signature";
+	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "savie-document-upload";	
+	public static final String PAGE_SAVIE_ORDER_SUMMARY = "savie-order-summary";
+	
+	public static final String PAGE_SAVIE_APPOINTMENT = "savie-appointment";
+	
+	public static final String PAGE_SAVIE_THANKYOU = "savie-thankyou";	
+	
 	public static final String PAGE_SAVIE_EDIT_VIEW = "savie-edit-view";	
+	
 	
 	
 
