@@ -5,15 +5,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
 import net.sf.json.JSONObject;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -75,7 +72,12 @@ public class ECommWsConnector {
 		url.append(premium);
 		url.append("&referralCode=");
 		url.append(referralCode);
-		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, locale);
+		
+		Map<String,String> header = Maps.newHashMap();
+		if(locale != null){			
+			header.put("language", locale.getLanguage());
+		}
+		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
 	
 	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
@@ -86,22 +88,18 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,null);
 	}
 	
-	private <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Locale locale) {
+	private <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = wsUrl + path;
 		logger.debug("path:" + url);
 		
-		final Map<String,String> headers = Maps.newHashMap();
-		if(locale != null){			
-			headers.put("language", locale.getLanguage());
-		}
 		switch (method) {
 		case POST:
-			return callByPostMethod(url, headers, requestBody, responseClazz);
+			return callByPostMethod(url, header, requestBody, responseClazz);
 		case GET:
-			return callByGetMethod(url, headers, responseClazz);
+			return callByGetMethod(url, header, responseClazz);
 		case PUT:
-			return callByPutMethod(url, headers, requestBody, responseClazz);
+			return callByPutMethod(url, header, requestBody, responseClazz);
 		default:
 			throw new IllegalArgumentException("Unsupported Http method");
 		}
