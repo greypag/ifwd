@@ -55,7 +55,7 @@
 	</error-page>
 	<error-page>
 		<error-code>401</error-code>
-		<location>/WEB-INF/jsp/error/error400.jsp</location>
+		<location>/WEB-INF/jsp/error/error401.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>

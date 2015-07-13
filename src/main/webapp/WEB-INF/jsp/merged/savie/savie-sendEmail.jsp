@@ -32,8 +32,7 @@
 		<td></td><td></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="button"  onclick="sendEmail()" value="	sendEmail	"/></td>
-		<td colspan="2" align="center"><input type="button"  onclick="sendlead()" value="	sendlead	"/></td>
+		<td colspan="4" align="center"><input type="button"  onclick="sendEmail()" value="	sendEmail	"/></td>
 	</tr>
 </table>
 <script type="text/javascript">
@@ -60,25 +59,6 @@ function sendEmail() {
 	    	"month_savings_no_interest" : month_savings_no_interest, 
 	    	"month_savings_with_interest" : month_savings_with_interest, 
 	    	"player_email" : player_email    
-   		},     
-	    //async : false, //默认为true 异步     
-	    error:function(){     
-	       alert('error');     
-	    },     
-	    success:function(data){     
-	    	alert('OK');       
-	    }  
-	});
-}
-
-function sendlead() {
-	$.ajax({     
-	    url:'<%=request.getContextPath()%>/ajax/savie/sendLeadByAjax',     
-	    type:'post',     
-	    data:{    
-	    	"email": "natsdsshaniel.kw.cheung2@fwd.com",
-	        "answer1": "",
-	        "step": "1"    
    		},     
 	    //async : false, //默认为true 异步     
 	    error:function(){     

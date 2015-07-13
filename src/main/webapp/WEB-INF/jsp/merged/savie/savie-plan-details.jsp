@@ -259,20 +259,7 @@
 			</div>
 
 			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a> 
-	</div>	
-		<!-- JS INCLUDES -->
-		
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-datepicker.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/placeholders.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
+	</div>
 		
 		<!--For Sales Illustration page js-->
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>

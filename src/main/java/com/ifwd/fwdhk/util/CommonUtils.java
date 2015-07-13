@@ -80,6 +80,8 @@ public class CommonUtils {
 			header.put("token", getToken());
 			header.put("language", WebServiceUtils.transformLanaguage("language"));
 			
+			logger.info("***********getOptionItemDescListURL****************:"+Url);
+			
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
 			
