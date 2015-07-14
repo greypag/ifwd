@@ -190,6 +190,7 @@ public class SavieServiceImpl implements SavieService {
 					inputTable.accumulate("issueAge", issueAge);
 					inputTable.accumulate("paymode", "monthly");
 					inputTable.accumulate("premium", premium);
+					inputTable.accumulate("paymentMode", "Single");
 					inputTable.accumulate("paymentTerm", paymentTerm);
 					inputTable.accumulate("promoCode", referralCode);
 					inputTableList.add(inputTable);
@@ -207,21 +208,33 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan0 = new JSONObject();
 						plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getAccountEOP()));
+						plan0.accumulate("totalPremium", premium);
+						plan0.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan0.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
 						plansList.add(plan0);
 						
 						JSONObject plan2 = new JSONObject();
 						plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getAccountEOP()));
+						plan2.accumulate("totalPremium", premium);
+						plan2.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan2.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
 						plansList.add(plan2);
 						
 						JSONObject plan3 = new JSONObject();
 						plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getAccountEOP()));
+						plan3.accumulate("totalPremium", premium);
+						plan3.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan3.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
 						plansList.add(plan3);
 						
 						JSONObject plan4 = new JSONObject();
 						plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getAccountEOP()));
+						plan4.accumulate("totalPremium", premium);
+						plan4.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan4.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
 						plansList.add(plan4);
 						
