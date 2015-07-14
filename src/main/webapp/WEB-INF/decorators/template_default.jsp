@@ -41,9 +41,12 @@
 
 
 <!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="${ogTitle}" />
+<meta itemprop="headline" content="${ogTitle}" />
 <meta itemprop="description" content="${ogDescription}"/>
 <meta itemprop="image" content="${ogImage}" />
+
+
+
 
 <!-- Open Graph data -->
 <meta property="og:title" content="${ogTitle}" />
