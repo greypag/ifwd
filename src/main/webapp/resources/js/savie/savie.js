@@ -70,6 +70,13 @@ function getSavieIllustration() {
 					if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 						var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 						items[3][i] = rateIsZero;
+						
+						if (i == 0 || i == 1 || i == 2) {
+							var rowCtr = i+1;
+							$('#premium-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].totalPremium);
+							$('#account-value-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].accountBalance);
+							$('#surrender-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit);
+						}
 					}
 					if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
 						var rateIsTwo =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;

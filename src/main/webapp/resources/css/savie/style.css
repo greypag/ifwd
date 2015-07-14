@@ -4,8 +4,14 @@ body{
 }
 */
 
+#calculatorDiv{
+	position: relative;
+	font-family:calibri, "Trebuchet MS", arial, helvetica, sans-serif;
+	font-size: 16px;
+}
+
 #calculatorDiv.second{
-	/*background: url("../../images/mini-calculator/selectDream_bg.png") repeat-x;*/
+	/*background: url("../img/selectDream_bg.png") repeat-x;*/
 	background: url("../../images/mini-calculator/orange_spacer.jpg") repeat;
 }
 #calculatorDiv.third{
@@ -22,7 +28,7 @@ body{
     /*background-color:white;*/
 }
 
-.wrapper div, .wrapper span, .wrapper a{
+#calculatorDiv div, #calculatorDiv span, #calculatorDiv a{
 	outline: none;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -33,7 +39,6 @@ body{
 }
 
 .wrapper .main_background{
-    font-family:calibri, "Trebuchet MS", arial, helvetica, sans-serif;
     background-repeat: no-repeat;
     position: relative;
     width: 100%;
@@ -52,14 +57,23 @@ body{
 	font-size:50px;
 	line-height: 40px;
 }
+#calculatorDiv.zh #welcomePageText .title{
+	font-size: 46px;
+	line-height: 52px;
+}
 #welcomePageText .desc{
 	font-size:12px;
 	width:350px;
 	margin-top:8px;
 }
 
+#calculatorDiv.zh #welcomePageText .desc{
+	font-size:14px;
+	margin-top:6px;
+	line-height: 18px;
+}
+
 .wrapper .letgo_btn{
-    background: url("../../images/mini-calculator/img_letsstart_btn.png") left no-repeat;
     position: absolute;
     top: 190px;
     left: 34px;
@@ -68,12 +82,33 @@ body{
     margin-left: auto;
     margin-right: auto;
     z-index: 4;
+    cursor:pointer;
 }
-.wrapper .letgo_btn:active{
+
+#calculatorDiv.en .wrapper .letgo_btn{
+    background: url("../../images/mini-calculator/img_letsstart_btn.png") left no-repeat;
+}
+#calculatorDiv.en .wrapper .letgo_btn:active{
 	background: url("../../images/mini-calculator/img_letsstart_btn.png") right no-repeat;
 }
+
+#calculatorDiv.zh .wrapper .letgo_btn{
+    background: url("../../images/mini-calculator/img_letsstart_btn_chi.png") left no-repeat;
+}
+#calculatorDiv.zh .wrapper .letgo_btn:active{
+	background: url("../../images/mini-calculator/img_letsstart_btn_chi.png") right no-repeat;
+}
+
+.wrapper .dreaming .title{
+	position: absolute;
+	font-size: 46px;
+	color:#ffffff;
+	text-align: center;
+	top:30px;
+	width:100%;
+}
+
 .wrapper .car_dream_btn{
-    background-image: url("../../images/mini-calculator/img_dream_car_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 392px;
@@ -86,8 +121,14 @@ body{
     z-index: 4;
     cursor:pointer;
 }
+#calculatorDiv.en .wrapper .car_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_car_btn.png");
+}
+#calculatorDiv.zh .wrapper .car_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_car_btn_chi.png");
+}
+
 .wrapper .wedding_dream_btn{
-    background-image: url("../../images/mini-calculator/img_dream_marriage_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 330px;
@@ -100,8 +141,14 @@ body{
     z-index: 4;
     cursor:pointer;
 }
+#calculatorDiv.en .wrapper .wedding_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_marriage_btn.png");
+}
+#calculatorDiv.zh .wrapper .wedding_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_marriage_btn_chi.png");
+}
+
 .wrapper .trip_dream_btn{
-    background-image: url("../../images/mini-calculator/img_dream_travel_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 142px;
@@ -114,8 +161,14 @@ body{
     z-index: 4;
     cursor:pointer;
 }
+#calculatorDiv.en .wrapper .trip_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_travel_btn.png");
+}
+#calculatorDiv.zh .wrapper .trip_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_travel_btn_chi.png");
+}
+
 .wrapper .saving_dream_btn{
-    background-image: url("../../images/mini-calculator/img_dream_other_btn.png");
     background-repeat: no-repeat;
     position: absolute;
     top: 336px;
@@ -128,6 +181,13 @@ body{
     z-index: 4;
     cursor:pointer;
 }
+#calculatorDiv.en .wrapper .saving_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_other_btn.png");
+}
+#calculatorDiv.zh .wrapper .saving_dream_btn{
+	background-image: url("../../images/mini-calculator/img_dream_other_btn_chi.png");
+}
+
 .wrapper .trip_map{
     width: 100%;
     text-align: center;
@@ -154,6 +214,10 @@ body{
     margin-left: auto;
     margin-right: auto;
     background-size: contain;
+    cursor:pointer;
+}
+.wrapper .boy_figure.big, .wrapper .boy_figure.defaultCursor{
+	cursor:default;
 }
 
 .wrapper .boy_figure .animationDiv{
@@ -209,6 +273,10 @@ body{
     margin-left: auto;
     margin-right: auto;
     background-size: contain;
+    cursor:pointer;
+}
+.wrapper .girl_figure.big, .wrapper .girl_figure.defaultCursor{
+	cursor:default;
 }
 .wrapper .girl_figure .animationDiv{
 	width:92px;
@@ -510,6 +578,19 @@ body{
 	left:470px; 
 }
 
+/***** new animation start*****/
+.wrapper .levelSelectionDiv #weddingElegant1{
+	width:271px;
+	height:318px;
+	top:101px;
+	left:342px;
+}
+.wrapper .levelSelectionDiv #weddingElegant1.init{
+	height:0px;
+	top:419px;
+}
+/***** new animation end *****/
+
 .wrapper .levelSelectionDiv #weddingElegant{
 	width: 521.6px;
 	height: 328.8px;
@@ -731,6 +812,8 @@ body{
 .wrapper #sliderDiv div.valueLevelDiv.hidden div.valueLevelButton{
 	display:none;
 }
+
+/*
 .wrapper #sliderDiv div.valueLevelButton, .wrapper #sliderDiv div.valueLevelButton div{
 	display:inline-block;
 	width:60px;
@@ -738,13 +821,21 @@ body{
 	vertical-align: middle;
 	cursor:pointer;
 }
+*/
 .wrapper #sliderDiv div.valueLevelButton{
 	background: url("../../images/mini-calculator/valueLevel_btn.png") no-repeat;
+	display:inline-block;
 	margin:0 60px;
+	width:79px;
+	height:85px;
+	cursor:pointer;
+	color:#777777;
 }
 .wrapper #sliderDiv div.valueLevelButton.active{
 	background: url("../../images/mini-calculator/valueLevel_btn.png") right no-repeat;
+	color:#ffffff;
 }
+
 .wrapper #sliderDiv div.valueLevelButton .simple{
 	background: url("../../images/mini-calculator/valueLevelBtn_simple.png") no-repeat;
 }
@@ -764,6 +855,50 @@ body{
 	background: url("../../images/mini-calculator/valueLevelBtn_deluxe.png") right no-repeat;
 }
 
+.wrapper #sliderDiv div.valueLevelDiv div.valueLevelButton div.table{
+	display: table; 
+	width: 100%;
+	height: 100%; 
+	margin-top:-4px;
+	margin-left:2px;
+	overflow: hidden;
+}
+.wrapper #sliderDiv div.valueLevelDiv div.valueLevelButton div.tableCell{
+	display: table-cell; 
+	vertical-align: middle;
+}
+#calculatorDiv.zh .wrapper #sliderDiv div.valueLevelDiv div.valueLevelButton div.tableCell{
+	padding:8px;
+}
+.wrapper #sliderDiv div.valueLevelDiv div.tableCell div.btnText{
+	font-size:20px;
+}
+
+#calculatorDiv.en .wrapper #sliderDiv div.valueLevelDiv.car #valueLevelBtn_lv3 div.tableCell div.btnText{
+	font-size:17px;
+}
+#calculatorDiv.en .wrapper #sliderDiv div.valueLevelDiv.trip div.tableCell div.btnText{
+	font-size:17px;
+	line-height: 15px;
+}
+#calculatorDiv.en .wrapper #sliderDiv div.valueLevelDiv.trip #valueLevelBtn_lv2 div.tableCell div.btnText{
+	font-size: 15px;
+}
+#calculatorDiv.en .wrapper #sliderDiv div.valueLevelDiv.trip #valueLevelBtn_lv3 div.tableCell div.btnText{
+	font-size:13px;
+}
+#calculatorDiv.en .wrapper #sliderDiv div.valueLevelDiv.wedding #valueLevelBtn_lv3 div.tableCell div.btnText{
+	font-size: 14px;
+}
+
+#calculatorDiv.zh .wrapper #sliderDiv div.valueLevelDiv.trip div.tableCell div.btnText{
+	font-size:16px;
+}
+#calculatorDiv.zh .wrapper #sliderDiv div.valueLevelDiv.trip #valueLevelBtn_lv3 div.tableCell div.btnText{
+	font-size: 12px;
+	padding:7px;
+}
+
 .wrapper .sliderUnit{
 	display:inline-block;
     font-size: 16px;
@@ -774,10 +909,19 @@ body{
 .wrapper #sliderDiv .sliderContainer{
 	display: inline-block;
 	vertical-align: top;
+	position: relative;
+}
+
+.wrapper #sliderDiv .sliderContainer .marker{
+	background-color: #6D6E71;
+	width: 2px;
+	height:17px;
+	display: inline-block;
+	vertical-align:top;
 }
 
 .wrapper #slider{
-	border: 1px solid #636463;
+	border: 0px;
 	background: #636463 none;
 	width:614px;
 	height:8px;
@@ -785,12 +929,15 @@ body{
 	border-bottom-right-radius:0px;
 	border-top-left-radius:0px;
 	border-bottom-left-radius:0px;
+	display:inline-block;
+	vertical-align:top;
 	z-index:2;
 }
 
 #slider .ui-slider-handle, #slider .ui-slider-handle.ui-state-active {
     border: none;
     background: none;
+    cursor:pointer;
 }
 
 .wrapper #slider .ui-widget-header{
@@ -809,10 +956,11 @@ body{
     height:21px;
     line-height: 21px;
     text-align:center;
-    background: #ea8b2d none;
+    background: #ea8b2d url("../../images/mini-calculator/tooltip_light.png") repeat-x;
     border:0px;
     font-size:14px;
     color:white;
+    box-shadow: 0px 4px 5px #bbbbbb;
     z-index:10;
 }
 
@@ -841,6 +989,7 @@ body{
 	border-top-width: 7px; 
 	border-top-style: solid; 
 	border-top-color: #ea8b2d;
+	z-index: 11;
 }
 
 .ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down-inner{
@@ -881,10 +1030,12 @@ body{
 #sliderDiv.age #slider #tooltip{
 	width:50px;
 	left:-14px;
-	left: 23px;
 }
 #sliderDiv.age #ageScale{
 	display:block;
+	width:100%;
+	position: absolute;
+	top:10px;
 }
 #sliderDiv.age #carScale{
 	display:none;
@@ -893,14 +1044,16 @@ body{
 	display:none;
 }
 #sliderDiv.age #ageScale.slidersteps span.head{
-	text-align:left;
-	width: 307px;
-	margin:0px 0px 0px -3px;
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+	left:-5.5%;
 }
 #sliderDiv.age #ageScale.slidersteps span.tail{
-	text-align:right;
-	width: 307px;
-	margin:0px 0px 0px 4px;
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+	left:94.16%;
 }
 
 /** car, wedding, saving **/
@@ -913,6 +1066,9 @@ body{
 }
 #sliderDiv.car #carScale, #sliderDiv.wedding #carScale, #sliderDiv.saving #carScale{
 	display:block;
+	width:100%;
+	position: absolute;
+	top:10px;
 }
 #sliderDiv.car #tripScale, #sliderDiv.wedding #tripScale, #sliderDiv.saving #tripScale{
 	display:none;
@@ -931,6 +1087,9 @@ body{
 }
 #sliderDiv.trip #tripScale{
 	display:block;
+	width:100%;
+	position: absolute;
+	top:10px;
 }
 /*
 #sliderDiv.car #carScale.slidersteps span{
@@ -962,31 +1121,31 @@ body{
 #sliderDiv.wedding #carScale.slidersteps span.first, 
 #sliderDiv.saving #carScale.slidersteps span.first, 
 #sliderDiv.trip #tripScale.slidersteps span.first{
-	left:-5.6%;
+	left:-5.5%;
 }
 #sliderDiv.car #carScale.slidersteps span.second, 
 #sliderDiv.wedding #carScale.slidersteps span.second, 
 #sliderDiv.saving #carScale.slidersteps span.second, 
 #sliderDiv.trip #tripScale.slidersteps span.second{
-	left:14.16%;
+	left:14.5%;
 }
 #sliderDiv.car #carScale.slidersteps span.third, 
 #sliderDiv.wedding #carScale.slidersteps span.third,
 #sliderDiv.saving #carScale.slidersteps span.third, 
 #sliderDiv.trip #tripScale.slidersteps span.third{
-	left:34.16%;
+	left:34.34%;
 }
 #sliderDiv.car #carScale.slidersteps span.forth, 
 #sliderDiv.wedding #carScale.slidersteps span.forth, 
 #sliderDiv.saving #carScale.slidersteps span.forth, 
 #sliderDiv.trip #tripScale.slidersteps span.forth{
-	left:54.16%;
+	left:54.33%;
 }
 #sliderDiv.car #carScale.slidersteps span.fifth, 
 #sliderDiv.wedding #carScale.slidersteps span.fifth, 
 #sliderDiv.saving #carScale.slidersteps span.fifth, 
 #sliderDiv.trip #tripScale.slidersteps span.fifth{
-	left:74.16%;
+	left:74.14%;
 }
 #sliderDiv.car #carScale.slidersteps span.sixth, 
 #sliderDiv.wedding #carScale.slidersteps span.sixth, 
@@ -1008,23 +1167,36 @@ body{
 }
 
 .wrapper #sliderDivSaving div.divLeft{
+	position: relative;
 	display: inline-block;
 	float:left;
 	margin-left:40px;
 }
 .wrapper #sliderDivSaving div.divRight{
+	position: relative;
 	display: inline-block;
 	float:right;
 	margin-right:40px;
 }
 
 .wrapper #sliderDivSaving .sliderContainerSaving, .wrapper #sliderDivSaving .sliderContainerSavingPeriod{
+	position: relative;
 	display: inline-block;
 	vertical-align: top;
 }
 
+.wrapper #sliderDivSaving .sliderContainerSaving .marker, .wrapper #sliderDivSaving .sliderContainerSavingPeriod .marker{
+	background-color: #6D6E71;
+	width: 2px;
+	height:17px;
+	display: inline-block;
+	vertical-align:top;
+}
+
 .wrapper #sliderSaving, .wrapper #sliderSavingPeriod{
-	border: 1px solid #636463;
+	display: inline-block;
+	vertical-align: top;
+	border: 0px;
 	background: #636463 none;
 	width:474px;
 	height:8px;
@@ -1045,6 +1217,7 @@ body{
 #sliderSavingPeriod .ui-slider-handle, #sliderSavingPeriod .ui-slider-handle.ui-state-active {
     border: none;
     background: none;
+    cursor:pointer;
 }
 
 .wrapper #sliderSaving .ui-widget-header, .wrapper #sliderSavingPeriod .ui-widget-header{
@@ -1062,30 +1235,36 @@ body{
 
 #sliderDivSaving .slidersteps{
 	display:block;
+	width:100%;
+	position: absolute;
+	top:10px;
 }
 #sliderDivSaving .sliderContainerSaving .slidersteps span.head{
-	text-align:left;
-	width: 306px;
-	margin:0px 0px 0px -3px;
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+	left:-7.2%;
 }
 #sliderDivSaving .sliderContainerSaving .slidersteps span.tail{
-	text-align:right;
-	width: 168px;
-	margin:0px 0px 0px 4px;
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+	left:92.4%;
 }
 #sliderDivSaving .sliderContainerSavingPeriod .slidersteps span.head{
-	text-align:left;
-	width: 206px;
-	margin:0px 0px 0px -3px;
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+	left:-14.2%;
 }
 #sliderDivSaving .sliderContainerSavingPeriod .slidersteps span.tail{
-	text-align:right;
-	width: 30px;
-	margin:0px 0px 0px 4px;
+	width:70px;
+	margin-right: 0px;
+	position: absolute;
+	left:85%;
 }
 #sliderDivSaving .sliderContainerSaving .slidersteps span.max{
-	text-align:right;
-	width: 140px;
+	width: 100%;
 	margin-right: 0px;
 }
 
@@ -1183,6 +1362,34 @@ body{
     font-size:18px;
 }
 
+#emailDiv div.desc div.mailIcon{
+	display:inline-block;
+	width:54px;
+	height:54px;
+	background: url("../../images/mini-calculator/email_circular_icon.png") left no-repeat;
+	vertical-align: middle;
+	margin-right:20px;
+}
+#emailDiv div.desc div.mailIcon.warning{
+	background: url("../../images/mini-calculator/email_circular_icon.png") right no-repeat;
+}
+
+#emailDiv div.desc div.mailIcon.sent{
+	background: url("../../images/mini-calculator/email_icon.png") no-repeat;
+	width: 27px; 
+	height: 18px;
+	margin-right:10px;
+}
+
+#emailDiv div.desc div.text{
+	display:inline-block;
+	vertical-align: middle;
+}
+
+#emailDiv div.desc div.text span.warning{
+	color:#ff4848;
+}
+
 #emailDiv div.inputDiv{
 	width:553px;
 	height:39px;
@@ -1197,8 +1404,8 @@ body{
 	position: relative;
 	display:inline-block;
 	vertical-align:bottom;
-	background: url("../../images/mini-calculator/img_textfield_email.png") bottom no-repeat;
-	width:370px;
+	background: url("../../images/mini-calculator/email_underline.png") bottom no-repeat;
+	width:351px;
 	height:39px;
 }
 #emailDiv .textfield input[type="text"]{
@@ -1206,7 +1413,7 @@ body{
 	bottom: 0px;
 	left: 0px;
 	font-size: 16px;
-	width:346px;
+	width:332px;
 	padding: 4px 10px;
 	border: none;
     background-color: transparent;
@@ -1217,20 +1424,22 @@ body{
 	position: relative;
 	display:inline-block;
 	vertical-align:bottom;
-	background: url("../../images/mini-calculator/email_me_btn.png") left no-repeat;
-	width:183px;
-	height:39px;
+	background: url("../../images/mini-calculator/submit_btn.png") left no-repeat;
+	width:99px;
+	height:30px;
 	color:#FFFFFF;
 	cursor:pointer;
 }
 #emailBtn:active{
-	background: url("../../images/mini-calculator/email_me_btn.png") right no-repeat;
+	background: url("../../images/mini-calculator/submit_btn.png") right no-repeat;
 }
 #emailBtn div{
-	position: absolute;
-	bottom:3px;
-	left:64px;
-	font-size: 22px;
+	font-size: 20px;
+	line-height: 29px;
+}
+
+#calculatorDiv.zh #emailBtn div{
+	font-size: 18px;
 }
 
 #emailDiv .startoverDiv{
@@ -1238,16 +1447,79 @@ body{
 	margin-top:10px;
 }
 #startoverBtn{
-	width:180px;
-	height:30px;
+	width:209px;
+	height:56px;
 	margin:0 auto;
-	background: url("../../images/mini-calculator/img_rect_btn.png") right no-repeat;
+	background: url("../../images/mini-calculator/img_rect_btn_shd.png") right no-repeat;
 	text-align:center;
 	color:#FFFFFF;
 	font-size:22px;
 	cursor:pointer;
 }
 #startoverBtn:active{
-	background: url("../../images/mini-calculator/img_rect_btn.png") left no-repeat;
+	background: url("../../images/mini-calculator/img_rect_btn_shd.png") left no-repeat;
 }
 
+#startoverBtn div{
+	width:100%;
+	height:100%;
+	padding-top:5px;
+}
+#calculatorDiv.zh #startoverBtn div{
+	padding-top:7px;
+}
+
+#landscapeWarningDiv{
+	background: url("../../images/mini-calculator/overlay_bg.png") repeat;
+	width:100%;
+	height:100%;
+	position: absolute;
+	top:0px;
+	z-index:20;
+	text-align: center;
+	display:none;
+}
+#landscapeWarningDiv:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle ;
+  height: 100%;
+}
+
+#landscapeWarningDiv div.divContent{
+	position: relative;
+	width:689px;
+	height:378px;
+	background: url("../../images/mini-calculator/landscape_phone.png") no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+	color:#ffffff;
+}
+
+#landscapeWarningDiv div.divContent div.desc{
+	position: relative;
+	font-size: 22px; 
+	top:100px;
+	width:100%;
+	margin-left: 20px;
+}
+
+#landscapeWarningDiv div.divContent div.desc div.second{
+	font-size:38px;
+}
+
+#landscapeWarningDiv div.divContent div.startButton{
+	position: absolute;
+	width:380px;
+	height:82px;
+	background: url("../../images/mini-calculator/start_btn.png") left no-repeat;
+	bottom: 0px;
+	left:155px;
+	cursor:pointer;
+	vertical-align: middle;
+	font-size: 46px;
+	line-height: 82px;
+}
+#landscapeWarningDiv div.divContent div.startButton:active{
+	background: url("../../images/mini-calculator/start_btn.png") right no-repeat;
+}

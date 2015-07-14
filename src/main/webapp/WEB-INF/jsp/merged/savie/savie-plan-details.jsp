@@ -114,9 +114,9 @@
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <tr>    <td class="left-border">1</td>  <td class="black-text"><span>$</span> 100,000</td> <td class="black-text desktop-only"><span>$</span> 100,000</td>    <td class="black-text right-border"><span>$</span> 100,000</td>    </tr>
-	                                        <tr>    <td class="left-border">2</td>  <td class="black-text"><span>$</span> 100,000</td> <td class="black-text desktop-only"><span>$</span> 100,000</td>    <td class="black-text right-border"><span>$</span> 100,000</td>    </tr>
-	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text"><span>$</span> 100,000</td> <td class="black-text desktop-only"><span>$</span> 100,000</td>    <td class="black-text right-border"><span>$</span> 100,000</td>    </tr>
+	                                        <tr>    <td class="left-border">1</td>  <td class="black-text" id="premium-1"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 100,000</td>    </tr>
+	                                        <tr>    <td class="left-border">2</td>  <td class="black-text" id="premium-2"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 100,000</td>    </tr>
+	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text" id="premium-3"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 100,000</td>    </tr>
 	                                    </tbody>
 	                                </table>
 	                            </div>
@@ -167,7 +167,7 @@
 			</div>
 
 			<!-- Email Block -->
-			<div class="fwd-container container-fluid">     
+			<!-- <div class="fwd-container container-fluid">     
 				<div class="row email-row">
 					<div class="col-xs-12 col-md-6 email-me pull-left">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/email-mob.png">
@@ -183,7 +183,7 @@
 						</form>
 					</div>
 				</div>
-			</div>
+			</div>  -->
 			
 			
 			<!--Explanation Block-->

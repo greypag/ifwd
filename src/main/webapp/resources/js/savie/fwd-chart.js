@@ -185,30 +185,14 @@ function getSeries(rate, zoom, isDefault) {
 	var benefitAxis = new Array();
 	
 	// get data
-	if (isDefault) {
-		if (zoom == 1) {
-			data = getData(5, isDefault);
-		} else if (zoom == 2) {
-			data = getData(25, isDefault);
-		} else if (zoom == 3) {
-			data = getData(30, isDefault);
-		} else if (zoom == 4) {
-			data = getData(45, isDefault);
-		}
-	} else {
-		if (zoom == 1) {
-			data = getData(5, isDefault);
-			console.log(data);
-		} else if (zoom == 2) {
-			data = getData(9, isDefault);
-			console.log(data);
-		} else if (zoom == 3) {
-			data = getData(10, isDefault);
-			console.log(data);
-		} else if (zoom == 4) {
-			data = getData(11, isDefault);
-			console.log(data);
-		}
+	if (zoom == 1) {
+		data = getData(5, isDefault);
+	} else if (zoom == 2) {
+		data = getData(25, isDefault);
+	} else if (zoom == 3) {
+		data = getData(30, isDefault);
+	} else if (zoom == 4) {
+		data = getData(45, isDefault);
 	}
 
 	max = data[0][data[0].length-1];
@@ -256,36 +240,19 @@ function changeCreditRate(rate, zoom, isDefault) {
 
 function getCategories(zoom, isDefault) {
 	var categories;
-	if (isDefault) {
-		switch (zoom) {
-			case 1:
-				categories = ['1', '2', '3', '4', '5 Years'];
-				break;
-			case 2:
-				categories = ['1','','','','5','','','','','10','','','','','15','','','','','20','','','','','25 Years'];
-				break;
-			case 3:
-				categories = ['1','','','','','','','','','10','','','','','','','','','','20','','','','','','','','','','30 Years'];
-				break;
-			default:
-				categories = ['1','','','','','','','','','','','','','','15','','','','','','','','','','','','','','','30','','','','','','','','','','','','','','','45 Years'];
-				break;
-		}
-	} else {
-		switch (zoom) {
-			case 1:
-				categories = ['1', '2', '3', '4', '5 Years'];
-				break;
-			case 2:
-				categories = ['1','','','','5','10','15','20','25 Years'];
-				break;
-			case 3:
-				categories = ['1','','','','','10','','20','','30 Years'];
-				break;
-			default:
-				categories = ['1','','','','','','15','','','30','100 Years'];
-				break;
-		}
+	switch (zoom) {
+		case 1:
+			categories = ['1', '2', '3', '4', '5 Years'];
+			break;
+		case 2:
+			categories = ['1','','','','5','','','','','10','','','','','15','','','','','20','','','','','25 Years'];
+			break;
+		case 3:
+			categories = ['1','','','','','','','','','10','','','','','','','','','','20','','','','','','','','','','30 Years'];
+			break;
+		default:
+			categories = ['1','','','','','','','','','','','','','','15','','','','','','','','','','','','','','','30','','','','','','','','','','','','','','','45 Years'];
+			break;
 	}
 	
 	return categories;
@@ -300,7 +267,6 @@ function getData(limit, isDefault) {
 			[125000, 135000, 145000, 154000, 163000, 172000, 181000, 190000, 199000, 208000, 217000, 226000, 235000, 244000, 253000, 262000, 271000, 280000, 289000, 298000, 307000, 316000, 325000, 334000, 343000, 352000, 361000, 370000, 379000, 388000, 397000, 406000, 415000, 424000, 433000, 442000, 451000, 460000, 469000, 478000, 487000, 496000, 505000, 514000, 523000]
 		);
 	} else {
-		console.log(items);
 		var chart_data = items;
 	}
 	var d = new Array();

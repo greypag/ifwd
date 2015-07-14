@@ -33,151 +33,162 @@
 	</div>-->
 	<!--<iframe src="http://192.168.1.128:8080/mini-calculator/" class="full-calcu"></iframe>-->
 	<div class="mini-calculator">
-		<div id="calculatorDiv">
-		<div class="wrapper">
-			<div class="levelSelectionDiv">
-			</div>
-			<div class="arrow_left" onclick="javascript:fwd.onClickLeft();">
-				<div class="arrow_left_desc"></div>
-			</div>
-			<div class="arrow_right" onclick="javascript:fwd.onClickRight();">
-				<div class="arrow_right_desc"></div>
-			</div>
-			<div class="main_background">
-				<div class="boy_figure young" onclick="javascript:fwd.sexSelection('manConfig');">
-					<div class="animationDiv"></div>
-					<div class="boy_figure_desc">Male</div>
-				</div>
-				<div class="girl_figure young" onclick="javascript:fwd.sexSelection('girlConfig');">
-					<div class="animationDiv"></div>
-					<div class="girl_figure_desc">Female</div>
-				</div>
-				<div id="smoke"></div>
-				<div class="car middle">
-					<div class="hand"></div>
-					<div class="wheel"></div>
-				</div>
-				<div class="dreaming">
-					<div class="car_dream_btn" onclick="javascript:fwd.onClickRight('car');">
-		
-					</div>
-					<div class="saving_dream_btn" onclick="javascript:fwd.onClickRight('saving');">
-		
-					</div>
-					<div class="wedding_dream_btn" onclick="javascript:fwd.onClickRight('wedding');">
-		
-					</div>
-					<div class="trip_dream_btn" onclick="javascript:fwd.onClickRight('trip');">
-		
-					</div>
-				</div>
-				<div id="welcomePageText">
-					<div class="title">Welcome to<br>My Dream Calculator</div>
-					<div class="desc">We are here to help you find out the right amount of savings you would need in order to achieve any dreams you may have, big or small. Everything you need to know is only a few clicks away.</div>
-				</div>
-				<div class="letgo_btn" onclick="javascript:fwd.onClickRight();">
-				</div>
-				<!--div class="dream_text">
-					<div class="tilte">
-						WHAT IS YOUR DREAM?
-					</div>
-					<div class="desc">
-						what are xjeskxjeskxjeskxjeskxjeskxjeskxjeskxjeskxjeskxjeskxjeskxjeskx
-					</div>
-				</div-->
-				<div class="pageTitle">
-					<div class="txtDialog">
-						<div class="text">
-							HOW OLD ARE YOU ?
+				<div id="calculatorDiv">
+					<div class="wrapper">
+						<div class="levelSelectionDiv">
 						</div>
-					</div>
-				</div>
-				<!--div class="calAge">
-					<div class="sliderRange under"></div>
-					<div id="slider" class="selectSlider">
-					</div>
-					<div class="sliderRange over"></div>
-				</div-->
-				<div id="sliderDiv">
-					<div class="valueLevelDiv">
-						<div class="valueLevelButton" id="valueLevelBtn_simple" onclick="javascript:fwd.valueLevelSelection(this, 1);"><div class="simple"></div></div>
-						<div class="valueLevelButton" id="valueLevelBtn_elegant" onclick="javascript:fwd.valueLevelSelection(this, 2);"><div class="elegant"></div></div>
-						<div class="valueLevelButton" id="valueLevelBtn_deluxe" onclick="javascript:fwd.valueLevelSelection(this, 3);"><div class="deluxe"></div></div>
-					</div>        
-					<div class="sliderUnit">Years</div>
-					<div class="sliderContainer">
-						<div id="slider"></div>
-						<div class="slidersteps" id="ageScale">
-							<span class="head">|<br>10</span>
-							<span class="tail">|<br>80</span>
+						<div class="arrow_left" onclick="javascript:fwd.onClickLeft();">
+							<div class="arrow_left_desc"></div>
 						</div>
-						<div class="slidersteps" id="carScale">
-							<span class="first">|<br>$0</span>
-							<span class="second">|<br>$200,000</span>
-							<span class="third">|<br>$400,000</span>
-							<span class="forth">|<br>$600,000</span>
-							<span class="fifth">|<br>$800,000</span>
-							<span class="sixth">|<br>$1,000,000</span>
+						<div class="arrow_right" onclick="javascript:fwd.onClickRight();">
+							<div class="arrow_right_desc"></div>
 						</div>
-						<div class="slidersteps" id="tripScale">
-							<span class="first">|<br>$0</span>
-							<span class="second">|<br>$100,000</span>
-							<span class="third">|<br>$200,000</span>
-							<span class="forth">|<br>$300,000</span>
-							<span class="fifth">|<br>$400,000</span>
-							<span class="sixth">|<br>$500,000</span>
-						</div>
-					</div>
-				</div>
-				<div id="sliderDivSaving"> 
-					<div class="divLeft">
-						<div class="sliderUnit saving">HKD</div>
-						<div class="sliderContainerSaving">
-							<div id="sliderSaving"></div>
-							<div class="slidersteps">
-								<span class="head">|<br>0</span>
-								<span class="tail">|<br><span class="max">80</span></span>
+						<div class="main_background">
+							<div class="boy_figure young" onclick="javascript:fwd.sexSelection('manConfig');">
+								<div class="animationDiv"></div>
+								<div class="boy_figure_desc"></div>
 							</div>
-							<div class="sliderTitle">Current Savings</div>
-						</div>
-					</div>
-					<div class="divRight">
-						<div class="sliderUnit savingPeriod">Years</div>
-						<div class="sliderContainerSavingPeriod">
-							<div id="sliderSavingPeriod"></div>
-							<div class="slidersteps">
-								<span class="head">|<br>1</span>
-								<span class="tail">|<br>99</span>
+							<div class="girl_figure young" onclick="javascript:fwd.sexSelection('girlConfig');">
+								<div class="animationDiv"></div>
+								<div class="girl_figure_desc"></div>
 							</div>
-							<div class="sliderTitle">Saving Period</div>
+							<div id="smoke"></div>
+							<div class="car middle">
+								<div class="hand"></div>
+								<div class="wheel"></div>
+							</div>
+							<div class="dreaming">
+								<div class="title"></div>
+								<div class="car_dream_btn" onclick="javascript:fwd.onClickRight('car');">
+					
+								</div>
+								<div class="saving_dream_btn" onclick="javascript:fwd.onClickRight('saving');">
+					
+								</div>
+								<div class="wedding_dream_btn" onclick="javascript:fwd.onClickRight('wedding');">
+					
+								</div>
+								<div class="trip_dream_btn" onclick="javascript:fwd.onClickRight('trip');">
+					
+								</div>
+							</div>
+							<div id="welcomePageText">
+								<div class="title"></div>
+								<div class="desc"></div>
+							</div>
+							<div class="letgo_btn" onclick="javascript:fwd.onClickRight();">
+							</div>
+							<div class="pageTitle">
+								<div class="txtDialog">
+									<div class="text"></div>
+								</div>
+							</div>
+							<div id="sliderDiv">
+								<div class="valueLevelDiv">
+									<div class="valueLevelButton" id="valueLevelBtn_lv1" onclick="javascript:fwd.valueLevelSelection(this, 1);">
+										<div class="table">
+											<div class="tableCell">
+												<div class="btnText"></div>
+											</div>
+										</div>
+									</div>
+									<div class="valueLevelButton" id="valueLevelBtn_lv2" onclick="javascript:fwd.valueLevelSelection(this, 2);">
+										<div class="table">
+											<div class="tableCell">
+												<div class="btnText"></div>
+											</div>
+										</div>
+									</div>
+									<div class="valueLevelButton" id="valueLevelBtn_lv3" onclick="javascript:fwd.valueLevelSelection(this, 3);">
+										<div class="table">
+											<div class="tableCell">
+												<div class="btnText"></div>
+											</div>
+										</div>
+									</div>
+								</div> 
+								<div class="sliderUnit"></div>
+								<div class="sliderContainer">
+									<div class="marker"></div><div id="slider"></div><div class="marker"></div>
+									<div class="slidersteps" id="ageScale">
+										<span class="head"><br>18</span><span class="tail"><br>70</span>
+									</div>
+									<div class="slidersteps" id="carScale">
+										<span class="first"><br>$0</span>
+										<span class="second">|<br>$200,000</span>
+										<span class="third">|<br>$400,000</span>
+										<span class="forth">|<br>$600,000</span>
+										<span class="fifth">|<br>$800,000</span>
+										<span class="sixth"><br>$1,000,000</span>
+									</div>
+									<div class="slidersteps" id="tripScale">
+										<span class="first"><br>$0</span>
+										<span class="second">|<br>$100,000</span>
+										<span class="third">|<br>$200,000</span>
+										<span class="forth">|<br>$300,000</span>
+										<span class="fifth">|<br>$400,000</span>
+										<span class="sixth"><br>$500,000</span>
+									</div>
+								</div>
+							</div>
+							<div id="sliderDivSaving"> 
+								<div class="divLeft">
+									<div class="sliderUnit saving"></div>
+									<div class="sliderContainerSaving">
+										<div class="marker"></div><div id="sliderSaving"></div><div class="marker"></div>
+										<div class="slidersteps">
+											<span class="head"><br>0</span>
+											<span class="tail"><br><span class="max">80</span></span>
+										</div>
+										<div class="sliderTitle">Current Savings</div>
+									</div>
+								</div>
+								<div class="divRight">
+									<div class="sliderUnit savingPeriod"></div>
+									<div class="sliderContainerSavingPeriod">
+										<div class="marker"></div><div id="sliderSavingPeriod"></div><div class="marker"></div>
+										<div class="slidersteps">
+											<span class="head"><br>1</span>
+											<span class="tail"><br>60</span>
+										</div>
+										<div class="sliderTitle">Saving Period</div>
+									</div>
+								</div>
+							</div>
+							<div id="calculationResult">
+								<img src="<%=request.getContextPath()%>/resources/images/mini-calculator/img_text_container_bubble.png">
+								<div class="resultContent">
+									<div class="first"><span class="firstPart">Without compound interest, you have to save </span><span class="nonCompoundInterest"></span><span class="secondPart"> each month.</span></div>
+									<div class="second"><span class="firstPart">With compound interest, you only need to save </span><span class="compoundInterest"></span><span class="secondPart"> each month.</span></div>
+									<div class="third"><span class="firstPart">Annual Return Rate: </span><div id="rorReduceBtn" onclick="javascript:fwd.reduceROR();"></div><div id="ror"></div><div id="rorAddBtn" onclick="javascript:fwd.addROR();"></div></div>
+								</div>
+							</div>
+							<div id="emailDiv">
+								<div class="desc"><div class="mailIcon"></div><div class="text"></div></div>
+								<div class="inputDiv">
+									<div class="textfield">
+										<form action="javascript:void(0);">
+										<input type="text" name="emailAddress" id="emailAddress">
+										</form>
+									</div><div id="emailBtn" onclick="javascript:fwd.sendEmail();"><div class="text"></div></div>
+								</div>
+								<div class="startoverDiv">
+									<div id="startoverBtn" onclick="javascript:fwd.startOver();"><div></div></div>
+								</div>
+							</div>
+						</div>
+					</div><!--end of wrapper-->
+					<div id="landscapeWarningDiv">
+						<div class="divContent">
+							<div class="desc">
+								<div class="first">BEST VIEWED IN</div>
+								<div class="second">LANDSCAPE</div>
+							</div>
+							<div class="startButton" onclick="javascript:fwd.hideLandscapeWarning();"></div>
 						</div>
 					</div>
 				</div>
-				<div id="calculationResult">
-					<img src="<%=request.getContextPath()%>/resources/images/mini-calculator/img_text_container_bubble.png"/>
-					<div class="resultContent">
-						<div class="first">Without compound interest, you have to save <span class="nonCompoundInterest"></span> each month.</div>
-						<div class="second">With compound interest, you only need to save <span class="compoundInterest"></span> each month.</div>
-						<div class="third">Annual Return Rate: <div id="rorReduceBtn" onclick="javascript:fwd.reduceROR();"></div><div id="ror"></div><div id="rorAddBtn" onclick="javascript:fwd.addROR();"></div></div>
-					</div>
-				</div>
-				<div id="emailDiv">
-					<div class="desc"></div>
-					<div class="inputDiv">
-						<div class="textfield">
-							<form>
-							<input type="text" name="emailAddress" id="emailAddress">
-							</form>
-						</div><div id="emailBtn" onclick="javascript:fwd.sendEmail();"><div>Email Me</div></div>
-					</div>
-					<div class="startoverDiv">
-						<div id="startoverBtn" onclick="javascript:fwd.startOver();">Start Over</div>
-					</div>
-				</div>
-			</div>
-		</div><!--end of wrapper-->
 		</div>
-	</div>
 	
        <div id="flux">
            <div id="landing-three-column" class="fwd-container container-fluid three-column-widget">
@@ -326,7 +337,9 @@
 	<!--<button type="button" class="btn btn-full hidden-md hidden-lg">Read more</button>-->
 	<a class="btn btn-full hidden-md hidden-lg" href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.landing.hidden.readmore" bundle="${msg}" /></a>
 	
-	
+	<script type="text/javascript">
+		var language = "en";
+	</script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
