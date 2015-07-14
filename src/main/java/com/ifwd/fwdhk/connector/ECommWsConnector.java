@@ -92,17 +92,11 @@ public class ECommWsConnector {
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
 	
-	public BaseResponse sendLead(JSONObject parameters)throws ECOMMAPIException{
-		final Map<String,String> header = Maps.newHashMap();
+	public BaseResponse sendLead(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,header);
 	}
 	
-	public BaseResponse SendEmail(org.json.simple.JSONObject parameters,String username,String token)throws ECOMMAPIException{
-		final Map<String,String> header = Maps.newHashMap();
-		header.put("country", "HK");
-		header.put("language", "EN");
-		header.put("token", token);
-		header.put("username", username);
+	public BaseResponse SendEmail(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.SEND_EMAIL,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	

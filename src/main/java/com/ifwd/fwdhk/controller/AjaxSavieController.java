@@ -62,6 +62,7 @@ public class AjaxSavieController extends BaseController{
 		sei.setPlayerEmail(playerEmail);
 		
 		try {
+			
 			BaseResponse br = savieService.SendEmail(request,sei);
 			
 			logger.info("apiJsonObj:"+br);
@@ -82,12 +83,13 @@ public class AjaxSavieController extends BaseController{
 	public void sendLeadByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String email,
+			@RequestParam String mobileNo,
 			@RequestParam String answer1,
 			@RequestParam String step) {
 		
 		try {
 			
-			BaseResponse br = savieService.sendLead(email,answer1,step);
+			BaseResponse br = savieService.sendLead(request);
 			
 			logger.info("apiJsonObj:"+br);
 			

@@ -40,11 +40,15 @@
 	<table style="margin-left: auto;margin-right: auto;" border="1">
 		<tr>
 			<td>email:</td><td><input type="text" id="email" size="40" value="Xiangyan_Chen@vandagroup.com"/></td>
-			<td><input type="button"  onclick="interestedGatherStep1()" value="	interestedGatherStep1	"/></td>
+			<td>mobileNo:</td><td><input type="text" id="mobileNos" size="40" value="93886166"/></td>
+		</tr>
+		<tr>
+			<td></td><td></td>
+			<td></td><td><input type="button"  onclick="interestedGatherStep1()" value="	interestedGatherStep1	"/></td>
 		</tr>
 		<tr>
 			<td>answer1:</td><td><input type="text" id="answer1" size="40" value="some answer"/></td>
-			<td><input type="button"  onclick="interestedGatherStep2()" value="	interestedGatherStep2	"/></td>
+			<td></td><td><input type="button"  onclick="interestedGatherStep2()" value="	interestedGatherStep2	"/></td>
 		</tr>
 	</table>
 <br/>
@@ -78,23 +82,25 @@ function sendEmail() {
 	       alert('error');     
 	    },     
 	    success:function(data){     
-	    	alert('OK');       
+	    	alert(data.errMsgs);       
 	    }  
 	});
 }
 
 function interestedGatherStep1() {
 	var email = $("#email").val();
-	sendlead(email,"","1");
+	var mobileNo = $("#mobileNos").val();
+	alert(mobileNo);
+	sendlead(email,mobileNo,"","1");
 }
 
 function interestedGatherStep2() {
 	var email = $("#email").val();
 	var answer1 = $("#answer1").val();
-	sendlead(email,answer1,"2");
+	sendlead("","",answer1,"2");
 }
 
-function sendlead(email,answer1,step) {
+function sendlead(email,mobileNo,answer1,step) {
 	//var email = $("#email").val();
 	//var answer1 = $("#answer1").val();
 	//var step = $("#step").val();
@@ -103,6 +109,7 @@ function sendlead(email,answer1,step) {
 	    type:'post',     
 	    data:{    
 	    	"email": email,
+	    	"mobileNo":mobileNo,
 	        "answer1": answer1,
 	        "step": step    
    		},     
@@ -111,7 +118,7 @@ function sendlead(email,answer1,step) {
 	       alert('error');     
 	    },     
 	    success:function(data){     
-	    	alert('OK');       
+	    	alert(data.errMsgs);       
 	    }  
 	});
 }

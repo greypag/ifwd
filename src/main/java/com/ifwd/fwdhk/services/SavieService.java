@@ -1,7 +1,6 @@
 package com.ifwd.fwdhk.services;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -54,7 +53,7 @@ public interface SavieService {
 	public List<OptionItemDesc> getSavieBeneficiaryRelationship(String language);
 	public List<OptionItemDesc> getOccupation(String language);
 	
-	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException;
+	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException;
 	
 	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
 	

@@ -2,10 +2,10 @@ package com.ifwd.fwdhk.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -38,6 +38,7 @@ import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 
 @Service
@@ -52,6 +53,9 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Autowired 
 	protected ECommWsConnector connector;
+	
+	@Autowired
+	protected HeaderUtil headerUtil;
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
@@ -588,14 +592,16 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	@Override
-	public BaseResponse sendLead(String email,String answer1,String step)throws ECOMMAPIException{
+	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
-			parameters.put("email", email);
-			parameters.put("answer1", answer1);
-			parameters.put("step", step);
-			br = connector.sendLead(parameters);
+			parameters.put("email", request.getParameter("email"));
+			parameters.put("mobileNo", request.getParameter("mobileNo"));
+			parameters.put("answer1", request.getParameter("answer1"));
+			parameters.put("step", request.getParameter("step"));
+			br = connector.sendLead(parameters,header);
 		}catch(Exception e){
 			
 			logger.info("SavieServiceImpl sendLead occurs an exception!");
@@ -612,18 +618,7 @@ public class SavieServiceImpl implements SavieService {
 	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
-			String token = null, username = null;
-			HttpSession session = request.getSession();
-			if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
-				token = session.getAttribute("token").toString();
-				username = session.getAttribute("username").toString();
-			}else{
-				restService.consumeLoginApi(request);
-				if ((session.getAttribute("token") != null)) {
-					token = session.getAttribute("token").toString();
-					username = session.getAttribute("username").toString();
-				}
-			}
+			final Map<String,String> header = headerUtil.getHeader(request);
 			String to = sei.getPlayerEmail() ;//request.getParameter("to"); //"nathaniel.kw.cheung@fwd.com";//
 			String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 			String subject = "html testing";//request.getParameter("subject");//
@@ -640,7 +635,7 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("from", from);
 			parameters.put("isHtml", isHTML);
 			
-			br = connector.SendEmail(parameters,username,token);
+			br = connector.SendEmail(parameters,header);
 		}catch(Exception e){
 			
 			logger.info("SavieServiceImpl sendLead occurs an exception!");
