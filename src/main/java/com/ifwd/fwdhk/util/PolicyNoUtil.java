@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.util;
 
+import org.apache.commons.lang.StringUtils;
+
+
 /**
  * @author Andy
  * @ClassName PolicyNoUtil
@@ -11,7 +14,7 @@ public class PolicyNoUtil {
 	private static final int[] BASE = { 2, 2, 3, 3, 5, 5, 7, 7, 11 };
 
 	public static Integer outCheckDigit(String policyNo) {
-		if (policyNo.isEmpty()) {
+		if (policyNo == null || policyNo.isEmpty() || !StringUtils.isNumeric(policyNo)) {
 			return null;
 		}
 		int ocd = 0; // result
@@ -21,7 +24,8 @@ public class PolicyNoUtil {
 		int even = 0;
 		int base = 9;
 		int no = 0;
-		for (int i = 0; i < policyNo.length(); i++) {
+		
+		for (int i = 0; i < BASE.length; i++) {
 			no = Integer.valueOf(policyNo.charAt(i) + "");
 			sum += base-- * no;
 			if (i % 2 == 0) {
