@@ -34,7 +34,7 @@ public class SavieController extends BaseController{
 	@Autowired
 	private SavieService savieService;
 
-	@RequestMapping(value = {"/{lang}/savie-landing"})
+	@RequestMapping(value = {"/{lang}/saving-insurance/landing","/{lang}/saving-insurance"})
 	public String getSavieLanding(Model model, HttpServletRequest request) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
@@ -42,100 +42,73 @@ public class SavieController extends BaseController{
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-plan-details"})
+	@RequestMapping(value = {"/{lang}/saving-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
 		return SaviePageFlowControl.pageFlow(model,request);
-	}
+	}	
 	
 	
-	
-	@RequestMapping(value = {"/{lang}/sendEmail"})
-	public String getsendEmailInfo(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-fna"})
+	@RequestMapping(value = {"/{lang}/saving-insurance/financial-needs-analysis"})
 	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-application-details"})
-	public String getSaviePersonalinfo(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
+	@RequestMapping(value = {"/{lang}/saving-insurance/sales-illustration"})
+	public ModelAndView getSavieIllustration(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-application-summary"})
-	public String getSavieOrderSummary(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
+	@RequestMapping(value = {"/{lang}/saving-insurance/application"})
+	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
+	}
+	
+	@RequestMapping(value = {"/{lang}/saving-insurance/application-summary"})
+	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
 		logger.debug(savieDetail.getSavieApplicantBean().getFirstName());
 		logger.debug(savieDetail.getSavieEmploymentBean().getEmploymentStatus());
 		request.getSession().setAttribute("savieDetail", savieDetail);
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-summary";
+		
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-appointment"})
-	public String getSavieAppointment(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-appointment";
+	@RequestMapping(value = {"/{lang}/saving-insurance/customer-service-centre"})
+	public ModelAndView getSavieAppointment(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-document-upload"})
-	public String getSavieDocumentUpload(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-document-upload";
+	@RequestMapping(value = {"/{lang}/saving-insurance/document-upload"})
+	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/savie-thankyou"})
-	public String getSavieThankyou(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-thankyou";
+	@RequestMapping(value = {"/{lang}/saving-insurance/confirmation"})
+	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-declaration-authorization"})
-	public String getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-declaration-authorization";
+	@RequestMapping(value = {"/{lang}/saving-insurance/declarations"})
+	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-signature"})
-	public String getSavieSignature(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-signature";
+	@RequestMapping(value = {"/{lang}/saving-insurance/signature"})
+	public ModelAndView getSavieSignature(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-edit-view"})
-	public String getSavieEditView(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-edit-view";
+	@RequestMapping(value = {"/{lang}/saving-insurance/sales-illustration"})
+	public ModelAndView getSavieEditView(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-declaration-policy-replacement"})
-	public String getSavieDeclarationPolicyReplacement(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-declaration-policy-replacement";
+	public ModelAndView getSavieDeclarationPolicyReplacement(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	/**
 	 * test save image
@@ -145,6 +118,15 @@ public class SavieController extends BaseController{
 	 * @param file
 	 * @throws Exception
 	 */
+	
+	@RequestMapping(value = {"/{lang}/sendEmail"})
+	public String getsendEmailInfo(Model model, HttpServletRequest request) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
+	}
+	
 	@RequestMapping(value = {"/savie-image"},method=RequestMethod.POST)
 	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(value="file", required=false) MultipartFile file) throws Exception{
