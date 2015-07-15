@@ -435,7 +435,7 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.header4" bundle="${msg}" /></strong></td>
 	                                        </tr>
 	                                        <tr>
-	                                            <td rowspan="2">
+	                                            <td rowspan="2" style="text-align: left;">
 	                                                <strong><fmt:message key="member.account.referral.benefits.table.row1.col1" bundle="${msg}" /></strong>
 	                                            </td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row1.col2" bundle="${msg}" /></strong></td>
@@ -443,7 +443,7 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row1.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>
 	                                        <tr>
-	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col2" bundle="${msg}" /></strong></td>
+	                                            <td style="text-align: left;"><strong><fmt:message key="member.account.referral.benefits.table.row2.col2" bundle="${msg}" /></strong></td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col3" bundle="${msg}" /></strong></td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>

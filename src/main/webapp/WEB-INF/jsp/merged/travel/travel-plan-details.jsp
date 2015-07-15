@@ -434,7 +434,7 @@ function activateUserAccountJoinUs() {
                                         value="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />"
 	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
 	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                        onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
+                                        onkeypress="return alphaOnly(event);" maxlength="50" />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>

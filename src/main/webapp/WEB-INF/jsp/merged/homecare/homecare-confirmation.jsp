@@ -172,7 +172,7 @@
 						                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td rowspan="2">
+						                                <td rowspan="2" style="text-align: left;">
 						                                  <strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong>
 						                                </td>
 						                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
@@ -180,7 +180,7 @@
 						                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
+						                                <td style="text-align: left;"><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row2col3%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>

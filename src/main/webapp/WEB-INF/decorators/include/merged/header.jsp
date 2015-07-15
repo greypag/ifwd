@@ -375,7 +375,7 @@ function submitLoginForm(formID) {
 		<div class="container pad-none">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}/home"><img
-					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
+					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
 			<div class="col-lg-8 col-md-7 pull-right">		
 				<ul class="maintabs">
@@ -438,7 +438,7 @@ function submitLoginForm(formID) {
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/${language}/home"><img
-				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
+				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="<fmt:message key="logo.alt" bundle="${msg}" />" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
 	</div>

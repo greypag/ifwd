@@ -36,12 +36,12 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 </script>
 <section id="main-slider" class="no-margin"> 
-<img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+<img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
 
 <div class="carousel slide hidden-xs hidden-sm">
 	<div class="carousel-inner">
 		<div class="item active">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image" bundle="${msg}" />" alt=""  />
+            <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />"  />
 		</div>
 	</div>
 </div>
