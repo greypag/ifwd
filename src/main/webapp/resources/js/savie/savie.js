@@ -61,7 +61,8 @@ function getSavieIllustration() {
 				},
 				function(data) {
 					alert(JSON.stringify(data));
-				})
+					$("#dada").html(JSON.stringify(data));
+				}) 
 				.fail(function(data) {
 				});
 	}

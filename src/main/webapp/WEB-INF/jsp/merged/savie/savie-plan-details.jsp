@@ -89,9 +89,9 @@
 					</div>
 				</form>
 			</div>
-			<!-- <div align="center" style="margin-top: 10px;">
-			    <input type="button" onclick='getSavieIllustration()' class="btn btn-orange" value="getData"/>
-			</div> -->
+			<div id="dada" style="margin-top: 10px;">
+			data
+			</div>
 			
 			<!-- Investment Summary and Table Block-->
 			<div class="fwd-full-container container-fluid investment">		
