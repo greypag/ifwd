@@ -3,8 +3,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%@page import="java.util.*"%>
@@ -585,12 +585,12 @@ function activateUserAccountJoinUs() {
 										<select name="whInsBeneficary" id="selectWhInsBeneficary"
 											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary')"
 											class="form-control soflow select-label">
-											<c:forEach var="relationshipList"
-												items="${mapRelationshipCode}">
-												<option value="${relationshipList.key}">
-												    <c:out value="${relationshipList.value}" />
-												</option>
-											</c:forEach>
+	                                        <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+	                                        	<enhance:out escapeXml="false">
+	                                            <option value="${relationshipList.key}"><c:out
+	                                                    value="${relationshipList.value}" /></option>
+	                                            </enhance:out>
+	                                        </c:forEach>
 										</select>
 									</div>
 									<span id="whInsBeneficary" class="text-red"></span>
