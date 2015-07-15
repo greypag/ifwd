@@ -827,7 +827,7 @@ function activateUserAccountJoinUs() {
                                                         	<enhance:out escapeXml="false">
                                                             <option value="${relationshipList.key}"><c:out
                                                                     value="${relationshipList.value}" /></option>
-                                                            </enhance:out>enhance>
+                                                            </enhance:out>
                                                         </c:forEach>
                                                     </select>
                                                     </div>
