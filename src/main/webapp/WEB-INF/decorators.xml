@@ -16,6 +16,7 @@
 		<pattern>/*/savie-landing</pattern>
 		<pattern>/*/savie-plan-details</pattern>
 		<pattern>/*/savie-application-detail*</pattern>
+		<pattern>/*/savie-declaration-policy-replacement</pattern>
 	</decorator>
 	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">

@@ -122,5 +122,11 @@ public class SavieController extends BaseController{
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-edit-view";
 	}
 	
-	
+	@RequestMapping(value = {"/{lang}/savie-declaration-policy-replacement"})
+	public String getSavieDeclarationPolicyReplacement(Model model, HttpServletRequest request) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-declaration-policy-replacement";
+	}
 }
