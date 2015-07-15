@@ -35,7 +35,7 @@ $("#dropzone").click(function(){
 	
 $("#dropzone").dropzone({
     paramName: 'file',
-    url: '<%=request.getContextPath()%>/savie-image.html',
+    url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post.html',
     dictDefaultMessage: dictDefaultMessage,
     acceptedFiles: 'image/*',
     parallelUploads: 1,

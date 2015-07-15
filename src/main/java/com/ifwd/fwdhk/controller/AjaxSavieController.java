@@ -2,6 +2,8 @@ package com.ifwd.fwdhk.controller;
 
 
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,8 +12,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -99,8 +104,55 @@ public class AjaxSavieController extends BaseController{
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
-		
-			
-	
+
 	}
+	
+	
+	@SuppressWarnings("restriction")
+	@RequestMapping(value = {"/ajax/savie/savie-image/post"},method=RequestMethod.POST)
+	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,
+			@RequestParam(value="file", required=false) MultipartFile file) throws Exception{
+		 byte[] bytes = file.getBytes(); 
+		 String str =  new sun.misc.BASE64Encoder().encode(bytes); 
+		 byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(str);
+	        System.out.println(file.getOriginalFilename());  
+	        String uploadDir = request.getRealPath("/")+"upload";  
+	        File dirPath = new File(uploadDir);  
+	        if (!dirPath.exists()) {   
+	            dirPath.mkdirs();  
+	        }  
+	        String sep = System.getProperty("file.separator");  
+	        File uploadedFile = new File(uploadDir + sep  
+	                + file.getOriginalFilename());  
+	        FileCopyUtils.copy(bytess, uploadedFile);  
+	        response.getWriter().write("true");  
+	}
+	
+	/**
+	 * test save signature image/svg
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @param image BASE64String 
+	 * @throws Exception
+	 */
+	@SuppressWarnings("restriction")
+	@RequestMapping(value = {"/ajax/savie/savie-save-signature/post"},method=RequestMethod.POST)
+	public void getSavieSaveJsignature(Model model, HttpServletRequest request,HttpServletResponse response,
+			@RequestParam String image) throws Exception{
+		
+			byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(image);
+		
+	        String uploadDir = request.getRealPath("/")+"upload";  
+	        File dirPath = new File(uploadDir);  
+	        if (!dirPath.exists()) {   
+	            dirPath.mkdirs();  
+	        }  
+	        String sep = System.getProperty("file.separator");  
+	        File uploadedFile = new File(uploadDir + sep  
+	                + "signature.svg"); 
+	        FileCopyUtils.copy(bytess, uploadedFile);  
+	        response.getWriter().write("true");  
+	}
+	
 }

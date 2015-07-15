@@ -43,7 +43,7 @@
     	//image.src = "data:" + datapair[0] + "," + datapair[1] ;
     	//$(image).appendTo($("#someelement"));  // append the image (SVG) to DOM.
     	$.ajax({     
-    	    url:'<%=request.getContextPath()%>/savie-save-signature',     
+    	    url:'<%=request.getContextPath()%>/ajax/savie/savie-save-signature/post',     
     	    type:'post',     
     	    data:{    
     	    	"image" : datapair[1] 
