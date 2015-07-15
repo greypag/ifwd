@@ -52,8 +52,7 @@ public class SaviePageFlowControl {
 			current = current.substring(current.lastIndexOf("/") + 1);
 		}
 
-		logger.debug("referer : " + referer);
-		logger.debug("current : " + current);
+		
 
 		// Landing Page
 		String to = "";
@@ -62,6 +61,9 @@ public class SaviePageFlowControl {
 		if(current.equalsIgnoreCase("saving-insurance")){
 			current=UserRestURIConstants.PAGE_SAVIE_LANDING;
 		}
+		
+		logger.debug("referer : " + referer);
+		logger.debug("current : " + current);
 		
 		switch (current) {
 		case UserRestURIConstants.PAGE_SAVIE_LANDING:
@@ -173,11 +175,12 @@ public class SaviePageFlowControl {
 
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
+		
+		logger.debug(UserRestURIConstants.getSitePath(request) + "savie/" + current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "saving-insurance/" + current);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savie/" + current);
 
 	}
 
