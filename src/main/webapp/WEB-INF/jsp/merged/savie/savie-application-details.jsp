@@ -10,13 +10,11 @@
 </head>
 <body>
 <div align="center">
-<c:choose>
-	<c:when test="${step == '1'}">
 	    <h2>Personal info</h2>
 		<div style="margin:20px 0;"></div>
 		<div>
 			<div style="padding:10px 60px 20px 60px">
-		    <form id="personalInfo" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-detail2">
+		    <form id="personalInfo" method="post" action="${pageContext.request.contextPath}/${language}/savie-application-summary">
 		    	<table>
 		    		<tr>
 		    			<td>Name in English:</td>
@@ -104,8 +102,6 @@
 		    </form>
 		    </div>
 		</div>
-	</c:when>
-	<c:when test="${step == '2'}">
 	    <h2>Employment info</h2>
 		<div style="margin:20px 0;"></div>
 		<div>
@@ -154,8 +150,6 @@
 		    </form>
 		    </div>
 		</div>
-	</c:when>
-	<c:when test="${step == '3'}">
 	    <h2>Beneficiary info</h2>
 	    <p>You may add up to three(3) persons</p>
 		<div style="margin:20px 0;"></div>
@@ -208,8 +202,6 @@
 		    </form>
 		    </div>
 		</div>
-	</c:when>
-</c:choose>
 </div>
 </body>
 </html>
