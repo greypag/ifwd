@@ -89,7 +89,7 @@
 <![endif]-->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 <script>
 
 	// handle when console is null/undefined especially in IE
