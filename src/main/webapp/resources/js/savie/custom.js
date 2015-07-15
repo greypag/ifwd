@@ -831,9 +831,9 @@ function madeDecisionSticky() {
 var dob_end_date = new Date();
 dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 
-// 86 year ago date
+//70 year ago date
 var dob_start_date = new Date();
-dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+dob_start_date.setFullYear(dob_start_date.getFullYear()-70);
 dob_start_date.setDate(dob_start_date.getDate()+1);
 
 function changeDatePickerValue($datePicker) {
