@@ -1,4 +1,5 @@
 var items = [[],[],[],[]];
+var guaranteed3Years;
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
@@ -13,13 +14,17 @@ $(function () {
 	var effective_end_date = new Date();
 
 	effective_end_date.setDate(effective_end_date.getDate()+89);
-
+	
+	// 70 year ago date
+	var dob_start_date = new Date();
+	dob_start_date.setFullYear(dob_start_date.getFullYear()-70);
+	dob_start_date.setDate(dob_start_date.getDate()+1);
 	
 	$('#birthdayDiv').datepicker({
 		autoclose: true,
 		todayHighlight: true,
 		format: "dd-mm-yyyy",
-		startDate: effective_start_date,
+		startDate: dob_start_date,
 		endDate: effective_end_date
 
 	}).on('changeDate', function (ev) {
@@ -46,12 +51,14 @@ function getSavieIllustration() {
 	var referralCode = promocode;
 	
 	if(issueAge == null || issueAge < 18 || issueAge > 100){
-		alert("Invalid date of birth!");
+		//alert("Invalid date of birth!");
+		$('#promo-code-dateOfBirth').removeClass('hidden');
 	}
 	else if(premium ==null || premium <30000 || premium > 400000){
 		alert("Invalid Savings amount!");
 	}
 	else{
+		$('#promo-code-dateOfBirth').addClass('hidden');
 		$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,
@@ -61,38 +68,59 @@ function getSavieIllustration() {
 			referralCode: referralCode
 		},
 		function(data) {
-			//alert(JSON.stringify(data));
+			var json = $.parseJSON(JSON.stringify(data));
 			
-			var json = $.parseJSON(JSON.stringify(data));					
+			$total_years = json.salesIllustration.yearPlans.length;
+			if ($total_years > 45) { // get only up to 45 years of data
+				$total_years = 45;
+			}
 			
-			for(var i = 0; i < json.salesIllustration.yearPlans.length;i++) {
-				for(var j=0; j<4; j++){
-					if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
-						var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-						items[3][i] = rateIsZero;
-						
-						if (i == 0 || i == 1 || i == 2) {
-							var rowCtr = i+1;
-							$('#premium-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].totalPremium);
-							$('#account-value-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].accountBalance);
-							$('#surrender-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit);
+			items = [[],[],[],[]]; // revert items
+			
+			for(var i = 0; i < $total_years; i++) {
+				if (json.salesIllustration.yearPlans[i].year < 100) { // do not include year 100 data from their response
+					for(var j = 0; j < 4; j++){
+						if((json.salesIllustration.yearPlans[i].plans[j].rate == "zero") && (json.salesIllustration.yearPlans[i].year == 3)){
+								 guaranteed3Years = json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+						}
+						if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
+							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							items[3][i] = rateIsZero;
+							
+							if (i == 0 || i == 1 || i == 2) {
+								var rowCtr = i+1;
+								$('#premium-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].totalPremium);
+								$('#account-value-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].accountBalance);
+								$('#surrender-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit);
+							}
+						}
+						if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){						
+							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							items[2][i] = rateIsZero;
+						}
+						if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
+							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							items[1][i] = rateIsZero;
+						}
+						if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
+							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
+							items[0][i] = rateIsZero;
 						}
 					}
-					if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
-						var rateIsTwo =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-						items[2][i] = rateIsTwo;
-					}
-					if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
-						var rateIsThree =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-						items[1][i] = rateIsThree;
-					}
-					if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
-						var rateIsFour =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
-						items[0][i] = rateIsFour;
-					}	
 				}
-				
 			}
+			
+			// fill in data for users with less than 45 years
+			for(var j = 0; j < 4; j++){
+				var totalRateItems = items[j].length;
+				if (totalRateItems < 45) {
+					for(var x = totalRateItems; x < 45; x++) {
+						items[j][x] = items[j][totalRateItems - 1];
+					}
+				}
+			}
+			console.log(items);
+			
 			isCurrentDefault = false;
 			zoomCtr = 4;
 			currentRate = 3;
@@ -139,4 +167,12 @@ function jsGetAge(strBirthday){
 		}
 	}
 	return returnAge;
+}
+
+function getguaranteed3Years(){
+	if(typeof guaranteed3Years == "undefined"){
+		return '145000';
+	}else{
+		return guaranteed3Years;
+	}
 }

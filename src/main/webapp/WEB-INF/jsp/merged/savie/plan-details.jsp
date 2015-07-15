@@ -42,7 +42,7 @@
 					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 					<div id="investment-amount">    
 						<div id="desktop-left">
-							<h3 class="saving"><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /><img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h3>
+							<h3 class="saving"><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Initial savings amount you are planning to deposit."></button></h3>
 							<div id="left" class="pull-left">
 								<p><fmt:message key="savie.planDetails.Min" bundle="${msg}" /></p>
 								<p>$30,000</p>
@@ -61,8 +61,9 @@
 
 						<div id="desktop-right">
 							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
-							<h2 id="promo">Promo Code<img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
+							<h2 id="promo">Promo Code<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button></h2>
 							<input name="promocode" id="promocode" type="text" placeholder="eg: SAVIE50" class="promocode">
+							<span class="error-msg-promo hidden" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 						</div>
 
 					   <p id="crediting-rate" class="text-center"><fmt:message key="savie.planDetails.Guaranteed.rate" bundle="${msg}" /></p>
@@ -73,7 +74,7 @@
 							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/birthday.png">
 						</div>
 
-						<h2><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" /><img class="i" src="<%=request.getContextPath()%>/resources/images/savie/i.png"></h2>
+						<h2><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Your date of birth as per your HKID. You must be 19 and above to apply."></button></h2>
 
 						<div id="birthday">
 							<div class="input-group input-append date" id="datePicker">
@@ -81,6 +82,8 @@
 								<input type="hidden" id="birthOfDay" value="05/28/1995"/>
 								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 							</div>
+							<span class="error-msg-promo hidden" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
+							<span class="error-msg-promo hidden" id="promo-code-dateOfBirthEmpty">Please input date of birth.</span>
 						</div>
 						
 						<div class="apply">
@@ -100,17 +103,17 @@
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"> </h2>
+	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></span></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
-	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><img src="<%=request.getContextPath()%>/resources/images/savie/investment-info.png" class="img-desktop-only"></th>
+	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>

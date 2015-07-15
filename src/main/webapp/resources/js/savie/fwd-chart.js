@@ -61,6 +61,7 @@ function showFWDChart(rate, zoom, isDefault) {
 	var maxData = chartData[1];
 	var tickIntervalData = chartData[2];
 	var thirdYear = chartData[3];
+	var threeYearsGuaranteed = getguaranteed3Years();
 	var contextPath = window.location.pathname.split("/")[1];
 	$('#illustration-chart').highcharts({
 		chart: {
@@ -103,11 +104,11 @@ function showFWDChart(rate, zoom, isDefault) {
 			}, { // 100,000 year guaranteed
 				id: "guaranteed",
 				label: {
-					text: "$100,000 guaranteed<span class=\"guaranteed-tip\"></span>",
+					text: "$"+threeYearsGuaranteed+" guaranteed<span class=\"guaranteed-tip guaranteed-tip-x\"></span>",
 					align: "left",
 					rotation: 0,
 					verticalAlign: "top",
-					y: 70,
+					y: 0,
 					useHTML: true,
 					style: {
 						"color": "#ffffff",
@@ -116,7 +117,7 @@ function showFWDChart(rate, zoom, isDefault) {
 						"border-radius": "6px"
 					}
 				},
-				value: 1,
+				value: 2,
 				width: 1,
 			}, { // age
 				id: "age-no",
@@ -133,6 +134,27 @@ function showFWDChart(rate, zoom, isDefault) {
 			}]
 		},
 		yAxis: {
+			plotLines: [{
+				id: "guaranteed",
+				label: {
+					text: "$"+threeYearsGuaranteed+" guaranteed<span class=\"guaranteed-tip guaranteed-tip-y\"></span>",
+					align: "left",
+					rotation: 0,
+					verticalAlign: "top",
+					marginLeft: "-23px",
+					y: 0,
+					useHTML: true,
+					style: {
+						"color": "#ffffff",
+						"background": "#ff8201",
+						"padding": "16px 17px 9px 17px",
+						"border-radius": "6px",
+						
+					}
+				},
+                value: threeYearsGuaranteed,
+                width: 1,
+            }],
 			title: {
 				text: null,
 				rotation: 0,
@@ -176,6 +198,19 @@ function showFWDChart(rate, zoom, isDefault) {
 		},
 		series: seriesData
 	});
+	
+	$('.guaranteed-tip-y').parent().css({
+		"margin-left" : "14px",
+		"margin-top" : "-38px",
+		"visibility": "hidden"
+	});	
+	var top = $('.guaranteed-tip-y').parent().css('top');
+	top = top.replace('px','');
+	top = parseInt(top) - 38;
+	$('.guaranteed-tip-x').parent().css({
+		"margin-left": '-23px',
+		"top": top+'px'
+	})
 }
 
 function getSeries(rate, zoom, isDefault) {
