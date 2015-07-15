@@ -103,10 +103,6 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-declaration-policy-replacement"})
-	public ModelAndView getSavieDeclarationPolicyReplacement(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
-	}
 	/**
 	 * test save image
 	 * @param model
