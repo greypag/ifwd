@@ -59,6 +59,10 @@ public class SaviePageFlowControl {
 		String to = "";
 		String to2 = "";
 
+		if(current.equalsIgnoreCase("saving-insurance")){
+			current=UserRestURIConstants.PAGE_SAVIE_LANDING;
+		}
+		
 		switch (current) {
 		case UserRestURIConstants.PAGE_SAVIE_LANDING:
 			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
@@ -164,7 +168,7 @@ public class SaviePageFlowControl {
 
 		logger.debug("to : " + to);
 		logger.debug("to2 : " + to2);
-		// to=UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
+		// to=UserRestURIConstants.getSitePath(request)+ "saving-insurance/"+ to;
 		// logger.debug("return to : " + to);
 
 		model.addAttribute("nextPageFlow", to);
@@ -173,7 +177,7 @@ public class SaviePageFlowControl {
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "savie/" + current);
+				+ "saving-insurance/" + current);
 
 	}
 
