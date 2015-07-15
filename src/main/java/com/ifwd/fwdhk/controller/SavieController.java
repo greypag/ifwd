@@ -35,11 +35,8 @@ public class SavieController extends BaseController{
 	private SavieService savieService;
 
 	@RequestMapping(value = {"/{lang}/saving-insurance/landing","/{lang}/saving-insurance"})
-	public String getSavieLanding(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-landing";
+	public ModelAndView getSavieLanding(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/plan-details"})
