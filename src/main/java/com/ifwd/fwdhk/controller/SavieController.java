@@ -98,10 +98,7 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/sales-illustration"})
-	public ModelAndView getSavieEditView(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
-	}
+
 	
 	/**
 	 * test save image
