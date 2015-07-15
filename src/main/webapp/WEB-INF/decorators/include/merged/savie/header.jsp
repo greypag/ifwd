@@ -44,8 +44,20 @@
 										<a title="Become our member | FWD Hong Kong" href="https://i.fwd.com.hk/en/joinus">JOIN US</a>
 									</li>
 									<li class="reset-padding-menu">|</li>
-									<li class="top-menu-chinese">
-										<a href="#">中文</a>
+									<li>
+									<%
+									//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
+									if ("en".equals(session.getAttribute("language").toString())) {
+									%>
+										<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
+									<%
+									} else {
+									%>
+										<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">EN</a>
+									<%
+									}
+									
+									 %>
 									<li>
 								</ul>
 							</div>
