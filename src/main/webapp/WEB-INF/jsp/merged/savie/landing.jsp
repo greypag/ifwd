@@ -24,7 +24,7 @@
 			<img src="<%=request.getContextPath()%>/resources/images/savie/savie-text.png" title="Savie is always sweeter" alt="Savie is always sweeter" class="img-responsive hidden-md hidden-lg">
 			<img src="<%=request.getContextPath()%>/resources/images/savie/savie-text-desktop.png" title="Savie is always sweeter" alt="Savie is always sweeter" class="img-responsive hidden-xs hidden-sm">
 		</div>
-		<a href="<%=request.getContextPath()%>/${language}/savie-plan-details" class="buy-now" ><fmt:message key="savie.landing.buynow" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></a>
+		<a href="<%=request.getContextPath()%>/${language}/saving-insurance/plan-details" class="buy-now" ><fmt:message key="savie.landing.buynow" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></a>
 	</div>
 
 	<!--<div id="landing-calculator" class="fwd-full-container container-fluid">
@@ -297,7 +297,7 @@
                        </div>
                    </button>
                </div>
-               <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savie-plan-details"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
+               <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/saving-insurance/plan-details"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
            </div>
        </div>
 	
