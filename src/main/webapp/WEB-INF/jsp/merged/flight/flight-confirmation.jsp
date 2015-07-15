@@ -568,13 +568,13 @@ $(document).ready(function() {
 	ga('create', 'UA-60032236-1', 'auto');
 	ga('require', 'ecommerce');
 	ga('ecommerce:addTransaction', {
-	  'id': '${transNo}', // Transaction ID. Required.
+	  'id': '<%=request.getSession().getAttribute("policyNo")%>', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
 	  'affiliation': 'Flight', // Insurance type, e.g. Life
 	   'currency': 'HKD'
 	  });
 	ga('ecommerce:addItem', {
-	      'id': '${transNo}', // Transaction ID. Required
+	      'id': '<%=request.getSession().getAttribute("policyNo")%>', // Transaction ID. Required
 	      'name': 'FlightCare', // Product name. Required
 	      'category': 'Flight', // Category or variation
 	      'price': '${dueAmount}', // Unit price

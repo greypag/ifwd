@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -435,11 +436,13 @@ function activateUserAccountJoinUs() {
                                             class="form-control soflow select-label">
                                             <c:forEach var="hkidList"
                                                 items="${mapHkId}">
+                                                
                                                 <option
                                                     value="${hkidList.key}">
                                                     <c:out
                                                         value="${hkidList.value}" />
                                                 </option>
+                                                
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -821,8 +824,10 @@ function activateUserAccountJoinUs() {
                                                             onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')"
                                                         class="form-control soflow select-label" >
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+                                                        	<enhance:out escapeXml="false">
                                                             <option value="${relationshipList.key}"><c:out
                                                                     value="${relationshipList.value}" /></option>
+                                                            </enhance:out>enhance>
                                                         </c:forEach>
                                                     </select>
                                                     </div>
@@ -1209,8 +1214,10 @@ function activateUserAccountJoinUs() {
                                                           onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')"
                                                       class="form-control soflow select-label" >
                                                       <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+                                                      	<enhance:out escapeXml="false">
                                                           <option value="${relationshipList.key}"><c:out
                                                                   value="${relationshipList.value}" /></option>
+                                                        </enhance:out>
                                                       </c:forEach>
                                                   </select>
                                                </div>
@@ -1556,8 +1563,10 @@ function activateUserAccountJoinUs() {
                                                         onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
+                                                        </enhance:out>
                                                         </c:forEach>
                                                     </select>
                                                     </div>
@@ -1874,8 +1883,10 @@ function activateUserAccountJoinUs() {
                                                         onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
+                                                        </enhance:out>
                                                         </c:forEach>
                                                     </select></div><span id="benificiary" style="display: none"> <label
                                                         class="text-red"></label>
