@@ -1552,7 +1552,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         <div class="alert alert-success hide proSuccess"></div>
                         <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder=""
+                            <input type="email" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode">
                             <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                         </div>

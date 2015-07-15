@@ -827,7 +827,7 @@ var promoCodeInsertFlag = true;
 						<div class="alert alert-success hide proSuccess"></div>
 						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder=""
+							<input type="email" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>

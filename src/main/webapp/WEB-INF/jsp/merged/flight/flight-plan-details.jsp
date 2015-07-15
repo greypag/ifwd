@@ -502,7 +502,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower"
+                                   <input type="email" class="form-control full-control textLower"
 					                value="${userDetails.emailAddress.trim()}" name="emailAddress"
 					                id="inputEmailId"
 					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
