@@ -62,7 +62,7 @@ public class SavieController extends BaseController{
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-details";
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-order-summary"})
+	@RequestMapping(value = {"/{lang}/savie-application-summary"})
 	public String getSavieOrderSummary(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
@@ -70,7 +70,7 @@ public class SavieController extends BaseController{
 		logger.debug(savieDetail.getSavieApplicantBean().getFirstName());
 		logger.debug(savieDetail.getSavieEmploymentBean().getEmploymentStatus());
 		request.getSession().setAttribute("savieDetail", savieDetail);
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-order-summary";
+		return UserRestURIConstants.getSitePath(request)+ "savie/savie-application-summary";
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-appointment"})
