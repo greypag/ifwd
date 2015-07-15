@@ -1891,6 +1891,19 @@ function allLetter(inputtxt) {
 
 // bmg input fields validation START
 function validateName(inputId, errorId, insureBoolean, inputType){
+	var placeholder='';
+	if(inputType=="applicant"){
+		placeholder=namePlaceholder;
+	}else if(inputType=="insured"){
+		placeholder=insureNamePlaceholder;
+	}else if(inputType=="beneficiary"){
+		placeholder=benNamePlaceholder;
+	}
+	
+	if($("#"+inputId).val()==placeholder.trim()){
+		$("#"+inputId).val('');
+    }
+	
 	var fullname = $("#"+inputId).val();
 	
 	if (fullname.trim() == "") {
@@ -1902,6 +1915,7 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 		}else if(inputType=="beneficiary"){
 			$("#"+errorId).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));
 		}
+		$("#"+inputId).val(placeholder);
 		return false;
 	}
 	if (allLetter(fullname) == false) {
@@ -1926,6 +1940,19 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 }
 
 function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
+	var placeholder='';
+	if(inputType=="applicant"){
+		placeholder=hkidPlaceholder;
+	}else if(inputType=="insured"){
+		placeholder=insureHkidPlaceholder;
+	}else if(inputType=="beneficiary"){
+		placeholder=benHkidPlaceholder;
+	}
+	
+	if($("#"+inputId).val()==placeholder.trim()){
+		$("#"+inputId).val('');
+    }
+	
 	$('#'+inputId).val($('#'+inputId).val().toUpperCase());
 	var appHkid = $('#'+inputId).val();
 	var mySelectId = $('#'+selectId).val();
@@ -1970,7 +1997,8 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 				$("#"+errorId).html(getBundle(getBundleLanguage, "insured.hkId.notNull.message"));
 			}else if(inputType=="beneficiary"){
 				$("#"+errorId).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
-			}	
+			}
+			$("#"+inputId).val(placeholder);
 			return false;
 		}
 		var tr=IsHKID(appHkid.trim());
@@ -2508,6 +2536,13 @@ $(function () {
 var travelp_click = false;
 function tPlanValid()
 {
+	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
+    	$("#inputFullName").val('');
+    }
+	if($("#inputTxtAppHkid").val().trim()==hkidPlaceholder.trim()){
+    	$("#inputTxtAppHkid").val('');
+    }
+	
 
 	var flag=true;
 	document.getElementById("fullnameinvalid").innerHTML = "";
@@ -2704,6 +2739,13 @@ function tPlanValid()
 
 	for (var i = 1; i <= parseInt(rowCountPersonal) ; i++)
 	{
+		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtInsuFullName" + i).val('');
+	    }
+		if($("#txtInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtInsuHkid" + i).val('');
+	    }
+		
 		var fullname = document.getElementById("txtInsuFullName" + i).value;
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtPersonalFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); //"Please enter Insured Person's Name in English.";
@@ -2832,6 +2874,13 @@ function tPlanValid()
 		
 		
 		
+		if($("#personalBenefitiaryId" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#personalBenefitiaryId" + i).val('');
+	    }
+		if($("#personalBenefitiaryHKId" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#personalBenefitiaryHKId" + i).val('');
+	    }
+		
 		if(selectedValue != "SE"){
 			
 
@@ -2925,6 +2974,12 @@ function tPlanValid()
 	/* Adult Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
 	{
+		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtInsuFullName" + i).val('');
+	    }
+		if($("#txtInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtInsuHkid" + i).val('');
+	    }
 
 		var fullname = document.getElementById("txtInsuFullName" + i).value;
 		if (fullname.trim() == "") {
@@ -3058,6 +3113,12 @@ function tPlanValid()
 		
 		var selectAdBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 		
+		if($("#adultBenefitiaryId" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#adultBenefitiaryId" + i).val('');
+	    }
+		if($("#adultBenefitiaryHKId" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#adultBenefitiaryHKId" + i).val('');
+	    }
 		
 		if(selectedValue != "SE"){
 			if (document.getElementById("adultBenefitiaryId" + i).value == "")
@@ -3152,6 +3213,12 @@ function tPlanValid()
 	/* Child Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
 	{
+		if($("#txtChldFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtChldFullName" + i).val('');
+	    }
+		if($("#txtChldInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtChldInsuHkid" + i).val('');
+	    }
 		
 		var fullname = document.getElementById("txtChldFullName" + i).value;
 		var age = document.getElementById("selectchildAgeRange" + i).value;
@@ -3272,6 +3339,14 @@ function tPlanValid()
 		var HkidPass = document.getElementById("txtchildInsuHkid"+i).value;
 		var selectedChldBenefitiaryHkidPass = document.getElementById("selectedChldBenefitiaryHkidPass" + i).value;
 
+		
+		if($("#childBenefitiaryName" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#childBenefitiaryName" + i).val('');
+	    }
+		if($("#txtchildInsuHkid" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#txtchildInsuHkid" + i).val('');
+	    }
+		
 		if(selectedValue != "SE"){
 			
 			
@@ -3357,6 +3432,13 @@ function tPlanValid()
 	/* Other Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
 	{
+		if($("#txtOtherFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtOtherFullName" + i).val('');
+	    }
+		if($("#txtOtherInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtOtherInsuHkid" + i).val('');
+	    }
+		
 		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
 		var fullname = document.getElementById("txtOtherFullName" + i).value;
 		var age = document.getElementById("selectOtherAgeRange" + i).value;
@@ -3458,6 +3540,14 @@ function tPlanValid()
 			}
 		}
 		var selectOtherBenefitiaryHkidPass = document.getElementById("selectOtherBenefitiaryHkidPass" + i).value;
+		
+		if($("#otherBenefitiaryName" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#otherBenefitiaryName" + i).val('');
+	    }
+		if($("#txtOtherBenInsuHkid" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#txtOtherBenInsuHkid" + i).val('');
+	    }
+		
 		if(selectedValue != "SE"){
 			var benInsuHkid = document.getElementById("txtOtherBenInsuHkid" + i).value;
 		    
@@ -4738,7 +4828,9 @@ function hc_planValid() {
     
     
     //bmg edit
-    
+    if($("#inputFullName").val().trim()==namePlaceholder.trim()){
+    	$("#inputFullName").val('');
+    }
     if($("#txtAppHkid").val().trim()==hkidPlaceholder.trim()){
     	$("#txtAppHkid").val('');
     }
@@ -5313,12 +5405,17 @@ function chkValidFlightDate(element, errElementId, name, departureDateId, errDep
 }
 
 // validation - applicant  
-function chkNotNullApplicantName(element, errElementId){
+function chkNotNullApplicantName(element, errElementId, placeholder){
+	if($(element).val()==placeholder.trim()){
+		$(element).val('');
+    }
+	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		
 		$(element).addClass('invalid-field');
+		$(element).val(placeholder);
 		return false;
 	}else{
 		resetErrElement(errElementId);

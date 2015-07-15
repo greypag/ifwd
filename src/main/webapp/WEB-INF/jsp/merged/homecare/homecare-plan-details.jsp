@@ -62,6 +62,7 @@ if(lang === "EN"){
 
 perventRedirect=true;
 
+var namePlaceholder="<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />";
 
 var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
@@ -718,12 +719,18 @@ function activateUserAccountJoinUs() {
 	                                  <label class="field-label bold-500"><fmt:message key="home.details.applicant.name" bundle="${msg}" /></label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-	                                   <input type="text"
+	                                   <!-- <input type="text"
                                             class="form-control full-control textUpper" id="inputFullName" name="applicantName"
                                             value="${userDetails.fullName.trim()}"
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
-                                            onkeypress=" return alphaOnly(event);" maxlength="50" /> <span
-                                            id="appfullname" class="text-red"></span>
+                                            onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
+                                       <input type="text"
+                                            class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" name="applicantName"
+                                            value="<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />"
+	                                        onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
+	                                        onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'appfullname', namePlaceholder);"
+                                            onkeypress=" return alphaOnly(event);" maxlength="50" />
+                                       <span id="appfullname" class="text-red"></span>
 	                               </div>
 	                           </div>
 	                           <!-- english name end -->

@@ -758,11 +758,16 @@ function confirmDetails(form){
 	if (whDetailsValid() && details_clicked === false) {
 	//if (details_clicked === false) {
 		
-		
+		if($("#inputFullName").val()==namePlaceholder.trim()){
+	    	$("#inputFullName").val('');
+	    }
 		if($("#inputWhAppHKID").val()==hkidPlaceholder.trim()){
 	    	$("#inputWhAppHKID").val('');
 	    }
 		
+		if($("#inputWhInsFullName").val()==benNamePlaceholder.trim()){
+	    	$("#inputWhInsFullName").val('');
+	    }
 		if($("#inputWhInsHKID").val()==benHkidPlaceholder.trim()){
 	    	$("#inputWhInsHKID").val('');
 	    }

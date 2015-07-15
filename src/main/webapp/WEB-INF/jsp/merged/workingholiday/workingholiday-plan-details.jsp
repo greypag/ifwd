@@ -42,9 +42,10 @@
 	}
 	
 	
-	
+	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />";
 	var hkidPlaceholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />";
 	
+	var benNamePlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 	var benHkidPlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
 
 	var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
@@ -437,12 +438,18 @@ function activateUserAccountJoinUs() {
 									</label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input type="text" class="form-control full-control textUpper"
+									<!-- <input type="text" class="form-control full-control textUpper"
 										id="inputFullName" name="whAppFullName"
 										value="${userDetails.fullName}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
-										onkeypress=" return alphaOnly(event);" maxlength="50" />
-										<span id="whAppFullName" class="text-red"></span>
+										onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
+									<input type="text" class="form-control full-control textUpper bmg_custom_placeholder"
+                                        id="inputFullName" name="whAppFullName"
+                                        value="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />"
+                                        onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'inputFullName', namePlaceholder);"
+                                        onkeypress=" return alphaOnly(event);" maxlength="50" />
+							         <span id="whAppFullName" class="text-red"></span>
 								</div>
 							</div>
 							<!-- english name end -->
@@ -617,8 +624,10 @@ function activateUserAccountJoinUs() {
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 										<input type="text" name="whInsFullName"
 											id="inputWhInsFullName"
-											class="form-control full-control textUpper"
-											onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
+											class="form-control full-control textUpper bmg_custom_placeholder"
+											value="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
 											onkeypress="    return alphaOnly(event);" maxlength="100" />
 										<span id="whInsFullName" class="text-red"> </span>
 									</div>

@@ -71,6 +71,16 @@ if(lang === "EN"){
 
 perventRedirect=true;
     
+var namePlaceholder="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />";
+var hkidPlaceholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />";
+
+var insureNamePlaceholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />";
+var insureHkidPlaceholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />";
+
+var benNamePlaceholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
+var benHkidPlaceholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
+    
+
 </script>
 
 
@@ -411,14 +421,19 @@ function activateUserAccountJoinUs() {
                             <!-- english name start -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label
-                                        for="inputFullName" class="field-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
+                                   <label for="inputFullName" class="field-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="fullName"
+                                   <!-- <input type="text" name="fullName"
                                         class="form-control full-control textUpper" id="inputFullName"
                                         value="${userDetails.fullName}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
+                                        onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />-->
+                                   <input type="text" name="fullName"
+                                        class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName"
+                                        value="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />"
+	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
+	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
@@ -713,17 +728,31 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
-                                                  <input type="text"
+                                                  <!-- <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value="${userDetails.fullName}"
                                                         class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
+                                                        onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
+                                                  <input type="text"
+                                                        id="txtInsuFullName${inx}" name="personalName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+		                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+		                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                 </c:if>
                                                 <c:if test="${inx > 1}">
-                                                    <input type="text"
+                                                    <!-- <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value=""
                                                         class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
+                                                        onkeypress="return alphaOnly(event);" maxlength="100"/> -->
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="personalName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100"/>
                                                  </c:if>
                                                  <span id="errtxtPersonalFullName${inx}" class="text-red"></span>
@@ -858,8 +887,10 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" value="" class="form-control full-control textUpper"
-                                                        onblur="replaceAlpha(this); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
+                                                        id="personalBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
@@ -1100,17 +1131,31 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
-                                                    <input type="text"
+                                                    <!-- <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName" value="${userDetails.fullName}"
                                                         class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                     </c:if>
                                                     <c:if test="${inx > 1}">
-                                                    <input type="text"
+                                                    <!-- <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName" value=""
                                                         class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100"/> -->
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100"/>
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"></span>
@@ -1246,9 +1291,11 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
 	                                                  name="adultBenificiaryFullName"
-	                                                  id="adultBenefitiaryId${inx}" value=""
-	                                                  class="form-control full-control textUpper" 
-	                                                  onblur="replaceAlpha(this); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
+	                                                  id="adultBenefitiaryId${inx}"
+	                                                  class="form-control full-control textUpper bmg_custom_placeholder" 
+	                                                  value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                      onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                      onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
 	                                                  onkeypress="    return alphaOnly(event);" maxlength="100" />
 	                                              <span id="erradultBenefitiaryId${inx}" class="text-red">
 	                                              </span>
@@ -1493,9 +1540,11 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
-                                                        name="childName" id="txtChldFullName${inx}" value=""
-                                                        class="form-control full-control textUpper"
-                                                        onblur="replaceAlpha(this); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
+                                                        name="childName" id="txtChldFullName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtChldFullName${inx}" class="text-red"></span>
                                            </div>
@@ -1604,9 +1653,11 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                     name="childBenificiaryFullName"
-                                                    id="childBenefitiaryName${inx}" value=""
-                                                    class="form-control full-control textUpper" 
-                                                    onblur="replaceAlpha(this); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
+                                                    id="childBenefitiaryName${inx}"
+                                                    class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                    value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
                                                     onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                 <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
                                                </div>
@@ -1817,9 +1868,11 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
-                                                        name="otherName" id="txtOtherFullName${inx}" value=""
-                                                        class="form-control full-control textUpper" 
-                                                        onblur="replaceAlpha(this); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
+                                                        name="otherName" id="txtOtherFullName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
                                            </div>
@@ -1918,9 +1971,11 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="otherBenificiaryFullName"
-                                                        id="otherBenefitiaryName${inx}" value=""
-                                                        class="form-control full-control textUpper" 
-                                                        onblur="replaceAlpha(this); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
+                                                        id="otherBenefitiaryName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
                                                </div>
