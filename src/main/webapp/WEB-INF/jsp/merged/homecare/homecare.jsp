@@ -262,33 +262,131 @@ $(document).ready(function() {
 		      </div>
 			
 			
-			<div class="other-benefits col-lg-12">
-
-
-				<div class="spacer1"></div>
-
-
-				<p class="col-xs-12 h4-6">
-				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
-							
-					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""> 
-					<u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> 
-					<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
-					<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
-					<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> 
-					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
-					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
-
-
-				</p>
-				<!-- <p class="h4-6">
-				The features above are indicative only. Please refer to the <a
-						href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
-						target="_blank" class="sub-link"> Policy Provisions </a> for details. 
-For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
-				
-				</p>-->
-			</div>
+			<div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
+          <h2><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
+          <ul class="bullets">
+            <li>
+              <p class="h4-5 "> <fmt:message key="home.main.other.tnc.desc1" bundle="${msg}" /> </p>
+            </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="home.main.other.tnc.desc2" bundle="${msg}" /> </p>
+            </li>
+            <li>
+              <p class="h4-5 ">  <fmt:message key="home.main.other.tnc.desc3" bundle="${msg}" /></p>
+            </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="home.main.other.tnc.desc4" bundle="${msg}" /></p>
+            </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="home.main.other.tnc.desc5" bundle="${msg}" /></p>
+            </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="home.main.other.tnc.desc6" bundle="${msg}" /> </p>
+            </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="home.main.other.tnc.desc7" bundle="${msg}" /> </p>
+            </li>
+          </ul>
+          <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
+            <div class="main-partner-1">
+                <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+            </div>
+          </div>
+          <div class="spacer3"></div>
+          <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""><u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a><fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /><a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""><u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a><fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
+          <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" /></p>
+        </div>
+      
+      <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+          <h2 style="text-align: center;"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
+          <div class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc1" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc2" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc3" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc4" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc5" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc6" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="home.main.other.tnc.desc7" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+            </div>
+            <!--/.carousel-inner-->
+            <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+            <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+          </div>
+          <!--/.carousel-->
+          <div class="clearfix"></div>
+          
+          <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
+            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="" style="float:initial;">
+          </div>
+          
+          <div class="spacer3"></div>
+          <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""><u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a><fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /><a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""><u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a><fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
+          <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" /></p>
+        </div>
 			<!--/.container-->
 		</div>
 	</section>
