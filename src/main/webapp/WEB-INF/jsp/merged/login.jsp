@@ -58,8 +58,7 @@
                                                         
                                                 </h4>
                                                 <div class="form-group">
-                                                    <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off"
-                                                        id="headerPassword">
+                                                    <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off" id="headerPassword">
                                                 </div>
                                                 <span id="errPass" class="empHide" style="color: red"></span> <br>
                                                 <div class="row">
@@ -243,7 +242,7 @@
                                 } else if (data.indexOf('[')==0&data.indexOf(']')>0) {
                                 	$('#success-message').html('');
                                     $('#success-message').hide();
-                                    $('#forgotusername-err-msg').html(data);
+                                    $('#forgotusername-err-msg').html(data.slice(2, data.length-2));
                                     $('#forgotusername-err-msg').show();
                                 } else {             
                                     $('#success-message').html('Your Username is ' + data);
@@ -447,6 +446,10 @@
 	        $('#errorEmptyUName').hide();
 	        $('#errorInvalidUName').hide();
 	        
+	        $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+	        $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+	        $("#userName").removeClass("invalid-field");
+	        
 	        var valid = true;
 	         
 	        var mobileNo = $('#mobileNo-forgotpassowrd').val();
@@ -456,11 +459,13 @@
 	          // Mobile Number Validation
 	        if (mobileNo.trim() == "") {
 	             $('#errorEmptyMob-forgotPassword').show();
+	             $("#mobileNo-forgotpassowrd").addClass("invalid-field");
 	             valid = false;
 	        }   else{
 	            
 	            if (mobile_pattern.test(mobileNo) == false) {
-	                $("#errorInvalidMob-forgotPassword").show();                   
+	                $("#errorInvalidMob-forgotPassword").show();         
+	                $("#mobileNo-forgotpassowrd").addClass("invalid-field");
 	                valid = false;
 	            }               
 	        }             
@@ -468,11 +473,13 @@
 	        // Email Address Validation
 	        if (emailId.trim() == "") {
 	           $('#errorEmptyEmailId-forgotpassword').show();
+	           $("#emailAddress-forgotpassowrd").addClass("invalid-field");
 	            valid = false;
 	            
 	        } else {
 	            if (emailreg.test(emailId) == false) {
 	                  $('#errorInvalidEmailId-forgotpassword').show();
+	                  $("#emailAddress-forgotpassowrd").addClass("invalid-field");
 	                  valid = false;
 	                //document.getElementById("errorInvalidEmailId").style.display = "block";
 	                //valid = false;
@@ -482,18 +489,21 @@
 	        // UserName Validation
 	        if (userName.trim() == "") {
 	            $("#errorEmptyUName").show();
-	
+	            $("#userName").addClass("invalid-field");
 	            valid = false;
 	
 	        } else {                
 	            if (isAccountNumeric(userName)) {
 	            	$("#errorInvalidUName").show();
+	            	$("#userName").addClass("invalid-field");
 	                valid = false;
 	            } else if (!plan_user.test(userName)) {
 	            	$("#errorInvalidUName").show();
+	            	$("#userName").addClass("invalid-field");
 	                valid = false;
 	            } else if(userName.length < 6 || userName.length > 50) {
 	            	$("#errorInvalidUName").show();
+	            	$("#userName").addClass("invalid-field");
 	                valid = false;
 	            }
 	        }
@@ -579,6 +589,16 @@
         $('#forgotUserNameForm').hide();
         $('#forgotPasswordForm').hide();
         $('.empHide').hide();
+        
+        $("#mobileNo").removeClass("invalid-field");
+        $("#emailAddress").removeClass("invalid-field");
+        
+        $("#loginform-pop #headerUserName").removeClass("invalid-field");
+        $("#loginform-pop #headerPassword").removeClass("invalid-field");
+        
+        $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+        $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+        $("#userName").removeClass("invalid-field");
     }
    
     
@@ -598,7 +618,17 @@
             
             if(emp==""){
              
-              $('.empHide').hide();                                    
+              $('.empHide').hide();
+              
+              $("#mobileNo").removeClass("invalid-field");
+              $("#emailAddress").removeClass("invalid-field");
+              
+              $("#loginform-pop #headerUserName").removeClass("invalid-field");
+              $("#loginform-pop #headerPassword").removeClass("invalid-field");
+              
+              $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+              $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+              $("#userName").removeClass("invalid-field");
             }
             
             
@@ -609,14 +639,32 @@
             
             
             if(checkEmpForgotuserName==""){               
-                $('.empHide').hide();                                    
+                $('.empHide').hide();
+                $("#mobileNo").removeClass("invalid-field");
+                $("#emailAddress").removeClass("invalid-field");
+                
+                $("#loginform-pop #headerUserName").removeClass("invalid-field");
+                $("#loginform-pop #headerPassword").removeClass("invalid-field");
+                
+                $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+                $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+                $("#userName").removeClass("invalid-field");
               }
             
             var checkEmpForgotuserPassword = "";
             $('.check-emp-forgotuserpassoword').each(function(){                
                 checkEmpForgotuserPassword = checkEmpForgotuserPassword + $(this).val(); 
                 if(checkEmpForgotuserPassword==""){                    
-                    $('.empHide').hide();                                    
+                    $('.empHide').hide();    
+                    $("#mobileNo").removeClass("invalid-field");
+                    $("#emailAddress").removeClass("invalid-field");
+                    
+                    $("#loginform-pop #headerUserName").removeClass("invalid-field");
+                    $("#loginform-pop #headerPassword").removeClass("invalid-field");
+                    
+                    $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+                    $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+                    $("#userName").removeClass("invalid-field");
                   }                                         
             })
             
@@ -635,6 +683,16 @@
                $('#forgotUserNameForm').hide();
                $('#forgotPasswordForm').hide();
                
+               
+               $("#mobileNo").removeClass("invalid-field");
+               $("#emailAddress").removeClass("invalid-field");
+               
+               $("#headerUserName").removeClass("invalid-field");
+               $("#headerPassword").removeClass("invalid-field");
+               
+               $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+               $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+               $("#userName").removeClass("invalid-field");
            })
            
            
@@ -645,6 +703,15 @@
                $('#forgotPasswordForm').hide();
                $('.empHide').hide();    
                
+               $("#mobileNo").removeClass("invalid-field");
+               $("#emailAddress").removeClass("invalid-field");
+               
+               $("#headerUserName").removeClass("invalid-field");
+               $("#headerPassword").removeClass("invalid-field");
+               
+               $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+               $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+               $("#userName").removeClass("invalid-field");
            })
            
            
@@ -652,7 +719,17 @@
                   $('#loginform-pop').hide();
                   $('#forgotUserNameForm').hide(); 
                   $('#forgotPasswordForm').fadeIn();
-                  $('.empHide').hide();    
+                  $('.empHide').hide();
+                  
+                  $("#mobileNo").removeClass("invalid-field");
+                  $("#emailAddress").removeClass("invalid-field");
+                  
+                  $("#headerUserName").removeClass("invalid-field");
+                  $("#headerPassword").removeClass("invalid-field");
+                  
+                  $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+                  $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
+                  $("#userName").removeClass("invalid-field");
            })
           
                                          
@@ -711,7 +788,7 @@ function userLoginFnc() {
             } else if (data == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
-                $('#login-err-msg').html('Please Check Login Credential');
+                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
             }
         }
     });

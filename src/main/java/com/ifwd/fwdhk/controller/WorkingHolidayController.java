@@ -74,7 +74,8 @@ public class WorkingHolidayController {
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		//return UserRestURIConstants.checkLangSetPage(request) + "workingholiday/workingholiday";
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		HttpSession session = request.getSession();
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
 		WorkingHolidayQuoteBean workingholidayQuote;
@@ -234,7 +235,8 @@ public class WorkingHolidayController {
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		try {
 			
 			session.setAttribute("planSelected", workingholidayQuote.getPlanSelected());
@@ -390,7 +392,8 @@ public class WorkingHolidayController {
 		}
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
@@ -740,9 +743,10 @@ public class WorkingHolidayController {
 		}
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
-		session.setAttribute("dueAmount", dueAmount);
+		session.setAttribute("dueAmount", dueAmount.replace(",","").trim());
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 
 		WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
@@ -848,9 +852,11 @@ public class WorkingHolidayController {
 	
 	
 	@SuppressWarnings("unchecked")
+	
+	
 	@RequestMapping(value = {"/{lang}/working-holiday-insurance/workingholiday-confirmation", "/{lang}/working-holiday-insurance/confirmation"})
-	public String processPayment(Model model, HttpServletRequest request,
-			@RequestParam(required = false) String Ref ) {
+	public String processPayment(Model model, HttpServletRequest request
+			 ) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errormsg", "Session Expired");
@@ -859,7 +865,8 @@ public class WorkingHolidayController {
 		
 		UserRestURIConstants.setController("WorkingHoliday");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
 		
 		JSONObject responsObject = new JSONObject();
 
@@ -899,7 +906,8 @@ public class WorkingHolidayController {
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
-				model.addAttribute("dueAmount", Methods.customFormat("#####.##", (String)session.getAttribute("dueAmount")));
+				String dueAmount = (String) session.getAttribute("dueAmount");
+				model.addAttribute("dueAmount", dueAmount.replace(",", "").trim());
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));

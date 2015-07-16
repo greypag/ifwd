@@ -14,8 +14,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -35,20 +33,26 @@
 		//System.out.println("default session TravelQuote");
 	}
 %>
+<script>
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>
+
 <script type="text/javascript">
   // personal or family
   var traveller;  
   // personal
-  var personalTraveller = parseInt("${corrTravelQuote.getTotalPersonalTraveller()}");
+  var personalTraveller = parseInt("${corrTravelQuote.totalPersonalTraveller}");
   // family
-  var familyAdult = "${corrTravelQuote.getTotalAdultTraveller()}";
-  var familyChild = "${corrTravelQuote.getTotalChildTraveller()}";
-  var familyOther = "${corrTravelQuote.getTotalOtherTraveller()}";  
+  var familyAdult = "${corrTravelQuote.totalAdultTraveller}";
+  var familyChild = "${corrTravelQuote.totalChildTraveller}";
+  var familyOther = "${corrTravelQuote.totalOtherTraveller}";  
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
   
-  var t1 = "${corrTravelQuote.getTotalAdultTraveller()}";
-  var t2 = "${corrTravelQuote.getTotalChildTraveller()}";
-  var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";  
+  var t1 = "${corrTravelQuote.totalAdultTraveller}";
+  var t2 = "${corrTravelQuote.totalChildTraveller}";
+  var t3 = "${corrTravelQuote.totalOtherTraveller}";  
     
     function reset_desktop_submit()
     {        
@@ -105,7 +109,7 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
     
     // update quote area to show headcounts
-    if("${corrTravelQuote.getPlanSelected()}".toLowerCase() == "family"){
+    if("${corrTravelQuote.planSelected}".toLowerCase() == "family"){
     	if (familyTraveller > 0){
             $('#family_plan_desk_spinner').show();
             $('#family_plan_btm_spinner').show();
@@ -143,14 +147,14 @@ $(document).ready(function() {
 %>
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
-  <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+  <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="travel.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobilebanner-->
 <div class="carousel slide hidden-xs hidden-sm">
 <div class="carousel-inner">
 <div class="item active">
 
 <!--/#middle-->
-        <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image" bundle="${msg}" />" alt=""  />
+        <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image" bundle="${msg}" />" alt="<fmt:message key="travel.hero.image.alt" bundle="${msg}" />"  />
          </div>
       <!--/.item--> 
     </div>
@@ -159,9 +163,9 @@ $(document).ready(function() {
   <!--/.carousel--> 
   <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
 	<section id="middle" class="hidden-sm hidden-xs">
-	  <div class="container">
+        <div class="container bmg_flighttravel_main_container">
 	    <div class="row">
-	      <div class="col-lg-12 col-md-12 pad-none slide-form">
+	      <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
 	        <!-- <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2> -->
 	                <table class="table activation-form3">
 	              <tbody>
@@ -178,17 +182,17 @@ $(document).ready(function() {
 	                  </div></td>
 	                </tr>
 	                  <tr>
-	                  <td class="col-md-3 pad-none">
+	                  <td class="col-md-3 col-lg-3 pad-none">
 	                    <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="col-md-3 pad-none">
+	                  <td class="col-md-3 col-lg-3 pad-none">
 	                    <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${fn:escapeXml(corrTravelQuote.getTrBackDate())}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="col-md-3 pad-none">
+	                  <td class="col-md-4 col-lg-3 pad-none">
 	                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
 	                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
 	                      <div class="dropdown-menu bdr1">
@@ -201,12 +205,17 @@ $(document).ready(function() {
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label></label>
 	                          </div>
 	                          <div class="clearfix"></div>
 	                          <hr>
 	                          <!-- start of personal plan bottom spinner-->
-	                       <input type="hidden" name="familyPlan" id="family_desk_count" value="${fn:escapeXml(corrTravelQuote.getTotalFamilyTravellers())}">
+	                       <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.totalFamilyTravellers}">
 	                       <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
 	                         <div class="col-lg-6">
 	                           <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
@@ -215,8 +224,8 @@ $(document).ready(function() {
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
-	                  <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}</div>
-	                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}"/>
+	                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
+	                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
 	                             <span class="input-group-btn data-up ">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
 	                             </span> </div>
@@ -234,8 +243,8 @@ $(document).ready(function() {
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
-	                             <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}</div>
-	                             <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}"/>
+	                             <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalAdultTraveller}</div>
+	                             <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
 	                             <span class="input-group-btn data-up ">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 	                             </span> </div>
@@ -248,8 +257,8 @@ $(document).ready(function() {
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
-	                             <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}</div>
-	                             <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}"/>
+	                             <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalChildTraveller}</div>
+	                             <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
 	                             <span class="input-group-btn data-up ">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 	                             </span> </div>
@@ -262,8 +271,8 @@ $(document).ready(function() {
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
-	                             <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}</div>
-	                             <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}"/>
+	                             <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalOtherTraveller}</div>
+	                             <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
 	                             <span class="input-group-btn data-up ">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 	                             </span> </div>
@@ -317,14 +326,14 @@ $(document).ready(function() {
     <h4><fmt:message key="travel.main.quote.q1" bundle="${msg}" /> </h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" readonly>
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" value="${corrTravelQuote.trLeavingDate}" readonly>
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" value="${fn:escapeXml(corrTravelQuote.getTrBackDate())}" readonly>
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" value="${corrTravelQuote.trBackDate}" readonly>
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
@@ -342,12 +351,17 @@ $(document).ready(function() {
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
-             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label> </label>
+             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label> </label>
           </div>
           <div class="clearfix"></div>
           <hr>
           <!-- Start of personal plan mobile spinner-->
-          <input type="hidden" name="" id="family_mob_count" value="${fn:escapeXml(corrTravelQuote.getTotalFamilyTravellers())}">
+          <input type="hidden" name="" id="family_mob_count" value="${corrTravelQuote.totalFamilyTravellers}">
           <div class="plan_spinner_mob" id="personal_plan_mob_spinner" <%=personalSpinnerStyle%>>
 
           <div class="col-xs-6 col-sm-8">
@@ -360,8 +374,8 @@ $(document).ready(function() {
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}</div>
-              <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}"/>
+              <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
+              <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -385,8 +399,8 @@ $(document).ready(function() {
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}</div>
-              <input type="hidden" name="totalAdultTraveller" id="txtAdultsMob" data-min="1" data-max="2" value="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}"/>
+              <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalAdultTraveller}</div>
+              <input type="hidden" name="totalAdultTraveller" id="txtAdultsMob" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -406,8 +420,8 @@ $(document).ready(function() {
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}</div>
-              <input type="hidden" name="totalChildTraveller" id="txtChildMob" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}"/>
+              <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalChildTraveller}</div>
+              <input type="hidden" name="totalChildTraveller" id="txtChildMob" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -427,8 +441,8 @@ $(document).ready(function() {
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
-              <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}</div>
-              <input type="hidden" name="totalOtherTraveller" id="txtOtherMob" data-min="0" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}"/>
+              <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalOtherTraveller}</div>
+              <input type="hidden" name="totalOtherTraveller" id="txtOtherMob" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
               <span class="input-group-btn data-up ">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherMob" data-parent="family">
                    <span class="glyphicon glyphicon-plus"></span>
@@ -476,92 +490,70 @@ $(document).ready(function() {
 
 <!--/#main slider-->
 
-<section id="feature" >
+<section id="feature" style="margin-top:40px;">
   <div class="container pad-none">
     <div class="center wow fadeInDown"> 
       <!--desktop-->
-<h2 class="hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h2>
-<!--end desktop--> 
+		<h2 class="hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h2>
+		<!--end desktop--> 
+		
+		<!--Mobile-->
+		<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
+		<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
+		<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" />
+		<fmt:message key="travel.main.mobile.desc3" bundle="${msg}" />
+		</h2>
+		<!--end Mobile-->
+	</div>
+	
+	
+	<!--desktop Features-->
+    <div class="center wow fadeInDown">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /><fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
+                  </h3>
+                  <div style="margin-top:25px;">
+                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" />
+                  </div>
+                  <div style="margin-top:10px;">
+                       <fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" />
+                  </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /><fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
+                  </h3>
+                  <div style="margin-top:25px;">
+                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" />
+                  </div>
+                  <div style="margin-top:10px;">
+                        <fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" />
+                  </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                  <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                       <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                         <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
+                      </h3>
+                      <div style="margin-top:25px;">
+                           <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" />
+                      </div>
+                      <div style="margin-top:10px;">
+                          <fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" />
+                      </div>
+                  </div>
+              </div>
+              <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+      </div>
 
-<!--Mobile-->
-<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
-<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
-<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" />
-<fmt:message key="travel.main.mobile.desc3" bundle="${msg}" />
-</h2>
-<!--end Mobile-->
-</div>
-
-<!--desktop Features-->
-<div class="hidden-xs hidden-sm">
-    <div class="col-md-10 col-md-offset-1 home-features"  >
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" alt="" /> </div>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
-        <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="clearfix"></div>
-    <br>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <br/>
-          <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" /></p>
-        <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="col-md-6 col-lg-6 text-center">  <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" alt=""  /> </div>
-    <div class="clearfix"></div>
-    <br>
-    <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt=""  /> </div>
-    <div class="col-md-6 col-lg-6">
-      <div class="content">
-        <h2><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
-        <p class="details-text"><fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" /></p>
-        <a href="#" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  
-  <!--mobile Features--> 
-  
-  <!--/.row--> 
-</div>
-
-<!--mob Features-->
-<div class="mob-features hidden-lg hidden-md">
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /><br/>
-                <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" /></p>
-      <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-  <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /><br/>
-      <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" /></p>
-      <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-  <br>
-  <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt=""  /> </div>
-  <div class="col-xs-8 col-sm-8">
-    <div>
-      <h2 class="h2-3"><fmt:message key="travel.main.feature3.heading" bundle="${msg}" /></h2>
-      <p class="details-text"><fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" /></p>
-      <a href="" class="h4-4 scrollToTop"><fmt:message key="travel.main.feature.getquote" bundle="${msg}" /></a> </div>
-  </div>
-  <div class="clearfix"></div>
-</div>
-<div class="clearfix"></div>
 <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
   <h2><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
@@ -925,15 +917,15 @@ $(document).ready(function() {
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${fn:escapeXml(corrTravelQuote.getTrLeavingDate())}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" id="txtStartDateBtm" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${fn:escapeXml(corrTravelQuote.getTrBackDate())}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" id="txtEndDateBtm" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-4 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
@@ -947,14 +939,19 @@ $(document).ready(function() {
                       </div>
                       <div class="col-lg-6">
                           <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label></label>
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label></label>
 
 
                       </div>
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan bottom spinner-->
-                      <input type="hidden" name="" id="family_btm_count" value="${fn:escapeXml(corrTravelQuote.getTotalFamilyTravellers())}">
+                      <input type="hidden" name="" id="family_btm_count" value="${corrTravelQuote.totalFamilyTravellers}">
                       <div class="plan_spinner_btm" id="personal_plan_btm_spinner" <%=personalSpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
@@ -964,8 +961,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}</div>
-                            <input type="hidden" name="totalPersonalTraveller" id="txtTravellersBtm" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalPersonalTraveller())}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
+                            <input type="hidden" name="totalPersonalTraveller" id="txtTravellersBtm" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -984,8 +981,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}</div>
-                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="${fn:escapeXml(corrTravelQuote.getTotalAdultTraveller())}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalAdultTraveller}</div>
+                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -999,8 +996,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}</div>
-                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalChildTraveller())}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalChildTraveller}</div>
+                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -1014,8 +1011,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}</div>
-                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="15" value="${fn:escapeXml(corrTravelQuote.getTotalOtherTraveller())}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalOtherTraveller}</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

@@ -3,8 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.ifwd.fwdhk.model.PlanDetailsForm"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -141,23 +139,23 @@ var enablePayment=true;
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName() }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getHkid()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress() }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo() }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.getReferenceNo()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.referenceNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.plan" bundle="${msg}" /></div>
@@ -185,7 +183,7 @@ var enablePayment=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.period" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.getTrLeavingDate()} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.getTrBackDate()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
@@ -752,16 +750,16 @@ var enablePayment=true;
                        <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
                        <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
                     </div>
-                    <input type="hidden" name="merchantId" value="${fn:escapeXml(createPolicy.getMerchantId())}">
-                    <input type="hidden" name="amount" value="${fn:escapeXml(dueAmount.trim())}">
-                    <input type="hidden" name="remark" value="${fn:escapeXml(referralCode.trim())}">
-                    <input type="hidden" name="orderRef" value="${fn:escapeXml(createPolicy.getTransactionNo()) }">
-                    <input type="hidden" name="currCode" value="${fn:escapeXml(createPolicy.getCurrCode()) }">
-                    <input type="hidden" name="successUrl" value="${fn:escapeXml(path)}">
-                    <input type="hidden" name="failUrl" value="${fn:escapeXml(failurePath) }">
-                    <input type="hidden" name="errorUrl" value="${fn:escapeXml(failurePath) }">
-                    <input type="hidden" name="payType" value="${fn:escapeXml(createPolicy.getPaymentType())}">
-                    <input type="hidden" name="referenceNo" value="${fn:escapeXml(createPolicy.getReferenceNo())}">
+                    <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
+                    <input type="hidden" name="amount" value="${dueAmount.trim()}">
+                    <input type="hidden" name="remark" value="${referralCode.trim()}">
+                    <input type="hidden" name="orderRef" value="${createPolicy.transactionNo }">
+                    <input type="hidden" name="currCode" value="${createPolicy.currCode }">
+                    <input type="hidden" name="successUrl" value="${path}">
+                    <input type="hidden" name="failUrl" value="${failurePath }">
+                    <input type="hidden" name="errorUrl" value="${failurePath }">
+                    <input type="hidden" name="payType" value="${createPolicy.paymentType}">
+                    <input type="hidden" name="referenceNo" value="${createPolicy.referenceNo}">
                     <%
                         String payLang = (String) session.getAttribute("language");
                         //payLang = payLang.substring(0, 1);
@@ -774,11 +772,11 @@ var enablePayment=true;
 <%--                    <input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
                     <input type="hidden" name="lang" value="C"> <input
                         type="hidden" name="secureHash"
-                        value="${fn:escapeXml(createPolicy.getSecureHash()) }"> <input
+                        value="${createPolicy.secureHash }"> <input
                         type="hidden" id="emailAddress" name="emailAddress"
-                        value="${fn:escapeXml(userDetails.getEmailAddress())}"> <input
+                        value="${userDetails.emailAddress}"> <input
                         type="hidden" id="gateway" name="gateway"
-                        value="${fn:escapeXml(createPolicy.getPaymentGateway())}">
+                        value="${createPolicy.paymentGateway}">
 
 
 
@@ -836,7 +834,7 @@ var enablePayment=true;
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
-                                <div class="styled-select payment-select"><select class="pay-details-select"
+                                <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select"
                                     id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
                                         <option value="1">01</option>
@@ -856,7 +854,7 @@ var enablePayment=true;
                                     class="error-msg"></span>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
-                                <div class="styled-select payment-select"><select class="pay-details-select" id="year"
+                                <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
 <!--                                        <option value="2015">2015</option> -->
@@ -963,8 +961,18 @@ var enablePayment=true;
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <a id="button_confirm" onclick="perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                <c:choose>
+       <c:when test="${language=='en'}">
+                                	<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+       </c:when>
+       <c:otherwise>
+	                                <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+</c:otherwise>
+</c:choose>
+                                
+                                
                             </div>
                         </div>
                         

@@ -19,17 +19,23 @@
 <fmt:setBundle basename="messages" var="msg" />
 
 
+<script>
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>
+
 <script type="text/javascript">
 
   // personal or family
   var traveller;  
   
   // personal
-  var personalTraveller = parseInt("${planDetails.getTotalPersonalTraveller()}");
+  var personalTraveller = parseInt("${planDetails.totalPersonalTraveller}");
   // family
-  var familyAdult = "${planDetails.getTotalAdultTraveller()}";
-  var familyChild = "${planDetails.getTotalChildTraveller()}";
-  var familyOther = "${planDetails.getTotalOtherTraveller()}";  
+  var familyAdult = "${planDetails.totalAdultTraveller}";
+  var familyChild = "${planDetails.totalChildTraveller}";
+  var familyOther = "${planDetails.totalOtherTraveller}";  
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
 
   
@@ -95,7 +101,7 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
     
  // update quote area to show headcounts
-    if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
+    if("${planDetails.planSelected}".toLowerCase() == "family"){
     	if (familyTraveller > 0){
             $('#family_plan_desk_spinner').show();
             $('#family_plan_btm_spinner').show();
@@ -129,13 +135,13 @@ $(document).ready(function() {
 <!--Main Content-->
 <section id="main-slider" class="no-margin"> 
 <!--Mobile banner--> 
-<img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+<img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobile banner-->
   <div class="carousel slide hidden-xs hidden-sm">
     <div class="carousel-inner">
       <div class="item active">
      
-        <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="">
+        <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />">
          </div>
       <!--/.item--> 
     </div>
@@ -144,7 +150,7 @@ $(document).ready(function() {
   <!--/.carousel--> 
   <!-- flight top form -->
   <section id="middle" class="hidden-sm hidden-xs">
-  <div class="container">
+    <div class="container bmg_flighttravel_main_container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
       
@@ -176,45 +182,50 @@ $(document).ready(function() {
               </td>
             </tr>
             <tr>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-3 col-lg-3 pad-none">
               
           
               
               <!--====================================================== 出發日期 -->
               
                 <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 
                 </td>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-3 col-lg-3 pad-none">
                 <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
               
              </td>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-4 col-lg-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
                   <div class="dropdown-menu bdr1">
                     <div class="drop-content">
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
                           <label for="personal_plan_desk"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
                          </label> 
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-                          <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /> </label>
+                          <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan desk spinner-->
-                      <input type="hidden" name="" id="family_desk_count" value="${planDetails.getTotalFamilyTravellers()}">
+                      <input type="hidden" name="" id="family_desk_count" value="${planDetails.totalFamilyTravellers}">
                       <div class="plan_spinner_desk" id="personal_plan_desk_spinner" <%=personalSpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /> </h4>
@@ -223,8 +234,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
-                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.getTotalPersonalTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalPersonalTraveller}</div>
+                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersDesk" value="${planDetails.totalPersonalTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -236,14 +247,14 @@ $(document).ready(function() {
                       <!-- start of family plan desk spinner-->
                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
-                          <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /> </h4>
+                          <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /></h4>
                         </div>
                         <div class="col-lg-6">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalAdultTraveller()}</div>
-              <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalAdultTraveller}</div>
+              <input type="hidden" name="totalAdultTraveller" id="txtAdultsDesk" data-min="1" data-max="2" value="${planDetails.totalAdultTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -256,8 +267,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
-              <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalChildTraveller}</div>
+              <input type="hidden" name="totalChildTraveller" id="txtChildDesk" data-min="1" data-max="14" value="${planDetails.totalChildTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -270,8 +281,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalOtherTraveller()}</div>
-                            <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalOtherTraveller}</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherDesk" data-min="0" data-max="14" value="${planDetails.totalOtherTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -336,14 +347,14 @@ $(document).ready(function() {
     <h4><fmt:message key="flight.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', '');" value="${planDetails.getDepartureDate()}" readonly>
+        <input type="text" name="departureDate" class="datepicker form-control" id="txtStartDateMob" onblur="chkValidFlightDepartureDate(this, 'startDateMobIn', '');" value="${planDetails.departureDate}" readonly>
       </div>
     </div>
     <span id="startDateMobIn"  class="text-red"> </span>
     <h4><fmt:message key="flight.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
+        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.returnDate}" readonly>
       </div>
     </div>
     <span id="endDateMobIn" class="text-red"> </span>
@@ -361,13 +372,18 @@ $(document).ready(function() {
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
               <input type="radio"   name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
-              <label for="family_plan_mob"> <fmt:message key="flight.main.quote.plan2" bundle="${msg}" /> </label>
+              <label for="family_plan_mob"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label>
            </label> 
           </div>
           <div class="clearfix"></div>
           <hr>
           <!-- Start of personal plan mobile spinner-->
-          <input type="hidden" name="familyPlan" id="family_mob_count" value="${planDetails.getTotalFamilyTravellers()}">
+          <input type="hidden" name="familyPlan" id="family_mob_count" value="${planDetails.totalFamilyTravellers}">
           <div class="plan_spinner_mob" id="personal_plan_mob_spinner" <%=personalSpinnerStyle%>>
             <div class="col-xs-6 col-sm-6">
               <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /> </h4>
@@ -376,8 +392,8 @@ $(document).ready(function() {
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
-                <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${planDetails.getTotalPersonalTraveller()}"/>
+                <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalPersonalTraveller}</div>
+                <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${planDetails.totalPersonalTraveller}"/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -393,8 +409,8 @@ $(document).ready(function() {
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtAdultsMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalAdultTraveller()}</div>
-                <input type="hidden" name="totalAdultTraveller" id="txtAdultsMob" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
+                <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalAdultTraveller}</div>
+                <input type="hidden" name="totalAdultTraveller" id="txtAdultsMob" data-min="1" data-max="2" value="${planDetails.totalAdultTraveller}"/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -409,8 +425,8 @@ $(document).ready(function() {
                
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
-                <input type="hidden" name="totalChildTraveller" id="txtChildMob" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
+                <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalChildTraveller}</div>
+                <input type="hidden" name="totalChildTraveller" id="txtChildMob" data-min="1" data-max="14" value="${planDetails.totalChildTraveller}"/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -423,8 +439,8 @@ $(document).ready(function() {
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
-                <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalOtherTraveller()}</div>
-                <input type="hidden" name="totalOtherTraveller" id="txtOtherMob" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
+                <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalOtherTraveller}</div>
+                <input type="hidden" name="totalOtherTraveller" id="txtOtherMob" data-min="0" data-max="14" value="${planDetails.totalOtherTraveller}"/>
                 <span class="input-group-btn data-up ">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherMob" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                 </span> </div>
@@ -463,9 +479,9 @@ $(document).ready(function() {
 
 <!--/#main-slider-->
 
-<section id="feature" >
-  <div class="container">
-    <div class="center"> 
+<section id="feature" style="margin-top:40px;">
+  <div class="container pad-none">
+    <div class="center wow fadeInDown"> 
       <!--desktop-->
       <h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
       <!--end-desktop--> 
@@ -476,35 +492,53 @@ $(document).ready(function() {
     </div>
     
     <!--desktop Features-->
-    <div class="hidden-xs hidden-sm">
-      <div class="col-md-10 col-md-offset-1 pad-none home-features">
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt=""  /> </div>
-        <div class="col-md-6 col-lg-6">
-          <div class="content">
-            <h2><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
-            <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-        </div>
-        <div class="clearfix"></div>
-        <br>
-        <div class="col-md-6 col-lg-6">
-          <div class="content">
-            <h2><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
-            <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-        </div>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt=""  /> </div>
-        <div class="clearfix"></div>
-        <br>
-        <div class="col-md-6 col-lg-6 text-center"> <img src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt=""  /> </div>
-        <div class="col-md-6 col-lg-6">
-          <div class="content">
-            <h2><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
-            <p class="details-text"><fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" /></p>
-            <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
+    <div class="center wow fadeInDown">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	        <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	            <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	              <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                <fmt:message key="flight.main.feature1.heading" bundle="${msg}" />
+	              </h3>
+	              <div style="margin-top:25px;">
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" />
+	              </div>
+	              <div style="margin-top:10px;">
+	                   <fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" />
+	              </div>
+	              </div>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	               <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	              <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                 <fmt:message key="flight.main.feature2.heading" bundle="${msg}" />
+	              </h3>
+	              <div style="margin-top:25px;">
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" />
+	              </div>
+	              <div style="margin-top:10px;">
+	                    <fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" />
+	              </div>
+	              </div>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	              <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	                   <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                     <fmt:message key="flight.main.feature3.heading" bundle="${msg}" />
+	                  </h3>
+	                  <div style="margin-top:25px;">
+	                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" />
+	                  </div>
+	                  <div style="margin-top:10px;">
+	                      <fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" />
+	                  </div>
+	              </div>
+	          </div>
+	          <div class="clearfix"></div>
+	      </div>
+	      <div class="clearfix"></div>
+      </div>
+    
+    <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
           <h2><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
           <ul class="bullets">
             <li>
@@ -525,42 +559,19 @@ $(document).ready(function() {
             <li>
               <p class="h4-5 "> <fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /> </p>
             </li>
+            <li>
+              <p class="h4-5 "> <fmt:message key="flight.main.other.tnc.desc7" bundle="${msg}" /> </p>
+            </li>
           </ul>
+          <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
+		    <div class="main-partner-1">
+		        <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+		    </div>
+		  </div>
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         </div>
-      </div>
-    </div>
-    
-    <!--mobile-Features-->
-    <div class="hidden-lg hidden-md mob-features">
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt=""  /> </div>
-      <div class="col-xs-8 col-sm-8">
-        <div>
-          <h2 class="h2-3"><fmt:message key="flight.main.feature1.heading" bundle="${msg}" /></h2>
-          <p class="details-text"><fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-      </div>
-      <div class="clearfix"></div>
-      <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt=""  /> </div>
-      <div class="col-xs-8 col-sm-8">
-        <div>
-          <h2 class="h2-3"><fmt:message key="flight.main.feature2.heading" bundle="${msg}" /></h2>
-          <p class="details-text"><fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-      </div>
-      <div class="clearfix"></div>
-      <br>
-      <div class="col-xs-4 col-sm-4 text-center"> <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt=""  /> </div>
-      <div class="col-xs-8 col-sm-8">
-        <div>
-          <h2 class="h2-3"><fmt:message key="flight.main.feature3.heading" bundle="${msg}" /></h2>
-          <p class="details-text"><fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" /></p>
-          <a href="" class="h4-4 scrollToTop"><fmt:message key="flight.main.feature.getquote" bundle="${msg}" /></a> </div>
-      </div>
-      <div class="clearfix"></div>
       
       <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
           <h2 style="text-align: center;"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
@@ -616,6 +627,26 @@ $(document).ready(function() {
                   </div>
               </div>
               <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
             </div>
             <!--/.carousel-inner-->
             <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
@@ -624,12 +655,15 @@ $(document).ready(function() {
           <!--/.carousel-->
           <div class="clearfix"></div>
           
+          <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
+		    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="" style="float:initial;">
+		  </div>
+          
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
         <!--/.container-->
         </div>
-    </div>
     
     <!--/.row--> 
   </div>
@@ -818,15 +852,15 @@ $(document).ready(function() {
             <tr>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.getDepartureDate()}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', '', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.getReturnDate()}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', '', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-4 pad-none">
                  <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
@@ -841,13 +875,18 @@ $(document).ready(function() {
                       <div class="col-lg-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>>
-                          <label for="family_plan_btm"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /></label>
+                          <label for="family_plan_btm"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
+                        class="tool-tip show-inline-md"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                        alt=""></a></label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan bottom spinner-->
-                      <input type="hidden" name="" id="family_btm_count" value="${planDetails.getTotalFamilyTravellers()}">
+                      <input type="hidden" name="" id="family_btm_count" value="${planDetails.totalFamilyTravellers}">
                       <div class="plan_spinner_btm" id="personal_plan_btm_spinner" <%=personalSpinnerStyle%>>
                         <div class="col-lg-6">
                           <h4><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" /></h4>
@@ -856,8 +895,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalPersonalTraveller()}</div>
-                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersBtm" value="${planDetails.getTotalPersonalTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalPersonalTraveller}</div>
+                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersBtm" value="${planDetails.totalPersonalTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -875,8 +914,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalAdultTraveller()}</div>
-                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="${planDetails.getTotalAdultTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalAdultTraveller}</div>
+                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsBtm" data-min="1" data-max="2" value="${planDetails.totalAdultTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtAdultsBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -889,8 +928,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalChildTraveller()}</div>
-                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="14" value="${planDetails.getTotalChildTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalChildTraveller}</div>
+                            <input type="hidden" name="totalChildTraveller" id="txtChildBtm" data-min="1" data-max="14" value="${planDetails.totalChildTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtChildBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
@@ -903,8 +942,8 @@ $(document).ready(function() {
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
-                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.getTotalOtherTraveller()}</div>
-                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="14" value="${planDetails.getTotalOtherTraveller()}"/>
+                            <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalOtherTraveller}</div>
+                            <input type="hidden" name="totalOtherTraveller" id="txtOtherBtm" data-min="0" data-max="14" value="${planDetails.totalOtherTraveller}"/>
                             <span class="input-group-btn data-up ">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>

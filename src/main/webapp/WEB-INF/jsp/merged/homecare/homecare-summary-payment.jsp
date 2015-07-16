@@ -5,8 +5,6 @@
 <%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -107,23 +105,23 @@ perventRedirect=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc2" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getFullName()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc3" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><c:out value="${apphkidandpassport.equals('appPassport')?userDetails.getPassport():userDetails.getHkid()}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><c:out value="${apphkidandpassport.equals('appPassport')?userDetails.passport:userDetails.hkid}" /></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc4" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getEmailAddress()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.changedetail.desc5" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.getMobileNo()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc1" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createdPolicy.getReferenceNo() }<input type="hidden" name="referenceNo" value="${fn:escapeXml(createdPolicy.getReferenceNo())}"></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createdPolicy.referenceNo}<input type="hidden" name="referenceNo" value="${createdPolicy.referenceNo}"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc2" bundle="${msg}" /></div>
@@ -132,78 +130,78 @@ perventRedirect=true;
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc5.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc5.part2" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
-                                                <c:if test="${homeCareDetails.getApplicantRoom() != ''}">
-	                                                Room/Flat ${homeCareDetails.getApplicantRoom()}, 
+                                                <c:if test="${homeCareDetails.applicantRoom != ''}">
+	                                                Room/Flat ${homeCareDetails.applicantRoom}, 
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getApplicantFloor() != ''}">
-	                                                Floor ${homeCareDetails.getApplicantFloor()}, 
+	                                            <c:if test="${homeCareDetails.applicantFloor != ''}">
+	                                                Floor ${homeCareDetails.applicantFloor}, 
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getApplicantBlock() != ''}">
-	                                                Block ${homeCareDetails.getApplicantBlock()}, 
+	                                            <c:if test="${homeCareDetails.applicantBlock != ''}">
+	                                                Block ${homeCareDetails.applicantBlock}, 
 	                                            </c:if>
 	                                            
-	                                            <c:if test="${homeCareDetails.getApplicantBuilding() != ''}">
-	                                                ${homeCareDetails.getApplicantBuilding() },
+	                                            <c:if test="${homeCareDetails.applicantBuilding != ''}">
+	                                                ${homeCareDetails.applicantBuilding},
 	                                            </c:if>
 	                                            <br/>
-	                                            <c:if test="${homeCareDetails.getApplicantEstate() != ''}">
-	                                                ${homeCareDetails.getApplicantEstate() },
+	                                            <c:if test="${homeCareDetails.applicantEstate != ''}">
+	                                                ${homeCareDetails.applicantEstate},
 	                                            </c:if>
 	                                            
-	                                            <c:if test="${homeCareDetails.getApplicantStreetNo() != ''}">
-	                                                ${homeCareDetails.getApplicantStreetNo() },
+	                                            <c:if test="${homeCareDetails.applicantStreetNo != ''}">
+	                                                ${homeCareDetails.applicantStreetNo},
 	                                            </c:if>
-	                                             <c:if test="${homeCareDetails.getApplicantStreetName() != ''}">
-	                                                ${homeCareDetails.getApplicantStreetName() },
+	                                             <c:if test="${homeCareDetails.applicantStreetName != ''}">
+	                                                ${homeCareDetails.applicantStreetName},
 	                                            </c:if>
 	                                            
-	                                            <c:if test="${homeCareDetails.getApplicantDistrictDesc() != ''}">
-	                                                ${homeCareDetails.getApplicantDistrictDesc() },
+	                                            <c:if test="${homeCareDetails.applicantDistrictDesc != ''}">
+	                                                ${homeCareDetails.applicantDistrictDesc},
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getApplicantAreaDesc() != ''}">
-	                                                ${homeCareDetails.getApplicantAreaDesc() }
+	                                            <c:if test="${homeCareDetails.applicantAreaDesc != ''}">
+	                                                ${homeCareDetails.applicantAreaDesc}
 	                                            </c:if>
                                             </div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc6" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
-                                                <c:if test="${homeCareDetails.getaRoom() != ''}">
-	                                                Room/Flat ${homeCareDetails.getaRoom()}, 
+                                                <c:if test="${homeCareDetails.aRoom != ''}">
+	                                                Room/Flat ${homeCareDetails.aRoom}, 
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getaFloor() != ''}">
-	                                                Floor ${homeCareDetails.getaFloor()}, 
+	                                            <c:if test="${homeCareDetails.aFloor != ''}">
+	                                                Floor ${homeCareDetails.aFloor}, 
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getaBlock() != ''}">
-	                                                Block ${homeCareDetails.getaBlock()}, 
+	                                            <c:if test="${homeCareDetails.aBlock != ''}">
+	                                                Block ${homeCareDetails.aBlock}, 
 	                                            </c:if>
 	                                            
-	                                            <c:if test="${homeCareDetails.getaBuilding() != ''}">
-	                                                ${homeCareDetails.getaBuilding()},
+	                                            <c:if test="${homeCareDetails.aBuilding != ''}">
+	                                                ${homeCareDetails.aBuilding},
 	                                            </c:if>
 	                                            <br/>
-	                                            <c:if test="${homeCareDetails.getaEstate() != ''}">
-	                                                ${homeCareDetails.getaEstate()},
+	                                            <c:if test="${homeCareDetails.aEstate != ''}">
+	                                                ${homeCareDetails.aEstate},
 	                                            </c:if>
 	                                            
-	                                            <c:if test="${homeCareDetails.getaStreetNo() != ''}">
-	                                                ${homeCareDetails.getaStreetNo()},
+	                                            <c:if test="${homeCareDetails.aStreetNo != ''}">
+	                                                ${homeCareDetails.aStreetNo},
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getaStreetName() != ''}">
-	                                                ${homeCareDetails.getaStreetName()},
+	                                            <c:if test="${homeCareDetails.aStreetName != ''}">
+	                                                ${homeCareDetails.aStreetName},
 	                                            </c:if>
 	                                            
-	                                            <c:if test="${homeCareDetails.getaDistrictDesc() != ''}">
-	                                                ${homeCareDetails.getaDistrictDesc()},
+	                                            <c:if test="${homeCareDetails.aDistrictDesc != ''}">
+	                                                ${homeCareDetails.aDistrictDesc},
 	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.getaAreaDesc() != ''}">
-	                                                ${homeCareDetails.getaAreaDesc()}
+	                                            <c:if test="${homeCareDetails.aAreaDesc != ''}">
+	                                                ${homeCareDetails.aAreaDesc}
 	                                            </c:if>
                                             </div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc7.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc7.part2" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${homeCareDetails.getNetFloorAreaDesc()}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${homeCareDetails.netFloorAreaDesc}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc8" bundle="${msg}" /></div>
@@ -236,18 +234,18 @@ perventRedirect=true;
 					<div class="clearfix"></div>
 				</div>
 				<input type="hidden" name="merchantId"
-					value="${fn:escapeXml(createdPolicy.getMerchantId())}"> <input
-					type="hidden" name="amount" value="${fn:escapeXml(totalDue.trim())}"> <input
+					value="${createdPolicy.merchantId}"> <input
+					type="hidden" name="amount" value="${totalDue.trim()}"> <input
 					type="hidden" name="orderRef"
-					value="${fn:escapeXml(confirm.getTransactionNo()) }"> <input
+					value="${confirm.transactionNo}"> <input
 					type="hidden" name="currCode"
-					value="${fn:escapeXml(createdPolicy.getCurrCode()) }"> 
-					<input type="hidden" name="remark" value="${fn:escapeXml(referralCode.trim())}">
-					<input type="hidden" name="successUrl" value="${fn:escapeXml(path)}"> <input
-					type="hidden" name="failUrl" value="${fn:escapeXml(failurePath)}"> <input
-					type="hidden" name="errorUrl" value="${fn:escapeXml(failurePath)}"> <input
+					value="${createdPolicy.currCode}"> 
+					<input type="hidden" name="remark" value="${referralCode.trim()}">
+					<input type="hidden" name="successUrl" value="${path}"> <input
+					type="hidden" name="failUrl" value="${failurePath}"> <input
+					type="hidden" name="errorUrl" value="${failurePath}"> <input
 					type="hidden" name="payType"
-					value="${fn:escapeXml(createdPolicy.getPaymentType()) }">
+					value="${createdPolicy.paymentType}">
 					<%
 						String payLang = (String)session.getAttribute("language");
 						//payLang = payLang.substring(0, 1);
@@ -263,12 +261,12 @@ perventRedirect=true;
 
 <%-- 				<input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
 				<input type="hidden" name="lang" value="C"> <input
-					type="hidden" name="secureHash" value="${fn:escapeXml(confirm.getSecureHash()) }">
+					type="hidden" name="secureHash" value="${confirm.secureHash}">
 				<input type="hidden" id="emailAddress" name="emailAddress"
-					value="${fn:escapeXml(userDetails.getEmailAddress())}"> <input
+					value="${userDetails.emailAddress}"> <input
 					type="hidden" id="transactionDate" name="transactionDate"
-					value="${fn:escapeXml(effectiveDate)}"> <input type="hidden" id="gateway"
-					name="gateway" value="${fn:escapeXml(createdPolicy.getPaymentGateway())}">
+					value="${effectiveDate}"> <input type="hidden" id="gateway"
+					name="gateway" value="${createdPolicy.paymentGateway}">
 				<div class="gray-bg1">
                     <div style="width:80%;margin-left:10%;">
                     <div class="col-xs-12 pad-none">
@@ -337,7 +335,7 @@ perventRedirect=true;
                                 <label class="control-label  h4-5"><fmt:message key="home.summary.pmtdetail.desc3" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
-                                <div class="styled-select payment-select"><select class="pay-details-select"
+                                <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select"
                                     id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                         <option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
                                         <option value="1">01</option>
@@ -357,7 +355,7 @@ perventRedirect=true;
                                     class="error-msg"></span>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
-                                <div class="styled-select payment-select"><select class="pay-details-select" id="year"
+                                <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 <!--                                        <option value="2015">2015</option> -->
@@ -437,8 +435,23 @@ perventRedirect=true;
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <a id="button_confirm" onclick="perventRedirect=false;confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+<!--                                 <a id="button_confirm" onclick="perventRedirect=false;confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');" -->
+<%--                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a> --%>
+
+								
+								<c:choose>
+	<c:when test="${language=='en'}">
+<a id="button_confirm" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+</c:when>
+       <c:otherwise>
+       <a id="button_confirm" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 ZH','USD');confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
+</c:otherwise>
+</c:choose>
+								
+								
+								
                             </div>
                         </div>
                             <div class="clearfix"></div>
