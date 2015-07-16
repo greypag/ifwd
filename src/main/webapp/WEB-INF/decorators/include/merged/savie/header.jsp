@@ -10,7 +10,11 @@
 
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 
-
+<script type="text/javascript">
+	function gotoFna(){
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/financial-needs-analysis";
+	}
+</script>
 
 <header class="clearfix">
 	<!--Top Header-->
@@ -271,7 +275,7 @@
 			<div class="modal-footers">
 				<div class="row">
 					<div class="col-md-5 col-xs-5">
-						<button type="submit" class="btn btn-orange btn-login" data-dismiss="modal">Login</button>
+						<button type="submit" class="btn btn-orange btn-login" data-dismiss="modal" onclick = "gotoFna();">Login</button>
 					</div>
 					<div class="col-md-5 col-xs-5">
 							<h5>New user?</h5>
