@@ -1931,6 +1931,8 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 	}
 	if(insureBoolean){
 		$("#txtInsuFullName1").val(fullname);
+		$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+		
 		$("#txtInsuFullName1").removeClass("invalid-field");
 		$("#errtxtPersonalFullName1").html("");
 		$("#errtxtAdFullName1").html("");
