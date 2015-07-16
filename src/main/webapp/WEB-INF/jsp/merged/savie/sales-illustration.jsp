@@ -15,12 +15,8 @@
 <script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 
 <script type="text/javascript">
-	function gotoCenter(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/customer-service-centre";
-	}
-	
 	function gotoAppForm(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/application";
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow}";
 	}
 </script>
 
