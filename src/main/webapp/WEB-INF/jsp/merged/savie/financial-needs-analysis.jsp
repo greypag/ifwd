@@ -16,11 +16,11 @@
 
 <script type="text/javascript">
 	function gotoCenter(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/customer-service-centre";
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow2}";
 	}
 	
 	function gotoAppForm(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/application";
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow}";
 	}
 </script>
 
@@ -51,12 +51,12 @@
 		</table>
 		
 		<div align="center">
-			<input type="submit" value="NEXT"/>
+			<input type="submit" value="NEXT" style="color: red;"/>
 		</div>
 		
 		<div style="height: 30px;"></div>
 		
-		<table style="width: 80%;">
+		<%-- <table style="width: 80%;">
 			<tr style="color: red;">
 				<td colspan="2">
 					Your selected plan <input type="button" value="Edit"/>
@@ -136,7 +136,7 @@
 					Male
 				</td>
 			</tr>
-			<tr style="color: red;">
+			<tr>
 				<td colspan="2">
 					This above information will become your policy information
 				</td>
@@ -147,11 +147,39 @@
 		
 		<div align="center">
 			<a href="<%=request.getContextPath()%>/${language}/saving-insurance/application" style="color: red;">Proceed to sales illustration</a>
+			<input type="button" value="Proceed to sales illustration" style="color: red;"/>
 		</div>
 		
+		<div style="height: 30px;"></div>
 		
-	</div>
-	
+		<table style="width: 80%;">
+			<tr>
+				<td style="color: red;font: bold;" colspan="2">This product is for HK residents only</td>
+			</tr>
+			<tr>
+				<td colspan="2">I have read the definition of a United States persion in <a href="#" style="color: red;">Declaration relating to Foreign Account 
+				Tax Compliance Act</a> and</td>
+			</tr>
+			<tr>
+				<td colspan="2">confirm that i am not a United States persion</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="Yes"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="No"/></td>
+				<td>Please call customer service hotline 3123-3123</td>
+			</tr>
+		</table>
+		
+		<div align="center">
+			<input type="submit" value="NEXT" style="color: red;" onclick="gotoAppForm();"/>
+		</div>
+		
+		<div style="height: 30px;"></div>
+		
+	</div> --%>
+</div>	
 	
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog">
@@ -179,7 +207,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<button type="button" class="btn btn-default" data-dismiss="modal" onclick="gotoCenter()">Yes,take me there</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" onclick="gotoCenter();">Yes,take me there</button>
 				</td>
 				
 			</tr>
@@ -231,7 +259,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="gotoAppForm()">Submit</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal"  onclick="gotoAppForm();">Submit</button>
 				</td>
 				
 			</tr>
