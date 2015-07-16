@@ -1,35 +1,35 @@
-$(function () {
-	var zoomCtr = 4;
-	var currentRate = 3;
-	
-	showFWDChart(currentRate, zoomCtr);
+var zoomCtr = 4;
+var currentRate = 3;
+var isCurrentDefault = true;
+$(function () {	
+	showFWDChart(currentRate, zoomCtr, isCurrentDefault);
 	
 	$('#zero-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 0;
-		changeCreditRate(currentRate, zoomCtr);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 	
 	$('#two-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 2;
-		changeCreditRate(currentRate, zoomCtr);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 	
 	$('#three-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 3;
-		changeCreditRate(currentRate, zoomCtr);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 	
 	$('#four-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 4;
-		changeCreditRate(currentRate, zoomCtr);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 
 	$(".investment-summary").swipe( {
@@ -38,14 +38,14 @@ $(function () {
 			// zoom out
 			if (zoomCtr < 4) {
 				zoomCtr = zoomCtr + 1;
-				showFWDChart(currentRate, zoomCtr);
+				showFWDChart(currentRate, zoomCtr, isCurrentDefault);
 			}
 		},
 		swipeRight: function() {			
 			// zoom in
 			if (zoomCtr > 1) {
 				zoomCtr = zoomCtr - 1;
-				showFWDChart(currentRate, zoomCtr);				
+				showFWDChart(currentRate, zoomCtr, isCurrentDefault);				
 				$('.drag-more').fadeOut('fast');
 			}
 		},
@@ -54,20 +54,27 @@ $(function () {
 	});
 });
 
-function showFWDChart(rate, zoom) {			
-	var chartData = getSeries(rate, zoom);
-	var categories = getCategories(zoom);
+function showFWDChart(rate, zoom, isDefault) {			
+	var chartData = getSeries(rate, zoom, isDefault);
+	var categories = getCategories(zoom, isDefault);
 	var seriesData = chartData[0];
 	var maxData = chartData[1];
 	var tickIntervalData = chartData[2];
 	var thirdYear = chartData[3];
 	var threeYearsGuaranteed = getguaranteed3Years();
+	var threeYearsGuaranteedtext = "100000";
+	if (!isDefault) {
+		threeYearsGuaranteedtext = threeYearsGuaranteed;
+	}
 	var contextPath = window.location.pathname.split("/")[1];
 	$('#illustration-chart').highcharts({
 		chart: {
 			type: 'area',
 			className: "fwd-chart",
-			style: {"fontFamily":"\"Calibri\"", "fontSize": "14px", "color": "#b0bdbd"}
+			style: {"fontFamily":"\"Calibri\"", "fontSize": "14px", "color": "#b0bdbd"},
+			events: {
+				redraw: updateGuaranteedBubble,
+			}
 		},
 		credits: {
 			enabled: false,
@@ -104,7 +111,7 @@ function showFWDChart(rate, zoom) {
 			}, { // 100,000 year guaranteed
 				id: "guaranteed",
 				label: {
-					text: "$"+threeYearsGuaranteed+" guaranteed<span class=\"guaranteed-tip guaranteed-tip-x\"></span>",
+					text: "$"+threeYearsGuaranteedtext+" guaranteed<span class=\"guaranteed-tip guaranteed-tip-x\"></span>",
 					align: "left",
 					rotation: 0,
 					verticalAlign: "top",
@@ -199,21 +206,28 @@ function showFWDChart(rate, zoom) {
 		series: seriesData
 	});
 	
-	$('.guaranteed-tip-y').parent().css({
-		"margin-left" : "14px",
-		"margin-top" : "-38px",
-		"visibility": "hidden"
-	});	
-	var top = $('.guaranteed-tip-y').parent().css('top');
-	top = top.replace('px','');
-	top = parseInt(top) - 38;
-	$('.guaranteed-tip-x').parent().css({
-		"margin-left": '-23px',
-		"top": top+'px'
-	})
+	updateGuaranteedBubble();
 }
 
-function getSeries(rate, zoom) {
+function updateGuaranteedBubble() {
+	if ($('.guaranteed-tip-y').length > 0) {
+		var $guaranteedY = $('.guaranteed-tip-y');
+		$guaranteedY.parent().css({
+			"margin-left" : "14px",
+			"margin-top" : "-38px",
+			"visibility": "hidden"
+		});	
+		var top = $guaranteedY.parent().css('top');
+		top = top.replace('px','');
+		top = parseInt(top) - 38;
+		$('.guaranteed-tip-x').parent().css({
+			"margin-left": '-23px',
+			"top": top+'px'
+		});
+	}
+}
+
+function getSeries(rate, zoom, isDefault) {
 	var series = new Array();
 	var data = new Array();
 	var max = 0;
@@ -221,13 +235,13 @@ function getSeries(rate, zoom) {
 	
 	// get data
 	if (zoom == 1) {
-		data = getData(5);
+		data = getData(5, isDefault);
 	} else if (zoom == 2) {
-		data = getData(25);
+		data = getData(25, isDefault);
 	} else if (zoom == 3) {
-		data = getData(30);
+		data = getData(30, isDefault);
 	} else if (zoom == 4) {
-		data = getData(45);
+		data = getData(45, isDefault);
 	}
 
 	max = data[0][data[0].length-1];
@@ -258,11 +272,11 @@ function getSeries(rate, zoom) {
 	return new Array(series, max, tickInterval);
 }
 
-function changeCreditRate(rate, zoom) {
+function changeCreditRate(rate, zoom, isDefault) {
 	$('.fwd-chart .highcharts-series-group').animate({
 		opacity: 0
 	}, 500, function() {
-		var seriesData = getSeries(rate, zoom);
+		var seriesData = getSeries(rate, zoom, isDefault);
 		var chart = $('#illustration-chart').highcharts();
 		for(var x = 0; x < seriesData[0].length; x++) {
 			chart.series[x].update(seriesData[0][x]);
@@ -273,7 +287,7 @@ function changeCreditRate(rate, zoom) {
 	});
 }
 
-function getCategories(zoom) {
+function getCategories(zoom, isDefault) {
 	var categories;
 	switch (zoom) {
 		case 1:
@@ -289,37 +303,26 @@ function getCategories(zoom) {
 			categories = ['1','','','','','','','','','','','','','','15','','','','','','','','','','','','','','','30','','','','','','','','','','','','','','','45 Years'];
 			break;
 	}
-	/*switch (zoom) {
-		case 1:
-			categories = ['1', '2', '3', '4', '5 Years'];
-			break;
-		case 2:
-			categories = ['1','','','','5','','','','','10','','','','','15','','','','','20','','','','','25 Years'];
-			break;
-		case 3:
-			categories = ['1','','','','','','','','','10','','','','','','','','','','20','','','','','','','','','','30 Years'];
-			break;
-		default:
-			categories = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45 Years'];
-			break;
-	}*/
 	
 	return categories;
 }
 
-function getData(limit) {
-	var data = new Array(
-		[125000, 135000, 145000, 217000, 230000, 243000, 256000, 269000, 282000, 295000, 308000, 321000, 334000, 347000, 360000, 373000, 386000, 399000, 412000, 425000, 438000, 451000, 464000, 477000, 490000, 503000, 516000, 529000, 542000, 555000, 568000, 581000, 594000, 607000, 620000, 633000, 646000, 659000, 672000, 685000, 698000, 711000, 724000, 737000, 750000],
-		[125000, 135000, 145000, 192000, 203000, 214000, 225000, 236000, 247000, 258000, 269000, 280000, 291000, 302000, 313000, 324000, 335000, 346000, 357000, 368000, 379000, 390000, 401000, 412000, 423000, 434000, 445000, 456000, 467000, 478000, 489000, 500000, 511000, 522000, 533000, 544000, 555000, 566000, 577000, 588000, 599000, 610000, 621000, 632000, 643000],
-		[125000, 135000, 145000, 172000, 182000, 192000, 202000, 212000, 222000, 232000, 242000, 252000, 262000, 272000, 282000, 292000, 302000, 312000, 322000, 332000, 342000, 352000, 362000, 372000, 382000, 392000, 402000, 412000, 422000, 432000, 442000, 452000, 462000, 472000, 482000, 492000, 502000, 512000, 522000, 532000, 542000, 552000, 562000, 572000, 582000],
-		[125000, 135000, 145000, 154000, 163000, 172000, 181000, 190000, 199000, 208000, 217000, 226000, 235000, 244000, 253000, 262000, 271000, 280000, 289000, 298000, 307000, 316000, 325000, 334000, 343000, 352000, 361000, 370000, 379000, 388000, 397000, 406000, 415000, 424000, 433000, 442000, 451000, 460000, 469000, 478000, 487000, 496000, 505000, 514000, 523000]
-	);
-	
+function getData(limit, isDefault) {
+	if (isDefault) {
+		var chart_data = new Array(
+			[125000, 135000, 145000, 217000, 230000, 243000, 256000, 269000, 282000, 295000, 308000, 321000, 334000, 347000, 360000, 373000, 386000, 399000, 412000, 425000, 438000, 451000, 464000, 477000, 490000, 503000, 516000, 529000, 542000, 555000, 568000, 581000, 594000, 607000, 620000, 633000, 646000, 659000, 672000, 685000, 698000, 711000, 724000, 737000, 750000],
+			[125000, 135000, 145000, 192000, 203000, 214000, 225000, 236000, 247000, 258000, 269000, 280000, 291000, 302000, 313000, 324000, 335000, 346000, 357000, 368000, 379000, 390000, 401000, 412000, 423000, 434000, 445000, 456000, 467000, 478000, 489000, 500000, 511000, 522000, 533000, 544000, 555000, 566000, 577000, 588000, 599000, 610000, 621000, 632000, 643000],
+			[125000, 135000, 145000, 172000, 182000, 192000, 202000, 212000, 222000, 232000, 242000, 252000, 262000, 272000, 282000, 292000, 302000, 312000, 322000, 332000, 342000, 352000, 362000, 372000, 382000, 392000, 402000, 412000, 422000, 432000, 442000, 452000, 462000, 472000, 482000, 492000, 502000, 512000, 522000, 532000, 542000, 552000, 562000, 572000, 582000],
+			[125000, 135000, 145000, 154000, 163000, 172000, 181000, 190000, 199000, 208000, 217000, 226000, 235000, 244000, 253000, 262000, 271000, 280000, 289000, 298000, 307000, 316000, 325000, 334000, 343000, 352000, 361000, 370000, 379000, 388000, 397000, 406000, 415000, 424000, 433000, 442000, 451000, 460000, 469000, 478000, 487000, 496000, 505000, 514000, 523000]
+		);
+	} else {
+		var chart_data = items;
+	}
 	var d = new Array();
 	for (var y = 0; y < 4; y++) {
 		var dataPerRate = new Array();
 		for(var x = 0; x < limit; x++) {
-			dataPerRate.push(data[y][x]);
+			dataPerRate.push(chart_data[y][x]);
 		}
 		
 		d.push(dataPerRate);
