@@ -113,28 +113,29 @@
 				</div>
 			</div>
 		</div>			
-		<div class="center"><a href="#" class="save-btn save-primary">Next</a></div>
+		<div class="center" style="margin:30px"><a href="#" class="save-btn save-primary">Next</a></div>
 		
 	</div>
 	<style>
 		.save-btn {
 		  margin-top: 0;
-		  padding: 12px 80px !important;
+		  padding: 12px 180px !important;
 		  min-width: 300px;
 		  line-height: 30px;
+		  font-size: 28px;
 		}
 		.save-primary {
 		  padding: 8px 20px;
-		  background: #f6871e;
-		  color: #fff;
+		  background: #fff;
+		  color: #f6871e;
 		  border: none;
 		  border: 1px solid #f6871e;
 	    }
 	    .save-primary:hover {
 		    outline: none;
 		    box-shadow: none;
-		    background: #fff;
-		    color: #f6871e;
+		    background: #f6871e;
+		    color: #fff;
 		    border: 1px solid #f6871e;
 		
 		}
