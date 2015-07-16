@@ -23,6 +23,7 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
+import com.ifwd.fwdhk.util.ZipUtils;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -113,6 +114,7 @@ public class AjaxSavieController extends BaseController{
 	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(value="file", required=false) MultipartFile file) throws Exception{
 		 byte[] bytes = file.getBytes(); 
+		 String step = request.getHeader("step");
 		 String str =  new sun.misc.BASE64Encoder().encode(bytes); 
 		 byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(str);
 	        System.out.println(file.getOriginalFilename());  
@@ -140,8 +142,19 @@ public class AjaxSavieController extends BaseController{
 	@RequestMapping(value = {"/ajax/savie/savie-save-signature/post"},method=RequestMethod.POST)
 	public void getSavieSaveJsignature(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam String image) throws Exception{
-		
-			byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(image);
+//			int i = image.length();
+//			byte[] bytes = image.getBytes();
+//			String str = String.valueOf(bytes);
+//			
+//			String GZIP1 = ZipUtils.gzip(image);
+//			int j = GZIP1.length();
+			String GZIP2 = ZipUtils.gzip(new sun.misc.BASE64Decoder().decodeBuffer(image));
+//			int k = GZIP2.length();
+			String unGZIP1 = ZipUtils.gunzip(GZIP2);
+			
+			//String src = new sun.misc.BASE64Encoder().encode(unGZIP1.getBytes());
+			
+			byte[] bytess = unGZIP1.getBytes();//new sun.misc.BASE64Decoder().decodeBuffer(image);
 		
 	        String uploadDir = request.getRealPath("/")+"upload";  
 	        File dirPath = new File(uploadDir);  
@@ -152,7 +165,7 @@ public class AjaxSavieController extends BaseController{
 	        File uploadedFile = new File(uploadDir + sep  
 	                + "signature.svg"); 
 	        FileCopyUtils.copy(bytess, uploadedFile);  
-	        response.getWriter().write("true");  
+	        response.getWriter().write("true"); 
 	}
 	
 }

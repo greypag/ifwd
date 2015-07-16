@@ -16,6 +16,7 @@
 
 </form>
 
+
 <br /><br />
 <div style="left: auto;right: auto;">Upload you documents.</div>
 <form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/${nextPageFlow }"  method="post">
@@ -28,24 +29,31 @@
   <input type="submit" value="submit">
  </form>
 <script type="text/javascript">
+
+
 var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此区域）";
-$("#dropzone").click(function(){
-	 $("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");
-	});
-	
-$("#dropzone").dropzone({
+//$("#dropzone").click(function(){
+//	 $("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");
+//	});
+
+ $("#dropzone").dropzone({
     paramName: 'file',
     url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post.html',
     dictDefaultMessage: dictDefaultMessage,
-    acceptedFiles: 'image/*',
+   // acceptedFiles: 'image/*',
     parallelUploads: 1,
-    maxFilesize: 1,
+    maxFilesize: 10,
     maxFiles: 1,
+    headers:{
+    	"step": "1"
+    },
     init: function() {},
+    removedfile: function(file) {
+    	},
     success: function(file, data) {
     	
     }
-});
+}); 
 </script>
 </body>
 </html>
