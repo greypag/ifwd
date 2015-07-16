@@ -575,10 +575,10 @@ $(document).ready(function() {
   </ul>
   <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
   	<div class="main-partner-1">
-    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class="">
+    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
     </div>
     <div class="main-partner-2">
-    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+    	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
     </div>
   </div>
   <div class="spacer3"></div>
@@ -651,10 +651,10 @@ $(document).ready(function() {
   
   <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="">
   	<div class="col-lg-6 col-md-6 col-xs-6 main-partner-1">
-    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class="">
+    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
     </div>
     <div class="col-lg-6 col-md-6 col-xs-6 main-partner-2">
-    	<img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+    	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
     </div>
   </div>
 

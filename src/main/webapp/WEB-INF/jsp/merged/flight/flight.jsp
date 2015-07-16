@@ -565,7 +565,7 @@ $(document).ready(function() {
           </ul>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
 		    <div class="main-partner-1">
-		        <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+		        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
 		    </div>
 		  </div>
           <div class="spacer3"></div>
@@ -656,7 +656,7 @@ $(document).ready(function() {
           <div class="clearfix"></div>
           
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
-		    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="" style="float:initial;">
+		    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="float:initial;">
 		  </div>
           
           <div class="spacer3"></div>
