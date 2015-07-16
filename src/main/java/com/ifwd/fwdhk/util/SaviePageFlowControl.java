@@ -71,37 +71,43 @@ public class SaviePageFlowControl {
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: // Plan Details
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_FNA;
 				to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_FNA;
+			to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION: // Create
 																	// Account
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_FNA;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_FNA;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_FNA: // FNA
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
 				to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE; // FNA=yes
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE; // FNA=yes
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_APPLICATION: // Application
 																	// Form
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) {
+			} else */
+			if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) {
 				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
 				to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
 			} else if (referer
@@ -113,39 +119,47 @@ public class SaviePageFlowControl {
 
 		case UserRestURIConstants.PAGE_SAVIE_DECLARATIONS: // Declaration
 																		// Authorization
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
 				to2 = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
+			to2 = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_SIGNATURE: // Signature
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
 				to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD: // Document Upload
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
 				to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY: // Summary
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_DECLARATIONS;
 				to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_DECLARATIONS;
+			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_CONFIRMATION: // Thank you
@@ -155,12 +169,14 @@ public class SaviePageFlowControl {
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE: // Appointment
-			if (referer == null) {
+			/*if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			} else {
 				to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
 				to2 = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
-			}
+			}*/
+			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
+			to2 = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
 			break;
 
 		default:
@@ -168,8 +184,8 @@ public class SaviePageFlowControl {
 
 		}
 
-		logger.debug("to : " + to);
-		logger.debug("to2 : " + to2);
+		logger.debug("nextPageFlow : " + to);
+		logger.debug("nextPageFlow2 : " + to2);
 		// to=UserRestURIConstants.getSitePath(request)+ "saving-insurance/"+ to;
 		// logger.debug("return to : " + to);
 
