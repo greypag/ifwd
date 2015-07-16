@@ -101,6 +101,10 @@ public class SaviePageFlowControl {
 			to = UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION;
 			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE; // FNA=yes
 			break;
+			
+		case UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION: // FNA
+			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
+			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_APPLICATION: // Application
 																	// Form
