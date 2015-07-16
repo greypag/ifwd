@@ -51,7 +51,7 @@
 		</table>
 		
 		<div align="center">
-			<input type="submit" value="NEXT" style="color: red;"/>
+			<input type="submit" value="NEXT" style="color: red;" onclick="gotoAppForm();"/>
 		</div>
 		
 		<div style="height: 30px;"></div>
