@@ -88,25 +88,18 @@ public class UserRestURIConstants {
 	
 	/* Page Flow Control For Savie */
 	
-	public static final String PAGE_SAVIE_LANDING = "savie-landing";	
-	public static final String PAGE_SAVIE_PLAN_DETAILS = "savie-plan-details";
-	
-	public static final String PAGE_SAVIE_ACCOUNT_ACTIVATION = "savie-account-activation";
-	
-	public static final String PAGE_SAVIE_FNA = "savie-fna";
-	public static final String PAGE_SAVIE_APPLICATION_DETAILS = "savie-application-details";
-	public static final String PAGE_SAVIE_DECLARATION_AUTHORIZATION = "savie-declaration-authorization";
-	public static final String PAGE_SAVIE_SIGNATURE = "savie-signature";
-	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "savie-document-upload";	
-	public static final String PAGE_SAVIE_ORDER_SUMMARY = "savie-order-summary";
-	
-	public static final String PAGE_SAVIE_APPOINTMENT = "savie-appointment";
-	
-	public static final String PAGE_SAVIE_THANKYOU = "savie-thankyou";	
-	
-	
-	
-	
+	public static final String PAGE_SAVIE_LANDING = "landing";
+	public static final String PAGE_SAVIE_PLAN_DETAILS = "plan-details";	
+	public static final String PAGE_SAVIE_ACCOUNT_ACTIVATION = "account-activation";	
+	public static final String PAGE_SAVIE_FNA = "financial-needs-analysis";
+	public static final String PAGE_SAVIE_SALES_ILLUSTRATION = "sales-illustration";	
+	public static final String PAGE_SAVIE_APPLICATION = "application";
+	public static final String PAGE_SAVIE_APPLICATION_SUMMARY = "application-summary";	
+	public static final String PAGE_SAVIE_DECLARATIONS = "declarations";
+	public static final String PAGE_SAVIE_SIGNATURE = "signature";
+	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "document-upload";	
+	public static final String PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE = "customer-service-centre";	
+	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
 
 	
 	/* lang constants */

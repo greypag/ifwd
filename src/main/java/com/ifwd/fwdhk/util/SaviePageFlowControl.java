@@ -52,109 +52,86 @@ public class SaviePageFlowControl {
 			current = current.substring(current.lastIndexOf("/") + 1);
 		}
 
-		logger.debug("referer : " + referer);
-		logger.debug("current : " + current);
-
 		// Landing Page
 		String to = "";
 		String to2 = "";
 
+		if (current.equalsIgnoreCase("saving-insurance")) {
+			current = UserRestURIConstants.PAGE_SAVIE_LANDING;
+		}
+
+		logger.debug("referer : " + referer);
+		logger.debug("current : " + current);
+
 		switch (current) {
+
 		case UserRestURIConstants.PAGE_SAVIE_LANDING:
 			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: // Plan Details
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_FNA;
-				to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: 
+			// Plan Details
+			to = UserRestURIConstants.PAGE_SAVIE_FNA;
+			to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION: // Create
-																	// Account
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_FNA;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION: 
+			// Create Account
+			to = UserRestURIConstants.PAGE_SAVIE_FNA;
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_FNA: // FNA
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS;
-				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT; // FNA=yes
-			}
+		case UserRestURIConstants.PAGE_SAVIE_FNA: 
+			// FNA
+			to = UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION;
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE; // FNA=yes
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS: // Application
-																	// Form
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else if (referer.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) {
-				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
-				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
-			} else if (referer
-					.endsWith(UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY)) {
-				to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
-				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION: 
+			// Sales Illustration
+			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY: 
+			// Summary
+			to = UserRestURIConstants.PAGE_SAVIE_DECLARATIONS;
+			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION: // Declaration
-																		// Authorization
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
-				to2 = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_APPLICATION: 
+			// Application Form
+			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=No
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//payment offline=Yes
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_SIGNATURE: // Signature
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
-				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_DECLARATIONS: 
+			// DeclarationAuthorization
+			to = UserRestURIConstants.PAGE_SAVIE_SIGNATURE;//payment offline=No
+			to2 = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//payment offline=Yes
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD: // Document Upload
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
-				to2 = UserRestURIConstants.PAGE_SAVIE_APPOINTMENT;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_SIGNATURE: 
+			// Signature
+			to = UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;//sign offline=No
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//sign offline=Yes
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY: // Summary
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_DECLARATION_AUTHORIZATION;
-				to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_DETAILS;
-			}
-			break;
+		case UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD: 
+			// Document Upload
+			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//submit offline=No
+			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//submit offline=Yes
+			break;		
 
-		case UserRestURIConstants.PAGE_SAVIE_THANKYOU: // Thank you
+		case UserRestURIConstants.PAGE_SAVIE_CONFIRMATION: 
+			// Thank you
 			if (referer == null) {
 				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
 			}
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_APPOINTMENT: // Appointment
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_SAVIE_LANDING;
-			} else {
-				to = UserRestURIConstants.PAGE_SAVIE_THANKYOU;
-				to2 = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;
-			}
+		case UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE: 
+			// Appointment
+			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//payment offline=No
+			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=Yes
 			break;
 
 		default:
@@ -162,13 +139,17 @@ public class SaviePageFlowControl {
 
 		}
 
-		logger.debug("to : " + to);
-		logger.debug("to2 : " + to2);
-		// to=UserRestURIConstants.getSitePath(request)+ "savie/"+ to;
+		logger.debug("nextPageFlow : " + to);
+		logger.debug("nextPageFlow2 : " + to2);
+		// to=UserRestURIConstants.getSitePath(request)+ "saving-insurance/"+
+		// to;
 		// logger.debug("return to : " + to);
 
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
+
+		logger.debug(UserRestURIConstants.getSitePath(request) + "savie/"
+				+ current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 

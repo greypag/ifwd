@@ -10,7 +10,11 @@
 
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 
-
+<script type="text/javascript">
+	function gotoFna(){
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/financial-needs-analysis";
+	}
+</script>
 
 <header class="clearfix">
 	<!--Top Header-->
@@ -44,8 +48,20 @@
 										<a title="Become our member | FWD Hong Kong" href="https://i.fwd.com.hk/en/joinus">JOIN US</a>
 									</li>
 									<li class="reset-padding-menu">|</li>
-									<li class="top-menu-chinese">
-										<a href="#">中文</a>
+									<li>
+									<%
+									//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
+									if ("en".equals(session.getAttribute("language").toString())) {
+									%>
+										<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
+									<%
+									} else {
+									%>
+										<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">EN</a>
+									<%
+									}
+									
+									 %>
 									<li>
 								</ul>
 							</div>
@@ -259,11 +275,11 @@
 			<div class="modal-footers">
 				<div class="row">
 					<div class="col-md-5 col-xs-5">
-						<button type="submit" class="btn btn-orange btn-login" data-dismiss="modal">Login</button>
+						<button type="submit" class="btn btn-orange btn-login" data-dismiss="modal" onclick = "gotoFna();">Login</button>
 					</div>
 					<div class="col-md-5 col-xs-5">
 							<h5>New user?</h5>
-							<a href="#" data-dismiss="modal">Register here</a>
+							<a href="#" data-dismiss="modal" onclick="register();">Register here</a>
 					</div>
 				</div>
 				<h6>For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</h6>
@@ -271,3 +287,9 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function register(){
+		window.location.href = "${pageContext.request.contextPath}/${language}/joinus";
+	}
+</script>
+
