@@ -133,7 +133,8 @@ public class AjaxSavieController extends BaseController{
 //		 int k = GZIP2.length();
 //		 
 //		 byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(str);
-	        System.out.println(file.getOriginalFilename());  
+		 logger.info("fileName:"+file.getOriginalFilename());
+	      //  System.out.println(file.getOriginalFilename());  
 	        String uploadDir = request.getRealPath("/")+"upload";  
 	        File dirPath = new File(uploadDir);  
 	        if (!dirPath.exists()) {   
@@ -149,6 +150,7 @@ public class AjaxSavieController extends BaseController{
 	/**
 	 * test save signature image/svg
 	 * @param model
+	 * 
 	 * @param request
 	 * @param response
 	 * @param image BASE64String 
