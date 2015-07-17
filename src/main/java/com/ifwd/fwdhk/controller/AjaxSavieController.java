@@ -124,9 +124,15 @@ public class AjaxSavieController extends BaseController{
 	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(value="file", required=false) MultipartFile file) throws Exception{
 		 byte[] bytes = file.getBytes(); 
-		 String step = request.getHeader("step");
-		 String str =  new sun.misc.BASE64Encoder().encode(bytes); 
-		 byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(str);
+		 String GZIP1 = ZipUtils.gzip(bytes);
+//		 int i = GZIP1.length();
+//		 String step = request.getHeader("step");
+//		 String str =  new sun.misc.BASE64Encoder().encode(bytes);
+//		 int j = str.length();
+//		 String GZIP2 = ZipUtils.gzip(str); 
+//		 int k = GZIP2.length();
+//		 
+//		 byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(str);
 	        System.out.println(file.getOriginalFilename());  
 	        String uploadDir = request.getRealPath("/")+"upload";  
 	        File dirPath = new File(uploadDir);  
@@ -136,7 +142,7 @@ public class AjaxSavieController extends BaseController{
 	        String sep = System.getProperty("file.separator");  
 	        File uploadedFile = new File(uploadDir + sep  
 	                + file.getOriginalFilename());  
-	        FileCopyUtils.copy(bytess, uploadedFile);  
+	        FileCopyUtils.copy(bytes, uploadedFile);  
 	        response.getWriter().write("true");  
 	}
 	
