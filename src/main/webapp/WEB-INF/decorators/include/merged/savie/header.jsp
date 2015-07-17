@@ -279,7 +279,7 @@
 					</div>
 					<div class="col-md-5 col-xs-5">
 							<h5>New user?</h5>
-							<a href="#" data-dismiss="modal">Register here</a>
+							<a href="#" data-dismiss="modal" onclick="register();">Register here</a>
 					</div>
 				</div>
 				<h6>For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</h6>
@@ -287,3 +287,9 @@
 		</div>
 	</div>
 </div>
+<<script type="text/javascript">
+	function register(){
+		window.location.href = "${pageContext.request.contextPath}/${language}/joinus";
+	}
+</script>
+
