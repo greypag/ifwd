@@ -9,6 +9,15 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
+<script type="text/javascript">
+	function gotoCenter(){
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow2}";
+	}
+	
+	function gotoAppForm(){
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow}";
+	}
+</script>
 
 	<div class="container">
 		<div class="fwd-container container-fluid breadcrumbs">
@@ -102,21 +111,21 @@
 		    <!-- 如果不用clear屬性可能會出現瀏覽器不兼容問題,clear設這元素周圍沒有浮動元素 -->  
 		    <div style="clear:both"></div>
 		</div>
-		<div class="center" style="margin:30px"><a href="#" class="save-btn-next save-primary">Next</a></div>
+		<div class="center" style="margin:30px"><a class="save-btn-next save-primary" onclick="gotoAppForm();">Next</a></div>
 	</div>
 	<style>
 		.save-left {width:46%;float:left;border:#ccc 1px solid;margin:10px;padding:10px;}  
 		.save-right {width:46%;float:left;border:#ccc 1px solid;margin:10px;padding:10px;}
 		.save-btn-next {
 		  margin-top: 0;
-		  padding: 12px 80px !important;
+		  padding: 12px 180px !important;
 		  min-width: 300px;
 		  line-height: 30px;
 		  font-size: 28px;
 		}
 		.save-btn {
 		  margin-top: 0;
-		  padding: 12px 180px !important;
+		  padding: 12px 80px !important;
 		  min-width: 150px;
 		  line-height: 20px;
 		  float:right;
