@@ -19,15 +19,20 @@
 
 <br /><br />
 <div style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px">And finally,your signature here</div>
- <form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/${nextPageFlow }"  method="post">
- <input type="radio" name="signature" value="1">Digital signature 
- <input type="radio" name="signature" style="margin-left: 20px" value="2">Offline signature<br/>
+ <form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow }"  method="post">
+ <input type="radio" name="signature" checked="checked" value="1" onclick="changFormAction('${nextPageFlow }')">Digital signature 
+ <input type="radio" name="signature" style="margin-left: 20px" value="2" onclick="changFormAction('${nextPageFlow2 }')">Offline signature<br/>
  <input type="submit" value="Proceed">
  </form>
 <script>
+	function changFormAction(v) {
+		var language = "${language}";
+		var url = "<%=request.getContextPath()%>/"+language+"/saving-insurance/"+v;
+		$("#form1").attr("action",url);
+	}
+	
 	var $sigdiv = $("#signature")	;
     $(document).ready(function() {
-    	
     	$sigdiv.jSignature(); // 初始化jSignature插件.
     	// after some doodling...
     	//$sigdiv.jSignature("reset"); //重置画布，可以进行重新作画.
