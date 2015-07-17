@@ -287,7 +287,7 @@
 		</div>
 	</div>
 </div>
-<<script type="text/javascript">
+<script type="text/javascript">
 	function register(){
 		window.location.href = "${pageContext.request.contextPath}/${language}/joinus";
 	}

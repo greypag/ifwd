@@ -278,6 +278,113 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	@Override
+	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException {
+		try {
+			String planCode = request.getParameter("planCode");
+			String issueAge = request.getParameter("issueAge");
+			String paymentTerm = request.getParameter("paymentTerm");
+			String premium = request.getParameter("premium");
+			String referralCode = request.getParameter("referralCode");
+			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
+			
+			JSONObject resultJsonObject = new JSONObject();
+			if(!apiResponse.hasError()){
+				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
+				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
+				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
+				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+				
+				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
+					List<JSONObject> inputTableList = new ArrayList<JSONObject>();
+					JSONObject inputTable = new JSONObject();
+					inputTable.accumulate("type", planCode);
+					inputTable.accumulate("issueAge", issueAge);
+					inputTable.accumulate("paymode", "monthly");
+					inputTable.accumulate("premium", premium);
+					inputTable.accumulate("paymentMode", "Single");
+					inputTable.accumulate("paymentTerm", paymentTerm);
+					inputTable.accumulate("promoCode", referralCode);
+					inputTableList.add(inputTable);
+					
+					JSONObject planDetailJsonObject = new JSONObject();
+					planDetailJsonObject.accumulate("inputTable", inputTableList);
+					
+					List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
+					
+					for(int i =0;i<planDetails0Rate.size();i++){
+						JSONObject yesrPlan = new JSONObject();
+						yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getType().substring(1)));
+						
+						List<JSONObject> plansList = new ArrayList<JSONObject>();
+						
+						JSONObject plan0 = new JSONObject();
+						plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getAccountEOP()));
+						plan0.accumulate("totalPremium", premium);
+						plan0.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan0.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+						plan0.accumulate("rate","zero");
+						plansList.add(plan0);
+						
+						JSONObject plan2 = new JSONObject();
+						plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getAccountEOP()));
+						plan2.accumulate("totalPremium", premium);
+						plan2.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan2.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+						plan2.accumulate("rate","two");
+						plansList.add(plan2);
+						
+						JSONObject plan3 = new JSONObject();
+						plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getAccountEOP()));
+						plan3.accumulate("totalPremium", premium);
+						plan3.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan3.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+						plan3.accumulate("rate","three");
+						plansList.add(plan3);
+						
+						JSONObject plan4 = new JSONObject();
+						plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getAccountEOP()));
+						plan4.accumulate("totalPremium", premium);
+						plan4.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan4.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+						plan4.accumulate("rate","four");
+						plansList.add(plan4);
+						
+						yesrPlan.accumulate("plans", plansList);
+						yearPlansList.add(yesrPlan);
+					}
+					planDetailJsonObject.accumulate("yearPlans", yearPlansList);
+					resultJsonObject.accumulate("result", "success");
+					resultJsonObject.accumulate("errMsgs", "");
+					resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
+				}
+				else{
+					resultJsonObject.accumulate("result", "fail");
+					resultJsonObject.accumulate("errMsgs", "Data exception");
+					throw new ECOMMAPIException("Data exception!");
+				}
+			}
+			else{
+				resultJsonObject.accumulate("result", "fail");
+				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
+				throw new ECOMMAPIException("API savie/planDetails occurs an exception!");
+			}
+			
+			response.setContentType("text/json;charset=utf-8");
+			//return data
+			try {
+				logger.info(resultJsonObject.toString());
+				response.getWriter().print(resultJsonObject.toString());
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		} catch (ECOMMAPIException e) {
+			logger.info("SavieServiceImpl getPlanDetails occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public String upsertFNA(String userName, String token, String language,
 			SavieFormFNABean fna) {
 		return null;

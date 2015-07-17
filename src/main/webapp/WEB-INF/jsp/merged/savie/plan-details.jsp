@@ -263,4 +263,10 @@
 
 			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a> 
 	</div>	
-		
+	
+	
+	    <!--For Sales Illustration page js-->
+		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>	

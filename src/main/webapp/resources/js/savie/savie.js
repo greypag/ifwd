@@ -176,3 +176,19 @@ function getguaranteed3Years(){
 		return guaranteed3Years;
 	}
 }
+
+function createPdf() {
+	//var amount = $('#R').val();
+	var planCode = "sss";
+	var hostPath = window.location.host;
+	var contextPath = window.location.pathname.split("/")[1];
+	$.ajax('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
+	{ 
+		planCode : planCode
+	},
+	function(data) {
+		//var json = $.parseJSON(JSON.stringify(data));
+	})
+	.fail(function(data) {
+	});
+}

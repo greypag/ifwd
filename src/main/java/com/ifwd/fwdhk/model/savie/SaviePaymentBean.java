@@ -7,6 +7,7 @@ public class SaviePaymentBean {
 	private boolean paymentType;
 	private float amount;
 	private String paymentMethod;	
+	private String bankAccountHolderName;	
 	private String bankName;	
 	private String branchName;
 	private String accountNo;
@@ -30,6 +31,13 @@ public class SaviePaymentBean {
 	}
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
+	}
+	
+	public String getBankAccountHolderName() {
+		return bankAccountHolderName;
+	}
+	public void setBankAccountHolderName(String bankAccountHolderName) {
+		this.bankAccountHolderName = bankAccountHolderName;
 	}
 	public String getBankName() {
 		return bankName;

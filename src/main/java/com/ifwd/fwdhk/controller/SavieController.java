@@ -3,6 +3,9 @@ package com.ifwd.fwdhk.controller;
 
 
 import java.io.File;
+import java.lang.reflect.Method;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -17,12 +21,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
+import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
+import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 @Controller
 public class SavieController extends BaseController{
@@ -60,20 +67,41 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/application-summary"})
-	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		logger.debug(savieDetail.getSavieApplicantBean().getFirstName());
-		logger.debug(savieDetail.getSavieEmploymentBean().getEmploymentStatus());
-		request.getSession().setAttribute("savieDetail", savieDetail);
+	@RequestMapping(value = {"/{lang}/saving-insurance/application-summary"}, method = RequestMethod.POST)
+	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,
+			@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail,
+			@RequestParam String appGender,
+			@RequestParam String maritalStatus,
+			@RequestParam String birthday) {
+		if("F".equals(appGender)){
+			savieDetail.getSavieApplicantBean().setGender(GenderEnum.FEMALE);
+		}
+		else{
+			savieDetail.getSavieApplicantBean().setGender(GenderEnum.MALE);
+		}
+		if("S".equals(maritalStatus)){
+			savieDetail.getSavieApplicantBean().setMaritalStatus(MaritalStatusEnum.Single);
+		}
+		else{
+			savieDetail.getSavieApplicantBean().setMaritalStatus(MaritalStatusEnum.Married);
+		}
+		if(!"".equals(birthday)){
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			try {
+				savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthday));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
 		
+		
+		request.getSession().setAttribute("savieDetail", savieDetail);
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/customer-service-centre"})
-	public ModelAndView getSavieAppointment(Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/saving-insurance/customer-service-centre"}, method = RequestMethod.POST)
+	public ModelAndView getSavieAppointment(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
+		request.getSession().setAttribute("savieDetail", savieDetail);
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	

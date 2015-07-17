@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.model.savie;
 
 import java.util.Date;
+
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
 
@@ -35,6 +36,8 @@ public class SavieApplicantBean {
     private String correspondenceAdress2;   
     private String correspondenceAdress3;   
     private String correspondenceDistrict;
+    
+    private String addressIsSame;
     
     
 	public String getFirstName() {
@@ -174,6 +177,12 @@ public class SavieApplicantBean {
 	}
 	public void setCorrespondenceDistrict(String correspondenceDistrict) {
 		this.correspondenceDistrict = correspondenceDistrict;
+	}
+	public String getAddressIsSame() {
+		return addressIsSame;
+	}
+	public void setAddressIsSame(String addressIsSame) {
+		this.addressIsSame = addressIsSame;
 	}
 	
 	//<List>FNA

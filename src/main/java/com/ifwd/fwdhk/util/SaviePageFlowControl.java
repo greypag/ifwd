@@ -91,7 +91,7 @@ public class SaviePageFlowControl {
 			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY: 
+		case UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY: 
 			// Summary
 			to = UserRestURIConstants.PAGE_SAVIE_DECLARATIONS;
 			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION;
@@ -99,7 +99,7 @@ public class SaviePageFlowControl {
 
 		case UserRestURIConstants.PAGE_SAVIE_APPLICATION: 
 			// Application Form
-			to = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;//payment offline=No
+			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=No
 			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//payment offline=Yes
 			break;
 
@@ -131,7 +131,7 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE: 
 			// Appointment
 			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//payment offline=No
-			to2 = UserRestURIConstants.PAGE_SAVIE_ORDER_SUMMARY;//payment offline=Yes
+			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=Yes
 			break;
 
 		default:

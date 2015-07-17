@@ -36,6 +36,7 @@ public interface SavieService {
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
 	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException;
+	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException;
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);
