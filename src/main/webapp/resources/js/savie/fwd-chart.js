@@ -66,6 +66,13 @@ function showFWDChart(rate, zoom, isDefault) {
 	if (!isDefault) {
 		threeYearsGuaranteedtext = threeYearsGuaranteed;
 	}
+	// get applicant's age
+	var currentTime = new Date();
+	var birthOfDay = Date.parse($('#birthOfDay').val());
+	var applicantAge = Math.floor((currentTime - birthOfDay) / 1000 / 60 / 60 / 24 / 365);
+	// get applicant's age 66 indicator
+	var indicatorAge = 66;
+	var indicatorPos = indicatorAge - applicantAge - 1;
 	var contextPath = window.location.pathname.split("/")[1];
 	$('#illustration-chart').highcharts({
 		chart: {
@@ -136,7 +143,7 @@ function showFWDChart(rate, zoom, isDefault) {
 					useHTML: true,
 					y: 19
 				},
-				value: 1.5,
+				value: indicatorPos,
 				width: 1,
 			}]
 		},
