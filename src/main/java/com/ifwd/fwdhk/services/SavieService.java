@@ -1,7 +1,5 @@
 package com.ifwd.fwdhk.services;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -26,7 +25,6 @@ import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
-import com.itextpdf.text.DocumentException;
 
 
 public interface SavieService {
@@ -61,20 +59,22 @@ public interface SavieService {
 	
 	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException;
 	
-	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
+	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
+	
+	public BaseResponse signature(HttpServletRequest request,String image)throws ECOMMAPIException;
+	
+	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException;
+	
 	
 	//fileUpload?
-	//signature?
-	
-	
-	
+	//signature?	
 	//1/check session, and redirect to savie landing page if session expired
 	//2/validate the object
 	//3/check page flow object
-	    //define from page and to page
+	//define from page and to page
 	//4/create response object
 	//5/call service layer
-	    //4.1/store the response into response object
+	//4.1/store the response into response object
 	//6/put the required object into session
 	//7/return result
 	//8/return the next page (if applicable)
