@@ -42,7 +42,7 @@ var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此�
 
  $("#dropzone").dropzone({
     paramName: 'file',
-    url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post.html',
+    url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post',
     dictDefaultMessage: dictDefaultMessage,
    // acceptedFiles: 'image/*',
     parallelUploads: 1,
