@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -33,6 +35,7 @@ import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
 import com.ifwd.fwdhk.services.SavieService;
+import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
@@ -54,6 +57,9 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Autowired
 	protected HeaderUtil headerUtil;
+	
+	@Autowired
+	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
@@ -663,7 +669,7 @@ public class SavieServiceImpl implements SavieService {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public BaseResponse SendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
+	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
@@ -683,7 +689,7 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("from", from);
 			parameters.put("isHtml", isHTML);
 			
-			br = connector.SendEmail(parameters,header);
+			br = connector.sendEmail(parameters,header);
 		}catch(Exception e){
 			
 			logger.info("SavieServiceImpl sendLead occurs an exception!");
@@ -693,4 +699,51 @@ public class SavieServiceImpl implements SavieService {
 
 		 return br;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public BaseResponse signature(HttpServletRequest request,String image)throws ECOMMAPIException{		
+		BaseResponse br = null;
+		try {
+			final Map<String, String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("fileType", "svg");
+			parameters.put("signatureType", "application");
+			parameters.put("base64", image);
+			br = connector.signature(parameters, header);
+		} catch (ECOMMAPIException e) {
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return br;
+	}
+	
+	@SuppressWarnings({ "restriction", "unchecked" })
+	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try{
+			byte[] bytes = file.getBytes();
+			String base64 =new sun.misc.BASE64Encoder().encode(bytes);
+			final Map<String, String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("fileType", file.getContentType().split("/")[1]);
+			parameters.put("documentType", "HKID");
+			parameters.put("originalFilePath", "C:\\"+file.getOriginalFilename());
+			parameters.put("base64", base64);
+			br = connector.uploadDocuments(parameters, header);
+		}catch(Exception e) {
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return br;
+	}
+
 }

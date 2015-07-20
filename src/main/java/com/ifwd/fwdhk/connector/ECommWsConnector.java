@@ -96,8 +96,17 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,header);
 	}
 	
-	public BaseResponse SendEmail(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+	public BaseResponse sendEmail(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.SEND_EMAIL,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	
+	public BaseResponse signature(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.SEND_SIGN,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	public BaseResponse uploadDocuments(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.SEND_DOCUMENTS,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
 	private <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
