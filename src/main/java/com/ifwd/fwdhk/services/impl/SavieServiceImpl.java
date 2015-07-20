@@ -292,173 +292,107 @@ public class SavieServiceImpl implements SavieService {
 	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
 		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) httpSession.getAttribute("planDetailData");
 		JSONObject resultJsonObject = new JSONObject();
+		String totalPremium = planDetailData.getPlanDetails0Rate().get(0).getTotalPremium();
 		if(planDetailData != null && !planDetailData.hasError()){
 			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
 			attributeList.add(new PdfAttribute("englishName", request.getParameter("englishName")));
 			attributeList.add(new PdfAttribute("gender", request.getParameter("gender")));
 			attributeList.add(new PdfAttribute("dateTime",request.getParameter("dateTime")));
-			attributeList.add(new PdfAttribute("singlePremiumAmount", request.getParameter("singlePremiumAmount")));
+			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));
 			attributeList.add(new PdfAttribute("age", request.getParameter("age")));
 			attributeList.add(new PdfAttribute("paymentMethod", request.getParameter("paymentMethod")));
-			attributeList.add(new PdfAttribute("Premium",request.getParameter("Premium")));
-			attributeList.add(new PdfAttribute("singlePremiumAmount",request.getParameter("singlePremiumAmount")));
+			attributeList.add(new PdfAttribute("Premium",totalPremium));
+			attributeList.add(new PdfAttribute("singlePremiumAmount",totalPremium));
 			attributeList.add(new PdfAttribute("paymentType",request.getParameter("paymentType")));
 			attributeList.add(new PdfAttribute("verson","1.0"));
 			logger.info(planDetailData.getPlanDetails0Rate().size()+"");
 			NumberFormat nt = NumberFormat.getPercentInstance();
 			nt.setMinimumFractionDigits(2);
-			//>66 不显示66岁，最后一行空出来， <=66显示66
-			for (int i = 0; i < 13; i++) {
-				if(i<6){
-					attributeList.add(new PdfAttribute("endYear"+i,i+""));
+			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
+				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getPolicyYear())+1;
+				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
+				int issueAge = Integer.valueOf(planDetailData.getIssueAge());
+				if(policyYear<4){
+					attributeList.add(new PdfAttribute("endYear"+policyYear,policyYear+""));
+					attributeList.add(new PdfAttribute("totalPremium"+policyYear,totalPremium));
+					attributeList.add(new PdfAttribute("interestedRate"+policyYear,nt.format(Float.valueOf(planDetailData.getPlanDetails0Rate().get(i).getInterestedRate()))));
+					attributeList.add(new PdfAttribute("accountEOP"+policyYear,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+policyYear,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+				    attributeList.add(new PdfAttribute("guranteedDeathBenefit"+policyYear,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))); 
 				}
-				else if(i>5 && i<11){
-					attributeList.add(new PdfAttribute("endYear"+i,(i-4)*5+""));
+				else if(policyYear==4){
+					attributeList.add(new PdfAttribute("endYear"+4,"4"));
+					attributeList.add(new PdfAttribute("totalPremium"+4,totalPremium));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit41",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit41",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit42",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit42",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit43",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit43",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit44",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit44",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
 				}
-				else if(i==11){
-					if(Integer.valueOf(planDetailData.getIssueAge())>66){
-						attributeList.add(new PdfAttribute("endYear"+i,"100"));
-					}
-					else{
-						attributeList.add(new PdfAttribute("endYear"+i,"66"));
-					}
-			    }
-				else if(i==12){
-					if(Integer.valueOf(planDetailData.getIssueAge())>66){
-						attributeList.add(new PdfAttribute("endYear"+i,"-"));
-					}
-					else{
-						attributeList.add(new PdfAttribute("endYear"+i,"100"));
-					}
+				else if(policyYear%5==0 && policyYear/5<7){
+					attributeList.add(new PdfAttribute("endYear"+(4+policyYear/5),policyYear+""));
+					attributeList.add(new PdfAttribute("totalPremium"+(4+policyYear/5),totalPremium));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+(4+policyYear/5)+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+(4+policyYear/5)+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+(4+policyYear/5)+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+(4+policyYear/5)+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+(4+policyYear/5)+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+(4+policyYear/5)+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+(4+policyYear/5)+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+(4+policyYear/5)+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
 				}
-				attributeList.add(new PdfAttribute("totalPremium"+i,request.getParameter("singlePremiumAmount")));
-				if(i<4){
-					attributeList.add(new PdfAttribute("interestedRate"+i,nt.format(Float.valueOf(planDetailData.getPlanDetails0Rate().get(i).getInterestedRate()))));
-					attributeList.add(new PdfAttribute("accountEOP"+i,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-				    attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))); 
+				else if(issueAge>66){
+					if(age==100){
+						attributeList.add(new PdfAttribute("endYear"+11,"岁数"+100));
+						attributeList.add(new PdfAttribute("totalPremium"+11,totalPremium));
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
+					}
+					attributeList.add(new PdfAttribute("endYear"+12,"-"));
+					attributeList.add(new PdfAttribute("totalPremium"+12,"-"));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"1","-")); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"1","-"));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"2","-")); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"2","-")); 
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"3","-")); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"3","-")); 
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"4","-")); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"4","-")); 
 				}
-				else if(i>3 && i<6){
-					for(int y=1; y<5; y++){
-						if(y==1){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))); 
-						}
-						else if(y==2){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
-						}
-						else if(y==3){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
-						}
-						else if(y==4){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
-						}
+				else if(issueAge<67){
+					if(age==66){
+						attributeList.add(new PdfAttribute("endYear"+11,"歲數"+66));
+						attributeList.add(new PdfAttribute("totalPremium"+11,totalPremium));
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+11+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+11+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
 					}
-				}
-				else if(i>5 && i<11){
-					for(int y=1; y<5; y++){
-						if(y==1){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-						}
-						else if(y==2){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-						}
-						else if(y==3){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-						}
-						else if(y==4){
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-						}
-					}
-				}
-				else if(i==11){
-					if(Integer.valueOf(planDetailData.getIssueAge())>66){
-						for(int y=1; y<5; y++){
-							//100
-							if(y==1){
-								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-							}
-							else if(y==2){
-								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-							}
-							else if(y==3){
-								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-							}
-							else if(y==4){
-								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
-								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
-							}
-						}
-					}
-					else{
-						for(int y=1; y<5; y++){
-							//66
-							for(int a=0;a<planDetailData.getPlanDetails0Rate().size();a++){
-								if(planDetailData.getPlanDetails0Rate().get(a).getAge()=="66"){
-									if(y==1){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(a).getGuranteedSurrenderBenefit()))); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(a).getGuranteedDeathBenefit()))); 
-									}
-									else if(y==2){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(a).getGuranteedSurrenderBenefit()))); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(a).getGuranteedDeathBenefit()))); 
-									}
-									else if(y==3){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(a).getGuranteedSurrenderBenefit()))); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(a).getGuranteedDeathBenefit()))); 
-									}
-									else if(y==4){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(a).getGuranteedSurrenderBenefit()))); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(a).getGuranteedDeathBenefit()))); 
-									}
-								}
-							}
-						}
-					}
-			    }
-				else if(i==12){
-					if(Integer.valueOf(planDetailData.getIssueAge())>66){
-						for(int y=1; y<5; y++){
-							//null
-							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,"-")); 
-							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,"-")); 
-						}
-					}
-					else{
-						for(int y=1; y<5; y++){
-							//100
-							for(int b=0;b<planDetailData.getPlanDetails0Rate().size();b++){
-								if(planDetailData.getPlanDetails0Rate().get(b).getAge()=="100"){
-									if(y==1){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails0Rate().get(b).getGuranteedSurrenderBenefit())); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails0Rate().get(b).getGuranteedDeathBenefit())); 
-									}
-									else if(y==2){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails2Rate().get(b).getGuranteedSurrenderBenefit())); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails2Rate().get(b).getGuranteedDeathBenefit())); 
-									}
-									else if(y==3){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails3Rate().get(b).getGuranteedSurrenderBenefit())); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails3Rate().get(b).getGuranteedDeathBenefit())); 
-									}
-									else if(y==4){
-										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails4Rate().get(b).getGuranteedSurrenderBenefit())); 
-										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails4Rate().get(b).getGuranteedDeathBenefit())); 
-									}
-								}
-							}
-						}
+					else if(age==100){
+						attributeList.add(new PdfAttribute("endYear"+12,"歲數"+100));
+						attributeList.add(new PdfAttribute("totalPremium"+12,totalPremium));
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"1",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"2",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"3",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+12+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
+						attributeList.add(new PdfAttribute("guranteedDeathBenefit"+12+"4",NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
 					}
 				}
 			}
