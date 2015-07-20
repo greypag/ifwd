@@ -3,6 +3,8 @@ package com.ifwd.fwdhk.controller;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +26,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.ZipUtils;
+import com.itextpdf.text.DocumentException;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -44,7 +47,7 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie/sales-illustration/createPdf"})
-	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		try {
 			savieService.createSalesIllustrationPdf(model, request, response);
 		} catch (ECOMMAPIException e) {
@@ -119,22 +122,12 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	
-	@SuppressWarnings("restriction")
 	@RequestMapping(value = {"/ajax/savie/savie-image/post"},method=RequestMethod.POST)
 	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(value="file", required=false) MultipartFile file) throws Exception{
-		 byte[] bytes = file.getBytes(); 
-		 String GZIP1 = ZipUtils.gzip(bytes);
-//		 int i = GZIP1.length();
-//		 String step = request.getHeader("step");
-//		 String str =  new sun.misc.BASE64Encoder().encode(bytes);
-//		 int j = str.length();
-//		 String GZIP2 = ZipUtils.gzip(str); 
-//		 int k = GZIP2.length();
-//		 
-//		 byte[] bytess = new sun.misc.BASE64Decoder().decodeBuffer(str);
-		 logger.info("fileName:"+file.getOriginalFilename());
-	      //  System.out.println(file.getOriginalFilename());  
+			byte[] bytes = file.getBytes(); 
+			// String gzip = ZipUtils.gzip(bytes);
+			logger.info("fileName:"+file.getOriginalFilename());
 	        String uploadDir = request.getRealPath("/")+"upload";  
 	        File dirPath = new File(uploadDir);  
 	        if (!dirPath.exists()) {   
@@ -160,19 +153,11 @@ public class AjaxSavieController extends BaseController{
 	@RequestMapping(value = {"/ajax/savie/savie-save-signature/post"},method=RequestMethod.POST)
 	public void getSavieSaveJsignature(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam String image) throws Exception{
-//			int i = image.length();
-//			byte[] bytes = image.getBytes();
-//			String str = String.valueOf(bytes);
-//			
-//			String GZIP1 = ZipUtils.gzip(image);
-//			int j = GZIP1.length();
-			String GZIP2 = ZipUtils.gzip(new sun.misc.BASE64Decoder().decodeBuffer(image));
-//			int k = GZIP2.length();
-			String unGZIP1 = ZipUtils.gunzip(GZIP2);
-			
-			//String src = new sun.misc.BASE64Encoder().encode(unGZIP1.getBytes());
-			
-			byte[] bytess = unGZIP1.getBytes();//new sun.misc.BASE64Decoder().decodeBuffer(image);
+
+			String gzip = ZipUtils.gzip(new sun.misc.BASE64Decoder().decodeBuffer(image));
+			String unGzip = ZipUtils.gunzip(gzip);
+	
+			byte[] bytess = unGzip.getBytes();//new sun.misc.BASE64Decoder().decodeBuffer(image);
 		
 	        String uploadDir = request.getRealPath("/")+"upload";  
 	        File dirPath = new File(uploadDir);  

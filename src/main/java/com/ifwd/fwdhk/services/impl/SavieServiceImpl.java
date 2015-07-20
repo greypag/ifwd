@@ -1,6 +1,14 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +48,9 @@ import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.PdfAttribute;
+import com.ifwd.fwdhk.util.genPDF;
+import com.itextpdf.text.DocumentException;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -278,110 +289,55 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	@Override
-	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException {
-		try {
-			String planCode = request.getParameter("planCode");
-			String issueAge = request.getParameter("issueAge");
-			String paymentTerm = request.getParameter("paymentTerm");
-			String premium = request.getParameter("premium");
-			String referralCode = request.getParameter("referralCode");
-			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
-			
-			JSONObject resultJsonObject = new JSONObject();
-			if(!apiResponse.hasError()){
-				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
-				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
-				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
-				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		
+			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+			attributeList.add(new PdfAttribute("year", "4"));
+			attributeList.add(new PdfAttribute("applicationNo", "SV2015070600001"));
+			attributeList.add(new PdfAttribute("chineseName", "李小龍"));
+			attributeList.add(new PdfAttribute("gender", "男"));
+			attributeList.add(new PdfAttribute("dateTime","11/12/1986"));
+			attributeList.add(new PdfAttribute("singlePremiumAmount", "10,000"));
+			attributeList.add(new PdfAttribute("age", "15"));
+			attributeList.add(new PdfAttribute("paymentMethod", "港幣"));
+			attributeList.add(new PdfAttribute("Premium","1,000"));
+			 attributeList.add(new PdfAttribute("singlePremiumAmount","100,000"));
+			 attributeList.add(new PdfAttribute("paymentType"," - "));
+			 attributeList.add(new PdfAttribute("verson","1.0"));
+			 String year66="66";
+			 for (int i = 0; i < 13; i++) {
+				 if(i>5 && i<11){
+					 attributeList.add(new PdfAttribute("endYear"+i,(i-4)*5+""));
+				 }else if(i<6){
+					 attributeList.add(new PdfAttribute("endYear"+i,i+""));
+				 }else if(i==11){
+					 if(year66==null && "".equals(year66)){
+						 attributeList.add(new PdfAttribute("endYear"+i,"100"));
+					 }else{
+						 attributeList.add(new PdfAttribute("endYear"+i,"66"));
+					 }
+					 
+				 }else if(i==12){
+					 attributeList.add(new PdfAttribute("endYear"+i,"100"));
+				 }
 				
-				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
-					List<JSONObject> inputTableList = new ArrayList<JSONObject>();
-					JSONObject inputTable = new JSONObject();
-					inputTable.accumulate("type", planCode);
-					inputTable.accumulate("issueAge", issueAge);
-					inputTable.accumulate("paymode", "monthly");
-					inputTable.accumulate("premium", premium);
-					inputTable.accumulate("paymentMode", "Single");
-					inputTable.accumulate("paymentTerm", paymentTerm);
-					inputTable.accumulate("promoCode", referralCode);
-					inputTableList.add(inputTable);
+				 attributeList.add(new PdfAttribute("totalPremium"+i,"10,000"));
+				 if(i<4){
 					
-					JSONObject planDetailJsonObject = new JSONObject();
-					planDetailJsonObject.accumulate("inputTable", inputTableList);
-					
-					List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
-					
-					for(int i =0;i<planDetails0Rate.size();i++){
-						JSONObject yesrPlan = new JSONObject();
-						yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getType().substring(1)));
-						
-						List<JSONObject> plansList = new ArrayList<JSONObject>();
-						
-						JSONObject plan0 = new JSONObject();
-						plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", premium);
-						plan0.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan0.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
-						plan0.accumulate("rate","zero");
-						plansList.add(plan0);
-						
-						JSONObject plan2 = new JSONObject();
-						plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", premium);
-						plan2.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan2.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
-						plan2.accumulate("rate","two");
-						plansList.add(plan2);
-						
-						JSONObject plan3 = new JSONObject();
-						plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", premium);
-						plan3.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan3.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
-						plan3.accumulate("rate","three");
-						plansList.add(plan3);
-						
-						JSONObject plan4 = new JSONObject();
-						plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", premium);
-						plan4.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan4.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
-						plan4.accumulate("rate","four");
-						plansList.add(plan4);
-						
-						yesrPlan.accumulate("plans", plansList);
-						yearPlansList.add(yesrPlan);
-					}
-					planDetailJsonObject.accumulate("yearPlans", yearPlansList);
-					resultJsonObject.accumulate("result", "success");
-					resultJsonObject.accumulate("errMsgs", "");
-					resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
-				}
-				else{
-					resultJsonObject.accumulate("result", "fail");
-					resultJsonObject.accumulate("errMsgs", "Data exception");
-					throw new ECOMMAPIException("Data exception!");
-				}
-			}
-			else{
-				resultJsonObject.accumulate("result", "fail");
-				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
-				throw new ECOMMAPIException("API savie/planDetails occurs an exception!");
-			}
-			
-			response.setContentType("text/json;charset=utf-8");
-			//return data
-			try {
-				logger.info(resultJsonObject.toString());
-				response.getWriter().print(resultJsonObject.toString());
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		} catch (ECOMMAPIException e) {
-			logger.info("SavieServiceImpl getPlanDetails occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+				 attributeList.add(new PdfAttribute("interestedRate"+i,"3.21%"));
+				 attributeList.add(new PdfAttribute("accountEOP"+i,"2.28%"));
+				 attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i,"100,000")); 
+			      attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i,"2,000")); 
+				   }else{
+					  
+					   for(int y=1; y<5; y++){
+						   attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,"100,000")); 
+						      attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,"2,000")); 
+					   }
+				   }
+				 
 		}
+			 String name = genPDF.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
 	}
 	
 	@Override

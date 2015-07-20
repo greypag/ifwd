@@ -1,6 +1,9 @@
 package com.ifwd.fwdhk.services;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +25,7 @@ import com.ifwd.fwdhk.model.savie.SavieFormSignatureBean;
 import com.ifwd.fwdhk.model.savie.SaviePolicy;
 import com.ifwd.fwdhk.model.savie.SaviePolicyAccountBalanceBean;
 import com.ifwd.fwdhk.model.savie.SavieServiceCentreBean;
+import com.itextpdf.text.DocumentException;
 
 
 public interface SavieService {
@@ -36,7 +40,7 @@ public interface SavieService {
 	public SaviePolicy createSaviePolicy(String userName, String token, String language,SavieFormApplicationBean application,SavieFormSetAppointmentBean appointment,SavieFormSignatureBean signature,SavieFormDeclarationAuthorizationBean authorization,SavieFormDocumentBean documents);
 	
 	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException;
-	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException;
+	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);
