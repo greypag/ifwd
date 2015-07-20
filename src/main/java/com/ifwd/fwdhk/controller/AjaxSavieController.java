@@ -3,6 +3,8 @@ package com.ifwd.fwdhk.controller;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +26,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.ZipUtils;
+import com.itextpdf.text.DocumentException;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -44,7 +47,7 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie/sales-illustration/createPdf"})
-	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		try {
 			savieService.createSalesIllustrationPdf(model, request, response);
 		} catch (ECOMMAPIException e) {
