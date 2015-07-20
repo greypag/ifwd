@@ -1931,6 +1931,8 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 	}
 	if(insureBoolean){
 		$("#txtInsuFullName1").val(fullname);
+		$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+		
 		$("#txtInsuFullName1").removeClass("invalid-field");
 		$("#errtxtPersonalFullName1").html("");
 		$("#errtxtAdFullName1").html("");
@@ -4567,10 +4569,10 @@ function validatecardnumber(cardnumber) {
 		}
 	} else {
 		document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
-		$("#cardnumber").addClass("invalid-field");
+		$(".cardnumber").addClass("invalid-field");
 		return false;
 	}
-	$("#cardnumber").removeClass("invalid-field");
+	$(".cardnumber").removeClass("invalid-field");
 	return true;
 }
 
@@ -6482,5 +6484,61 @@ window.jQuery(function() {
         $(document.body).css('margin-right', scrollBarWidth + 'px');
         $(".top-bar").css('padding-right', scrollBarWidth + 'px');
       }
+    });
+});
+
+function changeCreditCardFocus(element,prev_id,next_id){
+	if($(element).val().length == 4){
+		if(next_id!=''){
+			if( /iPad/i.test(navigator.userAgent) ) {
+			}else{
+				$("#"+next_id+"_trigger").trigger( 'click' );
+			}
+		}
+	}else if($(element).val().length == 0){
+		if(prev_id!=''){
+			if( /iPad/i.test(navigator.userAgent) ) {
+			}else{
+				$("#"+prev_id+"_trigger").trigger( 'click' );
+			}
+		}
+    }
+}
+
+function mergeCreditCard(){
+	var creditcardNumber=$("#cardNo1").val()+$("#cardNo2").val()+$("#cardNo3").val()+$("#cardNo4").val();
+	$("#cardnumber").val(creditcardNumber);
+	
+	setTimeout(function(){
+		if(!$("#cardNo1").is(":focus") && !$("#cardNo2").is(":focus") && !$("#cardNo3").is(":focus") && !$("#cardNo4").is(":focus")){
+			validatecardnumber(creditcardNumber);
+		}
+	},500);
+}
+
+$( document ).ready(function() {
+	$('#cardNo1_trigger').on('click', function () {
+		$('#cardNo1').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo2_trigger').on('click', function () {      
+		$('#cardNo2').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo3_trigger').on('click', function () {      
+		$('#cardNo3').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo4_trigger').on('click', function () {      
+		$('#cardNo4').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo1').on('touchstart', function () {
+        $(this).focus();
+    });
+	$('#cardNo2').on('touchstart', function () {
+        $(this).focus();
+    });
+	$('#cardNo3').on('touchstart', function () {
+        $(this).focus();
+    });
+	$('#cardNo4').on('touchstart', function () {
+        $(this).focus();
     });
 });

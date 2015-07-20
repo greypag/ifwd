@@ -804,7 +804,7 @@ function activateUserAccountJoinUs() {
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 	                                   <input class="form-control full-control textLower"
-                                            id="inputEmailId" name="emailAddress"
+                                            type="email" id="inputEmailId" name="emailAddress"
                                             value="${userDetails.emailAddress.trim()}"
                                             onblur="chkValidApplicantEmail(this, 'errEmailid');" maxlength="50"> <span
                                             id="errEmailid" class="text-red"> </span>
@@ -1852,7 +1852,7 @@ function activateUserAccountJoinUs() {
 								and we'll send you one.</h2>
 							<h4>Email</h4>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder=""
+								<input type="email" class="form-control" placeholder=""
 									name="emailToSendPromoCode" id="emailToSendPromoCode">
 							</div>
 							<span id="errPromoEmail" class="text-red"></span> <br>

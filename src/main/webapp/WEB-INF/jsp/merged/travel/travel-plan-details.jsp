@@ -434,7 +434,7 @@ function activateUserAccountJoinUs() {
                                         value="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />"
 	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
 	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                        onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
+                                        onkeypress="return alphaOnly(event);" maxlength="50" />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>
@@ -510,7 +510,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower" name="emailAddress"
+                                   <input class="form-control full-control textLower" name="emailAddress" type="email"
                                         value="${userDetails.emailAddress.trim()}" id="inputEmailId"
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
@@ -2430,7 +2430,7 @@ function activateUserAccountJoinUs() {
               <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
               <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /> </h4>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="" id="txtPromoEmail">
+                <input type="email" class="form-control" placeholder="" id="txtPromoEmail">
               </div>
               <span id="errPromoEmail" class="text-red"></span>
                <br>

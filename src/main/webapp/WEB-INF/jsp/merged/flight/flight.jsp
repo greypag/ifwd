@@ -135,13 +135,13 @@ $(document).ready(function() {
 <!--Main Content-->
 <section id="main-slider" class="no-margin"> 
 <!--Mobile banner--> 
-<img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="" class="img-responsive hidden-lg hidden-md"  /> 
+<img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobile banner-->
   <div class="carousel slide hidden-xs hidden-sm">
     <div class="carousel-inner">
       <div class="item active">
      
-        <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="">
+        <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />">
          </div>
       <!--/.item--> 
     </div>
@@ -565,7 +565,7 @@ $(document).ready(function() {
           </ul>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
 		    <div class="main-partner-1">
-		        <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="">
+		        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
 		    </div>
 		  </div>
           <div class="spacer3"></div>
@@ -656,7 +656,7 @@ $(document).ready(function() {
           <div class="clearfix"></div>
           
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
-		    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class="" style="float:initial;">
+		    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="float:initial;">
 		  </div>
           
           <div class="spacer3"></div>

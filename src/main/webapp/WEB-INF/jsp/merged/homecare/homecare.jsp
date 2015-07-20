@@ -51,14 +51,14 @@ $(document).ready(function() {
 	<!--   Main Content-->
 	<section id="main-slider" class="no-margin">
 		<!--Mobile--->
-		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt=""
+		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />"
 			class="img-responsive hidden-lg hidden-md" />
 		<!--desktop-->
 		<div class="carousel slide hidden-xs hidden-sm">
 			<div class="carousel-inner">
 				<div class="item active item-border">
 					
-					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image" bundle="${msg}" />" alt="" />
+					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />" />
 				</div>
 				<!--/.item-->
 			</div>

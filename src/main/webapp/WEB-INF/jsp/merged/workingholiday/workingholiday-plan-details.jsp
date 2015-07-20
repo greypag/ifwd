@@ -536,7 +536,7 @@ function activateUserAccountJoinUs() {
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input class="form-control full-control textLower" id="inputEmailId"
-										name="whAppEmailAdd"
+										name="whAppEmailAdd" type="email"
 										value="${userDetails.emailAddress}"
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
 										onkeypress="return validationEmail(event);"
@@ -1273,7 +1273,7 @@ function activateUserAccountJoinUs() {
 						<fmt:message key="promotion.get.code.email" bundle="${msg}" />
 					</h4>
 					<div class="form-group">
-						<input type="text" class="form-control" value=""
+						<input type="email" class="form-control" value=""
 							id="txtPromoEmail">
 					</div>
 					<span id="errPromoEmail" class="text-red"></span> <br>

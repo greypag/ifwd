@@ -440,7 +440,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        value="<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />"
                                        onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
                                        onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                       onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> 
+                                       onkeypress="return alphaOnly(event);" maxlength="50" /> 
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>
@@ -502,7 +502,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower"
+                                   <input type="email" class="form-control full-control textLower"
 					                value="${userDetails.emailAddress.trim()}" name="emailAddress"
 					                id="inputEmailId"
 					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
