@@ -19,17 +19,21 @@
 
 <br /><br />
 <div style="left: auto;right: auto;">Upload you documents.</div>
-<form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/${nextPageFlow }"  method="post">
- <input type="radio" name="upload" value="1">Upload now 
- <input type="radio" name="upload" style="margin-left: 20px" value="2">Upload later
- <input type="radio" name="upload" style="margin-left: 20px" value="3">Give at stor
+<form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow }"  method="post">
+ <input type="radio" name="upload" checked="checked" value="1" onclick="changFormAction('${nextPageFlow }')">Upload now 
+ <input type="radio" name="upload" style="margin-left: 20px" value="2" onclick="changFormAction('${nextPageFlow2 }')">Upload later
+ <!-- <input type="radio" name="upload" style="margin-left: 20px" value="3">Give at stor -->
  <br/>
  <input type="checkbox" name="permanent" style="margin-left: 0px" value="1">I'am Hong kong permanent resident
   <br/>
   <input type="submit" value="submit">
  </form>
 <script type="text/javascript">
-
+function changFormAction(v) {
+	var language = "${language}";
+	var url = "<%=request.getContextPath()%>/"+language+"/saving-insurance/"+v;
+	$("#form1").attr("action",url);
+}
 
 var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此区域）";
 //$("#dropzone").click(function(){
@@ -38,7 +42,7 @@ var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此�
 
  $("#dropzone").dropzone({
     paramName: 'file',
-    url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post.html',
+    url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post',
     dictDefaultMessage: dictDefaultMessage,
    // acceptedFiles: 'image/*',
     parallelUploads: 1,

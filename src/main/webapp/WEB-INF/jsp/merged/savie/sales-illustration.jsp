@@ -13,6 +13,7 @@
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 
 <script type="text/javascript">
 	function gotoAppForm(){
@@ -114,7 +115,7 @@
 		
 		<div align="center">
 			<%-- <a href="<%=request.getContextPath()%>/${language}/saving-insurance/application" style="color: red;">Proceed to sales illustration</a> --%>
-			<input type="button" value="Proceed to sales illustration" style="color: red;"/>
+			<input type="button" value="Proceed to sales illustration" style="color: red;" onclick="createPdf();"/>
 		</div>
 		
 		<div style="height: 30px;"></div>

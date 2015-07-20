@@ -9,6 +9,15 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
+<script type="text/javascript">
+	function gotoCenter(){
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow2}";
+	}
+	
+	function gotoAppForm(){
+		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow}";
+	}
+</script>
 
 	<div class="container">
 		<div class="fwd-container container-fluid breadcrumbs">
@@ -113,7 +122,7 @@
 				</div>
 			</div>
 		</div>			
-		<div class="center" style="margin:30px"><a href="#" class="save-btn save-primary">Next</a></div>
+		<div class="center" style="margin:30px"><a class="save-btn save-primary" onclick="gotoAppForm();">Next</a></div>
 		
 	</div>
 	<style>

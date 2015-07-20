@@ -135,7 +135,7 @@ $(function() {
 	
 	// Sales Illustration Page to FNA Page
 	$("#made-decision-next-btn").on('click', function(){
-        window.location = "fna";    
+		$('#loginModal').modal('show');
     });	
 
 	// FNA Page to Application Page
