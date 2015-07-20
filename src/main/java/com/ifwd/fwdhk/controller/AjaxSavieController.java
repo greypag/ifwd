@@ -3,8 +3,11 @@ package com.ifwd.fwdhk.controller;
 
 
 import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -31,9 +35,9 @@ public class AjaxSavieController extends BaseController{
 	private SavieService savieService;
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
-	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 		try {
-			savieService.getPlanDetails(model, request, response);
+			savieService.getPlanDetails(model, request, response, httpSession);;
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -41,9 +45,9 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie/sales-illustration/createPdf"})
-	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
 		try {
-			savieService.createSalesIllustrationPdf(model, request, response);
+			savieService.createSalesIllustrationPdf(model, request, response, httpSession);;
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();

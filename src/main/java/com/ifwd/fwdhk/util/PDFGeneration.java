@@ -29,7 +29,7 @@ import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.RadioCheckField;
 
 
-public class genPDF {
+public class PDFGeneration {
 	
 	
 	public static String generatePdf(String inputFileName,String outputFilePath,List<PdfAttribute> attributeList) throws FileNotFoundException, DocumentException, IOException
@@ -70,7 +70,7 @@ public class genPDF {
 		
 		try {
 			
-			outFileName = genPDF.newFiledName();
+			outFileName = PDFGeneration.newFiledName();
 			PdfReader reader = new PdfReader(inputFileName);
 			PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(outputFilePath + outFileName));
 			AcroFields form = stamper.getAcroFields();

@@ -1,16 +1,22 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import net.sf.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -36,8 +42,9 @@ import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.PDFGeneration;
 import com.ifwd.fwdhk.util.PdfAttribute;
-import com.ifwd.fwdhk.util.genPDF;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -97,7 +104,7 @@ public class SavieServiceImpl implements SavieService {
 	}
 
 	@Override
-	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response) throws ECOMMAPIException {
+	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException {
 		try {
 			String planCode = request.getParameter("planCode");
 			String issueAge = request.getParameter("issueAge");
@@ -105,6 +112,8 @@ public class SavieServiceImpl implements SavieService {
 			String premium = request.getParameter("premium");
 			String referralCode = request.getParameter("referralCode");
 			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
+			
+			httpSession.setAttribute("planDetailData", apiResponse);
 			
 			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
 			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
@@ -276,53 +285,192 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	@Override
-	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
-		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-		attributeList.add(new PdfAttribute("year", "4"));
-		attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
-		attributeList.add(new PdfAttribute("englishName", "Bruce Lee"));
-		attributeList.add(new PdfAttribute("gender", "男"));
-		attributeList.add(new PdfAttribute("dateTime","11/12/1986"));
-		attributeList.add(new PdfAttribute("singlePremiumAmount", "10,000"));
-		attributeList.add(new PdfAttribute("age", "15"));
-		attributeList.add(new PdfAttribute("paymentMethod", "港幣"));
-		attributeList.add(new PdfAttribute("Premium","1,000"));
-		attributeList.add(new PdfAttribute("singlePremiumAmount","100,000"));
-		attributeList.add(new PdfAttribute("paymentType"," - "));
-		attributeList.add(new PdfAttribute("verson","1.0"));
-		String year66="66";
-		for (int i = 0; i < 13; i++) {
-			if(i>5 && i<11){
-				attributeList.add(new PdfAttribute("endYear"+i,(i-4)*5+""));
-			}
-			else if(i<6){
-				attributeList.add(new PdfAttribute("endYear"+i,i+""));
-			}
-			else if(i==11){
-				if(year66==null && "".equals(year66)){
-					attributeList.add(new PdfAttribute("endYear"+i,"100"));
+	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
+		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) httpSession.getAttribute("planDetailData");
+		JSONObject resultJsonObject = new JSONObject();
+		if(planDetailData != null && !planDetailData.hasError()){
+			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
+			attributeList.add(new PdfAttribute("englishName", request.getParameter("englishName")));
+			attributeList.add(new PdfAttribute("gender", request.getParameter("gender")));
+			attributeList.add(new PdfAttribute("dateTime",request.getParameter("dateTime")));
+			attributeList.add(new PdfAttribute("singlePremiumAmount", request.getParameter("singlePremiumAmount")));
+			attributeList.add(new PdfAttribute("age", request.getParameter("age")));
+			attributeList.add(new PdfAttribute("paymentMethod", request.getParameter("paymentMethod")));
+			attributeList.add(new PdfAttribute("Premium",request.getParameter("Premium")));
+			attributeList.add(new PdfAttribute("singlePremiumAmount",request.getParameter("singlePremiumAmount")));
+			attributeList.add(new PdfAttribute("paymentType",request.getParameter("paymentType")));
+			attributeList.add(new PdfAttribute("verson","1.0"));
+			logger.info(planDetailData.getPlanDetails0Rate().size()+"");
+			NumberFormat nt = NumberFormat.getPercentInstance();
+			nt.setMinimumFractionDigits(2);
+			//>66 不显示66岁，最后一行空出来， <=66显示66
+			for (int i = 0; i < 13; i++) {
+				if(i<6){
+					attributeList.add(new PdfAttribute("endYear"+i,i+""));
 				}
-				else{
-					attributeList.add(new PdfAttribute("endYear"+i,"66"));
+				else if(i>5 && i<11){
+					attributeList.add(new PdfAttribute("endYear"+i,(i-4)*5+""));
 				}
-		    }
-			else if(i==12){
-				attributeList.add(new PdfAttribute("endYear"+i,"100"));
-			}
-			attributeList.add(new PdfAttribute("totalPremium"+i,"10,000"));
-			if(i<4){
-				attributeList.add(new PdfAttribute("interestedRate"+i,"3.21%"));
-				attributeList.add(new PdfAttribute("accountEOP"+i,"2.28%"));
-				attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i,"100,000")); 
-			    attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i,"2,000")); 
-			}else{
-				for(int y=1; y<5; y++){
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,"100,000")); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,"2,000")); 
+				else if(i==11){
+					if(Integer.valueOf(planDetailData.getIssueAge())>66){
+						attributeList.add(new PdfAttribute("endYear"+i,"100"));
+					}
+					else{
+						attributeList.add(new PdfAttribute("endYear"+i,"66"));
+					}
+			    }
+				else if(i==12){
+					if(Integer.valueOf(planDetailData.getIssueAge())>66){
+						attributeList.add(new PdfAttribute("endYear"+i,"-"));
+					}
+					else{
+						attributeList.add(new PdfAttribute("endYear"+i,"100"));
+					}
+				}
+				attributeList.add(new PdfAttribute("totalPremium"+i,request.getParameter("singlePremiumAmount")));
+				if(i<4){
+					attributeList.add(new PdfAttribute("interestedRate"+i,nt.format(Float.valueOf(planDetailData.getPlanDetails0Rate().get(i).getInterestedRate()))));
+					attributeList.add(new PdfAttribute("accountEOP"+i,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+				    attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))); 
+				}
+				else if(i>3 && i<6){
+					for(int y=1; y<5; y++){
+						if(y==1){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))); 
+						}
+						else if(y==2){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
+						}
+						else if(y==3){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
+						}
+						else if(y==4){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
+						}
+					}
+				}
+				else if(i>5 && i<11){
+					for(int y=1; y<5; y++){
+						if(y==1){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+						}
+						else if(y==2){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+						}
+						else if(y==3){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+						}
+						else if(y==4){
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+						}
+					}
+				}
+				else if(i==11){
+					if(Integer.valueOf(planDetailData.getIssueAge())>66){
+						for(int y=1; y<5; y++){
+							//100
+							if(y==1){
+								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+							}
+							else if(y==2){
+								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+							}
+							else if(y==3){
+								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+							}
+							else if(y==4){
+								attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedSurrenderBenefit()))); 
+								attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get((i-4)*5).getGuranteedDeathBenefit()))); 
+							}
+						}
+					}
+					else{
+						for(int y=1; y<5; y++){
+							//66
+							for(int a=0;a<planDetailData.getPlanDetails0Rate().size();a++){
+								if(planDetailData.getPlanDetails0Rate().get(a).getAge()=="66"){
+									if(y==1){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(a).getGuranteedSurrenderBenefit()))); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(a).getGuranteedDeathBenefit()))); 
+									}
+									else if(y==2){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(a).getGuranteedSurrenderBenefit()))); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails2Rate().get(a).getGuranteedDeathBenefit()))); 
+									}
+									else if(y==3){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(a).getGuranteedSurrenderBenefit()))); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails3Rate().get(a).getGuranteedDeathBenefit()))); 
+									}
+									else if(y==4){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(a).getGuranteedSurrenderBenefit()))); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails4Rate().get(a).getGuranteedDeathBenefit()))); 
+									}
+								}
+							}
+						}
+					}
+			    }
+				else if(i==12){
+					if(Integer.valueOf(planDetailData.getIssueAge())>66){
+						for(int y=1; y<5; y++){
+							//null
+							attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,"-")); 
+							attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,"-")); 
+						}
+					}
+					else{
+						for(int y=1; y<5; y++){
+							//100
+							for(int b=0;b<planDetailData.getPlanDetails0Rate().size();b++){
+								if(planDetailData.getPlanDetails0Rate().get(b).getAge()=="100"){
+									if(y==1){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails0Rate().get(b).getGuranteedSurrenderBenefit())); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails0Rate().get(b).getGuranteedDeathBenefit())); 
+									}
+									else if(y==2){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails2Rate().get(b).getGuranteedSurrenderBenefit())); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails2Rate().get(b).getGuranteedDeathBenefit())); 
+									}
+									else if(y==3){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails3Rate().get(b).getGuranteedSurrenderBenefit())); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails3Rate().get(b).getGuranteedDeathBenefit())); 
+									}
+									else if(y==4){
+										attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,planDetailData.getPlanDetails4Rate().get(b).getGuranteedSurrenderBenefit())); 
+										attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,planDetailData.getPlanDetails4Rate().get(b).getGuranteedDeathBenefit())); 
+									}
+								}
+							}
+						}
+					}
 				}
 			}
+			String name = PDFGeneration.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
+			resultJsonObject.accumulate("Msgs", "success");
 		}
-		String name = genPDF.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
+		else{
+			resultJsonObject.accumulate("Msgs", "data error");
+		}
+		response.setContentType("text/json;charset=utf-8");
+		//return data
+		try {
+			response.getWriter().print(resultJsonObject.toString());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
