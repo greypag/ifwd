@@ -32,7 +32,7 @@ $(function () {
 		//setAtt("birthday", $('#birthday').val())
 		$('#birthdayMsg').html('');
 	});
-	
+	getSavieIllustration();
 });
 
 
