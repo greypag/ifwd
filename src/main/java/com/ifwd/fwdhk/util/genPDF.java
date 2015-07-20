@@ -78,6 +78,7 @@ public class genPDF {
 			if (attributeList.size() > 0) {
 				for (PdfAttribute pdfAttribute : attributeList) {
 					if (!StringUtils.isEmpty(pdfAttribute.getKey())) {
+						System.out.print(pdfAttribute.getKey()+":"+pdfAttribute.getValue());
 						if(pdfAttribute.getValue().contains(":\\")){
 							
 							 List<FieldPosition> pos = form.getFieldPositions(pdfAttribute.getKey());

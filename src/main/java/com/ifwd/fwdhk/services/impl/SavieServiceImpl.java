@@ -1,28 +1,16 @@
 package com.ifwd.fwdhk.services.impl;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import net.sf.json.JSONObject;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -50,7 +38,6 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.PdfAttribute;
 import com.ifwd.fwdhk.util.genPDF;
-import com.itextpdf.text.DocumentException;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -290,54 +277,52 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Override
 	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
-		
-			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-			attributeList.add(new PdfAttribute("year", "4"));
-			attributeList.add(new PdfAttribute("applicationNo", "SV2015070600001"));
-			attributeList.add(new PdfAttribute("chineseName", "李小龍"));
-			attributeList.add(new PdfAttribute("gender", "男"));
-			attributeList.add(new PdfAttribute("dateTime","11/12/1986"));
-			attributeList.add(new PdfAttribute("singlePremiumAmount", "10,000"));
-			attributeList.add(new PdfAttribute("age", "15"));
-			attributeList.add(new PdfAttribute("paymentMethod", "港幣"));
-			attributeList.add(new PdfAttribute("Premium","1,000"));
-			 attributeList.add(new PdfAttribute("singlePremiumAmount","100,000"));
-			 attributeList.add(new PdfAttribute("paymentType"," - "));
-			 attributeList.add(new PdfAttribute("verson","1.0"));
-			 String year66="66";
-			 for (int i = 0; i < 13; i++) {
-				 if(i>5 && i<11){
-					 attributeList.add(new PdfAttribute("endYear"+i,(i-4)*5+""));
-				 }else if(i<6){
-					 attributeList.add(new PdfAttribute("endYear"+i,i+""));
-				 }else if(i==11){
-					 if(year66==null && "".equals(year66)){
-						 attributeList.add(new PdfAttribute("endYear"+i,"100"));
-					 }else{
-						 attributeList.add(new PdfAttribute("endYear"+i,"66"));
-					 }
-					 
-				 }else if(i==12){
-					 attributeList.add(new PdfAttribute("endYear"+i,"100"));
-				 }
-				
-				 attributeList.add(new PdfAttribute("totalPremium"+i,"10,000"));
-				 if(i<4){
-					
-				 attributeList.add(new PdfAttribute("interestedRate"+i,"3.21%"));
-				 attributeList.add(new PdfAttribute("accountEOP"+i,"2.28%"));
-				 attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i,"100,000")); 
-			      attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i,"2,000")); 
-				   }else{
-					  
-					   for(int y=1; y<5; y++){
-						   attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,"100,000")); 
-						      attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,"2,000")); 
-					   }
-				   }
-				 
+		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+		attributeList.add(new PdfAttribute("year", "4"));
+		attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
+		attributeList.add(new PdfAttribute("englishName", "Bruce Lee"));
+		attributeList.add(new PdfAttribute("gender", "男"));
+		attributeList.add(new PdfAttribute("dateTime","11/12/1986"));
+		attributeList.add(new PdfAttribute("singlePremiumAmount", "10,000"));
+		attributeList.add(new PdfAttribute("age", "15"));
+		attributeList.add(new PdfAttribute("paymentMethod", "港幣"));
+		attributeList.add(new PdfAttribute("Premium","1,000"));
+		attributeList.add(new PdfAttribute("singlePremiumAmount","100,000"));
+		attributeList.add(new PdfAttribute("paymentType"," - "));
+		attributeList.add(new PdfAttribute("verson","1.0"));
+		String year66="66";
+		for (int i = 0; i < 13; i++) {
+			if(i>5 && i<11){
+				attributeList.add(new PdfAttribute("endYear"+i,(i-4)*5+""));
+			}
+			else if(i<6){
+				attributeList.add(new PdfAttribute("endYear"+i,i+""));
+			}
+			else if(i==11){
+				if(year66==null && "".equals(year66)){
+					attributeList.add(new PdfAttribute("endYear"+i,"100"));
+				}
+				else{
+					attributeList.add(new PdfAttribute("endYear"+i,"66"));
+				}
+		    }
+			else if(i==12){
+				attributeList.add(new PdfAttribute("endYear"+i,"100"));
+			}
+			attributeList.add(new PdfAttribute("totalPremium"+i,"10,000"));
+			if(i<4){
+				attributeList.add(new PdfAttribute("interestedRate"+i,"3.21%"));
+				attributeList.add(new PdfAttribute("accountEOP"+i,"2.28%"));
+				attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i,"100,000")); 
+			    attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i,"2,000")); 
+			}else{
+				for(int y=1; y<5; y++){
+					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+i+y,"100,000")); 
+					attributeList.add(new PdfAttribute("guranteedDeathBenefit"+i+y,"2,000")); 
+				}
+			}
 		}
-			 String name = genPDF.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
+		String name = genPDF.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
 	}
 	
 	@Override
