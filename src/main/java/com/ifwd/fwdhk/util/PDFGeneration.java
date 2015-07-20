@@ -3,6 +3,8 @@ package com.ifwd.fwdhk.util;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +14,7 @@ import java.util.Map;
 import org.springframework.util.StringUtils;
 
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
@@ -26,7 +29,7 @@ import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.RadioCheckField;
 
 
-public class genPDF {
+public class PDFGeneration {
 	
 	
 	public static String generatePdf(String inputFileName,String outputFilePath,List<PdfAttribute> attributeList) throws FileNotFoundException, DocumentException, IOException
@@ -67,7 +70,7 @@ public class genPDF {
 		
 		try {
 			
-			outFileName = genPDF.newFiledName();
+			outFileName = PDFGeneration.newFiledName();
 			PdfReader reader = new PdfReader(inputFileName);
 			PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(outputFilePath + outFileName));
 			AcroFields form = stamper.getAcroFields();
