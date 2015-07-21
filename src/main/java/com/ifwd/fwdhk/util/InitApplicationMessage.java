@@ -39,8 +39,8 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> natureOfBusinessCN;
 	public static List<OptionItemDesc> monthlyPersonalIncomeEN;
 	public static List<OptionItemDesc> monthlyPersonalIncomeCN;
-	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
-	public static List<OptionItemDesc> savieBeneficiaryRelationshipCN;
+	public static List<OptionItemDesc> beneficiaryInfoEN;
+	public static List<OptionItemDesc> beneficiaryInfoCN;
 	
 	public static List<OptionItemDesc> placeOfBirthEN;
 	public static List<OptionItemDesc> placeOfBirthCN;
@@ -149,20 +149,20 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
 			
 			try {
-				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","EN");
+				beneficiaryInfoEN = commonUtils.getOptionItemDescList("beneficiaryInfo","EN");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipEN=null;
+				beneficiaryInfoEN=null;
 			}
-			logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
+			logger.info("beneficiaryInfoEN : " + beneficiaryInfoEN);
 			
 			try {
-				savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","CH");
+				beneficiaryInfoCN = commonUtils.getOptionItemDescList("beneficiaryInfo","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipCN=null;
+				beneficiaryInfoCN=null;
 			}
-			logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
+			logger.info("beneficiaryInfoCN : " + beneficiaryInfoCN);
 			
 			try {
 				placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
