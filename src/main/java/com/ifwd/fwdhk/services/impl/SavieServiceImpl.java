@@ -290,7 +290,7 @@ public class SavieServiceImpl implements SavieService {
 		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) httpSession.getAttribute("planDetailData");
 		JSONObject resultJsonObject = new JSONObject();
 		if(planDetailData != null && !planDetailData.hasError()){
-			String totalPremium = planDetailData.getPlanDetails0Rate().get(0).getTotalPremium();
+			String totalPremium = NumberFormatUtils.formatNumberTwo(planDetailData.getPlanDetails0Rate().get(0).getTotalPremium());
 			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
 			attributeList.add(new PdfAttribute("englishName", request.getParameter("englishName")));
