@@ -79,7 +79,7 @@ public class CommonUtils {
 					
 					header.put("userName", "*DIRECTGI");
 					header.put("token", getToken());
-					header.put("language", WebServiceUtils.transformLanaguage("language"));
+					header.put("language", WebServiceUtils.transformLanaguage(language));
 					
 					JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 							Url, header, null);
@@ -121,7 +121,7 @@ public class CommonUtils {
 				
 				header.put("userName", "*DIRECTGI");
 				header.put("token", getToken());
-				header.put("language", WebServiceUtils.transformLanaguage("language"));
+				header.put("language", WebServiceUtils.transformLanaguage(language));
 				
 				JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 						Url, header, null);
