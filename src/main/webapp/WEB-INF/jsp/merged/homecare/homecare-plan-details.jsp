@@ -113,9 +113,9 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		
 		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
 		
-		if ($("#selectADistHid option[value='"+id+"']").text() == "HK")
+		if ($("#selectADistHid option[value='"+id2+"']").text() == "HK")
 			document.getElementById("inlineDeskRadio31").checked = true;
-		else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+		else if ($("#selectCADistHid option[value='"+id2+"']").text() == "KL")
 			document.getElementById("inlineDeskRadio41").checked = true;
 		else
 			document.getElementById("inlineDeskRadio51").checked = true;
