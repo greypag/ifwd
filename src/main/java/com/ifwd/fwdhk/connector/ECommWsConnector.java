@@ -92,6 +92,10 @@ public class ECommWsConnector {
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
 	
+	public BaseResponse generateSalesIllustration(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.GENERATE_SALES_ILLUSTRATION,HttpMethod.PUT,parameters,BaseResponse.class,header);
+	}
+	
 	public BaseResponse sendLead(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.SEND_LEAD,HttpMethod.PUT,parameters,BaseResponse.class,header);
 	}

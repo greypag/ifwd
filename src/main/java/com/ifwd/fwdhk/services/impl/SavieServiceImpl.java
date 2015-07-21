@@ -396,8 +396,25 @@ public class SavieServiceImpl implements SavieService {
 					}
 				}
 			}
-			String name = PDFGeneration.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
-			resultJsonObject.accumulate("Msgs", "success");
+			String name = null;
+			BaseResponse br = null;
+			try {
+				name = PDFGeneration.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
+				final Map<String,String> header = headerUtil.getHeader(request);
+				JSONObject parameters = new JSONObject();
+				parameters.put("lastName", "Lau");
+				parameters.put("firstName", "Andy");
+				parameters.put("chineseName", "劉德華");
+				parameters.put("dob", "1955-01-01");
+				parameters.put("gender", request.getParameter("gender"));
+				br = connector.generateSalesIllustration(parameters, header);
+			}catch(Exception e){
+				logger.info("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
+			resultJsonObject.accumulate("pdfName", name);
+			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		}
 		else{
 			resultJsonObject.accumulate("Msgs", "data error");
