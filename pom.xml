@@ -177,9 +177,9 @@
 		 <dependency>
             <groupId>fwdpdfgenerator</groupId>
             <artifactId>fwdpdfgenerator</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.4</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/fwdpdfgenerator-0.0.1-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/fwdpdfgenerator-0.0.4-SNAPSHOT.jar</systemPath>
          </dependency>
 		
 	</dependencies>
