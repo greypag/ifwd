@@ -403,7 +403,9 @@ public class SavieServiceImpl implements SavieService {
 			String name = null;
 			BaseResponse br = null;
 			try {
-				name = PDFGeneration.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
+				String pdfPath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
+				logger.info(pdfPath);
+				name = PDFGeneration.generatePdf2(pdfPath,"E:\\template\\",attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
 				parameters.put("lastName", "Lau");
