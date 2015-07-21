@@ -49,38 +49,24 @@
 		with us NOW and be amongst the limited lucky ones to apply for SAVIE
 		once it launches.</p>
 
-	<p class="email-notification">Once you receive an email
-		notification from</p>
-	<p class="email-notification">us and decide to sign up for the
-		plan,</p>
-	<p class="email-notification">your application will be processed
-		immediately</p>
+	<p class="email-notification">Once you receive an email notification from</p>
+	<p class="email-notification">us and decide to sign up for the plan,</p>
+	<p class="email-notification">your application will be processed immediately</p>
 
 	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm"
 		action="teaser.jsp">
 		<div class="form-group">
-			<input type="email" placeholder="Enter your email"
-				class="form-control email" id="teaserEmail" name="teaserEmail"
-				val=""> <span class="error-msg hideSpan"
-				id="emailAddrsMessage">This e-mail address is already in use.
-				Try another?</span> <span class="error-msg blank hideSpan"
-				id="noEmailMessage">Please input email.</span> <input type="number"
-				placeholder="Enter your phone no (optional)"
-				class="form-control email phone-no" id="teaserPhoneNo"
-				name="teaserPhoneNo" maxlength="11" min="1"
-				oninput="maxLengthReview(this)"> <span
-				class="error-msg hideSpan" id="phoneErrMsg">This phone number
-				is invalid. Try another?</span>
+			<input type="email" placeholder="Enter your email" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
+			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
+			<input type="tel" placeholder="Enter your phone no (optional)" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="11" min="1" oninput="maxLengthReview(this)"> 
+			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 		</div>
 		<div class="clearfix">
 			<div class="pull-left checkbox">
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text">
-				I have read, understand and accept this <a href="">Personal
-					Information Collection Statement</a>.
-			</div>
+			<div class="pull-left text"> I have read, understand and accept this <a href="">Personal Information Collection Statement</a>. </div>
 		</div>
 
 		<div class="clearfix top">
@@ -93,10 +79,8 @@
 					Conditions</a>.
 			</div>
 		</div>
-		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">In
-			order to continue, you must agree to the Terms and Conditions.</span>
-		<button type="submit" class="btn btn-white btn-sign-up"
-			id="teaser-sign-up-btn">Sign up</button>
+		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
+		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn">Sign up</button>
 	</form>
 </div>
 
@@ -109,11 +93,7 @@
 					<h2>Save and earn</h2>
 					<h3>BIG with ease</h3>
 					<img src="<%=request.getContextPath()%>/resources/images/savie/big-on-savings.png">
-					<p>
-						SAVIE guarantees earnings of 3% <span>interest in the first
-							3 policy years, </span>, allowing you a smart way to plan ahead for
-						something big.
-					</p>
+					<p> SAVIE guarantees earnings of 3% <span>interest in the first 3 policy years, </span>, allowing you a smart way to plan ahead for something big.</p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
@@ -121,10 +101,7 @@
 					<h2>Flexible and free</h2>
 					<h3>from charges</h3>
 					<img src="<%=request.getContextPath()%>/resources/images/savie/no-commitment.png">
-					<p>
-						Enjoy flexibility for when you need it most! You can <span>withdraw
-							from your account at no charge</span>, for as many times as you want!
-					</p>
+					<p> Enjoy flexibility for when you need it most! You can <span>withdraw from your account at no charge</span>, for as many times as you want!</p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
@@ -133,10 +110,7 @@
 					<h2 class="out-life">out of life</h2>
 					<h3>with extra protection</h3>
 					<img src="<%=request.getContextPath()%>/resources/images/savie/free-additional.png">
-					<p>
-						Receive Accidental Death Benefit along with your savings, <span>insuring
-							100% of your account</span> value up to a maximum of HK$400,000.
-					</p>
+					<p>Receive Accidental Death Benefit along with your savings, <span>insuring 100% of your account</span> value up to a maximum of HK$400,000.</p>
 				</div>
 			</div>
 		</div>

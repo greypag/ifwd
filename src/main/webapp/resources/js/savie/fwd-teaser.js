@@ -12,76 +12,56 @@ $(function() {
 		e.preventDefault();
 		
 		var checkPics = $("#pics-check").is(":checked");
-		var checkTc = $("#tc-check").is(":checked");
-		
-		var email = $('#teaserEmail').val();
-
+		var checkTc = $("#tc-check").is(":checked");		
+		var email = $.trim($('#teaserEmail').val());
 		var phone = $('#teaserPhoneNo').val().length;
-
-		if(email!=""){
-			$('#noEmailMessage').addClass('hideSpan');
-			$('#phoneErrMsg').addClass('hideSpan');
-			if((!duplicateEmail()) &&  checkPics && checkTc && (phone == 0 || phone == 11)){
-				$('#teaserSurvery').modal('show');
+		var isErrorFlag = false;
+		
+		// Email is required
+		if (email == "") {
+			$('#emailAddrsMessage').html("Please input email.").removeClass('hideSpan');
+			isErrorFlag = true;
+		} else {
+			$('#emailAddrsMessage').addClass('hideSpan');
+			
+			// Email is not valid
+			if (email != "" && !validateEmail(email)) {
+				$('#emailAddrsMessage').html("Invalid email address").removeClass('hideSpan');
+				isErrorFlag = true;
+			} else {
 				$('#emailAddrsMessage').addClass('hideSpan');
-				$('#checkboxErrorMessage').addClass('hideSpan');
-				$('#phoneErrMsg').addClass('hideSpan');
-			}else if((!duplicateEmail()) &&  checkPics && checkTc && (phone != 11)){
-				$('#teaserSurvery').modal('hide');
-				$('#emailAddrsMessage').addClass('hideSpan');
-				$('#checkboxErrorMessage').addClass('hideSpan');
-				$('#phoneErrMsg').removeClass('hideSpan');
-			}else{
-				if(duplicateEmail()){
-					console.log('Dup ang email');
-					if($('#emailAddrsMessage').hasClass('hideSpan')){
-						$('#emailAddrsMessage').removeClass('hideSpan');
-						$('#phoneErrMsg').addClass('hideSpan');
-					}
-
-				}else{
+				
+				// Email is duplicate
+				if (email != "" && duplicateEmail(email)) {
+					$('#emailAddrsMessage').html("This e-mail address is already in use. Try another?").removeClass('hideSpan');
+					isErrorFlag = true;
+				} else {
 					$('#emailAddrsMessage').addClass('hideSpan');
 				}
-				
-				if(!checkPics || !checkTc){
-					console.log('Error sa checkbox');
-					if($('#checkboxErrorMessage').hasClass('hideSpan')){
-						$('#checkboxErrorMessage').removeClass('hideSpan');
-						$('#phoneErrMsg').addClass('hideSpan');
-					}
-
-					if (phone != 11) {
-						if($('#phoneErrMsg').hasClass('hideSpan')){
-							$('#phoneErrMsg').removeClass('hideSpan');
-						}
-						if(phone == 0){
-							$('#phoneErrMsg').addClass('hideSpan');
-						}
-					}else{
-						$('#phoneErrMsg').addClass('hideSpan');
-					}
-
-				}else{
-					$('#checkboxErrorMessage').addClass('hideSpan');			
-				}
-
 			}
-		}else{
-			if($('#noEmailMessage').hasClass('hideSpan')){
-				$('#noEmailMessage').removeClass('hideSpan');
-				$('#phoneErrMsg').addClass('hideSpan');
-			}
+		}
+		
+		// Phone is not empty and has 8 characters
+		if (phone > 0 && phone < 8) {
+			$('#phoneErrMsg').html("This phone number is invalid. Try another?").removeClass('hideSpan');
+			isErrorFlag = true;
+		} else {
+			$('#phoneErrMsg').addClass('hideSpan');
+		}
+		
+		// Agreed terms and condition
+		if (!checkTc || !checkPics) {
+			$('#checkboxErrorMessage').html("In order to continue, you must agree to the Terms and Conditions.").removeClass('hideSpan');
+			isErrorFlag = true;
+		} else {
+			$('#checkboxErrorMessage').addClass('hideSpan');
+		}
 
-			if (phone != 11) {
-				if($('#phoneErrMsg').hasClass('hideSpan')){
-					$('#phoneErrMsg').removeClass('hideSpan');
-				}
-				if(phone == 0){
-					$('#phoneErrMsg').addClass('hideSpan');
-				}
-			}else{
-				$('#phoneErrMsg').addClass('hideSpan');
-			}
+		if (!isErrorFlag) {
+			$('#teaserSurvery').modal('show');
+			$('#emailAddrsMessage').addClass('hideSpan');
+			$('#checkboxErrorMessage').addClass('hideSpan');
+			$('#phoneErrMsg').addClass('hideSpan');
 		}
 
 	});
@@ -107,5 +87,10 @@ function duplicateEmail(){
 	}
 	return false;
 	
+}
+
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
 }
 
