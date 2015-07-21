@@ -7014,12 +7014,16 @@ tr.product-landing-error-wrap {
     }
     
     #grossPremium{
-       font-size:27px;
+       font-size:20px;
     }
     
     .plan-box3 span.del del{
         margin-left:0px;
-        font-size:24px;
+        font-size:16px;
+    }
+    
+    #promo-wrap .input-group-addon{
+        font-size:16px;
     }
     
     .flightcare-hk{
@@ -7400,3 +7404,9 @@ tr.product-landing-error-wrap {
     color: #99A4A6;
 }
 /***** faq mobile *****/
+
+.
+
+.home-main-mobi .home-btn-main{
+	font-size:16px;
+}
