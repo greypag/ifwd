@@ -188,14 +188,14 @@ $(document).ready(function() {
               
               <!--====================================================== 出發日期 -->
               
-                <div class="input-group date" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+                <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 
                 </td>
               <td class="col-md-3 col-lg-3 pad-none">
-                <div class="input-group date" id="dp2"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
               
              </td>
@@ -821,7 +821,7 @@ $(document).ready(function() {
 
 
 <section id="bottom-form" class="hidden-sm hidden-xs">
-  <div class="container">
+  <div class="container bmg_flighttravel_main_container">
     <div class="row">
      <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateBtm()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
@@ -851,13 +851,13 @@ $(document).ready(function() {
           </tr>
             <tr>
               <td class="col-md-3 pad-none">
-                <div class="input-group date" id="dp5"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+                <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                  <input name="departureDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" onblur="chkValidFlightDepartureDate(this, 'startDateBtmIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                  <span id="startDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-3 pad-none">
-                <div class="input-group date" id="dp6"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', '', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                  <input name="returnDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" onblur="chkValidFlightDate(this, 'endDateBtmIn', '', 'txtStartDateBtm', 'startDateBtmIn', '');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="col-md-4 pad-none">
