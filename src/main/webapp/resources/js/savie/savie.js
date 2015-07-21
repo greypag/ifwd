@@ -178,15 +178,31 @@ function getguaranteed3Years(){
 
 function createPdf() {
 	//var amount = $('#R').val();
-	var planCode = "sss";
 	var hostPath = window.location.host;
 	var contextPath = window.location.pathname.split("/")[1];
-	$.ajax('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
+	
+	var chineseName = "劉德華";
+	var gender = "男";
+	var dateTime = "11/12/1986";
+	var singlePremiumAmount = "100,000";
+	var age = "15";
+	var paymentMethod = "港幣";
+	var Premium = "1,000";
+	var paymentType = " - "
+	
+	$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
 	{ 
-		planCode : planCode
+		chineseName : chineseName,
+		gender : gender,
+		dateTime : dateTime,
+		singlePremiumAmount : singlePremiumAmount,
+		age : age,
+		paymentMethod : paymentMethod,
+		Premium : Premium,
+		paymentType : paymentType
 	},
 	function(data) {
-		//var json = $.parseJSON(JSON.stringify(data));
+		alert(JSON.stringify(data));
 	})
 	.fail(function(data) {
 	});

@@ -3,11 +3,10 @@ package com.ifwd.fwdhk.controller;
 
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +25,6 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.ZipUtils;
-import com.itextpdf.text.DocumentException;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -37,9 +35,9 @@ public class AjaxSavieController extends BaseController{
 	private SavieService savieService;
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
-	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response) {
+	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 		try {
-			savieService.getPlanDetails(model, request, response);
+			savieService.getPlanDetails(model, request, response, httpSession);;
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -47,9 +45,9 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie/sales-illustration/createPdf"})
-	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
 		try {
-			savieService.createSalesIllustrationPdf(model, request, response);
+			savieService.createSalesIllustrationPdf(model, request, response, httpSession);;
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -82,7 +80,7 @@ public class AjaxSavieController extends BaseController{
 		
 		try {
 			
-			BaseResponse br = savieService.SendEmail(request,sei);
+			BaseResponse br = savieService.sendEmail(request,sei);
 			
 			logger.info("apiJsonObj:"+br);
 			
@@ -124,20 +122,16 @@ public class AjaxSavieController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savie/savie-image/post"},method=RequestMethod.POST)
 	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,
-			@RequestParam(value="file", required=false) MultipartFile file) throws Exception{
-			byte[] bytes = file.getBytes(); 
-			// String gzip = ZipUtils.gzip(bytes);
-			logger.info("fileName:"+file.getOriginalFilename());
-	        String uploadDir = request.getRealPath("/")+"upload";  
-	        File dirPath = new File(uploadDir);  
-	        if (!dirPath.exists()) {   
-	            dirPath.mkdirs();  
-	        }  
-	        String sep = System.getProperty("file.separator");  
-	        File uploadedFile = new File(uploadDir + sep  
-	                + file.getOriginalFilename());  
-	        FileCopyUtils.copy(bytes, uploadedFile);  
-	        response.getWriter().write("true");  
+			@RequestParam(value="file", required=false) MultipartFile file){
+			try {
+				logger.info("fileName:"+file.getOriginalFilename());
+				BaseResponse br = savieService.uploadDocuments(request,file);
+				logger.info("apiJsonObj:"+br);
+				ajaxReturn(response,br);
+			} catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
 	}
 	
 	/**
@@ -149,26 +143,19 @@ public class AjaxSavieController extends BaseController{
 	 * @param image BASE64String 
 	 * @throws Exception
 	 */
-	@SuppressWarnings("restriction")
 	@RequestMapping(value = {"/ajax/savie/savie-save-signature/post"},method=RequestMethod.POST)
 	public void getSavieSaveJsignature(Model model, HttpServletRequest request,HttpServletResponse response,
-			@RequestParam String image) throws Exception{
+			@RequestParam String image){
 
-			String gzip = ZipUtils.gzip(new sun.misc.BASE64Decoder().decodeBuffer(image));
-			String unGzip = ZipUtils.gunzip(gzip);
-	
-			byte[] bytess = unGzip.getBytes();//new sun.misc.BASE64Decoder().decodeBuffer(image);
-		
-	        String uploadDir = request.getRealPath("/")+"upload";  
-	        File dirPath = new File(uploadDir);  
-	        if (!dirPath.exists()) {   
-	            dirPath.mkdirs();  
-	        }  
-	        String sep = System.getProperty("file.separator");  
-	        File uploadedFile = new File(uploadDir + sep  
-	                + "signature.svg"); 
-	        FileCopyUtils.copy(bytess, uploadedFile);  
-	        response.getWriter().write("true"); 
+		try {
+			BaseResponse br = savieService.signature(request,image);
+			logger.info("apiJsonObj:"+br);
+			ajaxReturn(response,br);
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+ 
 	}
 	
 }

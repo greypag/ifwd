@@ -149,7 +149,7 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
 			
 			try {
-				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","EN");
+				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("beneficiaryInfo","EN");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
 				savieBeneficiaryRelationshipEN=null;
@@ -157,7 +157,7 @@ public class InitApplicationMessage implements ApplicationListener{
 			logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
 			
 			try {
-				savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("savieBeneficiaryRelationship","CH");
+				savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("beneficiaryInfo","CH");
 			} catch (Exception e) {
 				logger.info("error : "+e.getMessage());
 				savieBeneficiaryRelationshipCN=null;
