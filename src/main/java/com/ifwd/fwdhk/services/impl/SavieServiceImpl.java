@@ -4,13 +4,10 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import net.sf.json.JSONObject;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.common.document.PDFGeneration;
+import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
@@ -44,8 +43,6 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
-import com.ifwd.fwdhk.util.PDFGeneration;
-import com.ifwd.fwdhk.util.PdfAttribute;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -292,8 +289,8 @@ public class SavieServiceImpl implements SavieService {
 	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
 		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) httpSession.getAttribute("planDetailData");
 		JSONObject resultJsonObject = new JSONObject();
-		String totalPremium = planDetailData.getPlanDetails0Rate().get(0).getTotalPremium();
 		if(planDetailData != null && !planDetailData.hasError()){
+			String totalPremium = planDetailData.getPlanDetails0Rate().get(0).getTotalPremium();
 			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
 			attributeList.add(new PdfAttribute("englishName", request.getParameter("englishName")));
