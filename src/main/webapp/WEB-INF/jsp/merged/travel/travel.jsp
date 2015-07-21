@@ -915,29 +915,29 @@ $(document).ready(function() {
              </td>
           </tr>
             <tr>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-3 col-lg-3 pad-none">
                 <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 pad-none">
+              <td class="col-md-3 col-lg-3 pad-none">
                 <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-4 pad-none">
+              <td class="col-md-4 col-lg-3 pad-none">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
                   <div class="dropdown-menu bdr1">
                     <div class="drop-content">
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                          <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> > <label for="personal_plan_btm"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
 
 
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                           <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
                         class="tool-tip show-inline-md"
@@ -1031,7 +1031,7 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-              <td class="col-md-2 pad-none">
+              <td class="col-md-2 col-lg-2 pad-none">
                   <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:30px;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
