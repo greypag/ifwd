@@ -69,46 +69,91 @@ public class CommonUtils {
 		
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		
-		
-		try {
-			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+param;
-			
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			
-			header.put("userName", "*DIRECTGI");
-			header.put("token", getToken());
-			header.put("language", WebServiceUtils.transformLanaguage("language"));
-			
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-					Url, header, null);
-			
-			logger.info("***********responseJsonObj****************:"+responseJsonObj);
-			
-			if (responseJsonObj.get("errMsgs") == null) {
-				
-				JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
-				
-				if(jsonOptionItemDescs.size()>0){
-					for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+		if(param.equals("occupation")) {
+			for(int k=1;k<25;k++){
+				try {
+					String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable=NOB"+k;
+					
+					HashMap<String, String> header = new HashMap<String, String>(
+							COMMON_HEADERS);
+					
+					header.put("userName", "*DIRECTGI");
+					header.put("token", getToken());
+					header.put("language", WebServiceUtils.transformLanaguage("language"));
+					
+					JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+							Url, header, null);
+					
+					logger.info("***********responseJsonObj****************:"+responseJsonObj);
+					
+					if (responseJsonObj.get("errMsgs") == null) {
 						
-						JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+						JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
 						
-						OptionItemDesc optionItemDesc = new OptionItemDesc();				
+						if(jsonOptionItemDescs.size()>0){
+							for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+								
+								JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+								
+								OptionItemDesc optionItemDesc = new OptionItemDesc();				
+								
+								optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+								optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+								optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+								optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+								
+								OptionItemDescList.add(optionItemDesc);
+							}
+						}
 						
-						optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
-						optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
-						optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
-						optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
-						
-						OptionItemDescList.add(optionItemDesc);
 					}
+				} catch (Exception e) {
+					logger.info("error : " + e.getMessage());
 				}
-				
 			}
-		} catch (Exception e) {
-			logger.info("error : " + e.getMessage());
+			
+		} else {
+			try {
+				String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+param;
+				
+				HashMap<String, String> header = new HashMap<String, String>(
+						COMMON_HEADERS);
+				
+				header.put("userName", "*DIRECTGI");
+				header.put("token", getToken());
+				header.put("language", WebServiceUtils.transformLanaguage("language"));
+				
+				JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+						Url, header, null);
+				
+				logger.info("***********responseJsonObj****************:"+responseJsonObj);
+				
+				if (responseJsonObj.get("errMsgs") == null) {
+					
+					JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+					
+					if(jsonOptionItemDescs.size()>0){
+						for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+							
+							JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+							
+							OptionItemDesc optionItemDesc = new OptionItemDesc();				
+							
+							optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+							optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+							optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+							optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+							
+							OptionItemDescList.add(optionItemDesc);
+						}
+					}
+					
+				}
+			} catch (Exception e) {
+				logger.info("error : " + e.getMessage());
+			}
 		}
+		
 		return OptionItemDescList;
 	}
 	
