@@ -2,15 +2,18 @@ package com.ifwd.fwdhk.controller;
 
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.OutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
@@ -227,6 +229,65 @@ public class SavieController extends BaseController{
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
 	}
 	
-
+	/**
+	 * 
+	 * @param model
+	 * @param request
+	 * @return download page
+	 */
+	@RequestMapping(value = {"/{lang}/downloadPage"})
+	public ModelAndView goDownloadPage(Model model, HttpServletRequest request){
+		logger.info("go to download page");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+				+ "downloadTest");
+	}
+	
+	/**
+	 * 
+	 * @param request download target file
+	 * @param response
+	 */
+	@RequestMapping(value = {"/{lang}/fileDownload"})
+	public void fileDownload(HttpServletRequest request,HttpServletResponse response) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CN";
+		}
+		
+		//String path = servletContext.getRealPath("/"); 
+		logger.info(request.getServletPath());
+		logger.info(request.getSession().getServletContext().getRealPath("\\"));
+		
+		response.setContentType("multipart/form-data");  
+		
+		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
+		ServletOutputStream out;  
+		  
+		File file = new File("D:\\workspace\\fwdhk\\download.pdf");
+		//File file = new File(path + "download/" + "download.pdf");
+		
+		try {  
+			FileInputStream inputStream = new FileInputStream(file);  
+			
+			 
+			out = response.getOutputStream();  
+			
+			int b = 0;  
+			while ((b = inputStream.read()) != -1){  
+				
+				out.write(b);  
+			}  
+			inputStream.close();  
+			out.close();  
+			out.flush();  
+			
+		} catch (IOException e) {  
+			e.printStackTrace();  
+		}
+	}
+	
 	
 }
