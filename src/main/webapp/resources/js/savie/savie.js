@@ -119,7 +119,6 @@ function getSavieIllustration() {
 					}
 				}
 			}
-			console.log(items);
 			
 			isCurrentDefault = false;
 			zoomCtr = 4;

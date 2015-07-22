@@ -133,6 +133,14 @@ public class SaviePageFlowControl {
 			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//payment offline=No
 			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=Yes
 			break;
+		
+		case UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING:
+			to = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+			break;
+		
+		case UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED:
+			to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+			break;
 
 		default:
 			to = UserRestURIConstants.PAGE_SAVIE_LANDING;
