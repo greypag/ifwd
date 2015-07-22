@@ -2470,7 +2470,7 @@ window.location.reload();
 } else if (data == 'fail') {
 $('#ajax-loading').hide();
 $('#login-err-msg').show();
-$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
+$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 }
 
 }

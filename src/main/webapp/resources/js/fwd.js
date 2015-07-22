@@ -1036,37 +1036,34 @@ function fPlanValid()
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
-         if(insured1Hkid != null && insured1Hkid == appHkid){   		 
-			 if (age == 1) {
-				 if ( difference > 18) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }  
-			 } else if (age == 2) {
-				 if ( difference < 18 || difference > 70) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }
-			 } else if (age == 3) {
-				 if ( difference < 70 || difference > 85) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }
+		 if (age == 1) {
+			 if ( difference > 18) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }  
+		 } else if (age == 2) {
+			 if ( difference < 18 || difference > 70) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
 			 }
-         }
-		 
+		 } else if (age == 3) {
+			 if ( difference < 70 || difference > 85) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 }
 	 }
     
     if (mobileNo.trim() == "") {
@@ -2649,34 +2646,46 @@ function tPlanValid()
 	     flag = false;
 	 } else {
 		 var age = document.getElementById("selectAgeRange1").value;
-		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var applicantDobs = new Array();
+		 applicantDobs = applicantDob.split("-");
+		 var applicantDob1 = new Date(applicantDobs[2],applicantDobs[1] - 1,applicantDobs[0], 0, 0, 0, 0);
+		 var applicantDobDate = new Date(applicantDob1);
+		 
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
-        // check only when same "id" found
-//		 alert('age ' + age);
-//		 alert('difference ' + difference);
-//        if(insured1Hkid != null && insured1Hkid == appHkid){   
-//   		 if (age == 1) {
-//   			 if ( difference > 18) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }  
-//   		 } else if (age == 2) {
-//   			 if ( difference < 18 || difference > 70) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }
-//   		 } else if (age == 3) {
-//   			 if ( difference < 70 || difference > 85) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }
-//   		 }        	 
-//        }
+		 
+		 if (age == 1) {
+			 if ( difference > 18) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }  
+		 } else if (age == 2) {
+			 if ( difference < 18 || difference > 70) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 } else if (age == 3) {
+			 if ( difference < 70 || difference > 85) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 }
 		 
 	 }
 	
@@ -3711,7 +3720,7 @@ function tPlanValid()
 function isAlphaNumeric(evt) {
 	evt = (evt) ? evt : event;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
-	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 47 || charCode > 57)) {
+	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 48 || charCode > 57)) {
 		return false;
 	}
 	return true;
@@ -6204,7 +6213,7 @@ function activateUserAccount(){
 		check = false;
 	};
 	
-	if(userName == password){
+	if(password != "" && userName == password){
 		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		$("#txtPass1").addClass("invalid-field");
 		if(firstErrorElementId==""){
