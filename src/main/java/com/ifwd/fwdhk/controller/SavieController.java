@@ -43,28 +43,28 @@ public class SavieController extends BaseController{
 
 	@RequestMapping(value = {"/{lang}/saving-insurance/landing","/{lang}/saving-insurance"})
 	public ModelAndView getSavieLanding(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.landing");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.planDetails");
 	}	
 	
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/financial-needs-analysis"})
 	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.fna");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/sales-illustration"})
-	public ModelAndView getSavieIllustration(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+	public ModelAndView getSavieSalesIllustration(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request, "savie.salesIllustration");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/application"})
 	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.application");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/application-summary"}, method = RequestMethod.POST)
@@ -96,44 +96,44 @@ public class SavieController extends BaseController{
 		
 		
 		request.getSession().setAttribute("savieDetail", savieDetail);
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.summary");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/customer-service-centre"})
 	public ModelAndView getSavieAppointment(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
 		request.getSession().setAttribute("savieDetail", savieDetail);
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.cs");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/document-upload"})
 	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.documentUplaod");
 	}
 	
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/confirmation"})
 	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.confirmation");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/declarations"})
 	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.declaration");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/signature"})
 	public ModelAndView getSavieSignature(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.signature");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/interest-gathering"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.interestGather");
 	}
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request, "savie.emailSubmitted");
 	}
 	
 

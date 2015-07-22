@@ -14,24 +14,24 @@ public class SaviePageFlowControl {
 	private final static Logger logger = LoggerFactory
 			.getLogger(SaviePageFlowControl.class);
 
-	public static ModelAndView pageFlow(Model model, HttpServletRequest request) {
+	public static ModelAndView pageFlow(Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
 
-		String pageTitle = WebServiceUtils.getPageTitle("page.savie",
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-				"meta.savie", UserRestURIConstants.getLanaguage(request));
-		String ogTitle = WebServiceUtils.getPageTitle("savie.og.title",
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
 				UserRestURIConstants.getLanaguage(request));
-		String ogType = WebServiceUtils.getPageTitle("savie.og.type",
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
 				UserRestURIConstants.getLanaguage(request));
-		String ogUrl = WebServiceUtils.getPageTitle("savie.og.url",
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
 				UserRestURIConstants.getLanaguage(request));
-		String ogImage = WebServiceUtils.getPageTitle("savie.og.image",
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
 				UserRestURIConstants.getLanaguage(request));
 		String ogDescription = WebServiceUtils.getPageTitle(
-				"savie.og.description",
+				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
 
 		model.addAttribute("pageTitle", pageTitle);

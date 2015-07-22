@@ -32,11 +32,11 @@ $(function () {
 		//setAtt("birthday", $('#birthday').val())
 		$('#birthdayMsg').html('');
 	});
-	getSavieIllustration();
+	getSaviePlanDetails();
 });
 
 
-function getSavieIllustration() {
+function getSaviePlanDetails() {
 	var amount = $('#R').val();
 	var promocode = $('#promocode').val();
 	var birthOfDay = $('#birthOfDay').val();
