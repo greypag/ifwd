@@ -402,10 +402,12 @@ public class SavieServiceImpl implements SavieService {
 			}
 			String name = null;
 			BaseResponse br = null;
+			String pdfTemplatePath = null;
+			String pdfGeneratePath = null;
 			try {
-				String pdfPath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
-				logger.info(pdfPath);
-				name = PDFGeneration.generatePdf2(pdfPath,"E:\\template\\",attributeList,false,"All rights reserved, copy");
+				pdfTemplatePath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
+				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
+				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
 				parameters.put("lastName", "Lau");
@@ -419,7 +421,7 @@ public class SavieServiceImpl implements SavieService {
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
-			resultJsonObject.accumulate("pdfName", name);
+			resultJsonObject.accumulate("pdfFile", pdfGeneratePath.replace("\\\\", "/")+name);
 			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		}
 		else{

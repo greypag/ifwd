@@ -200,7 +200,8 @@ function createPdf() {
 		paymentType : paymentType
 	},
 	function(data) {
-		alert(JSON.stringify(data));
+		alert(data.pdfFile);
+		window.open(data.pdfFile);
 	})
 	.fail(function(data) {
 	});
