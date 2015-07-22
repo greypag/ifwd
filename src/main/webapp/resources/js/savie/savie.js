@@ -41,7 +41,6 @@ function getSavieIllustration() {
 	var promocode = $('#promocode').val();
 	var birthOfDay = $('#birthOfDay').val();
 	
-	var hostPath = window.location.host;
 	var contextPath = window.location.pathname.split("/")[1];
 	
 	var planCode = "savie";
@@ -59,7 +58,7 @@ function getSavieIllustration() {
 	}
 	else{
 		$('#promo-code-dateOfBirth').addClass('hidden');
-		$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/planDetails/get',
+		$.get('/'+contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,
 			issueAge: issueAge,
@@ -178,7 +177,6 @@ function getguaranteed3Years(){
 
 function createPdf() {
 	//var amount = $('#R').val();
-	var hostPath = window.location.host;
 	var contextPath = window.location.pathname.split("/")[1];
 	
 	var chineseName = "劉德華";
@@ -190,7 +188,7 @@ function createPdf() {
 	var Premium = "1,000";
 	var paymentType = " - "
 	
-	$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
+	$.get('/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
 	{ 
 		chineseName : chineseName,
 		gender : gender,
