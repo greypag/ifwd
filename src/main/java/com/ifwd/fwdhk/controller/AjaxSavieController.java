@@ -96,7 +96,7 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	
-	@RequestMapping(value = {"/ajax/savie/interestedGather/post"} )
+	@RequestMapping(value = {"/ajax/savie/interestGather/post"} )
 	public void sendLeadByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String email,

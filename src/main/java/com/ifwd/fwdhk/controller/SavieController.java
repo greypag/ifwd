@@ -140,7 +140,7 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-show"})
 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfFile) {
-		return SaviePageFlowControl.pageFlow(model,request);
+		return SaviePageFlowControl.pageFlow(model,request,"pdf");
 	}
 	
 

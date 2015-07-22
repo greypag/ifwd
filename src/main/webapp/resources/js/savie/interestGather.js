@@ -32,7 +32,7 @@ function sendMessagesEmail(email,message,attachment) {
 
 function sendlead(email,mobileNo,answer1,step) {
 	$.ajax({     
-	    url: context+'/ajax/savie/interestedGather/get',     
+	    url: context+'/ajax/savie/interestGather/post',     
 	    type:'post',     
 	    data:{    
 	    	"email": email,
