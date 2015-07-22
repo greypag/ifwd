@@ -86,27 +86,33 @@ public class CommonUtils {
 					
 					logger.info("***********responseJsonObj****************:"+responseJsonObj);
 					
-					if (responseJsonObj.get("errMsgs") == null) {
+					if(responseJsonObj==null){
 						
-						JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
-						
-						if(jsonOptionItemDescs.size()>0){
-							for(int i = 0; i<jsonOptionItemDescs.size(); i++){
-								
-								JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
-								
-								OptionItemDesc optionItemDesc = new OptionItemDesc();				
-								
-								optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
-								optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
-								optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
-								optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
-								
-								OptionItemDescList.add(optionItemDesc);
+					} else {
+						if (responseJsonObj.get("errMsgs") == null) {
+							
+							JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+							
+							if(jsonOptionItemDescs.size()>0){
+								for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+									
+									JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+									
+									OptionItemDesc optionItemDesc = new OptionItemDesc();				
+									
+									optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+									optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+									optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+									optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+									
+									OptionItemDescList.add(optionItemDesc);
+								}
 							}
+							
 						}
-						
 					}
+					
+					
 				} catch (Exception e) {
 					logger.info("error : " + e.getMessage());
 				}
@@ -127,27 +133,29 @@ public class CommonUtils {
 						Url, header, null);
 				
 				logger.info("***********responseJsonObj****************:"+responseJsonObj);
-				
-				if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj==null){
 					
-					JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
-					
-					if(jsonOptionItemDescs.size()>0){
-						for(int i = 0; i<jsonOptionItemDescs.size(); i++){
-							
-							JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
-							
-							OptionItemDesc optionItemDesc = new OptionItemDesc();				
-							
-							optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
-							optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
-							optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
-							optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
-							
-							OptionItemDescList.add(optionItemDesc);
+				} else {
+					if (responseJsonObj.get("errMsgs") == null) {
+						
+						JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+						
+						if(jsonOptionItemDescs.size()>0){
+							for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+								
+								JSONObject maritalStatusObj=(JSONObject)jsonOptionItemDescs.get(i);
+								
+								OptionItemDesc optionItemDesc = new OptionItemDesc();				
+								
+								optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+								optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+								optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+								optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+								
+								OptionItemDescList.add(optionItemDesc);
+							}
 						}
-					}
-					
+						}
 				}
 			} catch (Exception e) {
 				logger.info("error : " + e.getMessage());
