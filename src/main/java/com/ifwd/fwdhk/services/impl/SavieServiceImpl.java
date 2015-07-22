@@ -771,6 +771,36 @@ public class SavieServiceImpl implements SavieService {
 		 return br;
 	}
 	
+	@Override
+	public BaseResponse sendMessagesEmail(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
+			String to = request.getParameter("to");
+			String message = request.getParameter("message");
+			String subject = "html testing";
+			String attachment = request.getParameter("attachment");
+			String from = "sit@ecomm.fwd.com";
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			
+			br = connector.sendEmail(parameters,header);
+		}catch(Exception e){
+			
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+
+		 return br;
+	}
 	
 	@SuppressWarnings("unchecked")
 	@Override

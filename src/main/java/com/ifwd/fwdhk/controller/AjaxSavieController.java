@@ -119,6 +119,27 @@ public class AjaxSavieController extends BaseController{
 
 	}
 	
+	@RequestMapping(value = {"/ajax/savie/messages/email"} )
+	public void sendMessagesEmailByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		try {
+			
+			BaseResponse br = savieService.sendMessagesEmail(request);
+			
+			logger.info("apiJsonObj:"+br);
+			
+			ajaxReturn(response,br);
+			
+			
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	
 	@RequestMapping(value = {"/ajax/savie/savie-image/post"},method=RequestMethod.POST)
 	public void getSavieImage(Model model, HttpServletRequest request,HttpServletResponse response,

@@ -61,6 +61,8 @@ public interface SavieService {
 	
 	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
 	
+	public BaseResponse sendMessagesEmail(HttpServletRequest request)throws ECOMMAPIException;
+	
 	public BaseResponse signature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	
 	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException;
