@@ -2,15 +2,18 @@ package com.ifwd.fwdhk.controller;
 
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.OutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
@@ -222,6 +224,55 @@ public class SavieController extends BaseController{
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
 	}
 	
-
+	
+	@RequestMapping(value = {"/{lang}/downloadPage"})
+	public ModelAndView goDownloadPage(Model model, HttpServletRequest request){
+		logger.info("go to download page");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+				+ "downloadTest");
+	}
+	
+	@RequestMapping(value = {"/{lang}/fileDownload"})
+	public void fileDownload(HttpServletRequest request,HttpServletResponse response) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CN";
+		}
+		//获取网站部署路径(通过ServletContext对象)，用于确定下载文件位置，从而实现下载  
+		//String path = servletContext.getRealPath("/"); 
+		logger.info(request.getServletPath());
+		logger.info(request.getSession().getServletContext().getRealPath("\\"));
+		//1.设置文件ContentType类型，这样设置，会自动判断下载文件类型  
+		response.setContentType("multipart/form-data");  
+		//2.设置文件头：最后一个参数是设置下载文件名(假如我们叫a.pdf)  
+		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
+		ServletOutputStream out;  
+		//通过文件路径获得File对象(假如此路径中有一个download.pdf文件)  
+		File file = new File("D:\\workspace\\fwdhk\\download.pdf");
+		//File file = new File(path + "download/" + "download.pdf");
+		
+		try {  
+			FileInputStream inputStream = new FileInputStream(file);  
+			
+			//3.通过response获取ServletOutputStream对象(out)  
+			out = response.getOutputStream();  
+			
+			int b = 0;  
+			while ((b = inputStream.read()) != -1){  
+				
+				out.write(b);  
+			}  
+			inputStream.close();  
+			out.close();  
+			out.flush();  
+			
+		} catch (IOException e) {  
+			e.printStackTrace();  
+		}
+	}
+	
 	
 }
