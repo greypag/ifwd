@@ -396,7 +396,7 @@ public class SavieServiceImpl implements SavieService {
 			String name = null;
 			BaseResponse br = null;
 			try {
-				name = PDFGeneration.generatePdf2("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
+				name = PDFGeneration.generatePdf("E:\\template\\SavieProposalTemplateChi3.pdf","E:\\template\\",attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
 				parameters.put("lastName", "Lau");
