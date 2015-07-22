@@ -1,7 +1,11 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -302,7 +306,8 @@ public class SavieServiceImpl implements SavieService {
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
 			attributeList.add(new PdfAttribute("chineseName", request.getParameter("chineseName")));
 			attributeList.add(new PdfAttribute("gender", request.getParameter("gender")));
-			attributeList.add(new PdfAttribute("dateTime",request.getParameter("dateTime")));
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			attributeList.add(new PdfAttribute("dateTime",format.format(new Date())));
 			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));
 			attributeList.add(new PdfAttribute("age", request.getParameter("age")));
 			attributeList.add(new PdfAttribute("paymentMethod", request.getParameter("paymentMethod")));
@@ -402,10 +407,14 @@ public class SavieServiceImpl implements SavieService {
 			}
 			String name = null;
 			BaseResponse br = null;
+			String pdfTemplatePath = null;
+			String pdfGeneratePath = null;
 			try {
-				String pdfPath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
-				logger.info(pdfPath);
-				name = PDFGeneration.generatePdf2(pdfPath,"E:\\template\\",attributeList,false,"All rights reserved, copy");
+				pdfTemplatePath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
+				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
+				logger.info(pdfTemplatePath);
+				logger.info(pdfGeneratePath);
+				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
 				parameters.put("lastName", "Lau");
@@ -419,7 +428,8 @@ public class SavieServiceImpl implements SavieService {
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
-			resultJsonObject.accumulate("pdfName", name);
+			resultJsonObject.accumulate("pdfBytes", pdfGeneratePath.replace("\\\\", "/")+name);
+			logger.info(pdfGeneratePath.replace("\\\\", "/")+name);
 			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		}
 		else{
@@ -769,6 +779,36 @@ public class SavieServiceImpl implements SavieService {
 		 return br;
 	}
 	
+	@Override
+	public BaseResponse sendMessagesEmail(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
+			String to = request.getParameter("to");
+			String message = request.getParameter("message");
+			String subject = "html testing";
+			String attachment = request.getParameter("attachment");
+			String from = "sit@ecomm.fwd.com";
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			
+			br = connector.sendEmail(parameters,header);
+		}catch(Exception e){
+			
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+
+		 return br;
+	}
 	
 	@SuppressWarnings("unchecked")
 	@Override

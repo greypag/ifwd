@@ -12,6 +12,8 @@
 
 <mvc:resources mapping="/resources/**" location="/resources/" />
 <mvc:resources mapping="/**" location="/analysis/" />
+<mvc:resources mapping="/**" location="/pdf/" />
+
 
 <mvc:interceptors>
 	<mvc:interceptor>
