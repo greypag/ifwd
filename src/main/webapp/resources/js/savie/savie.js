@@ -119,7 +119,6 @@ function getSavieIllustration() {
 					}
 				}
 			}
-			console.log(items);
 			
 			isCurrentDefault = false;
 			zoomCtr = 4;
@@ -182,7 +181,7 @@ function createPdf() {
 	var hostPath = window.location.host;
 	var contextPath = window.location.pathname.split("/")[1];
 	
-	var englishName = "Bruce Lee";
+	var chineseName = "劉德華";
 	var gender = "男";
 	var dateTime = "11/12/1986";
 	var singlePremiumAmount = "100,000";
@@ -193,7 +192,7 @@ function createPdf() {
 	
 	$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
 	{ 
-		englishName : englishName,
+		chineseName : chineseName,
 		gender : gender,
 		dateTime : dateTime,
 		singlePremiumAmount : singlePremiumAmount,

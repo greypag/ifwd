@@ -110,11 +110,24 @@ function showFWDChart(rate, zoom, isDefault) {
 			lineColor: "#e7ebeb",
 			lineWidth: 2,
 			tickLength: 0,
-			plotLines: [{ // vertical line for 4th year
+			plotLines: [{ // vertical line for 3rd year
 				color: "#ffc6a3",
 				dashStyle: "ShortDash",
 				value: 2,
-				width: 1.5
+				width: 1.5,
+				label : {
+					text: "3",
+					x: 0,
+					rotation: 0,
+					verticalAlign: "bottom",
+					align: "center",
+					useHTML: true,
+					style : {
+						"color" : "#b4827b",
+						"padding-top": "12px",
+						"font-size" : "16px",
+					}
+				}
 			}, { // 100,000 year guaranteed
 				id: "guaranteed",
 				label: {
@@ -298,7 +311,7 @@ function getCategories(zoom, isDefault) {
 	var categories;
 	switch (zoom) {
 		case 1:
-			categories = ['1', '2', '3', '4', '5 Years'];
+			categories = ['1', '2', '', '4', '5 Years'];
 			break;
 		case 2:
 			categories = ['1','','','','5','','','','','10','','','','','15','','','','','20','','','','','25 Years'];

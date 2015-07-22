@@ -163,7 +163,14 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!--END -Google Code for SEO-->
 	
 	<div class="fwd-savie-wrapper">
-		<%@ include file="include/merged/savie/header.jsp"%>
+		<c:choose>
+			<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+				<%@ include file="include/merged/savie/teaser-header.jsp"%>
+			</c:when>
+			<c:otherwise>
+				<%@ include file="include/merged/savie/header.jsp"%>
+			</c:otherwise>
+		</c:choose>
 		<dec:body />
 		<%@ include file="include/merged/savie/footer.jsp"%>
 	</div>

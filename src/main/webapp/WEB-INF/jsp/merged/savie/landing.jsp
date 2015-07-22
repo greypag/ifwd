@@ -326,7 +326,9 @@
 	<!--<button type="button" class="btn btn-full hidden-md hidden-lg">Read more</button>-->
 	<a class="btn btn-full hidden-md hidden-lg" href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.landing.hidden.readmore" bundle="${msg}" /></a>
 	
-	
+	<script type="text/javascript">
+		var language = "en";
+	</script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>

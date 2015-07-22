@@ -126,6 +126,16 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request);
 	}
 	
+	@RequestMapping(value = {"/{lang}/saving-insurance/interest-gathering"})
+	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
+	}
+	
+	@RequestMapping(value = {"/{lang}/saving-insurance/email-submitted"})
+	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request);
+	}
+	
 
 	
 	/**
