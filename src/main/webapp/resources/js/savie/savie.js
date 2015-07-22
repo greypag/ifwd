@@ -200,8 +200,8 @@ function createPdf() {
 		paymentType : paymentType
 	},
 	function(data) {
-		alert(data.pdfFile);
-		window.open(data.pdfFile);
+		alert(data.pdfBytes);
+		window.open('/'+contextPath+'/tc/saving-insurance/pdf-show?pdfFile='+data.pdfBytes);
 	})
 	.fail(function(data) {
 	});

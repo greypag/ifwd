@@ -1,7 +1,11 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -302,7 +306,8 @@ public class SavieServiceImpl implements SavieService {
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
 			attributeList.add(new PdfAttribute("chineseName", request.getParameter("chineseName")));
 			attributeList.add(new PdfAttribute("gender", request.getParameter("gender")));
-			attributeList.add(new PdfAttribute("dateTime",request.getParameter("dateTime")));
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			attributeList.add(new PdfAttribute("dateTime",format.format(new Date())));
 			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));
 			attributeList.add(new PdfAttribute("age", request.getParameter("age")));
 			attributeList.add(new PdfAttribute("paymentMethod", request.getParameter("paymentMethod")));
@@ -407,6 +412,8 @@ public class SavieServiceImpl implements SavieService {
 			try {
 				pdfTemplatePath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
 				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
+				logger.info(pdfTemplatePath);
+				logger.info(pdfGeneratePath);
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
@@ -421,7 +428,8 @@ public class SavieServiceImpl implements SavieService {
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
-			resultJsonObject.accumulate("pdfFile", pdfGeneratePath.replace("\\\\", "/")+name);
+			resultJsonObject.accumulate("pdfBytes", pdfGeneratePath.replace("\\\\", "/")+name);
+			logger.info(pdfGeneratePath.replace("\\\\", "/")+name);
 			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		}
 		else{
