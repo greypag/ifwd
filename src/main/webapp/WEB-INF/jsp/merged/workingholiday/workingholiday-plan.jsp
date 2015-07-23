@@ -702,9 +702,9 @@ var promoCodeInsertFlag = true;
 								
 								
 								<div id="promo-wrap" class="form-group">
-	                                <div class="input-group" id="inputPromo">
-	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
+	                                <div class="input-group" id="inputPromo" style="display:inital;width:100%;">
+	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:75%;" onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:20%;" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>
 								

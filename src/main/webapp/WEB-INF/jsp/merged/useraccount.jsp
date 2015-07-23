@@ -649,15 +649,25 @@
                                           <span aria-hidden="true" style="font-size:30px;">×</span>
                                           </a>
                                           <div class="fwdpanel-heading">
-                                              <h4 class="fwdpanel-title h4-4-full "><fmt:message key="partner.agoda.get.title" bundle="${msg}" /></h4>
+                                              <span class="fwdpanel-title h4-4-full "><fmt:message key="partner.agoda.get.title" bundle="${msg}" /></span><span id="agoda_promo_code" style="font-weight:bold;font-size: 24px;line-height: 42px;"></span>
                                           </div>
                                           <div class="fwdpanel-body" >
-                                              <h4 id="agoda_promo_code" style="font-weight:bold;"></h4>
-                                              <h4 id="agoda_web_link">
-                                              	<fmt:message key="agoda.link.desc" bundle="${msg}" />
-                                              	<a href="<fmt:message key="agoda.link" bundle="${msg}" />" class="sub-link"><fmt:message key="agoda.link" bundle="${msg}" />
-                                              	</a>
-                                              </h4>
+                                                <table id="Premium" class="table table-bordred">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><fmt:message key="agoda.link.desc" bundle="${msg}" /></td>
+                                                            <td><a href="<fmt:message key="agoda.link" bundle="${msg}" />" class="sub-link"><fmt:message key="agoda.link" bundle="${msg}" /></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="color: #fff;background-color: #f68a1d;"><fmt:message key="agoda.desc1.title" bundle="${msg}" /></td>
+                                                            <td><fmt:message key="agoda.desc1.detail" bundle="${msg}" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><fmt:message key="agoda.desc2.title" bundle="${msg}" /></td>
+                                                            <td><fmt:message key="agoda.desc2.detail" bundle="${msg}" /></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                           </div>
                                       </div>
                                   </div>

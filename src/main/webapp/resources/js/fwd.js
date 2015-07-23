@@ -1036,37 +1036,34 @@ function fPlanValid()
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
-         if(insured1Hkid != null && insured1Hkid == appHkid){   		 
-			 if (age == 1) {
-				 if ( difference > 18) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }  
-			 } else if (age == 2) {
-				 if ( difference < 18 || difference > 70) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }
-			 } else if (age == 3) {
-				 if ( difference < 70 || difference > 85) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }
+		 if (age == 1) {
+			 if ( difference > 18) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }  
+		 } else if (age == 2) {
+			 if ( difference < 18 || difference > 70) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
 			 }
-         }
-		 
+		 } else if (age == 3) {
+			 if ( difference < 70 || difference > 85) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 }
 	 }
     
     if (mobileNo.trim() == "") {
@@ -1931,6 +1928,8 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 	}
 	if(insureBoolean){
 		$("#txtInsuFullName1").val(fullname);
+		$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+		
 		$("#txtInsuFullName1").removeClass("invalid-field");
 		$("#errtxtPersonalFullName1").html("");
 		$("#errtxtAdFullName1").html("");
@@ -2647,34 +2646,46 @@ function tPlanValid()
 	     flag = false;
 	 } else {
 		 var age = document.getElementById("selectAgeRange1").value;
-		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var applicantDobs = new Array();
+		 applicantDobs = applicantDob.split("-");
+		 var applicantDob1 = new Date(applicantDobs[2],applicantDobs[1] - 1,applicantDobs[0], 0, 0, 0, 0);
+		 var applicantDobDate = new Date(applicantDob1);
+		 
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
 		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
-        // check only when same "id" found
-//		 alert('age ' + age);
-//		 alert('difference ' + difference);
-//        if(insured1Hkid != null && insured1Hkid == appHkid){   
-//   		 if (age == 1) {
-//   			 if ( difference > 18) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }  
-//   		 } else if (age == 2) {
-//   			 if ( difference < 18 || difference > 70) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }
-//   		 } else if (age == 3) {
-//   			 if ( difference < 70 || difference > 85) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }
-//   		 }        	 
-//        }
+		 
+		 if (age == 1) {
+			 if ( difference > 18) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }  
+		 } else if (age == 2) {
+			 if ( difference < 18 || difference > 70) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 } else if (age == 3) {
+			 if ( difference < 70 || difference > 85) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 }
 		 
 	 }
 	
@@ -3709,7 +3720,7 @@ function tPlanValid()
 function isAlphaNumeric(evt) {
 	evt = (evt) ? evt : event;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
-	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 47 || charCode > 57)) {
+	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 48 || charCode > 57)) {
 		return false;
 	}
 	return true;
@@ -4567,10 +4578,10 @@ function validatecardnumber(cardnumber) {
 		}
 	} else {
 		document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
-		$("#cardnumber").addClass("invalid-field");
+		$(".cardnumber").addClass("invalid-field");
 		return false;
 	}
-	$("#cardnumber").removeClass("invalid-field");
+	$(".cardnumber").removeClass("invalid-field");
 	return true;
 }
 
@@ -6202,7 +6213,7 @@ function activateUserAccount(){
 		check = false;
 	};
 	
-	if(userName == password){
+	if(password != "" && userName == password){
 		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		$("#txtPass1").addClass("invalid-field");
 		if(firstErrorElementId==""){
@@ -6482,5 +6493,61 @@ window.jQuery(function() {
         $(document.body).css('margin-right', scrollBarWidth + 'px');
         $(".top-bar").css('padding-right', scrollBarWidth + 'px');
       }
+    });
+});
+
+function changeCreditCardFocus(element,prev_id,next_id){
+	if($(element).val().length == 4){
+		if(next_id!=''){
+			if( /iPad/i.test(navigator.userAgent) ) {
+			}else{
+				$("#"+next_id+"_trigger").trigger( 'click' );
+			}
+		}
+	}else if($(element).val().length == 0){
+		if(prev_id!=''){
+			if( /iPad/i.test(navigator.userAgent) ) {
+			}else{
+				$("#"+prev_id+"_trigger").trigger( 'click' );
+			}
+		}
+    }
+}
+
+function mergeCreditCard(){
+	var creditcardNumber=$("#cardNo1").val()+$("#cardNo2").val()+$("#cardNo3").val()+$("#cardNo4").val();
+	$("#cardnumber").val(creditcardNumber);
+	
+	setTimeout(function(){
+		if(!$("#cardNo1").is(":focus") && !$("#cardNo2").is(":focus") && !$("#cardNo3").is(":focus") && !$("#cardNo4").is(":focus")){
+			validatecardnumber(creditcardNumber);
+		}
+	},500);
+}
+
+$( document ).ready(function() {
+	$('#cardNo1_trigger').on('click', function () {
+		$('#cardNo1').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo2_trigger').on('click', function () {      
+		$('#cardNo2').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo3_trigger').on('click', function () {      
+		$('#cardNo3').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo4_trigger').on('click', function () {      
+		$('#cardNo4').trigger('touchstart'); //trigger touchstart
+    });
+	$('#cardNo1').on('touchstart', function () {
+        $(this).focus();
+    });
+	$('#cardNo2').on('touchstart', function () {
+        $(this).focus();
+    });
+	$('#cardNo3').on('touchstart', function () {
+        $(this).focus();
+    });
+	$('#cardNo4').on('touchstart', function () {
+        $(this).focus();
     });
 });

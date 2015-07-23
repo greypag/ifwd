@@ -25,7 +25,7 @@
 
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
-									$('#eForgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+									$('#eForgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 									$('#eForgotusername-err-msg').show();
 									$('#eUser-details-main').hide();
 									$('#eHide-field').hide();

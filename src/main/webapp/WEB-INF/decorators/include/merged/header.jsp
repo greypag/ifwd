@@ -75,12 +75,12 @@ function submitLoginForm(formID) {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();
 		                $("#"+formID+' #login-err-msg').show();
-		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 					} else if (data == 'Please provide a valid User Name and Password.') {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();
 		                $("#"+formID+' #login-err-msg').show();
-		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.invalid"));
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 					} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();
@@ -109,7 +109,7 @@ function submitLoginForm(formID) {
 					} else if (data == 'fail') {
 						$('.login-ajax-loading').hide();
 						$("#"+formID+' #login-err-msg').show();
-						$("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
+						$("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 					} else {
 						$('.login-ajax-loading').hide();
 						$("#"+formID+' #login-err-msg').show();
