@@ -7114,7 +7114,7 @@ tr.product-landing-error-wrap {
 
 /*Travel landing partner logo*/
 .main-partner{
-
+    margin-bottom: 15px;
 }
 
 .main-partner-1, .main-partner-2{
@@ -7124,6 +7124,7 @@ tr.product-landing-error-wrap {
 .main-partner-1 img{
     display: inline-block;
     float: left;
+    margin-top: 21px;
 }
 
 .main-partner-2 img{

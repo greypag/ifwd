@@ -83,7 +83,18 @@ class="image-order-status image-order-status-active  img-circle">
 		<h5><fmt:message key="flight.confirmation.Y5Buddy.part1" bundle="${msg}" /><strong><fmt:message key="flight.confirmation.Y5Buddy.part2" bundle="${msg}" /></strong><fmt:message key="flight.confirmation.Y5Buddy.part3" bundle="${msg}" /></h5>
 		
 		<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
-		<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" style="margin:0px;"><img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" style="margin:0px;">
+		<div class="hidden-xs hidden-sm">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+        </div>
+        <div class="hidden-lg hidden-md" style="text-align:center;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+        </div>
 		
 		<div class="gray-bg1-content" style="padding:0px !important">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">

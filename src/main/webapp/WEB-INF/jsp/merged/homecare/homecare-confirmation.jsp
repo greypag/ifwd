@@ -457,16 +457,16 @@
 								
 								<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
 								<div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
+						            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
+						            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
+						            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
 				                </div>
 				                <div class="clearfix"></div>
 				                <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" "><br/>
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" "><br/>
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" "><br/>
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+                                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+                                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                     <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
 				                </div>
 				                <div class="clearfix"></div>
