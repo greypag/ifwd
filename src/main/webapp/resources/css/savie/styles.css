@@ -12999,8 +12999,17 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper .teaser-confirmation .clearfix {
-	padding-left: 20%;
-	padding-right: 20%
+	max-width: 337px;
+	margin: 0 auto
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .teaser-confirmation .clearfix {
+		padding-left: 20%;
+		padding-right: 20%;
+		max-width: none;
+		margin: 0
+	}
 }
 
 @media ( min-width : 992px) {
@@ -13033,11 +13042,53 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
-	height: 34px;
-	width: 200px;
+	height: 35px;
+	width: 210px;
 	background-color: #38569c;
 	border: none;
-	color: #fff
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+	padding: 5px 15px 5px 20px
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
+		display: inline-block;
+		width: 200px
+	}
+}
+
+.fwd-savie-wrapper .teaser-confirmation .wa_btn {
+	height: 35px;
+	width: 210px;
+	background: #4dc247;
+	color: #fff;
+	display: block !important;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding-top: 5px;
+	position: relative;
+	padding-left: 25px
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .teaser-confirmation .wa_btn {
+		display: none !important
+	}
+}
+
+.fwd-savie-wrapper .teaser-confirmation .wa_btn .fa-whatsapp {
+	font-size: 24px;
+	position: absolute;
+	left: 16px
+}
+
+.fwd-savie-wrapper .teaser-confirmation .wa_btn .whatsapp-icon {
+	font-size: 24px;
+	position: absolute;
+	left: 16px;
+	top: 6px
 }
 
 .fwd-savie-wrapper .teaser-confirmation .fa.fa-facebook.fwd-fb {

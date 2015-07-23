@@ -89,9 +89,9 @@ function getSavieIllustration() {
 							
 							if (i == 0 || i == 1 || i == 2) {
 								var rowCtr = i+1;
-								$('#premium-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].totalPremium);
-								$('#account-value-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].accountBalance);
-								$('#surrender-'+rowCtr).html('<span>$</span> '+json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit);
+								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
+								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
+								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
 							}
 						}
 						if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){						
