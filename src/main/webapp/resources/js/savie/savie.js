@@ -32,16 +32,15 @@ $(function () {
 		//setAtt("birthday", $('#birthday').val())
 		$('#birthdayMsg').html('');
 	});
-	getSavieIllustration();
+	getSaviePlanDetails();
 });
 
 
-function getSavieIllustration() {
+function getSaviePlanDetails() {
 	var amount = $('#R').val();
 	var promocode = $('#promocode').val();
 	var birthOfDay = $('#birthOfDay').val();
 	
-	var hostPath = window.location.host;
 	var contextPath = window.location.pathname.split("/")[1];
 	
 	var planCode = "savie";
@@ -59,7 +58,7 @@ function getSavieIllustration() {
 	}
 	else{
 		$('#promo-code-dateOfBirth').addClass('hidden');
-		$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/planDetails/get',
+		$.get('/'+contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,
 			issueAge: issueAge,
@@ -119,7 +118,6 @@ function getSavieIllustration() {
 					}
 				}
 			}
-			console.log(items);
 			
 			isCurrentDefault = false;
 			zoomCtr = 4;
@@ -179,10 +177,9 @@ function getguaranteed3Years(){
 
 function createPdf() {
 	//var amount = $('#R').val();
-	var hostPath = window.location.host;
 	var contextPath = window.location.pathname.split("/")[1];
 	
-	var englishName = "Bruce Lee";
+	var chineseName = "劉德華";
 	var gender = "男";
 	var dateTime = "11/12/1986";
 	var singlePremiumAmount = "100,000";
@@ -191,9 +188,9 @@ function createPdf() {
 	var Premium = "1,000";
 	var paymentType = " - "
 	
-	$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
+	$.get('/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
 	{ 
-		englishName : englishName,
+		chineseName : chineseName,
 		gender : gender,
 		dateTime : dateTime,
 		singlePremiumAmount : singlePremiumAmount,
@@ -203,7 +200,8 @@ function createPdf() {
 		paymentType : paymentType
 	},
 	function(data) {
-		alert(JSON.stringify(data));
+		alert(data.pdfBytes);
+		window.open('/'+contextPath+'/tc/saving-insurance/pdf-show?pdfFile='+data.pdfBytes);
 	})
 	.fail(function(data) {
 	});

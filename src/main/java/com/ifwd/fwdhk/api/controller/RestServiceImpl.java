@@ -23,9 +23,12 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
+import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -34,6 +37,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 public class RestServiceImpl implements RestServiceDao {
 
 	public static final Map<String, String> COMMON_HEADERS;
+	private static Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
 
 	static {
 		Map<String, String> realMap = new HashMap<String, String>();
@@ -48,7 +52,7 @@ public class RestServiceImpl implements RestServiceDao {
 	@Override
 	public JSONObject consumeApi(HttpMethod type, String url,
 			Map<String, String> header, JSONObject parameters) {
-
+		logger.debug("url " + url + " type " + type);
 		switch (type) {
 		case POST:
 			return callByPostMethod(url, header, parameters);

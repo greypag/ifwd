@@ -102,6 +102,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "document-upload";	
 	public static final String PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE = "customer-service-centre";	
 	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
+	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";
+	public static final String PAGE_SAVIE_EMAIL_SUBMITTED = "email-submitted";
 
 	
 	/* lang constants */

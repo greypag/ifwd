@@ -87,7 +87,7 @@
 						</div>
 						
 						<div class="apply">
-							<button onclick='getSavieIllustration()' class="next" type="button" id="sales-illu-apply-now">Apply now<span class="icon icon-chevron-thin-right"></span></button>
+							<button onclick='getSaviePlanDetails()' class="next" type="button" id="sales-illu-apply-now">Apply now<span class="icon icon-chevron-thin-right"></span></button>
 						</div>
 					</div>
 				</form>

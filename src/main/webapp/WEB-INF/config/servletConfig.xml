@@ -12,6 +12,8 @@
 
 <mvc:resources mapping="/resources/**" location="/resources/" />
 <mvc:resources mapping="/**" location="/analysis/" />
+<mvc:resources mapping="/**" location="/pdf/" />
+
 
 <mvc:interceptors>
 	<mvc:interceptor>
@@ -26,6 +28,13 @@
 <bean id = "props" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
 	<property name="locations" value="classpath:config.properties"/>
 </bean>
+
+
+<!-- <bean id = "props" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"> -->
+<!-- <property name="locations" value="file:${TOMCAT_HOME}/conf/config.properties"/>  -->
+<!-- </bean> -->
+
+
 <!-- <context:property-placeholder 
         location="classpath:config.properties" /> -->
 
