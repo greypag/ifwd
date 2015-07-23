@@ -15,6 +15,7 @@
 <script src="<%=request.getContextPath()%>/resources/js/savie/pdfjs/display/pattern_helper.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/savie/pdfjs/display/font_loader.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/savie/pdfjs/display/annotation_helper.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 </head>
 <script>
     PDFJS.workerSrc = '<%=request.getContextPath()%>/resources/js/savie/pdfjs/worker_loader.js';
@@ -45,7 +46,7 @@
 </script>
 <body>
 <div align="center">
-<input type="button" value="${pdfName }"/><br/>
+<input type="button" value="${pdfName }→OK" onclick="acceptPdf('${pdfName}')"/><br/>
 <canvas id="the-canvas" style="border:1px solid black;"/>
 </div>
 </body>
