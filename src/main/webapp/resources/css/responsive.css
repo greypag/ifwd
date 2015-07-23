@@ -1019,6 +1019,7 @@
     }
     .input-block-level {
         padding-left: 3px;
+        font-size: 20px;
     }
     #tr-wizard.shop-tracking-status .image-order-status{
     	margin-top: -28px;

@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
+import com.ifwd.fwdhk.controller.TravelController;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.SendEmailInfo;
@@ -35,7 +36,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 
 @Component
 public class RestServiceImpl implements RestServiceDao {
-
+	private final static Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
 	public static final Map<String, String> COMMON_HEADERS;
 	private static Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
 

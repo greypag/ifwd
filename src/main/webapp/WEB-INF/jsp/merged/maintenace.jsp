@@ -15,7 +15,7 @@ $(document).ready(function() {
 <div class="container">
 
     <div align="center" style="margin-top:80px;">
-        <img src="<%=request.getContextPath()%>/resources/images/icon1.png">
+        <img src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon1.png">
     </div>
     
     

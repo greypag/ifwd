@@ -55,82 +55,83 @@ function submitLoginForm(formID) {
 	$('.login-ajax-loading').show();
 	$("#"+formID+' #login-err-msg').html("");
 	$("#"+formID+' #login-err-msg').hide();
-	if (validUser(formID)) {
-		$.ajax({
-			type : "POST",
-			url : "<%=request.getContextPath()%>/userLogin",
-			data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
-			async : false,
-			success : function(data) {				
-				if (data == 'success') {
-					//$('.login-ajax-loading').hide();
-					//var Backlen = history.length;
-					//history.go(-Backlen);
-					
-					perventRedirect=false;
-					//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
-					location.reload();
-				} else if (data == 'Provided User Account Details Does Not Exist') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
-				} else if (data == 'Please provide a valid User Name and Password.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.invalid"));
-				} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
-				} else if (data == 'Internet Connection Error') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Connection.lost.message"));
-				} else if (data == 'Invaild Username or password. Please try again.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
-				} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.second"));
-				} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
-					try{$('.login-ajax-loading').hide();}catch(error){}
-	                $('#ajax-loading').hide();
-	                $("#"+formID+' #login-err-msg').show();
-	                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.third"));					
-				} else if (data == 'fail') {
+    setTimeout(function(){
+		if (validUser(formID)) {
+			$.ajax({
+				type : "POST",
+				url : "<%=request.getContextPath()%>/userLogin",
+				data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
+				async : false,
+				success : function(data) {				
+					if (data == 'success') {
+						//$('.login-ajax-loading').hide();
+						//var Backlen = history.length;
+						//history.go(-Backlen);
+						
+						perventRedirect=false;
+						//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+						location.reload();
+					} else if (data == 'Provided User Account Details Does Not Exist') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+					} else if (data == 'Please provide a valid User Name and Password.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+					} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
+					} else if (data == 'Internet Connection Error') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "Connection.lost.message"));
+					} else if (data == 'Invaild Username or password. Please try again.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+					} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.second"));
+					} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
+						try{$('.login-ajax-loading').hide();}catch(error){}
+		                $('#ajax-loading').hide();
+		                $("#"+formID+' #login-err-msg').show();
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.third"));					
+					} else if (data == 'fail') {
+						$('.login-ajax-loading').hide();
+						$("#"+formID+' #login-err-msg').show();
+						$("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+					} else {
+						$('.login-ajax-loading').hide();
+						$("#"+formID+' #login-err-msg').show();
+						$("#"+formID+' #login-err-msg').html(data);
+					} 
+	
+				},
+				error : function() {
 					$('.login-ajax-loading').hide();
-					$("#"+formID+' #login-err-msg').show();
-					$("#"+formID+' #login-err-msg').html('Please Check Login Credential');
-				} else {
+					
 					$('.login-ajax-loading').hide();
 					$("#"+formID+' #login-err-msg').show();
 					$("#"+formID+' #login-err-msg').html(data);
-				} 
+					
+				}
+			});
+		}else{
+			$('.login-ajax-loading').hide();	
+		}
+		$('.login-ajax-loading').hide();
+    }, 1000);
 
-			},
-			error : function() {
-				$('.login-ajax-loading').hide();
-				
-				$('.login-ajax-loading').hide();
-				$("#"+formID+' #login-err-msg').show();
-				$("#"+formID+' #login-err-msg').html(data);
-				
-			}
-		});
-	}else{
-		$('.login-ajax-loading').hide();	
-	}
-	$('.login-ajax-loading').hide();
-
-	return false;
 }
 </script>
 
@@ -186,19 +187,24 @@ function submitLoginForm(formID) {
 							
 							<% } %>
 							<li>
+						<% if ("en".equals(session.getAttribute("language").toString())) { %>
+				
+							<% if (request.getServletPath().equals("/en")) { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
+							<% } else { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>	
+								
 							<%
-							//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
-							if ("en".equals(session.getAttribute("language").toString())) {
-							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">中文</a>
-							<%
-							} else {
-							%>
-								<a id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" onclick="perventRedirect=false;">EN</a>
-							<%
-							}
-							
-							 %>
+							} 
+						} else {
+						%>
+							<% if (request.getServletPath().equals("/tc")) { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/">EN</a>
+							<% } else { %>
+								<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>						
+							<% } %>
+						
+						<% } %>
 							 </li>
 							<%
 								if (session.getAttribute("authenticate") == null || session.getAttribute("username")==null ) {
@@ -369,13 +375,13 @@ function submitLoginForm(formID) {
 		<div class="container pad-none">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}/home"><img
-					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo"></a>
+					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
 			<div class="col-lg-8 col-md-7 pull-right">		
 				<ul class="maintabs">
 	  <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance" class="workingholiday-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a> 
 	  </li> 
-	  <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+	  <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><fmt:message key="header.product.flight" bundle="${msg}" /></a> <div class="offer"></div></li>
       <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
       <li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance" class="travel-and-home-tab"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
       </ul>
@@ -402,18 +408,24 @@ function submitLoginForm(formID) {
              
 	   
 			<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
-			<%
-				if ("en".equals(session.getAttribute("language").toString())) {
-				%>
-					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
-				<%
-				} else {
-				%>
-					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>">EN</a>
-				<%
-				}
+			<% if ("en".equals(session.getAttribute("language").toString())) { %>
 				
+				<% if (request.getServletPath().equals("/en")) { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
+				<% } else { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>	
+					
+				<%
+				} 
+			} else {
 			%>
+				<% if (request.getServletPath().equals("/tc")) { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/">EN</a>
+				<% } else { %>
+					<a class="lang pull-right" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>						
+				<% } %>
+			
+			<% } %>
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">
@@ -426,7 +438,7 @@ function submitLoginForm(formID) {
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/${language}/home"><img
-				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="logo" class="img-responsive"></a>
+				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="<fmt:message key="logo.alt" bundle="${msg}" />" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -436,11 +448,14 @@ function submitLoginForm(formID) {
 <!--Mobile side-menu-->
 <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
+	
+    <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="bmg_mobile_login_mask" onclick="$('#fwd-login-mob').trigger('click');"></div>
+	
 	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
 		
 		<% if (session.getAttribute("authenticate") == null || !"true".equals(session.getAttribute("authenticate").toString())) { %>
-		<a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
-		<div class="dropdown-menu drop-width" style="left: -20px;">
+        <a href="#" class="dropdown-toggle color-wht log-to-acc" id="fwd-login-mob" onclick="$('.bmg_mobile_login_mask').toggle();"><i class="fa fa-lock"></i> <fmt:message key="header.login.heading" bundle="${msg}" /> </a>
+        <div class="dropdown-menu drop-width" style="left: -32px;top: 105px;max-width:300px;">
 									<form name="loginform" id="loginform2">
 										<div class="login-form" style="position: relative;">
 											<div
@@ -516,10 +531,9 @@ function submitLoginForm(formID) {
 	<ul class="nav navmenu-nav sidepanel-menu">
 		<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("WorkingHoliday")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span> <a
-			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Flight")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a><div class="offer"></div></li>
 		<li class="<% if(actionName.equals("Travel")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<% if(actionName.equals("homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
+		<li class="<% if(actionName.equals("Homecare")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>
 </div>
 <!--End Mobile header-->

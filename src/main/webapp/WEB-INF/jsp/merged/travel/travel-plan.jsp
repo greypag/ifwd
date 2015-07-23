@@ -28,16 +28,16 @@ perventRedirect=true;
 // personal or family
 var traveller;  
 // personal
-var personalTraveller = parseInt("${corrTravelQuote.getTotalPersonalTraveller()}");
+var personalTraveller = parseInt("${corrTravelQuote.totalPersonalTraveller}");
 // family
-var familyAdult = parseInt("${corrTravelQuote.getTotalAdultTraveller()}");
-var familyChild = parseInt("${corrTravelQuote.getTotalChildTraveller()}");
-var familyOther = parseInt("${corrTravelQuote.getTotalOtherTraveller()}");  
+var familyAdult = parseInt("${corrTravelQuote.totalAdultTraveller}");
+var familyChild = parseInt("${corrTravelQuote.totalChildTraveller}");
+var familyOther = parseInt("${corrTravelQuote.totalOtherTraveller}");  
 var familyTraveller = familyAdult+familyChild+familyOther;
 
-var t1 = "${corrTravelQuote.getTotalAdultTraveller()}";
-var t2 = "${corrTravelQuote.getTotalChildTraveller()}";
-var t3 = "${corrTravelQuote.getTotalOtherTraveller()}";
+var t1 = "${corrTravelQuote.totalAdultTraveller}";
+var t2 = "${corrTravelQuote.totalChildTraveller}";
+var t3 = "${corrTravelQuote.totalOtherTraveller}";
 var promoData = '';
 
 //bmg inline variable
@@ -71,9 +71,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			$("#loadingPromo").hide();
 			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			$('#inputPromo').addClass('invalid-field');
 			flag = false;
-		} else
+		} else {
+			$('#inputPromo').removeClass('invalid-field');
 			flag = true;
+		}
 
 		return flag;
 	}
@@ -120,6 +123,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                }
 
 	            });
+	        }else{
+	        	promoCodeInsertFlag = true;
 	        }
 		}
 	}
@@ -164,8 +169,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		var selValue = document.getElementById("inputseletedplanname").value;
 		if(result['errMsgs'] !== null){
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+			$('#inputPromo').addClass('invalid-field');
 		}else{
 			$("#errPromoCode").html("");
+			$('#inputPromo').removeClass('invalid-field');
 			
 			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
@@ -223,7 +230,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	}
 	$(document).ready(function() {
 	   // update quote area to show headcounts
-	    if("${corrTravelQuote.getPlanSelected()}".toLowerCase() == "family"){
+	    if("${corrTravelQuote.planSelected}".toLowerCase() == "family"){
 	        if (familyTraveller > 0){
 	            $('#family_plan_desk_spinner').show();
 	            $('#family_plan_btm_spinner').show();
@@ -351,7 +358,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
+							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-5 pad-none">								
 								<h2>
 									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
 									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
@@ -362,7 +369,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 									
 								</h2>	
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
+							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-7">
 								
 								<h3><fmt:message key="travel.dollar" bundle="${msg}" /></h3>
 								<%
@@ -1244,7 +1251,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div> -->
 	                            
 	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.trLeavingDate}" readonly>
                                 </div>
 	                             <!-- departure date end -->
 	                             
@@ -1271,16 +1278,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                               </div> -->
                               
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.trBackDate}" readonly>
                               </div>
                               
 								<!-- return date end  -->
 								<!-- traveller start -->
 								<div id="numOfDays">
-                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.getTotalTravellingDays()} <input
+                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.totalTravellingDays} <input
                                         type="hidden" name="totalTravellingDays"
                                         id="totalTravellingDays"
-                                        value="${travelQuoteBean.getTotalTravellingDays()}">
+                                        value="${travelQuoteBean.totalTravellingDays}">
                                     </span>
                                     <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
                                 </div>
@@ -1385,11 +1392,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                      </div>
                       -->
                       
-                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalPersonalTraveller()}"/>
-                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.getTotalFamilyTravellers()}">
-                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.getTotalAdultTraveller()}"/>
-                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.getTotalChildTraveller()}"/>
-                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.getTotalOtherTraveller()}"/>
+                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
+                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.totalFamilyTravellers}">
+                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
+                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
+                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
 								
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
@@ -1400,14 +1407,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
 							{ 
 						%>
-								<c:if test="${travelQuoteBean.getTotalPersonalTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.getTotalPersonalTraveller()}    </c:if>
+								<c:if test="${travelQuoteBean.totalPersonalTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.totalPersonalTraveller}    </c:if>
 						<% } 
 						   else 
 						   {
 						%>
-								<c:if test="${travelQuoteBean.getTotalAdultTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.getTotalAdultTraveller()}  <br></c:if>
-								<c:if test="${travelQuoteBean.getTotalChildTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.getTotalChildTraveller()} <br></c:if>
-								<c:if test="${travelQuoteBean.getTotalOtherTraveller()!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.getTotalOtherTraveller()} <br></c:if>
+								<c:if test="${travelQuoteBean.totalAdultTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.totalAdultTraveller}  <br></c:if>
+								<c:if test="${travelQuoteBean.totalChildTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.totalChildTraveller} <br></c:if>
+								<c:if test="${travelQuoteBean.totalOtherTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.totalOtherTraveller} <br></c:if>
 						<% }
 						%>
 						</div>
@@ -1422,9 +1429,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
-								<div class="input-group">
-									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-									<a class="input-group-addon in black-bold pointer sub-link" onclick="applyTravelPromoCode()"><fmt:message key="travel.action.apply" bundle="${msg}" /></a>
+								<div class="input-group" id="inputPromo" style="display:inital;width:100%;">
+									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:75%;" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:20%;" onclick="applyTravelPromoCode()"><fmt:message key="travel.action.apply" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -1456,8 +1463,19 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%">
-                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+                                <c:choose>
+	                            <c:when test="${language=='en'}">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:when>
+	                            <c:otherwise>
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:otherwise>
+                            </c:choose>
+
+                                
+
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-xs-12"><span class="text-red errDue"></span></div>
@@ -1476,8 +1494,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
 				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
-				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a>
-				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /> <fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
+				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+				<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
+				<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
+					<u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
+				</a> 
+				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" />
+				<br>
+				<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
 		
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
@@ -1486,8 +1510,19 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
 		        </div>
 		        <div class="top35 pull-right pad-none" style="width:47%">
-		            <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-                                <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+		            <c:choose>
+	                            <c:when test="${language=='en'}">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:when>
+	                            <c:otherwise>
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;">
+	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
+	                            </c:otherwise>
+                            </c:choose>
+
+		            
+           
 		        </div>
 		        <div class="clearfix"></div>
 		        <span class="text-red errDue"></span>
@@ -1517,7 +1552,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         <div class="alert alert-success hide proSuccess"></div>
                         <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder=""
+                            <input type="email" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode">
                             <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                         </div>

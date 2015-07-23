@@ -52,9 +52,12 @@ function checkPromoCodePlaceholder(){
 	
 		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			$('#inputPromo').addClass('invalid-field');
 			flag = false;
-		} else
+		} else {
+			$('#inputPromo').removeClass('invalid-field');
 			flag = true;
+		}
 	
 		return flag;
 	}
@@ -92,7 +95,11 @@ function checkPromoCodePlaceholder(){
 	function setValue(result) {
 		if(result['errMsgs'] !== null){
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
-		}else{
+            $('#inputPromo').addClass('invalid-field');
+        }else{
+            $("#errPromoCode").html("");
+            $('#inputPromo').removeClass('invalid-field');
+            
 			var totalDue = parseInt(result["priceInfo"].totalDue);
 			$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
 			$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
@@ -335,11 +342,10 @@ function checkPromoCodePlaceholder(){
                                                             <br>
                                                             <table id="homecarePremium" class="table table-bordred">
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
-                                                                        <td><strong><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" />
-                                                                        </strong></td>
+                                                                    <tr style="background-color: #f68a1d;">
+                                                                        <td><strong style="color: #fff;"><fmt:message key="home.quote.summary.table.header1" bundle="${msg}" /></strong></td>
+                                                                        <td><strong style="color: #fff;"><fmt:message key="home.quote.summary.table.header2" bundle="${msg}" /></strong></td>
+                                                                        <td><strong style="color: #fff;"><fmt:message key="home.quote.summary.table.header3" bundle="${msg}" /></strong></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><fmt:message key="home.quote.summary.table.row1.col1" bundle="${msg}" /></td>
@@ -679,9 +685,9 @@ function checkPromoCodePlaceholder(){
 	                            <span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 	                            <span class="text-red" id="errPromoCode"></span>
 	                            <div id="promo-wrap" class="form-group">
-	                                <div class="input-group">
-	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
+	                                <div class="input-group" id="inputPromo" style="display:inital;width:100%;">
+	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:75%;" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:20%;" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>
 	                            <div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -706,18 +712,18 @@ function checkPromoCodePlaceholder(){
                                 </div>
                                </div>
 							<input type="hidden" name="planCode" id="planCode"
-								value="${planQuote.getPlanCode() }">
+								value="${planQuote.planCode}">
 							<input type="hidden" name="grossPremium" id="grossPremium"
-								value="${planQuote.getGrossPremium()}">
+								value="${planQuote.grossPremium}">
 							<input type="hidden" name="discountAmount" id="discountAmount"
-								value="${planQuote.getDiscountAmount()}">
+								value="${planQuote.discountAmount}">
 							<input type="hidden" name="totalDue" id="totalDue"
-								value="${planQuote.getTotalDue()}">
+								value="${planQuote.totalDue}">
 
 							<input type="hidden" name="referralCode" id="referralCode"
-								value="${planQuote.getReferralCode()}">
+								value="${planQuote.referralCode}">
 							<input type="hidden" name="referralName" id="referralName"
-								value="${planQuote.getReferralName()}">
+								value="${planQuote.referralName}">
 
 							<input type="hidden" name="answer1" value="${answer1}">
 							<input type="hidden" name="answer2" value="${answer2}">
@@ -742,8 +748,24 @@ function checkPromoCodePlaceholder(){
 		                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 		                            </div>
 		                            <div class="top35 pull-right pad-none" style="width:47%">
-		                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+		                                <c:choose>
+	<c:when test="${language=='en'}">
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
+</button>
+	</c:when>
+<c:otherwise>
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+</c:otherwise>
+</c:choose>
+
+
+		                                
 		                            </div>
+		                            
+		                            
+		                            
+		                            
+		                            
 		                            <div class="clearfix"></div>
 		                            <br> <span class="text-red" id="errDue"></span> <br>
 		                        </div>
@@ -755,11 +777,14 @@ function checkPromoCodePlaceholder(){
 					<div class="clearfix"></div>
 				</div>
 				<p class="padding1 workingholiday-plan-disclaimer">
-					<fmt:message key="home.quote.other.disclaimer.part1" bundle="${msg}" />
+					<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 					<a class="sub-link" href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank">
-						<fmt:message key="home.quote.other.disclaimer.part2" bundle="${msg}" /></a>
-						<fmt:message key="home.quote.other.disclaimer.part3" bundle="${msg}" /><br> 
-						<fmt:message key="home.quote.other.disclaimer.part4" bundle="${msg}" />
+						<fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+						<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
+						<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
+						<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> 
+						<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
+						<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 				</p>				
 				
 				<div class="col-xs-12 hidden-md hidden-lg pad-none">
@@ -768,8 +793,16 @@ function checkPromoCodePlaceholder(){
 		                    <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 		                </div>
 		                <div class="top35 pull-right pad-none" style="width:47%">
-		                    <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;">
-                                    <fmt:message key="home.action.next" bundle="${msg}" /></button>
+		                    <c:choose>
+	<c:when test="${language=='en'}">
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
+</button>
+	</c:when>
+<c:otherwise>
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+</c:otherwise>
+</c:choose>
+
 		                </div>
 		                <div class="clearfix"></div>
 		            </div>
@@ -847,7 +880,7 @@ function checkPromoCodePlaceholder(){
 						<div class="alert alert-success hide proSuccess"></div>
 						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder=""
+							<input type="email" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
 							<input type="hidden" name="planCode" id="planCode" value="HOMECARE">
 						</div>
