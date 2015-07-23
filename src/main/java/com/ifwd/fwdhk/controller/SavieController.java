@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
@@ -208,10 +209,11 @@ public class SavieController extends BaseController{
 		out = response.getOutputStream();  
 		List<PdfAttribute> attributeList=new ArrayList<PdfAttribute>();		
 		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
-		//attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
-		//.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
-		InputStream is = new FileInputStream("D:\\template\\SavieProposalTemplateChi3_20150716.pdf");
-		//PDFGeneration.generatePdf(is, out, attributeList);
+		attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
+		attributeList.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
+		InputStream is = new FileInputStream(pdfTemplatePath);
+		PDFGeneration.generatePdf(is, out, attributeList);
 		out.close();  
 		out.flush();
 		
