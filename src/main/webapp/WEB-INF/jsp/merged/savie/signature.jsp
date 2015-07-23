@@ -42,7 +42,7 @@
 	}
     function putImage() {
     	var $sigdiv = $("#signature");
-    	var datapair = $sigdiv.jSignature("getData", "svgbase64");
+    	var datapair = $sigdiv.jSignature("getData", "image");
     	//var image = new Image();
     	//alert(datapair[0]);
     	//image.src = "data:" + datapair[0] + "," + datapair[1] ;

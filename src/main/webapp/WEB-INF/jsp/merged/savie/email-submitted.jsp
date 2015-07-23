@@ -10,9 +10,9 @@
 
 <div class="teaser-confirmation-block">
 	<div class="fwd-container container-fluid teaser-confirmation">
-		<h2><fmt:message key="savie.emaiSubmit.thank.completing" bundle="${msg}" /></h2>
+		<h2><fmt:message key="savie.emailSubmit.thank.completing" bundle="${msg}" /></h2>
 
-		<h4><fmt:message key="savie.emaiSubmit.share.love" bundle="${msg}" /><span class="savie-bold"><fmt:message key="savie.emaiSubmit.savie" bundle="${msg}" /></span><fmt:message key="savie.emaiSubmit.saving.together" bundle="${msg}" /></h4>
+		<h4><fmt:message key="savie.emailSubmit.share.love" bundle="${msg}" /><span class="savie-bold"><fmt:message key="savie.emailSubmit.savie" bundle="${msg}" /></span><fmt:message key="savie.emailSubmit.saving.together" bundle="${msg}" /></h4>
 
 
 		<div class="clearfix">
@@ -20,17 +20,17 @@
 				<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.confirmation" bundle="${msg}" />">
 			</div>
 			<div class="left-desktop text">
-				<h3><fmt:message key="savie.emaiSubmit.annual.return" bundle="${msg}" /></h3>
-				<p class="act-now"><fmt:message key="savie.emaiSubmit.act.now" bundle="${msg}" /></p>
+				<h3><fmt:message key="savie.emailSubmit.annual.return" bundle="${msg}" /></h3>
+				<p class="act-now"><fmt:message key="savie.emailSubmit.act.now" bundle="${msg}" /></p>
 				<div class="fwd-div-btn">
 					<button type="button" class="btn-fwd-fb">
-						<i class="fa fa-facebook fwd-fb"></i><fmt:message key="savie.emaiSubmit.share.facebook" bundle="${msg}" />
+						<i class="fa fa-facebook fwd-fb"></i><fmt:message key="savie.emailSubmit.share.facebook" bundle="${msg}" />
 					</button>
 				</div>
 
 			</div>
 		</div>
 
-		<button type="button" class="btn-white btn-confirmation"><fmt:message key="savie.emaiSubmit.back.home" bundle="${msg}" /></button>
+		<button type="button" class="btn-white btn-confirmation"><fmt:message key="savie.emailSubmit.back.home" bundle="${msg}" /></button>
 	</div>
 </div>
