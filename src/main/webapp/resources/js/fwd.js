@@ -3830,6 +3830,10 @@ function flightValidateDesk()
 {
 	var flag = true;
 	flag = flightValidateGetQuote("txtStartDateDesk", "startDateDeskIn", "txtEndDateDesk", "endDateDeskIn", "txtTravellersDesk", "lblPeopleDesk", "travelCountDeskIn");
+	
+	if(!flag){
+		$('#loading-overlay').modal('hide');
+	}
 	return flag;
 }
 function flightValidateMob() {
