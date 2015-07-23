@@ -230,7 +230,8 @@ public class SavieController extends BaseController{
 		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
 		attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
 		attributeList.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
-		InputStream is = new FileInputStream("D:\\template\\SavieProposalTemplateChi3_20150716.pdf");
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
+		InputStream is = new FileInputStream(pdfTemplatePath);
 		PDFGeneration.generatePdf(is, out, attributeList);
 		out.close();  
 		out.flush();
