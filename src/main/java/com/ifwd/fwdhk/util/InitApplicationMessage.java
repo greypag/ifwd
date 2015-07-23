@@ -45,6 +45,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> placeOfBirthEN;
 	public static List<OptionItemDesc> placeOfBirthCN;
 	
+	public static List<OptionItemDesc> savieAnsEN;
+	public static List<OptionItemDesc> savieAnsCN;
+	
 	public static String initToken;
 	public static String initUsername;
 
@@ -179,6 +182,22 @@ public class InitApplicationMessage implements ApplicationListener{
 				placeOfBirthCN=null;
 			}
 			logger.info("PlaceOfBirthCN : " + placeOfBirthCN);
+			
+			try {
+				savieAnsEN = commonUtils.getOptionItemDescList("SavieAns","EN");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				savieAnsEN=null;
+			}
+			logger.info("savieAnsEN : " + savieAnsEN);
+			
+			try {
+				savieAnsCN = commonUtils.getOptionItemDescList("SavieAns","CH");
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+				savieAnsCN=null;
+			}
+			logger.info("savieAnsCN : " + savieAnsCN);
 			
 		}
 	}
