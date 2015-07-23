@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -70,6 +71,16 @@ if(lang === "EN"){
 
 perventRedirect=true;
     
+var namePlaceholder="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />";
+var hkidPlaceholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />";
+
+var insureNamePlaceholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />";
+var insureHkidPlaceholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />";
+
+var benNamePlaceholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
+var benHkidPlaceholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
+    
+
 </script>
 
 
@@ -105,8 +116,12 @@ function activateUserAccountJoinUs() {
     $("#UsernameError").text("");
     $("#PasswordError").text("");
     $("#Confirm-PasswordError").text("");
+    $("#Username").removeClass("invalid-field");
+    $("#Password").removeClass("invalid-field");
+    $("#Confirm-Password").removeClass("invalid-field");
     
-     
+    //first error element
+    var firstErrorElementId="";
     
     if(name == "" && password == "" && password2 == ""){
     	$('#frmYourDetails').submit()
@@ -119,27 +134,52 @@ function activateUserAccountJoinUs() {
     	    
     		validateForm = true;
     		if (!checkMembership("Username")){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+                    firstErrorElementId="Username";
+                }
+                validateForm = false;	
     		}
     		if (!checkMembership("Password")){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+                    firstErrorElementId="Password";
+                }
+                validateForm = false;	
     		}
     		if (!checkMembership("Confirm-Password")){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+                    firstErrorElementId="Confirm-Password";
+                }
+                validateForm = false;	
     		}
+    		var applicantDob = $("#applicantDob").val();
+            if (applicantDob.trim() == "") {
+                
+                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+                $("#input_dob").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="applicantDob";
+                }
+                validateForm = false;   
+            
+            }
     		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+                    firstErrorElementId="inputMobileNo";
+                }
+                validateForm = false;	
     		}    		
     		if (!validateEmail('inputEmailId','emailid')){
-    			validateForm = false;	
+    			if(firstErrorElementId==""){
+                    firstErrorElementId="inputEmailId";
+                }
+                validateForm = false;	
     		}    
-    		var applicantDob = $("#applicantDob").val();
-    		if (applicantDob.trim() == "") {
-    			
-    			document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
-    	        validateForm = false;	
-    	    
-    		}
+    		
+    		
+    		if(firstErrorElementId!=""){
+    	        scrollToElement(firstErrorElementId);
+    	    }
+    		
         	if (!validateForm){
         		return;
         	}    		
@@ -205,24 +245,52 @@ function activateUserAccountJoinUs() {
     		// not all the fields filled
             if (name == ""){
                 $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+                $("#Username").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Username";
+                } 
             }else{
-                checkMembership("Username");
+            	if (!checkMembership("Username")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Username";
+                    } 
+                }
             }
             
             if (password == ""){
                 $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+                $("#Password").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Password";
+                } 
             }else{
-                checkMembership("Password");
+            	if (!checkMembership("Password")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Password";
+                    } 
+                }
             }
             
             
             if (password2 == ""){
                 $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+                $("#Confirm-Password").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Confirm-Password";
+                } 
             }else{
-                checkMembership("Confirm-Password");
+            	if (!checkMembership("Confirm-Password")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Confirm-Password";
+                    } 
+                }
             }
     	}
     	
+    }
+    
+    if(firstErrorElementId!=""){
+        scrollToElement(firstErrorElementId);
     }
     
     return;
@@ -353,15 +421,20 @@ function activateUserAccountJoinUs() {
                             <!-- english name start -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label
-                                        for="inputFullName" class="field-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
+                                   <label for="inputFullName" class="field-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="fullName"
-                                        class="form-control full-control" id="inputFullName"
-                                        value="${userDetails.getFullName()}"
+                                   <!-- <input type="text" name="fullName"
+                                        class="form-control full-control textUpper" id="inputFullName"
+                                        value="${userDetails.fullName}"
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                        onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />
+                                        onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />-->
+                                   <input type="text" name="fullName"
+                                        class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName"
+                                        value="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />"
+	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
+	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
+                                        onkeypress="return alphaOnly(event);" maxlength="50" />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>
@@ -378,11 +451,13 @@ function activateUserAccountJoinUs() {
                                             class="form-control soflow select-label">
                                             <c:forEach var="hkidList"
                                                 items="${mapHkId}">
+                                                
                                                 <option
                                                     value="${hkidList.key}">
                                                     <c:out
                                                         value="${hkidList.value}" />
                                                 </option>
+                                                
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -405,7 +480,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>
                                     </div>
                                     <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -419,7 +494,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="text"
-                                        class="form-control full-control" value="${userDetails.getMobileNo().trim()}"
+                                        class="form-control full-control" value="${userDetails.mobileNo.trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"
                                         onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
@@ -435,8 +510,8 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control" name="emailAddress"
-                                        value="${userDetails.getEmailAddress().trim()}" id="inputEmailId"
+                                   <input class="form-control full-control textLower" name="emailAddress" type="email"
+                                        value="${userDetails.emailAddress.trim()}" id="inputEmailId"
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
@@ -605,7 +680,7 @@ function activateUserAccountJoinUs() {
                             </table>
                         </div> --%>
                         <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
+                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
                         
                         
                         <%
@@ -635,9 +710,9 @@ function activateUserAccountJoinUs() {
                             <!-- Personal -->
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
-                                value="${corrTravelQuote.getTotalPersonalTraveller()}">
+                                value="${corrTravelQuote.totalPersonalTraveller}">
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalPersonalTraveller()}">
+                                end="${corrTravelQuote.totalPersonalTraveller}">
                                 <div class="form-wrap">
                                 <div class="personaltraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -653,17 +728,31 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
-                                                  <input type="text"
-                                                        id="txtInsuFullName${inx}" name="personalName" value="${userDetails.getFullName()}"
-                                                        class="form-control full-control" 
+                                                  <!-- <input type="text"
+                                                        id="txtInsuFullName${inx}" name="personalName" value="${userDetails.fullName}"
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
+                                                        onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
+                                                  <input type="text"
+                                                        id="txtInsuFullName${inx}" name="personalName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+		                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+		                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                 </c:if>
                                                 <c:if test="${inx > 1}">
-                                                    <input type="text"
+                                                    <!-- <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName" value=""
-                                                        class="form-control full-control" 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
+                                                        onkeypress="return alphaOnly(event);" maxlength="100"/> -->
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="personalName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100"/>
                                                  </c:if>
                                                  <span id="errtxtPersonalFullName${inx}" class="text-red"></span>
@@ -764,8 +853,10 @@ function activateUserAccountJoinUs() {
                                                             onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')"
                                                         class="form-control soflow select-label" >
                                                         <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+                                                        	<enhance:out escapeXml="false">
                                                             <option value="${relationshipList.key}"><c:out
                                                                     value="${relationshipList.value}" /></option>
+                                                            </enhance:out>enhance>
                                                         </c:forEach>
                                                     </select>
                                                     </div>
@@ -796,8 +887,10 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" value="" class="form-control full-control"
-                                                        onblur="replaceAlpha(this); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
+                                                        id="personalBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
@@ -1018,9 +1111,9 @@ function activateUserAccountJoinUs() {
                             
                             <input type="hidden" name="totalAdultTraveller"
                                 id="totalAdultTraveler"
-                                value="${corrTravelQuote.getTotalAdultTraveller()}">
+                                value="${corrTravelQuote.totalAdultTraveller}">
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalAdultTraveller()}">
+                                end="${corrTravelQuote.totalAdultTraveller}">
                                 <div class="form-wrap">
                                 <div class="adulttraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1038,17 +1131,31 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
-                                                    <input type="text"
-                                                        id="txtInsuFullName${inx}" name="adultName" value="${userDetails.getFullName()}"
-                                                        class="form-control full-control" 
+                                                    <!-- <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName" value="${userDetails.fullName}"
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
                                                     </c:if>
                                                     <c:if test="${inx > 1}">
-                                                    <input type="text"
+                                                    <!-- <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName" value=""
-                                                        class="form-control full-control" 
+                                                        class="form-control full-control textUpper" 
                                                         onblur="replaceAlpha(this); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100"/> -->
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100"/>
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"></span>
@@ -1152,8 +1259,10 @@ function activateUserAccountJoinUs() {
                                                           onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')"
                                                       class="form-control soflow select-label" >
                                                       <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+                                                      	<enhance:out escapeXml="false">
                                                           <option value="${relationshipList.key}"><c:out
                                                                   value="${relationshipList.value}" /></option>
+                                                        </enhance:out>
                                                       </c:forEach>
                                                   </select>
                                                </div>
@@ -1182,9 +1291,11 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
 	                                                  name="adultBenificiaryFullName"
-	                                                  id="adultBenefitiaryId${inx}" value=""
-	                                                  class="form-control full-control " 
-	                                                  onblur="replaceAlpha(this); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
+	                                                  id="adultBenefitiaryId${inx}"
+	                                                  class="form-control full-control textUpper bmg_custom_placeholder" 
+	                                                  value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                      onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                      onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
 	                                                  onkeypress="    return alphaOnly(event);" maxlength="100" />
 	                                              <span id="erradultBenefitiaryId${inx}" class="text-red">
 	                                              </span>
@@ -1411,9 +1522,9 @@ function activateUserAccountJoinUs() {
                             
                             <input type="hidden" name="totalChildTraveller"
                                 id="totalCountOfChild"
-                                value="${corrTravelQuote.getTotalChildTraveller()}">
+                                value="${corrTravelQuote.totalChildTraveller}">
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalChildTraveller()}">
+                                end="${corrTravelQuote.totalChildTraveller}">
                                 <div class="form-wrap">
                                 <div class="childtraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1429,9 +1540,11 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
-                                                        name="childName" id="txtChldFullName${inx}" value=""
-                                                        class="form-control full-control "
-                                                        onblur="replaceAlpha(this); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
+                                                        name="childName" id="txtChldFullName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtChldFullName${inx}" class="text-red"></span>
                                            </div>
@@ -1499,8 +1612,10 @@ function activateUserAccountJoinUs() {
                                                         onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
+                                                        </enhance:out>
                                                         </c:forEach>
                                                     </select>
                                                     </div>
@@ -1538,9 +1653,11 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                     name="childBenificiaryFullName"
-                                                    id="childBenefitiaryName${inx}" value=""
-                                                    class="form-control full-control " 
-                                                    onblur="replaceAlpha(this); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
+                                                    id="childBenefitiaryName${inx}"
+                                                    class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                    value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
                                                     onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                 <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
                                                </div>
@@ -1732,10 +1849,10 @@ function activateUserAccountJoinUs() {
                             <!--other traveller-->
                             <input type="hidden" name="totalOtherTraveller"
                                 id="totalCountOther"
-                                value="${corrTravelQuote.getTotalOtherTraveller()}">
+                                value="${corrTravelQuote.totalOtherTraveller}">
                             
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.getTotalOtherTraveller()}">
+                                end="${corrTravelQuote.totalOtherTraveller}">
                                 <div class="form-wrap">
                                 <div class="otherTraveller">
                                     <h4 class="bold big-title" style="padding-left:0px !important;">
@@ -1751,9 +1868,11 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
-                                                        name="otherName" id="txtOtherFullName${inx}" value=""
-                                                        class="form-control full-control " 
-                                                        onblur="replaceAlpha(this); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
+                                                        name="otherName" id="txtOtherFullName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
                                            </div>
@@ -1817,8 +1936,10 @@ function activateUserAccountJoinUs() {
                                                         onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
                                                         class="form-control soflow select-label">
                                                         <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
                                                             <option value="${relationshipCodeList.key}"><c:out
                                                                     value="${relationshipCodeList.value}" /></option>
+                                                        </enhance:out>
                                                         </c:forEach>
                                                     </select></div><span id="benificiary" style="display: none"> <label
                                                         class="text-red"></label>
@@ -1850,9 +1971,11 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="otherBenificiaryFullName"
-                                                        id="otherBenefitiaryName${inx}" value=""
-                                                        class="form-control full-control " 
-                                                        onblur="replaceAlpha(this); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
+                                                        id="otherBenefitiaryName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" />
                                                     <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
                                                </div>
@@ -2150,7 +2273,7 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4> 
                                 <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.getTrLeavingDate()}" readonly>
+                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" readonly>
                                 </div>
                              </h4>
                                 <input type="hidden" name="departureDate" id="departureDate"
@@ -2161,12 +2284,12 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4>
                                                     <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.getTrBackDate()}" readonly>
+                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" readonly>
                     </div>
                                 
                                 </h4>
                                 <input type="hidden" name="backDate" id="backDate"
-                                    value="${corrTravelQuote.getTrBackDate()}">
+                                    value="${corrTravelQuote.trBackDate}">
 
                                 <h3 class="txt-bold">
                                     <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
@@ -2176,14 +2299,14 @@ function activateUserAccountJoinUs() {
                                     if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
                                     { 
                                 %>
-                                        <c:if test="${ corrTravelQuote.getTotalPersonalTraveller()!=0}">
+                                        <c:if test="${ corrTravelQuote.totalPersonalTraveller!=0}">
                                             <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.getTotalPersonalTraveller()}
+                                            : ${corrTravelQuote.totalPersonalTraveller}
                                         </c:if>
                                         <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-                                        <c:if test="${corrTravelQuote.getTotalAdultTraveller()!=0}">
+                                        <c:if test="${corrTravelQuote.totalAdultTraveller!=0}">
                                             <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.getTotalAdultTraveller()}
+                                            : ${corrTravelQuote.totalAdultTraveller}
                                         </c:if>
 
                                 <%  }
@@ -2191,18 +2314,18 @@ function activateUserAccountJoinUs() {
                                     {                                       
                                 %>  
 
-                                    <c:if test="${ corrTravelQuote.getTotalAdultTraveller()!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.getTotalAdultTraveller()+corrTravelQuote.getTotalPersonalTraveller()}</c:if>
-                                    <c:if test="${ corrTravelQuote.getTotalChildTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.getTotalChildTraveller()}</c:if>
-                                    <c:if test="${ corrTravelQuote.getTotalOtherTraveller()!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.getTotalOtherTraveller()}</c:if>
-                                    <c:if test="${planDetailsForm.getTravellerCount()!=0}"> ${planDetailsForm.getTravellerCount()}</c:if>
+                                    <c:if test="${ corrTravelQuote.totalAdultTraveller!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.totalAdultTraveller+corrTravelQuote.totalPersonalTraveller}</c:if>
+                                    <c:if test="${ corrTravelQuote.totalChildTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.totalChildTraveller}</c:if>
+                                    <c:if test="${ corrTravelQuote.totalOtherTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.totalOtherTraveller}</c:if>
+                                    <c:if test="${planDetailsForm.travellerCount!=0}"> ${planDetailsForm.travellerCount}</c:if>
                                 <%  } %>
                                 </h4>
                                 
-                                <input type="hidden" name="planSelected" value="${corrTravelQuote.getPlanSelected()}">
+                                <input type="hidden" name="planSelected" value="${corrTravelQuote.planSelected}">
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.getTotalTravellingDays()}</span>
+                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.totalTravellingDays}</span>
                                 </h3>
-                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.getTotalTravellingDays()}">
+                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
                                 <c:if test="${referralCode!=''}">
                                     <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
                                     <h4>${referralCode}</h4>
@@ -2229,7 +2352,16 @@ function activateUserAccountJoinUs() {
                          <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                     </div>
                     <div class="top35 pull-right pad-none" style="width:47%"> 
-                        <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+                        <c:choose>
+<c:when test="${language=='en'}">
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       </c:when>
+       <c:otherwise>
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       </c:otherwise>
+</c:choose>
+
+						                        
                     </div>
                 </div>
 <div class="clearfix"></div>
@@ -2245,11 +2377,15 @@ function activateUserAccountJoinUs() {
      </div>
 </div>
 
-<p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.quote.other.disclaimer.part1" bundle="${msg}" />
+<p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 <a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
-<fmt:message key="travel.quote.other.disclaimer.part2" bundle="${msg}" /></a> 
-<fmt:message key="travel.quote.other.disclaimer.part3" bundle="${msg}" /><br>
-<fmt:message key="travel.quote.other.disclaimer.part4" bundle="${msg}" /></p>
+<fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
+<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
+    <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
+</a> 
+<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><br>
+<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
    <div style="width: 80%;margin-left: 10%;  margin-bottom: 50px;">
@@ -2257,7 +2393,15 @@ function activateUserAccountJoinUs() {
             <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
         </div>
         <div class="top35 pull-right pad-none" style="width:47%">
-            <input type="button" onclick="return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+			<c:choose>
+<c:when test="${language=='en'}">
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       </c:when>
+       <c:otherwise>
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       </c:otherwise>
+</c:choose>
+
         </div>
         <div class="clearfix"></div>
     </div>
@@ -2286,7 +2430,7 @@ function activateUserAccountJoinUs() {
               <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
               <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /> </h4>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="" id="txtPromoEmail">
+                <input type="email" class="form-control" placeholder="" id="txtPromoEmail">
               </div>
               <span id="errPromoEmail" class="text-red"></span>
                <br>
@@ -2380,7 +2524,7 @@ function userLoginFnc() {
             } else if (data == 'fail') {
                 $('#ajax-loading').hide();
                 $('#login-err-msg').show();
-                $('#login-err-msg').html('Please Check Login Credential');
+                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
             }
 
         }
@@ -2391,4 +2535,24 @@ function userLoginFnc() {
 function BackMe() {
     window.history.back();
 }
+</script>
+<script>
+window.onload = function(){
+	$('select[id^="personalselectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('personalbenificiaryId' + index,'personalselectBenificiary' + index, 'personalBenefitiaryId' + index, 'personalBenefitiaryHKId' + index);
+	});
+	$('select[id^="adultsselectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('adultsbenificiaryId' + index,'adultsselectBenificiary' + index, 'adultBenefitiaryId' + index, 'adultBenefitiaryHKId' + index);
+	});
+	$('select[id^="childselectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('childbenificiaryId' + index,'childselectBenificiary' + index, 'childBenefitiaryName' + index, 'txtchildInsuHkid' + index);
+	});
+	$('select[id^="otherSelectBenificiary"]').each(function(i) {
+		var index = i + 1;
+		activeDiv('otherbenificiaryId' + index,'otherSelectBenificiary' + index, 'otherBenefitiaryName' + index, 'txtOtherBenInsuHkid' + index);
+	});
+};
 </script>
