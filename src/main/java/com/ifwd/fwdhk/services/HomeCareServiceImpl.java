@@ -404,18 +404,30 @@ public class HomeCareServiceImpl implements HomeCareService {
 		boolean checkbox3;
 		boolean checkbox4;
 		
-		if (homeCareDetails.getCheckbox3()) {
+//		if (homeCareDetails.getCheckbox3() == true) {
+//			checkbox3 = true;
+//		} else {
+//			checkbox3 = false;
+//		}
+//		if (homeCareDetails.getCheckbox4() == true) {
+//			checkbox4 = true;
+//		} else {
+//			checkbox4 = false;
+//		}
+//		
+
+		
+		if (homeCareDetails.getDonotWishDirectMarketing() != null) {
 			checkbox3 = true;
 		} else {
 			checkbox3 = false;
 		}
-		if (homeCareDetails.getCheckbox4()) {
+	
+		if (homeCareDetails.getDonotDisclose() != null) {
 			checkbox4 = true;
 		} else {
 			checkbox4 = false;
 		}
-		
-
 		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
 		parameters.put("planCode", homeCareDetails.getPlanCode());
