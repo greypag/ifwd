@@ -291,6 +291,8 @@ ul.maintabs li a:hover{ color: #fff ;}
 .workingholiday-tab{
 	top:47px;
 	position:relative;
+	margin-left: 15px;
+    margin-right: 15px;
 }
 
 .travel-special{
@@ -305,8 +307,9 @@ ul.maintabs li .offer{
   height: 49px;
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 10px;
 }
+
 ul.maintabs li:hover .offer{
   background-image: url("../images/iFwd_navigation-icon_desktop_hover.png");
 }
@@ -327,6 +330,8 @@ ul.maintabs li a span.offer:hover{
 
 .chin .workingholiday-tab{
     top:56px;
+    margin-left: initial;
+    margin-right: initial;
 }
 
 .chin .travel-special{
