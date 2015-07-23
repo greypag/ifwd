@@ -207,7 +207,7 @@ public class SavieController extends BaseController{
 	 * @param response
 	 */
 	@RequestMapping(value = {"/{lang}/fileDownload"})
-	public void fileDownload(HttpServletRequest request,HttpServletResponse response) {
+	public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
 			lang = "CN";
@@ -221,28 +221,18 @@ public class SavieController extends BaseController{
 		
 		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
 		ServletOutputStream out;  
-		  
-		File file = new File("D:\\workspace\\fwdhk\\download.pdf");
-		//File file = new File(path + "download/" + "download.pdf");
+		out = response.getOutputStream();  
+		List<PdfAttribute> attributeList=new ArrayList<PdfAttribute>();		
+		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
+		attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
+		attributeList.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
+		InputStream is = new FileInputStream("D:\\template\\SavieProposalTemplateChi3_20150716.pdf");
+		PDFGeneration.generatePdf(is, out, attributeList);
+		out.close();  
+		out.flush();
 		
-		try {  
-			FileInputStream inputStream = new FileInputStream(file);  
-			
-			 
-			out = response.getOutputStream();  
-			
-			int b = 0;  
-			while ((b = inputStream.read()) != -1){  
-				
-				out.write(b);  
-			}  
-			inputStream.close();  
-			out.close();  
-			out.flush();  
-			
-		} catch (IOException e) {  
-			e.printStackTrace();  
-		}
+		
+
 	}
 	
 	
