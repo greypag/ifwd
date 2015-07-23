@@ -1,11 +1,10 @@
 package com.ifwd.fwdhk.controller;
 
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,9 +14,14 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,6 +37,7 @@ import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
+
 @Controller
 public class SavieController extends BaseController{
 	
@@ -138,12 +143,20 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, "savie.emailSubmitted");
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-show"})
-	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfFile) {
-		return SaviePageFlowControl.pageFlow(model,request,"pdf");
+	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-url"})
+	public ResponseEntity<byte[]> pdfUrl(HttpServletRequest request,@RequestParam String pdfName) throws IOException {
+		File file=new File(request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\"+pdfName);  
+		HttpHeaders headers = new HttpHeaders();    
+        String fileName=new String(pdfName.getBytes("UTF-8"),"iso-8859-1");
+        headers.setContentDispositionFormData("attachment", fileName);   
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);   
+        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers, HttpStatus.CREATED);  
 	}
 	
-
+	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-show"})
+ 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName) {
+		return SaviePageFlowControl.pageFlow(model,request,"pdf");
+ 	}
 	
 	/**
 	 * test save image

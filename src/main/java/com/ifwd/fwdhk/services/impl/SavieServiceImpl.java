@@ -410,10 +410,8 @@ public class SavieServiceImpl implements SavieService {
 			String pdfTemplatePath = null;
 			String pdfGeneratePath = null;
 			try {
-				pdfTemplatePath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
+				pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
 				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
-				logger.info(pdfTemplatePath);
-				logger.info(pdfGeneratePath);
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
@@ -428,8 +426,7 @@ public class SavieServiceImpl implements SavieService {
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
-			resultJsonObject.accumulate("pdfBytes", pdfGeneratePath.replace("\\\\", "/")+name);
-			logger.info(pdfGeneratePath.replace("\\\\", "/")+name);
+			resultJsonObject.accumulate("pdfName", name);
 			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		}
 		else{
