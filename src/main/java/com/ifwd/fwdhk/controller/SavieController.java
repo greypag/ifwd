@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -143,18 +142,9 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, "savie.emailSubmitted");
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-url"})
-	public ResponseEntity<byte[]> pdfUrl(HttpServletRequest request,@RequestParam String pdfName) throws IOException {
-		File file=new File(request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\"+pdfName);  
-		HttpHeaders headers = new HttpHeaders();    
-        String fileName=new String(pdfName.getBytes("UTF-8"),"iso-8859-1");
-        headers.setContentDispositionFormData("attachment", fileName);   
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);   
-        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers, HttpStatus.CREATED);  
-	}
-	
 	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-show"})
  	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName) {
+		request.getSession().setAttribute("pdfName", pdfName);
 		return SaviePageFlowControl.pageFlow(model,request,"pdf");
  	}
 	
