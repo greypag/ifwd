@@ -38,8 +38,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 public class RestServiceImpl implements RestServiceDao {
 	private final static Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
 	public static final Map<String, String> COMMON_HEADERS;
-	private static Logger logger = LoggerFactory.getLogger(RestServiceImpl.class);
-
+	
 	static {
 		Map<String, String> realMap = new HashMap<String, String>();
 		realMap.put("Content-Type", "application/json");
