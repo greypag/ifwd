@@ -181,7 +181,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				logger.info("error : "+e.getMessage());
 				placeOfBirthCN=null;
 			}
-			logger.info("PlaceOfBirthCN : " + placeOfBirthCN);
+			logger.info("placeOfBirthCN : " + placeOfBirthCN);
 			
 			try {
 				savieAnsEN = commonUtils.getOptionItemDescList("SavieAns","EN");

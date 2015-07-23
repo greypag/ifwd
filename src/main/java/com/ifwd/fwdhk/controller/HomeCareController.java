@@ -411,9 +411,9 @@ public class HomeCareController {
 		
 		
 		String totalDue = WebServiceUtils.getParameterValue("totalDue", session, request);
-		session.setAttribute("dueAmount", totalDue);
 		float itotalDue = Float.parseFloat(totalDue);
 		totalDue = formatter.format(itotalDue);
+		session.setAttribute("dueAmount", totalDue);
 		String planCode = WebServiceUtils.getParameterValue("planCode", session, request);
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
@@ -484,7 +484,7 @@ public class HomeCareController {
 		CreatePolicy createdPolicy = (CreatePolicy) session
 				.getAttribute("homeCreatedPolicy");
 		
-		
+		createdPolicy = null;
 		
 		if (createdPolicy == null) {
 			createdPolicy = homecareService.createHomeCarePolicy(userName,
@@ -748,7 +748,7 @@ public class HomeCareController {
 		// model.addAttribute("finalize", finalize);
 		model.addAttribute("referenceNo", referenceNo);
 		session.setAttribute("referenceNo", referenceNo);
-		model.addAttribute("dueAmount", Methods.customFormat("#####.##", (String)session.getAttribute("dueAmount")));
+		model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 		String pageTitle = WebServiceUtils.getPageTitle("page.homeCarePlanConfirmation", lang);
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
 				"meta.homeCarePlanConfirmation",

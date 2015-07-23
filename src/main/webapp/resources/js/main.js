@@ -241,3 +241,48 @@ jQuery(document).ready(function() {
 		});
 	}
 });
+
+var chk_cat = 0;
+$('.faq_cat_mini').click(function(e){
+	e.preventDefault();
+	if(chk_cat == 0){
+		chk_cat = 1;
+		var $target = $(this).parent().parent().next('.faq_cat_detail');
+		$(this).children('i').toggleClass('fa-chevron-up');
+		
+		$target.slideToggle(function(){
+			chk_cat = 0;
+		});
+	}
+});
+
+var chk_qna = 0;
+$('.faq_qna_mini').click(function(e){
+	e.preventDefault();
+	if(chk_qna == 0){
+		chk_qna = 1;
+		var $target = $(this).parent().parent().next('.faq_answer_container');
+		$(this).children('i').toggleClass('fa-minus');
+		
+		var $question = $(this).parent().prev('.faq_question');
+		
+		$question.toggleClass("active");
+		
+		$target.slideToggle(function(){
+			chk_qna = 0;
+		});
+	}
+});
+
+function faqChangeCare(element, care){
+	$(".faq_menu_item").removeClass('active');
+	$(element).addClass('active');
+	
+	$(".faq_care_container").hide();
+	$("#faq_"+care).show();
+}
+
+function faqChangeCareMob(care){	
+	$("#faq_main_menu_mob").hide();
+	$("#faq_"+care+"_mob").show();
+}
