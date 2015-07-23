@@ -373,14 +373,14 @@
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
                 <div><fmt:message key="travel.confirmation.partnerDesc" bundle="${msg}" /></div>
                 <div class="hidden-xs hidden-sm">
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" ">
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" ">
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" ">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" ">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
                 </div>
                 <div class="hidden-lg hidden-md" style="text-align:center;">
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" "><br/>
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" "><br/>
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" "><br/>
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" "><br/>
+                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
                 </div>
                 <div class="clearfix"></div>
                 <div class="h4-2"><fmt:message key="travel.confirmation.sharenow" bundle="${msg}" /></div>
@@ -493,15 +493,11 @@
 <script type=text/javascript>
    var params = new Array();
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-   params[1]='type=Registration_Travel';
-   params[2]='val=${dueAmount}';
-   params[3]='orderId=${transNo}';
-   if ('${language}'==='en'){
-	   params[4]='promoCode=Regis_Travel EN_Sc';
-   } else {
-	   params[4]='promoCode=Regis_Travel ZH_Sc';   
-   }
-   params[5]='valueCurrency=USD';
+   params[1]='type=Registration';
+   params[2]='val=0.0';
+   params[3]='orderId=';
+   params[4]='promoCode=';
+   params[5]='valueCurrency=HKD';
    params[6]='GCID='; //For Live Tracking only
    params[7]='kw='; //For Live Tracking only
    params[8]='product='; //For Live Tracking only
@@ -509,14 +505,7 @@
 </script>
 
 <noscript>
-	<c:choose>
-		<c:when test="${language=='en'}">
-   		<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Travel&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Travel EN_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-   		</c:when>
-   		<c:otherwise>
-   		<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Travel&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Travel ZH_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-   		</c:otherwise>
-	</c:choose>
+   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
 </noscript>
 <script>
 $(document).ready(function() {
@@ -525,15 +514,13 @@ $(document).ready(function() {
   ga('ecommerce:addTransaction', {
     'id': '${transNo}', // Transaction ID. Required.
     'revenue': '${dueAmount}', // Grand Total.
-    'affiliation': 'Travel', // Insurance type, e.g. Life
-     'currency': 'HKD'
+    'affiliation': 'Travel' // Insurance type, e.g. Life
     });
   ga('ecommerce:addItem', {
       'id': '${transNo}', // Transaction ID. Required
       'name': 'TravelCare', // Product name. Required
       'category': 'Travel', // Category or variation
       'price': '${dueAmount}', // Unit price
-      'quantity': '1', // SUGGEST TO ADD NUMBER OF TRAVELLERS
       'currency': 'HKD'
     });
   ga('ecommerce:send');

@@ -410,8 +410,10 @@ public class SavieServiceImpl implements SavieService {
 			String pdfTemplatePath = null;
 			String pdfGeneratePath = null;
 			try {
-				pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
-				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
+				//pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
+				//pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
+				pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"SavieProposalTemplateChi3.pdf";
+				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();

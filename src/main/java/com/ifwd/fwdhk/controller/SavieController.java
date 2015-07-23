@@ -1,27 +1,17 @@
 package com.ifwd.fwdhk.controller;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,13 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 
 @Controller
@@ -135,6 +126,16 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/interest-gathering"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
+
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
 	}
 	
@@ -143,18 +144,9 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-url"})
-	public ResponseEntity<byte[]> pdfUrl(HttpServletRequest request,@RequestParam String pdfName) throws IOException {
-		File file=new File(request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\"+pdfName);  
-		HttpHeaders headers = new HttpHeaders();    
-        String fileName=new String(pdfName.getBytes("UTF-8"),"iso-8859-1");
-        headers.setContentDispositionFormData("attachment", fileName);   
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);   
-        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers, HttpStatus.CREATED);  
-	}
-	
 	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-show"})
  	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName) {
+		request.getSession().setAttribute("pdfName", pdfName);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);
  	}
 	
@@ -199,7 +191,7 @@ public class SavieController extends BaseController{
 	 * @param response
 	 */
 	@RequestMapping(value = {"/{lang}/fileDownload"})
-	public void fileDownload(HttpServletRequest request,HttpServletResponse response) {
+	public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
 			lang = "CN";
@@ -213,28 +205,18 @@ public class SavieController extends BaseController{
 		
 		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
 		ServletOutputStream out;  
-		  
-		File file = new File("D:\\workspace\\fwdhk\\download.pdf");
-		//File file = new File(path + "download/" + "download.pdf");
+		out = response.getOutputStream();  
+		List<PdfAttribute> attributeList=new ArrayList<PdfAttribute>();		
+		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
+		//attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
+		//.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
+		InputStream is = new FileInputStream("D:\\template\\SavieProposalTemplateChi3_20150716.pdf");
+		//PDFGeneration.generatePdf(is, out, attributeList);
+		out.close();  
+		out.flush();
 		
-		try {  
-			FileInputStream inputStream = new FileInputStream(file);  
-			
-			 
-			out = response.getOutputStream();  
-			
-			int b = 0;  
-			while ((b = inputStream.read()) != -1){  
-				
-				out.write(b);  
-			}  
-			inputStream.close();  
-			out.close();  
-			out.flush();  
-			
-		} catch (IOException e) {  
-			e.printStackTrace();  
-		}
+		
+
 	}
 	
 	
