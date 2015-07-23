@@ -2,8 +2,11 @@ package com.ifwd.fwdhk.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.io.InputStream;
+>>>>>>> branch 'fwdhk_savie' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,11 +33,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 
 @Controller
@@ -134,6 +140,16 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/saving-insurance/interest-gathering"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
+
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
 	}
 	
@@ -165,72 +181,7 @@ public class SavieController extends BaseController{
 		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
 	}
 	
-	@RequestMapping(value = {"/{lang}/download"})
-	public String downloadFile(Model model, HttpServletRequest request) throws FileNotFoundException {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		
-		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-
-		attributeList.add(new PdfAttribute("totalYear", "68"));
-		attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計畫"));
-		attributeList.add(new PdfAttribute("chineseName", "William Zhu"));
-		attributeList.add(new PdfAttribute("gender", "男"));
-		attributeList.add(new PdfAttribute("dateTime", "11/12/1986"));
-		attributeList.add(new PdfAttribute("singlePremiumAmount", "10,000"));
-		attributeList.add(new PdfAttribute("age", "15"));
-		attributeList.add(new PdfAttribute("paymentMethod", "港幣"));
-		attributeList.add(new PdfAttribute("Premium", "1,000"));
-		attributeList.add(new PdfAttribute("singlePremiumAmount", "100,000"));
-		attributeList.add(new PdfAttribute("paymentType", " - "));
-		attributeList.add(new PdfAttribute("verson", "1.0"));
-		attributeList.add(new PdfAttribute("versionNum", "23.224.839"));
-		String year66 = "66";
-		for (int i = 0; i < 13; i++) {
-			if (i > 5 && i < 11) {
-				attributeList.add(new PdfAttribute("endYear" + i, (i - 4) * 5
-						+ ""));
-			} else if (i < 6) {
-				attributeList.add(new PdfAttribute("endYear" + i, i + ""));
-			} else if (i == 11) {
-				if (year66 == null && "".equals(year66)) {
-					attributeList.add(new PdfAttribute("endYear" + i, "100"));
-				} else {
-					attributeList.add(new PdfAttribute("endYear" + i, "66"));
-				}
-
-			} else if (i == 12) {
-				attributeList.add(new PdfAttribute("endYear" + i, "100"));
-			}
-
-			attributeList.add(new PdfAttribute("totalPremium" + i, "10,000"));
-			if (i < 4) {
-
-				attributeList.add(new PdfAttribute("interestedRate" + i,
-						"3.21%"));
-				attributeList.add(new PdfAttribute("accountEOP" + i,
-						"23,232,322"));
-				attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"
-						+ i, "100,000"));
-				attributeList.add(new PdfAttribute("guranteedDeathBenefit" + i,
-						"2,000"));
-			} else {
-
-				for (int y = 1; y < 5; y++) {
-					attributeList.add(new PdfAttribute(
-							"guranteedSurrenderBenefit" + y + "_" + i,
-							"100,000"));
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit"
-							+ y + "_" + i, "2,000"));
-				}
-			}
-
-		}
-		//FileInputStream fileInputStream = new FileInputStream("D:\\template\\SavieProposalTemplateChi3_20150716.pdf");
-		
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
-	}
+	
 	
 	/**
 	 * 
@@ -254,7 +205,7 @@ public class SavieController extends BaseController{
 	 * @param response
 	 */
 	@RequestMapping(value = {"/{lang}/fileDownload"})
-	public void fileDownload(HttpServletRequest request,HttpServletResponse response) {
+	public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
 			lang = "CN";
@@ -268,28 +219,18 @@ public class SavieController extends BaseController{
 		
 		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
 		ServletOutputStream out;  
-		  
-		File file = new File("D:\\workspace\\fwdhk\\download.pdf");
-		//File file = new File(path + "download/" + "download.pdf");
+		out = response.getOutputStream();  
+		List<PdfAttribute> attributeList=new ArrayList<PdfAttribute>();		
+		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
+		attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
+		attributeList.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
+		InputStream is = new FileInputStream("D:\\template\\SavieProposalTemplateChi3_20150716.pdf");
+		PDFGeneration.generatePdf(is, out, attributeList);
+		out.close();  
+		out.flush();
 		
-		try {  
-			FileInputStream inputStream = new FileInputStream(file);  
-			
-			 
-			out = response.getOutputStream();  
-			
-			int b = 0;  
-			while ((b = inputStream.read()) != -1){  
-				
-				out.write(b);  
-			}  
-			inputStream.close();  
-			out.close();  
-			out.flush();  
-			
-		} catch (IOException e) {  
-			e.printStackTrace();  
-		}
+		
+
 	}
 	
 	

@@ -11,7 +11,6 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 </script>
-<script src="<%=request.getContextPath()%>/resources/js/savie/interestGather.js"></script>
 
 
 <div class="text-center banner-widget container-fluid">
@@ -26,10 +25,10 @@ var context = "${pageContext.request.contextPath}";
 	</div>
 
 	<div class="text-content">
-		<img src="<%=request.getContextPath()%>/resources/images/savie/teaser-banner-mobile.png"
+		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
 			title="Savie is always sweeter" alt="Savie is always sweeter"
 			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
-		<img src="<%=request.getContextPath()%>/resources/images/savie/teaser-banner.png"
+		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner" bundle="${msg}" />"
 			title="Savie is always sweeter" alt="Savie is always sweeter"
 			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
 	</div>
@@ -39,7 +38,7 @@ var context = "${pageContext.request.contextPath}";
 	<div class="fwd-container-limit">
 		<div class="teaser-banner-text">
 			<div class="money-div">
-				<img src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png" class="money">
+				<img src="<%=request.getContextPath()%><fmt:message key="img.money.logo" bundle="${msg}" />" class="money">
 			</div>
 			<p class="save-my-way"><fmt:message key="savie.interestGather.my.way" bundle="${msg}" /></p>
 			<p class="guaranteed top"><fmt:message key="savie.interestGather.annual.return" bundle="${msg}" /></p>
@@ -84,7 +83,7 @@ var context = "${pageContext.request.contextPath}";
 			</div>
 		</div>
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
-		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" onclick="sendStep1Email()"><fmt:message key="savie.interestGather.sign.up" bundle="${msg}" /></button>
+		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.sign.up" bundle="${msg}" /></button>
 	</form>
 </div>
 
@@ -96,7 +95,7 @@ var context = "${pageContext.request.contextPath}";
 				<div class="col-content">
 					<h2><fmt:message key="savie.interestGather.save.earn" bundle="${msg}" /></h2>
 					<h3><fmt:message key="savie.interestGather.big.ease" bundle="${msg}" /></h3>
-					<img src="<%=request.getContextPath()%>/resources/images/savie/big-on-savings.png">
+					<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />">
 					<p><fmt:message key="savie.interestGather.guarantees.earnings.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.guarantees.earnings.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.guarantees.earnings.context3" bundle="${msg}" /></p>
 				</div>
 			</div>
@@ -104,7 +103,7 @@ var context = "${pageContext.request.contextPath}";
 				<div class="col-content">
 					<h2><fmt:message key="savie.interestGather.flexible.free" bundle="${msg}" /></h2>
 					<h3><fmt:message key="savie.interestGather.from.charges" bundle="${msg}" /></h3>
-					<img src="<%=request.getContextPath()%>/resources/images/savie/no-commitment.png">
+					<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />">
 					<p><fmt:message key="savie.interestGather.enjoy.flexibility.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.enjoy.flexibility.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.enjoy.flexibility.context3" bundle="${msg}" /></p>
 				</div>
 			</div>
@@ -113,7 +112,7 @@ var context = "${pageContext.request.contextPath}";
 					<h2><fmt:message key="savie.interestGather.make.most" bundle="${msg}" /></h2>
 					<h2 class="out-life"><fmt:message key="savie.interestGather.out.life" bundle="${msg}" /></h2>
 					<h3><fmt:message key="savie.interestGather.extra.protection" bundle="${msg}" /></h3>
-					<img src="<%=request.getContextPath()%>/resources/images/savie/free-additional.png">
+					<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />">
 					<p><fmt:message key="savie.interestGather.death.benefit.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.death.benefit.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.death.benefit.context3" bundle="${msg}" /></p>
 				</div>
 			</div>
@@ -126,7 +125,7 @@ var context = "${pageContext.request.contextPath}";
 				<h2 class="text-center"><fmt:message key="savie.interestGather.other.features" bundle="${msg}" /></h2>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
-				<img src="<%=request.getContextPath()%>/resources/images/savie/other-benefits-img.png">
+				<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />">
 			</div>
 			<div class="col-xs-12 col-md-8 fwd-col">
 				<ul>
@@ -176,9 +175,9 @@ var context = "${pageContext.request.contextPath}";
 							<select class="form-control saveDropdown" name="amountToSave"
 							id="amountToSave">
 							<option selected disabled value=""><fmt:message key="savie.interestGather.please.select" bundle="${msg}" /></option>
-							<option value="10,000">10,000</option>
-							<option value="50,000">50,000</option>
-							<option value="400,000">400,000</option>
+							<c:forEach var="savieAns" items="${savieAns}" varStatus="theCount">
+								<option value="${savieAns.itemCode }">${savieAns.itemDesc }</option>
+							</c:forEach>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-white btn-thank-you"
