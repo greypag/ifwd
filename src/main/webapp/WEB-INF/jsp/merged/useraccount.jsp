@@ -370,14 +370,14 @@
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
-                                            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
-                                            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
                                         </div>
                                     </td>
                                 </tr>
@@ -410,7 +410,7 @@
 						</table>
 						<div class="clearfix"></div>
 						<br>
-						<div class="declaration-content1">
+						<div class="declaration-content1" style="text-align:left;">
 							<!--<b><span class="orange-star">*</span><fmt:message key="member.account.promotionCode.share.termsAndConditions.message.header" bundle="${msg}" /></b>
 							<p>
 								<fmt:message key="member.account.promotionCode.share.termsAndConditions.message.details" bundle="${msg}" />
@@ -431,7 +431,7 @@
                 			</p>-->
                 			<div class="">
                 			     <div class="hidden-xs hidden-sm">
-			                          <table id="userBenefits" class="table table-bordred">
+			                          <table id="userBenefits" class="table table-bordred" style="text-align: left;">
 			                              <tbody>
 			                                  <tr>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.header1" bundle="${msg}" /></strong></td>
@@ -467,7 +467,7 @@
 	                                        </tr>
 	                                        <tr>
                                                 <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col2" bundle="${msg}" /></strong></td>
-                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col3" bundle="${msg}" /></strong></td>
+                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col3.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" target="_blank"><fmt:message key="member.account.referral.benefits.table.row6.col3.part2" bundle="${msg}" /></a></strong></td>
                                                 <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col4" bundle="${msg}" /></strong></td>
                                             </tr>
 			                                <tr style="text-align:left;">
@@ -515,6 +515,7 @@
 			                                  </div>
 			                                  <div class="clearfix"></div>
 			                              </div>
+
 			                              <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 			                              
 			                              <div class="confirmation-table-margin">
@@ -613,8 +614,41 @@
                                               <div class="clearfix"></div>
                                           </div>
                                           <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+
+                                          <div class="confirmation-table-margin">
+			                                  <div class="col-sm-12 col-xs-12">
+			                                      <strong><fmt:message key="member.account.referral.benefits.table.header2" bundle="${msg}" /></strong>
+			                                  </div>
+			                                  <div class="col-sm-12 col-xs-12">
+			                                      <fmt:message key="member.account.referral.benefits.table.row6.col2" bundle="${msg}" />
+			                                  </div>
+			                                  <div class="clearfix"></div>
+			                              </div>
+                                          
+                                          <div class="confirmation-table-margin">
+                                              <div class="col-sm-12 col-xs-12">
+                                                  <strong><fmt:message key="member.account.referral.benefits.table.header3" bundle="${msg}" /></strong>
+                                              </div>
+                                              <div class="col-sm-12 col-xs-12">
+                                                  <fmt:message key="member.account.referral.benefits.table.row6.col3.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" target="_blank"><fmt:message key="member.account.referral.benefits.table.row6.col3.part2" bundle="${msg}" /></a>
+                                              </div>
+                                              <div class="clearfix"></div>
+                                          </div>
+                                          
+                                          <div class="confirmation-table-margin">
+                                              <div class="col-sm-12 col-xs-12">
+                                                  <strong><fmt:message key="member.account.referral.benefits.table.header4" bundle="${msg}" /></strong>
+                                              </div>
+                                              <div class="col-sm-12 col-xs-12">
+                                                  <fmt:message key="member.account.referral.benefits.table.row6.col4" bundle="${msg}" />
+                                              </div>
+                                              <div class="clearfix"></div>
+                                          </div>
+                                          <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+
 			                          </div>
 			                          <div style="margin-top:15px;margin-bottom:15px;">
+
 			                              <h4 style="color: #f68a1d"><strong><fmt:message key="member.account.referral.benefits.table.row5.col1" bundle="${msg}" /></strong></h4>
 			                              <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 			                              <div class="confirmation-table-margin">
@@ -651,7 +685,8 @@
 			                      </div>
 			                      </div>
 			                      <p><fmt:message key="member.account.referral.benefits.disclaimer1" bundle="${msg}" /></p>
-	                              <p><fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" /></p>
+	                              <p><fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" /></p>
+	                              <p><fmt:message key="member.account.referral.benefits.disclaimer3.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="member.account.referral.benefits.disclaimer3.part2" bundle="${msg}" /></a></p>
                         	   <div class="modal fade details-popup" id="agoda_promo_code_popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
                                   <div class="modal-dialog modal-lg">
                                       <div class="modal-content plan-modal">
@@ -666,7 +701,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><fmt:message key="agoda.link.desc" bundle="${msg}" /></td>
-                                                            <td><a href="<fmt:message key="agoda.link" bundle="${msg}" />" class="sub-link"><fmt:message key="agoda.link" bundle="${msg}" /></a></td>
+                                                            <td><a href="<fmt:message key="agoda.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="agoda.link" bundle="${msg}" /></a></td>
                                                         </tr>
                                                         <tr>
                                                             <td style="color: #fff;background-color: #f68a1d;"><fmt:message key="agoda.desc1.title" bundle="${msg}" /></td>

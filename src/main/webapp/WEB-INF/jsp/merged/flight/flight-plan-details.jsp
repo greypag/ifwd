@@ -67,7 +67,7 @@ if(lang === "EN"){
 
 perventRedirect=true;
 
-var namePlaceholder="<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />";
+var namePlaceholder="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />";
 
 var insureNamePlaceholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />";
@@ -437,9 +437,9 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    <input type="text"
                                        class="form-control full-control textUpper bmg_custom_placeholder"
                                        id="inputFullName" name="fullName"
-                                       value="<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />"
-                                       onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
-                                       onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
+                                       value="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />"
+                                       onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />');" 
+                                       onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                        onkeypress="return alphaOnly(event);" maxlength="50" /> 
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>

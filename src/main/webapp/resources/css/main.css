@@ -7117,7 +7117,7 @@ tr.product-landing-error-wrap {
     margin-bottom: 15px;
 }
 
-.main-partner-1, .main-partner-2{
+.main-partner-1, .main-partner-2, .main-partner-3{
     padding: 0;
 }
 
@@ -7133,13 +7133,25 @@ tr.product-landing-error-wrap {
     float: left;
 }
 
+.main-partner-3 img{
+    margin: 20px 0 0 20px;
+    display: inline-block;
+    float: left;
+}
+
 .mob .main-partner-1 img{
     display: inline-block;
     float: right;
 }
 
 .mob .main-partner-2 img{
-    margin: 3px 0 0 20px;
+    margin: 3px 0 0 10px;
+    display: inline-block;
+    float: left;
+}
+
+.mob .main-partner-3 img{
+    margin: 20px 0 0 15px;
     display: inline-block;
     float: left;
 }
