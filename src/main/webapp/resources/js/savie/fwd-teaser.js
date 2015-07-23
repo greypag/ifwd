@@ -10,7 +10,6 @@ $(function() {
 	
 	$('#teaser-sign-up-btn').click(function(e){
 		e.preventDefault();
-		
 		var checkPics = $("#pics-check").is(":checked");
 		var checkTc = $("#tc-check").is(":checked");		
 		var email = $.trim($('#teaserEmail').val());
@@ -58,10 +57,10 @@ $(function() {
 		}
 
 		if (!isErrorFlag) {
-			$('#teaserSurvery').modal('show');
 			$('#emailAddrsMessage').addClass('hideSpan');
 			$('#checkboxErrorMessage').addClass('hideSpan');
 			$('#phoneErrMsg').addClass('hideSpan');
+			sendStep1Email();
 		}
 
 	});
@@ -92,5 +91,72 @@ function duplicateEmail(){
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
+}
+
+
+function sendStep1Email() {
+	var teaserEmail = $("#teaserEmail").val();
+	var teaserPhoneNo = $("#teaserPhoneNo").val();
+	sendlead(teaserEmail,teaserPhoneNo,"","1");
+}
+
+function sendStep2Email() {
+	var teaserEmail = $("#teaserEmail").val();
+	var answer1 = $("#amountToSave").val();
+	if(answer1 != '' && answer1 != null){
+		sendlead(teaserEmail,"",answer1,"2");
+	}
+}
+
+function sendMessagesEmail(email,message,attachment) {
+	$.ajax({     
+	    url:context+'/ajax/savie/messages/email',     
+	    type:'post',     
+	    data:{    
+	    	"to": email,
+	    	"message":message,
+	        "attachment":attachment  
+   		},     
+	    error:function(){       
+	    },     
+	    success:function(data){  
+	    	if(data.errMsgs != null){
+		    	alert(data.errMsgs); 
+	    	}      
+	    }  
+	});
+}
+
+function sendlead(email,mobileNo,answer1,step) {
+	$.ajax({     
+	    url: context+'/ajax/savie/interestGather/post',     
+	    type:'post',     
+	    data:{    
+	    	"email": email,
+	    	"mobileNo":mobileNo,
+	        "answer1": answer1,
+	        "step": step    
+   		},        
+	    error:function(){
+	    },     
+	    success:function(data){ 
+	    	if(data.errMsgs == null ){
+	    		if(step == '1'){
+	    			var message = "<h1>Thank you for registering your email address at Savie Insurance Plan's website</h1>";
+	    			var attachment = "";
+	    			sendMessagesEmail(email,message,attachment); 
+	    			$('#teaserSurvery').modal('show');
+	    		}
+	    	}else{
+		    	if(data.errMsgs == 'Email already registered'){
+		    		$('#emailAddrsMessage').html("This e-mail address is already in use. Try another?").removeClass('hideSpan');
+		    	}else if(data.errMsgs == '[Please enter an 8-digit Mobile No.]'){
+		    		$('#phoneErrMsg').html("Please enter an 8-digit Mobile No.").removeClass('hideSpan');
+		    	}else{
+		    		$('#checkboxErrorMessage').html(data.errMsgs).removeClass('hideSpan');
+		    	}
+	    	}     
+	    }  
+	});
 }
 
