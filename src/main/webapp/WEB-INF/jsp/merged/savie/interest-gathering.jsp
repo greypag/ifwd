@@ -32,33 +32,39 @@
 			<div class="money-div">
 				<img src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png" class="money">
 			</div>
-			<p class="save-my-way">Save. My way.</p>
+			<!--<p class="save-my-way">Save. My way.</p>
 			<p class="guaranteed top">Guaranteed 3% annual return for each
 				for the first 3 policy years</p>
 			<p class="additional top">
 				Act now to grab the chance to earn <span class="add">4% </span>annual
 				return in the 3rd year! Limited Quota Offer!!
 			</p>
-			<p class="sign-up">Sign up now and await for our notification!!</p>
+			<p class="sign-up">Sign up now and await for our notification!!</p>-->
+			<p class="additional top">Act now to grab the chance to enjoy guaranteed annual crediting rate: </p>
+			<ul class="crediting-rate-list">
+				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />1st policy year 3%</li>
+				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />2nd policy year 3%</li>
+				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />3rd policy year 4%</li>
+			</ul>
+			<p class="additional top">Limited Quota Offer, Sign up now and await our notification!</p>
+			<p class="additional top">For Limited Quota Offer, each Hong Kong ID card holder can apply for one Savie Insurance Plan policy with lump sum payment between HK$30,000 and HK$400,000.</p>
 		</div>
 	</div>
 </div>
 
 <div class="sign-up-teaser">
-	<p class="sign-up-header">Coming soon...Leave your email address
-		with us NOW and be amongst the limited lucky ones to apply for SAVIE
-		once it launches.</p>
+	<p class="sign-up-header">Coming soon in September...<br />Leave your email address with us NOW and be amongst the lucky ones to get priority access to Savie once it launches.</p>
 
-	<p class="email-notification">Once you receive an email notification from</p>
-	<p class="email-notification">us and decide to sign up for the plan,</p>
-	<p class="email-notification">your application will be processed immediately</p>
+	<p class="email-notification">Once you receive an email notification</p>
+	<p class="email-notification">from us you can get the process started</p>
+	<p class="email-notification">immediately!</p>
 
 	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm"
 		action="teaser.jsp">
 		<div class="form-group">
-			<input type="email" placeholder="Enter your email" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
+			<input type="email" placeholder="Please enter your email address" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input type="tel" placeholder="Enter your phone no (optional)" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="11" min="1" oninput="maxLengthReview(this)"> 
+			<input type="tel" placeholder="(Optional) Enter your telephone no." class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="11" min="1" oninput="maxLengthReview(this)"> 
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 		</div>
 		<div class="clearfix">
@@ -66,7 +72,7 @@
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text"> I have read, understand and accept this <a href="">Personal Information Collection Statement</a>. </div>
+			<div class="pull-left text">  I have read, understood and accepted the <a href="">Personal Information Collection Statement</a>. </div>
 		</div>
 
 		<div class="clearfix top">
@@ -75,7 +81,7 @@
 					for="tc-check"></label>
 			</div>
 			<div class="pull-left text">
-				I have read, understand and accept this <a href="">Terms and
+				I have read, understood and accepted these <a href="">Terms and
 					Conditions</a>.
 			</div>
 		</div>
@@ -91,26 +97,27 @@
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
 					<h2>Save and earn</h2>
-					<h3>BIG with ease</h3>
+					<h3>with Ease</h3>
 					<img src="<%=request.getContextPath()%>/resources/images/savie/big-on-savings.png">
-					<p> SAVIE guarantees earnings of 3% <span>interest in the first 3 policy years, </span>, allowing you a smart way to plan ahead for something big.</p>
+					<p> Savie provides <span>guaranteed annual crediting rate 3% for first 2 policy years </span>and <span>guaranteed annual crediting rate 4% for the 3rd policy years,</span> allowing you a smart way to plan ahead for something BIG.</p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
-					<h2>Flexible and free</h2>
-					<h3>from charges</h3>
+					<h2>Flexible and Free</h2>
+					<h3>from Charges</h3>
 					<img src="<%=request.getContextPath()%>/resources/images/savie/no-commitment.png">
-					<p> Enjoy flexibility for when you need it most! You can <span>withdraw from your account at no charge</span>, for as many times as you want!</p>
+					<p> Enjoy flexibility when you need it most - <span>you can withdraw from your Savie account at NO charge!</span></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
-					<h2>Make the most</h2>
-					<h2 class="out-life">out of life</h2>
-					<h3>with extra protection</h3>
-					<img src="<%=request.getContextPath()%>/resources/images/savie/free-additional.png">
-					<p>Receive Accidental Death Benefit along with your savings, <span>insuring 100% of your account</span> value up to a maximum of HK$400,000.</p>
+					<h2>Make the Most</h2>
+					<h2 class="out-life">Out of Life</h2>
+					<h3>with Extra Protection</h3>
+					<img src="<%=request.getContextPath()%>/resources/images/savie/free-additional-2.png">
+					<p>Receive death benefit at 105% of your account value*. On top of that, Savie also provides an accidental death benefit equivalent to 100% of your account value*, until age 70 and up to a maximum amount of HK$400,000.</p>
+					<p class="info-asterisk">*The accumulation of total premium paid plus interests<p>
 				</div>
 			</div>
 		</div>
@@ -122,30 +129,20 @@
 				<h2 class="text-center">Other features</h2>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
-				<img src="<%=request.getContextPath()%>/resources/images/savie/other-benefits-img.png">
+				<img src="<%=request.getContextPath()%>/resources/images/savie/other-benefits-2-img.png">
 			</div>
 			<div class="col-xs-12 col-md-8 fwd-col">
 				<ul>
-					<li><p>Simple product design with no hidden terms or
-							conditions</p></li>
-					<li><p>Policyholders can enjoy a "cooling-off period",
-							i.e. during the period after the delivery of the policy or
-							issurance of welcome letter to the policyholder, he/she has the
-							right to cancel the policy and obtain a full refund of the
-							insurance premium without any charges.</p></li>
-					<li><p>Customers are able to complete the application
-							process online. If you have any questions, you can always call
-							FWD's 24 hour service hotline or visit one of our 5 customer
-							service centres to enjoy premium customer service.</p></li>
-					<li><p>Receive 8% Agoda discount offer upon successful
-							registration of FWD online membership.</p></li>
+					<li><p>Simple product design with no fees and charges, you can understand easily.</p></li>
+					<li><p>After first 3 policy years, you can choose to get all your account value back by terminating the policy or stay with us to earn annual crediting rates determined by FWD at that moment.</p></li>
+					<li><p>If you have any questions, you can always call FWD's 24-hour service hotline or visit one of our 5 customer service centres to enjoy premium customer service.</p></li>
+					<li><p>Receive 8% Agoda discount offer upon successful registration of FWD online membership.</p></li>
 				</ul>
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
 		<div class="disclaimer-policy">
-			<p>The features above are indicative only. Please refer to the
-				final Policy Provisions upon product launch</p>
+			<p>The features above are indicative only. Please refer to <a href="">Product Brochure</a> and <a href="">Product Provisions</a> for more details.</p>
 		</div>
 	</div>
 
@@ -165,19 +162,15 @@
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h2>Thank you</h2>
+				<h2>Thank you for your interest</h2>
 			</div>
 			<div class="modal-body teaserSurvey">
-				<p class="registered">You have successfully registered your
-					email.</p>
-				<p class="registered">Can you tell us a little bit more about
-					your savings goal so that we can serve you better in future?</p>
+				<p class="registered">You have successfully registered your email address.</p>
+				<p class="registered">Tell us a little bit more about your savings goal so that we can serve you better in the future!</p>
 
 				<div class="modal-divider"></div>
 
-				<p class="question">In general, how much do you plan to save if
-					you are offered products that can be withdrawn anytime with 3%
-					annual interest rate?</p>
+				<p class="question">In general, how much do you plan to save if you are offered a saving plan that can be withdrawn anytime with guaranteed annual crediting rate at 3% or above?</p>
 
 				<form class="amount-to-save">
 					<div class="teaser-select">

@@ -33,7 +33,7 @@ $(function() {
 				
 				// Email is duplicate
 				if (email != "" && duplicateEmail(email)) {
-					$('#emailAddrsMessage').html("This e-mail address is already in use. Try another?").removeClass('hideSpan');
+					$('#emailAddrsMessage').html("This email address is already in use. Try another one?").removeClass('hideSpan');
 					isErrorFlag = true;
 				} else {
 					$('#emailAddrsMessage').addClass('hideSpan');
@@ -43,7 +43,7 @@ $(function() {
 		
 		// Phone is not empty and has 8 characters
 		if (phone > 0 && phone < 8) {
-			$('#phoneErrMsg').html("This phone number is invalid. Try another?").removeClass('hideSpan');
+			$('#phoneErrMsg').html("This telephone no. is already in use. Try another one?").removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
 			$('#phoneErrMsg').addClass('hideSpan');
