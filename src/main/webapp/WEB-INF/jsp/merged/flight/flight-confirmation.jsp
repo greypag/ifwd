@@ -80,20 +80,20 @@ class="image-order-status image-order-status-active  img-circle">
 			"policyNo")%></span>
 		</h4>
 		
-		<h5><fmt:message key="flight.confirmation.Y5Buddy.part1" bundle="${msg}" /><strong><fmt:message key="flight.confirmation.Y5Buddy.part2" bundle="${msg}" /></strong><fmt:message key="flight.confirmation.Y5Buddy.part3" bundle="${msg}" /></h5>
+		<h5><fmt:message key="flight.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="flight.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="flight.confirmation.partnerDesc.part3" bundle="${msg}" /></h5>
 		
 		<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
 		<div class="hidden-xs hidden-sm">
             <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
             <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
-            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
         </div>
         <div class="hidden-lg hidden-md" style="text-align:center;">
             <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
             <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
-            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
         </div>
 		
 		<div class="gray-bg1-content" style="padding:0px !important">
