@@ -6559,14 +6559,16 @@ function changeCreditCardFocus(element,prev_id,next_id){
 		if(next_id!=''){
 			if( /iPad/i.test(navigator.userAgent) ) {
 			}else{
-				$("#"+next_id+"_trigger").trigger( 'click' );
+//				$("#"+next_id+"_trigger").trigger( 'click' );
+				$("#"+next_id).focus();
 			}
 		}
 	}else if($(element).val().length == 0){
 		if(prev_id!=''){
 			if( /iPad/i.test(navigator.userAgent) ) {
 			}else{
-				$("#"+prev_id+"_trigger").trigger( 'click' );
+//				$("#"+prev_id+"_trigger").trigger( 'click' );
+				$("#"+prev_id).focus();
 			}
 		}
     }
@@ -6584,28 +6586,28 @@ function mergeCreditCard(){
 }
 
 $( document ).ready(function() {
-	$('#cardNo1_trigger').on('click', function () {
-		$('#cardNo1').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo2_trigger').on('click', function () {      
-		$('#cardNo2').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo3_trigger').on('click', function () {      
-		$('#cardNo3').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo4_trigger').on('click', function () {      
-		$('#cardNo4').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo1').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo2').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo3').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo4').on('touchstart', function () {
-        $(this).focus();
-    });
+//	$('#cardNo1_trigger').on('click', function () {
+//		$('#cardNo1').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo2_trigger').on('click', function () {      
+//		$('#cardNo2').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo3_trigger').on('click', function () {      
+//		$('#cardNo3').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo4_trigger').on('click', function () {      
+//		$('#cardNo4').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo1').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo2').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo3').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo4').on('touchstart', function () {
+//        $(this).focus();
+//    });
 });
