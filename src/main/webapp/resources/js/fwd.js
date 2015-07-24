@@ -1042,7 +1042,7 @@ function fPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
+		 difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
 		 if (age == 1) {
 			 if ( difference > 18) {
@@ -1063,7 +1063,7 @@ function fPlanValid()
 			     flag = false;		 
 			 }
 		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
+			 if ( difference < 71 || difference > 85) {
 				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
 				 $("#input_dob").addClass("invalid-field");
 			        if(firstErrorElementId==""){
@@ -2718,7 +2718,8 @@ function tPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
+		 difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
+		 //difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
 		 
 		 if (age == 1) {
 			 if ( difference > 18) {
@@ -2739,7 +2740,7 @@ function tPlanValid()
 			     flag = false;		 
 			 }
 		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
+			 if ( difference < 71 || difference > 85) {
 				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
 				 $("#input_dob").addClass("invalid-field");
 			        if(firstErrorElementId==""){
@@ -2850,14 +2851,14 @@ function tPlanValid()
 		if (hkid.trim() == "") {
 			if (selectedPersonalHkidPass.toUpperCase() == 'HKID') {
 				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
-				$("#selectedPersonalHkidPass" + i).addClass('invalid-field');
+				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="selectedPersonalHkidPass" + i;
 				}
 				flag = false;	
 			} else {
 				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notNull.message"); // "Please enter Insured Person's HKID No.";
-				$("#selectedPersonalHkidPass" + i).addClass('invalid-field');
+				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="selectedPersonalHkidPass" + i;
 				}
