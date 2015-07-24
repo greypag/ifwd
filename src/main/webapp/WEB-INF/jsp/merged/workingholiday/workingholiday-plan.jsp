@@ -336,15 +336,15 @@ var promoCodeInsertFlag = true;
 						</div>
 
 						<input type="hidden" name="txtTotalDue"
-							value="<%=workingholidayQuote.getToalDue()[i]%>"> <input
+							value="${quoteDetails.toalDue[i]}"> <input
 							type="hidden" name="txtGrossPremium"
-							value="<%=workingholidayQuote.getGrossPremium()[i]%>"> <input
+							value="${quoteDetails.grossPremium[i]}"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount"
-							value="<%=workingholidayQuote.getDiscountAmount()[i]%>"> <input
+							value="${quoteDetails.discountAmount[i]}"> <input
 							type="hidden" name="referralCode"
-							value="<%=workingholidayQuote.getReferralCode()%>"> <input
+							value="${quoteDetails.referralCode}"> <input
 							type="hidden" name="referralName"
-							value="<%=workingholidayQuote.getReferralName()%>">
+							value="${quoteDetails.referralName}">
 						<%
 							}
 						%>
@@ -776,7 +776,7 @@ var promoCodeInsertFlag = true;
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
-			value="<%=workingholidayQuote.getPlanSelected()%>">
+			value="${quoteDetails.planSelected}">
 		<p class="padding1 workingholiday-plan-disclaimer">
 			<fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"

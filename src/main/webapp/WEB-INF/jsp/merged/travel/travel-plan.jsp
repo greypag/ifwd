@@ -463,15 +463,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						</div>
 
 						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
-							value="<%=travelQuote.getToalDue()[i]%>"> <input
+							value="${quoteDetails.toalDue[i]}"> <input
 							type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
-							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
+							value="${quoteDetails.grossPremium[i]}"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
-							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
+							value="${quoteDetails.discountAmount[i]}"> <input
 							type="hidden" name="referralCode" id="referralCode<%=i%>"
-							value="<%=travelQuote.getReferralCode()%>"> <input
+							value="${quoteDetails.referralCode}"> <input
 							type="hidden" name="referralName" id="referralName<%=i%>"
-							value="<%=travelQuote.getReferralName()%>">
+							value="${quoteDetails.referralName}">
 						<%
 							}
 						%>
@@ -1489,7 +1489,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
-			value="<%=travelQuote.getPlanSelected()%>">
+			value="${quoteDetails.planSelected}">
 		<p class="padding1 workingholiday-plan-disclaimer">
 			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
