@@ -62,7 +62,7 @@ if(lang === "EN"){
 
 perventRedirect=true;
 
-var namePlaceholder="<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />";
+var namePlaceholder="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />";
 
 var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
@@ -726,9 +726,9 @@ function activateUserAccountJoinUs() {
                                             onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
                                        <input type="text"
                                             class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" name="applicantName"
-                                            value="<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />"
-	                                        onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
-	                                        onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'appfullname', namePlaceholder);"
+                                            value="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />"
+	                                        onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />');" 
+	                                        onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'appfullname', namePlaceholder);"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" />
                                        <span id="appfullname" class="text-red"></span>
 	                               </div>

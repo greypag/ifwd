@@ -264,9 +264,23 @@ $(document).ready(function() {
 			
 			<div class="other-benefits col-lg-12">
 
+				<h2><fmt:message key="home.main.other.benefit" bundle="${msg}" /></h2>
+				  <ul class="bullets">
+				    <li>
+				      <p class="h4-5"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>
+				    </li>
+				  </ul>
+				  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner" style="">
+				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
+				    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-right:15px;">
+				  </div>
+				  <div class="col-xs-12 col-sm-12 hidden-lg hidden-md main-partner" style="text-align:center;">
+				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+				    <br>
+				    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-bottom:15px;">
+				  </div>
 
 				<div class="spacer1"></div>
-
 
 				<p class="col-xs-12 h4-6">
 				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />

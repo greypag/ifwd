@@ -42,7 +42,7 @@
 	}
 	
 	
-	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />";
+	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />";
 	var hkidPlaceholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />";
 	
 	var benNamePlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
@@ -445,9 +445,9 @@ function activateUserAccountJoinUs() {
 										onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
 									<input type="text" class="form-control full-control textUpper bmg_custom_placeholder"
                                         id="inputFullName" name="whAppFullName"
-                                        value="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />"
-                                        onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
-                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'inputFullName', namePlaceholder);"
+                                        value="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />"
+                                        onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />');" 
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'inputFullName', namePlaceholder);"
                                         onkeypress=" return alphaOnly(event);" maxlength="50" />
 							         <span id="whAppFullName" class="text-red"></span>
 								</div>
