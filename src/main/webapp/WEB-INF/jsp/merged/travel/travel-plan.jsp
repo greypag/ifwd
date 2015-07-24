@@ -94,6 +94,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	        }
 			flag = true;
 		}
+		
+		if(!flag){
+	        $('#loading-overlay').modal('hide');
+	    }
 
 		return flag;
 	}
@@ -1429,9 +1433,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
-								<div class="input-group" id="inputPromo">
-									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-									<a class="input-group-addon in black-bold pointer sub-link" onclick="applyTravelPromoCode()"><fmt:message key="travel.action.apply" bundle="${msg}" /></a>
+								<div class="input-group" id="inputPromo" style="display:inital;width:100%;">
+									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:75%;" onfocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:20%;" onclick="applyTravelPromoCode()"><fmt:message key="travel.action.apply" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -1465,11 +1469,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="top35 pull-right pad-none" style="width:47%">
                                 <c:choose>
 	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:when>
 	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:otherwise>
                             </c:choose>
@@ -1512,11 +1516,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		        <div class="top35 pull-right pad-none" style="width:47%">
 		            <c:choose>
 	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:when>
 	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;">
+	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:otherwise>
                             </c:choose>

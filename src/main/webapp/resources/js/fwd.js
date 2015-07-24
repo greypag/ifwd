@@ -969,6 +969,14 @@ function fPlanValid()
 	
 	$('#dobInvalid').html('');
 	
+	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
+    	$("#inputFullName").val('');
+    }
+	if($("#inputTxtAppHkid").val().trim()==hkidPlaceholder.trim()){
+    	$("#inputTxtAppHkid").val('');
+    }
+	
+	
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
@@ -1034,39 +1042,36 @@ function fPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
+		 difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
-         if(insured1Hkid != null && insured1Hkid == appHkid){   		 
-			 if (age == 1) {
-				 if ( difference > 18) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }  
-			 } else if (age == 2) {
-				 if ( difference < 18 || difference > 70) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }
-			 } else if (age == 3) {
-				 if ( difference < 70 || difference > 85) {
-					 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-					 $("#input_dob").addClass("invalid-field");
-				        if(firstErrorElementId==""){
-							firstErrorElementId="input_dob";
-						}
-				     flag = false;		 
-				 }
+		 if (age == 1) {
+			 if ( difference > 18) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }  
+		 } else if (age == 2) {
+			 if ( difference < 18 || difference > 70) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
 			 }
-         }
-		 
+		 } else if (age == 3) {
+			 if ( difference < 71 || difference > 85) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 }
 	 }
     
     if (mobileNo.trim() == "") {
@@ -1125,6 +1130,13 @@ function fPlanValid()
 
 	for (var i = 1; i <= parseInt(rowCountPersonal) ; i++)
 	{
+		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtInsuFullName" + i).val('');
+	    }
+		if($("#txtInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtInsuHkid" + i).val('');
+	    }
+		
 		var fullname = document.getElementById("txtInsuFullName" + i).value;
 		if (fullname.trim() == "") {
 			document.getElementById("errtxtPersonalFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); //"Please enter Insured Person's Name in English.";
@@ -1214,6 +1226,12 @@ function fPlanValid()
 		var HkidPass = document.getElementById("personalBenefitiaryHKId"+i).value;
 		var selectPersonalBenefitiaryHkidPass = document.getElementById("selectPersonalBenefitiaryHkidPass" + i).value;
 		
+		if($("#personalBenefitiaryId" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#personalBenefitiaryId" + i).val('');
+	    }
+		if($("#personalBenefitiaryHKId" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#personalBenefitiaryHKId" + i).val('');
+	    }
 		
 		
 		if(selectedValue != "SE"){
@@ -1314,6 +1332,13 @@ function fPlanValid()
 	/* Adult Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
 	{
+		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtInsuFullName" + i).val('');
+	    }
+		if($("#txtInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtInsuHkid" + i).val('');
+	    }
+		
 
 		var fullname = document.getElementById("txtInsuFullName" + i).value;
 		if (fullname.trim() == "") {
@@ -1413,6 +1438,12 @@ function fPlanValid()
 		
 		var selectAdBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
 		
+		if($("#adultBenefitiaryId" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#adultBenefitiaryId" + i).val('');
+	    }
+		if($("#adultBenefitiaryHKId" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#adultBenefitiaryHKId" + i).val('');
+	    }
 		
 		if(selectedValue != "SE"){
 			
@@ -1429,7 +1460,6 @@ function fPlanValid()
 //					flag = false;
 //				}
 //			}
-			
 			
 			if (document.getElementById("adultBenefitiaryId" + i).value == "")
 			{
@@ -1518,6 +1548,13 @@ function fPlanValid()
 	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
 	{
 		
+		if($("#txtChldFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtChldFullName" + i).val('');
+	    }
+		if($("#txtChldInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtChldInsuHkid" + i).val('');
+	    }
+		
 		var fullname = document.getElementById("txtChldFullName" + i).value;
 		var age = document.getElementById("selectchildAgeRange" + i).value;
 		if (fullname.trim() == "") {
@@ -1604,6 +1641,14 @@ function fPlanValid()
 		var HkidPass = document.getElementById("txtchildInsuHkid"+i).value;
 		var selectedChldBenefitiaryHkidPass = document.getElementById("selectChldBenefitiaryHkidPass" + i).value;
 
+		
+		if($("#childBenefitiaryName" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#childBenefitiaryName" + i).val('');
+	    }
+		if($("#txtchildInsuHkid" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#txtchildInsuHkid" + i).val('');
+	    }
+		
 		if(selectedValue != "SE"){
 			
 //			if (HkidPass.trim() == "") {
@@ -1697,6 +1742,13 @@ function fPlanValid()
 	/* Other Beneficiary validation */
 	for (var i = 1; i <= parseInt(rowCountOther) ; i++)
 	{
+		if($("#txtOtherFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtOtherFullName" + i).val('');
+	    }
+		if($("#txtOtherInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtOtherInsuHkid" + i).val('');
+	    }
+		
 		var hkid = document.getElementById("txtOtherInsuHkid" + i).value;
 		var fullname = document.getElementById("txtOtherFullName" + i).value;
 		var age = document.getElementById("selectOtherAgeRange" + i).value;
@@ -1761,6 +1813,13 @@ function fPlanValid()
 			}
 		}
 
+		if($("#otherBenefitiaryName" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#otherBenefitiaryName" + i).val('');
+	    }
+		if($("#txtOtherBenInsuHkid" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#txtOtherBenInsuHkid" + i).val('');
+	    }
+		
 		var selectedValue = document.getElementById("otherSelectBenificiary" + i).value;
 		if(selectedValue != "SE"){
 //			if (hkid.trim() == "") {
@@ -2649,34 +2708,47 @@ function tPlanValid()
 	     flag = false;
 	 } else {
 		 var age = document.getElementById("selectAgeRange1").value;
-		 var applicantDobDate = new Date(applicantDob);
 		 var today = new Date();
 
+		 var applicantDobs = new Array();
+		 applicantDobs = applicantDob.split("-");
+		 var applicantDob1 = new Date(applicantDobs[2],applicantDobs[1] - 1,applicantDobs[0], 0, 0, 0, 0);
+		 var applicantDobDate = new Date(applicantDob1);
+		 
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
-        // check only when same "id" found
-//		 alert('age ' + age);
-//		 alert('difference ' + difference);
-//        if(insured1Hkid != null && insured1Hkid == appHkid){   
-//   		 if (age == 1) {
-//   			 if ( difference > 18) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }  
-//   		 } else if (age == 2) {
-//   			 if ( difference < 18 || difference > 70) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }
-//   		 } else if (age == 3) {
-//   			 if ( difference < 70 || difference > 85) {
-//   				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
-//   			     flag = false;		 
-//   			 }
-//   		 }        	 
-//        }
+		 difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
+		 //difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
+		 
+		 if (age == 1) {
+			 if ( difference > 18) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }  
+		 } else if (age == 2) {
+			 if ( difference < 18 || difference > 70) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 } else if (age == 3) {
+			 if ( difference < 71 || difference > 85) {
+				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
+				 $("#input_dob").addClass("invalid-field");
+			        if(firstErrorElementId==""){
+						firstErrorElementId="input_dob";
+					}
+			     flag = false;		 
+			 }
+		 }
 		 
 	 }
 	
@@ -2779,14 +2851,14 @@ function tPlanValid()
 		if (hkid.trim() == "") {
 			if (selectedPersonalHkidPass.toUpperCase() == 'HKID') {
 				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
-				$("#selectedPersonalHkidPass" + i).addClass('invalid-field');
+				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="selectedPersonalHkidPass" + i;
 				}
 				flag = false;	
 			} else {
 				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notNull.message"); // "Please enter Insured Person's HKID No.";
-				$("#selectedPersonalHkidPass" + i).addClass('invalid-field');
+				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="selectedPersonalHkidPass" + i;
 				}
@@ -3711,7 +3783,7 @@ function tPlanValid()
 function isAlphaNumeric(evt) {
 	evt = (evt) ? evt : event;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
-	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 47 || charCode > 57)) {
+	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 48 || charCode > 57)) {
 		return false;
 	}
 	return true;
@@ -3759,6 +3831,10 @@ function flightValidateDesk()
 {
 	var flag = true;
 	flag = flightValidateGetQuote("txtStartDateDesk", "startDateDeskIn", "txtEndDateDesk", "endDateDeskIn", "txtTravellersDesk", "lblPeopleDesk", "travelCountDeskIn");
+	
+	if(!flag){
+		$('#loading-overlay').modal('hide');
+	}
 	return flag;
 }
 function flightValidateMob() {
@@ -5730,11 +5806,9 @@ function chkNotNullCreditCareName(element, errElementId)
 // validation - address
 function chkNotNullCABuilding(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
-	document.getElementById("errCAEstate").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	
 	$(element).removeClass('invalid-field');
-	$("#inputCAEstate").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.building.notNull.message");
@@ -5747,11 +5821,9 @@ function chkNotNullCABuilding(element, errElementId){
 }
 function chkNotNullCAEstate(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
-	document.getElementById("errCABuilding").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	
 	$(element).removeClass('invalid-field');
-	$("#inputCABuilding").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "applicant.address.correspondence.estate.notNull.message");
@@ -5764,10 +5836,8 @@ function chkNotNullCAEstate(element, errElementId){
 }
 function chkNotNullIABuilding(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
-	document.getElementById("errAEstate").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	$(element).removeClass('invalid-field');
-	$("#inputAEstate").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "insured.address.building.notNull.message");
@@ -5780,10 +5850,8 @@ function chkNotNullIABuilding(element, errElementId){
 }
 function chkNotNullIAEstate(element, errElementId){
 	document.getElementById(errElementId).innerHTML = '';
-	document.getElementById("errABuilding").innerHTML = '';
 	//COMMENT BY NAT - AS THE RULE NOW IS EITHER BUILDING / ESTATE NEED TO FILLED
 	$(element).removeClass('invalid-field');
-	$("#inputABuilding").removeClass("invalid-field");
 	return true;
 //	if(isNull(element)){
 //		var msg = getBundle(getBundleLanguage, "insured.address.estate.notNull.message");
@@ -6204,7 +6272,7 @@ function activateUserAccount(){
 		check = false;
 	};
 	
-	if(userName == password){
+	if(password != "" && userName == password){
 		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
 		$("#txtPass1").addClass("invalid-field");
 		if(firstErrorElementId==""){
@@ -6492,14 +6560,16 @@ function changeCreditCardFocus(element,prev_id,next_id){
 		if(next_id!=''){
 			if( /iPad/i.test(navigator.userAgent) ) {
 			}else{
-				$("#"+next_id+"_trigger").trigger( 'click' );
+//				$("#"+next_id+"_trigger").trigger( 'click' );
+				$("#"+next_id).focus();
 			}
 		}
 	}else if($(element).val().length == 0){
 		if(prev_id!=''){
 			if( /iPad/i.test(navigator.userAgent) ) {
 			}else{
-				$("#"+prev_id+"_trigger").trigger( 'click' );
+//				$("#"+prev_id+"_trigger").trigger( 'click' );
+				$("#"+prev_id).focus();
 			}
 		}
     }
@@ -6517,28 +6587,28 @@ function mergeCreditCard(){
 }
 
 $( document ).ready(function() {
-	$('#cardNo1_trigger').on('click', function () {
-		$('#cardNo1').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo2_trigger').on('click', function () {      
-		$('#cardNo2').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo3_trigger').on('click', function () {      
-		$('#cardNo3').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo4_trigger').on('click', function () {      
-		$('#cardNo4').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo1').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo2').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo3').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo4').on('touchstart', function () {
-        $(this).focus();
-    });
+//	$('#cardNo1_trigger').on('click', function () {
+//		$('#cardNo1').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo2_trigger').on('click', function () {      
+//		$('#cardNo2').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo3_trigger').on('click', function () {      
+//		$('#cardNo3').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo4_trigger').on('click', function () {      
+//		$('#cardNo4').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo1').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo2').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo3').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo4').on('touchstart', function () {
+//        $(this).focus();
+//    });
 });

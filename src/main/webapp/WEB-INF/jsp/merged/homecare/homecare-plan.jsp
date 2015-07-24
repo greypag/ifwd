@@ -685,9 +685,9 @@ function checkPromoCodePlaceholder(){
 	                            <span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
 	                            <span class="text-red" id="errPromoCode"></span>
 	                            <div id="promo-wrap" class="form-group">
-	                                <div class="input-group" id="inputPromo">
-	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
+	                                <div class="input-group" id="inputPromo" style="display:inital;width:100%;">
+	                                    <input type="text" id="promoCode" name="referralCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:75%;" onfocus="placeholderOnFocus(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:20%;" onclick="applyHomePromoCode()"><fmt:message key="home.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>
 	                            <div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -750,11 +750,11 @@ function checkPromoCodePlaceholder(){
 		                            <div class="top35 pull-right pad-none" style="width:47%">
 		                                <c:choose>
 	<c:when test="${language=='en'}">
-	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false}); javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
 </button>
 	</c:when>
 <c:otherwise>
-	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false}); javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
 </c:otherwise>
 </c:choose>
 
@@ -795,11 +795,11 @@ function checkPromoCodePlaceholder(){
 		                <div class="top35 pull-right pad-none" style="width:47%">
 		                    <c:choose>
 	<c:when test="${language=='en'}">
-	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false}); javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 EN','USD');"><fmt:message key="home.action.next" bundle="${msg}" />
 </button>
 	</c:when>
 <c:otherwise>
-	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
+	<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false}); javascript:kenshoo_conv('Registration_Step1','<%=String.format("%.2f",Double.parseDouble(planQuote.getTotalDue()))%>','','Regis_Home_Step1 ZH','USD');"><fmt:message key="home.action.next" bundle="${msg}" /></button>
 </c:otherwise>
 </c:choose>
 

@@ -39,6 +39,11 @@
   String key_row4col2 = "workingholiday.referral.benefits." + userType + ".table.row4.col2";
   String key_row4col3 = "workingholiday.referral.benefits." + userType + ".table.row4.col3";
   String key_row4col4 = "workingholiday.referral.benefits." + userType + ".table.row4.col4";
+  
+  String key_row6col1 = "workingholiday.referral.benefits." + userType + ".table.row6.col1";
+  String key_row6col2 = "workingholiday.referral.benefits." + userType + ".table.row6.col2";
+  String key_row6col3 = "workingholiday.referral.benefits." + userType + ".table.row6.col3";
+  String key_row6col4 = "workingholiday.referral.benefits." + userType + ".table.row6.col4";
 
   String key_disclaimer1 = "workingholiday.referral.benefits." + userType + ".disclaimer1";
   String key_disclaimer2Part1 = "workingholiday.referral.benefits." + userType + ".disclaimer2.part1";

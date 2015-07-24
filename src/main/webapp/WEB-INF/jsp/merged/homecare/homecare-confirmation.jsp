@@ -42,11 +42,18 @@
   String key_row4col2 = "home.referral.benefits." + userType + ".table.row4.col2";
   String key_row4col3 = "home.referral.benefits." + userType + ".table.row4.col3";
   String key_row4col4 = "home.referral.benefits." + userType + ".table.row4.col4";
+  
+  String key_row6col1 = "home.referral.benefits." + userType + ".table.row6.col1";
+  String key_row6col2 = "home.referral.benefits." + userType + ".table.row6.col2";
+  String key_row6col3 = "home.referral.benefits." + userType + ".table.row6.col3";
+  String key_row6col4 = "home.referral.benefits." + userType + ".table.row6.col4";
 
   String key_disclaimer1 = "home.referral.benefits." + userType + ".disclaimer1";
   String key_disclaimer2Part1 = "home.referral.benefits." + userType + ".disclaimer2.part1";
   String key_disclaimer2Part2 = "home.referral.benefits." + userType + ".disclaimer2.part2";
   String key_disclaimer2Part3 = "home.referral.benefits." + userType + ".disclaimer2.part3";
+  String key_disclaimer3Part1 = "home.referral.benefits." + userType + ".disclaimer3.part1";
+  String key_disclaimer3Part2 = "home.referral.benefits." + userType + ".disclaimer3.part2";
 %>
 
 <!DOCTYPE html>
@@ -185,7 +192,7 @@
 						                                <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td rowspan="2">
+						                                <td rowspan="3">
 						                                  <strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong>
 						                                </td>
 						                                <td><strong><fmt:message key="<%=key_row3col2%>" bundle="${msg}" /></strong></td>
@@ -197,6 +204,11 @@
 						                                <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
+						                            <tr>
+                                                        <td><strong><fmt:message key="<%=key_row6col2%>" bundle="${msg}" /></strong></td>
+                                                        <td><strong><fmt:message key="<%=key_row6col3%>" bundle="${msg}" /></strong></td>
+                                                        <td><strong><fmt:message key="<%=key_row6col4%>" bundle="${msg}" /></strong></td>
+                                                    </tr>
 						                        </tbody>
 						                    </table>
 					                    </div>
@@ -332,12 +344,44 @@
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row6col2%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row6col3%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row6col4%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
                                             </div>
                                         </div>
 					                    
 					                    <div class="disclaimer">
 					                      <p><fmt:message key="<%=key_disclaimer1%>" bundle="${msg}" /></p>
-					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
+					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
+					                      <p><fmt:message key="<%=key_disclaimer3Part1%>" bundle="${msg}" /><a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" class="sub-link" target="_blank"> <fmt:message key="<%=key_disclaimer3Part2%>" bundle="${msg}" /></a></p>
 					                    </div>
 					              <% } else { %>
 					                    <div class="hidden-xs hidden-sm">
@@ -412,17 +456,21 @@
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
 						     <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
-								<div><fmt:message key="home.confirmation.partnerDesc" bundle="${msg}" /></div>
+								<div><fmt:message key="home.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="home.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="home.confirmation.partnerDesc.part3" bundle="${msg}" /></div>
+								
+								<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
 								<div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
+						            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
+						            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
+						            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
 				                </div>
 				                <div class="clearfix"></div>
 				                <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" "><br/>
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" "><br/>
-				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+                                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+                                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+                                    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" " style="margin-bottom:20px;">
 				                </div>
 				                <div class="clearfix"></div>
 								<div class="h4-2 margin-left">

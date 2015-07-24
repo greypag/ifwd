@@ -5538,7 +5538,7 @@ td[data-title]:before,  td[data-title]:before {
 /*Home*/
 
 .test-top{ margin-top: 0px !important; }
-.home-btn{padding:10px 20px 10px 20px;background:none;border:1px solid #fff;font-size:28px; font-weight: 700;margin:20px;  margin-bottom: 50px;}
+.home-btn{padding:10px 20px 10px 20px;background:none;border:1px solid #fff;font-size:20px; font-weight: 700;margin:20px;  margin-bottom: 50px;}
 .home-btn:hover{background:#f68a1d; border:1px solid #f68a1d; color:#fff;}
 .home-main {background: none !important;}
 .home-btn-main{background:#f68a1d;width:100%;margin:5px 0;}
@@ -7014,12 +7014,16 @@ tr.product-landing-error-wrap {
     }
     
     #grossPremium{
-       font-size:27px;
+       font-size:20px;
     }
     
     .plan-box3 span.del del{
         margin-left:0px;
-        font-size:24px;
+        font-size:16px;
+    }
+    
+    #promo-wrap .input-group-addon{
+        font-size:16px;
     }
     
     .flightcare-hk{
@@ -7110,20 +7114,27 @@ tr.product-landing-error-wrap {
 
 /*Travel landing partner logo*/
 .main-partner{
-
+    margin-bottom: 15px;
 }
 
-.main-partner-1, .main-partner-2{
+.main-partner-1, .main-partner-2, .main-partner-3{
     padding: 0;
 }
 
 .main-partner-1 img{
     display: inline-block;
     float: left;
+    margin-top: 21px;
 }
 
 .main-partner-2 img{
     margin: 3px 0 0 20px;
+    display: inline-block;
+    float: left;
+}
+
+.main-partner-3 img{
+    margin: 20px 0 0 20px;
     display: inline-block;
     float: left;
 }
@@ -7134,7 +7145,13 @@ tr.product-landing-error-wrap {
 }
 
 .mob .main-partner-2 img{
-    margin: 3px 0 0 20px;
+    margin: 3px 0 0 10px;
+    display: inline-block;
+    float: left;
+}
+
+.mob .main-partner-3 img{
+    margin: 20px 0 0 15px;
     display: inline-block;
     float: left;
 }
@@ -7400,3 +7417,13 @@ tr.product-landing-error-wrap {
     color: #99A4A6;
 }
 /***** faq mobile *****/
+
+
+
+.home-main-mobi .home-btn-main{
+	font-size:20px;
+}
+
+.fwd_partner_title{
+	margin-top:20px;
+}

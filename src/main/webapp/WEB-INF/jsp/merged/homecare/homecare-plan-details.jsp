@@ -62,7 +62,7 @@ if(lang === "EN"){
 
 perventRedirect=true;
 
-var namePlaceholder="<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />";
+var namePlaceholder="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />";
 
 var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
@@ -113,9 +113,9 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		
 		$('#selectADistHid').find('option[value="' + id2 + '"]').attr('selected', 'selected');
 		
-		if ($("#selectADistHid option[value='"+id+"']").text() == "HK")
+		if ($("#selectADistHid option[value='"+id2+"']").text() == "HK")
 			document.getElementById("inlineDeskRadio31").checked = true;
-		else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+		else if ($("#selectCADistHid option[value='"+id2+"']").text() == "KL")
 			document.getElementById("inlineDeskRadio41").checked = true;
 		else
 			document.getElementById("inlineDeskRadio51").checked = true;
@@ -339,7 +339,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 				} else if (data == 'fail') {
 					$('#ajax-loading').hide();
 					$('#login-err-msg').show();
-					$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
+					$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 				}
 
 			}
@@ -726,9 +726,9 @@ function activateUserAccountJoinUs() {
                                             onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
                                        <input type="text"
                                             class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" name="applicantName"
-                                            value="<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />"
-	                                        onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
-	                                        onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'appfullname', namePlaceholder);"
+                                            value="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />"
+	                                        onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />');" 
+	                                        onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'appfullname', namePlaceholder);"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" />
                                        <span id="appfullname" class="text-red"></span>
 	                               </div>

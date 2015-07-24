@@ -230,6 +230,8 @@ public class UserController {
 	public String signup(Model model, HttpServletRequest req) {
 		UserDetails userDetails = new UserDetails();
 		model.addAttribute("userDetails", userDetails);
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
 	}
 
@@ -403,7 +405,8 @@ public class UserController {
 			logger.info("USER_FORGOT_USERNAME Response " + JsonUtils.jsonPrint(jsonResponse));
 			
 			if (jsonResponse.get("errMsgs") == null) {
-				return jsonResponse.get("userName").toString();
+				String userName = jsonResponse.get("userName").toString();
+				return userName.substring(2, userName.length()-2);
 			} else {
 				return jsonResponse.get("errMsgs").toString();
 			}
@@ -457,5 +460,21 @@ public class UserController {
 			return "";
 		}
 	}
+	
+	@RequestMapping(value = {"/{lang}/partner"}, method = RequestMethod.GET)
+	public String partner(Model model, HttpServletRequest req) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
+		return UserRestURIConstants.getSitePath(req)+ "partner";
+	}
+	
+	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
+	public String faq(Model model, HttpServletRequest req) {	
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
+		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
+		return UserRestURIConstants.getSitePath(req)+ "faq";
+	}
+
 
 }

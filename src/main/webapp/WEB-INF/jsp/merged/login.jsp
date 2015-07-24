@@ -230,7 +230,7 @@
 
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+                                    $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 		                            $('#forgotusername-err-msg').show();
                                     $('#user-details-main').hide();
                                     $('#hide-field').hide();
@@ -531,7 +531,7 @@
 
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
                                     $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
@@ -788,7 +788,7 @@ function userLoginFnc() {
             } else if (data == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
-                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
+                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
             }
         }
     });

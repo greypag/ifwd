@@ -51,7 +51,10 @@ $( "#testajax" ).click(function() {
 
 var home_url = "<%=request.getContextPath()%>";
 function submitLoginForm(formID) {
-	
+	$('.login-ajax-loading').css({
+		"left":"0px",
+		"right":"0px"
+	});
 	$('.login-ajax-loading').show();
 	$("#"+formID+' #login-err-msg').html("");
 	$("#"+formID+' #login-err-msg').hide();
@@ -75,12 +78,12 @@ function submitLoginForm(formID) {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();
 		                $("#"+formID+' #login-err-msg').show();
-		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.forgotUsername.notMatch.message"));
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 					} else if (data == 'Please provide a valid User Name and Password.') {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();
 		                $("#"+formID+' #login-err-msg').show();
-		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.invalid"));
+		                $("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 					} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();
@@ -109,7 +112,7 @@ function submitLoginForm(formID) {
 					} else if (data == 'fail') {
 						$('.login-ajax-loading').hide();
 						$("#"+formID+' #login-err-msg').show();
-						$("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.fourth"));
+						$("#"+formID+' #login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 					} else {
 						$('.login-ajax-loading').hide();
 						$("#"+formID+' #login-err-msg').show();
@@ -220,10 +223,10 @@ function submitLoginForm(formID) {
 									<form name="loginform" id="loginform">
 										<div class="login-form">
 											<div
-												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 												class="login-ajax-loading">
 												<img
-													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top:-50px;margin-left:-50px;"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
@@ -278,10 +281,10 @@ function submitLoginForm(formID) {
 									<form name="loginform" id="loginform">
 										<div class="login-form">
 											<div
-												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 												class="login-ajax-loading">
 												<img
-													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top:-50px;margin-left:-50px;"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
@@ -459,10 +462,10 @@ function submitLoginForm(formID) {
 									<form name="loginform" id="loginform2">
 										<div class="login-form" style="position: relative;">
 											<div
-												style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+												style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 												class="login-ajax-loading">
 												<img
-													style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+													style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top:-50px;margin-left:-50px;"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
 											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
