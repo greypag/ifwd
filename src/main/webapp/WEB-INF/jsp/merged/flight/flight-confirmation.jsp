@@ -540,7 +540,7 @@ data : $('#frmTravelPlan').serialize()
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
    params[1]='type=Registration_Flight';
    params[2]='val=${dueAmount}';
-   params[3]='orderId=${transNo}';
+   params[3]='orderId=<%=request.getSession().getAttribute("policyNo")%>';
    if ('${language}'==='en'){
 	   params[4]='promoCode= Regis_Flight EN_Sc';
    } else {
