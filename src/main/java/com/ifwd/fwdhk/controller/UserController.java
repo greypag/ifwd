@@ -230,6 +230,8 @@ public class UserController {
 	public String signup(Model model, HttpServletRequest req) {
 		UserDetails userDetails = new UserDetails();
 		model.addAttribute("userDetails", userDetails);
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
 	}
 
@@ -460,12 +462,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/partner"}, method = RequestMethod.GET)
-	public String partner(Model model, HttpServletRequest req) {	
+	public String partner(Model model, HttpServletRequest req) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
 		return UserRestURIConstants.getSitePath(req)+ "partner";
 	}
 	
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
 	public String faq(Model model, HttpServletRequest req) {	
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
