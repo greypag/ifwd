@@ -61,21 +61,16 @@
 	
     <div class="container annexure-form error-page " >
     	<div class="col-xs-12">
-    		<h2 class="annexure-form-header">ERROR</h2>
-		    <div class="company form-regisration error">
-				<h3>${errorHeader1}</h3>
-				<p>${errorDescription1}</p>
-				<p>
-					<strong>${errorHeader2}</strong>
-				</p>
-				<ul>
-					<li>${errorDescription2} </li>
-					
-				</ul>
+    		<div class="company form-regisration error">
+				<h4>${errorHeader1}</strong></h4><br>
+				<h4><strong>${errorDescription1}</strong></h4><br>
+				<h4>${errorHeader2}</h4><br>
+				<h4><strong>${errorDescription2}</strong></h4><br>
+				
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">
-					<a href="<%=request.getContextPath()%>/${language}/home" class="bdr-curve btn btn-primary btn-next">Go Back to Home Page</a>
+					<a href="<%=request.getContextPath()%>/${language}/home" class="bdr-curve btn btn-primary btn-next">Go Back to Home / 返回主頁</a>
 	            </div>
             </div>
 		</div>

@@ -1842,6 +1842,8 @@ public class TravelController {
 
 		try {
 			JSONObject parameters = new JSONObject();
+			String requestNo = (String) session.getAttribute("transNo");
+			String email = (String) session.getAttribute("emailAddress");
 			parameters.put("referenceNo",
 					session.getAttribute("finalizeReferenceNo"));
 			parameters
@@ -1858,6 +1860,7 @@ public class TravelController {
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				
 				model.addAttribute("emailAddress",
 						session.getAttribute("emailAddress"));
 				
@@ -1923,11 +1926,14 @@ public class TravelController {
 					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 				} else {
-					model.addAttribute("errorHeader1", "Policy is not generated");
-					model.addAttribute("errorDescription1", "There is a problem in the system " + responsObject.get("errMsgs").toString());
-					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
-					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
-				}
+					model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
+					model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
+					model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
+					model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
+				}		
+
+				
+				
 				return UserRestURIConstants.getSitePath(request)
 						+ "error";
 			}

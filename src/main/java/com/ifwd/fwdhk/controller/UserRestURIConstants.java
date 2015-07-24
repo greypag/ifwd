@@ -90,6 +90,13 @@ public class UserRestURIConstants {
 	/* Mail Api */
 	public static final String SEND_MAIL = SERVICE_URL + "/messages/email";
 
+	public static final String ERROR_HEADER1_1 = "You have successfully completed your purchase with FWD. An email will be sent to ";
+	public static final String ERROR_HEADER1_2 = " with the details of your policy.";
+	public static final String ERROR_DESCRIPTION1 = "Application number: ";
+	public static final String ERROR_HEADER2_1 = "您已成功申請富衛保險。確認電郵將會發送至 ";
+	public static final String ERROR_HEADER2_2 = "。";
+	public static final String ERROR_DESCRIPTION2 = "申請編號： ";
+	
 	static String controller;
 
 	public static String getController() {
