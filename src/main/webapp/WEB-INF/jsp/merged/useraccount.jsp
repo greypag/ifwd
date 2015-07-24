@@ -403,7 +403,7 @@
 								<tr>
 									<td class="pad-none">
 										<div class="copy-link pull-left" onclick="autoSelect('toBeCopied');"><fmt:message key="member.account.referral.copy" bundle="${msg}" /></div>
-										<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/home/sharing/	" data-title="iFWD"></div>
+										<div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home/sharing/" data-title="iFWD"></div>
 									</td>
 								</tr>
 							</tbody>
