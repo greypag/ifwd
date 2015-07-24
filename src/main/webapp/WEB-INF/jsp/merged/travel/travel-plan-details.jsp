@@ -197,12 +197,12 @@ function activateUserAccountJoinUs() {
   	        name = document.getElementById("inputFullName").value;
   	        userName = document.getElementById("Username").value;
   	        email = document.getElementById("inputEmailId").value;
-  	    
-  	      $('#loading-overlay').modal({
+  	      
+            $('#loading-overlay').modal({
               backdrop: 'static',
               keyboard: false
            })
-  	        
+
   	       $.ajax({
   	                   type : 'POST',
   	                    url : '<%=request.getContextPath()%>/${language}/joinus',
@@ -2354,10 +2354,10 @@ function activateUserAccountJoinUs() {
                     <div class="top35 pull-right pad-none" style="width:47%"> 
                         <c:choose>
 <c:when test="${language=='en'}">
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+           <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:when>
        <c:otherwise>
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+           <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:otherwise>
 </c:choose>
 
@@ -2395,10 +2395,10 @@ function activateUserAccountJoinUs() {
         <div class="top35 pull-right pad-none" style="width:47%">
 			<c:choose>
 <c:when test="${language=='en'}">
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:when>
        <c:otherwise>
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:otherwise>
 </c:choose>
 

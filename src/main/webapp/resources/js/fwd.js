@@ -1042,7 +1042,7 @@ function fPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.25)); 
+		 difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
          // check only when same "id" found
 		 if (age == 1) {
 			 if ( difference > 18) {
@@ -1063,7 +1063,7 @@ function fPlanValid()
 			     flag = false;		 
 			 }
 		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
+			 if ( difference < 71 || difference > 85) {
 				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
 				 $("#input_dob").addClass("invalid-field");
 			        if(firstErrorElementId==""){
@@ -2718,7 +2718,8 @@ function tPlanValid()
 		 var insured1Hkid = document.getElementById("txtInsuHkid1").value;
 		 
 		 var difference = Math.abs(today - applicantDobDate);
-		 difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
+		 difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
+		 //difference = Math.floor(difference / (1000 * 3600 * 24 * 365.26));
 		 
 		 if (age == 1) {
 			 if ( difference > 18) {
@@ -2739,7 +2740,7 @@ function tPlanValid()
 			     flag = false;		 
 			 }
 		 } else if (age == 3) {
-			 if ( difference < 70 || difference > 85) {
+			 if ( difference < 71 || difference > 85) {
 				 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notValid.message"));
 				 $("#input_dob").addClass("invalid-field");
 			        if(firstErrorElementId==""){
@@ -2850,14 +2851,14 @@ function tPlanValid()
 		if (hkid.trim() == "") {
 			if (selectedPersonalHkidPass.toUpperCase() == 'HKID') {
 				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message"); // "Please enter Insured Person's HKID No.";
-				$("#selectedPersonalHkidPass" + i).addClass('invalid-field');
+				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="selectedPersonalHkidPass" + i;
 				}
 				flag = false;	
 			} else {
 				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notNull.message"); // "Please enter Insured Person's HKID No.";
-				$("#selectedPersonalHkidPass" + i).addClass('invalid-field');
+				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="selectedPersonalHkidPass" + i;
 				}
@@ -6559,14 +6560,16 @@ function changeCreditCardFocus(element,prev_id,next_id){
 		if(next_id!=''){
 			if( /iPad/i.test(navigator.userAgent) ) {
 			}else{
-				$("#"+next_id+"_trigger").trigger( 'click' );
+//				$("#"+next_id+"_trigger").trigger( 'click' );
+				$("#"+next_id).focus();
 			}
 		}
 	}else if($(element).val().length == 0){
 		if(prev_id!=''){
 			if( /iPad/i.test(navigator.userAgent) ) {
 			}else{
-				$("#"+prev_id+"_trigger").trigger( 'click' );
+//				$("#"+prev_id+"_trigger").trigger( 'click' );
+				$("#"+prev_id).focus();
 			}
 		}
     }
@@ -6584,28 +6587,28 @@ function mergeCreditCard(){
 }
 
 $( document ).ready(function() {
-	$('#cardNo1_trigger').on('click', function () {
-		$('#cardNo1').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo2_trigger').on('click', function () {      
-		$('#cardNo2').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo3_trigger').on('click', function () {      
-		$('#cardNo3').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo4_trigger').on('click', function () {      
-		$('#cardNo4').trigger('touchstart'); //trigger touchstart
-    });
-	$('#cardNo1').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo2').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo3').on('touchstart', function () {
-        $(this).focus();
-    });
-	$('#cardNo4').on('touchstart', function () {
-        $(this).focus();
-    });
+//	$('#cardNo1_trigger').on('click', function () {
+//		$('#cardNo1').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo2_trigger').on('click', function () {      
+//		$('#cardNo2').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo3_trigger').on('click', function () {      
+//		$('#cardNo3').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo4_trigger').on('click', function () {      
+//		$('#cardNo4').trigger('touchstart'); //trigger touchstart
+//    });
+//	$('#cardNo1').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo2').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo3').on('touchstart', function () {
+//        $(this).focus();
+//    });
+//	$('#cardNo4').on('touchstart', function () {
+//        $(this).focus();
+//    });
 });

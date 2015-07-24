@@ -458,5 +458,17 @@ public class UserController {
 			return "";
 		}
 	}
+	
+	@RequestMapping(value = {"/{lang}/partner"}, method = RequestMethod.GET)
+	public String partner(Model model, HttpServletRequest req) {	
+		return UserRestURIConstants.getSitePath(req)+ "partner";
+	}
+	
+	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
+	public String faq(Model model, HttpServletRequest req) {	
+		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
+		return UserRestURIConstants.getSitePath(req)+ "faq";
+	}
+
 
 }

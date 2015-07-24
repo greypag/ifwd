@@ -184,12 +184,12 @@ $(document).ready(function() {
 	                  <tr>
 	                  <td class="col-md-3 col-lg-3 pad-none">
 	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="col-md-3 col-lg-3 pad-none">
 	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="col-md-4 col-lg-3 pad-none">
@@ -199,18 +199,18 @@ $(document).ready(function() {
 	                        <div class="drop-content">
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
-	                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
-	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
+	                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" <%=PersonalPlanChecked%> >
+	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label>
+	                            </label>
 	                          </div>
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label></label>
+	                              <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" />
+	                                <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+			                        <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
+			                      </label>
+			                    </label>
 	                          </div>
 	                          <div class="clearfix"></div>
 	                          <hr>
