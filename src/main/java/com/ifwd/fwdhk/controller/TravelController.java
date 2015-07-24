@@ -73,6 +73,23 @@ public class TravelController {
 			@RequestParam(required = false) final String utm_campaign,
 			@RequestParam(required = false) final String utm_content)  {
 
+		//String promo = (String)request.getAttribute("promo");
+		String departureDate = (String)request.getParameter("departureDate");
+		String returnDate = (String)request.getParameter("returnDate");
+		String plan = (String)request.getParameter("plan");
+		String traveler = (String)request.getParameter("traveler");
+		String adult = (String)request.getParameter("adult");
+		String child = (String)request.getParameter("child");
+		String other = (String)request.getParameter("other");
+		model.addAttribute("promo", promo);
+		model.addAttribute("departureDate", departureDate);
+		model.addAttribute("returnDate", returnDate);
+		model.addAttribute("plan", plan);
+		model.addAttribute("traveler", traveler);
+		model.addAttribute("adult", adult);
+		model.addAttribute("child", child);
+		model.addAttribute("other", other);
+		
 		UserRestURIConstants.setController("Travel");
 		
 		UserRestURIConstants urc = new UserRestURIConstants(); 
@@ -96,13 +113,28 @@ public class TravelController {
 		if(travelQuote == null){
 			travelQuote = new TravelQuoteBean();
 			
-			travelQuote.setTotalPersonalTraveller(1);
-			travelQuote.setTotalAdultTraveller(1);
-			travelQuote.setTotalChildTraveller(1);
-			travelQuote.setTotalOtherTraveller(0);
-			travelQuote.setPlanSelected("personal");
+			travelQuote.setTotalPersonalTraveller((traveler != null && traveler != "") ? Integer.valueOf(traveler) : 1);
+			travelQuote.setTotalAdultTraveller((adult != null && adult != "") ? Integer.valueOf(adult) : 1);
+			travelQuote.setTotalChildTraveller((child != null && child != "") ? Integer.valueOf(child) : 1);
+			travelQuote.setTotalOtherTraveller((other != null && other != "") ? Integer.valueOf(other) : 0);
+			if(traveler != null && traveler != "") {
+				travelQuote.setPlanSelected("personal");
+			}else if(adult != null && adult != ""){
+				travelQuote.setPlanSelected("family");
+			}else{
+				travelQuote.setPlanSelected("personal");
+			}
 		}
 		else{
+			if(traveler != null && traveler != "") {
+				travelQuote.setTotalPersonalTraveller((traveler != null && traveler != "") ? Integer.valueOf(traveler) : 0);
+				travelQuote.setPlanSelected("personal");
+			}else if(adult != null && adult != ""){
+				travelQuote.setTotalAdultTraveller((adult != null && adult != "") ? Integer.valueOf(adult) : 0);
+				travelQuote.setTotalChildTraveller((child != null && child != "") ? Integer.valueOf(child) : 0);
+				travelQuote.setTotalOtherTraveller((other != null && other != "") ? Integer.valueOf(other) : 0);
+				travelQuote.setPlanSelected("family");
+			}
 		}
 		
 		session.setAttribute("corrTravelQuote", travelQuote);
