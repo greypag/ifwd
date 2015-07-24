@@ -232,6 +232,8 @@ public class UserController {
 		model.addAttribute("userDetails", userDetails);
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
 	}
+	
+	
 
 	@RequestMapping(value = "/useraccount", method = RequestMethod.GET)
 	public String userAccount(@ModelAttribute("userLogin") UserLogin userLogin,
@@ -449,6 +451,15 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(req) + "forgot-password";
 	}
 
+	@RequestMapping(value = {"/{lang}/partner"}, method = RequestMethod.GET)
+	public String partner(Model model, HttpServletRequest req) {	
+		return UserRestURIConstants.getSitePath(req)+ "partner";
+	}
+	
+	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
+	public String faq(Model model, HttpServletRequest req) {	
+		return UserRestURIConstants.getSitePath(req)+ "faq";
+	}
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
