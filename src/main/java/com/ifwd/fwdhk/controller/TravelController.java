@@ -139,6 +139,7 @@ public class TravelController {
 		}
 		
 		session.setAttribute("corrTravelQuote", travelQuote);
+		model.addAttribute("travelQuote", travelQuote);
 		
 		/**
 		 * 如果由URL跳转传值将直接进入PLAN页面
@@ -155,7 +156,6 @@ public class TravelController {
 		travelQuote.setTotalOtherTraveller(0);
 		travelQuote.setPlanSelected("personal");
 		*/
-		model.addAttribute("travelQuote", travelQuote);
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
 		
