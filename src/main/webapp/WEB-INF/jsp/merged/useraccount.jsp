@@ -683,7 +683,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><fmt:message key="agoda.link.desc" bundle="${msg}" /></td>
-                                                            <td><a href="<fmt:message key="agoda.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="agoda.link" bundle="${msg}" /></a></td>
+                                                            <td><a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="agoda.promo.link" bundle="${msg}" /></a></td>
                                                         </tr>
                                                         <tr>
                                                             <td style="color: #fff;background-color: #f68a1d;"><fmt:message key="agoda.desc1.title" bundle="${msg}" /></td>
