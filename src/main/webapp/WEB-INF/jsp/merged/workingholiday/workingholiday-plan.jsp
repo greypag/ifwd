@@ -144,6 +144,10 @@ var promoCodeInsertFlag = true;
 		}else{
 			result = false;
 		}
+		
+		if(!result){
+	        $('#loading-overlay').modal('hide');
+	    }
 		return result;
 	}
 	
@@ -757,10 +761,10 @@ var promoCodeInsertFlag = true;
 							<div class="top35 pull-right pad-none" style="width:47%" >
 <c:choose>
 	<c:when test="${language=='en'}">
-		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
 	</c:when>
 	<c:otherwise>
-		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
 	</c:otherwise>
 </c:choose>
 				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
@@ -794,10 +798,10 @@ var promoCodeInsertFlag = true;
                 <div class="top35 pull-right pad-none" style="width:47%" >
 <c:choose>
 	<c:when test="${language=='en'}">
-		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
 	</c:when>
 	<c:otherwise>
-		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
 	</c:otherwise>
 </c:choose>
 				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>

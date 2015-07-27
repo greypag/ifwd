@@ -349,7 +349,7 @@
 
 					</div>
 					<div class="tab-pane text-style padding3 " id="tab3">
-						<table class="table purchase-history  ">
+						<table class="table purchase-history" style="width:100%;">
 							<tbody>
 								<tr>
 									<td class="pad-none"><h2 class="black-bold "><fmt:message key="member.account.promotionCode.share.header" bundle="${msg}" /></h2></td>
@@ -362,19 +362,24 @@
 										</td>
 								</tr>
 								<tr>
+                                    <td class="pad-none"><div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div></td>
+                                </tr>
+								<tr>
                                     <td>
                                         <div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
-                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" ">
-                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" ">
-                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
-                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" "><br/>
-                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" "><br/>
-                                            <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" "><br/>
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" "><br/>
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" "><br/>
+                                            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
                                         </div>
-                                        </td>
+                                    </td>
                                 </tr>
 								<tr>
 									<td><h3 class="h4-3-b"><fmt:message key="member.account.promotionCode.share.social.message.header" bundle="${msg}" /></h3></td>
@@ -448,7 +453,7 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>
 	                                        <tr>
-	                                            <td rowspan="2">
+	                                            <td rowspan="3">
 	                                                <strong><fmt:message key="member.account.referral.benefits.table.row3.col1" bundle="${msg}" /></strong>
 	                                            </td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row3.col2" bundle="${msg}" /></strong></td>
@@ -460,6 +465,11 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col3" bundle="${msg}" /></strong></td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>
+	                                        <tr>
+                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col2" bundle="${msg}" /></strong></td>
+                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col3" bundle="${msg}" /></strong></td>
+                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col4" bundle="${msg}" /></strong></td>
+                                            </tr>
 			                                <tr style="text-align:left;">
 			                                  	<td rowspan="2">
 	                                                <strong><fmt:message key="member.account.referral.benefits.table.row5.col1" bundle="${msg}" /></strong>
