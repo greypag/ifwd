@@ -7,8 +7,22 @@
 		<%!
 			boolean isSaleActiveClass = true;
 		%>
+<script type="text/javascript">
+	function applicationSubmit() {
+		var paymentType= $('input:radio[name="saviePaymentBean.paymentType"]:checked').val();
+		var url = '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'saving-insurance/';
+		if($("#pay-later-radio").is(":checked")){
+			url += '${nextPageFlow2}';
+		}
+		else{
+			url += '${nextPageFlow}';
+		}
+		$("#detailInfo").attr("action", url);
+		$('#detailInfo').submit();
+	}
+</script>
+<form id="detailInfo" method="post" action="">
 		<div class="fwd-savie-wrapper">
-			<!-- HEADER -->
 			<!--Application Header Info Widget-->
 			<div class="container-fluid fwd-full-container">
 				<div class="application-page-header">
@@ -68,8 +82,9 @@
 						<h2>Applicant/Insured person info	
 							<button type="button" class="tooltip-button hidden-xs hidden-sm" data-toggle="tooltip" data-placement="right" title="Applicant and the insured must be the same person"><span class="info-tooltip"></span></button>
 						</h2>
-						
+						<!-- 
 						<form id="insuredInfoForm" method="post" class="form-horizontal" action="target.jsp" onsubmit="return false">
+						 -->
 							<div class="row margin">
 								<div class="col-sm-12 col-md-6 left">
 									
@@ -102,7 +117,7 @@
 										</div>
 									</div>
 									
-									<!--<div class="clearfix">
+									<div class="clearfix">
 										<div class="left-desktop description">
 											<label for="savieApplicantBean.gender" class="application-page-input-text">Gender</label>
 										</div>
@@ -111,7 +126,7 @@
 												<div class="clearfix">
 													<div class="pull-left male">
 														<label class="pi-male-radio" for="pi-male-now">
-														<input type="radio" id="pi-male-now" name="savieApplicantBean.gender" value="pi-male-now" checked>
+														<input type="radio" id="pi-male-now" name="appGender" value="M" checked>
 														<span class="pi-male-text">
 															<span class="text">Male</span>
 														</span>
@@ -122,7 +137,7 @@
 													</div>
 													<div class="pull-left female">
 														<label class="pi-female-radio" for="pi-female-now">
-														<input type="radio" id="pi-female-now" name="savieApplicantBean.gender" value="pi-female-now" >
+														<input type="radio" id="pi-female-now" name="appGender" value="F" >
 														<span class="pi-female-text">
 															<span class="text">Female</span>
 														</span>
@@ -136,7 +151,7 @@
 												</div>
 											</div>
 										</div>
-									</div>-->
+									</div>
 									
 									<div class="clearfix  form-group has-error">
 										<div class="left-desktop description">
@@ -146,10 +161,9 @@
 
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
-												<select class="form-control gray-dropdown" name="savieApplicantBean.maritalStatus"  id="savieApplicantBean.maritalStatus">
-													<option selected disabled value="">- Please select -</option>
-													<option value="single">Single</option>
-													<option value="married">Married</option>	
+												<select class="form-control gray-dropdown" name="maritalStatus"  id="savieApplicantBean.maritalStatus">
+													<option value="S">Single</option>
+													<option value="M">Married</option>	
 												</select>
 											</div>
 											<span class="error-msg" id="maritalStatusMessage"></span>
@@ -199,11 +213,12 @@
 										</div>
 										<div class="left-desktop text-box clearfix">
 											<div class="pull-left prefix">
-												<input class="form-control gray-textbox" id="residential-first" name="savieApplicantBean[0].residentialTelNo" type="number" placeholder="852" onchange="getResidentialFinalValue()" maxlength="3" oninput="maxLengthCheck(this)"  max="999" min ="1"/>
+												<input class="form-control gray-textbox" id="residential-first" type="number" placeholder="852" onchange="getResidentialFinalValue()" maxlength="3" oninput="maxLengthCheck(this)"  max="999" min ="1"/>
 											</div>
 											<div class="pull-left suffix">
-												<input class="form-control gray-textbox" id="residential-second" name="savieApplicantBean[1].residentialTelNo" type="number" placeholder="12345678" onchange="getResidentialFinalValue()" maxlength="8" oninput="maxLengthCheck(this)"  max="99999999" min ="1"/>
+												<input class="form-control gray-textbox" id="residential-second" type="number" placeholder="12345678" onchange="getResidentialFinalValue()" maxlength="8" oninput="maxLengthCheck(this)"  max="99999999" min ="1"/>
 											</div>
+											<input id="savieApplicantBean.residentialTelNo" name="savieApplicantBean.residentialTelNo" value="" type="hidden" />
 										</div>
 										
 									</div>
@@ -215,10 +230,10 @@
 										<div class="left-desktop text-box">
 											<div class="clearfix form-group">
 												<div class="pull-left prefix">
-													<input class="form-control gray-textbox" id="mobile-first" name="savieApplicantBean[0].mobileNo" type="number" placeholder="852" onchange="getMobileFinalValue()" maxlength="3" oninput="maxLengthCheck(this)"  max="999" min ="1"/>
+													<input class="form-control gray-textbox" id="mobile-first" type="number" placeholder="852" onchange="getMobileFinalValue()" maxlength="3" oninput="maxLengthCheck(this)"  max="999" min ="1"/>
 												</div>
 												<div class="pull-left suffix">
-													<input class="form-control gray-textbox" id="mobile-second" name="savieApplicantBean[1].mobileNo" type="text" placeholder="12345678" onchange="getMobileFinalValue()" maxlength="8" oninput="maxLengthCheck(this)"  max="99999999" min ="1"/>
+													<input class="form-control gray-textbox" id="mobile-second" type="text" placeholder="12345678" onchange="getMobileFinalValue()" maxlength="8" oninput="maxLengthCheck(this)"  max="99999999" min ="1"/>
 												</div>
 												<input id="savieApplicantBean.mobileNo" name="savieApplicantBean.mobileNo" value="" type="hidden" />
 												<span class="error-msg" id="mobilePrefixMessage"></span>
@@ -307,13 +322,17 @@
 							<div class="next-btn">
 								<button id="personal-info-next" type="submit" class="btn next pi">Next</button>
 							</div>
+							<!-- 
 						</form>
+						 -->
 					</div>
 				</div>
 				<div class="page-divider"></div>
 				<div id="employment-info" class="page-application container-fluid fwd-container">
 					<h2 class="text-center">Employment Info</h2>
+					<!-- 
 					<form class="content"  id="employmentInfoForm" method="post" action="application.jsp" onsubmit="return false">
+					 -->
 						<div class="content-left">
 							<div class="clearfix form-group has-error employment-info-row">
 								<label for="savieEmploymentBean.employmentStatus">Employment status</label>
@@ -369,7 +388,9 @@
 						<div class="button-row text-center">
 								<button id="employment-info-next" type="submit" class="next">Next</button>
 						</div>
+						<!-- 
 					</form>
+					 -->
 				</div>	
 				<div class="page-divider"></div>
 				<!--<div class="SAmple Button">
@@ -381,14 +402,15 @@
 						<h4 class="text-center">You can add up to three (3) persons</h4>
 					</div>
 						<div class="row clearfix">
+						<!-- 
 							<form class="content" id="beneficiaryInfoForm[0]" method="post" action="application-richie.php" onsubmit="return false">
-						
+						 -->
 							<div class="col-md-4 first-row">
 								<div class="beneficiary-info-row">
 									<div class="clearfix upper-radio-buttons">
 										<div class="left-desktop">
 											<label class="own-estate-radio" for="own-estate-now">
-											<input type="radio" id="own-estate-now" name="beneficiary-info" value="own-estate-now" >
+											<input type="radio" id="own-estate-now" name="savieBeneficiaryBeans[0].ownEstate" value="own-estate-now" >
 											<span class="own-estate-text">
 												<span class="text">Own Estate</span>
 											</span>
@@ -399,7 +421,7 @@
 										</div>
 										<div class="left-desktop">
 											<label class="name-others-radio" for="name-others-now">
-											<input type="radio" id="name-others-now" name="beneficiary-info" value="name-others-now" checked>
+											<input type="radio" id="name-others-now" name="savieBeneficiaryBeans[0].ownEstate" value="name-others-now" checked>
 											<span class="name-others-text">
 												<span class="text">Name Others</span>
 											</span>
@@ -498,8 +520,9 @@
 									</div>		                
 								</div>
 							</div>
+							<!-- 
 							</form>
-							
+							 -->
 							
 							<div id="add-beneficiary-1" class="col-md-4">
 								<div class="add-beneficiary" id="beneficiary1">
@@ -525,7 +548,9 @@
 				<div id="payment" class="container-fluid fwd-container">
 					<div class="fwd-payment page-application">
 						<h2 class="text-center payment-h2">Payment</h2>
+						<!-- 
 						<form>
+						 -->
 							<div class="pay-online desktop-left">
 								<input type="radio" value="None" id="pay-online-radio" name="saviePaymentBean.paymentType" checked/>
 								<label for="pay-online-radio">Pay online (Direct debit authorisation)</label>
@@ -622,12 +647,15 @@
 								<p class="policy-p">I, as Policy owner, confirm that I am not acting on behalf of any other person, that the above payment is made on my own behalf, and that I authorize FWD Life Insurance Company (Bermuda) Limited, until further written notice, to debit the account listed above to pay the insurance premium.</p>
 							</div>
 							<div class="text-center">
-								<button id="application-proceed-btn" type="button" class="next">Proceed</button>
+								<button id="application-proceed-btn" type="button" class="next" onclick="applicationSubmit();">Proceed</button>
 							</div>
+							<!--  
 						</form>
+						-->
 					</div>
 				</div> 
 			</div>
 			<!-- FOOTER -->
 		</div>
 		<!-- JS INCLUDES -->
+</form>

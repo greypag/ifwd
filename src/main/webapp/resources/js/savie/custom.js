@@ -147,11 +147,11 @@ $(function() {
 	$("#fna-return-btn").on('click', function(){
         window.location = "plan-details";    
     });    
-
+    
 	// Application Page to Order Page
-	$("#application-proceed-btn").on('click', function(){
-        window.location = "order-summary";    
-    });
+	//$("#application-proceed-btn").on('click', function(){
+    //    window.location = "order-summary";    
+    //});
 
 	// Application Page to Fna Page
 	$("#application-return-btn").on('click', function(){

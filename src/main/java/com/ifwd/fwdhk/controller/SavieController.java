@@ -70,8 +70,8 @@ public class SavieController extends BaseController{
 	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,
 			@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail,
 			@RequestParam String appGender,
-			@RequestParam String maritalStatus,
-			@RequestParam String birthday) {
+			@RequestParam String maritalStatus) {
+		//@RequestParam String birthday
 		if("F".equals(appGender)){
 			savieDetail.getSavieApplicantBean().setGender(GenderEnum.FEMALE);
 		}
@@ -84,14 +84,14 @@ public class SavieController extends BaseController{
 		else{
 			savieDetail.getSavieApplicantBean().setMaritalStatus(MaritalStatusEnum.Married);
 		}
-		if(!"".equals(birthday)){
+		/*if(!"".equals(birthday)){
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			try {
 				savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthday));
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 		
 		
 		request.getSession().setAttribute("savieDetail", savieDetail);

@@ -5,7 +5,7 @@ import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 
 public class SavieBeneficiaryBean {
 	
-	private boolean ownEstate;
+	private String ownEstate;
 	private String firstName;
 	private String lastName;
 	private String chineseName;
@@ -14,10 +14,11 @@ public class SavieBeneficiaryBean {
 	private GenderEnum gender;  
 	private String relationship; 
 	private float entitlement;
-	public boolean isOwnEstate() {
+	
+	public String getOwnEstate() {
 		return ownEstate;
 	}
-	public void setOwnEstate(boolean ownEstate) {
+	public void setOwnEstate(String ownEstate) {
 		this.ownEstate = ownEstate;
 	}
 	public String getFirstName() {
