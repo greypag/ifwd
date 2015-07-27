@@ -131,9 +131,15 @@ public class TravelController {
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel");
 		}
+		
 		if(StringUtils.isEmpty(returnDate)){
 			returnDate = DateApi.formatString(new Date());
 		}else if(!DateApi.isValidDate(returnDate)){
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
+					+ "travel/travel");
+		}
+		
+		if(!StringUtils.isEmpty(plan) && !("personal".equals(plan) || "family".equals(plan))){
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel");
 		}
