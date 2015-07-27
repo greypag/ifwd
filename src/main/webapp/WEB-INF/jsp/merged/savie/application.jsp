@@ -9,7 +9,6 @@
 		%>
 <script type="text/javascript">
 	function applicationSubmit() {
-		var paymentType= $('input:radio[name="saviePaymentBean.paymentType"]:checked').val();
 		var url = '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'saving-insurance/';
 		if($("#pay-later-radio").is(":checked")){
 			url += '${nextPageFlow2}';
@@ -552,12 +551,12 @@
 						<form>
 						 -->
 							<div class="pay-online desktop-left">
-								<input type="radio" value="None" id="pay-online-radio" name="saviePaymentBean.paymentType" checked/>
+								<input type="radio" value="true" id="pay-online-radio" name="saviePaymentBean.paymentType" checked/>
 								<label for="pay-online-radio">Pay online (Direct debit authorisation)</label>
 								<span id="pay-online-label" class="pay-ol">Pay online <span class="more-details">(Direct debit authorisation)</span></span>
 							</div>                        
 							<div class="pay-later desktop-left">
-								<input type="radio" value="None" id="pay-later-radio" name="saviePaymentBean.paymentType"  />
+								<input type="radio" value="false" id="pay-later-radio" name="saviePaymentBean.paymentType"  />
 								<label for="pay-later-radio">Pay later (Pay at the storefront)</label>
 								<span id="pay-later-label" class="pay-la hidden-xs hidden-sm">Pay later <span class="more-details">(Pay at the storefront)</span></span>
 							</div>
@@ -569,9 +568,8 @@
 											<label for="saviePaymentBean.amount">Amount</label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
-											<input id="saviePaymentBean.amount" name="saviePaymentBean.amount" type="hidden" />
 											<!--<span class="payment-link">HK$ 430,000 </span>-->
-											HK$ 100,000
+											HK$ 100,000<input type="hidden" name="saviePaymentBean.amount" id="amount" value="100000"/>
 										</div>
 									</div>
 									<div class="topside-pad form-group clearfix">
@@ -580,7 +578,7 @@
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											<!--<span id="saviePaymentBean.paymentMethod" class="payment-link">Direct debit</span>-->
-											Direct debit
+											Direct debit<input type="hidden" name="saviePaymentBean.paymentMethod" id="paymentMethod" value="Direct debit"/>
 										</div>
 									</div>
 									<div class="topside-bank form-group clearfix">
@@ -588,7 +586,7 @@
 											<label for="saviePaymentBean.bankName">Bank account holder name</label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
-											Andy Lau
+											Andy Lau<input type="hidden" name="saviePaymentBean.bankAccountHolderName" id="bankAccountHolderName" value="Andy Lau"></input>
 										</div>
 									</div>
 								</div>
@@ -601,7 +599,7 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown" name="saviePaymentBean.bankName" id="saviePaymentBean.bankName"  data-style="application-select">
-													<option selected disabled value="">- Please select -</option>
+													<option selected value="">- Please select -</option>
 													<option value="lorem">Option 1</option>
 													<option value="ipsum">Option 2</option>	
 												</select>
@@ -625,7 +623,7 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown" name="saviePaymentBean.branchName" id="saviePaymentBean.branchName"   data-style="application-select">
-													<option selected disabled value="">- Please select -</option>
+													<option selected value="">- Please select -</option>
 													<option value="lorem">Option 1</option>
 													<option value="ipsum">Option 2</option>	
 												</select>
@@ -642,7 +640,7 @@
 								</div>
 							</div>
 							<div id="payment-policy" class="form-group policy-group">                        
-								<input id="saviePaymentBean.paymentConfirmAuthorize" name="saviePaymentBean.paymentConfirmAuthorize" type="checkbox" />
+								<input id="saviePaymentBean.paymentConfirmAuthorize" name="saviePaymentBean.paymentConfirmAuthorize" type="checkbox" value="true" />
 								<label for="saviePaymentBean.paymentConfirmAuthorize"></label>
 								<p class="policy-p">I, as Policy owner, confirm that I am not acting on behalf of any other person, that the above payment is made on my own behalf, and that I authorize FWD Life Insurance Company (Bermuda) Limited, until further written notice, to debit the account listed above to pay the insurance premium.</p>
 							</div>
