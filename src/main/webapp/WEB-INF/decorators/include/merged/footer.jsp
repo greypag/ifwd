@@ -60,7 +60,7 @@
         <a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a> |
         <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a> |
         <a href="<fmt:message key="footer.menu.claim.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.claim" bundle="${msg}" /></a> |
-        <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partners.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.partners" bundle="${msg}" /></a>
+        <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partners.link" bundle="${msg}" />"><fmt:message key="footer.menu.partners" bundle="${msg}" /></a>
     </div>
     <div>
         <fmt:message key="footer.hotline.part1" bundle="${msg}" /> <fmt:message key="footer.hotline.part2" bundle="${msg}" />
