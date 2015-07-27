@@ -466,13 +466,14 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/partner"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)
 	public String partner(Model model, HttpServletRequest req) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
 		return UserRestURIConstants.getSitePath(req)+ "partner";
 	}
 	
+/*
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
 	public String faq(Model model, HttpServletRequest req) {	
 		UserRestURIConstants urc = new UserRestURIConstants();
@@ -480,5 +481,6 @@ public class UserController {
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
+*/	
 
 }
