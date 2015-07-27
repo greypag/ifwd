@@ -19,7 +19,10 @@
 					</li>
 				</ol>
 				
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 partner_heading">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_heading_title">
+                    <fmt:message key="partner.partners.offers" bundle="${msg}" />
+                </div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_heading">
 					<div class="h4-5"><fmt:message key="partner.heading" bundle="${msg}" /></div>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
@@ -29,9 +32,12 @@
 					    </div>
 					    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
 	                        <div class="partner_title"><fmt:message key="partner.agoda.title" bundle="${msg}" /></div>
-	                        <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc" bundle="${msg}" /></div>
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc" bundle="${msg}" /></div> -->
 	                        <div class="partner_desc_list">
 									<ul class="bullets">
+									   <li>
+                                           <p class="h4-5"><fmt:message key="partner.agoda.desc" bundle="${msg}" /></p>
+                                        </li>
 										<li>
 									       <p class="h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></p>
 										</li>
@@ -41,7 +47,7 @@
 									</ul>
 	                            </div>
 	                        <div class="partner_tnc">
-	                            <div class="h4-5"><fmt:message key="partner.terms.conditions" bundle="${msg}" /></div>
+	                            <div class="h4-5"><strong><fmt:message key="partner.terms.conditions" bundle="${msg}" /></strong></div>
 	                            <div class="partner_tnc_list">
 									<ul class="bullets">
 										<li>
@@ -75,9 +81,12 @@
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
 	                        <div class="partner_title"><fmt:message key="partner.y5buddy.title" bundle="${msg}" /></div>
-	                        <div class="partner_description h4-5"><fmt:message key="partner.y5buddy.desc" bundle="${msg}" /></div>
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.y5buddy.desc" bundle="${msg}" /></div> -->
 	                        <div class="partner_desc_list">
 									<ul class="bullets">
+									    <li>
+                                           <p class="h4-5"><fmt:message key="partner.y5buddy.desc" bundle="${msg}" /></p>
+                                        </li>
 										<li>
 									       <p class="h4-5"><fmt:message key="partner.y5buddy.desc1" bundle="${msg}" /></p>
 										</li>
@@ -109,9 +118,12 @@
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
 	                        <div class="partner_title"><fmt:message key="partner.boconcept.title" bundle="${msg}" /></div>
-	                        <div class="partner_description h4-5"><fmt:message key="partner.boconcept.desc" bundle="${msg}" /></div>
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.boconcept.desc" bundle="${msg}" /></div> -->
 	                        <div class="partner_desc_list">
 									<ul class="bullets">
+										<li>
+                                           <p class="h4-5"><fmt:message key="partner.boconcept.desc" bundle="${msg}" /></p>
+                                        </li>
 										<li>
 									       <p class="h4-5"><fmt:message key="partner.boconcept.desc1" bundle="${msg}" /></p>
 										</li>

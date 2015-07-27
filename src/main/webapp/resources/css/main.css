@@ -7181,8 +7181,12 @@ tr.product-landing-error-wrap {
 
 
 /***** partner *****/
-.partner_heading{
-    margin-top: 20px;
+.partner_heading_title{
+    margin-top: 40px;
+    margin-bottom: 10px;
+	font-size: 26px;
+	color: #f68a1d;
+	font-weight: bold;
 }
 
 .partner_content{
@@ -7200,12 +7204,31 @@ tr.product-landing-error-wrap {
 	margin-bottom: 10px;
 }
 
-.partner_tnc_list .bullets, .partner_desc_list .bullets{
-	list-style-image: url('../images/li-icon.png');
+.partner_tnc .h4-5{
+    font-size: 16px;
+}
+
+.partner_desc_list{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.partner_desc_list .bullets{
 	color: #f68a1d;
 	padding: 0px 18px;
 	font-size: 18px;
 	line-height: 1.4;
+}
+
+.partner_tnc_list .bullets{
+    color: #B3C3CD;
+    padding: 0px 18px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.partner_tnc_list .h4-5{
+	font-size: 14px;
 }
 
 .partner_hr{
@@ -7213,31 +7236,46 @@ tr.product-landing-error-wrap {
 }
 
 @media (min-width: 992px){
-    .partner_heading{
-        margin-top: 20px;
-    }
 	.partner_container{
 	   margin-top: 30px;
 	   margin-bottom: 30px;
 	}
-    .partner_image{
-	    margin-top: 40px;
-	}
 }
 
 @media (max-width: 991px){
+	.partner_heading_title{
+        text-align: center;
+        margin-bottom:20px;
+    }
+	
     .partner_heading{
         width: 80%;
         margin-left: 10%;
+    }
+    
+    .partner_heading .h4-5{
+        text-align: center;
     }
 
 	.partner_container{
 		width: 80%;
 		margin-left: 10%;
 	}
+	
+	.partner_content{
+	   margin-top: 50px;
+       margin-bottom: 50px;
+	}
+	
+	.partner_link{
+       text-align: center;
+	    margin-top: 50px;
+	    font-size: 20px;
+	}
+	
 	.partner_image_container{
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
 }
 /***** partner *****/
