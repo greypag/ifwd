@@ -7181,6 +7181,10 @@ tr.product-landing-error-wrap {
 
 
 /***** partner *****/
+.partner_heading{
+    margin-top: 20px;
+}
+
 .partner_content{
 	margin-top:20px;
 	margin-bottom:20px;
@@ -7196,7 +7200,7 @@ tr.product-landing-error-wrap {
 	margin-bottom: 10px;
 }
 
-.partner_tnc_list .bullets{
+.partner_tnc_list .bullets, .partner_desc_list .bullets{
 	list-style-image: url('../images/li-icon.png');
 	color: #f68a1d;
 	padding: 0px 18px;
@@ -7209,6 +7213,9 @@ tr.product-landing-error-wrap {
 }
 
 @media (min-width: 992px){
+    .partner_heading{
+        margin-top: 20px;
+    }
 	.partner_container{
 	   margin-top: 30px;
 	   margin-bottom: 30px;
@@ -7219,6 +7226,11 @@ tr.product-landing-error-wrap {
 }
 
 @media (max-width: 991px){
+    .partner_heading{
+        width: 80%;
+        margin-left: 10%;
+    }
+
 	.partner_container{
 		width: 80%;
 		margin-left: 10%;
@@ -7426,4 +7438,8 @@ tr.product-landing-error-wrap {
 
 .fwd_partner_title{
 	margin-top:20px;
+}
+
+#userBenefits{
+    width: 100%;
 }

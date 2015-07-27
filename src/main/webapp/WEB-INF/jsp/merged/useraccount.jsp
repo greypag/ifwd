@@ -370,14 +370,12 @@
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
-                                            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
-                                            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
                                         </div>
                                     </td>
                                 </tr>
@@ -453,7 +451,7 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row2.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>
 	                                        <tr>
-	                                            <td rowspan="3">
+	                                            <td rowspan="2">
 	                                                <strong><fmt:message key="member.account.referral.benefits.table.row3.col1" bundle="${msg}" /></strong>
 	                                            </td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row3.col2" bundle="${msg}" /></strong></td>
@@ -465,11 +463,6 @@
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col3" bundle="${msg}" /></strong></td>
 	                                            <td><strong><fmt:message key="member.account.referral.benefits.table.row4.col4" bundle="${msg}" /></strong></td>
 	                                        </tr>
-	                                        <tr>
-                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col2" bundle="${msg}" /></strong></td>
-                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col3.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" target="_blank"><fmt:message key="member.account.referral.benefits.table.row6.col3.part2" bundle="${msg}" /></a></strong></td>
-                                                <td><strong><fmt:message key="member.account.referral.benefits.table.row6.col4" bundle="${msg}" /></strong></td>
-                                            </tr>
 			                                <tr style="text-align:left;">
 			                                  	<td rowspan="2">
 	                                                <strong><fmt:message key="member.account.referral.benefits.table.row5.col1" bundle="${msg}" /></strong>
@@ -627,16 +620,6 @@
                                           
                                           <div class="confirmation-table-margin">
                                               <div class="col-sm-12 col-xs-12">
-                                                  <strong><fmt:message key="member.account.referral.benefits.table.header3" bundle="${msg}" /></strong>
-                                              </div>
-                                              <div class="col-sm-12 col-xs-12">
-                                                  <fmt:message key="member.account.referral.benefits.table.row6.col3.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" target="_blank"><fmt:message key="member.account.referral.benefits.table.row6.col3.part2" bundle="${msg}" /></a>
-                                              </div>
-                                              <div class="clearfix"></div>
-                                          </div>
-                                          
-                                          <div class="confirmation-table-margin">
-                                              <div class="col-sm-12 col-xs-12">
                                                   <strong><fmt:message key="member.account.referral.benefits.table.header4" bundle="${msg}" /></strong>
                                               </div>
                                               <div class="col-sm-12 col-xs-12">
@@ -686,7 +669,6 @@
 			                      </div>
 			                      <p><fmt:message key="member.account.referral.benefits.disclaimer1" bundle="${msg}" /></p>
 	                              <p><fmt:message key="member.account.referral.benefits.disclaimer2.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="member.account.referral.benefits.disclaimer2.part2" bundle="${msg}" /></a><fmt:message key="member.account.referral.benefits.disclaimer2.part3" bundle="${msg}" /></p>
-	                              <p><fmt:message key="member.account.referral.benefits.disclaimer3.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="member.account.referral.benefits.disclaimer3.part2" bundle="${msg}" /></a></p>
                         	   <div class="modal fade details-popup" id="agoda_promo_code_popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
                                   <div class="modal-dialog modal-lg">
                                       <div class="modal-content plan-modal">

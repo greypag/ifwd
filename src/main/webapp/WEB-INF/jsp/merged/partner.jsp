@@ -14,37 +14,56 @@
 		<div class="container mob-pad" id="joinus_form">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="http://localhost:8080/FWDHKPH1A/en/joinus#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li><a href="<%=request.getContextPath()%>/en/joinus#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 					<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="partner.partners.offers" bundle="${msg}" />
 					</li>
 				</ol>
 				
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 partner_heading">
+					<div class="h4-5"><fmt:message key="partner.heading" bundle="${msg}" /></div>
+				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
 					    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-					        <img class="partner_image" src="http://localhost:8080/FWDHKPH1A/resources/images/partner_agoda.png"/>
+					        <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_agoda.png"/>
 					    </div>
 					    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-	                        <div class="partner_title"><fmt:message key="partner.title.agoda" bundle="${msg}" /></div>
-	                        <div class="partner_description h4-5"><fmt:message key="partner.travelCare.description" bundle="${msg}" /></div>
+	                        <div class="partner_title"><fmt:message key="partner.agoda.title" bundle="${msg}" /></div>
+	                        <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc" bundle="${msg}" /></div>
+	                        <div class="partner_desc_list">
+									<ul class="bullets">
+										<li>
+									       <p class="h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></p>
+										</li>
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.agoda.desc2" bundle="${msg}" /></p>
+										</li>
+									</ul>
+	                            </div>
 	                        <div class="partner_tnc">
 	                            <div class="h4-5"><fmt:message key="partner.terms.conditions" bundle="${msg}" /></div>
 	                            <div class="partner_tnc_list">
 									<ul class="bullets">
 										<li>
-									        <p class="h4-5"><fmt:message key="partner.offer.validUntil" bundle="${msg}" /></p>
+									       <p class="h4-5"><fmt:message key="partner.agoda.tnc1" bundle="${msg}" /></p>
 										</li>
 										<li>
-										   <p class="h4-5"><fmt:message key="partner.not.applicable" bundle="${msg}" /></p>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc2" bundle="${msg}" /></p>
 										</li>
 										<li>
-										   <p class="h4-5"><fmt:message key="partner.final.agoda" bundle="${msg}" /></p>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc3" bundle="${msg}" /></p>
+										</li>
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc4" bundle="${msg}" /></p>
+										</li>
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc5" bundle="${msg}" /></p>
 										</li>
 									</ul>
 	                            </div>
 	                        </div>
 	                        <div class="partner_link">
-	                           <a href="#" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
+	                           <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
 	                        </div>
 	                    </div>
 					    <div class="clearfix"></div>
@@ -52,60 +71,68 @@
 					<hr class="partner_hr"/>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
 	                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-	                        <img class="partner_image" src="http://localhost:8080/FWDHKPH1A/resources/images/partner_Boconcept.png"/>
+	                        <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_y5.png"/>
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-	                        <div class="partner_title"><fmt:message key="partner.title.agoda" bundle="${msg}" /></div>
-	                        <div class="partner_description h4-5"><fmt:message key="partner.travelCare.description" bundle="${msg}" /></div>
+	                        <div class="partner_title"><fmt:message key="partner.y5buddy.title" bundle="${msg}" /></div>
+	                        <div class="partner_description h4-5"><fmt:message key="partner.y5buddy.desc" bundle="${msg}" /></div>
+	                        <div class="partner_desc_list">
+									<ul class="bullets">
+										<li>
+									       <p class="h4-5"><fmt:message key="partner.y5buddy.desc1" bundle="${msg}" /></p>
+										</li>
+									</ul>
+	                            </div>
 	                        <div class="partner_tnc">
 	                            <div class="h4-5"><fmt:message key="partner.terms.conditions" bundle="${msg}" /></div>
 	                            <div class="partner_tnc_list">
-	                                <ul class="bullets">
-	                                    <li>
-	                                        <p class="h4-5"><fmt:message key="partner.offer.validUntil" bundle="${msg}" /></p>
-	                                    </li>
-	                                    <li>
-	                                       <p class="h4-5"><fmt:message key="partner.not.applicable" bundle="${msg}" /></p>
-	                                    </li>
-	                                    <li>
-	                                       <p class="h4-5"><fmt:message key="partner.final.agoda" bundle="${msg}" /></p>
-	                                    </li>
-	                                </ul>
+									<ul class="bullets">
+										<li>
+									       <p class="h4-5"><fmt:message key="partner.y5buddy.tnc1" bundle="${msg}" /></p>
+										</li>
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.y5buddy.tnc2" bundle="${msg}" /></p>
+										</li>
+									</ul>
 	                            </div>
 	                        </div>
 	                        <div class="partner_link">
-                               <a href="#" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
-                            </div>
+	                           <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
+	                        </div>
 	                    </div>
 	                    <div class="clearfix"></div>
 	                </div>
 	                <hr class="partner_hr"/>
 	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
 	                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-	                        <img class="partner_image" src="http://localhost:8080/FWDHKPH1A/resources/images/partner_y5.png"/>
+	                        <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png"/>
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-	                        <div class="partner_title"><fmt:message key="partner.title.agoda" bundle="${msg}" /></div>
-	                        <div class="partner_description h4-5"><fmt:message key="partner.travelCare.description" bundle="${msg}" /></div>
+	                        <div class="partner_title"><fmt:message key="partner.boconcept.title" bundle="${msg}" /></div>
+	                        <div class="partner_description h4-5"><fmt:message key="partner.boconcept.desc" bundle="${msg}" /></div>
+	                        <div class="partner_desc_list">
+									<ul class="bullets">
+										<li>
+									       <p class="h4-5"><fmt:message key="partner.boconcept.desc1" bundle="${msg}" /></p>
+										</li>
+									</ul>
+	                            </div>
 	                        <div class="partner_tnc">
 	                            <div class="h4-5"><fmt:message key="partner.terms.conditions" bundle="${msg}" /></div>
 	                            <div class="partner_tnc_list">
-	                                <ul class="bullets">
-	                                    <li>
-	                                        <p class="h4-5"><fmt:message key="partner.offer.validUntil" bundle="${msg}" /></p>
-	                                    </li>
-	                                    <li>
-	                                       <p class="h4-5"><fmt:message key="partner.not.applicable" bundle="${msg}" /></p>
-	                                    </li>
-	                                    <li>
-	                                       <p class="h4-5"><fmt:message key="partner.final.agoda" bundle="${msg}" /></p>
-	                                    </li>
-	                                </ul>
+									<ul class="bullets">
+										<li>
+									       <p class="h4-5"><fmt:message key="partner.boconcept.tnc1" bundle="${msg}" /></p>
+										</li>
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.boconcept.tnc2" bundle="${msg}" /></p>
+										</li>
+									</ul>
 	                            </div>
 	                        </div>
 	                        <div class="partner_link">
-                               <a href="#" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
-                            </div>
+	                           <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
+	                        </div>
 	                    </div>
 	                    <div class="clearfix"></div>
 	                </div>

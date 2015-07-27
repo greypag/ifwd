@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -395,8 +396,13 @@ public class UserController {
 			HttpServletRequest servletRequest, Model model) {
 		try {
 			JSONObject params = new JSONObject();
-			params.put("email", userDetails.getEmailAddress());
-			params.put("mobile", userDetails.getMobileNo());
+			if(!(StringUtils.isEmpty(userDetails.getEmailAddress1()) && StringUtils.isEmpty(userDetails.getMobileNo1()))) {
+				params.put("email", userDetails.getEmailAddress1());
+				params.put("mobile", userDetails.getMobileNo1());
+			}else {
+				params.put("email", userDetails.getEmailAddress());
+				params.put("mobile", userDetails.getMobileNo());
+			}
 			
 			logger.info("USER_FORGOT_USERNAME Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
@@ -405,8 +411,7 @@ public class UserController {
 			logger.info("USER_FORGOT_USERNAME Response " + JsonUtils.jsonPrint(jsonResponse));
 			
 			if (jsonResponse.get("errMsgs") == null) {
-				String userName = jsonResponse.get("userName").toString();
-				return userName.substring(2, userName.length()-2);
+				return jsonResponse.get("userName").toString();
 			} else {
 				return jsonResponse.get("errMsgs").toString();
 			}
@@ -475,6 +480,5 @@ public class UserController {
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
-
 
 }

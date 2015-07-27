@@ -570,7 +570,7 @@ $(document).ready(function() {
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>
+      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /></p>
     </li>
   </ul>
   
@@ -580,9 +580,6 @@ $(document).ready(function() {
     </div>
     <div class="main-partner-2">
     	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
-    </div>
-    <div class="main-partner-3">
-    	<img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="">
     </div>
   </div>
   <div class="spacer3"></div>
