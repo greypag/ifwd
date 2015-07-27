@@ -127,10 +127,17 @@ public class TravelController {
 		
 		if(StringUtils.isEmpty(departureDate)){
 			departureDate = DateApi.formatString(new Date());
+		}else if(!DateApi.isValidDate(departureDate)){
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
+					+ "travel/travel");
 		}
 		if(StringUtils.isEmpty(returnDate)){
 			returnDate = DateApi.formatString(new Date());
+		}else if(!DateApi.isValidDate(returnDate)){
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
+					+ "travel/travel");
 		}
+		
 		travelQuote.setTrLeavingDate(departureDate);
 		travelQuote.setTrBackDate(returnDate);
 
