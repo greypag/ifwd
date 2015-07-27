@@ -87,7 +87,7 @@ $(document).ready(function() {
                                             <h4>
                                                 <%=quetionList.getQuetion()%>
                                             </h4>
-                                            <input type="hidden" id="lblCount" value="<%=lst.size()%>"></input>
+                                            <input type="hidden" id="lblCount" value="${homeCareQuetionariesList.size()}"></input>
                                             <label class="radio radio-warning radio-inline radio-homecare"> <input
                                                 name="home_situated<%=quetionList.getQid()%>"
                                                 id="inlineDeskRadio1a<%=quetionList.getQid()%>"
@@ -155,7 +155,7 @@ $(document).ready(function() {
 						<%=quetionList.getQuetion()%>
 					</h4>
 					<input type="hidden" name="questionCount" id="lblCount"
-						value="<%=lst.size()%>"></input> <label
+						value="${homeCareQuetionariesList.size()}"></input> <label
 						class="radio radio-warning radio-inline radio-homecare"> <input
 						name="home_situated<%=quetionList.getQid()%>"
 						id="inlineDeskRadio2a<%=quetionList.getQid()%>" data-id="home"
@@ -631,7 +631,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<%=bQuetionList.getQuetion()%>
 							</h4>
 							<label class="radio radio-warning radio-inline radio-homecare"> <input
-								type="hidden" id="lblCount" value="<%=blst.size()%>"></input> <input
+								type="hidden" id="lblCount" value="${homeCareQuetionariesList.size()}"></input> <input
 								name="home_situated<%=bQuetionList.getQid()%>"
 								id="inlineDeskRadio3a<%=bQuetionList.getQid()%>" data-id="home"
 								value="<%=bQuetionList.getAnswer1()%>" <%=bQuetionList.getAnswer1Checked()%> type="radio">

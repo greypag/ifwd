@@ -15,11 +15,13 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -434,6 +436,40 @@ public class SavieServiceImpl implements SavieService {
 		else{
 			resultJsonObject.accumulate("Msgs", "data error");
 		}
+		response.setContentType("text/json;charset=utf-8");
+		//return data
+		try {
+			response.getWriter().print(resultJsonObject.toString());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void uploadSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		String path = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\"+request.getParameter("pdfName");
+        logger.info(path);
+		File file=new File(path);
+		BaseResponse br = null;
+		try{
+			byte[] bytes = FileCopyUtils.copyToByteArray(file);;
+			String base64 =new sun.misc.BASE64Encoder().encode(bytes);
+			final Map<String, String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("fileType", ".pdf");
+			parameters.put("documentType", "HKID");
+			parameters.put("originalFilePath", path);
+			parameters.put("base64", base64);
+			br = connector.uploadDocuments(parameters, header);
+		}catch(Exception e) {
+			logger.info("SavieServiceImpl uploadSalesIllustrationPdf occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		JSONObject resultJsonObject = new JSONObject();
+		resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		response.setContentType("text/json;charset=utf-8");
 		//return data
 		try {
