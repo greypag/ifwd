@@ -30,6 +30,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -81,17 +82,8 @@ public class TravelController {
 		String adult = (String)request.getParameter("adult");
 		String child = (String)request.getParameter("child");
 		String other = (String)request.getParameter("other");
-		model.addAttribute("promo", promo);
-		model.addAttribute("departureDate", departureDate);
-		model.addAttribute("returnDate", returnDate);
-		model.addAttribute("plan", plan);
-		model.addAttribute("traveler", traveler);
-		model.addAttribute("adult", adult);
-		model.addAttribute("child", child);
-		model.addAttribute("other", other);
 		
 		UserRestURIConstants.setController("Travel");
-		
 		UserRestURIConstants urc = new UserRestURIConstants(); 
 		urc.updateLanguage(request);
 		
@@ -112,31 +104,44 @@ public class TravelController {
 		
 		if(travelQuote == null){
 			travelQuote = new TravelQuoteBean();
-			
-			travelQuote.setTotalPersonalTraveller((traveler != null && traveler != "") ? Integer.valueOf(traveler) : 1);
-			travelQuote.setTotalAdultTraveller((adult != null && adult != "") ? Integer.valueOf(adult) : 1);
-			travelQuote.setTotalChildTraveller((child != null && child != "") ? Integer.valueOf(child) : 1);
-			travelQuote.setTotalOtherTraveller((other != null && other != "") ? Integer.valueOf(other) : 0);
-			travelQuote.setTrLeavingDate(departureDate);
-			travelQuote.setTrBackDate(returnDate);
-			if(plan != null && plan != "") {
-				travelQuote.setPlanSelected(plan);
-			}else {
+			travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : Integer.valueOf(traveler));
+			travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : Integer.valueOf(adult));
+			travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : Integer.valueOf(child));
+			travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : Integer.valueOf(other));
+			if(StringUtils.isEmpty(plan)) {
 				travelQuote.setPlanSelected("personal");
+			}else {
+				travelQuote.setPlanSelected(plan);
 			}
 		}else {
 			if("personal".equals(plan)) {
-				travelQuote.setTotalPersonalTraveller((traveler != null && traveler != "") ? Integer.valueOf(traveler) : 1);
+				travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : Integer.valueOf(traveler));
 				travelQuote.setPlanSelected(plan);
 			}else if("family".equals(plan)){
-				travelQuote.setTotalAdultTraveller((adult != null && adult != "") ? Integer.valueOf(adult) : 1);
-				travelQuote.setTotalChildTraveller((child != null && child != "") ? Integer.valueOf(child) : 1);
-				travelQuote.setTotalOtherTraveller((other != null && other != "") ? Integer.valueOf(other) : 0);
+				travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : Integer.valueOf(adult));
+				travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : Integer.valueOf(child));
+				travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : Integer.valueOf(other));
 				travelQuote.setPlanSelected(plan);
 			}
-			travelQuote.setTrLeavingDate(departureDate);
-			travelQuote.setTrBackDate(returnDate);
 		}
+		
+		if(StringUtils.isEmpty(departureDate)){
+			departureDate = DateApi.formatString(new Date());
+		}
+		if(StringUtils.isEmpty(returnDate)){
+			returnDate = DateApi.formatString(new Date());
+		}
+		travelQuote.setTrLeavingDate(departureDate);
+		travelQuote.setTrBackDate(returnDate);
+
+		model.addAttribute("promo", promo);
+		model.addAttribute("departureDate", departureDate);
+		model.addAttribute("returnDate", returnDate);
+		model.addAttribute("plan", plan);
+		model.addAttribute("traveler", traveler);
+		model.addAttribute("adult", adult);
+		model.addAttribute("child", child);
+		model.addAttribute("other", other);
 		
 		session.setAttribute("corrTravelQuote", travelQuote);
 		model.addAttribute("travelQuote", travelQuote);
@@ -144,7 +149,7 @@ public class TravelController {
 		/**
 		 * 如果由URL跳转传值将直接进入PLAN页面
 		*/
-		if(departureDate != null && returnDate != null && plan != null && plan != ""){
+		if(plan != null && plan != ""){
 			return getTravelPlan(travelQuote, model, request);
 		}
 		

@@ -90,6 +90,16 @@ public class DateApi {
 		return null;
 	}
 	
+	/**
+	 * 将date转化为日期格式为dd-MM-yyyy的字符串
+	 * @param date
+	 * @return String
+	 */
+	public static String formatString(Date date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		return dateFormat.format(date);
+	}
+	
 	public static String formatString(String date){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 		SimpleDateFormat newDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
