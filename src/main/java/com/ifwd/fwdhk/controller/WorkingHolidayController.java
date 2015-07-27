@@ -101,6 +101,19 @@ public class WorkingHolidayController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
+		
+		String googleRickSnippetBrand ="";
+		String googleRickSnippetName ="";
+		String googleRickSnippetImageUrl ="";
+		String googleRickSnippetImageAlt ="";
+		String googleRickSnippetRating ="";
+		String googleRickSnippetPrice ="";
+		String googleRickSnippetAvailability = "";
+		String googleRickSnippetAvailabilityText ="";
+		String googleRickSnippetDescription1 ="";
+		String googleRickSnippetDescription2 ="";
+		
+		
 		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/working-holiday-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/working-holiday-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("workingholiday.og.title", UserRestURIConstants.getLanaguage(request));
@@ -114,7 +127,37 @@ public class WorkingHolidayController {
 			ogUrl = WebServiceUtils.getPageTitle("workingholiday.sharing.og.url", UserRestURIConstants.getLanaguage(request));
 			ogImage = WebServiceUtils.getPageTitle("workingholiday.sharing.og.image", UserRestURIConstants.getLanaguage(request));
 			ogDescription = WebServiceUtils.getPageTitle("workingholiday.sharing.og.description", UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetBrand =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetBrand",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetName =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetName",
+					UserRestURIConstants.getLanaguage(request));
 			
+			googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetImageUrl",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetImageAlt",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetRating =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetRating",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetPrice =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetPrice",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetAvailability",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetAvailabilityText",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetDescription1",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetDescription2",
+					UserRestURIConstants.getLanaguage(request));
 		}
 		
 		
@@ -134,6 +177,17 @@ public class WorkingHolidayController {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		
+		model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
+		model.addAttribute("googleRickSnippetName", googleRickSnippetName);
+		model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
+		model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
+		model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
+		model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
+		model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
+		model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
+		model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
+		model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday");			
 	}

@@ -151,6 +151,17 @@ public class HomeCareController {
 			String ogImage = "";
 			String ogDescription = "";
 			
+			String googleRickSnippetBrand ="";
+			String googleRickSnippetName ="";
+			String googleRickSnippetImageUrl ="";
+			String googleRickSnippetImageAlt ="";
+			String googleRickSnippetRating ="";
+			String googleRickSnippetPrice ="";
+			String googleRickSnippetAvailability = "";
+			String googleRickSnippetAvailabilityText ="";
+			String googleRickSnippetDescription1 ="";
+			String googleRickSnippetDescription2 ="";
+			
 			if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/home-insurance/sharing/") ||request.getRequestURI().toString().equals(request.getContextPath() + "/en/home-insurance/sharing/")) 
 			{
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", lang);
@@ -168,6 +179,39 @@ public class HomeCareController {
 				}
 				ogImage = WebServiceUtils.getPageTitle("homeCare.og.image", lang);
 				ogDescription = WebServiceUtils.getPageTitle("homeCare.og.description", lang);
+				googleRickSnippetBrand =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetBrand",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetName =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetName",
+						UserRestURIConstants.getLanaguage(request));
+				
+				googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetImageUrl",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetImageAlt",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetRating =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetRating",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetPrice =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetPrice",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetAvailability",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetAvailabilityText",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetDescription1",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetDescription2",
+						UserRestURIConstants.getLanaguage(request));
+				
+				
 			}
 			
 			
@@ -180,6 +224,17 @@ public class HomeCareController {
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			
+			model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
+			model.addAttribute("googleRickSnippetName", googleRickSnippetName);
+			model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
+			model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
+			model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
+			model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
+			model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
+			model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
+			model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
+			model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 			
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";

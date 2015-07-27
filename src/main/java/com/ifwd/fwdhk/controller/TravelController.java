@@ -158,6 +158,18 @@ public class TravelController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
+		
+		String googleRickSnippetBrand ="";
+		String googleRickSnippetName ="";
+		String googleRickSnippetImageUrl ="";
+		String googleRickSnippetImageAlt ="";
+		String googleRickSnippetRating ="";
+		String googleRickSnippetPrice ="";
+		String googleRickSnippetAvailability = "";
+		String googleRickSnippetAvailabilityText ="";
+		String googleRickSnippetDescription1 ="";
+		String googleRickSnippetDescription2 ="";
+		
 		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/travel-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/travel-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
@@ -176,6 +188,39 @@ public class TravelController {
 			ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
 			ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));
 			
+			googleRickSnippetBrand =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetBrand",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetName =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetName",
+					UserRestURIConstants.getLanaguage(request));
+			
+			googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetImageUrl",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetImageAlt",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetRating =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetRating",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetPrice =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetPrice",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetAvailability",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetAvailabilityText",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetDescription1",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
+					"travel.googleRickSnippetDescription2",
+					UserRestURIConstants.getLanaguage(request));
+			
+			
 		}
 		
 		model.addAttribute("pageTitle", pageTitle);
@@ -185,6 +230,17 @@ public class TravelController {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		
+		model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
+		model.addAttribute("googleRickSnippetName", googleRickSnippetName);
+		model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
+		model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
+		model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
+		model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
+		model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
+		model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
+		model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
+		model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");			
 	}
