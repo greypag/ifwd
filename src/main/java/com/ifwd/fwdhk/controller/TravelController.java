@@ -124,37 +124,39 @@ public class TravelController {
 				travelQuote.setPlanSelected(plan);
 			}
 		}
-		
-		if(StringUtils.isEmpty(departureDate)){
-			departureDate = DateApi.formatString(new Date());
-		}else if(!DateApi.isValidDate(departureDate)){
+		/**
+		 * 判断URL是否带数据跟数据验证
+		 */
+		if("".equals(departureDate) || (departureDate != null && !DateApi.isValidDate(departureDate))){
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel");
 		}
 		
-		if(StringUtils.isEmpty(returnDate)){
-			returnDate = DateApi.formatString(new Date());
-		}else if(!DateApi.isValidDate(returnDate)){
+		if("".equals(returnDate) || (returnDate != null && !DateApi.isValidDate(returnDate))){
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel");
 		}
 		
-		if(!StringUtils.isEmpty(plan) && !("personal".equals(plan) || "family".equals(plan))){
+		if(plan != null && !("personal".equals(plan) || "family".equals(plan))){
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "travel/travel");
 		}
 		
-		travelQuote.setTrLeavingDate(departureDate);
-		travelQuote.setTrBackDate(returnDate);
-
-		model.addAttribute("promo", promo);
-		model.addAttribute("departureDate", departureDate);
-		model.addAttribute("returnDate", returnDate);
-		model.addAttribute("plan", plan);
-		model.addAttribute("traveler", traveler);
-		model.addAttribute("adult", adult);
-		model.addAttribute("child", child);
-		model.addAttribute("other", other);
+		if("".equals(promo) || "".equals(traveler) || "".equals(adult) || "".equals(child) || "".equals(other)) {
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
+					+ "travel/travel");
+		}else {
+			travelQuote.setTrLeavingDate(departureDate);
+			travelQuote.setTrBackDate(returnDate);
+			model.addAttribute("promo", promo);
+			model.addAttribute("departureDate", departureDate);
+			model.addAttribute("returnDate", returnDate);
+			model.addAttribute("plan", plan);
+			model.addAttribute("traveler", traveler);
+			model.addAttribute("adult", adult);
+			model.addAttribute("child", child);
+			model.addAttribute("other", other);
+		}
 		
 		session.setAttribute("corrTravelQuote", travelQuote);
 		model.addAttribute("travelQuote", travelQuote);
