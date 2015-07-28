@@ -4,9 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-		<%!
-			boolean isSaleActiveClass = true;
-		%>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+<%!
+	boolean isSaleActiveClass = true;
+%>
 <script type="text/javascript">
 	function applicationSubmit() {
 		var url = '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'saving-insurance/';
@@ -38,22 +40,22 @@
 									<div class="row">
 										<div class="col-md-3">
 											<button type="button" class="orange-menu-btn" id="applicant-header-btn">
-												Applicant
+												<fmt:message key="savie.application.Applicant" bundle="${msg}" />
 											</button>
 										</div>
 										<div class="col-md-3">
 											<button type="button" class="orange-menu-btn" id="employment-header-btn">
-												Employment   
+											    <fmt:message key="savie.application.Employment" bundle="${msg}" />
 											</button>
 										</div>
 										<div class="col-md-3">
 											<button type="button" class="orange-menu-btn" id="beneficiary-header-btn">
-												Beneficiary   
+											    <fmt:message key="savie.application.Beneficiary" bundle="${msg}" />
 											</button>
 										</div>
 										<div class="col-md-3 right-most">
 											<button type="button" class="orange-menu-btn" id="payment-header-btn">
-												Payment
+											    <fmt:message key="savie.application.Payment" bundle="${msg}" />
 											</button>
 										</div>
 									</div>
@@ -61,14 +63,14 @@
 								
 								<div class="dollars-monthly-right">
 									<div class="figures">
-										<span class="single">Single premium</span>
-										<span class="dollars">HK$ <span class="figure">100,000</span></span>
+										<span class="single"><fmt:message key="savie.application.Single.premium" bundle="${msg}" /></span>
+										<span class="dollars"><fmt:message key="savie.application.HK" bundle="${msg}" /> <span class="figure">100,000</span></span>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-xs-12 gray-section">
-							<div class="description">Let’s get to know you a little better.</div>
+							<div class="description"><fmt:message key="savie.application.description" bundle="${msg}" /></div>
 						</div>
 					</div>
 				</div>
@@ -78,8 +80,8 @@
 				<!--Personal Info Widget-->
 				<div class="container-fluid fwd-container">
 					<div id="personal-info" class="personal-info-widget page-application">
-						<h2>Applicant/Insured person info	
-							<button type="button" class="tooltip-button hidden-xs hidden-sm" data-toggle="tooltip" data-placement="right" title="Applicant and the insured must be the same person"><span class="info-tooltip"></span></button>
+						<h2><fmt:message key="savie.application.person.info" bundle="${msg}" />	
+							<button type="button" class="tooltip-button hidden-xs hidden-sm" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.application.tips" bundle="${msg}" />"><span class="info-tooltip"></span></button>
 						</h2>
 						<!-- 
 						<form id="insuredInfoForm" method="post" class="form-horizontal" action="target.jsp" onsubmit="return false">
@@ -89,25 +91,25 @@
 									
 									<div class="clearfix">
 										<div class="left-desktop description">
-											<label for="give-last-name" class="application-page-input-text">Name in English</label>
+											<label for="give-last-name" class="application-page-input-text"><fmt:message key="savie.application.english.name" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name" value="Moses">
-											<input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name" value="Chan">
+											<input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name">
+											<input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name">
 										</div>
 									</div>
 									
 									<div class="clearfix">
 										<div class="left-desktop description">
-											<label for="savieApplicantBean.chineseName" class="application-page-input-text">Name in Chinese <span class="optional">(optional)</span></label>
+											<label for="savieApplicantBean.chineseName" class="application-page-input-text"><fmt:message key="savie.application.chinese.name" bundle="${msg}" /> <span class="optional"><fmt:message key="savie.application.optional" bundle="${msg}" /></span></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="Name in Chinese" value="Lily Liu">
+											<input class="form-control gray-textbox" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="Name in Chinese">
 										</div>
 									</div>
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop description">
-											<label for="savieApplicantBean.hkId" class="application-page-input-text">HKID</label>
+											<label for="savieApplicantBean.hkId" class="application-page-input-text"><fmt:message key="savie.application.HKID" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" placeholder="X123456(7)" pattern="^([A-Z0-9])*$" >
@@ -117,7 +119,7 @@
 									
 									<div class="clearfix">
 										<div class="left-desktop description">
-											<label for="savieApplicantBean.gender" class="application-page-input-text">Gender</label>
+											<label for="savieApplicantBean.gender" class="application-page-input-text"><fmt:message key="savie.application.Gender" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box ">
 											<div class="gender-section">
@@ -126,22 +128,22 @@
 														<label class="pi-male-radio" for="pi-male-now">
 														<input type="radio" id="pi-male-now" name="appGender" value="M" checked>
 														<span class="pi-male-text">
-															<span class="text">Male</span>
+															<span class="text"><fmt:message key="savie.application.Male" bundle="${msg}" /></span>
 														</span>
 														</label>
 														<div class="descriptions male">
-															<span class="desktop-text">Male</span>
+															<span class="desktop-text"><fmt:message key="savie.application.Male" bundle="${msg}" /></span>
 														</div>
 													</div>
 													<div class="pull-left female">
 														<label class="pi-female-radio" for="pi-female-now">
 														<input type="radio" id="pi-female-now" name="appGender" value="F" >
 														<span class="pi-female-text">
-															<span class="text">Female</span>
+															<span class="text"><fmt:message key="savie.application.Female" bundle="${msg}" /></span>
 														</span>
 														</label>
 														<div class="descriptions female">
-															<span class="desktop-text">Female</span>
+															<span class="desktop-text"><fmt:message key="savie.application.Female" bundle="${msg}" /></span>
 														</div>
 														
 													</div>
@@ -153,7 +155,7 @@
 									
 									<div class="clearfix  form-group has-error">
 										<div class="left-desktop description">
-											<label for="savieApplicantBean.maritalStatus" class="application-page-input-text">Marital status</label>
+											<label for="savieApplicantBean.maritalStatus" class="application-page-input-text"><fmt:message key="savie.application.Marital.status" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 
@@ -173,7 +175,7 @@
 								
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop description">
-											<label for="savieApplicantBean.placeOfBirth" class="application-page-input-text">Place of birth</label>
+											<label for="savieApplicantBean.placeOfBirth" class="application-page-input-text"><fmt:message key="savie.application.Place.birth" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<div class="selectDiv">
@@ -190,7 +192,7 @@
 									
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop description">
-											<label for="savieApplicantBean.nationality" class="application-page-input-text">Nationality</label>
+											<label for="savieApplicantBean.nationality" class="application-page-input-text"><fmt:message key="savie.application.Nationality" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<div class="selectDiv">
@@ -207,7 +209,7 @@
 									
 									<div class="clearfix">
 										<div class="left-desktop right-description">
-											<label for="savieApplicantBean.residentialTelNo" class="application-page-input-text">Residential tel no.</label>
+											<label for="savieApplicantBean.residentialTelNo" class="application-page-input-text"><fmt:message key="savie.application.Residential.tel" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box clearfix">
 											<div class="pull-left prefix">
@@ -223,7 +225,7 @@
 							
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop right-description">
-											<label for="savieApplicantBean.mobileNo" class="application-page-input-text">Mobile no.</label>
+											<label for="savieApplicantBean.mobileNo" class="application-page-input-text"><fmt:message key="savie.application.Mobile.no" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<div class="clearfix form-group">
@@ -244,7 +246,7 @@
 									
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop right-description">
-											<label for="savieApplicantBean.emailAddress" class="application-page-input-text">Email address</label>
+											<label for="savieApplicantBean.emailAddress" class="application-page-input-text"><fmt:message key="savie.application.Email.address" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="email" placeholder="Email address">
@@ -255,7 +257,7 @@
 								<div class="col-sm-12 col-md-6 right">
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop right-description">
-											<label for="inputdefault" class="application-page-input-text">Residential address</label>
+											<label for="inputdefault" class="application-page-input-text"><fmt:message key="savie.application.Residential.address" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="Line 1">
@@ -276,7 +278,7 @@
 									
 									<div class="clearfix form-group has-error hidden" id="correspondence-address">
 										<div class="left-desktop right-description">
-											<label for="inputdefault" class="application-page-input-text">Correspondence address</label>
+											<label for="inputdefault" class="application-page-input-text"><fmt:message key="savie.application.Correspondence.address" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="Line 1">
@@ -293,7 +295,7 @@
 												</select>
 											</div>
 											<span class="error-msg" id="resDistrictMessage"></span>
-											<span class="warning-note"><span class="orange">*</span> No P.O. Box address allowed</span>
+											<span class="warning-note"><span class="orange">*</span><fmt:message key="savie.application.No.address.allowed" bundle="${msg}" /></span>
 										</div>
 									</div>
 									
@@ -309,7 +311,7 @@
 														<label for="savieApplicantBean.addressIsSame"></label>
 													</div>
 													<div class="pull-left right-checkbox">
-														<span class="checkbox-text">My correspondance address is same as my residential address</span>
+														<span class="checkbox-text"><fmt:message key="savie.application.correspondance.address.same" bundle="${msg}" /></span>
 													</div>
 												</div>
 											</div>
@@ -318,7 +320,7 @@
 								</div>		
 							</div>
 							<div class="next-btn">
-								<button id="personal-info-next" type="submit" class="btn next pi">Next</button>
+								<button id="personal-info-next" type="button" class="btn next pi"><fmt:message key="savie.application.Next" bundle="${msg}" /></button>
 							</div>
 							<!-- 
 						</form>
@@ -327,13 +329,13 @@
 				</div>
 				<div class="page-divider"></div>
 				<div id="employment-info" class="page-application container-fluid fwd-container">
-					<h2 class="text-center">Employment Info</h2>
+					<h2 class="text-center"><fmt:message key="savie.application.Employment.Info" bundle="${msg}" /></h2>
 					<!-- 
 					<form class="content"  id="employmentInfoForm" method="post" action="application.jsp" onsubmit="return false">
 					 -->
 						<div class="content-left">
 							<div class="clearfix form-group has-error employment-info-row">
-								<label for="savieEmploymentBean.employmentStatus">Employment status</label>
+								<label for="savieEmploymentBean.employmentStatus"><fmt:message key="savie.application.Employment.status" bundle="${msg}" /></label>
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
@@ -345,7 +347,7 @@
 								</div>
 							</div>
 							<div class="clearfix form-group has-error employment-info-row">
-								<label for="savieEmploymentBean.occupation">Occupation</label>
+								<label for="savieEmploymentBean.occupation"><fmt:message key="savie.application.Occupation" bundle="${msg}" /></label>
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
@@ -359,7 +361,7 @@
 						</div>
 						<div class="content-right">
 							<div class="clearfix form-group has-error employment-info-row">
-								<label for="savieEmploymentBean.natureOfBusiness">Nature of business</label>
+								<label for="savieEmploymentBean.natureOfBusiness"><fmt:message key="savie.application.Nature.business" bundle="${msg}" /></label>
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select">
@@ -371,7 +373,7 @@
 								</div>
 							</div>
 							<div class="clearfix form-group has-error employment-info-row">
-								<label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income">Monthly personal income (HK$)</label>
+								<label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income"><fmt:message key="savie.application.Monthly.personal.income" bundle="${msg}" /></label>
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
@@ -384,7 +386,7 @@
 							</div>
 						</div>
 						<div class="button-row text-center">
-								<button id="employment-info-next" type="submit" class="next">Next</button>
+								<button id="employment-info-next" type="button" class="next"><fmt:message key="savie.application.Next" bundle="${msg}" /></button>
 						</div>
 						<!-- 
 					</form>
@@ -396,8 +398,8 @@
 				</div>-->
 				<div id="beneficiary-info" class="page-application container-fluid fwd-container">
 					<div class="beneficiary-info-header">
-						<h2 class="text-center">Beneficiary info <button type="button" class="tooltip-button hidden-xs hidden-sm" data-toggle="tooltip" data-placement="right" title="Beneficiary Info"><span class="info-tooltip"></span></button></h2>
-						<h4 class="text-center">You can add up to three (3) persons</h4>
+						<h2 class="text-center"><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <button type="button" class="tooltip-button hidden-xs hidden-sm" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" />"><span class="info-tooltip"></span></button></h2>
+						<h4 class="text-center"><fmt:message key="savie.application.You.add.up" bundle="${msg}" /></h4>
 					</div>
 						<div class="row clearfix">
 						<!-- 
@@ -410,45 +412,45 @@
 											<label class="own-estate-radio" for="own-estate-now">
 											<input type="radio" id="own-estate-now" name="savieBeneficiaryBeans[0].ownEstate" value="own-estate-now" >
 											<span class="own-estate-text">
-												<span class="text">Own Estate</span>
+												<span class="text"><fmt:message key="savie.application.Own.Estate" bundle="${msg}" /></span>
 											</span>
 											</label>
 											<span class="description">
-												Own Estate
+												<fmt:message key="savie.application.Own.Estate" bundle="${msg}" />
 											</span>
 										</div>
 										<div class="left-desktop">
 											<label class="name-others-radio" for="name-others-now">
 											<input type="radio" id="name-others-now" name="savieBeneficiaryBeans[0].ownEstate" value="name-others-now" checked>
 											<span class="name-others-text">
-												<span class="text">Name Others</span>
+												<span class="text"><fmt:message key="savie.application.Name.Others" bundle="${msg}" /></span>
 											</span>
 											</label>
 											<span class="description">
-												Name Others
+												<fmt:message key="savie.application.Name.Others" bundle="${msg}" />
 											</span>
 										</div>
 									</div>
 								</div>
 								<div id="beneficiary-contents" class="">
-									<h3 class="mobile-desc hidden-md hidden-lg">Beneficiary <span>(Person 1)</span></h3>
+									<h3 class="mobile-desc hidden-md hidden-lg"><fmt:message key="savie.application.Beneficiary" bundle="${msg}" /> <span><fmt:message key="savie.application.Person1" bundle="${msg}" /></span></h3>
 									<div class="form-group has-error beneficiary-info-row">
-										<label for="savieBeneficiaryBean[0].firstName">Name in English</label>
+										<label for="savieBeneficiaryBean[0].firstName"><fmt:message key="savie.application.english.name" bundle="${msg}" /></label>
 										<input type="text" id="savieBeneficiaryBean[0].fullName" hidden>
 										<input type="text" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBean[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">
 										<span class="error-msg" id="beneficiaryFnameMessage[0]"></span>
 										<input type="text" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBean[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="Last name" maxlength="25">
 										<span class="error-msg" id="beneficiaryLnameMessage[0]"></span>
-										<span class="dup-error-msg hidden" id="duplicate-english-name[0]">Duplicate English Name</span>
+										<span class="dup-error-msg hidden" id="duplicate-english-name[0]"><fmt:message key="savie.application.Duplicate.English.Name" bundle="${msg}" /></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
-										<label for="savieBeneficiaryBean[0].chineseName">Name in Chinese <span class="optional">(optional)</span></label>
+										<label for="savieBeneficiaryBean[0].chineseName"><fmt:message key="savie.application.chinese.name" bundle="${msg}" /> <span class="optional"><fmt:message key="savie.application.optional" bundle="${msg}" /></span></label>
 										<input type="text" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBean[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">
 										<span class="error-msg" id="beneficiaryChineseNameMessage[0]"></span>
-										<span class="dup-error-msg hidden" id="duplicate-chinese-name[0]">Duplicate Chinese Name</span>
+										<span class="dup-error-msg hidden" id="duplicate-chinese-name[0]"><fmt:message key="savie.application.Duplicate.Chinese.Name" bundle="${msg}" /></span>
 									</div>
 									<div class="form-group beneficiary-info-row">
-										<label for="savieBeneficiaryBean[0].hkId">HKID / Passport No</label>
+										<label for="savieBeneficiaryBean[0].hkId"><fmt:message key="savie.application.HKID.Passport.No" bundle="${msg}" /></label>
 										<!--<select class="selectpicker" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" data-style="application-select">
 											<option disabled selected>- Please select -</option>
 											<option>Lorem ipsum</option>
@@ -472,30 +474,30 @@
 										</div>
 										<span class="error-msg" id="bnfPassportMessage[0]"></span>
 										<span class="error-msg" id="hkidOrPassportMessage[0]"></span>
-										<span class="dup-error-msg hidden" id="duplicate-beneficiaries[0]">Duplicate Beneficiaries HKID</span>
-										<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport[0]">Duplicate Beneficiaries Passport</span>
+										<span class="dup-error-msg hidden" id="duplicate-beneficiaries[0]"><fmt:message key="savie.application.Duplicate.Beneficiaries.HKID" bundle="${msg}" />Duplicate Beneficiaries HKID</span>
+										<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport[0]"><fmt:message key="savie.application.Duplicate.Beneficiaries.Passport" bundle="${msg}" /></span>
 									</div>
 									
 									<div class="beneficiary-info-row">
-										<label for="savieBeneficiaryBean[0].gender">Gender</label>
+										<label for="savieBeneficiaryBean[0].gender"><fmt:message key="savie.application.Gender" bundle="${msg}" /></label>
 										<div id="gender-0" class="clearfix radio-buttons">
 											<input type="radio" name="savieBeneficiaryBean[0].gender" value="male" id="male-0" checked>
 											<label for="male-0" class="male-0" >
-												<span class="hidden-lg hidden-md">Male</span>
+												<span class="hidden-lg hidden-md"><fmt:message key="savie.application.Male" bundle="${msg}" /></span>
 												<span class="orange-hover hidden-xs hidden-sm pull-left"></span>
 											</label>
-											<span id="male-label-0" class="pull-left second-label">Male</span>
+											<span id="male-label-0" class="pull-left second-label"><fmt:message key="savie.application.Male" bundle="${msg}" /></span>
 
 											<input type="radio" name="savieBeneficiaryBean[0].gender" value="female" id="female-0">
 											<label for="female-0" class="female">
-												<span class="hidden-lg hidden-md">Female</span>
+												<span class="hidden-lg hidden-md"><fmt:message key="savie.application.Female" bundle="${msg}" /></span>
 												<span class="orange-hover hidden-xs hidden-sm pull-left"></span>
 											</label>
-											<span id="female-label-0" class="pull-left second-label-female">Female</span>
+											<span id="female-label-0" class="pull-left second-label-female"><fmt:message key="savie.application.Female" bundle="${msg}" /></span>
 										</div>
 									</div>
 									<div class="form-group has-error beneficiary-info-row relationship">
-										<label for="savieBeneficiaryBean[0].relationship">Relationship with you</label>
+										<label for="savieBeneficiaryBean[0].relationship"><fmt:message key="savie.application.Relationship.with.you" bundle="${msg}" /></label>
 										<!--<select class="selectpicker" id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
 											<option disabled selected>- Please select -</option>
 											<option>Lorem ipsum</option>
@@ -512,7 +514,7 @@
 										<span class="error-msg" id="relationshipMessage[0]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row entitle">
-										<label for="savieBeneficiaryBean[0].entitlement">Entitlement (%)</label>
+										<label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="savie.application.Entitlement" bundle="${msg}" /></label>
 										<input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="" maxlength="3" oninput="maxLengthCheck(this)"  max="101" min ="1"/>
 										<span class="error-msg" id="entitlementMessage[0]"></span>
 									</div>		                
@@ -525,19 +527,19 @@
 							<div id="add-beneficiary-1" class="col-md-4">
 								<div class="add-beneficiary" id="beneficiary1">
 									<button id="add-beneficiary-button-2" value="1" class="circle" type="button"><img src="<%=request.getContextPath()%>/resources/images/savie/orange-plus.png"></button>
-									<div class="add-beneficiary-text"><h4>Add beneficiary</h4></div>
+									<div class="add-beneficiary-text"><h4><fmt:message key="savie.application.Add.beneficiary" bundle="${msg}" /></h4></div>
 								</div>
 							</div>
 
 							<div id="add-beneficiary-2" class="col-md-4 last-row">  
 								<div class="add-beneficiary" id="beneficiary2">
 									<button id="add-beneficiary-button-3" value="2" class="circle" type="button"><img src="<%=request.getContextPath()%>/resources/images/savie/orange-plus.png"></button>
-									<div class="add-beneficiary-text"><h4>Add beneficiary</h4></div>
+									<div class="add-beneficiary-text"><h4><fmt:message key="savie.application.Add.beneficiary" bundle="${msg}" /></h4></div>
 								</div>
 							</div>
 						</div>
 						<div class="button-row text-center btn-beneficiary">
-							<button id="beneficiary-info-next" type="button" class="next">Next</button>
+							<button id="beneficiary-info-next" type="button" class="next"><fmt:message key="savie.application.Next" bundle="${msg}" /></button>
 						</div>              
 				  
 				</div>
@@ -545,44 +547,44 @@
 
 				<div id="payment" class="container-fluid fwd-container">
 					<div class="fwd-payment page-application">
-						<h2 class="text-center payment-h2">Payment</h2>
+						<h2 class="text-center payment-h2"><fmt:message key="savie.application.Payment" bundle="${msg}" /></h2>
 						<!-- 
 						<form>
 						 -->
 							<div class="pay-online desktop-left">
 								<input type="radio" value="true" id="pay-online-radio" name="saviePaymentBean.paymentType" checked/>
-								<label for="pay-online-radio">Pay online (Direct debit authorisation)</label>
-								<span id="pay-online-label" class="pay-ol">Pay online <span class="more-details">(Direct debit authorisation)</span></span>
+								<label for="pay-online-radio"><fmt:message key="savie.application.Pay.online" bundle="${msg}" /> <fmt:message key="savie.application.Direct.debit.authorisation" bundle="${msg}" /></label>
+								<span id="pay-online-label" class="pay-ol"><fmt:message key="savie.application.Pay.online" bundle="${msg}" /> <span class="more-details"><fmt:message key="savie.application.Direct.debit.authorisation" bundle="${msg}" /></span></span>
 							</div>                        
 							<div class="pay-later desktop-left">
 								<input type="radio" value="false" id="pay-later-radio" name="saviePaymentBean.paymentType"  />
-								<label for="pay-later-radio">Pay later (Pay at the storefront)</label>
-								<span id="pay-later-label" class="pay-la hidden-xs hidden-sm">Pay later <span class="more-details">(Pay at the storefront)</span></span>
+								<label for="pay-later-radio"><fmt:message key="savie.application.Pay.later" bundle="${msg}" /> <fmt:message key="savie.application.Pay.at.the.storefront" bundle="${msg}" /></label>
+								<span id="pay-later-label" class="pay-la hidden-xs hidden-sm"><fmt:message key="savie.application.Pay.later" bundle="${msg}" /> <span class="more-details"><fmt:message key="savie.application.Pay.at.the.storefront" bundle="${msg}" /></span></span>
 							</div>
 
 							<div id="payment-content" class="row payment-row">
 								<div class="col-xs-12 col-md-6 clearfix">
 									<div class="form-group margintop-pad clearfix">
 										<div class="margintop padding-none col-xs-12 col-md-4">
-											<label for="saviePaymentBean.amount">Amount</label>
+											<label for="saviePaymentBean.amount"><fmt:message key="savie.application.Amount" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											<!--<span class="payment-link">HK$ 430,000 </span>-->
-											HK$ 100,000<input type="hidden" name="saviePaymentBean.amount" id="amount" value="100000"/>
+											<fmt:message key="savie.application.HK" bundle="${msg}" /> 100,000<input type="hidden" name="saviePaymentBean.amount" id="amount" value="100000"/>
 										</div>
 									</div>
 									<div class="topside-pad form-group clearfix">
 										<div class="padding-none col-xs-12 col-md-4">
-											<label for="saviePaymentBean.paymentMethod">Payment method</label>
+											<label for="saviePaymentBean.paymentMethod"><fmt:message key="savie.application.Payment.method" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											<!--<span id="saviePaymentBean.paymentMethod" class="payment-link">Direct debit</span>-->
-											Direct debit<input type="hidden" name="saviePaymentBean.paymentMethod" id="paymentMethod" value="Direct debit"/>
+											<fmt:message key="savie.application.Direct.debit" bundle="${msg}" /><input type="hidden" name="saviePaymentBean.paymentMethod" id="paymentMethod" value="Direct debit"/>
 										</div>
 									</div>
 									<div class="topside-bank form-group clearfix">
 										<div class="padding-none col-xs-12 col-md-4">
-											<label for="saviePaymentBean.bankName">Bank account holder name</label>
+											<label for="saviePaymentBean.bankName"><fmt:message key="savie.application.Bank.account.name" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											Andy Lau<input type="hidden" name="saviePaymentBean.bankAccountHolderName" id="bankAccountHolderName" value="Andy Lau"></input>
@@ -592,7 +594,7 @@
 								<div class="col-xs-12 col-md-6 clearfix leftside-pad">
 									<div class="paddingbottom form-group clearfix">
 										<div class="padding-none name-top col-xs-12 col-md-4">
-											<label for="saviePaymentBean.bankName">Bank name (Code)</label>
+											<label for="saviePaymentBean.bankName"><fmt:message key="savie.application.Bank.name" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											<div class="selectDiv">
@@ -608,7 +610,7 @@
 									</div>
 									<div class="form-group clearfix">
 										<div class="padding-none name-top col-xs-12 col-md-4">
-											<label for="saviePaymentBean.accountNo">Account no</label>
+											<label for="saviePaymentBean.accountNo"><fmt:message key="savie.application.Account.no" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											<input id="saviePaymentBean.accountNo" name="saviePaymentBean.accountNo" class="form-control gray-textbox" type="text" placeholder="Account no" />
@@ -616,7 +618,7 @@
 									</div>               
 									<div class="form-group paddingbottom clearfix">
 										<div class="padding-none name-top col-xs-12 col-md-4">
-											<label for="saviePaymentBean.branchName">Branch name</label>
+											<label for="saviePaymentBean.branchName"><fmt:message key="savie.application.Branch.name" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
 											<div class="selectDiv">
@@ -641,10 +643,10 @@
 							<div id="payment-policy" class="form-group policy-group">                        
 								<input id="saviePaymentBean.paymentConfirmAuthorize" name="saviePaymentBean.paymentConfirmAuthorize" type="checkbox" value="true" />
 								<label for="saviePaymentBean.paymentConfirmAuthorize"></label>
-								<p class="policy-p">I, as Policy owner, confirm that I am not acting on behalf of any other person, that the above payment is made on my own behalf, and that I authorize FWD Life Insurance Company (Bermuda) Limited, until further written notice, to debit the account listed above to pay the insurance premium.</p>
+								<p class="policy-p"><fmt:message key="savie.application.Policy.info" bundle="${msg}" /></p>
 							</div>
 							<div class="text-center">
-								<button id="application-proceed-btn" type="button" class="next" onclick="applicationSubmit();">Proceed</button>
+								<button id="application-proceed-btn" type="button" class="next" onclick="applicationSubmit();"><fmt:message key="savie.application.Proceed" bundle="${msg}" /></button>
 							</div>
 							<!--  
 						</form>
