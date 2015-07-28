@@ -463,14 +463,12 @@
 				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
 						            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
 						            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
-						            <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" ">
 				                </div>
 				                <div class="clearfix"></div>
 				                <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
 				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                     <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                                     <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
-                                    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" " style="margin-bottom:20px;">
 				                </div>
 				                <div class="clearfix"></div>
 								<div class="h4-2 margin-left">
