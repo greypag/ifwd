@@ -47,6 +47,13 @@ $(function() {
 			isErrorFlag = true;
 		} else {
 			$('#phoneErrMsg').addClass('hideSpan');
+
+			var firstNum = $('#teaserPhoneNo').val().substr(0, 1);
+			switch(firstNum) {
+				case "1": case "4": case "6": case "8": case "0":
+					$('#phoneErrMsg').html("Invalid telephone number.").removeClass('hideSpan');
+					isErrorFlag = true;
+			}
 		}
 		
 		// Agreed terms and condition

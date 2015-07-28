@@ -64,7 +64,7 @@
 		<div class="form-group">
 			<input type="email" placeholder="Please enter your email address" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input type="tel" placeholder="(Optional) Enter your telephone no." class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="11" min="1" oninput="maxLengthReview(this)"> 
+			<input type="tel" placeholder="(Optional) Enter your telephone no." class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 		</div>
 		<div class="clearfix">
@@ -96,7 +96,7 @@
 		<div class="row row-top text-center">
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
-					<h2>Save and earn</h2>
+					<h2>Save and Earn</h2>
 					<h3>with Ease</h3>
 					<img src="<%=request.getContextPath()%>/resources/images/savie/big-on-savings.png">
 					<p> Savie provides <span>guaranteed annual crediting rate 3% for first 2 policy years </span>and <span>guaranteed annual crediting rate 4% for the 3rd policy years,</span> allowing you a smart way to plan ahead for something BIG.</p>

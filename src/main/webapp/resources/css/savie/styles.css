@@ -61,6 +61,10 @@ body {
 	font-size: 36px
 }
 
+.fwd-savie-wrapper .mob-header .navbar-brand {
+	height: auto;
+}
+
 .fwd-savie-wrapper a, .fwd-savie-wrapper a:focus, .fwd-savie-wrapper a:hover,
 	.fwd-savie-wrapper .btn:focus, .fwd-savie-wrapper .btn:active,
 	.fwd-savie-wrapper .btn:hover, .fwd-savie-wrapper .btn:active:focus {
