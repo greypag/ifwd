@@ -87,13 +87,13 @@
 							<div class="row margin">
 								<div class="col-sm-12 col-md-6 left">
 									
-									<!--<div class="clearfix">
+									<div class="clearfix">
 										<div class="left-desktop description">
 											<label for="give-last-name" class="application-page-input-text">Name in English</label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name" value="Moses" disabled>
-											<input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name" value="Chan" disabled>
+											<input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name" value="Moses">
+											<input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name" value="Chan">
 										</div>
 									</div>
 									
@@ -102,10 +102,9 @@
 											<label for="savieApplicantBean.chineseName" class="application-page-input-text">Name in Chinese <span class="optional">(optional)</span></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="Name in Chinese" value="Lily Liu" disabled>
+											<input class="form-control gray-textbox" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="Name in Chinese" value="Lily Liu">
 										</div>
 									</div>
-									-->
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop description">
 											<label for="savieApplicantBean.hkId" class="application-page-input-text">HKID</label>
@@ -180,7 +179,7 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
-													<option selected disabled value="">- Please select -</option>
+													<option selected value="">- Please select -</option>
 													<option value="US">US</option>
 													<option value="Germany">Germany</option>	
 												</select>
@@ -197,7 +196,7 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
-													<option selected disabled value="">- Please select -</option>
+													<option selected value="">- Please select -</option>
 													<option value="US">US</option>
 													<option value="Germany">Germany</option>	
 												</select>
@@ -266,7 +265,7 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
-													<option selected disabled value="">District</option>
+													<option selected value="">District</option>
 													<option value="US">US</option>
 													<option value="Germany">Germany</option>	
 												</select>
@@ -288,7 +287,7 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
-													<option selected disabled value="">District</option>
+													<option selected value="">District</option>
 													<option value="US">US</option>
 													<option value="Germany">Germany</option>	
 												</select>
@@ -338,7 +337,7 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
-										<option selected disabled value="">- Please select -</option>
+										<option selected value="">- Please select -</option>
 										<option value="employed">Employed</option>
 										<option value="self-employed">Self Employed</option>	
 									</select>
@@ -350,7 +349,7 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
-										<option selected disabled value="">- Please select -</option>
+										<option selected value="">- Please select -</option>
 										<option value="it">IT</option>
 										<option value="others">Others</option>	
 									</select>
@@ -364,7 +363,7 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select">
-										<option selected disabled value="">- Please select -</option>
+										<option selected value="">- Please select -</option>
 										<option value="it">IT</option>
 										<option value="others">Others</option>	
 									</select>
@@ -376,7 +375,7 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
-										<option selected disabled value="">- Please select -</option>
+										<option selected value="">- Please select -</option>
 										<option value="10,000">10,000</option>
 										<option value="others">Others</option>	
 									</select>
@@ -505,7 +504,7 @@
 										<div class="selectBeneficiary">
 											<span class="icon-chevron-thin-down orange-caret"></span>
 											<select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
-												<option selected disabled value="">- Please select -</option>
+												<option selected value="">- Please select -</option>
 												<option value="father">Father</option>
 												<option value="mother">Mother</option>	
 											</select>

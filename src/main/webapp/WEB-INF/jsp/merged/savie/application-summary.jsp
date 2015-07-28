@@ -64,35 +64,35 @@
 															<p>Last name</p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col name-pad">
-															<p>Lau</p>
+															<p>${savieDetail.savieApplicantBean.lastName }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3 name-pad">
 															<p>Given Name</p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col name-pad">
-															<p>Andy</p>
+															<p>${savieDetail.savieApplicantBean.firstName }</p>
 														</div>					                                
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p>Name in Chinese</p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col chinese">
-															<p>劉德華</p>
+															<p>${savieDetail.savieApplicantBean.chineseName }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p>HKID</p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>X123456(7)</p>
+															<p>${savieDetail.savieApplicantBean.hkId }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p>Gender</p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>Male</p>
+															<p>${savieDetail.savieApplicantBean.gender }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
