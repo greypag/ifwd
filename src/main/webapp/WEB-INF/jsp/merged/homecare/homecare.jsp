@@ -277,11 +277,6 @@ $(document).ready(function() {
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-right:15px;">
 				  </div>
-				  <div class="col-xs-12 col-sm-12 hidden-lg hidden-md main-partner" style="text-align:center;">
-				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-				    <br>
-				    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-bottom:15px;">
-				  </div>
 
 				<div class="spacer1"></div>
 
@@ -307,6 +302,53 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				</p>-->
 			</div>
 			<!--/.container-->
+			<div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+				  <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
+				  <div class="carousel slide">
+				    <div class="carousel-inner">
+				      <div class="item active">
+				          <div class="slide-margin">
+				            <div class="other-benefits-wrap text-center">
+				              <div class="other-benefits-inner">
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>
+				              </div>
+				            </div>
+				          </div>
+				      </div>
+				      <!--/.item-->
+				      <div class="item" >
+				          <div class="slide-margin">
+				            <div class="other-benefits-wrap text-center">
+				              <div class="other-benefits-inner">
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
+				              </div>
+				            </div>
+				          </div>
+				      </div>
+				      <!--/.item-->
+				    </div>
+				    <!--/.carousel-inner--> 
+				    <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+				    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+				  </div>
+				  <!--/.carousel-->
+				  <div class="clearfix"></div>
+				  
+				  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
+				  	<div class="col-lg-12 col-md-12 col-xs-12">
+				    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+				    </div>
+				    <div class="col-lg-12 col-md-12 col-xs-12">
+				    	<img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-bottom:15px;">
+				    </div>
+				  </div>
+
+				  <div class="spacer3"></div>
+				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
+				  
+				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" /></p>
+				<!--/.container-->
+				</div>
 		</div>
 	</section>
 
