@@ -28,7 +28,7 @@
 				        </p>
 				    </div>
 			        <div class="col-md-12 col-lg-12 pad-none faq_menu">
-			            <div class="faq_menu_item active" onclick="faqChangeCare(this, 'wh');"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>
+			            <div class="faq_menu_item active" onclick="faqChangeCare(this, 'wh');" style="width: 270px;"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>
 			            <div class="faq_menu_item" onclick="faqChangeCare(this, 'f');"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
 			            <div class="faq_menu_item" onclick="faqChangeCare(this, 't');"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
 			            <div class="faq_menu_item" onclick="faqChangeCare(this, 'h');"><fmt:message key="faq.home.care" bundle="${msg}" /></div>
