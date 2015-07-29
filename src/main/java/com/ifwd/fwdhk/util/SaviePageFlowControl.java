@@ -14,24 +14,24 @@ public class SaviePageFlowControl {
 	private final static Logger logger = LoggerFactory
 			.getLogger(SaviePageFlowControl.class);
 
-	public static ModelAndView pageFlow(Model model, HttpServletRequest request) {
+	public static ModelAndView pageFlow(Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
 
-		String pageTitle = WebServiceUtils.getPageTitle("page.savie",
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-				"meta.savie", UserRestURIConstants.getLanaguage(request));
-		String ogTitle = WebServiceUtils.getPageTitle("savie.og.title",
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
 				UserRestURIConstants.getLanaguage(request));
-		String ogType = WebServiceUtils.getPageTitle("savie.og.type",
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
 				UserRestURIConstants.getLanaguage(request));
-		String ogUrl = WebServiceUtils.getPageTitle("savie.og.url",
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
 				UserRestURIConstants.getLanaguage(request));
-		String ogImage = WebServiceUtils.getPageTitle("savie.og.image",
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
 				UserRestURIConstants.getLanaguage(request));
 		String ogDescription = WebServiceUtils.getPageTitle(
-				"savie.og.description",
+				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
 
 		model.addAttribute("pageTitle", pageTitle);
@@ -45,20 +45,31 @@ public class SaviePageFlowControl {
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
-			referer = referer.substring(referer.lastIndexOf("/") + 1);
+			//referer = referer.substring(referer.lastIndexOf("/") + 1);
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
+				referer = UserRestURIConstants.PAGE_SAVIE_LANDING;
+			} else {
+				referer = getSaviePage(referer);
+			}
 		}
 
 		if (current != null) {
-			current = current.substring(current.lastIndexOf("/") + 1);
+			//current = current.substring(current.lastIndexOf("/") + 1);
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
+				current = UserRestURIConstants.PAGE_SAVIE_LANDING;
+			} else {
+				current = getSaviePage(current);
+			}
 		}
 
 		// Landing Page
 		String to = "";
 		String to2 = "";
 
-		if (current.equalsIgnoreCase("saving-insurance")) {
+
+		/*if (current.equalsIgnoreCase("saving-insurance")) {
 			current = UserRestURIConstants.PAGE_SAVIE_LANDING;
-		}
+		}*/
 
 		logger.debug("referer : " + referer);
 		logger.debug("current : " + current);
@@ -149,7 +160,7 @@ public class SaviePageFlowControl {
 
 		logger.debug("nextPageFlow : " + to);
 		logger.debug("nextPageFlow2 : " + to2);
-		// to=UserRestURIConstants.getSitePath(request)+ "saving-insurance/"+
+		// to=UserRestURIConstants.getSitePath(request)+ "savings-insurance/"+
 		// to;
 		// logger.debug("return to : " + to);
 
@@ -164,6 +175,54 @@ public class SaviePageFlowControl {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "savie/" + current);
 
+	}
+	
+	public static String getSaviePage(String url)
+	{		
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_LANDING)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_LANDING;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
+		}		
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_FNA)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_FNA;
+		}		
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION;
+		}		
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_APPLICATION)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_APPLICATION;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_DECLARATIONS)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_DECLARATIONS;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_SIGNATURE)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
+		}
+		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED)>0) {
+			return UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+		}
+		return "";
+		
 	}
 
 }

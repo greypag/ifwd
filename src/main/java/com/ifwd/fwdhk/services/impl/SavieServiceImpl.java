@@ -1,7 +1,11 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -11,11 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.codec.binary.StringUtils;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -302,7 +309,8 @@ public class SavieServiceImpl implements SavieService {
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
 			attributeList.add(new PdfAttribute("chineseName", request.getParameter("chineseName")));
 			attributeList.add(new PdfAttribute("gender", request.getParameter("gender")));
-			attributeList.add(new PdfAttribute("dateTime",request.getParameter("dateTime")));
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			attributeList.add(new PdfAttribute("dateTime",format.format(new Date())));
 			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));
 			attributeList.add(new PdfAttribute("age", request.getParameter("age")));
 			attributeList.add(new PdfAttribute("paymentMethod", request.getParameter("paymentMethod")));
@@ -402,10 +410,14 @@ public class SavieServiceImpl implements SavieService {
 			}
 			String name = null;
 			BaseResponse br = null;
+			String pdfTemplatePath = null;
+			String pdfGeneratePath = null;
 			try {
-				String pdfPath = this.getClass().getResource("/").toString()+"SavieProposalTemplateChi3.pdf";
-				logger.info(pdfPath);
-				name = PDFGeneration.generatePdf2(pdfPath,"E:\\template\\",attributeList,false,"All rights reserved, copy");
+				//pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
+				//pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"pdf\\\\";
+				pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"SavieProposalTemplateChi3.pdf";
+				pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
 				parameters.put("lastName", "Lau");
@@ -425,6 +437,40 @@ public class SavieServiceImpl implements SavieService {
 		else{
 			resultJsonObject.accumulate("Msgs", "data error");
 		}
+		response.setContentType("text/json;charset=utf-8");
+		//return data
+		try {
+			response.getWriter().print(resultJsonObject.toString());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void uploadSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		String path = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\"+request.getParameter("pdfName");
+        logger.info(path);
+		File file=new File(path);
+		BaseResponse br = null;
+		try{
+			byte[] bytes = FileCopyUtils.copyToByteArray(file);;
+			String base64 =new sun.misc.BASE64Encoder().encode(bytes);
+			final Map<String, String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("fileType", ".pdf");
+			parameters.put("documentType", "HKID");
+			parameters.put("originalFilePath", path);
+			parameters.put("base64", base64);
+			br = connector.uploadDocuments(parameters, header);
+		}catch(Exception e) {
+			logger.info("SavieServiceImpl uploadSalesIllustrationPdf occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		JSONObject resultJsonObject = new JSONObject();
+		resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
 		response.setContentType("text/json;charset=utf-8");
 		//return data
 		try {
@@ -769,6 +815,40 @@ public class SavieServiceImpl implements SavieService {
 		 return br;
 	}
 	
+	@Override
+	public BaseResponse sendMessagesEmail(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
+			header.put("language", "ZH");
+			String to = request.getParameter("to");
+			String message = request.getParameter("message");
+			String subject = request.getParameter("subject");// "html testing";
+			if("".equals(subject) || subject == null){
+				subject = "html testing";
+			}
+			String attachment = request.getParameter("attachment");
+			String from = "sit@ecomm.fwd.com";
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			
+			br = connector.sendEmail(parameters,header);
+		}catch(Exception e){
+			
+			logger.info("SavieServiceImpl sendLead occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+
+		 return br;
+	}
 	
 	@SuppressWarnings("unchecked")
 	@Override

@@ -14,6 +14,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -167,7 +168,7 @@ public class ECommWsConnector {
 				ObjectMapper mapper = new ObjectMapper();
 				String requestStr = mapper.writeValueAsString(requestBody);
 				logger.debug("requestStr: " + requestStr);
-				method.setEntity(new StringEntity(requestStr));
+				method.setEntity(new StringEntity(requestStr,"UTF-8"));
 			}
 			return client.execute(method, newResponseHandler(responseClazz));
 		} catch (IOException | URISyntaxException e) {

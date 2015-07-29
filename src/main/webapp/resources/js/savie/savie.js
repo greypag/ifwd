@@ -1,5 +1,6 @@
 var items = [[],[],[],[]];
 var guaranteed3Years;
+var contextPath = window.location.pathname.split("/")[1];
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
@@ -32,17 +33,15 @@ $(function () {
 		//setAtt("birthday", $('#birthday').val())
 		$('#birthdayMsg').html('');
 	});
-	getSavieIllustration();
+	getSaviePlanDetails();
 });
 
 
-function getSavieIllustration() {
+function getSaviePlanDetails() {
 	var amount = $('#R').val();
 	var promocode = $('#promocode').val();
 	var birthOfDay = $('#birthOfDay').val();
 	
-	var hostPath = window.location.host;
-	var contextPath = window.location.pathname.split("/")[1];
 	
 	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
@@ -59,7 +58,7 @@ function getSavieIllustration() {
 	}
 	else{
 		$('#promo-code-dateOfBirth').addClass('hidden');
-		$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/planDetails/get',
+		$.get('/'+contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,
 			issueAge: issueAge,
@@ -178,8 +177,6 @@ function getguaranteed3Years(){
 
 function createPdf() {
 	//var amount = $('#R').val();
-	var hostPath = window.location.host;
-	var contextPath = window.location.pathname.split("/")[1];
 	
 	var chineseName = "劉德華";
 	var gender = "男";
@@ -190,7 +187,7 @@ function createPdf() {
 	var Premium = "1,000";
 	var paymentType = " - "
 	
-	$.get('http://'+hostPath+'/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
+	$.get('/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
 	{ 
 		chineseName : chineseName,
 		gender : gender,
@@ -202,7 +199,33 @@ function createPdf() {
 		paymentType : paymentType
 	},
 	function(data) {
-		alert(JSON.stringify(data));
+		if(data.pdfName){
+			window.open('/'+contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName);
+		}
+		else{
+			alert("data error");
+		}
+	})
+	.fail(function(data) {
+	});
+}
+
+function acceptPdf(pdfName) {
+	$.get('/'+contextPath+'/ajax/savie/sales-illustration/uploadPdf',
+	{ 
+		pdfName : pdfName
+	},
+	function(data) {
+		if(data.Msgs=="success"){
+			if(confirm("You accept the PDF has been uploaded to the server, the current page is about to shut down!")){  
+				self.opener=null;  
+				self.open('','_self');  
+				self.close();  
+			}  
+		}
+		else{
+			alert(data.Msgs);
+		}
 	})
 	.fail(function(data) {
 	});

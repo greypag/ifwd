@@ -80,6 +80,11 @@ class="image-order-status image-order-status-active  img-circle">
 			"policyNo")%></span>
 		</h4>
 		
+		<h5><fmt:message key="flight.confirmation.Y5Buddy.part1" bundle="${msg}" /><strong><fmt:message key="flight.confirmation.Y5Buddy.part2" bundle="${msg}" /></strong><fmt:message key="flight.confirmation.Y5Buddy.part3" bundle="${msg}" /></h5>
+		
+		<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
+		<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" style="margin:0px;"><img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" style="margin:0px;">
+		
 		<div class="gray-bg1-content" style="padding:0px !important">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
 			     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/flight-insurance/sharing/" data-title="iFWD"></div>
@@ -352,7 +357,17 @@ class="image-order-status image-order-status-active  img-circle">
                     showBubble();
                 });
                 </script>
-                
+                <!-- Provision Link -->
+                <p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
+				<a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
+				<fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
+				<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
+				<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
+					<u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
+				</a> 
+				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><br>
+				<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
+				
 				<!-- submit -->
 				<input style="width:250px; margin-top:50px;" type="button" onclick="return checkbox();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
 				<script>
@@ -402,21 +417,21 @@ class="image-order-status image-order-status-active  img-circle">
 
 <input type="hidden" name="totalAdultTraveller"
 id="totalAdultTraveller"
-value="${createFlightPolicy.getTotalAdultTraveller()}">
+value="${createFlightPolicy.totalAdultTraveller}">
 <input type="hidden" name="totalChildTraveller"
 id="totalChildTraveller"
-value="${createFlightPolicy.getTotalChildTraveller()}">
+value="${createFlightPolicy.totalChildTraveller}">
 <input type="hidden" name="totalOtherTraveller"
 id="totalOtherTraveller"
-value="${createFlightPolicy.getTotalOtherTraveller()}">
+value="${createFlightPolicy.totalOtherTraveller}">
 <input type="hidden" name="returnDate" id="returnDate"
-value="${createFlightPolicy.getReturnDate()}">
+value="${createFlightPolicy.returnDate}">
 <input type="hidden" name="departureDate" id="departureDate"
-value="${createFlightPolicy.getDepartureDate()}">
+value="${createFlightPolicy.departureDate}">
 <input type="hidden" name="days"
-value="${createFlightPolicy.getDays()}">
+value="${createFlightPolicy.days}">
 <input type="hidden" name="travellerCount"
-value="${createFlightPolicy.getTravellerCount()}">
+value="${createFlightPolicy.travellerCount}">
 <input type="hidden" name="fullName" value="${fullName}">
 <input type="hidden" name="hkid" value="${hkid}">
 <input type="hidden" name="mobileNo" value="${mobileNo}">
@@ -517,20 +532,23 @@ data : $('#frmTravelPlan').serialize()
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
 
 <!--End of addthis -->
-
 <script type=text/javascript>
    var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
    document.write('<scr'+'ipt src="', hostProtocol+
    '://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-</script>
-<script type=text/javascript>
+
+
    var params = new Array();
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-   params[1]='type=Registration';
-   params[2]='val=0.0';
-   params[3]='orderId=<%=request.getSession().getAttribute("policyNo")%>';
-   params[4]='promoCode=';
-   params[5]='valueCurrency=HKD';
+   params[1]='type=Registration_Flight';
+   params[2]='val=${dueAmount}';
+   params[3]='orderId=${transNo}';
+   if ('${language}'==='en'){
+	   params[4]='promoCode= Regis_Flight EN_Sc';
+   } else {
+	   params[4]='promoCode=Regis_Flight ZH_Sc';   
+   }
+   params[5]='valueCurrency=USD';
    params[6]='GCID='; //For Live Tracking only
    params[7]='kw='; //For Live Tracking only
    params[8]='product='; //For Live Tracking only
@@ -538,26 +556,35 @@ data : $('#frmTravelPlan').serialize()
 </script>
 
 <noscript>
-   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   	<c:choose>
+		<c:when test="${language=='en'}">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Flight&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Flight EN_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
+   		</c:when>
+   		<c:otherwise>
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Flight&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Flight ZH_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
+   		</c:otherwise>
+   </c:choose>
 </noscript>
 <script>
 $(document).ready(function() {
 	ga('create', 'UA-60032236-1', 'auto');
 	ga('require', 'ecommerce');
 	ga('ecommerce:addTransaction', {
-	  'id': '', // Transaction ID. Required.
+	  'id': '<%=request.getSession().getAttribute("policyNo")%>', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
-	  'affiliation': 'Flight' // Insurance type, e.g. Life
-
+	  'affiliation': 'Flight', // Insurance type, e.g. Life
+	   'currency': 'HKD'
 	  });
 	ga('ecommerce:addItem', {
-	      'id': '${transNo}', // Transaction ID. Required
+	      'id': '<%=request.getSession().getAttribute("policyNo")%>', // Transaction ID. Required
 	      'name': 'FlightCare', // Product name. Required
-	      'category': 'Travel', // Category or variation
+	      'category': 'Flight', // Category or variation
 	      'price': '${dueAmount}', // Unit price
+	      'quantity': '1',
 	      'currency': 'HKD'
 	    });
 	ga('ecommerce:send');
 });
 
 </script>
+

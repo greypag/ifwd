@@ -11,11 +11,11 @@
 
 <script type="text/javascript">
 	function gotoCenter(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow2}";
+		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}";
 	}
 	
 	function gotoAppForm(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow}";
+		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}";
 	}
 </script>
 

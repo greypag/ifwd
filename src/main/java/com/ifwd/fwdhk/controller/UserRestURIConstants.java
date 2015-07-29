@@ -62,6 +62,9 @@ public class UserRestURIConstants {
 	public static final String WORKINGHOLIDAY_FINALIZE_POLICY = SERVICE_URL
 			+ "/gi/workingHoliday/policies";
 	
+	//test
+	public static final String TEST_PAYMENT_STATUS = SERVICE_URL + "/payment/status";
+	
 	/*API For Home Care Modules
 	*/
 	public static final String GET_HOMECARE_UW_QUESTIONS = SERVICE_URL + "/gi/homeCare/uwQuestions";
@@ -105,6 +108,26 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_SAVIE_EMAIL_SUBMITTED = "email-submitted";
 
+	
+	public static final String PAGE_PROPERTIES_SAVIE_LANDING = "savie.landing";
+	public static final String PAGE_PROPERTIES_SAVIE_PLAN_DETAILS = "savie.planDetails";
+	public static final String PAGE_PROPERTIES_SAVIE_FNA = "savie.fna";
+	public static final String PAGE_PROPERTIES_SAVIE_SALES_ILLUSTRATION = "savie.salesIllustration";
+	public static final String PAGE_PROPERTIES_SAVIE_APPLICATION = "savie.application";
+	public static final String PAGE_PROPERTIES_SAVIE_SUMMARY = "savie.summary";
+	public static final String PAGE_PROPERTIES_SAVIE_CS = "savie.cs";
+	public static final String PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD = "savie.documentUplaod";
+	public static final String PAGE_PROPERTIES_SAVIE_CONFIRMATION = "savie.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIE_DECLARATION = "savie.declaration";
+	public static final String PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING = "savie.interestGathering";
+	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
+	public static final String PAGE_PROPERTIES_SAVIE_PDF = "savie.pdf";
+	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
+	
+	
+	
+	
+	
 	
 	/* lang constants */
 	public static final String LANG_TC_SLASH = "/tc/";

@@ -24,11 +24,14 @@ var promoCodeInsertFlag = true;
 		var promoCode = document.getElementById("promoCode").value;
 		promoCode=promoCode.trim();
 		document.getElementById("promoCode").value = promoCode;
-		if (promoCode == "" || promoCode == '<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />' ) {
+		if (promoCode == "" || promoCode == "<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />" ) {
 			flag = false;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
-		} else
+			$('#inputPromo').addClass('invalid-field');
+		} else{
 			flag = true;
+			$('#inputPromo').removeClass('invalid-field');
+		}
 		return flag;
 	}
 	function chkDueAmount() {
@@ -81,8 +84,10 @@ var promoCodeInsertFlag = true;
 		var selValue = document.getElementById("inputseletedplanname").value;
 		if(result['errMsgs'] !== null){
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+			$('#inputPromo').addClass('invalid-field');
 		}else{
 			$("#errPromoCode").html("");
+			$('#inputPromo').removeClass('invalid-field');
 			
 			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
@@ -139,6 +144,10 @@ var promoCodeInsertFlag = true;
 		}else{
 			result = false;
 		}
+		
+		if(!result){
+	        $('#loading-overlay').modal('hide');
+	    }
 		return result;
 	}
 	
@@ -331,15 +340,15 @@ var promoCodeInsertFlag = true;
 						</div>
 
 						<input type="hidden" name="txtTotalDue"
-							value="<%=workingholidayQuote.getToalDue()[i]%>"> <input
+							value="${quoteDetails.toalDue[i]}"> <input
 							type="hidden" name="txtGrossPremium"
-							value="<%=workingholidayQuote.getGrossPremium()[i]%>"> <input
+							value="${quoteDetails.grossPremium[i]}"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount"
-							value="<%=workingholidayQuote.getDiscountAmount()[i]%>"> <input
+							value="${quoteDetails.discountAmount[i]}"> <input
 							type="hidden" name="referralCode"
-							value="<%=workingholidayQuote.getReferralCode()%>"> <input
+							value="${quoteDetails.referralCode}"> <input
 							type="hidden" name="referralName"
-							value="<%=workingholidayQuote.getReferralName()%>">
+							value="${quoteDetails.referralName}">
 						<%
 							}
 						%>
@@ -697,9 +706,9 @@ var promoCodeInsertFlag = true;
 								
 								
 								<div id="promo-wrap" class="form-group">
-	                                <div class="input-group">
-	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-	                                    <a class="input-group-addon in black-bold pointer sub-link" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
+	                                <div class="input-group" id="inputPromo" style="display:inital;width:100%;">
+	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:75%;" onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+	                                    <a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:20%;" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>
 								
@@ -749,10 +758,20 @@ var promoCodeInsertFlag = true;
 								<a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
 							</div>
-							<div class="top35 pull-right pad-none" style="width:47%">
-								<button type="submit" class="bdr-curve btn btn-primary nxt-btn">
-									<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
-							</div>
+							<div class="top35 pull-right pad-none" style="width:47%" >
+<c:choose>
+	<c:when test="${language=='en'}">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
+	</c:when>
+	<c:otherwise>
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
+	</c:otherwise>
+</c:choose>
+				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
+</div>
+							
+							
+							
 							<div class="clearfix"></div>
 							<br> <span class="text-red" id="errDue"></span> <br>
 						</div>
@@ -761,7 +780,7 @@ var promoCodeInsertFlag = true;
 				</div>
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted"
-			value="<%=workingholidayQuote.getPlanSelected()%>">
+			value="${quoteDetails.planSelected}">
 		<p class="padding1 workingholiday-plan-disclaimer">
 			<fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
@@ -776,10 +795,18 @@ var promoCodeInsertFlag = true;
                     <a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
                         class="bdr-curve btn btn-primary bck-btn"><fmt:message key="workingholiday.action.back" bundle="${msg}" /> </a>
                 </div>
-                <div class="top35 pull-right pad-none" style="width:47%">
-                    <button type="submit" class="bdr-curve btn btn-primary nxt-btn">
-                        <fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
-                </div>
+                <div class="top35 pull-right pad-none" style="width:47%" >
+<c:choose>
+	<c:when test="${language=='en'}">
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 EN','USD');">
+	</c:when>
+	<c:otherwise>
+		<button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="$('#loading-overlay').modal({backdrop: 'static',keyboard: false});javascript:kenshoo_conv('Registration_Step1','<%=workingholidayQuote.getToalDue()%>','','Regis_Working_Holiday_Step1 ZH','USD');">
+	</c:otherwise>
+</c:choose>
+				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
+</div>
+
                 <div class="clearfix"></div>
                 <br> <span class="text-red" id="errDueMobile"></span> <br>
             </div>
@@ -804,7 +831,7 @@ var promoCodeInsertFlag = true;
 						<div class="alert alert-success hide proSuccess"></div>
 						<h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder=""
+							<input type="email" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>

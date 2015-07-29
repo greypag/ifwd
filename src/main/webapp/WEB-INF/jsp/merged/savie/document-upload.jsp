@@ -19,7 +19,7 @@
 
 <br /><br />
 <div style="left: auto;right: auto;">Upload you documents.</div>
-<form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow }"  method="post">
+<form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow }"  method="post">
  <input type="radio" name="upload" checked="checked" value="1" onclick="changFormAction('${nextPageFlow }')">Upload now 
  <input type="radio" name="upload" style="margin-left: 20px" value="2" onclick="changFormAction('${nextPageFlow2 }')">Upload later
  <!-- <input type="radio" name="upload" style="margin-left: 20px" value="3">Give at stor -->
@@ -31,7 +31,7 @@
 <script type="text/javascript">
 function changFormAction(v) {
 	var language = "${language}";
-	var url = "<%=request.getContextPath()%>/"+language+"/saving-insurance/"+v;
+	var url = "<%=request.getContextPath()%>/"+language+"/savings-insurance/"+v;
 	$("#form1").attr("action",url);
 }
 

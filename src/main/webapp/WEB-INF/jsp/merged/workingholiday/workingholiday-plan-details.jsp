@@ -42,9 +42,10 @@
 	}
 	
 	
-	
+	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />";
 	var hkidPlaceholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />";
 	
+	var benNamePlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 	var benHkidPlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
 
 	var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
@@ -89,6 +90,12 @@ function activateUserAccountJoinUs() {
     $("#UsernameError").text("");
     $("#PasswordError").text("");
     $("#Confirm-PasswordError").text("");
+    $("#Username").removeClass("invalid-field");
+    $("#Password").removeClass("invalid-field");
+    $("#Confirm-Password").removeClass("invalid-field");
+    
+    //first error element
+    var firstErrorElementId="";
     
      
     if(name == "" && password == "" && password2 == ""){
@@ -102,28 +109,50 @@ function activateUserAccountJoinUs() {
         	
             validateForm = true;
             if (!checkMembership("Username")){
+            	if(firstErrorElementId==""){
+                    firstErrorElementId="Username";
+                }
                 validateForm = false;   
             }
             if (!checkMembership("Password")){
+            	if(firstErrorElementId==""){
+                    firstErrorElementId="Password";
+                }
                 validateForm = false;   
             }
             if (!checkMembership("Confirm-Password")){
+            	if(firstErrorElementId==""){
+                    firstErrorElementId="Confirm-Password";
+                }
                 validateForm = false;   
             }
-            if (!validateMobile('inputMobileNo','whAppMobileNO')){
-                validateForm = false;   
-            }           
-            if (!validateEmail('inputEmailId','whAppEmailAdd')){
-                validateForm = false;   
-            }    
             var applicantDob = $("#inputWhAppDob").val();
             if (applicantDob.trim() == "") {
                 
                 document.getElementById("whAppDob").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+                $("#dpWhAppDob").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="inputWhAppDob";
+                }
                 validateForm = false;   
             
             }
-
+            if (!validateMobile('inputMobileNo','whAppMobileNO')){
+            	if(firstErrorElementId==""){
+                    firstErrorElementId="inputMobileNo";
+                }
+                validateForm = false;   
+            }           
+            if (!validateEmail('inputEmailId','whAppEmailAdd')){
+            	if(firstErrorElementId==""){
+                    firstErrorElementId="inputEmailId";
+                }
+                validateForm = false;   
+            }    
+            
+            if(firstErrorElementId!=""){
+                scrollToElement(firstErrorElementId);
+            }
 
             
             if (!validateForm){
@@ -195,24 +224,52 @@ function activateUserAccountJoinUs() {
             // not all the fields filled
             if (name == ""){
                 $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+                $("#Username").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Username";
+                } 
             }else{
-                checkMembership("Username");
+            	if (!checkMembership("Username")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Username";
+                    } 
+                }
             }
             
             if (password == ""){
                 $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+                $("#Password").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Password";
+                } 
             }else{
-                checkMembership("Password");
+            	if (!checkMembership("Password")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Password";
+                    } 
+                }
             }
             
             
             if (password2 == ""){
                 $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+                $("#Confirm-Password").addClass("invalid-field");
+                if(firstErrorElementId==""){
+                    firstErrorElementId="Confirm-Password";
+                } 
             }else{
-                checkMembership("Confirm-Password");
+            	if (!checkMembership("Confirm-Password")){
+                    if(firstErrorElementId==""){
+                        firstErrorElementId="Confirm-Password";
+                    } 
+                }
             }
         }
         
+    }
+    
+    if(firstErrorElementId!=""){
+        scrollToElement(firstErrorElementId);
     }
     
     return;
@@ -381,12 +438,18 @@ function activateUserAccountJoinUs() {
 									</label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input type="text" class="form-control full-control"
+									<!-- <input type="text" class="form-control full-control textUpper"
 										id="inputFullName" name="whAppFullName"
-										value="${userDetails.getFullName()}"
+										value="${userDetails.fullName}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
-										onkeypress=" return alphaOnly(event);" maxlength="50" />
-										<span id="whAppFullName" class="text-red"></span>
+										onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
+									<input type="text" class="form-control full-control textUpper bmg_custom_placeholder"
+                                        id="inputFullName" name="whAppFullName"
+                                        value="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />"
+                                        onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'inputFullName', namePlaceholder);"
+                                        onkeypress=" return alphaOnly(event);" maxlength="50" />
+							         <span id="whAppFullName" class="text-red"></span>
 								</div>
 							</div>
 							<!-- english name end -->
@@ -456,7 +519,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
-										value="${userDetails.getMobileNo()}"
+										value="${userDetails.mobileNo}"
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');"
 										maxlength="8" /> <span id="whAppMobileNO" class="text-red"></span>
@@ -473,9 +536,9 @@ function activateUserAccountJoinUs() {
 									</label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input class="form-control full-control" id="inputEmailId"
-										name="whAppEmailAdd"
-										value="${userDetails.getEmailAddress()}"
+									<input class="form-control full-control textLower" id="inputEmailId"
+										name="whAppEmailAdd" type="email"
+										value="${userDetails.emailAddress}"
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
 										onkeypress="return validationEmail(event);"
 										maxlength="50"> <span id="whAppEmailAdd"
@@ -543,7 +606,7 @@ function activateUserAccountJoinUs() {
 							<!-- beneficiary end -->
 							<!-- personalbenificiaryId start -->
 							<div
-								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>"
+								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.whInsBeneficary == null || workingHolidayPlanDetailsForm.whInsBeneficary == 'SE'}">hide</c:if>"
 								id="whbenificiaryId">
 								<div
 									class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -561,8 +624,10 @@ function activateUserAccountJoinUs() {
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 										<input type="text" name="whInsFullName"
 											id="inputWhInsFullName"
-											class="form-control full-control "
-											onblur="replaceAlpha(this); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
+											class="form-control full-control textUpper bmg_custom_placeholder"
+											value="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
 											onkeypress="    return alphaOnly(event);" maxlength="100" />
 										<span id="whInsFullName" class="text-red"> </span>
 									</div>
@@ -572,7 +637,7 @@ function activateUserAccountJoinUs() {
 							<!-- personalbenificiaryId end -->
 							<!-- personalbenificiaryId b start -->
 							<div
-								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>"
+								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.whInsBeneficary == null || workingHolidayPlanDetailsForm.whInsBeneficary == 'SE'}">hide</c:if>"
 								id="whbenificiaryIdb">
 								<div
 									class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -605,7 +670,7 @@ function activateUserAccountJoinUs() {
 							<!-- personalbenificiaryId b end -->
 							<!-- personalbenificiaryId c start -->
 							<div
-								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == null || workingHolidayPlanDetailsForm.getWhInsBeneficary() == 'SE'}">hide</c:if>"
+								class="form-group float <c:if test="${workingHolidayPlanDetailsForm == null || workingHolidayPlanDetailsForm.whInsBeneficary == null || workingHolidayPlanDetailsForm.whInsBeneficary == 'SE'}">hide</c:if>"
 								id="whbenificiaryIdc">
 								<div
 									class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -669,7 +734,7 @@ function activateUserAccountJoinUs() {
 									<!-- room, floor, block start -->
 									<div class="row form-group">
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsRoom" name="whInsRoom"
 												placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
@@ -678,7 +743,7 @@ function activateUserAccountJoinUs() {
 												maxlength="10" />
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsFloor" name="whInsFloor"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 												
@@ -687,7 +752,7 @@ function activateUserAccountJoinUs() {
 												onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsBlock" name="whInsBlock"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 												
@@ -700,7 +765,7 @@ function activateUserAccountJoinUs() {
 									<!-- building, estate start -->
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsBuilding" name="whInsBuilding"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
 												
@@ -712,7 +777,7 @@ function activateUserAccountJoinUs() {
 									</div>
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsEstate" name="whInsEstate"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
 												
@@ -727,7 +792,7 @@ function activateUserAccountJoinUs() {
 									<!-- street no., street name start -->
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsStreetNo" name="whInsStreetNo"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
 												
@@ -738,7 +803,7 @@ function activateUserAccountJoinUs() {
 									</div>
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder"
+											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsStreetName" name="whInsStreetName"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
 												
@@ -752,7 +817,7 @@ function activateUserAccountJoinUs() {
 									<!-- district start -->
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<div class="styled-select">
+											<div class="styled-select" id="inputDistrict">
 												<select name="whInsDistrict"
 													class="form-control soflow full-control"
 													id="selectWhInsDistrict" onchange="setDropArea(this.value)">
@@ -1125,9 +1190,18 @@ function activateUserAccountJoinUs() {
 											key="workingholiday.action.back" bundle="${msg}" /> </a>
 								</div>
 								<div class="top35 pull-right pad-none" style="width: 47%">
-									<input type="button" class="bdr-curve btn btn-primary nxt-btn"
-										value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />"
-										onclick="activateUserAccountJoinUs();" />
+									<c:choose>
+	<c:when test="${language=='en'}">
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 EN','USD');activateUserAccountJoinUs();" />
+	</c:when>
+	<c:otherwise>
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 ZH','USD');activateUserAccountJoinUs();" />
+	</c:otherwise>
+</c:choose>
+									
+									
+									
+									
 								</div>
 							</div>
 						</div>
@@ -1165,9 +1239,14 @@ function activateUserAccountJoinUs() {
 									key="workingholiday.action.back" bundle="${msg}" /> </a>
 						</div>
 						<div class="top35 pull-right pad-none" style="width: 47%">
-							<input type="button" class="bdr-curve btn btn-primary nxt-btn"
-								value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />"
-								onclick="activateUserAccountJoinUs();" />
+							<c:choose>
+	<c:when test="${language=='en'}">
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 EN','USD');activateUserAccountJoinUs();" />
+	</c:when>
+	<c:otherwise>
+		<input type="button" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="workingholiday.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Working_Holiday_Step2 ZH','USD');activateUserAccountJoinUs();" />
+	</c:otherwise>
+</c:choose>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -1195,7 +1274,7 @@ function activateUserAccountJoinUs() {
 						<fmt:message key="promotion.get.code.email" bundle="${msg}" />
 					</h4>
 					<div class="form-group">
-						<input type="text" class="form-control" value=""
+						<input type="email" class="form-control" value=""
 							id="txtPromoEmail">
 					</div>
 					<span id="errPromoEmail" class="text-red"></span> <br>
@@ -1305,7 +1384,7 @@ function userLoginFnc() {
 				} else if (data == 'fail') {
 					$('#ajax-loading').hide();
 					$('#login-err-msg').show();
-					$('#login-err-msg').html('Please Check Login Credential');
+					$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
 				}
 
 			}
@@ -1315,7 +1394,13 @@ function userLoginFnc() {
 	}
 </script>
 <script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>
-	
+	src="<%=request.getContextPath()%>/resources/js/wh-details.js">
+</script>
+
+<script>
+window.onload = function(){
+	activeDiv('whbenificiaryId','selectWhInsBeneficary');
+};
+</script>
 </body>
 </html>	

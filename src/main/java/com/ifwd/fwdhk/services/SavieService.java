@@ -40,6 +40,7 @@ public interface SavieService {
 	
 	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException;
 	public void createSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception;
+	public void uploadSalesIllustrationPdf(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	public String upsertFNA(String userName, String token, String language,SavieFormFNABean fna);
 	public String upsertApplication(String userName, String token, String language,SavieFormApplicationBean application);
 	public String upsertAppointment(String userName, String token, String language,SavieFormSetAppointmentBean appointment);
@@ -60,6 +61,8 @@ public interface SavieService {
 	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException;
 	
 	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
+	
+	public BaseResponse sendMessagesEmail(HttpServletRequest request)throws ECOMMAPIException;
 	
 	public BaseResponse signature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	

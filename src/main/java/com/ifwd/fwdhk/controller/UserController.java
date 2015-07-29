@@ -93,7 +93,7 @@ public class UserController {
 				logger.info("USER_LOGIN Response" + JsonUtils.jsonPrint(response));
 
 				// check by error message is null then valid response
-				if (response.get("errMsgs") == null && response != null) {
+				if (response != null && !response.isEmpty() && response.get("errMsgs") == null) {
 					HttpSession session = servletRequest.getSession(true);
 					session.setAttribute("authenticate", "true");
 					session.setAttribute("token", response.get("token")
@@ -130,7 +130,9 @@ public class UserController {
 					session.setAttribute("userDetails", userDetails);
 
 					return "success";
-				} else {
+				}else if (response.isEmpty()) {
+					return "fail";
+				}else {
 					String errMessage = response.get("errMsgs").toString();
 					return errMessage.replaceAll("\"", "").replace("[", "")
 							.replace("]", "");
@@ -230,6 +232,8 @@ public class UserController {
 		model.addAttribute("userDetails", userDetails);
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
 	}
+	
+	
 
 	@RequestMapping(value = "/useraccount", method = RequestMethod.GET)
 	public String userAccount(@ModelAttribute("userLogin") UserLogin userLogin,
@@ -401,7 +405,8 @@ public class UserController {
 			logger.info("USER_FORGOT_USERNAME Response " + JsonUtils.jsonPrint(jsonResponse));
 			
 			if (jsonResponse.get("errMsgs") == null) {
-				return jsonResponse.get("userName").toString();
+				String userName = jsonResponse.get("userName").toString();
+				return userName.substring(2, userName.length()-2);
 			} else {
 				return jsonResponse.get("errMsgs").toString();
 			}
@@ -447,6 +452,15 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(req) + "forgot-password";
 	}
 
+	@RequestMapping(value = {"/{lang}/partner"}, method = RequestMethod.GET)
+	public String partner(Model model, HttpServletRequest req) {	
+		return UserRestURIConstants.getSitePath(req)+ "partner";
+	}
+	
+	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
+	public String faq(Model model, HttpServletRequest req) {	
+		return UserRestURIConstants.getSitePath(req)+ "faq";
+	}
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {

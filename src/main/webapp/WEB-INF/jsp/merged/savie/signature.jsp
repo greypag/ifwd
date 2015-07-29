@@ -19,7 +19,7 @@
 
 <br /><br />
 <div style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px">And finally,your signature here</div>
- <form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow }"  method="post">
+ <form   style="margin-right: auto;margin-left: auto;padding-left:15px;padding-right:15px" id="form1" name="form1" action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow }"  method="post">
  <input type="radio" name="signature" checked="checked" value="1" onclick="changFormAction('${nextPageFlow }')">Digital signature 
  <input type="radio" name="signature" style="margin-left: 20px" value="2" onclick="changFormAction('${nextPageFlow2 }')">Offline signature<br/>
  <input type="submit" value="Proceed">
@@ -27,7 +27,7 @@
 <script>
 	function changFormAction(v) {
 		var language = "${language}";
-		var url = "<%=request.getContextPath()%>/"+language+"/saving-insurance/"+v;
+		var url = "<%=request.getContextPath()%>/"+language+"/savings-insurance/"+v;
 		$("#form1").attr("action",url);
 	}
 	
@@ -42,7 +42,7 @@
 	}
     function putImage() {
     	var $sigdiv = $("#signature");
-    	var datapair = $sigdiv.jSignature("getData", "svgbase64");
+    	var datapair = $sigdiv.jSignature("getData", "image");
     	//var image = new Image();
     	//alert(datapair[0]);
     	//image.src = "data:" + datapair[0] + "," + datapair[1] ;

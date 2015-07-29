@@ -42,6 +42,11 @@
   String key_row4col2 = "home.referral.benefits." + userType + ".table.row4.col2";
   String key_row4col3 = "home.referral.benefits." + userType + ".table.row4.col3";
   String key_row4col4 = "home.referral.benefits." + userType + ".table.row4.col4";
+  
+  String key_row6col1 = "home.referral.benefits." + userType + ".table.row6.col1";
+  String key_row6col2 = "home.referral.benefits." + userType + ".table.row6.col2";
+  String key_row6col3 = "home.referral.benefits." + userType + ".table.row6.col3";
+  String key_row6col4 = "home.referral.benefits." + userType + ".table.row6.col4";
 
   String key_disclaimer1 = "home.referral.benefits." + userType + ".disclaimer1";
   String key_disclaimer2Part1 = "home.referral.benefits." + userType + ".disclaimer2.part1";
@@ -172,7 +177,7 @@
 						                                <td><strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td rowspan="2">
+						                                <td rowspan="2" style="text-align: left;">
 						                                  <strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong>
 						                                </td>
 						                                <td><strong><fmt:message key="<%=key_row1col2%>" bundle="${msg}" /></strong></td>
@@ -180,12 +185,12 @@
 						                                <td><strong><fmt:message key="<%=key_row1col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
+						                                <td style="text-align: left;"><strong><fmt:message key="<%=key_row2col2%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row2col3%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row2col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
 						                            <tr>
-						                                <td rowspan="2">
+						                                <td rowspan="3">
 						                                  <strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong>
 						                                </td>
 						                                <td><strong><fmt:message key="<%=key_row3col2%>" bundle="${msg}" /></strong></td>
@@ -197,6 +202,11 @@
 						                                <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
 						                                <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
 						                            </tr>
+						                            <tr>
+                                                        <td><strong><fmt:message key="<%=key_row6col2%>" bundle="${msg}" /></strong></td>
+                                                        <td><strong><fmt:message key="<%=key_row6col3%>" bundle="${msg}" /></strong></td>
+                                                        <td><strong><fmt:message key="<%=key_row6col4%>" bundle="${msg}" /></strong></td>
+                                                    </tr>
 						                        </tbody>
 						                    </table>
 					                    </div>
@@ -332,6 +342,37 @@
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row6col2%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row6col3%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                
+                                                <div class="confirmation-table-margin">
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
+                                                    </div>
+                                                    <div class="col-sm-12 col-xs-12">
+                                                        <fmt:message key="<%=key_row6col4%>" bundle="${msg}" />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
                                             </div>
                                         </div>
 					                    
@@ -412,17 +453,21 @@
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
 						     <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
-								<div><fmt:message key="home.confirmation.partnerDesc" bundle="${msg}" /></div>
+								<div><fmt:message key="home.confirmation.partnerDesc.part1" bundle="${msg}" /><strong><fmt:message key="home.confirmation.partnerDesc.part2" bundle="${msg}" /></strong><fmt:message key="home.confirmation.partnerDesc.part3" bundle="${msg}" /></div>
+								
+								<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
 								<div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
-				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" ">
-				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
 				                </div>
 				                <div class="clearfix"></div>
 				                <div class="col-sm-12 col-xs-12 hidden-lg hidden-md" style="text-align:center;">
-				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3a.png" alt="" class=" "><br/>
-				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3b.png" alt="" class=" "><br/>
-				                    <img src="<%=request.getContextPath()%>/resources/images/fwd_partner_3c.png" alt="" class=" ">
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" "><br/>
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" "><br/>
+				                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" "><br/>
+                                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" ">
 				                </div>
 				                <div class="clearfix"></div>
 								<div class="h4-2 margin-left">
@@ -518,7 +563,6 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
 <!--End of addthis -->
-
 <script type=text/javascript>
    var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
    document.write('<scr'+'ipt src="', hostProtocol+
@@ -527,11 +571,15 @@
 <script type=text/javascript>
    var params = new Array();
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-   params[1]='type=Registration';
-   params[2]='val=0.0';
-   params[3]='orderId=';
-   params[4]='promoCode=';
-   params[5]='valueCurrency=HKD';
+   params[1]='type=Registration_Home';
+   params[2]='val=${dueAmount}';
+   params[3]='orderId=${transNo}';
+   if ('${language}'==='en'){
+	   params[4]='promoCode=Regis_Home EN_Sc';
+   } else {
+	   params[4]='promoCode=Regis_Home ZH_Sc';   
+   }
+   params[5]='valueCurrency=USD';
    params[6]='GCID='; //For Live Tracking only
    params[7]='kw='; //For Live Tracking only
    params[8]='product='; //For Live Tracking only
@@ -539,7 +587,14 @@
 </script>
 
 <noscript>
-   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+	<c:choose>
+		<c:when test="${language=='en'}">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Home&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home EN_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
+   		</c:when>
+   		<c:otherwise>
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Home ZH_Sc&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
+   		</c:otherwise>
+   </c:choose>
 </noscript>
 <script>
 $(document).ready(function() {
@@ -548,20 +603,22 @@ $(document).ready(function() {
 	ga('ecommerce:addTransaction', {
 	  'id': '${transNo}', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
-	  'affiliation': 'Home' // Insurance type, e.g. Life
-	   
+	  'affiliation': 'Home', // Insurance type, e.g. Life
+	   'currency': 'HKD'
 	  });
 	ga('ecommerce:addItem', {
 	      'id': '${transNo}', // Transaction ID. Required
 	      'name': 'Easy HomeCare', // Product name. Required
 	      'category': 'Home', // Category or variation
 	      'price': '${dueAmount}', // Unit price
+	      'quantity': '1',
 	      'currency': 'HKD'
 	    });
 	ga('ecommerce:send');
 });
 
 </script>
+
 
 </body>
 

@@ -105,7 +105,7 @@ function sendlead(email,mobileNo,answer1,step) {
 	//var answer1 = $("#answer1").val();
 	//var step = $("#step").val();
 	$.ajax({     
-	    url:'<%=request.getContextPath()%>/ajax/savie/interestedGather/get',     
+	    url:'<%=request.getContextPath()%>/ajax/savie/interestedGather/post',     
 	    type:'post',     
 	    data:{    
 	    	"email": email,

@@ -54,6 +54,16 @@ public class AjaxSavieController extends BaseController{
 		}
 	}
 	
+	@RequestMapping(value = {"/ajax/savie/sales-illustration/uploadPdf"})
+	public void uploadSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		try {
+			savieService.uploadSalesIllustrationPdf(model, request, response);
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
 	@RequestMapping(value = {"/ajax/savie/miniCaculator/sendEmail"} )
 	public void sendEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
@@ -96,7 +106,7 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	
-	@RequestMapping(value = {"/ajax/savie/interestedGather/get"} )
+	@RequestMapping(value = {"/ajax/savie/interestGather/post"} )
 	public void sendLeadByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String email,
@@ -117,6 +127,27 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 
+	}
+	
+	@RequestMapping(value = {"/ajax/savie/messages/email"} )
+	public void sendMessagesEmailByAjax(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		try {
+			
+			BaseResponse br = savieService.sendMessagesEmail(request);
+			
+			logger.info("apiJsonObj:"+br);
+			
+			ajaxReturn(response,br);
+			
+			
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	

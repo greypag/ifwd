@@ -16,11 +16,11 @@
 
 <script type="text/javascript">
 	function gotoCenter(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow2}";
+		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}";
 	}
 	
 	function gotoAppForm(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/${nextPageFlow}";
+		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}";
 	}
 </script>
 
@@ -146,7 +146,7 @@
 		<div style="height: 30px;"></div>
 		
 		<div align="center">
-			<a href="<%=request.getContextPath()%>/${language}/saving-insurance/application" style="color: red;">Proceed to sales illustration</a>
+			<a href="<%=request.getContextPath()%>/${language}/savings-insurance/application" style="color: red;">Proceed to sales illustration</a>
 			<input type="button" value="Proceed to sales illustration" style="color: red;"/>
 		</div>
 		
