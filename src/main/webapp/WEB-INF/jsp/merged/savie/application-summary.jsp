@@ -179,12 +179,10 @@
 														</div>
 													</div>
 												</div>
-												<c:set var="ins" value="1"/>
-												<c:forEach var="savieBeneficiaryBean" items="${savieDetail.savieBeneficiaryBeans}">
+												<c:forEach var="savieBeneficiaryBean" varStatus="status" items="${savieDetail.savieBeneficiaryBeans}">
 													<div class="col-xs-12 col-md-12 inner-col">
 														<div class="row">
-															<h3 class="h3-pad"><fmt:message key="savie.summary.beneficiary" bundle="${msg}" /> <span>(<fmt:message key="savie.summary.person" bundle="${msg}" />) ${ins }</span> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>
-															<c:set var="ins" value="${ins+1} }"/>
+															<h3 class="h3-pad"><fmt:message key="savie.summary.beneficiary" bundle="${msg}" /> <span>(<fmt:message key="savie.summary.person" bundle="${msg}" />) ${status.index + 1 }</span> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.name_english" bundle="${msg}" /></p>
 															</div>
