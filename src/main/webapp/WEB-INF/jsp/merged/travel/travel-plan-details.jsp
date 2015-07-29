@@ -493,7 +493,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input name="mobileNo" type="text"
+                                    <input name="mobileNo" type="tel"
                                         class="form-control full-control" value="${userDetails.mobileNo.trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"

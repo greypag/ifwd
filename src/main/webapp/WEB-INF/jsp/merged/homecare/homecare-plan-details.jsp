@@ -781,12 +781,12 @@ function activateUserAccountJoinUs() {
 	                           <!-- mobile starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-	                                   <label for="inputFullName" class="field-label bold-500">
+	                                   <label for="inputMobileNo" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.mobile" bundle="${msg}" />
 	                                   </label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-	                                   <input type="text"
+	                                   <input type="tel"
                                             class="form-control full-control" id="inputMobileNo" name="mobileNo"
                                             value="${userDetails.mobileNo.trim()}"
                                             onkeypress="return isNumeric(event)"
@@ -798,7 +798,7 @@ function activateUserAccountJoinUs() {
 	                           <!-- email address starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-	                                   <label for="inputFullName" class="field-label bold-500">
+	                                   <label for="inputEmailId" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.email" bundle="${msg}" />
 	                                   </label>
 	                               </div>

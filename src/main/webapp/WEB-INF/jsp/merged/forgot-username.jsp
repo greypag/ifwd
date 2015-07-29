@@ -99,7 +99,7 @@
 								</tr>
 								<tr>
 									<td class="pad-none"><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
-									<td class="pad-none"><input type="text" name="mobileNo1" onkeypress="return isNumeric(event);" onblur="forgotUserName1();"
+									<td class="pad-none"><input type="tel" name="mobileNo1" onkeypress="return isNumeric(event);" onblur="forgotUserName1();"
 										class="form-control" id="fMobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />">
 										<span id="fErrorEmptyMob" class="hide1">
 										    <label class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
