@@ -131,6 +131,82 @@ $(document).ready(function() {
                     </div>
 	</section>
 	
+	
+	<section id="home_promo_banner">
+        <div class="container pad-none">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_promo_banner_container">
+                <div class="circle_fake"></div>
+                <div class="circle_core"><img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/middle-circle.gif" /></div>
+                <div class="circle_outer"><img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/outer-circle.gif" /></div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_promo_banner_container">
+                <div class="home_promo_banner_content pull-left">
+                    <div class="home_promo_banner_title">Guaranteed lowest price for our home insurance.</div>
+                    <div class="home_promo_banner_caption">Otherwise we will give you your next policy year for <span class="special_word">FREE</span>.</div>
+                    <div class="home_promo_banner_description">
+                        <p>
+                            You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). So with us, from your furniture to your freezer food, you are protected.
+                        </p>
+                        <br/>
+                        <p>
+                            You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). So with us, from your furniture to your freezer food, you are protected.
+                        </p>
+                    </div>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare" onclick="showHomePromoHidden();">Learn more</button>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> * </span>Please refer to the full <span class="special_word"><a href="" target="_blank"><u>terms and conditions</u></a></span> of the guarantee.</div>
+                </div>
+                <div class="home_promo_banner_hidden_content pull-left" style="display:none;">
+                    <div class="home_promo_banner_title">Guaranteed lowest price for our home insurance.</div>
+                    <div class="home_promo_banner_caption">Otherwise we will give you your next policy year for <span class="special_word">FREE</span>.</div>
+                    <div class="home_promo_banner_description">
+                        <ul>
+                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
+                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
+                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
+                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
+                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
+                        </ul>
+                    </div>
+                    <div class="home_promo_banner_description">
+                        Submit the claim for Free Cover via <a href="mailto:i-info.hk@fwd.com"><u>i-info.hk@fwd.com</u></a> with the subject of "Best Price Guarantee Claim" together with required supporting documents.
+                    </div>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homePromoGetQuote('desktop')">Get a quote now</button>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homePromoGetQuote('mobile')">Get a quote now</button>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> * </span>Please refer to the full <a href="" target="_blank"><u>terms and conditions</u></a> of the guarantee.</div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    
+    <script>
+    $( document ).ready(function() {
+    	$(".circle_fake").height($(".circle_fake").width());
+   	});
+    
+    $(window).on('resize', function(){
+    	$(".circle_fake").height($(".circle_fake").width());
+	});
+    
+    function showHomePromoHidden(){
+        $(".home_promo_banner_content").fadeOut(function(){
+            $(".home_promo_banner_hidden_content").fadeIn();
+        });
+    }
+    
+    function homePromoGetQuote(dev){
+        if(dev=="desktop"){
+            if(msgAlertDesk('getHomeQuote')){
+                $("#getHomeQuote").submit();
+            }
+        }else{
+            if(msgAlertDesk('getHomeQuoteMob')){
+                $("#getHomeQuoteMob").submit();
+            }
+        }
+    }
+    </script>
+	
 		
 		<!--mobile-->
 		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/${language}/home-insurance/quote"
@@ -196,6 +272,10 @@ $(document).ready(function() {
 	<!--Mobile-form-->
 
 	<!--/#main-slider-->
+
+
+    
+
 
 	<section id="feature" style="margin-top:40px;">
 		<div class="container pad-none">
