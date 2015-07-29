@@ -125,7 +125,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
 	
-	
+	/* for image configuration */
+	public static final String IMAGE_CONFIG = "/ecommerce/configuration";
 	
 	
 	
