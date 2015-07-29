@@ -797,7 +797,7 @@ function activateUserAccountJoinUs() {
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
-												onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+												onkeypress="" maxlength="5" />
 										</div>
 									</div>
 									<div class="row form-group">

@@ -1055,7 +1055,7 @@ function activateUserAccountJoinUs() {
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
-                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                            onkeypress="" maxlength="5" />
                                            </div>
                                         </div>
                                         <div class="row form-group">
@@ -1328,8 +1328,8 @@ function activateUserAccountJoinUs() {
 	                                            id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />');"
 	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />');"
-	                                            onkeypress="    return isAlphaNumeric(event);"
-	                                            maxlength="100" />
+	                                            onkeypress=""
+	                                            maxlength="5" />
                                         </div>
                                         </div>
                                         <div class="row form-group">
@@ -1340,7 +1340,7 @@ function activateUserAccountJoinUs() {
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />');"
 	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);"
-	                                            maxlength="100" />
+	                                            maxlength="50" />
                                            </div>
                                        </div>
                                        <!-- street no., street name end -->
