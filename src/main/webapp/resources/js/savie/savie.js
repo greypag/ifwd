@@ -200,7 +200,7 @@ function createPdf() {
 	},
 	function(data) {
 		if(data.pdfName){
-			window.open('/'+contextPath+'/tc/saving-insurance/pdf-show?pdfName='+data.pdfName);
+			window.open('/'+contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName);
 		}
 		else{
 			alert("data error");

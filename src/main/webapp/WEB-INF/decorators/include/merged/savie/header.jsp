@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
 	function gotoFna(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/saving-insurance/financial-needs-analysis";
+		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/financial-needs-analysis";
 	}
 </script>
 

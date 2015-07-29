@@ -56,7 +56,7 @@ public class SaviePageFlowControl {
 		String to = "";
 		String to2 = "";
 
-		if (current.equalsIgnoreCase("saving-insurance")) {
+		if (current.equalsIgnoreCase("savings-insurance")) {
 			current = UserRestURIConstants.PAGE_SAVIE_LANDING;
 		}
 
@@ -149,7 +149,7 @@ public class SaviePageFlowControl {
 
 		logger.debug("nextPageFlow : " + to);
 		logger.debug("nextPageFlow2 : " + to2);
-		// to=UserRestURIConstants.getSitePath(request)+ "saving-insurance/"+
+		// to=UserRestURIConstants.getSitePath(request)+ "savings-insurance/"+
 		// to;
 		// logger.debug("return to : " + to);
 
