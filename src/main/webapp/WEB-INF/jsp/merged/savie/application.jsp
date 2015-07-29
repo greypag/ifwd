@@ -11,7 +11,7 @@
 %>
 <script type="text/javascript">
 	function applicationSubmit() {
-		var url = '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'saving-insurance/';
+		var url = '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/';
 		if($("#pay-later-radio").is(":checked")){
 			url += '${nextPageFlow2}';
 		}
