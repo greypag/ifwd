@@ -76,6 +76,9 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Autowired
 	protected ClientBrowserUtil clientBrowserUtil;
+	
+	@Autowired
+	protected InitApplicationMessage initApplicationMessage;
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
@@ -929,7 +932,11 @@ public class SavieServiceImpl implements SavieService {
 			int height = bufferedImage.getHeight();
 			is.close();
 			files.delete();
-			if(width > 1200 || height > 800){
+			String signatureWidth = InitApplicationMessage.signatureWidth;
+			String signatureHeight = InitApplicationMessage.signatureHeight
+;
+
+			if(width > Integer.valueOf(signatureWidth) || height > Integer.valueOf(signatureHeight)){
 				return false;
 			}
 			return true;
