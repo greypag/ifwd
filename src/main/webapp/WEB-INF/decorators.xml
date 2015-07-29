@@ -13,7 +13,7 @@
 	</decorator>
 	
 	<decorator name="fwdsavie" page="template_savie.jsp">
-		<pattern>/*/saving-insurance*</pattern>
+		<pattern>/*/savings-insurance*</pattern>
 	</decorator>
 	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">

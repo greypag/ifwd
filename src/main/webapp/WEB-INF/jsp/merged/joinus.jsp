@@ -39,8 +39,8 @@
 								$('#success-message').html("User succesfully Register"); 
 // 								setTimeout(function() {document.joinus_form.action= "useraccount";								
 // 								}, 3000);
- 								if(window.top.document.referrer.indexOf("saving-insurance/plan-details")>0){
- 									window.location.href = '<%=request.getContextPath()%>/${language}/saving-insurance/financial-needs-analysis';
+ 								if(window.top.document.referrer.indexOf("savings-insurance/plan-details")>0){
+ 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/financial-needs-analysis';
  								} else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';
  								}

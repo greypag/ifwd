@@ -40,38 +40,38 @@ public class SavieController extends BaseController{
 	@Autowired
 	private SavieService savieService;
 
-	@RequestMapping(value = {"/{lang}/saving-insurance/landing","/{lang}/saving-insurance"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/landing","/{lang}/savings-insurance"})
 	public ModelAndView getSavieLanding(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/plan-details"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 	}	
 	
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/financial-needs-analysis"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/financial-needs-analysis"})
 	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_FNA);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/sales-illustration"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/sales-illustration"})
 	public ModelAndView getSavieSalesIllustration(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SALES_ILLUSTRATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/application"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/application"})
 	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_APPLICATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/application-summary"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"}, method = RequestMethod.POST)
 	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,
 			@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail,
 			@RequestParam String appGender,
-			@RequestParam String maritalStatus,
-			@RequestParam String birthday) {
+			@RequestParam String maritalStatus) {
+		//@RequestParam String birthday
 		if("F".equals(appGender)){
 			savieDetail.getSavieApplicantBean().setGender(GenderEnum.FEMALE);
 		}
@@ -84,48 +84,48 @@ public class SavieController extends BaseController{
 		else{
 			savieDetail.getSavieApplicantBean().setMaritalStatus(MaritalStatusEnum.Married);
 		}
-		if(!"".equals(birthday)){
+		/*if(!"".equals(birthday)){
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			try {
 				savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthday));
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 		
 		
 		request.getSession().setAttribute("savieDetail", savieDetail);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SUMMARY);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/customer-service-centre"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
 	public ModelAndView getSavieAppointment(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
 		request.getSession().setAttribute("savieDetail", savieDetail);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CS);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/document-upload"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/declarations"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
 	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DECLARATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/signature"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/signature"})
 	public ModelAndView getSavieSignature(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SIGNATURE);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/interest-gathering"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
 
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -140,12 +140,12 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/email-submitted"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saving-insurance/pdf-show"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
  	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName) {
 		request.getSession().setAttribute("pdfName", pdfName);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);

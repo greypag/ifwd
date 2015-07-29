@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -819,9 +820,13 @@ public class SavieServiceImpl implements SavieService {
 		BaseResponse br = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
+			header.put("language", "ZH");
 			String to = request.getParameter("to");
 			String message = request.getParameter("message");
-			String subject = "html testing";
+			String subject = request.getParameter("subject");// "html testing";
+			if("".equals(subject) || subject == null){
+				subject = "html testing";
+			}
 			String attachment = request.getParameter("attachment");
 			String from = "sit@ecomm.fwd.com";
 			boolean isHTML = true;

@@ -1,192 +1,333 @@
 <%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="">
-</head>
-<body>
-<div align="center">
-<form method="post" action="${pageContext.request.contextPath}/${language}/saving-insurance/${nextPageFlow}">
-<h2>Personal info</h2>
-		<div style="margin:20px 0;"></div>
-		<div>
-			<div style="padding:10px 60px 20px 60px">
-		    	<table>
-		    		<tr>
-		    			<td>Name in English:</td>
-		    			<td>${savieDetail.savieApplicantBean.firstName }</td>
-		    			<td>Email address:</td>
-		    			<td>${savieDetail.savieApplicantBean.email }</td>
-		    		</tr>
-		    		<tr>
-		    			<td></td>
-		    			<td>${savieDetail.savieApplicantBean.lastName }</td>
-		    			<td>Residential tel no:</td>
-		    			<td>${savieDetail.savieApplicantBean.residentialTelNo }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Name in Chinese:</td>
-		    			<td>${savieDetail.savieApplicantBean.chineseName }</td>
-		    			<td>Mobile no:</td>
-		    			<td>${savieDetail.savieApplicantBean.mobileNo }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>HKID:</td>
-		    			<td>${savieDetail.savieApplicantBean.hkId }</td>
-		    			<td>Residential address:</td>
-		    			<td>${savieDetail.savieApplicantBean.residentialAdress1 }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Gender:</td>
-		    			<td>${savieDetail.savieApplicantBean.gender }
-		    			</td>
-		    			<td></td>
-		    			<td>${savieDetail.savieApplicantBean.residentialAdress2 }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Marital status:</td>
-		    			<td>${savieDetail.savieApplicantBean.maritalStatus }
-		    			</td>
-		    			<td></td>
-		    			<td>${savieDetail.savieApplicantBean.residentialAdress3 }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Date of birth:</td>
-		    			<td>${savieDetail.savieApplicantBean.birthday }</td>
-		    			<td></td>
-		    			<td>${savieDetail.savieApplicantBean.residentialDistrict }
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Place of birth:</td>
-		    			<td>${savieDetail.savieApplicantBean.placeOfBirth }
-		    			</td>
-		    			<td></td>
-		    			<td>*No P.O Box address allowed</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Nationality:</td>
-		    			<td>${savieDetail.savieApplicantBean.nationality }
-		    			</td>
-		    			<td></td>
-		    			<td>${savieDetail.savieApplicantBean.addressIsSame }</td>
-		    		</tr>
-		    	</table>
-		    </div>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+		<%!
+			boolean isSaleActiveClass = true;
+		%>
+		<div class="fwd-savie-wrapper">
+			<!--Application Header Info Widget-->
+			<div class="container-fluid fwd-full-container">
+				<div class="application-page-header">
+					<div class="row">
+						<div class="col-xs-12 orange-section">
+							<div class="clearfix position">
+								<div class="back-arrow-left">
+									<a id="order-summary-return-btn" class="btn back-arrow-btn" href="">
+										<span class="icon-arrow-left2 arrow-left"></span>
+									</a>
+								</div>
+								<div class="description-order-summary">
+									<span><fmt:message key="savie.summary.title" bundle="${msg}" /></span>
+								</div>
+								<div class="dollars-monthly-right">
+									<div class="figures">
+										<span class="figure-description"><fmt:message key="savie.summary.single_premium" bundle="${msg}" /></span>
+										<span class="dollars"><fmt:message key="savie.summary.HK" bundle="${msg}" /> <span class="figure">100,000</span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 gray-section">
+							<div class="description"><fmt:message key="savie.summary.title" bundle="${msg}" /></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="application-flux">
+				<!-- Illustration Review Block -->
+				<div class="fwd-full-container container-fluid illustration-review investment">     
+					<div class="fwd-container-limit illustrate investment-summary-and-table">
+						<div id="sales-contents" class="tab-content credits">
+							<div>	                    	
+								<div class="container-fluid summary-tab-max-width">
+									<div id="application-review-container" class="fwd-container">
+										<div class="illustration-head">
+											<h2 class="text-center appli"><fmt:message key="savie.summary.application_summary" bundle="${msg}" /></h2>
+										</div>
+										<div class="row plan-row inner-plan-row">
+											<div class="clearfix inner-plan-col">
+												<div class="col-xs-12 col-md-12 inner-col">
+													<div class="row">
+														<h3><fmt:message key="savie.summary.personal" bundle="${msg}" /> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.name_english" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p></p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3 name-pad">
+															<p><fmt:message key="savie.summary.last_name" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col name-pad">
+															<p>${savieDetail.savieApplicantBean.lastName }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3 name-pad">
+															<p><fmt:message key="savie.summary.given_name" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col name-pad">
+															<p>${savieDetail.savieApplicantBean.firstName }</p>
+														</div>					                                
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.name_chinese" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col chinese">
+															<p>${savieDetail.savieApplicantBean.chineseName }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.hkid" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.hkId }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.gender" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.gender }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.marital_status" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.maritalStatus }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.date_birth" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.birthday }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.place_birth" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.placeOfBirth }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.nationality" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.nationality }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.email_address" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieApplicantBean.email }</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.tel_no" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>+852 1234-5678</p>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.residential_address" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p class="line">Tung Hip building, Room 601, 248 Des Voeux Road, Sheung Wan.</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12 col-md-12 inner-col">
+													<div class="row">
+														<h3 class="h3-pad"><fmt:message key="savie.summary.employment_info" bundle="${msg}" /> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.employment_status" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieEmploymentBean.employmentStatus }</p>
+														</div>	
+														<div class="clearfix"></div>                                
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.occupation" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieEmploymentBean.occupation }</p>
+														</div>				        
+														<div class="clearfix"></div>                        
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.nature_business" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieEmploymentBean.natureOfBusiness }</p>
+														</div>				        
+														<div class="clearfix"></div>                        
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.monthly_personal" bundle="${msg}" /> <span class="p-monthly"><fmt:message key="savie.summary.income" bundle="${msg}" /></span></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.savieEmploymentBean.monthlyPersonalIncome }</p>
+														</div>
+													</div>
+												</div>
+												<c:forEach var="savieBeneficiaryBean" varStatus="status" items="${savieDetail.savieBeneficiaryBeans}">
+													<div class="col-xs-12 col-md-12 inner-col">
+														<div class="row">
+															<h3 class="h3-pad"><fmt:message key="savie.summary.beneficiary" bundle="${msg}" /> <span>(<fmt:message key="savie.summary.person" bundle="${msg}" />) ${status.index + 1 }</span> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.name_english" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p></p>
+															</div>	
+															<div class="clearfix"></div>
+															<div class="col-xs-6 col-md-3 name-pad">
+																<p><fmt:message key="savie.summary.last_name" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col name-pad">
+																<p>${savieBeneficiaryBean.lastName }</p>
+															</div>	
+															<div class="clearfix"></div>    
+															<div class="col-xs-6 col-md-3 name-pad">
+																<p><fmt:message key="savie.summary.given_name" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col name-pad">
+																<p>${savieBeneficiaryBean.firstName }</p>
+															</div>	
+															<div class="clearfix"></div>        
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.relationship" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p>${savieBeneficiaryBean.relationship }</p>
+															</div>	
+															<div class="clearfix"></div>    
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.gender" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p>${savieBeneficiaryBean.gender }</p>
+															</div>
+															<div class="clearfix"></div>    
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.entitlement" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p>${savieBeneficiaryBean.entitlement }</p>
+															</div>
+															<div class="clearfix"></div>    
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p>Savie</p>
+															</div>
+															<div class="clearfix"></div>    
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.currency" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p>HK$</p>
+															</div>
+															<div class="clearfix"></div>    
+															<div class="col-xs-6 col-md-3">
+																<p><fmt:message key="savie.summary.single_premium" bundle="${msg}" /></p>
+															</div>
+															<div class="col-xs-6 col-md-9 plan-col">
+																<p>HK$ 10000.0</p>
+															</div>
+														</div>
+													</div>
+												</c:forEach>
+												
+												<div class="col-xs-12 col-md-12 inner-col">
+													<div class="row">
+														<h3 class="h3-pad"><fmt:message key="savie.summary.payment_info" bundle="${msg}" /> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>           
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.payment_method" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.saviePaymentBean.paymentMethod }</p>
+														</div>
+														<div class="clearfix"></div>    
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.amount" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>HK$ ${savieDetail.saviePaymentBean.amount }</p>
+														</div>	
+														<div class="clearfix"></div>    
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.account_no" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.saviePaymentBean.accountNo }</p>
+														</div>	
+														<div class="clearfix"></div>    
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.bank_name" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.saviePaymentBean.bankName }</p>
+														</div>	
+														<div class="clearfix"></div>    
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.branch_name" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.saviePaymentBean.branchName }</p>
+														</div>	
+														<div class="clearfix"></div>    
+														<div class="col-xs-6 col-md-3">
+															<p><fmt:message key="savie.summary.expiry_date" bundle="${msg}" /></p>
+														</div>
+														<div class="col-xs-6 col-md-9 plan-col">
+															<p>${savieDetail.saviePaymentBean.expiryDate }</p>                    
+														</div>
+													</div>
+												</div>
+											</div>              
+										</div>
+									</div> <!-- application-review end tag -->
+									<div class="btn-style btn-pro text-center">
+										<button id="order-summary-proceed-btn" type="button" class="text-center btn-next"><fmt:message key="savie.summary.next" bundle="${msg}" /></button>
+									</div>
+								</div> <!-- tab summary end -->
+							</div>
+						</div> <!-- tab content credits -->
+					</div> <!-- investment summary table end -->
+				</div> <!-- investment end -->
+			</div>
+		
+			<!-- FOOTER -->
+			<div id="illustration-result" class="modal fade illustration-result application-modal" role="dialog" data-backdrop="false" aria-labelledby="illustration-result">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<div class="modal-body">						
+							<h2>Here’s your sales illustration result</h2>
+							<p class="single-premium">Single premium</p>
+							<span class="amount">HK$ 100,00</span>
+							<p class="guaranteed">Guaranteed at the end of 3rd policy year HK$ 110,334</p>
+							<button id="review-accept" class="btn next" data-dismiss="modal">Review and accept</button> 
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	    <h2>Employment info</h2>
-		<div style="margin:20px 0;"></div>
-		<div>
-			<div style="padding:10px 60px 20px 60px">
-		    	<table>
-		    		<tr>
-		    			<td>Employment status:</td>
-		    			<td>${savieDetail.savieEmploymentBean.employmentStatus }
-		    			</td>
-		    			<td>Nature of business:</td>
-		    			<td>${savieDetail.savieEmploymentBean.natureOfBusiness }
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Occupation:</td>
-		    			<td>${savieDetail.savieEmploymentBean.occupation }
-		    			</td>
-		    			<td>Monthly personal income(HKD):</td>
-		    			<td>${savieDetail.savieEmploymentBean.monthlyPersonalIncome }
-		    			</td>
-		    		</tr>
-		    	</table>
-		    </div>
-		</div>
-	    <h2>Beneficiary info</h2>
-	    <p>You may add up to three(3) persons</p>
-		<div style="margin:20px 0;"></div>
-		<div>
-			<div style="padding:10px 60px 20px 60px">
-		    	<table>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].ownEstate }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Name in English</td>
-		    		</tr>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].firstName }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].lastName }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Name in Chinese:</td>
-		    		</tr>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].chineseName }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>HKID/Passport No:</td>
-		    		</tr>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].hkId }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Gender:</td>
-		    		</tr>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].gender }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Entitlement(%):</td>
-		    		</tr>
-		    		<tr>
-		    			<td>${savieDetail.savieBeneficiaryBeans[0].entitlement }</td>
-		    		</tr>
-		    	</table>
-		    </div>
-		</div>
-		<h2>Payment</h2>
-		<div style="margin:20px 0;"></div>
-		<div>
-			<div style="padding:10px 60px 20px 60px">
-		    	<table>
-		    		<tr>
-		    			<td colspan="4">${savieDetail.saviePaymentBean.paymentType }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Amount</td>
-		    			<td>${savieDetail.saviePaymentBean.amount }</td>
-		    			<td>Account no</td>
-		    			<td>${savieDetail.saviePaymentBean.amount }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Payment method</td>
-		    			<td>${savieDetail.saviePaymentBean.paymentMethod }</td>
-		    			<td>Bank account holder name</td>
-		    			<td>${savieDetail.saviePaymentBean.bankAccountHolderName }</td>
-		    		</tr>
-		    		<tr>
-		    			<td>Bank name(Code)</td>
-		    			<td>${savieDetail.saviePaymentBean.bankName }
-		    			</td>
-		    			<td>Branch name</td>
-		    			<td>${savieDetail.saviePaymentBean.branchName }
-		    			</td>
-		    		</tr>
-		    		<tr>
-		    			<td  colspan="4">${savieDetail.saviePaymentBean.paymentConfirmAuthorize }</td>
-		    		</tr>
-		    		<tr align="center">
-		    			<td colspan="4">
-		    			   <input type="submit" value="NEXT"/>
-		    			</td>
-		    		</tr>
-		    	</table>
-		    </div>
-		</div>
-</form>
-</div>
-</body>
-</html>
+
+		<!-- JS INCLUDES -->
+		<script>
+			$(function() {
+				//$('#illustration-result').modal('show');
+			});
+		</script>

@@ -108,14 +108,15 @@ function sendStep2Email() {
 	}
 }
 
-function sendMessagesEmail(email,message,attachment) {
+function sendMessagesEmail(email,message,attachment,subject) {
 	$.ajax({     
 	    url:context+'/ajax/savie/messages/email',     
 	    type:'post',     
 	    data:{    
 	    	"to": email,
 	    	"message":message,
-	        "attachment":attachment  
+	        "attachment":attachment,
+	        "subject":subject
    		},     
 	    error:function(){       
 	    },     
@@ -142,9 +143,10 @@ function sendlead(email,mobileNo,answer1,step) {
 	    success:function(data){ 
 	    	if(data.errMsgs == null ){
 	    		if(step == '1'){
-	    			var message = "<h1>Thank you for registering your email address at Savie Insurance Plan's website</h1>";
+	    			var message = "Hi<br />您好,<br />Thank you for registering your email address at Savie Insurance Plan' s website. <br />多謝您成功於自助息理財壽險計劃網頁登記電郵地址.";
 	    			var attachment = "";
-	    			sendMessagesEmail(email,message,attachment); 
+	    			var subject = "Acknowledgement Email";
+	    			sendMessagesEmail(email,message,attachment,subject); 
 	    			$('#teaserSurvery').modal('show');
 	    		}
 	    	}else{
