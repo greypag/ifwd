@@ -11,6 +11,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
+var affiliate = "${affiliate}";
 </script>
 
 

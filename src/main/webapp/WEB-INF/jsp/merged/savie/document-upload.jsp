@@ -55,7 +55,10 @@ var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此�
     removedfile: function(file) {
     	},
     success: function(file, data) {
-    	
+    	if( data =="[\"The picture is not legitimate\"]"){
+    		alert("上传图片长度不得超过："+maxHeight+"，宽度不得超过："+maxWidth);
+        	$("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");
+    	}
     }
 }); 
 </script>

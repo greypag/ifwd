@@ -209,6 +209,11 @@ public class SaviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD)) {
 			return UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
 		}
+
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED)) {
+			return UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+		}
+		
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING)) {
 			return UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
 		}
@@ -217,9 +222,6 @@ public class SaviePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)) {
 			return UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
-		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED)) {
-			return UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
 		}
 		return "";
 		

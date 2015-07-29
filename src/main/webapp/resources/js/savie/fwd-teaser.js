@@ -136,6 +136,9 @@ function sendMessagesEmail(email,message,attachment,subject) {
 }
 
 function sendlead(email,mobileNo,answer1,step) {
+	if( affiliate == null){
+		affiliate = "";
+	}
 	$.ajax({     
 	    url: context+'/ajax/savie/interestGather/post',     
 	    type:'post',     
@@ -143,6 +146,7 @@ function sendlead(email,mobileNo,answer1,step) {
 	    	"email": email,
 	    	"mobileNo":mobileNo,
 	        "answer1": answer1,
+	        "affiliate":affiliate,
 	        "step": step    
    		},        
 	    error:function(){

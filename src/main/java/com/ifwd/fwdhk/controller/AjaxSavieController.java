@@ -2,8 +2,6 @@ package com.ifwd.fwdhk.controller;
 
 
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +21,6 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
-import com.ifwd.fwdhk.util.ZipUtils;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -158,7 +154,7 @@ public class AjaxSavieController extends BaseController{
 				logger.info("fileName:"+file.getOriginalFilename());
 				BaseResponse br = savieService.uploadDocuments(request,file);
 				logger.info("apiJsonObj:"+br);
-				ajaxReturn(response,br);
+				ajaxReturn(response,br.getErrMsgs());
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();

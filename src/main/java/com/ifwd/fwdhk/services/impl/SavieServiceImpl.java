@@ -1,22 +1,24 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.codec.binary.StringUtils;
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -798,12 +800,14 @@ public class SavieServiceImpl implements SavieService {
 	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
+			String affiliate = request.getParameter("affiliate");
 			final Map<String,String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("email", request.getParameter("email"));
 			parameters.put("mobileNo", request.getParameter("mobileNo"));
 			parameters.put("answer1", request.getParameter("answer1"));
 			parameters.put("step", request.getParameter("step"));
+			parameters.put("affiliate", affiliate);
 			br = connector.sendLead(parameters,header);
 		}catch(Exception e){
 			
@@ -905,19 +909,57 @@ public class SavieServiceImpl implements SavieService {
 		return br;
 	}
 	
+	public Boolean checkImages(HttpServletRequest request,MultipartFile file){
+		try {
+			String uploadDir = request.getSession().getServletContext()
+					.getRealPath("/")
+					+ "upload";
+			File dirPath = new File(uploadDir);
+			if (!dirPath.exists()) {
+				dirPath.mkdirs();
+			}
+			String name =  UUID.randomUUID().toString().replace("-", "");;
+			String filePath = uploadDir + "/" +name+"."+ file.getContentType().split("/")[1];
+			// 转存文件  
+			File files = new File(filePath);
+			file.transferTo(files);
+			InputStream is = new FileInputStream(files);
+			BufferedImage bufferedImage = ImageIO.read(is);
+			int width = bufferedImage.getWidth();
+			int height = bufferedImage.getHeight();
+			is.close();
+			files.delete();
+			if(width > 1200 || height > 800){
+				return false;
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		} 
+	}
+	
+	@Override
 	@SuppressWarnings({ "restriction", "unchecked" })
 	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try{
 			byte[] bytes = file.getBytes();
+			String imageType = file.getContentType().split("/")[1];
+			String fileType = file.getContentType().split("/")[0];
+			String filename = file.getOriginalFilename();
+			if("image".equals(fileType) && !checkImages(request, file)){
+				br = new BaseResponse();
+				br.setErrMsg("The picture is not legitimate");
+				return br;
+			}
 			String base64 =new sun.misc.BASE64Encoder().encode(bytes);
 			final Map<String, String> header = headerUtil.getHeader(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", file.getContentType().split("/")[1]);
+			parameters.put("fileType", imageType);
 			parameters.put("documentType", "HKID");
-			parameters.put("originalFilePath", "C:\\"+file.getOriginalFilename());
+			parameters.put("originalFilePath", "C:\\"+filename);
 			parameters.put("base64", base64);
 			br = connector.uploadDocuments(parameters, header);
 		}catch(Exception e) {
