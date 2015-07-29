@@ -66,11 +66,8 @@ public class SaviePageFlowControl {
 		String to = "";
 		String to2 = "";
 
-<<<<<<< HEAD
+
 		/*if (current.equalsIgnoreCase("saving-insurance")) {
-=======
-		if (current.equalsIgnoreCase("savings-insurance")) {
->>>>>>> c84a516eaf94ae87635cae09dbf00cba741ed2c9
 			current = UserRestURIConstants.PAGE_SAVIE_LANDING;
 		}*/
 
