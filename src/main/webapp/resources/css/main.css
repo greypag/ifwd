@@ -7530,6 +7530,10 @@ tr.product-landing-error-wrap {
     margin-bottom: 40px;
 }
 
+.home_promo_banner_list_description{
+    margin-bottom: 20px;
+}
+
 .home_promo_banner_description ul{
 	list-style-image: url('../images/check-icon.png');
 	padding-left: 25px;
