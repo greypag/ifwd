@@ -126,7 +126,7 @@ public class UserRestURIConstants {
 	
 	
 	/* for image configuration */
-	public static final String IMAGE_CONFIG = "/ecommerce/configuration";
+	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
 	
 	
 	
