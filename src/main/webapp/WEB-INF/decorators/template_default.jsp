@@ -64,8 +64,12 @@
 <% String requestUri = request.getRequestURI(); %>
 <% if(!requestUri.endsWith("-insurance")) { %>
 <meta name="robots" content="noindex">
-<% } %>
-
+<% }
+   if(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
+		   || requestUri.endsWith("/tc") || requestUri.endsWith("/tc/")) {
+%>
+<link rel="alternate"  href="https://i.fwd.com.hk/en" hreflang="en" />
+<% }%>
 <%@ include file="include/setup.jsp"%>
 <link rel="alternate" hreflang="en" href="" />
 <link rel="alternate" hreflang="zh-HK" href="" />
