@@ -516,7 +516,7 @@ function activateUserAccountJoinUs() {
 									</label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input type="text" class="form-control full-control"
+									<input type="tel" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
 										value="${userDetails.mobileNo}"
 										onkeypress="return isNumeric(event)"
@@ -797,7 +797,7 @@ function activateUserAccountJoinUs() {
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
-												onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+												onkeypress="" maxlength="5" />
 										</div>
 									</div>
 									<div class="row form-group">
