@@ -154,7 +154,7 @@ public class AjaxSavieController extends BaseController{
 				logger.info("fileName:"+file.getOriginalFilename());
 				BaseResponse br = savieService.uploadDocuments(request,file);
 				logger.info("apiJsonObj:"+br);
-				ajaxReturn(response,br.getErrMsgs());
+				ajaxReturn(response,br);
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();

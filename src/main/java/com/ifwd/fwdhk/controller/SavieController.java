@@ -108,6 +108,8 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
+		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
+		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
 	}
 	
