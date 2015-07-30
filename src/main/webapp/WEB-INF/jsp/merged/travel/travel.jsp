@@ -512,7 +512,7 @@ $(document).ready(function() {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                 <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                     <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
                   </h3>
                   <div style="margin-top:25px;">
@@ -525,7 +525,7 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                    <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                      <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
                   </h3>
                   <div style="margin-top:25px;">
@@ -538,7 +538,7 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                       <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                          <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
                       </h3>
                       <div style="margin-top:25px;">

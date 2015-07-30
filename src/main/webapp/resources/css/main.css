@@ -7630,5 +7630,9 @@ tr.product-landing-error-wrap {
     #home_promo_banner button{
         margin: 0 auto;
     }
+    
+    .landing-feature-title{
+        font-size: 24px;
+    }
 }
 /** home promo banner **/
