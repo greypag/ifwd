@@ -131,6 +131,83 @@ $(document).ready(function() {
                     </div>
 	</section>
 	
+	
+	<section id="home_promo_banner">
+        <div class="container pad-none">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_promo_banner_container">
+                <div class="circle_fake"></div>
+                <div class="circle_core"><img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/middle-circle.gif" /></div>
+                <div class="circle_outer"><img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/outer-circle.gif" /></div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_promo_banner_container">
+                <div class="home_promo_banner_content pull-left">
+                    <div class="home_promo_banner_title"><fmt:message key="home.cheapest.h1" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_caption"><fmt:message key="home.cheapest.h2.part1" bundle="${msg}" /> <span class="special_word"><fmt:message key="home.cheapest.h2.part2" bundle="${msg}" /></span><fmt:message key="home.cheapest.h2.part3" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_description">
+                        <p>
+                            <fmt:message key="home.cheapest.desc1" bundle="${msg}" />
+                        </p>
+                        <br/>
+                        <p>
+                            <fmt:message key="home.cheapest.desc2" bundle="${msg}" />
+                        </p>
+                    </div>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare" onclick="showHomePromoHidden();"><fmt:message key="home.cheapest.action1" bundle="${msg}" /></button>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
+                </div>
+                <div class="home_promo_banner_hidden_content pull-left" style="display:none;">
+                    <div class="home_promo_banner_title"><fmt:message key="home.cheapest.h1" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_caption"><fmt:message key="home.cheapest.h2.part1" bundle="${msg}" /> <span class="special_word"><fmt:message key="home.cheapest.h2.part2" bundle="${msg}" /></span><fmt:message key="home.cheapest.h2.part3" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_description">
+                        <div class="home_promo_banner_list_description"><fmt:message key="home.cheapest.features.h1" bundle="${msg}" /></div>
+                        <ul>
+                            <li><fmt:message key="home.cheapest.features1" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features2" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features3" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features4" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features5" bundle="${msg}" /></li>
+                        </ul>
+                    </div>
+                    <div class="home_promo_banner_description">
+                        <fmt:message key="home.cheapest.help.part1" bundle="${msg}" /> <a href="mailto:<fmt:message key="home.cheapest.help.part2" bundle="${msg}" />"><u><fmt:message key="home.cheapest.help.part2" bundle="${msg}" /></u></a> <fmt:message key="home.cheapest.help.part3" bundle="${msg}" />
+                    </div>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homePromoGetQuote('desktop')"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homePromoGetQuote('mobile')"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    
+    <script>
+    $( document ).ready(function() {
+    	$(".circle_fake").height($(".circle_fake").width());
+   	});
+    
+    $(window).on('resize', function(){
+    	$(".circle_fake").height($(".circle_fake").width());
+	});
+    
+    function showHomePromoHidden(){
+        $(".home_promo_banner_content").fadeOut(function(){
+            $(".home_promo_banner_hidden_content").fadeIn();
+        });
+    }
+    
+    function homePromoGetQuote(dev){
+        if(dev=="desktop"){
+            if(msgAlertDesk('getHomeQuote')){
+                $("#getHomeQuote").submit();
+            }
+        }else{
+            if(msgAlertDesk('getHomeQuoteMob')){
+                $("#getHomeQuoteMob").submit();
+            }
+        }
+    }
+    </script>
+	
 		
 		<!--mobile-->
 		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/${language}/home-insurance/quote"
@@ -197,6 +274,10 @@ $(document).ready(function() {
 
 	<!--/#main-slider-->
 
+
+    
+
+
 	<section id="feature" style="margin-top:40px;">
 		<div class="container pad-none">
 			<div class="center wow fadeInDown">
@@ -216,7 +297,7 @@ $(document).ready(function() {
 		        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 		                <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		                  <h3 style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
+		                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
 		                    <fmt:message key="home.main.feature1.heading.part1" bundle="${msg}" /><fmt:message key="home.main.feature1.heading.part2" bundle="${msg}" />
 		                  </h3>
 		                  <div style="margin-top:25px;">
@@ -229,7 +310,7 @@ $(document).ready(function() {
 		              </div>
 		              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 		                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		                  <h3 style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
+		                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
 		                     <fmt:message key="home.main.feature2.heading.part1" bundle="${msg}" /><fmt:message key="home.main.feature2.heading.part2" bundle="${msg}" />
 		                  </h3>
 		                  <div style="margin-top:25px;">
@@ -242,7 +323,7 @@ $(document).ready(function() {
 		              </div>
 		              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 		                  <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		                       <h3 style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
+		                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
 		                         <fmt:message key="home.main.feature3.heading.part1" bundle="${msg}" /><fmt:message key="home.main.feature3.heading.part2" bundle="${msg}" />
 		                      </h3>
 		                      <div style="margin-top:25px;">
@@ -262,20 +343,20 @@ $(document).ready(function() {
 		      </div>
 			
 			
-			<div class="other-benefits col-lg-12">
+			<div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
 
 				<h2><fmt:message key="home.main.other.benefit" bundle="${msg}" /></h2>
 				  <ul class="bullets">
 				    <li>
-				      <p class="h4-5"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /></p>
+				      <p class="h4-5"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>
+				    </li>
+				    <li>
+				    	<p class="h4-5"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
 				    </li>
 				  </ul>
 				  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner" style="">
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
-				  </div>
-				  <div class="col-xs-12 col-sm-12 hidden-lg hidden-md main-partner" style="text-align:center;">
-				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-				    <br>
+				    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-right:15px;">
 				  </div>
 
 				<div class="spacer1"></div>
@@ -302,6 +383,53 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				</p>-->
 			</div>
 			<!--/.container-->
+			<div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+				  <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
+				  <div class="carousel slide">
+				    <div class="carousel-inner">
+				      <div class="item active">
+				          <div class="slide-margin">
+				            <div class="other-benefits-wrap text-center">
+				              <div class="other-benefits-inner">
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>
+				              </div>
+				            </div>
+				          </div>
+				      </div>
+				      <!--/.item-->
+				      <div class="item" >
+				          <div class="slide-margin">
+				            <div class="other-benefits-wrap text-center">
+				              <div class="other-benefits-inner">
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
+				              </div>
+				            </div>
+				          </div>
+				      </div>
+				      <!--/.item-->
+				    </div>
+				    <!--/.carousel-inner--> 
+				    <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+				    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+				  </div>
+				  <!--/.carousel-->
+				  <div class="clearfix"></div>
+				  
+				  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
+				  	<div class="col-lg-12 col-md-12 col-xs-12">
+				    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+				    </div>
+				    <div class="col-lg-12 col-md-12 col-xs-12">
+				    	<img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-bottom:15px;">
+				    </div>
+				  </div>
+
+				  <div class="spacer3"></div>
+				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
+				  
+				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" /></p>
+				<!--/.container-->
+				</div>
 		</div>
 	</section>
 

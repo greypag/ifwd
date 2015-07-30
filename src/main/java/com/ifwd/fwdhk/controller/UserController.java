@@ -31,6 +31,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.ValidationUtils;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -233,6 +234,12 @@ public class UserController {
 		model.addAttribute("userDetails", userDetails);
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.joinUs", UserRestURIConstants.getLanaguage(req));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.joinUs", UserRestURIConstants.getLanaguage(req));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
 	}
 
@@ -473,14 +480,14 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(req)+ "partner";
 	}
 	
-/*
+
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
 	public String faq(Model model, HttpServletRequest req) {	
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
-		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
+		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
-*/	
+	
 
 }

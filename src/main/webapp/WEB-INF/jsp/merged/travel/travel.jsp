@@ -512,7 +512,7 @@ $(document).ready(function() {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                 <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                     <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
                   </h3>
                   <div style="margin-top:25px;">
@@ -525,7 +525,7 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                    <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                      <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
                   </h3>
                   <div style="margin-top:25px;">
@@ -538,7 +538,7 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                       <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                          <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
                       </h3>
                       <div style="margin-top:25px;">
@@ -567,10 +567,10 @@ $(document).ready(function() {
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc3" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4" bundle="${msg}" /></p>
+      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /></p>
+      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>
     </li>
   </ul>
   
@@ -626,7 +626,7 @@ $(document).ready(function() {
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc4" bundle="${msg}" /></p>
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -636,7 +636,7 @@ $(document).ready(function() {
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.coupon.link" bundle="${msg}" />"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -656,9 +656,6 @@ $(document).ready(function() {
     </div>
     <div class="col-lg-12 col-md-12 col-xs-12">
     	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
-    </div>
-    <div class="col-lg-12 col-md-12 col-xs-12">
-    	<img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-bottom:15px;">
     </div>
   </div>
 

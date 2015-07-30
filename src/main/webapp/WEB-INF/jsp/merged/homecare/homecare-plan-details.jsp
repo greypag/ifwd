@@ -781,12 +781,12 @@ function activateUserAccountJoinUs() {
 	                           <!-- mobile starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-	                                   <label for="inputFullName" class="field-label bold-500">
+	                                   <label for="inputMobileNo" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.mobile" bundle="${msg}" />
 	                                   </label>
 	                               </div>
 	                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-	                                   <input type="text"
+	                                   <input type="tel"
                                             class="form-control full-control" id="inputMobileNo" name="mobileNo"
                                             value="${userDetails.mobileNo.trim()}"
                                             onkeypress="return isNumeric(event)"
@@ -798,7 +798,7 @@ function activateUserAccountJoinUs() {
 	                           <!-- email address starts -->
 	                           <div class="form-group float">
 	                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-	                                   <label for="inputFullName" class="field-label bold-500">
+	                                   <label for="inputEmailId" class="field-label bold-500">
 	                                       <fmt:message key="home.details.applicant.email" bundle="${msg}" />
 	                                   </label>
 	                               </div>
@@ -1055,7 +1055,7 @@ function activateUserAccountJoinUs() {
                                             placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
-                                            onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                            onkeypress="" maxlength="5" />
                                            </div>
                                         </div>
                                         <div class="row form-group">
@@ -1328,8 +1328,8 @@ function activateUserAccountJoinUs() {
 	                                            id="inputAStreetNo" name="aStreetNo" placeholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />"
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />');"
 	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />');"
-	                                            onkeypress="    return isAlphaNumeric(event);"
-	                                            maxlength="100" />
+	                                            onkeypress=""
+	                                            maxlength="5" />
                                         </div>
                                         </div>
                                         <div class="row form-group">
@@ -1340,7 +1340,7 @@ function activateUserAccountJoinUs() {
 	                                            onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />');"
 	                                            onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />');"
 	                                            onkeypress="    return isAlphaNumeric(event);"
-	                                            maxlength="100" />
+	                                            maxlength="50" />
                                            </div>
                                        </div>
                                        <!-- street no., street name end -->

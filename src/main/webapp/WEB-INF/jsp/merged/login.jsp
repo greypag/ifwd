@@ -142,7 +142,7 @@
                                                 
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
-                                                        <input type="text" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+                                                        <input type="tel" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
                                                         onkeypress="return isNumeric(event)"
                                                         onblur="forgotUserName();">                                                                                                                
                                                 </div>
@@ -316,7 +316,7 @@
                                                 
                                                 <!-- 電話 inout -->
                                                 <div class="form-group">                                                   
-                                                        <input type="text" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
+                                                        <input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
                                                         onkeypress="return isNumeric(event)"
                                                         onblur="validForgetUserPassword();">                                                                                                                
                                                
@@ -807,4 +807,3 @@ var perventRedirect=false;
 //	}
 //}
 </script>
-    

@@ -485,7 +485,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input type="text"
+                                    <input type="tel"
 						                value="${userDetails.mobileNo.trim()}" class="form-control full-control"
 						                name="mobileNo" id="inputMobileNo"
 						                onkeypress="return isNumeric(event)"

@@ -286,3 +286,8 @@ function faqChangeCareMob(care){
 	$("#faq_main_menu_mob").hide();
 	$("#faq_"+care+"_mob").show();
 }
+
+function faqMainMenuMob(care){	
+	$("#faq_"+care+"_mob").hide();
+	$("#faq_main_menu_mob").show();
+}
