@@ -73,6 +73,7 @@ function submitLoginForm(formID) {
 						
 						perventRedirect=false;
 						//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+						ga('send', 'event', 'Login', 'Click', 'Login success');
 						location.reload();
 					} else if (data == 'Provided User Account Details Does Not Exist') {
 						try{$('.login-ajax-loading').hide();}catch(error){}
