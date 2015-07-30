@@ -7502,7 +7502,7 @@ tr.product-landing-error-wrap {
 	font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
-    line-height: 28px;
+    line-height: 28px !important;
 }
 
 .home_promo_banner_caption{
@@ -7548,6 +7548,7 @@ tr.product-landing-error-wrap {
 	position:absolute;
     top:0px;
     right:0px;
+    width: 100%;
     z-index: 999;
 }
 
@@ -7555,6 +7556,7 @@ tr.product-landing-error-wrap {
     position:absolute;
     top:0px;
     right:0px;
+    width: 100%;
 }
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
