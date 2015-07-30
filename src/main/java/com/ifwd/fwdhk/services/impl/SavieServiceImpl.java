@@ -77,8 +77,6 @@ public class SavieServiceImpl implements SavieService {
 	@Autowired
 	protected ClientBrowserUtil clientBrowserUtil;
 	
-	@Autowired
-	protected InitApplicationMessage initApplicationMessage;
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
