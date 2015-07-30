@@ -7280,6 +7280,11 @@ tr.product-landing-error-wrap {
 }
 /***** partner *****/
 
+/***** faq *****/
+#address_table td{
+    padding: 5px !important;
+}
+
 /***** faq desktop *****/
 .faq_container{
    margin-top: 30px;
@@ -7412,6 +7417,7 @@ tr.product-landing-error-wrap {
     border-right-color: #fff;
     border-right-style: solid;
     border-right-width: 2px;
+    cursor: pointer;
 }
 
 .faq_container_mob .faq_title{
@@ -7461,6 +7467,10 @@ tr.product-landing-error-wrap {
 
 .faq_container_mob .faq_question_arrow{
     text-align: right;
+}
+
+.faq_container_mob .faq_answer{
+    margin-top: 20px !important;
 }
 
 .faq_container_mob .faq_qna_mini{
@@ -7518,6 +7528,10 @@ tr.product-landing-error-wrap {
 
 .home_promo_banner_description{
     margin-bottom: 40px;
+}
+
+.home_promo_banner_list_description{
+    margin-bottom: 20px;
 }
 
 .home_promo_banner_description ul{

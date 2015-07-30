@@ -480,14 +480,14 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(req)+ "partner";
 	}
 	
-/*
+
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
 	public String faq(Model model, HttpServletRequest req) {	
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
-		String str=  UserRestURIConstants.getSitePath(req)+ "faq";
+		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
-*/	
+	
 
 }

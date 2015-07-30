@@ -141,38 +141,39 @@ $(document).ready(function() {
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_promo_banner_container">
                 <div class="home_promo_banner_content pull-left">
-                    <div class="home_promo_banner_title">Guaranteed lowest price for our home insurance.</div>
-                    <div class="home_promo_banner_caption">Otherwise we will give you your next policy year for <span class="special_word">FREE</span>.</div>
+                    <div class="home_promo_banner_title"><fmt:message key="home.cheapest.h1" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_caption"><fmt:message key="home.cheapest.h2.part1" bundle="${msg}" /> <span class="special_word"><fmt:message key="home.cheapest.h2.part2" bundle="${msg}" /></span><fmt:message key="home.cheapest.h2.part3" bundle="${msg}" /></div>
                     <div class="home_promo_banner_description">
                         <p>
-                            You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). So with us, from your furniture to your freezer food, you are protected.
+                            <fmt:message key="home.cheapest.desc1" bundle="${msg}" />
                         </p>
                         <br/>
                         <p>
-                            You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). So with us, from your furniture to your freezer food, you are protected.
+                            <fmt:message key="home.cheapest.desc2" bundle="${msg}" />
                         </p>
                     </div>
-                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare" onclick="showHomePromoHidden();">Learn more</button>
-                    <div class="home_promo_banner_tnc"><span class="special_word"> * </span>Please refer to the full <span class="special_word"><a href="" target="_blank"><u>terms and conditions</u></a></span> of the guarantee.</div>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare" onclick="showHomePromoHidden();"><fmt:message key="home.cheapest.action1" bundle="${msg}" /></button>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
                 </div>
                 <div class="home_promo_banner_hidden_content pull-left" style="display:none;">
-                    <div class="home_promo_banner_title">Guaranteed lowest price for our home insurance.</div>
-                    <div class="home_promo_banner_caption">Otherwise we will give you your next policy year for <span class="special_word">FREE</span>.</div>
+                    <div class="home_promo_banner_title"><fmt:message key="home.cheapest.h1" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_caption"><fmt:message key="home.cheapest.h2.part1" bundle="${msg}" /> <span class="special_word"><fmt:message key="home.cheapest.h2.part2" bundle="${msg}" /></span><fmt:message key="home.cheapest.h2.part3" bundle="${msg}" /></div>
                     <div class="home_promo_banner_description">
+                        <div class="home_promo_banner_list_description"><fmt:message key="home.cheapest.features.h1" bundle="${msg}" /></div>
                         <ul>
-                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
-                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
-                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
-                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
-                            <li>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item).</li>
+                            <li><fmt:message key="home.cheapest.features1" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features2" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features3" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features4" bundle="${msg}" /></li>
+                            <li><fmt:message key="home.cheapest.features5" bundle="${msg}" /></li>
                         </ul>
                     </div>
                     <div class="home_promo_banner_description">
-                        Submit the claim for Free Cover via <a href="mailto:i-info.hk@fwd.com"><u>i-info.hk@fwd.com</u></a> with the subject of "Best Price Guarantee Claim" together with required supporting documents.
+                        <fmt:message key="home.cheapest.help.part1" bundle="${msg}" /> <a href="mailto:<fmt:message key="home.cheapest.help.part2" bundle="${msg}" />"><u><fmt:message key="home.cheapest.help.part2" bundle="${msg}" /></u></a> <fmt:message key="home.cheapest.help.part3" bundle="${msg}" />
                     </div>
-                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homePromoGetQuote('desktop')">Get a quote now</button>
-                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homePromoGetQuote('mobile')">Get a quote now</button>
-                    <div class="home_promo_banner_tnc"><span class="special_word"> * </span>Please refer to the full <a href="" target="_blank"><u>terms and conditions</u></a> of the guarantee.</div>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homePromoGetQuote('desktop')"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homePromoGetQuote('mobile')"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
                 </div>
             </div>
             <div class="clearfix"></div>
