@@ -560,7 +560,7 @@ $(document).ready(function() {
               <p class="h4-5 "> <fmt:message key="flight.main.other.tnc.desc6" bundle="${msg}" /> </p>
             </li>
             <li>
-              <p class="h4-5 "> <fmt:message key="flight.main.other.tnc.desc7" bundle="${msg}" /> </p>
+              <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
             </li>
           </ul>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
@@ -641,7 +641,7 @@ $(document).ready(function() {
                   <div class="slide-margin">
                     <div class="other-benefits-wrap text-center">
                       <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7" bundle="${msg}" /></p>
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
                       </div>
                     </div>
                   </div>

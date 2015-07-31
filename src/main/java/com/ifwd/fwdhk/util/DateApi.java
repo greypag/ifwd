@@ -1,5 +1,6 @@
 package com.ifwd.fwdhk.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -88,6 +89,33 @@ public class DateApi {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * 将date转化为日期格式为dd-MM-yyyy的字符串
+	 * @param date
+	 * @return String
+	 */
+	public static String formatString(Date date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		return dateFormat.format(date);
+	}
+	
+	/**
+	 * 判断date是否日期格式为dd-MM-yyyy的字符串
+	 * @param date
+	 * @return boolean
+	 */
+	public static boolean isValidDate(String date) {
+		boolean convertSuccess=true;
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+		try {
+		   format.setLenient(false);
+		   format.parse(date);
+		} catch (ParseException e) {
+		    convertSuccess=false;
+		} 
+		return convertSuccess;
 	}
 	
 	public static String formatString(String date){

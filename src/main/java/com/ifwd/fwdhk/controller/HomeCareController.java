@@ -151,6 +151,17 @@ public class HomeCareController {
 			String ogImage = "";
 			String ogDescription = "";
 			
+			String googleRickSnippetBrand ="";
+			String googleRickSnippetName ="";
+			String googleRickSnippetImageUrl ="";
+			String googleRickSnippetImageAlt ="";
+			String googleRickSnippetRating ="";
+			String googleRickSnippetPrice ="";
+			String googleRickSnippetAvailability = "";
+			String googleRickSnippetAvailabilityText ="";
+			String googleRickSnippetDescription1 ="";
+			String googleRickSnippetDescription2 ="";
+			
 			if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/home-insurance/sharing/") ||request.getRequestURI().toString().equals(request.getContextPath() + "/en/home-insurance/sharing/")) 
 			{
 				ogTitle = WebServiceUtils.getPageTitle("homeCare.sharing.og.title", lang);
@@ -168,6 +179,39 @@ public class HomeCareController {
 				}
 				ogImage = WebServiceUtils.getPageTitle("homeCare.og.image", lang);
 				ogDescription = WebServiceUtils.getPageTitle("homeCare.og.description", lang);
+				googleRickSnippetBrand =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetBrand",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetName =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetName",
+						UserRestURIConstants.getLanaguage(request));
+				
+				googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetImageUrl",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetImageAlt",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetRating =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetRating",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetPrice =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetPrice",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetAvailability",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetAvailabilityText",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetDescription1",
+						UserRestURIConstants.getLanaguage(request));
+				googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
+						"homeCare.googleRickSnippetDescription2",
+						UserRestURIConstants.getLanaguage(request));
+				
+				
 			}
 			
 			
@@ -180,6 +224,17 @@ public class HomeCareController {
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			
+			model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
+			model.addAttribute("googleRickSnippetName", googleRickSnippetName);
+			model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
+			model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
+			model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
+			model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
+			model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
+			model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
+			model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
+			model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 			
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";
@@ -666,6 +721,7 @@ public class HomeCareController {
 		
 		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+		String requestNo = (String) session.getAttribute("HomeCareTransactionNo");
 		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
 		String paymentFail = "0";
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -680,6 +736,7 @@ public class HomeCareController {
 				creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
 			} else {
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				
 				model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
 				String pageTitle = WebServiceUtils.getPageTitle(
 						"page.homeCarePlanConfirmation",
@@ -700,6 +757,7 @@ public class HomeCareController {
 		String userName = (String) session.getAttribute("username");
 		String token = (String) session.getAttribute("token");
 		String emailId = (String) session.getAttribute("emailAddress");
+		String email = (String) session.getAttribute("emailAddress");
 		
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
@@ -732,11 +790,13 @@ public class HomeCareController {
 				model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
 				model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 			} else {
-				model.addAttribute("errorHeader1", "Policy is not generated");
-				model.addAttribute("errorDescription1", "There is a problem in the system " + finalizePolicy.getErrMsgs().toString());
-				model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
-				model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
-			}
+				model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
+				model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
+				model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
+				model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
+			}		
+			
+			
 			
 			return UserRestURIConstants.getSitePath(request)
 					+ "error";

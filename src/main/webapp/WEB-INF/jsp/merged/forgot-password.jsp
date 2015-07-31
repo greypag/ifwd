@@ -87,7 +87,7 @@
 										</tr>
 										<tr>
 											<td class=""><label class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
-											<td class=""><input type="text" name="mobileNo"
+											<td class=""><input type="tel" name="mobileNo"
 												class="form-control" id="fMobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
 												onkeypress="return isNumeric(event)"
 												onblur="forgotPassword();"> <span

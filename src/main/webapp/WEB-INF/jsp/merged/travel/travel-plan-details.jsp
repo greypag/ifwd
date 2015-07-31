@@ -71,7 +71,7 @@ if(lang === "EN"){
 
 perventRedirect=true;
     
-var namePlaceholder="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />";
+var namePlaceholder="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />";
 
 var insureNamePlaceholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />";
@@ -197,12 +197,12 @@ function activateUserAccountJoinUs() {
   	        name = document.getElementById("inputFullName").value;
   	        userName = document.getElementById("Username").value;
   	        email = document.getElementById("inputEmailId").value;
-  	    
-  	      $('#loading-overlay').modal({
+  	      
+            $('#loading-overlay').modal({
               backdrop: 'static',
               keyboard: false
            })
-  	        
+
   	       $.ajax({
   	                   type : 'POST',
   	                    url : '<%=request.getContextPath()%>/${language}/joinus',
@@ -431,9 +431,9 @@ function activateUserAccountJoinUs() {
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />-->
                                    <input type="text" name="fullName"
                                         class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName"
-                                        value="<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />"
-	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
-	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.fullname.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
+                                        value="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />"
+	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />');" 
+	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
@@ -493,7 +493,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input name="mobileNo" type="text"
+                                    <input name="mobileNo" type="tel"
                                         class="form-control full-control" value="${userDetails.mobileNo.trim()}"
                                         id="inputMobileNo" 
                                         onkeypress="return isNumeric(event)"
@@ -856,7 +856,7 @@ function activateUserAccountJoinUs() {
                                                         	<enhance:out escapeXml="false">
                                                             <option value="${relationshipList.key}"><c:out
                                                                     value="${relationshipList.value}" /></option>
-                                                            </enhance:out>enhance>
+                                                            </enhance:out>
                                                         </c:forEach>
                                                     </select>
                                                     </div>
@@ -2354,10 +2354,10 @@ function activateUserAccountJoinUs() {
                     <div class="top35 pull-right pad-none" style="width:47%"> 
                         <c:choose>
 <c:when test="${language=='en'}">
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+           <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:when>
        <c:otherwise>
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+           <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:otherwise>
 </c:choose>
 
@@ -2395,10 +2395,10 @@ function activateUserAccountJoinUs() {
         <div class="top35 pull-right pad-none" style="width:47%">
 			<c:choose>
 <c:when test="${language=='en'}">
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:when>
        <c:otherwise>
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
+       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
        </c:otherwise>
 </c:choose>
 

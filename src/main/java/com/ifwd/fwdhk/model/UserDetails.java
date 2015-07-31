@@ -9,8 +9,10 @@ public class UserDetails {
 	private String password;
 	private String confirmPassword;
 	private String emailAddress;
+	private String emailAddress1;
 	private String token;
 	private String mobileNo;
+	private String mobileNo1;
 	private String optIn2;
 	private String optIn1;
 	private String referralCount;
@@ -24,7 +26,21 @@ public class UserDetails {
 	private String checkbox3;
 	private String checkbox4;
 	
-	
+	public String getEmailAddress1() {
+		return emailAddress1;
+	}
+
+	public void setEmailAddress1(String emailAddress1) {
+		this.emailAddress1 = emailAddress1;
+	}
+
+	public String getMobileNo1() {
+		return mobileNo1;
+	}
+
+	public void setMobileNo1(String mobileNo1) {
+		this.mobileNo1 = mobileNo1;
+	}
 
 	public String getCheckbox3() {
 		return checkbox3;

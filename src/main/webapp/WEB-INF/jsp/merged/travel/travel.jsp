@@ -184,12 +184,12 @@ $(document).ready(function() {
 	                  <tr>
 	                  <td class="col-md-3 col-lg-3 pad-none">
 	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="col-md-3 col-lg-3 pad-none">
 	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="col-md-4 col-lg-3 pad-none">
@@ -199,18 +199,18 @@ $(document).ready(function() {
 	                        <div class="drop-content">
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
-	                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
-	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
+	                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" <%=PersonalPlanChecked%> >
+	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label>
+	                            </label>
 	                          </div>
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-	                            <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label></label>
+	                              <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" />
+	                                <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+			                        <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
+			                      </label>
+			                    </label>
 	                          </div>
 	                          <div class="clearfix"></div>
 	                          <hr>
@@ -512,8 +512,8 @@ $(document).ready(function() {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                 <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
-                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /><fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
+                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
                   </h3>
                   <div style="margin-top:25px;">
                        <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" />
@@ -525,8 +525,8 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                    <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
-                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /><fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
+                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
                   </h3>
                   <div style="margin-top:25px;">
                        <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" />
@@ -538,7 +538,7 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                       <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
                          <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
                       </h3>
                       <div style="margin-top:25px;">
@@ -567,12 +567,13 @@ $(document).ready(function() {
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc3" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4" bundle="${msg}" /></p>
+      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
     </li>
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5" bundle="${msg}" /></p>
+      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>
     </li>
   </ul>
+  
   <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
   	<div class="main-partner-1">
     	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
@@ -625,7 +626,7 @@ $(document).ready(function() {
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc4" bundle="${msg}" /></p>
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -635,7 +636,7 @@ $(document).ready(function() {
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc5" bundle="${msg}" /></p>
+                <p style="font-size: 21px;"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -649,12 +650,12 @@ $(document).ready(function() {
   <!--/.carousel-->
   <div class="clearfix"></div>
   
-  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="">
-  	<div class="col-lg-6 col-md-6 col-xs-6 main-partner-1">
-    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
+  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
+  	<div class="col-lg-12 col-md-12 col-xs-12">
+    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
     </div>
-    <div class="col-lg-6 col-md-6 col-xs-6 main-partner-2">
-    	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
+    <div class="col-lg-12 col-md-12 col-xs-12">
+    	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
     </div>
   </div>
 

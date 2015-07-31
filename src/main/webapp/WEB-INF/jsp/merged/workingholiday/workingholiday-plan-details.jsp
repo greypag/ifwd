@@ -3,13 +3,12 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%@page import="java.util.*"%>
-<%@page
-	import="com.ifwd.fwdhk.model.DistrictBean,com.ifwd.fwdhk.model.WorkingHolidayDetailsBean"%>
+<%@page	import="com.ifwd.fwdhk.model.DistrictBean,com.ifwd.fwdhk.model.WorkingHolidayDetailsBean"%>
 
 
 <%
@@ -42,7 +41,7 @@
 	}
 	
 	
-	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />";
+	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />";
 	var hkidPlaceholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />";
 	
 	var benNamePlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
@@ -445,9 +444,9 @@ function activateUserAccountJoinUs() {
 										onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
 									<input type="text" class="form-control full-control textUpper bmg_custom_placeholder"
                                         id="inputFullName" name="whAppFullName"
-                                        value="<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />"
-                                        onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />');" 
-                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.fullname.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'inputFullName', namePlaceholder);"
+                                        value="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />"
+                                        onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />');" 
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'inputFullName', namePlaceholder);"
                                         onkeypress=" return alphaOnly(event);" maxlength="50" />
 							         <span id="whAppFullName" class="text-red"></span>
 								</div>
@@ -517,7 +516,7 @@ function activateUserAccountJoinUs() {
 									</label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input type="text" class="form-control full-control"
+									<input type="tel" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
 										value="${userDetails.mobileNo}"
 										onkeypress="return isNumeric(event)"
@@ -592,12 +591,12 @@ function activateUserAccountJoinUs() {
 										<select name="whInsBeneficary" id="selectWhInsBeneficary"
 											onChange="activeDiv('whbenificiaryId','selectWhInsBeneficary')"
 											class="form-control soflow select-label">
-											<c:forEach var="relationshipList"
-												items="${mapRelationshipCode}">
-												<option value="${relationshipList.key}">
-												    <c:out value="${relationshipList.value}" />
-												</option>
-											</c:forEach>
+	                                        <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+	                                        	<enhance:out escapeXml="false">
+	                                            <option value="${relationshipList.key}"><c:out
+	                                                    value="${relationshipList.value}" /></option>
+	                                            </enhance:out>
+	                                        </c:forEach>
 										</select>
 									</div>
 									<span id="whInsBeneficary" class="text-red"></span>
@@ -798,7 +797,7 @@ function activateUserAccountJoinUs() {
 												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
 												onblur="placeholderOnBlur(this,'<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />');"
-												onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+												onkeypress="" maxlength="5" />
 										</div>
 									</div>
 									<div class="row form-group">

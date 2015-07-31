@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.ValidationUtils;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 @SuppressWarnings("unchecked")
@@ -230,6 +232,14 @@ public class UserController {
 	public String signup(Model model, HttpServletRequest req) {
 		UserDetails userDetails = new UserDetails();
 		model.addAttribute("userDetails", userDetails);
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.joinUs", UserRestURIConstants.getLanaguage(req));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.joinUs", UserRestURIConstants.getLanaguage(req));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
 		return UserRestURIConstants.getSitePath(req)+ "joinus";
 	}
 	
@@ -395,8 +405,13 @@ public class UserController {
 			HttpServletRequest servletRequest, Model model) {
 		try {
 			JSONObject params = new JSONObject();
-			params.put("email", userDetails.getEmailAddress());
-			params.put("mobile", userDetails.getMobileNo());
+			if(!(StringUtils.isEmpty(userDetails.getEmailAddress1()) && StringUtils.isEmpty(userDetails.getMobileNo1()))) {
+				params.put("email", userDetails.getEmailAddress1());
+				params.put("mobile", userDetails.getMobileNo1());
+			}else {
+				params.put("email", userDetails.getEmailAddress());
+				params.put("mobile", userDetails.getMobileNo());
+			}
 			
 			logger.info("USER_FORGOT_USERNAME Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
@@ -405,8 +420,7 @@ public class UserController {
 			logger.info("USER_FORGOT_USERNAME Response " + JsonUtils.jsonPrint(jsonResponse));
 			
 			if (jsonResponse.get("errMsgs") == null) {
-				String userName = jsonResponse.get("userName").toString();
-				return userName.substring(2, userName.length()-2);
+				return jsonResponse.get("userName").toString();
 			} else {
 				return jsonResponse.get("errMsgs").toString();
 			}
@@ -469,5 +483,22 @@ public class UserController {
 			return "";
 		}
 	}
+	
+	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)
+	public String partner(Model model, HttpServletRequest req) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
+		return UserRestURIConstants.getSitePath(req)+ "partner";
+	}
+	
+
+	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
+	public String faq(Model model, HttpServletRequest req) {	
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
+		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
+		return UserRestURIConstants.getSitePath(req)+ "faq";
+	}
+	
 
 }
