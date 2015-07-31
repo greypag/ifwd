@@ -897,7 +897,7 @@ public class SavieServiceImpl implements SavieService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", "svg");
+			parameters.put("fileType", "png");
 			parameters.put("signatureType", "application");
 			parameters.put("base64", image);
 			br = connector.signature(parameters, header);

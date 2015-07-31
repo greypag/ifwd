@@ -42,7 +42,7 @@ var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此�
 
 var signatureWidth = "${signatureWidth}";
 var signatureHeight = "${signatureHeight}";
-
+var applicationFileSize = "${applicationFileSize}";
 var flag = true;
  $("#dropzone").dropzone({
     paramName: 'file',
@@ -50,7 +50,7 @@ var flag = true;
     dictDefaultMessage: dictDefaultMessage,
    // acceptedFiles: 'image/*',
     parallelUploads: 1,
-    maxFilesize: 10,
+    maxFilesize: applicationFileSize/1000,
     maxFiles: 1,
     headers:{
     	"step": "1"

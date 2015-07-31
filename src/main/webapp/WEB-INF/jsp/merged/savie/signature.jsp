@@ -40,27 +40,31 @@
     function reset() {
     	$sigdiv.jSignature("reset") ;
 	}
+    
+    var signatureFileSize = "${signatureFileSize}";
     function putImage() {
     	var $sigdiv = $("#signature");
     	var datapair = $sigdiv.jSignature("getData", "image");
-    	//var image = new Image();
-    	//alert(datapair[0]);
-    	//image.src = "data:" + datapair[0] + "," + datapair[1] ;
-    	//$(image).appendTo($("#someelement"));  // append the image (SVG) to DOM.
-    	$.ajax({     
-    	    url:'<%=request.getContextPath()%>/ajax/savie/savie-save-signature/post',     
-    	    type:'post',     
-    	    data:{    
-    	    	"image" : datapair[1] 
-       		},     
-    	    //async : false, //默认为true 异步     
-    	    error:function(){     
-    	       alert('error');     
-    	    },     
-    	    success:function(data){     
-    	    	 alert("signature success");   
-    	    }  
-    	});
+    	var obj = datapair[1];
+    	if(datapair[1].length > signatureFileSize*1024 ){
+        	console.log("签名数据过大");
+    	}else{
+    		$.ajax({     
+        	    url:'<%=request.getContextPath()%>/ajax/savie/savie-save-signature/post',     
+        	    type:'post',     
+        	    data:{    
+        	    	"image" : datapair[1] 
+           		},     
+        	    //async : false, //默认为true 异步     
+        	    error:function(){     
+        	    	console.log('error');     
+        	    },     
+        	    success:function(data){     
+        	    	console.log("signature success");   
+        	    }  
+        	});
+    	}
+    	
 	}
 </script>
 </body>
