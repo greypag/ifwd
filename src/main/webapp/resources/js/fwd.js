@@ -27,6 +27,28 @@ else{
 var chin = false;
 /* datepicker script*/
 
+$(function () {
+	//payment
+	$( "#seccode" ).on( "change blur", function() {
+	    var seccode = $(this).val();
+		if (seccode.trim() == "") {
+			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
+			$("#seccode").addClass("invalid-field");
+			return false;
+		}else{
+			if(seccode.length<3)
+			{
+				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+				$("#seccode").addClass("invalid-field");
+				return false;
+			}
+		}
+		$("#seccode").removeClass("invalid-field");
+		$("#errcode").html('');
+	});
+});
+
+
 /* hkid validation script */
 function IsHKID(str) {
 	var strValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
