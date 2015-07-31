@@ -152,6 +152,10 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED:
 			to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
 			break;
+			
+		case UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF:
+			to = UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
+			break;
 
 		default:
 			to = UserRestURIConstants.PAGE_SAVIE_LANDING;
@@ -222,6 +226,9 @@ public class SaviePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)) {
 			return UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF)) {
+			return UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
 		}
 		return "";
 		
