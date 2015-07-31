@@ -6388,7 +6388,7 @@ $(function () {
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var tillDate_from_home= new Date((new Date()).getTime() + 59*24*60*60*1000);
+	var tillDate_from_home= new Date((new Date()).getTime() + 179*24*60*60*1000);
 	
 	//Homecare Calender
 	var checkin = $('#homecareDp').datepicker({
@@ -6399,7 +6399,9 @@ $(function () {
 		todayHighlight: true,
 		format: "dd-mm-yyyy"
 	}).on('changeDate', function (ev) {
-		$('#errEffDate').html(''); 
+		$(".hidden-sm .form-container .topten").html($('#txtEffDate').val());
+		$('#errEffDate').html('');
+		$("#homecareDp").removeClass("invalid-field");
 	});
 	
 });
