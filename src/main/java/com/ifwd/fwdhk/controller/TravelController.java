@@ -82,14 +82,17 @@ public class TravelController {
 		String adult = (String)request.getParameter("adult");
 		String child = (String)request.getParameter("child");
 		String other = (String)request.getParameter("other");
+		int iTraveler = 0;
+		int iAdult = 0;
+		int iChild = 0;
+		int iOther = 0;
+		boolean result = true; 
 		
 		UserRestURIConstants.setController("Travel");
 		UserRestURIConstants urc = new UserRestURIConstants(); 
 		urc.updateLanguage(request);
 		
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		//return UserRestURIConstants.checkLangSetPage(request) + "travel/travel";
-		
 		HttpSession session = request.getSession();
 		if (promo != null) {
 			if (!promo.equals("")) {
@@ -97,57 +100,35 @@ public class TravelController {
 			}	
 		}
 		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-		TravelQuoteBean travelQuote;
+		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 		
-		//travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-		travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
-		
-		if(travelQuote == null){
-			travelQuote = new TravelQuoteBean();
-			travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : Integer.valueOf(traveler));
-			travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : Integer.valueOf(adult));
-			travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : Integer.valueOf(child));
-			travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : Integer.valueOf(other));
-			if(StringUtils.isEmpty(plan)) {
-				travelQuote.setPlanSelected("personal");
-			}else {
-				travelQuote.setPlanSelected(plan);
-			}
-		}else {
-			if("personal".equals(plan)) {
-				travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : Integer.valueOf(traveler));
-				travelQuote.setPlanSelected(plan);
-			}else if("family".equals(plan)){
-				travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : Integer.valueOf(adult));
-				travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : Integer.valueOf(child));
-				travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : Integer.valueOf(other));
-				travelQuote.setPlanSelected(plan);
-			}
-		}
 		/**
 		 * 判断URL是否带数据跟数据验证
 		 */
-		if("".equals(departureDate) || (departureDate != null && !DateApi.isValidDate(departureDate))){
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
+		if("".equals(departureDate) || (departureDate != null && !DateApi.isValidDate(departureDate))) {
+			result = false;
+		}else if("".equals(returnDate) || (returnDate != null && !DateApi.isValidDate(returnDate))) {
+			result = false;
+		}else if(plan != null && !("personal".equals(plan) || "family".equals(plan))) {
+			result = false;
+		}else if("".equals(promo) || "".equals(traveler) || "".equals(adult) || "".equals(child) || "".equals(other)) {
+			result = false;
+		}else if(traveler != null && adult != null && child != null && other != null) {
+			try{
+				iTraveler = Integer.valueOf(traveler);
+				iAdult = Integer.valueOf(adult);
+				iChild = Integer.valueOf(child);
+				iOther = Integer.valueOf(other);
+			} catch (Exception e) {
+				e.printStackTrace();
+				result = false;
+			}
 		}
 		
-		if("".equals(returnDate) || (returnDate != null && !DateApi.isValidDate(returnDate))){
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
-		}
-		
-		if(plan != null && !("personal".equals(plan) || "family".equals(plan))){
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
-		}
-		
-		if("".equals(promo) || "".equals(traveler) || "".equals(adult) || "".equals(child) || "".equals(other)) {
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
-		}else {
-			travelQuote.setTrLeavingDate(departureDate);
-			travelQuote.setTrBackDate(returnDate);
+		/**
+		 * 如果由URL跳转传值将直接进入PLAN页面
+		*/
+		if(plan != null && plan != "" && result){
 			model.addAttribute("promo", promo);
 			model.addAttribute("departureDate", departureDate);
 			model.addAttribute("returnDate", returnDate);
@@ -156,26 +137,47 @@ public class TravelController {
 			model.addAttribute("adult", adult);
 			model.addAttribute("child", child);
 			model.addAttribute("other", other);
+			
+			if(travelQuote == null){
+				travelQuote = new TravelQuoteBean();
+				travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : iTraveler);
+				travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : iAdult);
+				travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : iChild);
+				travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : iOther);
+				if(StringUtils.isEmpty(plan)) {
+					travelQuote.setPlanSelected("personal");
+				}else {
+					travelQuote.setPlanSelected(plan);
+				}
+			}else {
+				travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : iTraveler);
+				travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : iAdult);
+				travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : iChild);
+				travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : iOther);
+				travelQuote.setPlanSelected(plan);
+			}
+			
+			travelQuote.setTrLeavingDate(departureDate);
+			travelQuote.setTrBackDate(returnDate);
+			session.setAttribute("corrTravelQuote", travelQuote);
+			model.addAttribute("travelQuote", travelQuote);
+			ModelAndView date = getTravelPlan(travelQuote, model, request);
+			if(!date.getViewName().endsWith("travel-insurance") && !date.getViewName().endsWith("travel/travel")) {
+				return date;
+			}
+		}else {
+			if(travelQuote == null){
+				travelQuote = new TravelQuoteBean();
+				travelQuote.setTotalPersonalTraveller(1);
+				travelQuote.setTotalAdultTraveller(1);
+				travelQuote.setTotalChildTraveller(1);
+				travelQuote.setTotalOtherTraveller(0);
+				travelQuote.setPlanSelected("personal");
+			}
+			session.setAttribute("corrTravelQuote", travelQuote);
+			model.addAttribute("travelQuote", travelQuote);
 		}
 		
-		session.setAttribute("corrTravelQuote", travelQuote);
-		model.addAttribute("travelQuote", travelQuote);
-		
-		/**
-		 * 如果由URL跳转传值将直接进入PLAN页面
-		*/
-		if(plan != null && plan != ""){
-			return getTravelPlan(travelQuote, model, request);
-		}
-		
-		//default 
-		/*
-		travelQuote.setTotalPersonalTraveller(1);
-		travelQuote.setTotalAdultTraveller(1);
-		travelQuote.setTotalChildTraveller(1);
-		travelQuote.setTotalOtherTraveller(0);
-		travelQuote.setPlanSelected("personal");
-		*/
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
 		
