@@ -4736,7 +4736,7 @@ function payValid()
 		}
 	}
 	
-	if(seccode.length <3)
+	if(seccode.trim() != "" && seccode.length <3)
 	{
 		flag=false;
 		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
