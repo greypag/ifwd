@@ -54,6 +54,18 @@ $(function () {
 	});
 });
 
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+
 function showFWDChart(rate, zoom, isDefault) {			
 	var chartData = getSeries(rate, zoom, isDefault);
 	var categories = getCategories(zoom, isDefault);
@@ -62,9 +74,9 @@ function showFWDChart(rate, zoom, isDefault) {
 	var tickIntervalData = chartData[2];
 	var thirdYear = chartData[3];
 	var threeYearsGuaranteed = getguaranteed3Years();
-	var threeYearsGuaranteedtext = "100000";
+	var threeYearsGuaranteedtext = addCommas("100000");
 	if (!isDefault) {
-		threeYearsGuaranteedtext = threeYearsGuaranteed;
+		threeYearsGuaranteedtext = addCommas(threeYearsGuaranteed);
 	}
 	// get applicant's age
 	var currentTime = new Date();
@@ -244,6 +256,8 @@ function updateGuaranteedBubble() {
 			"margin-left": '-23px',
 			"top": top+'px'
 		});
+		
+		console.log('Top:	'+top);
 	}
 }
 

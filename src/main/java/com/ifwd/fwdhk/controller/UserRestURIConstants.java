@@ -121,11 +121,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_DECLARATION = "savie.declaration";
 	public static final String PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING = "savie.interestGathering";
 	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
-	public static final String PAGE_PROPERTIES_SAVIE_PDF = "savie.pdf";
+	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
 	
-	
+	/* for image configuration */
+	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
 	
 	
 	

@@ -382,13 +382,16 @@ function submitLoginForm(formID) {
 			</div>
 			<div class="col-lg-8 col-md-7 pull-right">		
 				<ul class="maintabs">
-	  <li class="col-lg-2 col-md-2 pad-none main-tab <% if(actionName.equals("Savie")){ %> active <%} %>" style="width:20%;"><a href="<%=request.getContextPath()%>/${language}/savie-insurance" class="workingholiday-tab"><fmt:message key="header.product.savie" bundle="${msg}" /></a></li>
-	  <li class="col-lg-2 col-md-2 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>" style="width:20%;"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance" class="workingholiday-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li> 
-	  <li class="col-lg-2 col-md-2 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>" style="width:20%;"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="workingholiday-tab"><fmt:message key="header.product.flight" bundle="${msg}" /></a><div class="offer"></div></li>
-      <li class="col-lg-2 col-md-2 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>" style="width:20%;"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="workingholiday-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
-      <li class="col-lg-2 col-md-2 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>" style="width:20%;"><a href="<%=request.getContextPath()%>/${language}/home-insurance" class="workingholiday-tab"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
-      </ul>
-				
+					<c:choose>
+						<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+							<li class="col-lg-3 col-md-3 pad-none main-tab active"><a class="limited-offer"><span>LIMITED OFFER</span>Savie <br class="visible-md visible-lg"/>Insurance</a></li> 
+						</c:when>
+					</c:choose>
+					<li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("WorkingHoliday")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance" class="workingholiday-tab"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li> 
+					<li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Flight")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance" class="travel-special"><span class="offer"><fmt:message key="header.specialOffer" bundle="${msg}" /></span><br> <fmt:message key="header.product.flight" bundle="${msg}" /> </a></li>
+					<li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Travel")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="travel-and-home-tab"><fmt:message key="header.product.travel" bundle="${msg}" /></a> </li>
+					<li class="col-lg-3 col-md-3 pad-none main-tab <% if(actionName.equals("Homecare")){ %> active <%} %>"><a href="<%=request.getContextPath()%>/${language}/home-insurance" class="travel-and-home-tab"><fmt:message key="header.product.home" bundle="${msg}" /></a> </li>
+				</ul>
 			</div>
 		</div>
 		<!--/.container-->
@@ -532,6 +535,11 @@ function submitLoginForm(formID) {
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
+	<c:choose>
+		<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+			<li><span>LIMITED OFFER</span><a class="limited-offer-mobile">Savie <br class="visible-md visible-lg"/>Insurance</a></li> 
+		</c:when>
+	</c:choose>
 		<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Savie")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/savie-insurance"><fmt:message key="header.product.savie" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("WorkingHoliday")){ %> active" <%} %>"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li>

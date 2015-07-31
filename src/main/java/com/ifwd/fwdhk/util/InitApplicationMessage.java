@@ -50,6 +50,12 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	public static String initToken;
 	public static String initUsername;
+	
+	
+	public static String signatureWidth;
+	public static String signatureHeight;
+	public static String signatureFileSize;
+	public static String applicationFileSize;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -198,6 +204,13 @@ public class InitApplicationMessage implements ApplicationListener{
 				savieAnsCN=null;
 			}
 			logger.info("savieAnsCN : " + savieAnsCN);
+		
+			try {
+				commonUtils.getImageConfig();
+			} catch (Exception e) {
+				logger.info("error : "+e.getMessage());
+			}
+			logger.info("signatureWidth : " + signatureWidth + "signatureHeight : " + signatureHeight);
 			
 		}
 	}

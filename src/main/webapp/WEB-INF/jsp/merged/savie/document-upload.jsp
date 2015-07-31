@@ -40,6 +40,10 @@ var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此�
 //	 $("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");
 //	});
 
+var signatureWidth = "${signatureWidth}";
+var signatureHeight = "${signatureHeight}";
+
+var flag = true;
  $("#dropzone").dropzone({
     paramName: 'file',
     url: '<%=request.getContextPath()%>/ajax/savie/savie-image/post',
@@ -50,12 +54,68 @@ var dictDefaultMessage ="将文件拖拽至此区域进行上传（或点击此�
     maxFiles: 1,
     headers:{
     	"step": "1"
-    },
+    },  
+    resize: function(file) {
+        if(file.type.indexOf("image") == 0 && (file.width > signatureWidth || file.height > signatureHeight) ){
+        	flag = false;
+        }
+        var info, srcRatio, trgRatio;
+        info = {
+          srcX: 0,
+          srcY: 0,
+          srcWidth: file.width,
+          srcHeight: file.height
+        };
+        srcRatio = file.width / file.height;
+        info.optWidth = this.options.thumbnailWidth;
+        info.optHeight = this.options.thumbnailHeight;
+        if ((info.optWidth == null) && (info.optHeight == null)) {
+          info.optWidth = info.srcWidth;
+          info.optHeight = info.srcHeight;
+        } else if (info.optWidth == null) {
+          info.optWidth = srcRatio * info.optHeight;
+        } else if (info.optHeight == null) {
+          info.optHeight = (1 / srcRatio) * info.optWidth;
+        }
+        trgRatio = info.optWidth / info.optHeight;
+        if (file.height < info.optHeight || file.width < info.optWidth) {
+          info.trgHeight = info.srcHeight;
+          info.trgWidth = info.srcWidth;
+        } else {
+          if (srcRatio > trgRatio) {
+            info.srcHeight = file.height;
+            info.srcWidth = info.srcHeight * trgRatio;
+          } else {
+            info.srcWidth = file.width;
+            info.srcHeight = info.srcWidth / trgRatio;
+          }
+        }
+        info.srcX = (file.width - info.srcWidth) / 2;
+        info.srcY = (file.height - info.srcHeight) / 2;
+        return info;
+      },
+    accept: function(file, done) {
+    	setTimeout(function() {
+    		return done();
+    		if(flag){
+        		return done();
+    		}else{
+    			//alert("上传图片长度过长或宽度过宽");
+            	console.log("上传图片长度过长或宽度过宽");
+            	flag = true;
+    			$("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");
+    		}
+		}, 100);
+    }, 
     init: function() {},
     removedfile: function(file) {
     	},
     success: function(file, data) {
-    	
+    	if( data == "{\"errMsgs\":[\"The picture is not legitimate\"]}"){  
+    		//console.log("上传图片长度过长或宽度过宽");
+        	$("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");
+    	}
+    	console.log(data);
     }
 }); 
 </script>

@@ -32,7 +32,7 @@ $(function() {
 				
 				// Email is duplicate
 				if (email != "" && duplicateEmail(email)) {
-					$('#emailAddrsMessage').html("This e-mail address is already in use. Try another?").removeClass('hideSpan');
+					$('#emailAddrsMessage').html("This email address is already in use. Try another one?").removeClass('hideSpan');
 					isErrorFlag = true;
 				} else {
 					$('#emailAddrsMessage').addClass('hideSpan');
@@ -42,10 +42,17 @@ $(function() {
 		
 		// Phone is not empty and has 8 characters
 		if (phone > 0 && phone < 8) {
-			$('#phoneErrMsg').html("This phone number is invalid. Try another?").removeClass('hideSpan');
+			$('#phoneErrMsg').html("This telephone no. is already in use. Try another one?").removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
 			$('#phoneErrMsg').addClass('hideSpan');
+
+			var firstNum = $('#teaserPhoneNo').val().substr(0, 1);
+			switch(firstNum) {
+				case "1": case "4": case "6": case "8": case "0":
+					$('#phoneErrMsg').html("Invalid telephone number.").removeClass('hideSpan');
+					isErrorFlag = true;
+			}
 		}
 		
 		// Agreed terms and condition
@@ -129,6 +136,9 @@ function sendMessagesEmail(email,message,attachment,subject) {
 }
 
 function sendlead(email,mobileNo,answer1,step) {
+	if( affiliate == null){
+		affiliate = "";
+	}
 	$.ajax({     
 	    url: context+'/ajax/savie/interestGather/post',     
 	    type:'post',     
@@ -136,6 +146,7 @@ function sendlead(email,mobileNo,answer1,step) {
 	    	"email": email,
 	    	"mobileNo":mobileNo,
 	        "answer1": answer1,
+	        "affiliate":affiliate,
 	        "step": step    
    		},        
 	    error:function(){

@@ -2,23 +2,25 @@ package com.ifwd.fwdhk.controller;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
@@ -106,6 +108,8 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
+		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
+		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
 	}
 	
@@ -128,6 +132,10 @@ public class SavieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
 
+		String affiliate = (String) request.getAttribute("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
@@ -137,10 +145,25 @@ public class SavieController extends BaseController{
 			savieAns=InitApplicationMessage.savieAnsEN;
 		}
 		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering/{affiliate}"})
+	public void getSavieEmailConfirmedId(Model model, HttpServletRequest request,HttpServletResponse response,@PathVariable int affiliate) {
+		try {
+			request.setAttribute("affiliate", affiliate+"");
+			String url =  request.getServletPath();
+			url = url.substring(0,url.lastIndexOf("/"));
+			request.getRequestDispatcher(url).forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/interest-gathering/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
 	}

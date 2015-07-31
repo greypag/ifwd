@@ -66,6 +66,11 @@
 <!-- Bootstrap -->
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
+<c:choose>
+	<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
+	</c:when>
+</c:choose>
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
@@ -76,11 +81,17 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
 <link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
 
+<c:choose>
+	<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
+	</c:when>
+</c:choose>
 
 <!--Mini Calculator Css-->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/style.css">
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -165,7 +176,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<div class="fwd-savie-wrapper">
 		<c:choose>
 			<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
-				<%@ include file="include/merged/savie/teaser-header.jsp"%>
+				<%@ include file="include/merged/header.jsp"%>
 			</c:when>
 			<c:otherwise>
 				<%@ include file="include/merged/savie/header.jsp"%>

@@ -11,6 +11,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
+var affiliate = "${affiliate}";
 </script>
 
 
@@ -41,13 +42,14 @@ var language = "${language}";
 			<div class="money-div">
 				<img src="<%=request.getContextPath()%><fmt:message key="img.money.logo" bundle="${msg}" />" class="money">
 			</div>
-			<p class="save-my-way"><fmt:message key="savie.interestGather.my.way" bundle="${msg}" /></p>
-			<p class="guaranteed top"><fmt:message key="savie.interestGather.annual.return" bundle="${msg}" /></p>
-			<p class="additional top"><fmt:message key="savie.interestGather.act.now.context1" bundle="${msg}" />
-				<span class="add"><fmt:message key="savie.interestGather.act.now.context2" bundle="${msg}" /></span>annual
-				<fmt:message key="savie.interestGather.act.now.context3" bundle="${msg}" />
-			</p>
-			<p class="sign-up"><fmt:message key="savie.interestGather.sign.now" bundle="${msg}" />
+			<p class="additional top">Act now to grab the chance to enjoy guaranteed annual crediting rate: </p>
+			<ul class="crediting-rate-list">
+				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />1st policy year 3%</li>
+				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />2nd policy year 3%</li>
+				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />3rd policy year 4%</li>
+			</ul>
+			<p class="additional top">Limited Quota Offer, Sign up now and await our notification!</p>
+			<p class="additional top">For Limited Quota Offer, each Hong Kong ID card holder can apply for one Savie Insurance Plan policy with lump sum payment between HK$30,000 and HK$400,000.</p>
 		</div>
 	</div>
 </div>
@@ -63,7 +65,7 @@ var language = "${language}";
 		<div class="form-group">
 			<input type="email" placeholder="<fmt:message key="savie.interestGather.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input type="tel" placeholder="<fmt:message key="savie.interestGather.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="11" min="1" oninput="maxLengthReview(this)"> 
+			<input type="tel" placeholder="<fmt:message key="savie.interestGather.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 		</div>
 		<div class="clearfix">
@@ -115,6 +117,7 @@ var language = "${language}";
 					<h3><fmt:message key="savie.interestGather.extra.protection" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />">
 					<p><fmt:message key="savie.interestGather.death.benefit.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.death.benefit.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.death.benefit.context3" bundle="${msg}" /></p>
+					<p class="info-asterisk">*The accumulation of total premium paid plus interests<p>
 				</div>
 			</div>
 		</div>

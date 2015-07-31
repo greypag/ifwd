@@ -26,6 +26,7 @@
 					<button type="button" class="btn-fwd-fb">
 						<i class="fa fa-facebook fwd-fb"></i><fmt:message key="savie.emailSubmit.share.facebook" bundle="${msg}" />
 					</button>
+					<a id="wa-share" href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="" class="wa_btn wa_btn_m" style="display:none;" target="_top"><!--<i class="fa fa-whatsapp"></i>--><img src="<%=request.getContextPath()%>/resources/images/savie/whatsapp.png" class="img-responsive whatsapp-icon" />Share via WhatsApp</a>
 				</div>
 
 			</div>
@@ -34,3 +35,18 @@
 		<button type="button" class="btn-white btn-confirmation"><fmt:message key="savie.emailSubmit.back.home" bundle="${msg}" /></button>
 	</div>
 </div>
+<script type="text/javascript">
+	$(function() {
+		var b = document.getElementById('wa-share');
+		var url = b.getAttribute("data-href");
+		var text = "?text=" + encodeURIComponent(b.getAttribute("data-text")) + (b.getAttribute("data-text") ? "%20" : "");
+
+		if (url) {
+			text += encodeURIComponent(url);
+		} else {
+			text += encodeURIComponent(document.URL);
+		}
+		
+		b.setAttribute("href", b.getAttribute("href") + text);
+	});
+</script>

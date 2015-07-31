@@ -160,7 +160,7 @@ $(function() {
 
 	// Order Page to Declaration Page
 	$("#order-summary-proceed-btn").on('click', function(){
-        window.location = "declaration-authorization";    
+        window.location = "declarations";    
     });    
 
 	// Order Page to Application Page
