@@ -198,6 +198,10 @@ public class CommonUtils {
 								InitApplicationMessage.signatureWidth = configurationValue;
 							}else if("signature.height".equals(configurationKey)){
 								InitApplicationMessage.signatureHeight = configurationValue;
+							}else if("signature.file.size".equals(configurationKey)){
+								InitApplicationMessage.signatureFileSize = configurationValue;
+							}else if("application.file.size".equals(configurationKey)){
+								InitApplicationMessage.applicationFileSize = configurationValue;
 							}
 							
 						}

@@ -54,6 +54,8 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	public static String signatureWidth;
 	public static String signatureHeight;
+	public static String signatureFileSize;
+	public static String applicationFileSize;
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
