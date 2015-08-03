@@ -111,10 +111,7 @@ public class FlightController {
 		model.addAttribute("utm_campaign", utm_campaign);
 		model.addAttribute("utm_content", utm_content);
 		
-		logger.info("deparDate.compareTo(now):"+deparDate.compareTo(now));
-		logger.info("endDate.compareTo(deparDate):"+endDate.compareTo(deparDate));
-		logger.info("deparDate.compareTo(retDate):"+deparDate.compareTo(retDate));
-		logger.info("sf.format(now).equals(departureDate):"+sf.format(now).equals(departureDate));
+		
 		
 		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
