@@ -27,28 +27,6 @@ else{
 var chin = false;
 /* datepicker script*/
 
-$(function () {
-	//payment
-	$( "#seccode" ).on( "change blur", function() {
-	    var seccode = $(this).val();
-		if (seccode.trim() == "") {
-			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
-			$("#seccode").addClass("invalid-field");
-			return false;
-		}else{
-			if(seccode.length<3)
-			{
-				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
-				$("#seccode").addClass("invalid-field");
-				return false;
-			}
-		}
-		$("#seccode").removeClass("invalid-field");
-		$("#errcode").html('');
-	});
-});
-
-
 /* hkid validation script */
 function IsHKID(str) {
 	var strValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -106,6 +84,34 @@ function emptyMembershipError(){
 	$(".error-hide").hide();
 }
 
+/*
+ * get current target format dd-mm-yyyy date
+ */
+function getNowFormatDate()
+{
+var day = new Date();
+var Year = 0;
+var Month = 0;
+var Day = 0;
+var CurrentDate = "";
+//初始化时间
+//Year= day.getYear();//有火狐下2008年显示108的bug
+Year= day.getFullYear();//ie火狐下都可以
+Month= day.getMonth()+1;
+Day = day.getDate();
+//Hour = day.getHours();
+// Minute = day.getMinutes();
+// Second = day.getSeconds();
+if (Month < 10 ){
+	Month = "0" + Month;
+}
+if (Day < 10 ){
+	Day = "0" + Day ;
+}
+return Day+"-"+Month+"-"+Year;
+} 
+
+
 $(function () {
 	
     /* scrolling code starts */
@@ -138,6 +144,28 @@ $(function () {
 	}
     /* scrolling code ends */
     
+	/* payment seccode start*/
+	$( "#seccode" ).on( "change blur", function() {
+	    var seccode = $(this).val();
+		if (seccode.trim() == "") {
+			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
+			$("#seccode").addClass("invalid-field");
+			return false;
+		}else{
+			if(seccode.length<3)
+			{
+				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+				$("#seccode").addClass("invalid-field");
+				return false;
+			}
+		}
+		$("#seccode").removeClass("invalid-field");
+		$("#errcode").html('');
+	});
+	
+	/* payment seccode end */
+	
+	
 	chin = $('body').hasClass('chin');
 	
 	/*get now date*/
@@ -148,6 +176,19 @@ $(function () {
 	var tillDate_from= new Date((new Date()).getTime() + 89*24*60*60*1000);
 	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	var oneDay=24*60*60*1000;
+	
+	/* init date start */
+	$("#txtStartDateDesk").val(getNowFormatDate());
+	$("#txtEndDateDesk").val(getNowFormatDate());
+	
+	$("#txtStartDateMob").val(getNowFormatDate());
+	$("#txtEndDateMob").val(getNowFormatDate());
+	
+	$("#txtStartDateBtm").val(getNowFormatDate());
+	$("#txtEndDateBtm").val(getNowFormatDate());
+	
+	/* init date end */
+	
 	
 	var checkout;
 	/* desktoip datepicker*/
@@ -935,6 +976,7 @@ $(function () {
 		$('#dp2').datepicker('update', endDate);
 		$('#dp4').datepicker('update', endDate);
 	});
+	
 
 });//]]>  
 
@@ -6636,3 +6678,32 @@ $( document ).ready(function() {
 //        $(this).focus();
 //    });
 });
+
+
+// 对Date的扩展，将 Date 转化为指定格式的String   
+// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，   
+// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)   
+// 例子：   
+// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423   
+// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18   
+Date.prototype.Format = function(fmt)   
+{ //author: meizz   
+  var o = {   
+    "M+" : this.getMonth()+1,                 //月份   
+    "d+" : this.getDate(),                    //日   
+    "h+" : this.getHours(),                   //小时   
+    "m+" : this.getMinutes(),                 //分   
+    "s+" : this.getSeconds(),                 //秒   
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+    "S"  : this.getMilliseconds()             //毫秒   
+  };   
+  if(/(y+)/.test(fmt))   
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+  for(var k in o)   
+    if(new RegExp("("+ k +")").test(fmt))   
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+  return fmt;   
+}  
+
+
+
