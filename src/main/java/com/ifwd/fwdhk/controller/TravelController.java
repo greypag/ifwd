@@ -181,7 +181,7 @@ public class TravelController {
 			}
 		}
 		
-		if(travelQuote == null){
+		if(travelQuote == null || !result){
 			travelQuote = new TravelQuoteBean();
 			travelQuote.setTotalPersonalTraveller(1);
 			travelQuote.setTotalAdultTraveller(1);
