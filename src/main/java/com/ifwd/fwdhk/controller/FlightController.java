@@ -118,25 +118,13 @@ public class FlightController {
 		
 		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
-			//departureDate validation
-			if(deparDate != null && (deparDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(deparDate)>=0){
-				if(retDate != null){					
-					if(deparDate.compareTo(retDate)<=0){					
-						planDetails.setDepartureDate(departureDate);
-					}
-				}else{
-					planDetails.setDepartureDate(departureDate);
-				}
+			if(deparDate != null && retDate != null && (deparDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && 
+					(retDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(deparDate)>=0 && endDate.compareTo(retDate)>=0 &&
+					retDate.compareTo(deparDate) >=0){
+				planDetails.setDepartureDate(departureDate);
+				planDetails.setReturnDate(returnDate);
 			}
-			//returnDate validation
-			if(retDate != null && (retDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(retDate)>=0){
-				if(deparDate != null){
-					if(retDate.compareTo(deparDate) >=0){					
-						planDetails.setReturnDate(returnDate);
-					}
-				}
-				
-			}
+			
 			planDetails.setTotalPersonalTraveller(1);
 			planDetails.setTotalAdultTraveller(1);
 			planDetails.setTotalChildTraveller(1);
