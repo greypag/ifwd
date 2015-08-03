@@ -6,6 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -42,13 +43,13 @@ var language = "${language}";
 				<img src="<%=request.getContextPath()%><fmt:message key="img.money.logo" bundle="${msg}" />" class="money">
 			</div>
 			<p class="additional top">Act now to grab the chance to enjoy guaranteed annual crediting rate: </p>
-			<ul class="crediting-rate-list">
-				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />1st policy year 3%</li>
-				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />2nd policy year 3%</li>
-				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />3rd policy year 4%</li>
+			<ul class="crediting-rate-list clearfix">
+				<li><span class="percent">3% </span><span class="year">First year</span></li>
+				<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year">Second year</span><div class="white right"></div></li>
+				<li><span class="percent gold">4% </span><span class="year gold">Third year</span></li>
 			</ul>
-			<p class="additional top">Limited Quota Offer, Sign up now and await our notification!</p>
-			<p class="additional top">For Limited Quota Offer, each Hong Kong ID card holder can apply for one Savie Insurance Plan policy with lump sum payment between HK$30,000 and HK$400,000.</p>
+			<p class="bottom-text upper">Limited Quota Offer, Sign up now and await our notification!</p>
+			<p class="bottom-text">For Limited Quota Offer, each Hong Kong ID card holder can apply for one Savie Insurance Plan policy with lump sum payment between HK$30,000 and HK$400,000.</p>
 		</div>
 	</div>
 </div>
@@ -72,7 +73,7 @@ var language = "${language}";
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.read.accept" bundle="${msg}" /><a href=""><fmt:message key="savie.interestGather.personal.collection" bundle="${msg}" /></a>. </div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.read.accept" bundle="${msg}" /><a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.personal.collection" bundle="${msg}" /></a>. </div>
 		</div>
 
 		<div class="clearfix top">

@@ -23,7 +23,7 @@
 				<h3><fmt:message key="savie.emailSubmit.annual.return" bundle="${msg}" /></h3>
 				<p class="act-now"><fmt:message key="savie.emailSubmit.act.now" bundle="${msg}" /></p>
 				<div class="fwd-div-btn">
-					<button type="button" class="btn-fwd-fb">
+					<button id="fwd-fb-share" type="button" class="btn-fwd-fb">
 						<i class="fa fa-facebook fwd-fb"></i><fmt:message key="savie.emailSubmit.share.facebook" bundle="${msg}" />
 					</button>
 					<a id="wa-share" href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="" class="wa_btn wa_btn_m" style="display:none;" target="_top"><!--<i class="fa fa-whatsapp"></i>--><img src="<%=request.getContextPath()%>/resources/images/savie/whatsapp.png" class="img-responsive whatsapp-icon" />Share via WhatsApp</a>
@@ -48,5 +48,9 @@
 		}
 		
 		b.setAttribute("href", b.getAttribute("href") + text);
+		
+		$('#fwd-fb-share').on('click', function() {
+			window.open('http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://www.i.fwd.com.hk/${language}/savings-insurance') + '&','', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');
+		});
 	});
 </script>

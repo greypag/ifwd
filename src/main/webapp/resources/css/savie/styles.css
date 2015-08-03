@@ -12788,191 +12788,284 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper .teaser {
-	position: relative;
-	background-color: #061d29;
-	padding-top: 17px;
-	padding-bottom: 17px;
-	color: #fff
+    position: relative;
+    background-color: #061d29;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    color: #fff;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper .teaser {
-		padding-top: 30px;
-		padding-bottom: 70px
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser {
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper .teaser .teaser-banner-text {
-		position: relative;
-		padding-left: 30px;
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser .teaser-banner-text {
+        position: relative;
+        padding-left: 30px;
+    }
 }
 
 .fwd-savie-wrapper .teaser .money-div {
-	width: 90%;
-	position: absolute;
-	top: -55px
+    width: 90%;
+    position: absolute;
+    top: -55px;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper .teaser .money-div {
-		width: 0;
-		left: -50px
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser .money-div {
+        width: 0;
+        left: -50px;
+    }
 }
 
 .fwd-savie-wrapper .teaser img.money {
-	width: 62px;
-	margin: 0 auto;
-	display: block
+    width: 62px;
+    margin: 0 auto;
+    display: block;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper .teaser img.money {
-		width: 80px
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser img.money {
+        width: 80px;
+    }
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    text-align: center;
+    list-style: none;
+    max-width: 500px;
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list li {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list li .percent {
+    font-size: 40px;
+    line-height: 45px;
+    display: block;
+}
+
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser ul.crediting-rate-list li .percent {
+        line-height: 55px;
+        font-size: 54px;
+    }
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list li .gold {
+    color: #f6b209;
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list li .year {
+    display: block;
+    font-size: 15px;
+}
+
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser ul.crediting-rate-list li .year {
+        font-size: 18px;
+    }
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list li .white {
+    width: 1px;
+    height: 70%;
+    background-color: #baccd6;
+    position: absolute;
+    top: 12px;
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list li .right {
+    right: 0;
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list .middle {
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .teaser ul.crediting-rate-list {
+        font-size: 24px;
+        text-align: left;
+        width: 45%;
+        padding-top: 20px;
+        margin-left: -25px;
+        max-width: none;
+    }
+}
+
+.fwd-savie-wrapper .teaser ul.crediting-rate-list img {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.fwd-savie-wrapper .disclaimer-policy.teaser-policy {
+    padding-bottom: 17px;
+}
+
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .disclaimer-policy.teaser-policy {
+        padding-bottom: 35px;
+    }
 }
 
 .fwd-savie-wrapper p {
-	margin: 0
+    margin: 0;
 }
 
 .fwd-savie-wrapper p.save-my-way {
-	font-size: 38px;
-	font-family: 'Calibri-Bold';
-	color: #ff8200;
-	text-align: center;
-	line-height: 30px
+    font-size: 38px;
+    font-family: 'Calibri-Bold';
+    color: #ff8200;
+    text-align: center;
+    line-height: 30px;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper p.save-my-way {
-		font-size: 53px;
-		width: 40%
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.save-my-way {
+        font-size: 53px;
+        width: 40%;
+    }
 }
 
 .fwd-savie-wrapper p.guaranteed {
-	font-family: 'Calibri-Bold';
-	color: #ff8200;
-	font-size: 28px;
-	line-height: 34px;
-	text-align: center
+    font-family: 'Calibri-Bold';
+    color: #ff8200;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper p.guaranteed {
-		text-align: left;
-		font-size: 36px;
-		width: 46%;
-		line-height: 40px
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.guaranteed {
+        text-align: left;
+        font-size: 36px;
+        width: 46%;
+        line-height: 40px;
+    }
 }
 
 .fwd-savie-wrapper p.guaranteed.top {
-	padding: 10px 10% 0 10%
+    padding: 10px 10% 0 10%;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper p.guaranteed.top {
-		padding: 32px 0 0 0
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.guaranteed.top {
+        padding: 32px 0 0 0;
+    }
 }
 
 .fwd-savie-wrapper p.additional {
-	font-size: 18px;
-	color: #fff;
-	font-family: 'Calibri';
-	line-height: 23px;
-	text-align: center
+    font-size: 18px;
+    color: #fff;
+    font-family: 'Calibri';
+    line-height: 23px;
+    text-align: center;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper p.additional {
-		text-align: left;
-		font-size: 24px
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.additional {
+        text-align: left;
+        font-size: 24px;
+    }
 }
 
 .fwd-savie-wrapper p.additional.top {
-	padding: 8px 11% 0 11%
+    padding: 8px 0 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff8200;
+    line-height: 28px;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper p.additional.top {
-		padding: 20px 0 0 0;
-		width: 46%;
-		line-height: 26px
-	}
-}
-
-.fwd-savie-wrapper .teaser-banner-text ul.crediting-rate-list {
-	margin: 0;
-	padding: 0;
-	font-size: 18px;
-	text-align: center;
-	list-style: none;
-}
-
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper .teaser-banner-text ul.crediting-rate-list {
-		font-size: 24px;
-		text-align: left;
-		width: 45%;
-		padding-top: 10px;
-		padding-left: 20px;
-	}
-}
-
-.fwd-savie-wrapper .teaser-banner-text ul.crediting-rate-list img {
-	display: inline-block;
-	padding-right: 15px;
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.additional.top {
+        padding: 30px 0 0 0;
+        width: 46%;
+        font-size: 35px;
+        line-height: 40px;
+    }
 }
 
 .fwd-savie-wrapper p.sign-up {
-	text-align: center;
-	font-family: 'Calibri-Bold';
-	color: #fff;
-	font-size: 18px;
-	padding: 10px 10% 0 10%
+    text-align: center;
+    font-family: 'Calibri-Bold';
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 10% 0 10%;
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper p.sign-up {
-		text-align: left;
-		padding: 23px 0 0 0;
-		font-size: 24px;
-		width: 46.5%
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.sign-up {
+        text-align: left;
+        padding: 23px 0 0 0;
+        font-size: 24px;
+        width: 46.5%
+    }
+}
+
+.fwd-savie-wrapper p.bottom-text {
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.bottom-text {
+        width: 46%;
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.fwd-savie-wrapper p.bottom-text.upper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.bottom-text.upper {
+        margin: 30px 0 20px;
+    }
 }
 
 .fwd-savie-wrapper span.add {
-	color: #ff8200;
-	font-size: 18px;
-	font-family: 'Calibri-Bold'
+    color: #ff8200;
+    font-size: 18px;
+    font-family: 'Calibri-Bold';
 }
 
-@media ( min-width : 992px) {
-	.fwd-savie-wrapper span.add {
-		color: #fff;
-		font-size: 24px;
-		font-family: 'Calibri'
-	}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper span.add {
+        color: #fff;
+        font-size: 24px;
+        font-family: 'Calibri';
+    }
 }
 
 .fwd-savie-wrapper .teaser-confirmation-block {
-	border-top: 1px solid #bbb
+	border-top: 1px solid #bbb;
 }
 
 .fwd-savie-wrapper .teaser-confirmation {
 	text-align: center;
-	padding: 58px 30px
+	padding: 58px 30px;
 }
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .teaser-confirmation {
-		padding: 53px 30px
+		padding: 53px 30px;
 	}
 }
 
@@ -12980,11 +13073,11 @@ span.dup-error-msg {
 	margin: 0;
 	font-size: 30px;
 	color: #ff8200;
-	font-family: 'Calibri-Bold'
+	font-family: 'Calibri-Bold';
 }
 
 .fwd-savie-wrapper .teaser-confirmation h2 span.next-line {
-	display: block
+	display: block;
 }
 
 .fwd-savie-wrapper .teaser-confirmation h4 {
@@ -12992,21 +13085,21 @@ span.dup-error-msg {
 	font-family: 'Calibri';
 	color: #061d2a;
 	padding-top: 14px;
-	padding-bottom: 38px
+	padding-bottom: 38px;
 }
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .teaser-confirmation h4 {
-		padding-top: 19px
+		padding-top: 19px;
 	}
 }
 
 .fwd-savie-wrapper .teaser-confirmation h4 p {
-	margin: 0
+	margin: 0;
 }
 
 .fwd-savie-wrapper .teaser-confirmation h4 span.savie-bold {
-	font-family: 'Calibri-Bold'
+	font-family: 'Calibri-Bold';
 }
 
 .fwd-savie-wrapper .teaser-confirmation h3 {
@@ -13015,7 +13108,7 @@ span.dup-error-msg {
 	font-family: 'Calibri-Bold';
 	padding-top: 17px;
 	padding-bottom: 15px;
-	line-height: 23px
+	line-height: 23px;
 }
 
 @media ( min-width : 992px) {
@@ -13026,17 +13119,17 @@ span.dup-error-msg {
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .teaser-confirmation h3 {
-		text-align: left
+		text-align: left;
 	}
 }
 
 .fwd-savie-wrapper .teaser-confirmation h3 p {
-	margin: 0
+	margin: 0;
 }
 
 .fwd-savie-wrapper .teaser-confirmation .clearfix {
 	max-width: 337px;
-	margin: 0 auto
+	margin: 0 auto;
 }
 
 @media ( min-width : 992px) {
@@ -13044,20 +13137,20 @@ span.dup-error-msg {
 		padding-left: 20%;
 		padding-right: 20%;
 		max-width: none;
-		margin: 0
+		margin: 0;
 	}
 }
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .teaser-confirmation .clearfix .left-desktop {
-		float: left
+		float: left;
 	}
 }
 
 @media ( min-width : 992px) {
 	.fwd-savie-wrapper .teaser-confirmation .clearfix .left-desktop.text {
 		width: 65%;
-		padding-left: 24px
+		padding-left: 24px;
 	}
 }
 
@@ -13068,7 +13161,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .teaser-confirmation p.act-now {
 	color: #061d2a;
 	padding-bottom: 25px;
-	line-height: 19px
+	line-height: 19px;
 }
 
 @media ( min-width : 992px) {
