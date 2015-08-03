@@ -115,7 +115,7 @@ public class FlightController {
 			//departureDate validation
 			if(deparDate != null && now.before(deparDate) && endDate.after(deparDate)){
 				if(retDate != null){					
-					if(deparDate.before(retDate)){					
+					if(deparDate.before(retDate) || deparDate.equals(retDate)){					
 						planDetails.setDepartureDate(departureDate);
 					}
 				}else{
@@ -125,7 +125,7 @@ public class FlightController {
 			//returnDate validation
 			if(retDate != null && now.before(retDate) && endDate.after(retDate)){
 				if(deparDate != null){
-					if(retDate.after(deparDate)){					
+					if(retDate.after(deparDate) || retDate.equals(deparDate)){					
 						planDetails.setReturnDate(returnDate);
 					}
 				}else{
