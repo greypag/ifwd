@@ -84,33 +84,6 @@ function emptyMembershipError(){
 	$(".error-hide").hide();
 }
 
-/*
- * get current target format dd-mm-yyyy date
- */
-function getNowFormatDate()
-{
-var day = new Date();
-var Year = 0;
-var Month = 0;
-var Day = 0;
-var CurrentDate = "";
-//初始化时间
-//Year= day.getYear();//有火狐下2008年显示108的bug
-Year= day.getFullYear();//ie火狐下都可以
-Month= day.getMonth()+1;
-Day = day.getDate();
-//Hour = day.getHours();
-// Minute = day.getMinutes();
-// Second = day.getSeconds();
-if (Month < 10 ){
-	Month = "0" + Month;
-}
-if (Day < 10 ){
-	Day = "0" + Day ;
-}
-return Day+"-"+Month+"-"+Year;
-} 
-
 
 $(function () {
 	
@@ -177,17 +150,7 @@ $(function () {
 	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	var oneDay=24*60*60*1000;
 	
-	/* init date start */
-	$("#txtStartDateDesk").val(getNowFormatDate());
-	$("#txtEndDateDesk").val(getNowFormatDate());
 	
-	$("#txtStartDateMob").val(getNowFormatDate());
-	$("#txtEndDateMob").val(getNowFormatDate());
-	
-	$("#txtStartDateBtm").val(getNowFormatDate());
-	$("#txtEndDateBtm").val(getNowFormatDate());
-	
-	/* init date end */
 	
 	
 	var checkout;
