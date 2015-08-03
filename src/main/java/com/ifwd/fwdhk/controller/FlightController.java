@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -73,6 +74,8 @@ public class FlightController {
 			@RequestParam(required = false) final String utm_campaign,
 			@RequestParam(required = false) final String utm_content) {
 		
+		
+		SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
 		Date now = new Date();
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_YEAR, 90);
@@ -108,14 +111,17 @@ public class FlightController {
 		model.addAttribute("utm_campaign", utm_campaign);
 		model.addAttribute("utm_content", utm_content);
 		
-		
+		logger.info("deparDate.compareTo(now):"+deparDate.compareTo(now));
+		logger.info("endDate.compareTo(deparDate):"+endDate.compareTo(deparDate));
+		logger.info("deparDate.compareTo(retDate):"+deparDate.compareTo(retDate));
+		logger.info("sf.format(now).equals(departureDate):"+sf.format(now).equals(departureDate));
 		
 		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
 			//departureDate validation
-			if(deparDate != null && (now.before(deparDate) || now.equals(deparDate)) && endDate.after(deparDate)){
+			if(deparDate != null && (deparDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(deparDate)>=0){
 				if(retDate != null){					
-					if(deparDate.before(retDate) || deparDate.equals(retDate)){					
+					if(deparDate.compareTo(retDate)<=0){					
 						planDetails.setDepartureDate(departureDate);
 					}
 				}else{
@@ -123,13 +129,11 @@ public class FlightController {
 				}
 			}
 			//returnDate validation
-			if(retDate != null && (now.before(retDate) || now.equals(retDate)) && endDate.after(retDate)){
+			if(retDate != null && (retDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(retDate)>=0){
 				if(deparDate != null){
-					if(retDate.after(deparDate) || retDate.equals(deparDate)){					
+					if(retDate.compareTo(deparDate) >=0){					
 						planDetails.setReturnDate(returnDate);
 					}
-				}else{
-					planDetails.setReturnDate(returnDate);
 				}
 				
 			}
