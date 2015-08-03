@@ -116,6 +116,9 @@ public class TravelController {
 				}else {
 					try{
 						iTraveler = Integer.valueOf(traveler);
+						if(1 > iTraveler || iTraveler > 15) {
+							result = false;
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 						result = false;
@@ -129,6 +132,13 @@ public class TravelController {
 						iAdult = Integer.valueOf(adult);
 						iChild = Integer.valueOf(child);
 						iOther = Integer.valueOf(other);
+						if(1 > iAdult || iAdult > 2) {
+							result = false;
+						}else if (iChild < 1) {
+							result = false;
+						}else if(iAdult + iChild + iOther> 15){
+							result = false;
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 						result = false;
