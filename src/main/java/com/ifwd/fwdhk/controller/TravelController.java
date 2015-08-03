@@ -109,74 +109,78 @@ public class TravelController {
 			result = false;
 		}else if("".equals(returnDate) || (returnDate != null && !DateApi.isValidDate(returnDate))) {
 			result = false;
-		}else if(plan != null && !("personal".equals(plan) || "family".equals(plan))) {
-			result = false;
-		}else if("".equals(promo) || "".equals(traveler) || "".equals(adult) || "".equals(child) || "".equals(other)) {
-			result = false;
-		}else if(traveler != null && adult != null && child != null && other != null) {
-			try{
-				iTraveler = Integer.valueOf(traveler);
-				iAdult = Integer.valueOf(adult);
-				iChild = Integer.valueOf(child);
-				iOther = Integer.valueOf(other);
-			} catch (Exception e) {
-				e.printStackTrace();
+		}else if(plan != null) {
+			if("personal".equals(plan)) {
+				if("".equals(traveler)) {
+					result = false;
+				}else {
+					try{
+						iTraveler = Integer.valueOf(traveler);
+					} catch (Exception e) {
+						e.printStackTrace();
+						result = false;
+					}
+				}
+			}else if("family".equals(plan)) {
+				if("".equals(adult) || "".equals(child) || "".equals(other)) {
+					result = false;
+				}else {
+					try{
+						iAdult = Integer.valueOf(adult);
+						iChild = Integer.valueOf(child);
+						iOther = Integer.valueOf(other);
+					} catch (Exception e) {
+						e.printStackTrace();
+						result = false;
+					}
+				}
+			}else {
 				result = false;
 			}
+		}else if("".equals(promo)) {
+			result = false;
 		}
 		
 		/**
 		 * 如果由URL跳转传值将直接进入PLAN页面
 		*/
 		if(plan != null && plan != "" && result){
-			model.addAttribute("promo", promo);
-			model.addAttribute("departureDate", departureDate);
-			model.addAttribute("returnDate", returnDate);
-			model.addAttribute("plan", plan);
-			model.addAttribute("traveler", traveler);
-			model.addAttribute("adult", adult);
-			model.addAttribute("child", child);
-			model.addAttribute("other", other);
-			
 			if(travelQuote == null){
 				travelQuote = new TravelQuoteBean();
-				travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : iTraveler);
-				travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : iAdult);
-				travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : iChild);
-				travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : iOther);
-				if(StringUtils.isEmpty(plan)) {
-					travelQuote.setPlanSelected("personal");
-				}else {
-					travelQuote.setPlanSelected(plan);
-				}
-			}else {
-				travelQuote.setTotalPersonalTraveller(StringUtils.isEmpty(traveler) ? 1 : iTraveler);
-				travelQuote.setTotalAdultTraveller(StringUtils.isEmpty(adult) ? 1 : iAdult);
-				travelQuote.setTotalChildTraveller(StringUtils.isEmpty(child) ? 1 : iChild);
-				travelQuote.setTotalOtherTraveller(StringUtils.isEmpty(other) ? 0 : iOther);
-				travelQuote.setPlanSelected(plan);
 			}
-			
+			travelQuote.setTotalPersonalTraveller(iTraveler);
+			travelQuote.setTotalAdultTraveller(iAdult);
+			travelQuote.setTotalChildTraveller(iChild);
+			travelQuote.setTotalOtherTraveller(iOther);
+			travelQuote.setPlanSelected(plan);
 			travelQuote.setTrLeavingDate(departureDate);
 			travelQuote.setTrBackDate(returnDate);
 			session.setAttribute("corrTravelQuote", travelQuote);
 			model.addAttribute("travelQuote", travelQuote);
 			ModelAndView date = getTravelPlan(travelQuote, model, request);
 			if(!date.getViewName().endsWith("travel-insurance") && !date.getViewName().endsWith("travel/travel")) {
+				model.addAttribute("promo", promo);
+				model.addAttribute("departureDate", departureDate);
+				model.addAttribute("returnDate", returnDate);
+				model.addAttribute("plan", plan);
+				model.addAttribute("traveler", traveler);
+				model.addAttribute("adult", adult);
+				model.addAttribute("child", child);
+				model.addAttribute("other", other);
 				return date;
 			}
-		}else {
-			if(travelQuote == null){
-				travelQuote = new TravelQuoteBean();
-				travelQuote.setTotalPersonalTraveller(1);
-				travelQuote.setTotalAdultTraveller(1);
-				travelQuote.setTotalChildTraveller(1);
-				travelQuote.setTotalOtherTraveller(0);
-				travelQuote.setPlanSelected("personal");
-			}
-			session.setAttribute("corrTravelQuote", travelQuote);
-			model.addAttribute("travelQuote", travelQuote);
 		}
+		
+		if(travelQuote == null){
+			travelQuote = new TravelQuoteBean();
+			travelQuote.setTotalPersonalTraveller(1);
+			travelQuote.setTotalAdultTraveller(1);
+			travelQuote.setTotalChildTraveller(1);
+			travelQuote.setTotalOtherTraveller(0);
+			travelQuote.setPlanSelected("personal");
+		}
+		session.setAttribute("corrTravelQuote", travelQuote);
+		model.addAttribute("travelQuote", travelQuote);
 		
 		String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
