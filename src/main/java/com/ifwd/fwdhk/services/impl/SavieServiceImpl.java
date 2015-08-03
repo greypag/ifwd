@@ -827,11 +827,8 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = request.getParameter("to");
-			String message = request.getParameter("message");
-			String subject = request.getParameter("subject");// "html testing";
-			if("".equals(subject) || subject == null){
-				subject = "html testing";
-			}
+			String message = "Hi<br />您好,<br />Thank you for registering your email address at Savie Insurance Plan' s website. <br />多謝您成功於自助息理財壽險計劃網頁登記電郵地址.";
+			String subject = "Acknowledgement Email";// "html testing";
 			String attachment = request.getParameter("attachment");
 			String from = "sit@ecomm.fwd.com";
 			boolean isHTML = true;
