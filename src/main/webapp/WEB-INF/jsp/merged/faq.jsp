@@ -239,6 +239,33 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.q" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
+                                            <fmt:message key="faq.workingholiday.group2.claimProcedure.a.part2" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link2" bundle="${msg}" /></u></a></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
                                         <fmt:message key="faq.workingholiday.group2.q10" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
@@ -728,25 +755,6 @@
                                 
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.flight.group1.q8" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.flight.group1.a8" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
                             
                             <div class="clearfix"></div>
                         </div>
@@ -761,6 +769,33 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.q" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.flight.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
+                                            <fmt:message key="faq.flight.group2.claimProcedure.a.part2" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.flight.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.flight.group2.claimProcedure.a.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.flight.group2.claimProcedure.a.part3.link2" bundle="${msg}" /></u></a></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -902,7 +937,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.flight.group3.a15.part1" bundle="${msg}" />
-                                        <ol class="text-justify">
+                                        <ol class="">
                                             <li><fmt:message key="faq.flight.group3.a15.part2.desc1" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.flight.group3.a15.part2.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.flight.group3.a15.part2.desc3" bundle="${msg}" /></li>
@@ -1230,12 +1265,12 @@
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.travel.group2.a15.part1" bundle="${msg}" /><br/><br/>
                                             <fmt:message key="faq.travel.group2.a15.part2" bundle="${msg}" />
-                                        <ol class="text-justify">
-                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="site.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link" bundle="${msg}" /></u></a> 
+                                        <ol class="">
+                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link1" bundle="${msg}" /></u></a></li> 
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc3" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc4" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc5" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.travel.group2.a15.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link2" bundle="${msg}" /></u></a></li>
                                         </ol>
                                     </div>
                                     <div class="clearfix"></div>
@@ -1256,25 +1291,6 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.travel.group2.a16" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.travel.group2.q17" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group2.a17" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1370,7 +1386,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.travel.group2.a22.part1" bundle="${msg}" />
-                                        <ol class="text-justify">
+                                        <ol class="">
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc1" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc3" bundle="${msg}" /></li>
@@ -1382,25 +1398,6 @@
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc9" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc10" bundle="${msg}" /></li>
                                         </ol>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.travel.group2.q23" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group2.a23" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1426,27 +1423,6 @@
                                 
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.travel.group2.q25" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group2.a25.part1" bundle="${msg}" /> <a href="<fmt:message key="site.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a25.link" bundle="${msg}" /></u></a> 
-                                        <fmt:message key="faq.travel.group2.a25.part2" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-
 
                             <div class="clearfix"></div>
                         </div>
@@ -1473,42 +1449,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group3.a26.part1" bundle="${msg}" /></br><br>
-                                        <fmt:message key="faq.travel.group3.a26.part1.1" bundle="${msg}" />
-                                        <table id="address_table" class="table table-bordred">
-                                            <tbody>
-                                                 <tr style="background-color: #f68a1d;">
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.header1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.header2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.header3" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row1.col1.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row1.col1.desc2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row1.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row1.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row1.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row2.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row2.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row2.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row2.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row3.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row3.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row3.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row3.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row4.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row4.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row4.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row4.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row5.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row5.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row5.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row5.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <fmt:message key="faq.travel.group3.a26" bundle="${msg}" />
                                     </div>
 
                                     <div class="clearfix"></div>
@@ -1937,6 +1878,33 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.q" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.home.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
+                                            <fmt:message key="faq.home.group2.claimProcedure.a.part2" bundle="${msg}" />
+                                        <ol>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.home.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.home.group2.claimProcedure.a.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.home.group2.claimProcedure.a.part3.link2" bundle="${msg}" /></u></a></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -2372,6 +2340,33 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.q" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
+                                            <fmt:message key="faq.workingholiday.group2.claimProcedure.a.part2" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link2" bundle="${msg}" /></u></a></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
@@ -2874,25 +2869,6 @@
                                 
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.flight.group1.q8" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.flight.group1.a8" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
                             
                             <div class="clearfix"></div>
                         </div>
@@ -2907,6 +2883,33 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.q" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.flight.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
+                                            <fmt:message key="faq.flight.group2.claimProcedure.a.part2" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.flight.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.flight.group2.claimProcedure.a.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.flight.group2.claimProcedure.a.part3.link2" bundle="${msg}" /></u></a></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
@@ -3048,7 +3051,7 @@
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <fmt:message key="faq.flight.group3.a15.part1" bundle="${msg}" />
-                                        <ol class="text-justify">
+                                        <ol class="">
                                             <li><fmt:message key="faq.flight.group3.a15.part2.desc1" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.flight.group3.a15.part2.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.flight.group3.a15.part2.desc3" bundle="${msg}" /></li>
@@ -3386,13 +3389,14 @@
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <fmt:message key="faq.travel.group2.a15.part1" bundle="${msg}" /><br/><br/>
                                             <fmt:message key="faq.travel.group2.a15.part2" bundle="${msg}" />
-                                        <ol class="text-justify">
-                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="site.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link" bundle="${msg}" /></u></a> 
+                                        <ol class="">
+                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link1" bundle="${msg}" /></u></a></li> 
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc3" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc4" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc5" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.travel.group2.a15.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link2" bundle="${msg}" /></u></a></li>
                                         </ol>
+
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -3412,25 +3416,6 @@
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <fmt:message key="faq.travel.group2.a16" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.travel.group2.q17" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group2.a17" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -3526,7 +3511,7 @@
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <fmt:message key="faq.travel.group2.a22.part1" bundle="${msg}" />
-                                        <ol class="text-justify">
+                                        <ol class="">
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc1" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc3" bundle="${msg}" /></li>
@@ -3538,25 +3523,6 @@
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc9" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a22.part2.desc10" bundle="${msg}" /></li>
                                         </ol>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.travel.group2.q23" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group2.a23" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -3582,27 +3548,6 @@
                                 
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.travel.group2.q25" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group2.a25.part1" bundle="${msg}" /> <a href="<fmt:message key="site.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a25.link" bundle="${msg}" /></u></a> 
-                                        <fmt:message key="faq.travel.group2.a25.part2" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-
 
                             <div class="clearfix"></div>
                         </div>
@@ -3629,42 +3574,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.travel.group3.a26.part1" bundle="${msg}" /></br><br>
-                                        <fmt:message key="faq.travel.group3.a26.part1.1" bundle="${msg}" />
-                                        <table id="address_table" class="table table-bordred">
-                                            <tbody>
-                                                 <tr style="background-color: #f68a1d;">
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.header1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.header2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.header3" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row1.col1.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row1.col1.desc2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row1.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row1.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row1.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row2.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row2.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row2.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row2.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row3.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row3.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row3.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row3.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row4.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row4.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row4.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row4.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row5.col1" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row5.col2" bundle="${msg}" /></td>
-                                                    <td><fmt:message key="faq.travel.group3.a26.part2.table.row5.col3.desc1" bundle="${msg}" /></br><fmt:message key="faq.travel.group3.a26.part2.table.row5.col3.desc2" bundle="${msg}" /></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <fmt:message key="faq.travel.group3.a26" bundle="${msg}" /></br><br>
                                     </div>
 
                                     <div class="clearfix"></div>
@@ -4103,6 +4013,33 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.workingholiday.group2.claimProcedure.q" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.home.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
+                                            <fmt:message key="faq.home.group2.claimProcedure.a.part2" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.home.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc5" bundle="${msg}" /> <a href="<fmt:message key="faq.home.group2.claimProcedure.a.part3.link2" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.home.group2.claimProcedure.a.part3.link2" bundle="${msg}" /></u></a></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
