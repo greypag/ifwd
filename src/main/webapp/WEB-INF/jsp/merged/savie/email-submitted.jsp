@@ -10,9 +10,9 @@
 
 <div class="teaser-confirmation-block">
 	<div class="fwd-container container-fluid teaser-confirmation">
-		<h2><fmt:message key="savie.emailSubmit.thank.completing" bundle="${msg}" /></h2>
+		<h2><fmt:message key="savie.emailSubmit.header" bundle="${msg}" /></h2>
 
-		<h4><fmt:message key="savie.emailSubmit.share.love" bundle="${msg}" /><span class="savie-bold"><fmt:message key="savie.emailSubmit.savie" bundle="${msg}" /></span><fmt:message key="savie.emailSubmit.saving.together" bundle="${msg}" /></h4>
+		<h4><fmt:message key="savie.emailSubmit.paragraph.part1" bundle="${msg}" /></br><fmt:message key="savie.emailSubmit.paragraph.part2" bundle="${msg}" /><span class="savie-bold"><fmt:message key="savie.emailSubmit.paragraph.part3" bundle="${msg}" /></span> <fmt:message key="savie.emailSubmit.paragraph.part4" bundle="${msg}" /></h4>
 
 
 		<div class="clearfix">
