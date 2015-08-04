@@ -179,6 +179,7 @@ public class TravelController {
 				model.addAttribute("other", other);
 				return date;
 			}
+			result = false;
 		}
 		
 		if(travelQuote == null || !result){
