@@ -450,10 +450,11 @@ public class SavieServiceImpl implements SavieService {
 			resultJsonObject.accumulate("Msgs", "data error");
 		}
 		response.setContentType("text/json;charset=utf-8");
+		request.getRemoteUser();
 		//return data
 		try {
 			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
+		}catch(Exception e) {  
 			e.printStackTrace();
 		}
 	}
@@ -471,7 +472,8 @@ public class SavieServiceImpl implements SavieService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", ".pdf");
+			parameters.put("requestNo", request.getParameter("requestNo"));
+			parameters.put("fileType", "pdf");
 			parameters.put("documentType", "HKID");
 			parameters.put("originalFilePath", path);
 			parameters.put("base64", base64);

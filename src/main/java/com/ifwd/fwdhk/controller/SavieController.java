@@ -171,8 +171,9 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
- 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName) {
+ 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName,@RequestParam String requestNo) {
 		request.getSession().setAttribute("pdfName", pdfName);
+		request.getSession().setAttribute("requestNo", requestNo);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);
  	}
 	

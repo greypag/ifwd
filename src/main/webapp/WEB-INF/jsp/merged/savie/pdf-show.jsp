@@ -11,7 +11,7 @@
 </head>
 <body>
 <div align="center">
-<input type="button" value="${pdfName }→OK" onclick="acceptPdf('${pdfName}')"/><br/>
+<input type="button" value="${pdfName }→OK" onclick="acceptPdf('${pdfName}','${requestNo}')"/><br/>
 <iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }" width="800" height="1200" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
 </iframe>
 </div>
