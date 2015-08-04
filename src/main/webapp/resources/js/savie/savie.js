@@ -200,7 +200,7 @@ function createPdf() {
 	},
 	function(data) {
 		if(data.pdfName){
-			window.open('/'+contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName);
+			window.open('/'+contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName+'&requestNo='+data.Msgs.requestNo);
 		}
 		else{
 			alert("data error");
@@ -210,10 +210,11 @@ function createPdf() {
 	});
 }
 
-function acceptPdf(pdfName) {
+function acceptPdf(pdfName,requestNo) {
 	$.get('/'+contextPath+'/ajax/savie/sales-illustration/uploadPdf',
 	{ 
-		pdfName : pdfName
+		pdfName : pdfName,
+		requestNo : requestNo
 	},
 	function(data) {
 		if(data.Msgs=="success"){

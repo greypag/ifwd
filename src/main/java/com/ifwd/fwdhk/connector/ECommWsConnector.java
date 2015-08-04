@@ -14,7 +14,6 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -36,6 +35,7 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -93,8 +93,8 @@ public class ECommWsConnector {
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
 	
-	public BaseResponse generateSalesIllustration(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
-		return consumeECommWs(UserRestURIConstants.GENERATE_SALES_ILLUSTRATION,HttpMethod.PUT,parameters,BaseResponse.class,header);
+	public SalesIllustrationResponse generateSalesIllustration(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.GENERATE_SALES_ILLUSTRATION,HttpMethod.PUT,parameters,SalesIllustrationResponse.class,header);
 	}
 	
 	public BaseResponse sendLead(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{

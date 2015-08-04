@@ -130,6 +130,22 @@ public class FlightController {
 		String ogDescription = "";
 		String ogSiteName = "";
 		
+		String googleRickSnippetBrand ="";
+		String googleRickSnippetName ="";
+		String googleRickSnippetImageUrl ="";
+		String googleRickSnippetImageAlt ="";
+		String googleRickSnippetRating ="";
+		String googleRickSnippetPrice ="";
+		String googleRickSnippetAvailability = "";
+		
+		String googleRickSnippetAvailabilityText ="";
+		String googleRickSnippetDescription1 ="";
+		String googleRickSnippetDescription2 ="";
+		
+				
+		
+		
+		
 		if (request
 				.getRequestURI()
 				.toString()
@@ -165,7 +181,43 @@ public class FlightController {
 					UserRestURIConstants.getLanaguage(request));
 			ogSiteName = WebServiceUtils.getPageTitle(
 					"flight.og.siteName",
-					UserRestURIConstants.getLanaguage(request));			
+					UserRestURIConstants.getLanaguage(request));		
+			googleRickSnippetBrand =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetBrand",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetName =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetName",
+					UserRestURIConstants.getLanaguage(request));
+			
+			googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetImageUrl",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetImageAlt",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetRating =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetRating",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetPrice =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetPrice",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetAvailability",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetAvailabilityText",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetDescription1",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
+					"flight.googleRickSnippetDescription2",
+					UserRestURIConstants.getLanaguage(request));
+			
+			
+					
+			
+			
 		}
 
 		model.addAttribute("pageTitle", pageTitle);
@@ -176,7 +228,23 @@ public class FlightController {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
-		model.addAttribute("ogSiteName", ogDescription);
+		model.addAttribute("ogSiteName", ogSiteName);
+		
+		
+		
+		model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
+		model.addAttribute("googleRickSnippetName", googleRickSnippetName);
+		model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
+		model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
+		model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
+		model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
+		model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
+		model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
+		model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
+		model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
+		
+
+		
 		
 		
 

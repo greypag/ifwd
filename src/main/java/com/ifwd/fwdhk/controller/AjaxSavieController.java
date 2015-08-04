@@ -2,8 +2,6 @@ package com.ifwd.fwdhk.controller;
 
 
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +21,8 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
-import com.ifwd.fwdhk.util.ZipUtils;
+import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -33,6 +31,8 @@ public class AjaxSavieController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
+	@Autowired
+	private CommonUtils commonUtils;
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
 	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
@@ -188,5 +188,15 @@ public class AjaxSavieController extends BaseController{
 		}
  
 	}
+	
+	@RequestMapping(value = {"/reloadInitAppMsg"},method=RequestMethod.GET)
+	public void reloadInitMsg(){
+		InitApplicationMessage.init(commonUtils);
+	}
+	
+	
+	
+	
+	
 	
 }

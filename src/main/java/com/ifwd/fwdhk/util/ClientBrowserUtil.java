@@ -2,8 +2,6 @@ package com.ifwd.fwdhk.util;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Component;

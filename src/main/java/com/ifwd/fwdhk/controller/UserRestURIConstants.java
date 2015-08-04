@@ -83,12 +83,12 @@ public class UserRestURIConstants {
 	/*API For Savie*/
 	public static final String SAVIE_PLAN_DETAIL = "/savie/planDetails";
 	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
-	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/savie/documents";
+	public static final String SAVIE_UPLOAD_DOCUMENTS = SERVICE_URL + "/documents/applications";
 	public static final String SAVIE_UPSERT_APPOINTMENT = SERVICE_URL + "/customer/appointment";
 	public static final String SEND_EMAIL = "/messages/email";
 	public static final String SEND_LEAD = "/savie/lead";
-	public static final String SEND_SIGN = "/savie/sign";
-	public static final String SEND_DOCUMENTS = "/savie/documents";
+	public static final String SEND_SIGN = "/documents/signature";
+	public static final String SEND_DOCUMENTS = "/documents/applications";
 	public static final String GENERATE_SALES_ILLUSTRATION = "/savie/salesIllustration";
 	
 	/* Page Flow Control For Savie */
@@ -121,11 +121,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_DECLARATION = "savie.declaration";
 	public static final String PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING = "savie.interestGathering";
 	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
-	public static final String PAGE_PROPERTIES_SAVIE_PDF = "savie.pdf";
+	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
 	
-	
+	/* for image configuration */
+	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
 	
 	
 	
@@ -142,6 +143,13 @@ public class UserRestURIConstants {
 	/* Mail Api */
 	public static final String SEND_MAIL = SERVICE_URL + "/messages/email";
 
+	public static final String ERROR_HEADER1_1 = "You have successfully completed your purchase with FWD. An email will be sent to ";
+	public static final String ERROR_HEADER1_2 = " with the details of your policy.";
+	public static final String ERROR_DESCRIPTION1 = "Application number: ";
+	public static final String ERROR_HEADER2_1 = "您已成功申請富衛保險。確認電郵將會發送至 ";
+	public static final String ERROR_HEADER2_2 = "。";
+	public static final String ERROR_DESCRIPTION2 = "申請編號： ";
+	
 	static String controller;
 
 	public static String getController() {

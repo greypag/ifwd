@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -63,11 +64,15 @@
 <meta property="twitter:card" content="${ogImage}" />
 <meta property="twitter:image:src" content="${ogImage}" />
      
- 
-
-
-
-
+<% String requestUri = request.getRequestURI(); %>
+<% if(!requestUri.endsWith("-insurance")) { %>
+<meta name="robots" content="noindex">
+<% }
+   if(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
+		   || requestUri.endsWith("/tc") || requestUri.endsWith("/tc/")) {
+%>
+<link rel="alternate"  href="https://i.fwd.com.hk/en" hreflang="en" />
+<% }%>
 <%@ include file="include/setup.jsp"%>
 <link rel="alternate" hreflang="en" href="" />
 <link rel="alternate" hreflang="zh-HK" href="" />
@@ -135,8 +140,24 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 </script>
 
 <!--END -Google Code for SEO-->
-	
-	
+<!-- Google Enabling Rich Snippets for Products -->     
+
+<%-- <enhance:out escapeXml="false"> --%>
+<!-- <div itemscope itemtype="http://schema.org/Product"> -->
+<%--    <span itemprop="brand">${googleRickSnippetBrand}</span> --%>
+<%--    <span itemprop="name">${googleRickSnippetName}</span> --%>
+<%--    <img itemprop="image" src="${googleRickSnippetImageUrl}" alt="${googleRickSnippetImageAlt}" /> --%>
+<%--    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">${googleRickSnippetRating}</div> --%>
+
+<!--    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer"> -->
+<%--        <span itemprop="price">${googleRickSnippetPrice}</span> --%>
+<%--        <link itemprop="availability" href="${googleRickSnippetAvailability}" />${googleRickSnippetAvailabilityText} --%>
+<!--    </div> -->
+
+<%--    <u>${googleRickSnippetDescription1}</u> <span itemprop="description">${googleRickSnippetDescription2}</span> --%>
+<!-- </div> -->
+<%-- </enhance:out> --%>
+<!--END -Google Enabling Rich Snippets for Products-->	
 	<%@ include file="include/merged/header.jsp"%>
 	<dec:body />
 	<%@ include file="include/merged/footer.jsp"%>

@@ -80,10 +80,19 @@ class="image-order-status image-order-status-active  img-circle">
 			"policyNo")%></span>
 		</h4>
 		
-		<h5><fmt:message key="flight.confirmation.Y5Buddy.part1" bundle="${msg}" /><strong><fmt:message key="flight.confirmation.Y5Buddy.part2" bundle="${msg}" /></strong><fmt:message key="flight.confirmation.Y5Buddy.part3" bundle="${msg}" /></h5>
+		<h5><fmt:message key="flight.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="flight.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="flight.confirmation.partnerDesc.part3" bundle="${msg}" /></h5>
 		
 		<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
-		<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" style="margin:0px;"><img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" style="margin:0px;">
+		<div class="hidden-xs hidden-sm">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
+        </div>
+        <div class="hidden-lg hidden-md" style="text-align:center;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+        </div>
 		
 		<div class="gray-bg1-content" style="padding:0px !important">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad-none">
@@ -542,7 +551,7 @@ data : $('#frmTravelPlan').serialize()
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
    params[1]='type=Registration_Flight';
    params[2]='val=${dueAmount}';
-   params[3]='orderId=${transNo}';
+   params[3]='orderId=<%=request.getSession().getAttribute("policyNo")%>';
    if ('${language}'==='en'){
 	   params[4]='promoCode= Regis_Flight EN_Sc';
    } else {
@@ -587,4 +596,3 @@ $(document).ready(function() {
 });
 
 </script>
-

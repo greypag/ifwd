@@ -152,6 +152,10 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED:
 			to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
 			break;
+			
+		case UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF:
+			to = UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
+			break;
 
 		default:
 			to = UserRestURIConstants.PAGE_SAVIE_LANDING;
@@ -179,47 +183,52 @@ public class SaviePageFlowControl {
 	
 	public static String getSaviePage(String url)
 	{		
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_LANDING)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_LANDING)) {
 			return UserRestURIConstants.PAGE_SAVIE_LANDING;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)) {
 			return UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
 		}		
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_FNA)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_FNA)) {
 			return UserRestURIConstants.PAGE_SAVIE_FNA;
 		}		
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION;
 		}		
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_APPLICATION)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_APPLICATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_APPLICATION;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY)) {
 			return UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_DECLARATIONS)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_DECLARATIONS)) {
 			return UserRestURIConstants.PAGE_SAVIE_DECLARATIONS;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_SIGNATURE)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_SIGNATURE)) {
 			return UserRestURIConstants.PAGE_SAVIE_SIGNATURE;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD)) {
 			return UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING)>0) {
+
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED)) {
+			return UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+		}
+		
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING)) {
 			return UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)>0) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)) {
 			return UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
 		}
-		if(url.indexOf(UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED)>0) {
-			return UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+		if(url.endsWith(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF)) {
+			return UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
 		}
 		return "";
 		

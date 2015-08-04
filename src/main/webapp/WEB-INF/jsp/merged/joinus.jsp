@@ -133,7 +133,7 @@
 								<tr>
 									<td><label for="txtMobileNo"
 										class="join-us-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />  </label></td>
-									<td><input type="text"
+									<td><input type="tel"
 										class="form-control" id="txtMobileNo"
 										value="${userDetails.getMobileNo() }" name="mobileNo"
 										onfocus="$('#errorEmptyMobJoinUs').html('');$(this).removeClass('invalid-field');"

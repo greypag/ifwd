@@ -165,4 +165,57 @@ public class CommonUtils {
 		return OptionItemDescList;
 	}
 	
+	public void getImageConfig(){
+		String configurationKey = "";
+		String configurationValue = "";
+		
+		try {
+			String Url = UserRestURIConstants.IMAGE_CONFIG;
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			
+			header.put("userName", "*DIRECTGI");
+			header.put("token", getToken());
+			header.put("language", "EN");
+			
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+					Url, header, null);
+			if(responseJsonObj==null){
+				
+			} else {
+				if (responseJsonObj.get("errMsgs") == null) {
+					
+					JSONArray jsonOptionItemDescs = (JSONArray)responseJsonObj.get("configuration");
+					
+					if(jsonOptionItemDescs.size()>0){
+						for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+							
+							JSONObject imageConfigObj=(JSONObject)jsonOptionItemDescs.get(i);
+							configurationKey = (String)imageConfigObj.get("configurationKey");
+							configurationValue = (String)imageConfigObj.get("configurationValue");
+							
+							if("signature.width".equals(configurationKey)){
+								InitApplicationMessage.signatureWidth = configurationValue;
+							}else if("signature.height".equals(configurationKey)){
+								InitApplicationMessage.signatureHeight = configurationValue;
+							}else if("signature.file.size".equals(configurationKey)){
+								InitApplicationMessage.signatureFileSize = configurationValue;
+							}else if("application.file.size".equals(configurationKey)){
+								InitApplicationMessage.applicationFileSize = configurationValue;
+							}
+							
+						}
+					}
+					}
+			}
+				
+			logger.info("***********responseJsonObj****************:"+responseJsonObj);
+		} catch (Exception e) {
+			logger.info("error : " + e.getMessage());
+		}
+		
+	}
+	
+	
+	
 }

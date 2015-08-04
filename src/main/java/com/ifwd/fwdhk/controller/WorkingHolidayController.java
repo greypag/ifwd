@@ -101,6 +101,19 @@ public class WorkingHolidayController {
 		String ogUrl = "";
 		String ogImage = "";
 		String ogDescription = "";
+		
+		String googleRickSnippetBrand ="";
+		String googleRickSnippetName ="";
+		String googleRickSnippetImageUrl ="";
+		String googleRickSnippetImageAlt ="";
+		String googleRickSnippetRating ="";
+		String googleRickSnippetPrice ="";
+		String googleRickSnippetAvailability = "";
+		String googleRickSnippetAvailabilityText ="";
+		String googleRickSnippetDescription1 ="";
+		String googleRickSnippetDescription2 ="";
+		
+		
 		if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/working-holiday-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/working-holiday-insurance/sharing/")) 
 		{
 			ogTitle = WebServiceUtils.getPageTitle("workingholiday.og.title", UserRestURIConstants.getLanaguage(request));
@@ -114,7 +127,37 @@ public class WorkingHolidayController {
 			ogUrl = WebServiceUtils.getPageTitle("workingholiday.sharing.og.url", UserRestURIConstants.getLanaguage(request));
 			ogImage = WebServiceUtils.getPageTitle("workingholiday.sharing.og.image", UserRestURIConstants.getLanaguage(request));
 			ogDescription = WebServiceUtils.getPageTitle("workingholiday.sharing.og.description", UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetBrand =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetBrand",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetName =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetName",
+					UserRestURIConstants.getLanaguage(request));
 			
+			googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetImageUrl",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetImageAlt",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetRating =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetRating",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetPrice =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetPrice",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetAvailability",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetAvailabilityText",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetDescription1",
+					UserRestURIConstants.getLanaguage(request));
+			googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
+					"workingholiday.googleRickSnippetDescription2",
+					UserRestURIConstants.getLanaguage(request));
 		}
 		
 		
@@ -134,6 +177,17 @@ public class WorkingHolidayController {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		
+		model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
+		model.addAttribute("googleRickSnippetName", googleRickSnippetName);
+		model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
+		model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
+		model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
+		model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
+		model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
+		model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
+		model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
+		model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday");			
 	}
@@ -872,8 +926,11 @@ public class WorkingHolidayController {
 
 		try {
 			JSONObject parameters = new JSONObject();
+			
 			parameters.put("referenceNo",session.getAttribute("finalizeReferenceNo"));
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
+			String requestNo = (String) session.getAttribute("transNo");
+			String email = (String) session.getAttribute("emailAddress");
 			parameters.put("transactionDate",session.getAttribute("transactionDate"));
 			parameters.put("paymentFail", "0");
 			
@@ -924,18 +981,18 @@ public class WorkingHolidayController {
 						+ "workingholiday/workingholiday-confirmation";
 			} else {
 				
-				
 				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
 					model.addAttribute("errorHeader1", "Invalid Payment Amount");
 					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
 					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
 				} else {
-					model.addAttribute("errorHeader1", "Policy is not generated");
-					model.addAttribute("errorDescription1", "There is a problem in the system " + responsObject.get("errMsgs").toString());
-					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
-					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+					model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
+					model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
+					model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
+					model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
 				}
+				
 				
 				return UserRestURIConstants.getSitePath(request) + "error";
 			}

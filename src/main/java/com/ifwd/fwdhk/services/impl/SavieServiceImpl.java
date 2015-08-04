@@ -1,22 +1,24 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.codec.binary.StringUtils;
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,7 @@ import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -74,6 +77,7 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Autowired
 	protected ClientBrowserUtil clientBrowserUtil;
+	
 
 	@Override
 	public List<SavieServiceCentreBean> getServiceCentre(String userName,
@@ -409,7 +413,7 @@ public class SavieServiceImpl implements SavieService {
 				}
 			}
 			String name = null;
-			BaseResponse br = null;
+			SalesIllustrationResponse br = null;
 			String pdfTemplatePath = null;
 			String pdfGeneratePath = null;
 			try {
@@ -420,28 +424,37 @@ public class SavieServiceImpl implements SavieService {
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
-				parameters.put("lastName", "Lau");
-				parameters.put("firstName", "Andy");
-				parameters.put("chineseName", "劉德華");
-				parameters.put("dob", "1955-01-01");
-				parameters.put("gender", request.getParameter("gender"));
+				JSONObject applicant = new JSONObject();
+				applicant.put("lastName", "Lau");
+				applicant.put("firstName", "Andy");
+				applicant.put("chineseName", "劉德華");
+				applicant.put("dob", "1955-01-01");
+				applicant.put("gender", "M");
+				parameters.put("applicant", applicant);
+				parameters.put("planCode", "savie");
+				parameters.put("referralCode", "SAVIE123");
+				parameters.put("issueAge", 19);
+				parameters.put("paymentTerm", 82);
+				parameters.put("premium", 10000);
 				br = connector.generateSalesIllustration(parameters, header);
+				logger.info(br+"");
 			}catch(Exception e){
 				logger.info("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
 			resultJsonObject.accumulate("pdfName", name);
-			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
+			resultJsonObject.accumulate("Msgs", br);
 		}
 		else{
 			resultJsonObject.accumulate("Msgs", "data error");
 		}
 		response.setContentType("text/json;charset=utf-8");
+		request.getRemoteUser();
 		//return data
 		try {
 			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
+		}catch(Exception e) {  
 			e.printStackTrace();
 		}
 	}
@@ -459,7 +472,8 @@ public class SavieServiceImpl implements SavieService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", ".pdf");
+			parameters.put("requestNo", request.getParameter("requestNo"));
+			parameters.put("fileType", "pdf");
 			parameters.put("documentType", "HKID");
 			parameters.put("originalFilePath", path);
 			parameters.put("base64", base64);
@@ -798,12 +812,14 @@ public class SavieServiceImpl implements SavieService {
 	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
+			String affiliate = request.getParameter("affiliate");
 			final Map<String,String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("email", request.getParameter("email"));
 			parameters.put("mobileNo", request.getParameter("mobileNo"));
 			parameters.put("answer1", request.getParameter("answer1"));
 			parameters.put("step", request.getParameter("step"));
+			parameters.put("affiliate", affiliate);
 			br = connector.sendLead(parameters,header);
 		}catch(Exception e){
 			
@@ -822,11 +838,8 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = request.getParameter("to");
-			String message = request.getParameter("message");
-			String subject = request.getParameter("subject");// "html testing";
-			if("".equals(subject) || subject == null){
-				subject = "html testing";
-			}
+			String message = "Hi<br />您好,<br />Thank you for registering your email address at Savie Insurance Plan' s website. <br />多謝您成功於自助息理財壽險計劃網頁登記電郵地址.";
+			String subject = "Acknowledgement Email";// "html testing";
 			String attachment = request.getParameter("attachment");
 			String from = "sit@ecomm.fwd.com";
 			boolean isHTML = true;
@@ -892,7 +905,7 @@ public class SavieServiceImpl implements SavieService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", "svg");
+			parameters.put("fileType", "png");
 			parameters.put("signatureType", "application");
 			parameters.put("base64", image);
 			br = connector.signature(parameters, header);
@@ -905,19 +918,61 @@ public class SavieServiceImpl implements SavieService {
 		return br;
 	}
 	
+	public Boolean checkImages(HttpServletRequest request,MultipartFile file){
+		try {
+			String uploadDir = request.getSession().getServletContext()
+					.getRealPath("/")
+					+ "upload";
+			File dirPath = new File(uploadDir);
+			if (!dirPath.exists()) {
+				dirPath.mkdirs();
+			}
+			String name =  UUID.randomUUID().toString().replace("-", "");;
+			String filePath = uploadDir + "/" +name+"."+ file.getContentType().split("/")[1];
+			// 转存文件  
+			File files = new File(filePath);
+			file.transferTo(files);
+			InputStream is = new FileInputStream(files);
+			BufferedImage bufferedImage = ImageIO.read(is);
+			int width = bufferedImage.getWidth();
+			int height = bufferedImage.getHeight();
+			is.close();
+			files.delete();
+			String signatureWidth = InitApplicationMessage.signatureWidth;
+			String signatureHeight = InitApplicationMessage.signatureHeight
+;
+
+			if(width > Integer.valueOf(signatureWidth) || height > Integer.valueOf(signatureHeight)){
+				return false;
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		} 
+	}
+	
+	@Override
 	@SuppressWarnings({ "restriction", "unchecked" })
 	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try{
 			byte[] bytes = file.getBytes();
+			String imageType = file.getContentType().split("/")[1];
+			String fileType = file.getContentType().split("/")[0];
+			String filename = file.getOriginalFilename();
+			if("image".equals(fileType) && !checkImages(request, file)){
+				br = new BaseResponse();
+				br.setErrMsg("The picture is not legitimate");
+				return br;
+			}
 			String base64 =new sun.misc.BASE64Encoder().encode(bytes);
 			final Map<String, String> header = headerUtil.getHeader(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", file.getContentType().split("/")[1]);
+			parameters.put("fileType", imageType);
 			parameters.put("documentType", "HKID");
-			parameters.put("originalFilePath", "C:\\"+file.getOriginalFilename());
+			parameters.put("originalFilePath", "C:\\"+filename);
 			parameters.put("base64", base64);
 			br = connector.uploadDocuments(parameters, header);
 		}catch(Exception e) {
