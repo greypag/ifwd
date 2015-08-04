@@ -56,164 +56,171 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static String signatureHeight;
 	public static String signatureFileSize;
 	public static String applicationFileSize;
+	
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
-			
-			try {
-				savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieDistrictEN=null;
-			}
-			logger.info("savieDistrictEN : " + savieDistrictEN);
-			
-			try {
-				savieDistrictCN = commonUtils.getOptionItemDescList("savieDistrict","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieDistrictCN=null;
-			}
-			logger.info("savieDistrictCH : " + savieDistrictCN);
-			
-			try {
-				employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				employmentStatusEN=null;
-			}
-			logger.info("employmentStatusEN : " + employmentStatusEN);
-			
-			try {
-				employmentStatusCN = commonUtils.getOptionItemDescList("employmentStatus","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				employmentStatusCN=null;
-			}
-			logger.info("employmentStatusCN : " + employmentStatusCN);
-			
-			try {
-				nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				nationalityEN=null;
-			}
-			logger.info("nationalityEN : " + nationalityEN);
-			
-			try {
-				nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				nationalityCN=null;
-			}
-			logger.info("nationalityCN : " + nationalityCN);
-			
-			try {
-				occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				occupationEN=null;
-			}
-			logger.info("occupationEN : " + occupationEN);
-			
-			try {
-				occupationCN = commonUtils.getOptionItemDescList("occupation","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				occupationCN=null;
-			}
-			logger.info("occupationCN : " + occupationCN);
-			
-			try {
-				natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				natureOfBusinessEN=null;
-			}
-			logger.info("natureOfBusinessEN : " + natureOfBusinessEN);
-			
-			try {
-				natureOfBusinessCN = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				natureOfBusinessCN=null;
-			}
-			logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
-			
-			try {
-				monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				monthlyPersonalIncomeEN=null;
-			}
-			logger.info("monthlyPersonalIncomeEN : " + monthlyPersonalIncomeEN);
-			
-			try {
-				monthlyPersonalIncomeCN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				monthlyPersonalIncomeCN=null;
-			}
-			logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
-			
-			try {
-				savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("beneficiaryInfo","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipEN=null;
-			}
-			logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
-			
-			try {
-				savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("beneficiaryInfo","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieBeneficiaryRelationshipCN=null;
-			}
-			logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
-			
-			try {
-				placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				placeOfBirthEN=null;
-			}
-			logger.info("placeOfBirthEN : " + placeOfBirthEN);
-			
-			try {
-				placeOfBirthCN = commonUtils.getOptionItemDescList("placeOfBirth","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				placeOfBirthCN=null;
-			}
-			logger.info("placeOfBirthCN : " + placeOfBirthCN);
-			
-			try {
-				savieAnsEN = commonUtils.getOptionItemDescList("SavieAns","EN");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieAnsEN=null;
-			}
-			logger.info("savieAnsEN : " + savieAnsEN);
-			
-			try {
-				savieAnsCN = commonUtils.getOptionItemDescList("SavieAns","CH");
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-				savieAnsCN=null;
-			}
-			logger.info("savieAnsCN : " + savieAnsCN);
-		
-			try {
-				commonUtils.getImageConfig();
-			} catch (Exception e) {
-				logger.info("error : "+e.getMessage());
-			}
-			logger.info("signatureWidth : " + signatureWidth + "signatureHeight : " + signatureHeight);
-			
+			init(commonUtils);
 		}
 	}
 	
+	
+	public static void init(CommonUtils commonUtils){
+
+		
+		try {
+			savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			savieDistrictEN=null;
+		}
+		logger.info("savieDistrictEN : " + savieDistrictEN);
+		
+		try {
+			savieDistrictCN = commonUtils.getOptionItemDescList("savieDistrict","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			savieDistrictCN=null;
+		}
+		logger.info("savieDistrictCH : " + savieDistrictCN);
+		
+		try {
+			employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			employmentStatusEN=null;
+		}
+		logger.info("employmentStatusEN : " + employmentStatusEN);
+		
+		try {
+			employmentStatusCN = commonUtils.getOptionItemDescList("employmentStatus","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			employmentStatusCN=null;
+		}
+		logger.info("employmentStatusCN : " + employmentStatusCN);
+		
+		try {
+			nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			nationalityEN=null;
+		}
+		logger.info("nationalityEN : " + nationalityEN);
+		
+		try {
+			nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			nationalityCN=null;
+		}
+		logger.info("nationalityCN : " + nationalityCN);
+		
+		try {
+			occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			occupationEN=null;
+		}
+		logger.info("occupationEN : " + occupationEN);
+		
+		try {
+			occupationCN = commonUtils.getOptionItemDescList("occupation","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			occupationCN=null;
+		}
+		logger.info("occupationCN : " + occupationCN);
+		
+		try {
+			natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			natureOfBusinessEN=null;
+		}
+		logger.info("natureOfBusinessEN : " + natureOfBusinessEN);
+		
+		try {
+			natureOfBusinessCN = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			natureOfBusinessCN=null;
+		}
+		logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
+		
+		try {
+			monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			monthlyPersonalIncomeEN=null;
+		}
+		logger.info("monthlyPersonalIncomeEN : " + monthlyPersonalIncomeEN);
+		
+		try {
+			monthlyPersonalIncomeCN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			monthlyPersonalIncomeCN=null;
+		}
+		logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
+		
+		try {
+			savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("beneficiaryInfo","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			savieBeneficiaryRelationshipEN=null;
+		}
+		logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
+		
+		try {
+			savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("beneficiaryInfo","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			savieBeneficiaryRelationshipCN=null;
+		}
+		logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
+		
+		try {
+			placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			placeOfBirthEN=null;
+		}
+		logger.info("placeOfBirthEN : " + placeOfBirthEN);
+		
+		try {
+			placeOfBirthCN = commonUtils.getOptionItemDescList("placeOfBirth","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			placeOfBirthCN=null;
+		}
+		logger.info("placeOfBirthCN : " + placeOfBirthCN);
+		
+		try {
+			savieAnsEN = commonUtils.getOptionItemDescList("SavieAns","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			savieAnsEN=null;
+		}
+		logger.info("savieAnsEN : " + savieAnsEN);
+		
+		try {
+			savieAnsCN = commonUtils.getOptionItemDescList("SavieAns","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			savieAnsCN=null;
+		}
+		logger.info("savieAnsCN : " + savieAnsCN);
+	
+		try {
+			commonUtils.getImageConfig();
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+		}
+		logger.info("signatureWidth : " + signatureWidth + "signatureHeight : " + signatureHeight);
+		
+	
+	}
 	
 }
