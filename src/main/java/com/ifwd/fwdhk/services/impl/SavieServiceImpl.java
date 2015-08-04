@@ -33,6 +33,7 @@ import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -412,7 +413,7 @@ public class SavieServiceImpl implements SavieService {
 				}
 			}
 			String name = null;
-			BaseResponse br = null;
+			SalesIllustrationResponse br = null;
 			String pdfTemplatePath = null;
 			String pdfGeneratePath = null;
 			try {
@@ -423,19 +424,27 @@ public class SavieServiceImpl implements SavieService {
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
-				parameters.put("lastName", "Lau");
-				parameters.put("firstName", "Andy");
-				parameters.put("chineseName", "劉德華");
-				parameters.put("dob", "1955-01-01");
-				parameters.put("gender", request.getParameter("gender"));
+				JSONObject applicant = new JSONObject();
+				applicant.put("lastName", "Lau");
+				applicant.put("firstName", "Andy");
+				applicant.put("chineseName", "劉德華");
+				applicant.put("dob", "1955-01-01");
+				applicant.put("gender", "M");
+				parameters.put("applicant", applicant);
+				parameters.put("planCode", "savie");
+				parameters.put("referralCode", "SAVIE123");
+				parameters.put("issueAge", 19);
+				parameters.put("paymentTerm", 82);
+				parameters.put("premium", 10000);
 				br = connector.generateSalesIllustration(parameters, header);
+				logger.info(br+"");
 			}catch(Exception e){
 				logger.info("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
 			resultJsonObject.accumulate("pdfName", name);
-			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
+			resultJsonObject.accumulate("Msgs", br);
 		}
 		else{
 			resultJsonObject.accumulate("Msgs", "data error");
