@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="<%=request.getContextPath()%>/en/joinus#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li><a href="<%=request.getContextPath()%>"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 					<li class="active"><i class="fa fa-caret-right"></i><fmt:message key="header.menu.faq" bundle="${msg}" /></li>
 				</ol>
 				
