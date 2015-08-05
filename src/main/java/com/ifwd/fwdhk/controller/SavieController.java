@@ -65,6 +65,24 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/application"})
 	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
+		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
+		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
+		model.addAttribute("placeOfBirthEN", InitApplicationMessage.placeOfBirthEN);
+		model.addAttribute("placeOfBirthCN", InitApplicationMessage.placeOfBirthCN);
+		model.addAttribute("nationalityEN", InitApplicationMessage.nationalityEN);
+		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
+		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
+		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
+		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
+		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
+		model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
+		model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
+		model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
+		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
+		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
+		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
+		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
+		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_APPLICATION);
 	}
 	

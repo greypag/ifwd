@@ -82,8 +82,9 @@ public class SaviePageFlowControl {
 
 		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: 
 			// Plan Details
-			to = UserRestURIConstants.PAGE_SAVIE_FNA;
-			to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;
+			to = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
+			/*to = UserRestURIConstants.PAGE_SAVIE_FNA;
+			to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;*/
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION: 

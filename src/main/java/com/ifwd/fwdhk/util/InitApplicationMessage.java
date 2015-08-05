@@ -67,8 +67,23 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	
 	public static void init(CommonUtils commonUtils){
-
 		
+		try {
+			maritalStatusesEN = commonUtils.getOptionItemDescList("maritalStatus","EN");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			maritalStatusesEN=null;
+		}
+		logger.info("maritalStatusesEN : " + maritalStatusesEN);
+		
+		try {
+			maritalStatusesCN = commonUtils.getOptionItemDescList("maritalStatus","CH");
+		} catch (Exception e) {
+			logger.info("error : "+e.getMessage());
+			maritalStatusesCN=null;
+		}
+		logger.info("maritalStatusesCN : " + maritalStatusesCN);
+
 		try {
 			savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN");
 		} catch (Exception e) {
