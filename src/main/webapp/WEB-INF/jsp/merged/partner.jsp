@@ -14,7 +14,7 @@
 		<div class="container mob-pad" id="joinus_form">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="<%=request.getContextPath()%>/en/joinus#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li><a href="<%=request.getContextPath()%>/"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 					<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="partner.partners.offers" bundle="${msg}" />
 					</li>
 				</ol>
@@ -32,12 +32,9 @@
 					    </div>
 					    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
 	                        <div class="partner_title"><fmt:message key="partner.agoda.title" bundle="${msg}" /></div>
-	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc" bundle="${msg}" /></div> -->
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
 	                        <div class="partner_desc_list">
 									<ul class="bullets">
-									   <li>
-                                           <p class="h4-5"><fmt:message key="partner.agoda.desc" bundle="${msg}" /></p>
-                                        </li>
 										<li>
 									       <p class="h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></p>
 										</li>
@@ -47,23 +44,13 @@
 									</ul>
 	                            </div>
 	                        <div class="partner_tnc">
-	                            <div class="h4-5"><strong><fmt:message key="partner.terms.conditions" bundle="${msg}" /></strong></div>
 	                            <div class="partner_tnc_list">
 									<ul class="bullets">
 										<li>
-									       <p class="h4-5"><fmt:message key="partner.agoda.tnc1" bundle="${msg}" /></p>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc1" bundle="${msg}" /></p>
 										</li>
 										<li>
 										   <p class="h4-5"><fmt:message key="partner.agoda.tnc2" bundle="${msg}" /></p>
-										</li>
-										<li>
-										   <p class="h4-5"><fmt:message key="partner.agoda.tnc3" bundle="${msg}" /></p>
-										</li>
-										<li>
-										   <p class="h4-5"><fmt:message key="partner.agoda.tnc4" bundle="${msg}" /></p>
-										</li>
-										<li>
-										   <p class="h4-5"><fmt:message key="partner.agoda.tnc5" bundle="${msg}" /></p>
 										</li>
 									</ul>
 	                            </div>
@@ -81,26 +68,19 @@
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
 	                        <div class="partner_title"><fmt:message key="partner.y5buddy.title" bundle="${msg}" /></div>
-	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.y5buddy.desc" bundle="${msg}" /></div> -->
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.y5buddy.desc1" bundle="${msg}" /></div> -->
 	                        <div class="partner_desc_list">
 									<ul class="bullets">
-									    <li>
-                                           <p class="h4-5"><fmt:message key="partner.y5buddy.desc" bundle="${msg}" /></p>
-                                        </li>
 										<li>
 									       <p class="h4-5"><fmt:message key="partner.y5buddy.desc1" bundle="${msg}" /></p>
 										</li>
 									</ul>
 	                            </div>
 	                        <div class="partner_tnc">
-	                            <div class="h4-5"><fmt:message key="partner.terms.conditions" bundle="${msg}" /></div>
 	                            <div class="partner_tnc_list">
 									<ul class="bullets">
 										<li>
-									       <p class="h4-5"><fmt:message key="partner.y5buddy.tnc1" bundle="${msg}" /></p>
-										</li>
-										<li>
-										   <p class="h4-5"><fmt:message key="partner.y5buddy.tnc2" bundle="${msg}" /></p>
+										   <p class="h4-5"><fmt:message key="partner.y5buddy.tnc1" bundle="${msg}" /></p>
 										</li>
 									</ul>
 	                            </div>
@@ -118,26 +98,19 @@
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
 	                        <div class="partner_title"><fmt:message key="partner.boconcept.title" bundle="${msg}" /></div>
-	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.boconcept.desc" bundle="${msg}" /></div> -->
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.boconcept.desc1" bundle="${msg}" /></div> -->
 	                        <div class="partner_desc_list">
 									<ul class="bullets">
-										<li>
-                                           <p class="h4-5"><fmt:message key="partner.boconcept.desc" bundle="${msg}" /></p>
-                                        </li>
 										<li>
 									       <p class="h4-5"><fmt:message key="partner.boconcept.desc1" bundle="${msg}" /></p>
 										</li>
 									</ul>
 	                            </div>
 	                        <div class="partner_tnc">
-	                            <div class="h4-5"><fmt:message key="partner.terms.conditions" bundle="${msg}" /></div>
 	                            <div class="partner_tnc_list">
 									<ul class="bullets">
 										<li>
-									       <p class="h4-5"><fmt:message key="partner.boconcept.tnc1" bundle="${msg}" /></p>
-										</li>
-										<li>
-										   <p class="h4-5"><fmt:message key="partner.boconcept.tnc2" bundle="${msg}" /></p>
+										   <p class="h4-5"><fmt:message key="partner.boconcept.tnc1" bundle="${msg}" /></p>
 										</li>
 									</ul>
 	                            </div>

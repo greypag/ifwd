@@ -20,7 +20,7 @@ function testPaymentStatus(){
 		//data : $(paymentFormId).serialize(),
 		async : false,
 		success : function(data) {
-			alert(data)
+			console.log(data)
 		}
 	});
 	return result;
