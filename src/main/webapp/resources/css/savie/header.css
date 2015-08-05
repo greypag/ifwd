@@ -415,7 +415,7 @@ ul.maintabs li a {
 }
 .limited-offer {
   position: relative;
-  top: 40px;
+  top: 30px;
   color: #fff;
 }
 .limited-offer span {
@@ -440,6 +440,11 @@ ul.maintabs li.active {
 ul.maintabs li.active a {
 	color: #fff;	
 }
+
+ul.maintabs li.active a span{
+  color: #fff;  
+}
+
 ul.maintabs li .offer {
   color: #f68a1d;
   font-size: 18px;

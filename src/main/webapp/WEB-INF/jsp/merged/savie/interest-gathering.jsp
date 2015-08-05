@@ -74,7 +74,7 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.read.accept1" bundle="${msg}" /><a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.read.accept2" bundle="${msg}" /></div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<div class="clearfix top">
@@ -82,10 +82,9 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="tc" id="tc-check" name="isTc" /> <label
 					for="tc-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.read.accept1" bundle="${msg}" />
-			<a href=""><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a>.
-			</div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.read.accept2" bundle="${msg}" /></div>
 		</div>
+
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
 		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
