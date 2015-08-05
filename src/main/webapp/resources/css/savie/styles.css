@@ -12655,6 +12655,18 @@ span.dup-error-msg {
 	visibility: visible
 }
 
+.fwd-savie-wrapper .sign-up-teaser .sign-up-teaser-form #captchaBox {
+    transform: scale(0.8);
+    transform-origin: 0 0;
+}
+
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .sign-up-teaser .sign-up-teaser-form #captchaBox {
+	    transform: scale(1);
+    	transform-origin: initial;
+	}
+}
+
 .fwd-savie-wrapper .sign-up-teaser p {
 	margin: 0
 }
@@ -13241,4 +13253,30 @@ span.dup-error-msg {
 	.fwd-savie-wrapper .teaser-confirmation .btn-white.btn-confirmation {
 		width: 500px
 	}
+}
+
+.fwd-savie-wrapper .teaser-confirmation .back-at-home-div {
+    margin-top: 57px;
+    height: 60px;
+    border: solid 1px #ff8200;
+    cursor: pointer;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home {
+    font-family: 'Calibri-Bold';
+    font-size: 24px;
+    color: #ff8200;
+    height: 60px;
+    display: block;
+    padding-top: 12px;
+}
+
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:hover, 
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:focus, 
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:active {
+	color: #fff;
+    background-color: #ff8200;
 }

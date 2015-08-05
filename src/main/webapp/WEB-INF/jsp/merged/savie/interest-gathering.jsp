@@ -15,6 +15,18 @@ var language = "${language}";
 var affiliate = "${affiliate}";
 </script>
 
+<!-- reCAPTCHA widget -->
+<script type="text/javascript">
+	var onloadCallback = function() {
+		grecaptcha.render('captchaBox', {
+			'sitekey' : '6Lcs0AoTAAAAAMASZ3HsfT92CrOCHqQERi5ZV7wk',
+			'theme' : 'light',
+			'type' : 'audio image',
+			'language' : 'en'
+		});
+	};
+</script>
+
 
 <div class="text-center banner-widget container-fluid">
 	<div class="fwd-container container-fluid breadcrumbs">
@@ -87,8 +99,13 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
+		
+		<div id="captchaBox"></div>
 		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
+	<script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit"
+		async defer>
+	</script>
 </div>
 
 <div id="flux">

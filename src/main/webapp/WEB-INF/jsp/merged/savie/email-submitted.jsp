@@ -26,31 +26,29 @@
 					<button id="fwd-fb-share" type="button" class="btn-fwd-fb">
 						<i class="fa fa-facebook fwd-fb"></i><fmt:message key="savie.emailSubmit.share.facebook" bundle="${msg}" />
 					</button>
-					<a id="wa-share" href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="" class="wa_btn wa_btn_m" style="display:none;" target="_top"><!--<i class="fa fa-whatsapp"></i>--><img src="<%=request.getContextPath()%>/resources/images/savie/whatsapp.png" class="img-responsive whatsapp-icon" />Share via WhatsApp</a>
+					<a id="wa-share" href="whatsapp://send" data-text="<fmt:message key="savie.emailSubmit.share.whatsapp" bundle="${msg}" />" data-href="" class="wa_btn wa_btn_m" style="display:none;" target="_top"><!--<i class="fa fa-whatsapp"></i>--><img src="<%=request.getContextPath()%>/resources/images/savie/whatsapp.png" class="img-responsive whatsapp-icon" />Share via WhatsApp</a>
 				</div>
 
 			</div>
 		</div>
 
-		<button type="button" class="btn-white btn-confirmation"><fmt:message key="savie.emailSubmit.back.home" bundle="${msg}" /></button>
+		<!--<button type="button" class="btn-white btn-confirmation" id="teaser-back-at-home"><fmt:message key="savie.emailSubmit.back.home" bundle="${msg}" /></button>-->
+		<div class="back-at-home-div">
+			<a href="<%=request.getContextPath()%>/${language}/savings-insurance" class="back-at-home"><fmt:message key="savie.emailSubmit.back.home" bundle="${msg}" /></a>
+		</div>
+		
 	</div>
 </div>
 <script type="text/javascript">
 	$(function() {
 		var b = document.getElementById('wa-share');
-		var url = b.getAttribute("data-href");
-		var text = "?text=" + encodeURIComponent(b.getAttribute("data-text")) + (b.getAttribute("data-text") ? "%20" : "");
-
-		if (url) {
-			text += encodeURIComponent(url);
-		} else {
-			text += encodeURIComponent(document.URL);
-		}
-		
+		var waShareUrl = window.location.protocol + "//"  + window.location.host + "<%=request.getContextPath()%>/${language}/savings-insurance";
+		var text = "?text=" + encodeURIComponent(b.getAttribute("data-text")) + (b.getAttribute("data-text") ? "%20" : "") + encodeURIComponent(waShareUrl);
 		b.setAttribute("href", b.getAttribute("href") + text);
 		
+		var fbShareUrl = window.location.protocol + "//"  + window.location.host + "<%=request.getContextPath()%>/${language}/savings-insurance";
 		$('#fwd-fb-share').on('click', function() {
-			window.open('http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://www.i.fwd.com.hk/${language}/savings-insurance') + '&','', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');
+			window.open('http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(fbShareUrl) + '&','', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');
 		});
 	});
 </script>
