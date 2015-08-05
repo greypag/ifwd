@@ -883,14 +883,11 @@ var promoCodeInsertFlag = true;
 		
 		$("#anchor-lang").click(function(){
 			var selValue = document.getElementById("inputseletedplanname").value;
-			//alert(selValue);
-			
 		});
 		
 		
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
-		/* alert("discountAmt: "+discountAmt+";totalDue: "+totalDue); */
 		$("#promo-code-body").fadeIn();
 		document.getElementById("errDue").innerHTML = "";
 		document.getElementById("errDueMobile").innerHTML = "";

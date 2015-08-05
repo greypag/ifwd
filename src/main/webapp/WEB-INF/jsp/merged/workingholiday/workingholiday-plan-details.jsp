@@ -30,7 +30,7 @@ $(function () {
 	$("#anchor-lang").on("click",function(){
 		var fullName = $("#inputFullName").val();
 		document.cookie = "fullName = " + fullName;
-		alert(document.cookie);
+		console.log(document.cookie);
 	});
 });
 </script>
