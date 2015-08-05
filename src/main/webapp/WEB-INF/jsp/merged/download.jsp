@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function download(Url){
-		alert(Url);
+		console.log(Url);
 		window.open(Url, null, "toolbar=0,location=no,directories=0,status=0, scrollbars=yes,resizable=1,top=0,left=0");
 	}
 </script>
