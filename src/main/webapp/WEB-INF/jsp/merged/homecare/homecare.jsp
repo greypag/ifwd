@@ -112,7 +112,7 @@ $(document).ready(function() {
                                                 i++;
                                         %>
                                         <div class="col-md-4">
-                                            <button type="submit"
+                                            <button id="home_submit" type="submit"
                                                 class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
                                                 onclick="return msgAlertDesk('getHomeQuote')"><fmt:message key="home.main.quote.top.action" bundle="${msg}" /></button>
                                         </div>
@@ -177,8 +177,8 @@ $(document).ready(function() {
                     <div class="home_promo_banner_description">
                         <fmt:message key="home.cheapest.help.part1" bundle="${msg}" /> <a href="mailto:<fmt:message key="home.cheapest.help.part2" bundle="${msg}" />"><u><fmt:message key="home.cheapest.help.part2" bundle="${msg}" /></u></a> <fmt:message key="home.cheapest.help.part3" bundle="${msg}" />
                     </div>
-                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homePromoGetQuote('desktop')"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
-                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homePromoGetQuote('mobile')"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homeScrollToElement('home_submit', 400)"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
+                    <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homeScrollToElement('getHomeQuoteMob', 100)"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
                     <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
                 </div>
             </div>
@@ -213,6 +213,13 @@ $(document).ready(function() {
             }
         }
     }
+
+    function homeScrollToElement(elementId, offset){
+        $('html, body').animate({
+            scrollTop: $("#"+elementId).offset().top - offset
+        }, 1000);
+    }
+
     </script>
 	
 		
@@ -263,7 +270,9 @@ $(document).ready(function() {
 					}
 						i++;
 				%>
-
+                <p class="col-xs-12 mute">
+                    <fmt:message key="home.main.quote.terms" bundle="${msg}" />
+                </p>
 				<div class="form-container">
 				    <h3 class="text-center">
 				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block"
