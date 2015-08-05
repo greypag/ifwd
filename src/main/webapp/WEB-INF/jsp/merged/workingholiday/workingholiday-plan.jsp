@@ -883,7 +883,6 @@ var promoCodeInsertFlag = true;
 		
 		$("#anchor-lang").click(function(){
 			var selValue = document.getElementById("inputseletedplanname").value;
-			
 		});
 		
 		
