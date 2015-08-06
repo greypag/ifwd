@@ -273,6 +273,7 @@ $(document).ready(function() {
                 <p class="col-xs-12 mute">
                     <fmt:message key="home.main.quote.terms" bundle="${msg}" />
                 </p>
+                <div class="clearfix"></div>
 				<div class="form-container">
 				    <h3 class="text-center">
 				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block"
