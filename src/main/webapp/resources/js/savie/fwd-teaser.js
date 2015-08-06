@@ -1,11 +1,11 @@
 $(function() {
 	$('#teaserSurvery').on('hidden.bs.modal', function (e) {
-		window.location.href = 'email-submitted';
+		window.location.href = 'savings-insurance/email-submitted';
 	})
 	
 	$('#teaser-mmodal-submit').click(function(e){
 		e.preventDefault();
-		window.location.href = 'email-submitted';
+		window.location.href = 'savings-insurance/email-submitted';
 	});
 	
 	$('#teaser-sign-up-btn').click(function(e){
