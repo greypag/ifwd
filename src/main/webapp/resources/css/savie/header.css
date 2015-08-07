@@ -1,6 +1,16 @@
 /*************************
 *******Header******
 **************************/
+body {
+    background: #fff;
+    font-family: Calibri, sans-serif !important;
+    line-height: 22px;
+    font-size: 16px;
+}
+
+body.chin{
+    font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
 
 #header .search {
     display: inline-block;
@@ -431,7 +441,6 @@ ul.maintabs li a {
   top: 29px;
   position: relative;
   margin: 0 auto;
-  max-width: 100px;
 }
 ul.maintabs li.active {
   color: #fff !important;
@@ -544,4 +553,161 @@ ul.maintabs li a:hover {
 	.modal-dialog {
 	  width: 800px;
 	}
+}
+
+/*main menu css*/
+ul.maintabs{ list-style-type:none;}
+ul.maintabs li{ display:inline-block; width:20% !important;}
+ul.maintabs li:hover{ 
+    color: #fff;
+    background-color:#f68a1d;
+}
+ul.maintabs li:hover span, ul.maintabs li:hover a{
+        color: #fff !important;
+      -webkit-transition: color 300ms, background-color 300ms;
+  -moz-transition: color 300ms, background-color 300ms;
+  -o-transition: color 300ms, background-color 300ms;
+  transition: color 300ms, background-color 300ms;
+    
+}
+.maintabs-hover
+{
+    
+}
+ul.maintabs li.active{ 
+    color: #fff !important;
+    background-color:#f68a1d;
+}
+ul.maintabs li.active a{ 
+    color: #fff !important;
+    background-color:#f68a1d;
+}
+ul.maintabs li.active a span{ 
+    color: #fff !important;
+}
+ul.maintabs li a{ display:inline-block; color: #9fb1b2;}
+ul.maintabs li a:hover{ color: #fff ;}  
+    
+#numOfDays {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+.workingholiday-tab{
+    top:47px;
+    position:relative;
+}
+
+.travel-special{
+    top:47px;
+    position:relative;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+.travel-special span{
+    position: absolute;
+    width: 112px;
+    top: -18px;
+    left: 50%;
+    margin-left: -56px;
+    color: #f68a1d;
+}
+
+.travel-special:hover span{
+    color: #fff;
+}
+
+ul.maintabs li .offer{
+  background-image: url("../../images/iFwd_navigation-icon_desktop_default.png");
+  width: 57px;
+  height: 49px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+ul.maintabs li:hover .offer{
+  background-image: url("../../images/iFwd_navigation-icon_desktop_hover.png");
+}
+ul.maintabs li.active .offer{
+  background-image: url("../../images/iFwd_navigation-icon_desktop_hover.png");
+}
+ul.maintabs li a span.offer:hover{
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.travel-and-home-tab {
+    top: 47px;
+    position: relative;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.chin .workingholiday-tab{
+    top:56px;
+}
+
+.chin .travel-special{
+    top:56px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.chin .travel-and-home-tab{
+    top:56px;
+}
+
+/***** mobile side menu *****/
+.sidepanel-menu {
+}
+.sidepanel-menu li {
+    border-bottom: 1px solid #f6871e;
+    padding: 20px;
+}
+.sidepanel-menu li.active{
+    background-color: #f6871e !important;
+}
+.sidepanel-menu li span{
+    color: #f6871e !important;
+}
+.sidepanel-menu li:hover span{
+    color: #fff !important;
+}
+.sidepanel-menu li.active span{
+    color: #fff !important;
+}
+.sidepanel-menu li:hover {
+    background-color: #f6871e !important;
+    color: #fff !important;
+}
+.sidepanel-menu li:hover a{
+    background-color: #f6871e !important;
+    color: #fff !important;
+}
+.sidepanel-menu li.active a{
+    background-color: #f6871e !important;
+}
+
+
+
+.sidepanel-menu li .offer{
+  background-image: url("../../images/iFwd_navigation-icon_mobile_default.png");
+  width: 41px;
+  height: 36px;
+  position: absolute;
+  top: 8px;
+  right: 85px;
+}
+.sidepanel-menu li:hover .offer{
+  background-image: url("../../images/iFwd_navigation-icon_mobile_hover.png");
+}
+.sidepanel-menu li.active .offer{
+  background-image: url("../../images/iFwd_navigation-icon_mobile_hover.png");
+}
+
+.sidepanel-menu a {
+    color: #f6871e;
+    font-size:60px;
 }
