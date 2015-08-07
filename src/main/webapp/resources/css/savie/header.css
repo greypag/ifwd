@@ -608,10 +608,10 @@ ul.maintabs li a:hover{ color: #fff ;}
 }
 .travel-special span{
     position: absolute;
-    width: 112px;
+    width: 130px;
     top: -18px;
     left: 50%;
-    margin-left: -56px;
+    margin-left: -65px;
     color: #f68a1d;
 }
 
@@ -710,4 +710,18 @@ ul.maintabs li a span.offer:hover{
 .sidepanel-menu a {
     color: #f6871e;
     font-size:60px;
+}
+
+.top-bar .col-lg-7, .top-bar .col-md-7{
+	width: 58.333333333333336%;
+}
+
+.top-bar .navbar-collapse {
+    max-height: 340px;
+}
+
+@media (min-width: 768px){
+	.top-bar .navbar-right {
+	    margin-right: 0px;
+	}
 }

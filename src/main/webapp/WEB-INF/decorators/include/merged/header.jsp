@@ -533,8 +533,8 @@ function submitLoginForm(formID) {
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
+	    <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
         <li class="<% if(actionName.equals("Savie")){ %>active<%} %>"><span><fmt:message key="header.limitedOffer" bundle="${msg}" /></span><a class="limited-offer-mobile" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.savie.part1" bundle="${msg}" /> <br class="visible-md visible-lg"/><fmt:message key="header.product.savie.part2" bundle="${msg}" /></a></li> 
-		<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("WorkingHoliday")){ %>active<%} %>"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %>active<%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a><div class="offer"></div></li>
 		<li class="<% if(actionName.equals("Travel")){ %>active<%} %>"><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.travel" bundle="${msg}" /></a></li>
