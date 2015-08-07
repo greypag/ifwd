@@ -29,15 +29,6 @@ var affiliate = "${affiliate}";
 
 
 <div class="text-center banner-widget container-fluid">
-	<div class="fwd-container container-fluid breadcrumbs">
-		<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-			<li><a href="#"><fmt:message key="savie.landing.home" bundle="${msg}" /></a></li>
-			<li class="divider"><i class="fa fa-play"></i></li>
-			<li><a href="#"><fmt:message key="savie.landing.save" bundle="${msg}" /></a></li>
-			<li class="divider last"><i class="fa fa-play"></i></li>
-			<li class="active-bc"><fmt:message key="savie.landing.savie" bundle="${msg}" /></li>
-		</ol>
-	</div>
 
 	<div class="text-content">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
@@ -150,6 +141,7 @@ var affiliate = "${affiliate}";
 			<div class="col-xs-12 col-md-8 fwd-col">
 				<ul>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context4" bundle="${msg}" /></p></li>
@@ -164,10 +156,6 @@ var affiliate = "${affiliate}";
 
 
 </div>
-
-<!--<button type="button" class="btn btn-full hidden-md hidden-lg">Read more</button>-->
-<a class="btn btn-full hidden-md hidden-lg"
-	href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.interestGather.survey.read.more" bundle="${msg}" /></a>
 
 <div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"
 	id="teaserSurvery">
