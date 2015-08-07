@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -71,7 +72,27 @@ public class FlightController {
 			@RequestParam(required = false) final String utm_medium,
 			@RequestParam(required = false) final String utm_campaign,
 			@RequestParam(required = false) final String utm_content) {
-
+		
+		Date now = new Date();
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DAY_OF_YEAR, 90);
+		Date endDate = c.getTime();
+		
+		String departureDate = (String)request.getParameter("departureDate");
+		String returnDate = (String)request.getParameter("returnDate");
+		Date deparDate = null;
+		Date retDate = null;
+		
+		if(departureDate != null && DateApi.isValidDate(departureDate)){				
+			deparDate = DateApi.formatDate(departureDate);				
+		}
+		
+		if(returnDate != null && DateApi.isValidDate(returnDate)){
+			retDate = DateApi.formatDate(returnDate);	
+		}
+		
+		
+		
 		UserRestURIConstants.setController("Flight");
 		
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -89,11 +110,29 @@ public class FlightController {
 		
 		
 		
-		/*if (planDetails == null) {
-			planDetails = new PlanDetails();
-		}*/
 		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
+			//departureDate validation
+			if(deparDate != null && now.before(deparDate) && endDate.after(deparDate)){
+				if(retDate != null){					
+					if(deparDate.before(retDate)){					
+						planDetails.setDepartureDate(departureDate);
+					}
+				}else{
+					planDetails.setDepartureDate(departureDate);
+				}
+			}
+			//returnDate validation
+			if(retDate != null && now.before(retDate) && endDate.after(retDate)){
+				if(deparDate != null){
+					if(retDate.after(deparDate)){					
+						planDetails.setReturnDate(returnDate);
+					}
+				}else{
+					planDetails.setReturnDate(returnDate);
+				}
+				
+			}
 			planDetails.setTotalPersonalTraveller(1);
 			planDetails.setTotalAdultTraveller(1);
 			planDetails.setTotalChildTraveller(1);

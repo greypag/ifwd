@@ -25,6 +25,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
+<script type="text/javascript">
+$(function () {
+	$("#anchor-lang").on("click",function(){
+		var fullName = $("#inputFullName").val();
+		document.cookie = "fullName = " + fullName;
+
+	});
+});
+</script>
+
+
 <script>
 	this.rootUrl="<%=request.getContextPath()%>";
 	this.rootLang="/<%=session.getAttribute("language").toString()%>";
