@@ -28,7 +28,7 @@ var affiliate = "${affiliate}";
 </script>
 
 
-<div class="text-center banner-widget container-fluid">
+<div class="text-center banner-widget hunger-selling container-fluid">
 	<div class="fwd-container container-fluid breadcrumbs">
 		<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 			<li><a href="#"><fmt:message key="savie.landing.home" bundle="${msg}" /></a></li>
@@ -159,17 +159,11 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
-		<div class="disclaimer-policy">
+		<div class="disclaimer-policy teaser-policy">
 			<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
 		</div>
 	</div>
-
-
 </div>
-
-<!--<button type="button" class="btn btn-full hidden-md hidden-lg">Read more</button>-->
-<a class="btn btn-full hidden-md hidden-lg"
-	href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.interestGather.survey.read.more" bundle="${msg}" /></a>
 
 <div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"
 	id="teaserSurvery">
