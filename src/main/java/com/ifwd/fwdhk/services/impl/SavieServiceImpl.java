@@ -838,10 +838,10 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = request.getParameter("to");
-			String message = "Hi<br />您好,<br />Thank you for registering your email address at Savie Insurance Plan' s website. <br />多謝您成功於自助息理財壽險計劃網頁登記電郵地址.";
-			String subject = "Acknowledgement Email";// "html testing";
+			String message = "您好Hi,<br />您成功於自助息理財壽險計劃網頁登記電郵地址。<br />You have successfully registered your email address at the Savie Insurance Plan’s website.";
+			String subject = "Savie Registration Acknowledgement email from FWD";
 			String attachment = request.getParameter("attachment");
-			String from = "sit@ecomm.fwd.com";
+			String from = "Fanny Wing <i-info.hk@fwd.com>";
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();

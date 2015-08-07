@@ -1384,10 +1384,10 @@ body {
   }
 }
 .disclaimer-policy {
-  padding-top: 17px;
-  padding-bottom: 5px;
-  max-width: 355px;
-  margin: auto;
+	padding-top: 17px;
+	padding-bottom: 20px;
+	max-width: 355px;
+	margin: auto
 }
 @media (min-width: 992px) {
   .disclaimer-policy {
@@ -13329,3 +13329,14 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn,
 body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   width: 230px;
 }
+
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:hover, 
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:focus, 
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:active {
+	color: #fff;
+    background-color: #ff8200;
+}
+
+.color1 {
+ 	color: #000 !important;
+ }

@@ -10,15 +10,15 @@
 				<div class="clearfix">
 					<div class="pull-left footer-orange-menu">
 						<ul class="nav clearfix">
-							<li class="fwd-home"><a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" title="Find affordable insurance | FWD Hong Kong" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a></li>
+							<li class="fwd-home"><a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a></li>
 							<li class="reset-padding">|</li>
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a></li>
 							<li class="reset-padding">|</li>
-							<li class="blog"><a title="Read more on adventures &amp; insurance | FWD Hong Kong" href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a></li>
+							<li class="blog"><a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a></li>
 							<li class="reset-padding">|</li>
-							<li class="claims-procedure"><a href="#">Claims Procedure</a></li>
-							<li class="reset-padding">|</li><span><br /></span>
 							<li class="faq"><a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.faq.link" bundle="${msg}" />"><fmt:message key="footer.menu.faq" bundle="${msg}" /></a></li>
+							<li class="reset-padding">|</li>
+							<li class="faq"><a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partners.link" bundle="${msg}" />"><fmt:message key="footer.menu.partners" bundle="${msg}" /></a></li>
 						</ul>
 					</div>
 					<div class="footer-menu-right">
@@ -50,9 +50,9 @@
 					<ul class="footer-list">
 						<li><a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a></li>
 						<li class="rst-padding">|</li>
-						<li><a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.disclaimer" bundle="${msg}" /></a></li>
+						<li><a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a></li>
 						<li class="rst-padding">|</li>
-						<li><a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />"  target="_blank"><fmt:message key="footer.menu.privacy" bundle="${msg}" /></a></li>
+						<li><a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="footer-copyright">

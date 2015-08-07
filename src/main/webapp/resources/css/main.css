@@ -249,12 +249,12 @@ hr {
 
 /*main menu css*/
 ul.maintabs{ list-style-type:none;}
-ul.maintabs li{ display:inline-block;}
+ul.maintabs li{ display:inline-block; width:20% !important;}
 ul.maintabs li:hover{ 
     color: #fff;
     background-color:#f68a1d;
 }
-ul.maintabs li:hover span.offer{
+ul.maintabs li:hover span, ul.maintabs li:hover a{
         color: #fff !important;
       -webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
@@ -299,13 +299,26 @@ ul.maintabs li a:hover{ color: #fff ;}
 	margin-left: 35px;
     margin-right: 35px;
 }
+.travel-special span{
+    position: absolute;
+    width: 130px;
+    top: -18px;
+    left: 50%;
+    margin-left: -65px;
+    color: #f68a1d;
+}
+
+.travel-special:hover span{
+    color: #fff;
+}
+
 ul.maintabs li .offer{
   background-image: url("../images/iFwd_navigation-icon_desktop_default.png");
   width: 57px;
   height: 49px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
 }
 ul.maintabs li:hover .offer{
   background-image: url("../images/iFwd_navigation-icon_desktop_hover.png");
@@ -331,6 +344,8 @@ ul.maintabs li a span.offer:hover{
 
 .chin .travel-special{
 	top:56px;
+	margin-left: 0px;
+    margin-right: 0px;
 }
 
 .chin .travel-and-home-tab{
@@ -5260,15 +5275,25 @@ input[type='radio']:checked:before {
 .sidepanel-menu li {
     border-bottom: 1px solid #f6871e;
     padding: 20px;
-    
+}
+.sidepanel-menu li span{
+    color: #f6871e;
+}
+.sidepanel-menu li:hover span{
+    color: #fff !important;
+}
+.sidepanel-menu li.active span{
+    color: #fff !important;
 }
 .sidepanel-menu li:hover {
-    border-bottom: 1px solid #f6871e;
     background-color: #f6871e;
-    color: #fff;
+    color: #fff !important;
+}
+.sidepanel-menu li:hover a{
+    background-color: #f6871e;
+    color: #fff !important;
 }
 .sidepanel-menu li.active {
-    border-bottom: 1px solid #f6871e;
     background-color: #f6871e;
 }
 
@@ -5290,7 +5315,6 @@ input[type='radio']:checked:before {
 .sidepanel-menu a {
     color: #f6871e;
     font-size:60px;
-    
 }
 /******modal on Plandetails page******/
 

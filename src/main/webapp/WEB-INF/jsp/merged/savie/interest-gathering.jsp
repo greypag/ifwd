@@ -28,16 +28,7 @@ var affiliate = "${affiliate}";
 </script>
 
 
-<div class="text-center banner-widget hunger-selling container-fluid">
-	<div class="fwd-container container-fluid breadcrumbs">
-		<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-			<li><a href="#"><fmt:message key="savie.landing.home" bundle="${msg}" /></a></li>
-			<li class="divider"><i class="fa fa-play"></i></li>
-			<li><a href="#"><fmt:message key="savie.landing.save" bundle="${msg}" /></a></li>
-			<li class="divider last"><i class="fa fa-play"></i></li>
-			<li class="active-bc"><fmt:message key="savie.landing.savie" bundle="${msg}" />Savie</li>
-		</ol>
-	</div>
+<div class="text-center banner-widget container-fluid">
 
 	<div class="text-content">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
@@ -86,7 +77,7 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.read.accept1" bundle="${msg}" /><a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.read.accept2" bundle="${msg}" /></div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<div class="clearfix top">
@@ -94,10 +85,9 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="tc" id="tc-check" name="isTc" /> <label
 					for="tc-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.read.accept1" bundle="${msg}" />
-			<a href=""><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a>.
-			</div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.tnc.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.tnc.read.accept2" bundle="${msg}" /></div>
 		</div>
+
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
 		
 		<div id="captchaBox"></div>
@@ -131,8 +121,7 @@ var affiliate = "${affiliate}";
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
 					<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
-					<h2 class="out-life"><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.feature3.header.part3" bundle="${msg}" /></h3>
+					<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />">
 					<p><fmt:message key="savie.interestGather.feature3.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature3.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature3.paragraph3" bundle="${msg}" /></p>
 					<p class="info-asterisk"><fmt:message key="savie.interestGather.feature3.footnote" bundle="${msg}" /><p>
@@ -152,6 +141,7 @@ var affiliate = "${affiliate}";
 			<div class="col-xs-12 col-md-8 fwd-col">
 				<ul>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context4" bundle="${msg}" /></p></li>

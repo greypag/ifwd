@@ -1,11 +1,19 @@
 $(function() {
 	$('#teaserSurvery').on('hidden.bs.modal', function (e) {
-		window.location.href = 'email-submitted';
+		if (document.URL.indexOf('savings-insurance/') > -1) {
+			window.location.href = 'email-submitted';
+		} else {
+			window.location.href = 'savings-insurance/email-submitted';
+		}
 	})
 	
 	$('#teaser-mmodal-submit').click(function(e){
 		e.preventDefault();
-		window.location.href = 'email-submitted';
+		if (document.URL.indexOf('savings-insurance/') > -1) {
+			window.location.href = 'email-submitted';
+		} else {
+			window.location.href = 'savings-insurance/email-submitted';
+		}
 	});
 	
 	$('#teaser-sign-up-btn').click(function(e){
@@ -18,21 +26,21 @@ $(function() {
 		
 		// Email is required
 		if (email == "") {
-			$('#emailAddrsMessage').html("Please input email.").removeClass('hideSpan');
+			$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.notNull.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
 			$('#emailAddrsMessage').addClass('hideSpan');
 			
 			// Email is not valid
 			if (email != "" && !validateEmail(email)) {
-				$('#emailAddrsMessage').html("Invalid email address").removeClass('hideSpan');
+				$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.invalid.message")).removeClass('hideSpan');
 				isErrorFlag = true;
 			} else {
 				$('#emailAddrsMessage').addClass('hideSpan');
 				
 				// Email is duplicate
 				if (email != "" && duplicateEmail(email)) {
-					$('#emailAddrsMessage').html("This email address is already in use. Try another one?").removeClass('hideSpan');
+					$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.used.message")).removeClass('hideSpan');
 					isErrorFlag = true;
 				} else {
 					$('#emailAddrsMessage').addClass('hideSpan');
@@ -42,22 +50,28 @@ $(function() {
 		
 		// Phone is not empty and has 8 characters
 		if (phone > 0 && phone < 8) {
-			$('#phoneErrMsg').html("This telephone no. is already in use. Try another one?").removeClass('hideSpan');
+			$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
 			$('#phoneErrMsg').addClass('hideSpan');
 
 			var firstNum = $('#teaserPhoneNo').val().substr(0, 1);
 			switch(firstNum) {
-				case "1": case "4": case "6": case "8": case "0":
-					$('#phoneErrMsg').html("Invalid telephone number.").removeClass('hideSpan');
+				case "1": case "2": case "3": case "4": case "7": case "0":
+					$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
 					isErrorFlag = true;
 			}
 		}
 		
 		// Agreed terms and condition
-		if (!checkTc || !checkPics) {
-			$('#checkboxErrorMessage').html("In order to continue, you must agree to the Terms and Conditions.").removeClass('hideSpan');
+		if (!checkPics && !checkTc){
+			$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.PICSnTnC.message")).removeClass('hideSpan');
+			isErrorFlag = true;
+		} else if (!checkPics) {
+			$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.personal.collection.message")).removeClass('hideSpan');
+			isErrorFlag = true;
+		} else if (!checkTc) {
+			$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.term.conditions.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
 			$('#checkboxErrorMessage').addClass('hideSpan');
@@ -158,9 +172,9 @@ function sendlead(email,mobileNo,answer1,step) {
 	    		}
 	    	}else{
 		    	if(data.errMsgs == 'Email already registered'){
-		    		$('#emailAddrsMessage').html("This e-mail address is already in use. Try another?").removeClass('hideSpan');
-		    	}else if(data.errMsgs == '[Please enter an 8-digit Mobile No.]'){
-		    		$('#phoneErrMsg').html("Please enter an 8-digit Mobile No.").removeClass('hideSpan');
+		    		$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.used.message")).removeClass('hideSpan');
+		    	}else if(data.errMsgs == getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.non8digit.message")){
+		    		$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.non8digit.message")).removeClass('hideSpan');
 		    	}else{
 		    		$('#checkboxErrorMessage').html(data.errMsgs).removeClass('hideSpan');
 		    	}
@@ -169,3 +183,63 @@ function sendlead(email,mobileNo,answer1,step) {
 	});
 }
 
+// get resource bundle
+function getBundle(lang, key) {
+	var rtn; 
+	loadBundles(lang, key, function(value){
+		rtn = value;
+	});
+	return rtn;
+}
+function loadBundles(lang, key, fn) {
+	//var u = window.location.origin+''+home+'/resources/bundle/';
+   	$.i18n.properties({
+        name: 'Messages',
+        path: ''+home_url+'/resources/bundle/',
+        mode: 'both',
+        language: lang,
+        cache: true,
+        callback: function() {
+        	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
+        }
+    });
+}
+
+function validUser(formID)
+{
+	var flag = true;
+	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
+	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
+	//document.getElementById("errUserName").innerHTML = "";
+	//document.getElementById("errPass").innerHTML = "";
+	$("#"+formID+" #errUserName").html("");
+	$("#"+formID+" #errPass").html("");
+
+	if (password.trim() == "")
+	{    	
+		$("#"+formID+" #headerPassword").addClass("invalid-field");
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errPass").attr("style","color: red;");
+		flag = false;
+	} 
+	if (userName.trim() == "") {
+		$("#"+formID+" #headerUserName").addClass("invalid-field");
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
+		$("#"+formID+" #errUserName").attr("style","color: red;");
+		flag = false;
+	}
+	return flag;
+}
+
+function validationUsername(evt){	
+	evt = (evt) ? evt : event;
+	var eCode = evt.keyCode;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	var keychar = String.fromCharCode(charCode)
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+			|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+		return true;
+	}
+	return false;
+}

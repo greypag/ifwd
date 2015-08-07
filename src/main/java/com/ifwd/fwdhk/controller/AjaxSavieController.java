@@ -27,8 +27,7 @@ public class AjaxSavieController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
-	@Autowired
-	private CommonUtils commonUtils;
+	
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
 	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
@@ -185,14 +184,7 @@ public class AjaxSavieController extends BaseController{
  
 	}
 	
-	@RequestMapping(value = {"/reloadInitAppMsg"},method=RequestMethod.GET)
-	public void reloadInitMsg(){
-		InitApplicationMessage.init(commonUtils);
-	}
-	
-	
-	
-	
+
 	
 	
 }
