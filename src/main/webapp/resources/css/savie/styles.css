@@ -13280,3 +13280,7 @@ span.dup-error-msg {
 	color: #fff;
     background-color: #ff8200;
 }
+
+.color1 {
+ 	color: #000 !important;
+ }

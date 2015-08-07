@@ -204,3 +204,42 @@ function loadBundles(lang, key, fn) {
         }
     });
 }
+
+function validUser(formID)
+{
+	var flag = true;
+	var userName = $("#"+formID+" #headerUserName").val();//document.getElementById("headerUserName").value;
+	var password = $("#"+formID+" #headerPassword").val();//document.getElementById("headerPassword").value;
+	//document.getElementById("errUserName").innerHTML = "";
+	//document.getElementById("errPass").innerHTML = "";
+	$("#"+formID+" #errUserName").html("");
+	$("#"+formID+" #errPass").html("");
+
+	if (password.trim() == "")
+	{    	
+		$("#"+formID+" #headerPassword").addClass("invalid-field");
+		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message"));
+		$("#"+formID+" #errPass").attr("style","color: red;");
+		flag = false;
+	} 
+	if (userName.trim() == "") {
+		$("#"+formID+" #headerUserName").addClass("invalid-field");
+		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
+		$("#"+formID+" #errUserName").attr("style","color: red;");
+		flag = false;
+	}
+	return flag;
+}
+
+function validationUsername(evt){	
+	evt = (evt) ? evt : event;
+	var eCode = evt.keyCode;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	var keychar = String.fromCharCode(charCode)
+	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
+			|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39) 
+			|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+		return true;
+	}
+	return false;
+}
