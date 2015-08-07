@@ -485,16 +485,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)
-	public String offers(Model model, HttpServletRequest req) {
+	public String offers(Model model, HttpServletRequest request) {
 		UserRestURIConstants urc = new UserRestURIConstants();
-		urc.updateLanguage(req);
+		urc.updateLanguage(request);
 		
 		String pageTitle = WebServiceUtils.getPageTitle("page.offers", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.offers", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
-		return UserRestURIConstants.getSitePath(req)+ "partner";
+		return UserRestURIConstants.getSitePath(request)+ "partner";
 	}
 	
 
