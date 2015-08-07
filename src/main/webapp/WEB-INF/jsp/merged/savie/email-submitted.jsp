@@ -25,7 +25,7 @@
 					<button id="fwd-fb-share" type="button" class="btn-fwd-fb">
 						<i class="fa fa-facebook fwd-fb"></i><fmt:message key="savie.emailSubmit.share.facebook" bundle="${msg}" />
 					</button>
-					<a id="wa-share" href="whatsapp://send" data-text="<fmt:message key="savie.emailSubmit.share.whatsapp" bundle="${msg}" />" data-href="" class="wa_btn wa_btn_m" style="display:none;" target="_top"><!--<i class="fa fa-whatsapp"></i>--><img src="<%=request.getContextPath()%>/resources/images/savie/whatsapp.png" class="img-responsive whatsapp-icon" />Share via WhatsApp</a>
+					<a id="wa-share" href="whatsapp://send" data-text="<fmt:message key="savie.emailSubmit.share.whatsapp.msg" bundle="${msg}" />" data-href="" class="wa_btn wa_btn_m" style="display:none;" target="_top"><!--<i class="fa fa-whatsapp"></i>--><img src="<%=request.getContextPath()%>/resources/images/savie/whatsapp.png" class="img-responsive whatsapp-icon" /><fmt:message key="savie.emailSubmit.share.whatsapp" bundle="${msg}" /></a>
 				</div>
 
 			</div>
