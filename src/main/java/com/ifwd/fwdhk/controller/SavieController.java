@@ -47,10 +47,10 @@ public class SavieController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 		
-	@RequestMapping(value="/{lang}/savie", method = RequestMethod.GET)
+	@RequestMapping(value="/savie", method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
-		RedirectView rv = new RedirectView(request.getContextPath() + "/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
+		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
 		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
 		return rv;
 	}	
