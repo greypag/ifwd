@@ -138,7 +138,7 @@ public class SavieServiceImpl implements SavieService {
 			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
 			
 			httpSession.setAttribute("planDetailData", apiResponse);
-			httpSession.setAttribute("birthOfDay", request.getParameter("birthOfDay"));
+            httpSession.setAttribute("birthOfDay", request.getParameter("birthOfDay"));
 			
 			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
 			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
@@ -845,7 +845,23 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = request.getParameter("to");
-			String message = "您好Hi,<br />您成功於自助息理財壽險計劃網頁登記電郵地址。<br />You have successfully registered your email address at the Savie Insurance Plan’s website.";
+			String message = "您好 Hi,<br /><br /><br />您已成功於自助息理財壽險計劃網頁登記電郵地址。自助息理財壽險計劃(「<b>本計劃</b>」) 即將於2015年9月推出。"
+					+ "您有機會透過已登記的電郵地址在自助息理財壽險計劃推出前收到接受申請的電郵通知(「<b>電郵通知</b>」)。憑該<b>電郵通知</b>富衛將為您進行財務需要分析"
+					+ "以確定<b>本計劃</b>是否適合您的需要；一經確定<b>本計劃</b>迎合您選購保險產品的目標及滿足您的需要，您便可立刻申請投保。<br />於限量發售期間，每位"
+					+ "申請人只限以一筆過繳付30,000 至 400,000港元申請<b>本計劃</b>保單一份。請密切期待富衛的<b>電郵通知</b>，希望您能夠成為其中一位優先入場的幸運兒！"
+					+ "<br /><br /><br />You have successfully registered your email address at the Savie Insurance Plan’s website. The Savie"
+					+ " Insurance Plan (“<b>the Plan</b>”) will be offered in September 2015. You may receive a notification (“<b>Notification Email</b>”)"
+					+ " of the launch date of <b>the Plan</b> through the registered email address. By receiving the <b>Notification Email</b>, FWD shall"
+					+ " conduct a financial needs analysis to confirm your suitability of <b>the Plan</b>. Once it is confirmed that <b>the Plan</b> meets"
+					+ " your objective(s) and need(s), you may immediately apply for <b>the Plan</b>.<br /><br />During the limited sales period, each"
+					+ " applicant can only apply one policy for <b>the Plan</b> by paying a single lump sum of HK$30,000 to HK$400,000. Stay tuned for"
+					+ " FWD <b>Notification Email</b>, wish you be amongst the lucky ones to get priority access!<br /><br />此致<br />Yours sincerely,"
+					+ "<br /><br />Fanny Wing<br /><br /><br />富衛人壽保險(百慕達)有限公司<br />FWD Life Insurance Company (Bermuda) Limited<br />"
+					+ "www.fwd.com.hk<br /><br />如有任何查詢，請致電富衛24小時客戶服務熱線(852) 3123 3123 或電郵至 iService.hk@fwd.com。<br />For enquiry, please"
+					+ " contact our FWD 24 hours Customer Service Hotline at (852) 3123 3123 or via email at iService.hk@fwd.com.<br /><br />"
+					+ "備註：此乃電腦發出之電子郵件，請不要回覆。<br />"
+					+ "Note: This is an automatically generated email, please do not reply.<br />";
+			
 			String subject = "Savie Registration Acknowledgement email from FWD";
 			String attachment = request.getParameter("attachment");
 			String from = "Fanny Wing <i-info.hk@fwd.com>";
@@ -998,7 +1014,7 @@ public class SavieServiceImpl implements SavieService {
         String value = request.getParameter("value");
         String language = request.getParameter("language");
         try {
-			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
+            String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
 			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", "*DIRECTGI");
 			header.put("token", commonUtils.getToken());
