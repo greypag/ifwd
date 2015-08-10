@@ -164,12 +164,12 @@
 												<select class="form-control gray-dropdown" name="maritalStatus"  id="savieApplicantBean.maritalStatus">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${maritalStatusesEN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${maritalStatusesCN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 												</select>
@@ -191,12 +191,12 @@
 												<select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${placeOfBirthEN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${placeOfBirthCN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 												</select>
@@ -215,12 +215,12 @@
 												<select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${nationalityEN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${nationalityCN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>	
 												</select>
@@ -271,7 +271,7 @@
 											<label for="savieApplicantBean.emailAddress" class="application-page-input-text"><fmt:message key="savie.application.Email.address" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="email" placeholder="Email address">
+											<input class="form-control gray-textbox" id="savieApplicantBean.emailAddress" name="savieApplicantBean.email" type="email" placeholder="Email address">
 											<span class="error-msg" id="emailMessage"></span>
 										</div>
 									</div>
@@ -291,12 +291,12 @@
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${savieDistrictCN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>	
 												</select>
@@ -320,12 +320,12 @@
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${savieDistrictCN}">
-													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>		
 												</select>
@@ -377,12 +377,12 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
 										<c:if test="${language == 'en'}">
 										   <c:forEach var="list" items="${employmentStatusEN}">
-										      <option value="${list.itemCode }">${list.itemDesc }</option>
+										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 										   </c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 										   <c:forEach var="list" items="${employmentStatusCN}">
-										      <option value="${list.itemCode }">${list.itemDesc }</option>
+										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 										   </c:forEach>
 										</c:if>	
 									</select>
@@ -396,12 +396,12 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBeanOccupation" name="savieEmploymentBean.occupation" data-style="application-select">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${occupationEN}">
-											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${occupationCN}">
-											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 											</c:forEach>
 										</c:if>	
 									</select>
@@ -417,12 +417,12 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${natureOfBusinessEN}">
-											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${natureOfBusinessCN}">
-											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 											</c:forEach>
 										</c:if>
 									</select>
@@ -436,12 +436,12 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 											</c:forEach>
 										</c:if>
 									</select>
@@ -499,41 +499,41 @@
 								<div id="beneficiary-contents" class="">
 									<h3 class="mobile-desc hidden-md hidden-lg"><fmt:message key="savie.application.Beneficiary" bundle="${msg}" /> <span><fmt:message key="savie.application.Person1" bundle="${msg}" /></span></h3>
 									<div class="form-group has-error beneficiary-info-row">
-										<label for="savieBeneficiaryBean[0].firstName"><fmt:message key="savie.application.english.name" bundle="${msg}" /></label>
+										<label for="savieBeneficiaryBeans[0].firstName"><fmt:message key="savie.application.english.name" bundle="${msg}" /></label>
 										<input type="text" id="savieBeneficiaryBean[0].fullName" hidden>
-										<input type="text" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBean[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">
+										<input type="text" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBeans[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">
 										<span class="error-msg" id="beneficiaryFnameMessage[0]"></span>
-										<input type="text" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBean[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="Last name" maxlength="25">
+										<input type="text" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBeans[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="Last name" maxlength="25">
 										<span class="error-msg" id="beneficiaryLnameMessage[0]"></span>
 										<span class="dup-error-msg hidden" id="duplicate-english-name[0]"><fmt:message key="savie.application.Duplicate.English.Name" bundle="${msg}" /></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<label for="savieBeneficiaryBean[0].chineseName"><fmt:message key="savie.application.chinese.name" bundle="${msg}" /> <span class="optional"><fmt:message key="savie.application.optional" bundle="${msg}" /></span></label>
-										<input type="text" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBean[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">
+										<input type="text" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBeans[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">
 										<span class="error-msg" id="beneficiaryChineseNameMessage[0]"></span>
 										<span class="dup-error-msg hidden" id="duplicate-chinese-name[0]"><fmt:message key="savie.application.Duplicate.Chinese.Name" bundle="${msg}" /></span>
 									</div>
 									<div class="form-group beneficiary-info-row">
 										<label for="savieBeneficiaryBean[0].hkId"><fmt:message key="savie.application.HKID.Passport.No" bundle="${msg}" /></label>
-										<!--<select class="selectpicker" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" data-style="application-select">
+										<!--<select class="selectpicker" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" data-style="application-select">
 											<option disabled selected>- Please select -</option>
 											<option>Lorem ipsum</option>
 											<option>Lorem ipsum</option>
 										</select>-->
-										<!--<input type="text" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" class="form-control gray-textbox form-textbox" placeholder="HKID/Passport No" value="">-->
+										<!--<input type="text" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" class="form-control gray-textbox form-textbox" placeholder="HKID/Passport No" value="">-->
 										<div class="clearfix">
 											<div class="pull-left select">
 												<div class="selectDiv">
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" id="beneficiaryHkidPassport[0]">
-														<option selected value="HKID">HKID</option>
-														<option value="Passport">Passport No</option>	
+														<option selected value="HKID-HKID">HKID</option>
+														<option value="Passport-Passport No">Passport No</option>	
 													</select>
 												</div>
 											</div>
 											<div class="pull-left input">
-												<input class="form-control gray-textbox" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
-												<input class="form-control gray-textbox hidden" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
+												<input class="form-control gray-textbox" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" value="">
+												<input class="form-control gray-textbox hidden" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBeans[0].passportNo" value="">
 											</div>
 										</div>
 										<span class="error-msg" id="bnfPassportMessage[0]"></span>
@@ -545,14 +545,14 @@
 									<div class="beneficiary-info-row">
 										<label for="savieBeneficiaryBean[0].gender"><fmt:message key="savie.application.Gender" bundle="${msg}" /></label>
 										<div id="gender-0" class="clearfix radio-buttons">
-											<input type="radio" name="savieBeneficiaryBean[0].gender" value="male" id="male-0" checked>
+											<input type="radio" name="beneficiaryBeansGenders1" value="male" id="male-0" checked>
 											<label for="male-0" class="male-0" >
 												<span class="hidden-lg hidden-md"><fmt:message key="savie.application.Male" bundle="${msg}" /></span>
 												<span class="orange-hover hidden-xs hidden-sm pull-left"></span>
 											</label>
 											<span id="male-label-0" class="pull-left second-label"><fmt:message key="savie.application.Male" bundle="${msg}" /></span>
 
-											<input type="radio" name="savieBeneficiaryBean[0].gender" value="female" id="female-0">
+											<input type="radio" name="beneficiaryBeansGenders1" value="female" id="female-0">
 											<label for="female-0" class="female">
 												<span class="hidden-lg hidden-md"><fmt:message key="savie.application.Female" bundle="${msg}" /></span>
 												<span class="orange-hover hidden-xs hidden-sm pull-left"></span>
@@ -562,22 +562,22 @@
 									</div>
 									<div class="form-group has-error beneficiary-info-row relationship">
 										<label for="savieBeneficiaryBean[0].relationship"><fmt:message key="savie.application.Relationship.with.you" bundle="${msg}" /></label>
-										<!--<select class="selectpicker" id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
+										<!--<select class="selectpicker" id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBeans[0].relationship" data-style="application-select">
 											<option disabled selected>- Please select -</option>
 											<option>Lorem ipsum</option>
 											<option>Lorem ipsum</option>
 										</select>-->
 										<div class="selectBeneficiary">
 											<span class="icon-chevron-thin-down orange-caret"></span>
-											<select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
+											<select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBeans[0].relationship" data-style="application-select">
 												<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-													  <option value="${list.itemCode }">${list.itemDesc }</option>
+													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-													  <option value="${list.itemCode }">${list.itemDesc }</option>
+													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 											</select>
@@ -586,7 +586,7 @@
 									</div>
 									<div class="form-group has-error beneficiary-info-row entitle">
 										<label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="savie.application.Entitlement" bundle="${msg}" /></label>
-										<input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="" maxlength="3" oninput="maxLengthCheck(this)"  max="101" min ="1"/>
+										<input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBeans[0].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="" maxlength="3" oninput="maxLengthCheck(this)"  max="101" min ="1"/>
 										<span class="error-msg" id="entitlementMessage[0]"></span>
 									</div>		                
 								</div>

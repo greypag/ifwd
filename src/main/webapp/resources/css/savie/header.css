@@ -621,8 +621,8 @@ ul.maintabs li a:hover{ color: #fff ;}
 
 ul.maintabs li .offer{
   background-image: url("../../images/iFwd_navigation-icon_desktop_default.png");
-  width: 57px;
-  height: 49px;
+  width: 56px;
+  height: 48px;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -657,6 +657,18 @@ ul.maintabs li a span.offer:hover{
 
 .chin .travel-and-home-tab{
     top:56px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .travel-special, .travel-and-home-tab{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    ul.maintabs li .offer{
+        top:5px;
+        right:5px;
+    }
 }
 
 /***** mobile side menu *****/
