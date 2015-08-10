@@ -85,7 +85,7 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-            <div class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
+            <div class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<div class="clearfix top">
