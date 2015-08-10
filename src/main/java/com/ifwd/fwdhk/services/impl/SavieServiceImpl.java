@@ -138,6 +138,7 @@ public class SavieServiceImpl implements SavieService {
 			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
 			
 			httpSession.setAttribute("planDetailData", apiResponse);
+			httpSession.setAttribute("birthOfDay", request.getParameter("birthOfDay"));
 			
 			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
 			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
@@ -997,7 +998,7 @@ public class SavieServiceImpl implements SavieService {
         String value = request.getParameter("value");
         String language = request.getParameter("language");
         try {
-			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value;
+			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
 			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", "*DIRECTGI");
 			header.put("token", commonUtils.getToken());

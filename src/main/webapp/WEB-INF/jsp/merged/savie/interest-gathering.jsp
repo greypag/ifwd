@@ -28,13 +28,21 @@ var affiliate = "${affiliate}";
 </script>
 
 
-<div class="text-center banner-widget container-fluid">
+<div class="text-center banner-widget hunger-selling container-fluid" id="hunger-selling-banner">
 
-	<div class="text-content">
+	<div class="text-content hidden" id="banner-text-english">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
 			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner" bundle="${msg}" />"
+			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
+			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
+	</div>
+	<div class="text-content hidden" id="banner-text-chinese">
+		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile.ch" bundle="${msg}" />"
+			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
+			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
+		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner.ch" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
 			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
 	</div>
@@ -144,7 +152,6 @@ var affiliate = "${affiliate}";
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.otherfeatures.context4" bundle="${msg}" /></p></li>
 				</ul>
 			</div>
 		</div>
@@ -176,8 +183,6 @@ var affiliate = "${affiliate}";
 
 				<form class="amount-to-save">
 					<div class="teaser-select">
-						<span class="icon-chevron-thin-down orange-caret"
-							id="dropdown-caret"></span> 
 							<select class="form-control saveDropdown" name="amountToSave"
 							id="amountToSave">
 							<option selected disabled value=""><fmt:message key="savie.interestGather.survey.please.select" bundle="${msg}" /></option>

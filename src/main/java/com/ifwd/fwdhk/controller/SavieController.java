@@ -2,12 +2,16 @@ package com.ifwd.fwdhk.controller;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +31,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.savie.SavieBeneficiaryBean;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
@@ -100,33 +105,60 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"}, method = RequestMethod.POST)
-	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,
+	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,HttpSession httpSession,
 			@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail,
 			@RequestParam String appGender,
-			@RequestParam String maritalStatus) {
+			@RequestParam String maritalStatus,
+			@RequestParam String beneficiaryBeansGenders1) throws ParseException {
 		//@RequestParam String birthday
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");                
+		String birthOfDay = (String) httpSession.getAttribute("birthOfDay");
+		//05/28/1995
+		if(null != birthOfDay){
+			String[] date= birthOfDay.split("/");
+			birthOfDay = date[2]+"-"+date[0]+"-"+date[1];
+			logger.info(birthOfDay);
+			savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthOfDay));
+		}
 		if("F".equals(appGender)){
 			savieDetail.getSavieApplicantBean().setGender(GenderEnum.FEMALE);
 		}
 		else{
 			savieDetail.getSavieApplicantBean().setGender(GenderEnum.MALE);
 		}
-		if("S".equals(maritalStatus)){
-			savieDetail.getSavieApplicantBean().setMaritalStatus(MaritalStatusEnum.Single);
+		
+		savieDetail.getSavieApplicantBean().setResidentialDistrictDesc(savieDetail.getSavieApplicantBean().getResidentialDistrict().split("-")[1]);
+		savieDetail.getSavieApplicantBean().setResidentialDistrict(savieDetail.getSavieApplicantBean().getResidentialDistrict().split("-")[0]);
+		savieDetail.getSavieApplicantBean().setMaritalStatusDesc(maritalStatus.split("-")[1]);
+		savieDetail.getSavieApplicantBean().setMaritalStatus(maritalStatus.split("-")[0]);
+		savieDetail.getSavieApplicantBean().setPlaceOfBirthDesc(savieDetail.getSavieApplicantBean().getPlaceOfBirth().split("-")[1]);
+		savieDetail.getSavieApplicantBean().setPlaceOfBirth(savieDetail.getSavieApplicantBean().getPlaceOfBirth().split("-")[0]);
+		savieDetail.getSavieApplicantBean().setNationalityDesc(savieDetail.getSavieApplicantBean().getNationality().split("-")[1]);
+		savieDetail.getSavieApplicantBean().setNationality(savieDetail.getSavieApplicantBean().getNationality().split("-")[0]);
+		
+		savieDetail.getSavieEmploymentBean().setEmploymentStatusDesc(savieDetail.getSavieEmploymentBean().getEmploymentStatus().split("-")[1]);
+		savieDetail.getSavieEmploymentBean().setEmploymentStatus(savieDetail.getSavieEmploymentBean().getEmploymentStatus().split("-")[0]);
+		savieDetail.getSavieEmploymentBean().setOccupationDesc(savieDetail.getSavieEmploymentBean().getOccupation().split("-")[1]);
+		savieDetail.getSavieEmploymentBean().setOccupation(savieDetail.getSavieEmploymentBean().getOccupation().split("-")[0]);
+		savieDetail.getSavieEmploymentBean().setNatureOfBusinessDesc(savieDetail.getSavieEmploymentBean().getNatureOfBusiness().split("-")[1]);
+		savieDetail.getSavieEmploymentBean().setNatureOfBusiness(savieDetail.getSavieEmploymentBean().getNatureOfBusiness().split("-")[0]);
+		savieDetail.getSavieEmploymentBean().setMonthlyPersonalIncomeDesc(savieDetail.getSavieEmploymentBean().getMonthlyPersonalIncome().split("-")[1]);
+		savieDetail.getSavieEmploymentBean().setMonthlyPersonalIncome(savieDetail.getSavieEmploymentBean().getMonthlyPersonalIncome().split("-")[0]);
+		
+		if("male".equals(beneficiaryBeansGenders1)){
+			savieDetail.getSavieBeneficiaryBeans().get(0).setGender(GenderEnum.MALE);
 		}
 		else{
-			savieDetail.getSavieApplicantBean().setMaritalStatus(MaritalStatusEnum.Married);
+			savieDetail.getSavieBeneficiaryBeans().get(0).setGender(GenderEnum.FEMALE);
 		}
-		/*if(!"".equals(birthday)){
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			try {
-				savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthday));
-			} catch (ParseException e) {
-				e.printStackTrace();
+		
+		if(savieDetail.getSavieBeneficiaryBeans() !=null && savieDetail.getSavieBeneficiaryBeans().size()>0){
+			for(int a=0;a<savieDetail.getSavieBeneficiaryBeans().size();a++){
+				savieDetail.getSavieBeneficiaryBeans().get(a).setRelationshipDesc(savieDetail.getSavieBeneficiaryBeans().get(a).getRelationship().split("-")[1]);
+				savieDetail.getSavieBeneficiaryBeans().get(a).setRelationship(savieDetail.getSavieBeneficiaryBeans().get(a).getRelationship().split("-")[0]);
 			}
-		}*/
-		
-		
+		}
 		request.getSession().setAttribute("savieDetail", savieDetail);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SUMMARY);
 	}
