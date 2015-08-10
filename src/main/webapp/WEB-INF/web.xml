@@ -64,14 +64,4 @@
     </web-resource-collection>
     <auth-constraint/>
   </security-constraint>
-  <servlet>
-    <description></description>
-    <display-name>ReloadInitAppMsg</display-name>
-    <servlet-name>ReloadInitAppMsg</servlet-name>
-    <servlet-class>com.ifwd.fwdhk.services.ReloadInitAppMsg</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ReloadInitAppMsg</servlet-name>
-    <url-pattern>/ReloadInitAppMsg</url-pattern>
-  </servlet-mapping>
 </web-app>
