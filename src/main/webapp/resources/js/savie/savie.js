@@ -64,7 +64,8 @@ function getSaviePlanDetails() {
 			issueAge: issueAge,
 			paymentTerm: paymentTerm,
 			premium: premium,
-			referralCode: referralCode
+			referralCode: referralCode,
+			birthOfDay:birthOfDay
 		},
 		function(data) {
 			var json = $.parseJSON(JSON.stringify(data));

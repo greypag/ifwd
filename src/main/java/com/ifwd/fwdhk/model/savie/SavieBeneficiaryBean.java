@@ -13,6 +13,7 @@ public class SavieBeneficiaryBean {
 	private String passport;
 	private GenderEnum gender;  
 	private String relationship; 
+	private String relationshipDesc; 
 	private float entitlement;
 	
 	public String getOwnEstate() {
@@ -68,6 +69,12 @@ public class SavieBeneficiaryBean {
 	}
 	public void setEntitlement(float entitlement) {
 		this.entitlement = entitlement;
+	}
+	public String getRelationshipDesc() {
+		return relationshipDesc;
+	}
+	public void setRelationshipDesc(String relationshipDesc) {
+		this.relationshipDesc = relationshipDesc;
 	} 
 	
 	

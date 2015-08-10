@@ -138,6 +138,7 @@ public class SavieServiceImpl implements SavieService {
 			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
 			
 			httpSession.setAttribute("planDetailData", apiResponse);
+			httpSession.setAttribute("birthOfDay", request.getParameter("birthOfDay"));
 			
 			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
 			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
