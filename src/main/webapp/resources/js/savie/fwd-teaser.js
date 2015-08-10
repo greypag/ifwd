@@ -1,4 +1,30 @@
 $(function() {
+	
+	if(lang=='tc'){
+		//Chinese
+		$('#hunger-selling-banner').removeClass('hunger-selling');
+		$('#hunger-selling-banner').addClass('hunger-selling-ch');
+		$('#banner-text-chinese').removeClass('hidden');
+		
+		if($('#banner-text-english').hasClass('hidden')){
+			//do nothing
+		}else{
+			$('#banner-text-english').addClass('hidden');
+		}
+		
+	}else{
+		//English
+		$('#hunger-selling-banner').removeClass('hunger-selling-ch');
+		$('#hunger-selling-banner').addClass('hunger-selling');
+		$('#banner-text-english').removeClass('hidden');
+		
+		if($('#banner-text-chinese').hasClass('hidden')){
+			//do nothing
+		}else{
+			$('#banner-text-chinese').addClass('hidden');
+		}
+	}
+	
 	$('#teaserSurvery').on('hidden.bs.modal', function (e) {
 		if (document.URL.indexOf('savings-insurance/') > -1) {
 			window.location.href = 'email-submitted';
