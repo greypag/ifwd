@@ -11951,18 +11951,18 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper .banner-widget.hunger-selling {
-  background: url("../../images/savie/hunger-selling-banner-mobile.png") center center no-repeat;
+  background: url("../../images/savie/hunger-selling-banner-mobile.jpg") center center no-repeat;
   background-size: cover;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .banner-widget.hunger-selling {
-    background: url("../../images/savie/hunger-selling-banner-dsktop.png") center center no-repeat;
+    background: url("../../images/savie/hunger-selling-banner-dsktop.jpg") center center no-repeat;
     background-size: cover;
   }
 }
 
 .fwd-savie-wrapper .banner-widget.hunger-selling-ch {
-  background: url("../../images/savie/hunger-selling-banner-mobile.png") center center no-repeat;
+  background: url("../../images/savie/ifwd_savie-hero-banner_mobile_cn_background.jpg") center center no-repeat;
   background-size: cover;
 }
 
