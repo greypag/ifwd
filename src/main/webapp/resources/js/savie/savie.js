@@ -243,7 +243,7 @@ function getOccupation(value,language) {
 		$("#savieEmploymentBeanOccupation").empty();
 		if(data != null){
 			for(var i = 0; i < data.length; i++) {
-				$("#savieEmploymentBeanOccupation").append("<option value='"+data[i].itemCode+"'>"+data[i].itemDesc+"</option>");
+				$("#savieEmploymentBeanOccupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
 			}
 		}
 	})
