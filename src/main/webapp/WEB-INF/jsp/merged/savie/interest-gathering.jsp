@@ -149,12 +149,10 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
-		<div class="disclaimer-policy">
+		<div class="disclaimer-policy teaser-policy">
 			<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
 		</div>
 	</div>
-
-
 </div>
 
 <div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"

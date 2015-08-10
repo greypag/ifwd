@@ -31,6 +31,7 @@ import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
+import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 
@@ -43,11 +44,13 @@ public class SavieController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
+	@Autowired
+	private CommonUtils commonUtils;
 		
-	@RequestMapping(value="/{lang}/savie", method = RequestMethod.GET)
+	@RequestMapping(value="/savie", method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
-		RedirectView rv = new RedirectView(request.getContextPath() + "/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
+		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
 		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
 		return rv;
 	}	
@@ -278,5 +281,15 @@ public class SavieController extends BaseController{
 
 	}
 	
-	
+	/**
+	 * @param request reload init message
+	 * @param response
+	 */
+	@RequestMapping(value = {"/{lang}/reloadInitAppMsg"},method=RequestMethod.GET)
+	public ModelAndView reloadInitMsg(HttpServletRequest request,HttpServletResponse response){
+		InitApplicationMessage.init(commonUtils);
+		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+				+ "downloadTest");
+	}
 }
