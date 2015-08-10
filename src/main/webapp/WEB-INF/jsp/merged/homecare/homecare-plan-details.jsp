@@ -369,29 +369,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		return false;
 	}
 	
-	$(function(){
-		// today
-		var effective_start_date = new Date();
-		
-		// 30 days date
-		var effective_end_date = new Date();
 
-		effective_end_date.setDate(effective_end_date.getDate()+59);
-
-		
-		$('#homecareDp').datepicker({
-			autoclose: true,
-			todayHighlight: true,
-			format: "dd-mm-yyyy",
-			startDate: effective_start_date,
-			endDate: effective_end_date
-
-		}).on('changeDate', function (ev) {
-			$(".hidden-sm .form-container .topten").html($('#txtEffDate').val());
-			$('#errEffDate').html('');
-			$("#homecareDp").removeClass("invalid-field");
-		});
-	});
 	
 	
 </script>

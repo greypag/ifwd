@@ -68,6 +68,7 @@ public interface SavieService {
 	
 	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException;
 	
+	public void getOccupation(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	
 	//fileUpload?
 	//signature?	

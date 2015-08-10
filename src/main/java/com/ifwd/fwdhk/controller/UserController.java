@@ -476,17 +476,29 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)
-	public String partner(Model model, HttpServletRequest req) {
+	public String offers(Model model, HttpServletRequest request) {
 		UserRestURIConstants urc = new UserRestURIConstants();
-		urc.updateLanguage(req);
-		return UserRestURIConstants.getSitePath(req)+ "partner";
+		urc.updateLanguage(request);
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.offers", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.offers", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		return UserRestURIConstants.getSitePath(request)+ "partner";
 	}
 	
 
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
-	public String faq(Model model, HttpServletRequest req) {	
+	public String faq(Model model, HttpServletRequest req, HttpServletRequest request) {	
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.faq", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.faq", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}

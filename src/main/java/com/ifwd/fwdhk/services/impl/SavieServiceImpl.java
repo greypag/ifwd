@@ -1,5 +1,7 @@
 package com.ifwd.fwdhk.services.impl;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,6 +10,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -19,9 +22,11 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.json.simple.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -36,6 +41,7 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
@@ -58,6 +64,7 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Service
 public class SavieServiceImpl implements SavieService {
@@ -450,7 +457,6 @@ public class SavieServiceImpl implements SavieService {
 			resultJsonObject.accumulate("Msgs", "data error");
 		}
 		response.setContentType("text/json;charset=utf-8");
-		request.getRemoteUser();
 		//return data
 		try {
 			response.getWriter().print(resultJsonObject.toString());
@@ -983,5 +989,57 @@ public class SavieServiceImpl implements SavieService {
 		
 		return br;
 	}
-
+	
+	@Override
+	public void getOccupation(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+        List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+        JSONArray jsonOptionItemDescs = null;
+        String value = request.getParameter("value");
+        String language = request.getParameter("language");
+        try {
+			String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value;
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken());
+			header.put("language", WebServiceUtils.transformLanaguage(language));
+			
+			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			
+			logger.info("***********responseJsonObj****************:"+responseJsonObj);
+			
+			if(responseJsonObj==null){
+				
+			}
+			else{
+				if (responseJsonObj.get("errMsgs") == null) {
+					jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+					if(jsonOptionItemDescs.size()>0){
+						for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+							
+							org.json.simple.JSONObject maritalStatusObj=(org.json.simple.JSONObject)jsonOptionItemDescs.get(i);
+							
+							OptionItemDesc optionItemDesc = new OptionItemDesc();				
+							
+							optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+							optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+							optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+							optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+							OptionItemDescList.add(optionItemDesc);
+						}
+					}
+					
+				}
+			}
+		} catch (Exception e) {
+			logger.info("error : " + e.getMessage());
+		}
+		response.setContentType("text/json;charset=utf-8");
+		//return data
+		try {
+			logger.info(jsonOptionItemDescs.toString());
+			response.getWriter().print(jsonOptionItemDescs.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
 }

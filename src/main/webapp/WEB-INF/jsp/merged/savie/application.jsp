@@ -393,7 +393,7 @@
 								<label for="savieEmploymentBean.occupation"><fmt:message key="savie.application.Occupation" bundle="${msg}" /></label>
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
-									<select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
+									<select class="form-control gray-dropdown" id="savieEmploymentBeanOccupation" name="savieEmploymentBean.occupation" data-style="application-select">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${occupationEN}">
 											  <option value="${list.itemCode }">${list.itemDesc }</option>
@@ -414,7 +414,7 @@
 								<label for="savieEmploymentBean.natureOfBusiness"><fmt:message key="savie.application.Nature.business" bundle="${msg}" /></label>
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
-									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select">
+									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${natureOfBusinessEN}">
 											  <option value="${list.itemCode }">${list.itemDesc }</option>
@@ -728,4 +728,5 @@
 			<!-- FOOTER -->
 		</div>
 		<!-- JS INCLUDES -->
+		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 </form>

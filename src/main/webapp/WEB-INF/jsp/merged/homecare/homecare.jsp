@@ -131,7 +131,13 @@ $(document).ready(function() {
                     </div>
 	</section>
 	
-	
+	<%
+    java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
+	long current = System.currentTimeMillis();  
+    long start = format.parse("2015-08-05").getTime();
+    long end = format.parse("2015-09-30").getTime() + 86400000;
+    if(start <= current && end >= current) {
+	%>
 	<section id="home_promo_banner">
         <div class="container pad-none">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 home_promo_banner_container">
@@ -179,6 +185,7 @@ $(document).ready(function() {
             <div class="clearfix"></div>
         </div>
     </section>
+    <%} %>
     
     <script>
     $( document ).ready(function() {
