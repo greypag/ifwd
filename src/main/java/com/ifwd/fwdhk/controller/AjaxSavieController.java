@@ -27,13 +27,12 @@ public class AjaxSavieController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
-	@Autowired
-	private CommonUtils commonUtils;
+	
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
 	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 		try {
-			savieService.getPlanDetails(model, request, response, httpSession);;
+			savieService.getPlanDetails(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -43,7 +42,7 @@ public class AjaxSavieController extends BaseController{
 	@RequestMapping(value = {"/ajax/savie/sales-illustration/createPdf"})
 	public void createSalesIllustrationPdfByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws Exception {
 		try {
-			savieService.createSalesIllustrationPdf(model, request, response, httpSession);;
+			savieService.createSalesIllustrationPdf(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -185,14 +184,13 @@ public class AjaxSavieController extends BaseController{
  
 	}
 	
-	@RequestMapping(value = {"/reloadInitAppMsg"},method=RequestMethod.GET)
-	public void reloadInitMsg(){
-		InitApplicationMessage.init(commonUtils);
+	@RequestMapping(value = {"/ajax/savie/application/getOccupation"})
+	public void getOccupationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		try {
+			savieService.getOccupation(model, request, response);
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 	}
-	
-	
-	
-	
-	
-	
 }

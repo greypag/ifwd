@@ -84,6 +84,7 @@ function emptyMembershipError(){
 	$(".error-hide").hide();
 }
 
+
 $(function () {
 	
     /* scrolling code starts */
@@ -116,6 +117,28 @@ $(function () {
 	}
     /* scrolling code ends */
     
+	/* payment seccode start*/
+	$( "#seccode" ).on( "change blur", function() {
+	    var seccode = $(this).val();
+		if (seccode.trim() == "") {
+			$("#errcode").html( getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));//"Please enter your Name in English.";
+			$("#seccode").addClass("invalid-field");
+			return false;
+		}else{
+			if(seccode.length<3)
+			{
+				$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+				$("#seccode").addClass("invalid-field");
+				return false;
+			}
+		}
+		$("#seccode").removeClass("invalid-field");
+		$("#errcode").html('');
+	});
+	
+	/* payment seccode end */
+	
+	
 	chin = $('body').hasClass('chin');
 	
 	/*get now date*/
@@ -126,6 +149,9 @@ $(function () {
 	var tillDate_from= new Date((new Date()).getTime() + 89*24*60*60*1000);
 	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	var oneDay=24*60*60*1000;
+	
+	
+	
 	
 	var checkout;
 	/* desktoip datepicker*/
@@ -913,6 +939,7 @@ $(function () {
 		$('#dp2').datepicker('update', endDate);
 		$('#dp4').datepicker('update', endDate);
 	});
+	
 
 });//]]>  
 
@@ -6366,7 +6393,7 @@ $(function () {
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var tillDate_from_home= new Date((new Date()).getTime() + 59*24*60*60*1000);
+	var tillDate_from_home= new Date((new Date()).getTime() + 179*24*60*60*1000);
 	
 	//Homecare Calender
 	var checkin = $('#homecareDp').datepicker({
@@ -6377,7 +6404,9 @@ $(function () {
 		todayHighlight: true,
 		format: "dd-mm-yyyy"
 	}).on('changeDate', function (ev) {
-		$('#errEffDate').html(''); 
+		$(".hidden-sm .form-container .topten").html($('#txtEffDate').val());
+		$('#errEffDate').html('');
+		$("#homecareDp").removeClass("invalid-field");
 	});
 	
 });
@@ -6612,3 +6641,32 @@ $( document ).ready(function() {
 //        $(this).focus();
 //    });
 });
+
+
+// 对Date的扩展，将 Date 转化为指定格式的String   
+// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，   
+// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)   
+// 例子：   
+// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423   
+// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18   
+Date.prototype.Format = function(fmt)   
+{ //author: meizz   
+  var o = {   
+    "M+" : this.getMonth()+1,                 //月份   
+    "d+" : this.getDate(),                    //日   
+    "h+" : this.getHours(),                   //小时   
+    "m+" : this.getMinutes(),                 //分   
+    "s+" : this.getSeconds(),                 //秒   
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+    "S"  : this.getMilliseconds()             //毫秒   
+  };   
+  if(/(y+)/.test(fmt))   
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+  for(var k in o)   
+    if(new RegExp("("+ k +")").test(fmt))   
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+  return fmt;   
+}  
+
+
+

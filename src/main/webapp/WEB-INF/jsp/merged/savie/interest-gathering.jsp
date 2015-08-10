@@ -77,7 +77,7 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.read.accept" bundle="${msg}" /><a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />"><fmt:message key="savie.interestGather.personal.collection" bundle="${msg}" /></a>. </div>
 		</div>
 
 		<div class="clearfix top">
@@ -149,12 +149,10 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
-		<div class="disclaimer-policy">
+		<div class="disclaimer-policy teaser-policy">
 			<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
 		</div>
 	</div>
-
-
 </div>
 
 <div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"

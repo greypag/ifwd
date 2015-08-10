@@ -1,4 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <footer>	
 	<div class="footer-whole">
 		<div class="fwd-full-container container-fluid menu-footer">
@@ -21,10 +25,10 @@
 						<div class="clearfix">
 							<div class="pull-left">
 								<ul class="nav footer-hotline">
-									<li><a href="#">
+									<li><a href="https://www.facebook.com/FWD.HK.MO" target="blank">
 											<div class="circle"><i class="fa fa-facebook"></i></div>
 										</a></li>
-									<li class="padding-left"><a href="#">
+									<li class="padding-left"><a href="https://www.youtube.com/user/FWDHK" target="_blank">
 										<div class="circle"><i class="fa fa-youtube"></i></div>
 									</a></li>
 								</ul>

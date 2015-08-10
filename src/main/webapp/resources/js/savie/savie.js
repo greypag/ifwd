@@ -231,3 +231,22 @@ function acceptPdf(pdfName,requestNo) {
 	.fail(function(data) {
 	});
 }
+
+function getOccupation(value,language) {
+	$.get('/'+contextPath+'/ajax/savie/application/getOccupation',
+	{ 
+		value : value,
+		language : language
+	},
+	function(data) {
+		$("#savieEmploymentBeanOccupation").empty();
+		if(data != null){
+			for(var i = 0; i < data.length; i++) {
+				$("#savieEmploymentBeanOccupation").append("<option value='"+data[i].itemCode+"'>"+data[i].itemDesc+"</option>");
+			}
+		}
+	})
+	.fail(function(data) {
+		alert(data.length);
+	});
+}
