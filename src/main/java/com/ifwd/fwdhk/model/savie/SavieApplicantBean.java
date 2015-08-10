@@ -16,10 +16,13 @@ public class SavieApplicantBean {
 	private String hkId;
 	private String passport;
 	private GenderEnum gender; 
-	private MaritalStatusEnum maritalStatus;	
+	private String maritalStatus;
+	private String maritalStatusDesc;
 	private Date birthday;
 	private String placeOfBirth;
+	private String placeOfBirthDesc;
 	private String nationality;
+	private String nationalityDesc;
 	private String email;
 	private String residentialTelNoCountryCode;
 	private String residentialTelNo;
@@ -31,11 +34,13 @@ public class SavieApplicantBean {
 	private String residentialAdress2;	
 	private String residentialAdress3;	
 	private String residentialDistrict;
+	private String residentialDistrictDesc;
 	
 	private String correspondenceAdress1;   
     private String correspondenceAdress2;   
     private String correspondenceAdress3;   
     private String correspondenceDistrict;
+    private String correspondenceDistrictDesc;
     
     private String addressIsSame;
     
@@ -76,10 +81,11 @@ public class SavieApplicantBean {
 	public void setGender(GenderEnum gender) {
 		this.gender = gender;
 	}
-	public MaritalStatusEnum getMaritalStatus() {
+	
+	public String getMaritalStatus() {
 		return maritalStatus;
 	}
-	public void setMaritalStatus(MaritalStatusEnum maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 	public Date getBirthday() {
@@ -184,27 +190,36 @@ public class SavieApplicantBean {
 	public void setAddressIsSame(String addressIsSame) {
 		this.addressIsSame = addressIsSame;
 	}
-	
-	//<List>FNA
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String getMaritalStatusDesc() {
+		return maritalStatusDesc;
+	}
+	public void setMaritalStatusDesc(String maritalStatusDesc) {
+		this.maritalStatusDesc = maritalStatusDesc;
+	}
+	public String getPlaceOfBirthDesc() {
+		return placeOfBirthDesc;
+	}
+	public void setPlaceOfBirthDesc(String placeOfBirthDesc) {
+		this.placeOfBirthDesc = placeOfBirthDesc;
+	}
+	public String getNationalityDesc() {
+		return nationalityDesc;
+	}
+	public void setNationalityDesc(String nationalityDesc) {
+		this.nationalityDesc = nationalityDesc;
+	}
+	public String getResidentialDistrictDesc() {
+		return residentialDistrictDesc;
+	}
+	public void setResidentialDistrictDesc(String residentialDistrictDesc) {
+		this.residentialDistrictDesc = residentialDistrictDesc;
+	}
+	public String getCorrespondenceDistrictDesc() {
+		return correspondenceDistrictDesc;
+	}
+	public void setCorrespondenceDistrictDesc(String correspondenceDistrictDesc) {
+		this.correspondenceDistrictDesc = correspondenceDistrictDesc;
+	}
 	
 	
 	
