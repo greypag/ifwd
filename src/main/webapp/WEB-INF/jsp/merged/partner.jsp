@@ -14,7 +14,7 @@
 		<div class="container mob-pad" id="joinus_form">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li><a href="<%=request.getContextPath()%>/"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 					<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="partner.partners.offers" bundle="${msg}" />
 					</li>
 				</ol>

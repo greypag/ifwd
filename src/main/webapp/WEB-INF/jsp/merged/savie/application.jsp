@@ -162,8 +162,16 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown" name="maritalStatus"  id="savieApplicantBean.maritalStatus">
-													<option value="S">Single</option>
-													<option value="M">Married</option>	
+													<c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${maritalStatusesEN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${maritalStatusesCN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
 												</select>
 											</div>
 											<span class="error-msg" id="maritalStatusMessage"></span>
@@ -181,9 +189,16 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
-													<option selected value="">- Please select -</option>
-													<option value="US">US</option>
-													<option value="Germany">Germany</option>	
+													<c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${placeOfBirthEN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${placeOfBirthCN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
 												</select>
 											</div>
 											<span class="error-msg" id="placeOfBirthMessage"></span>
@@ -198,9 +213,16 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
-													<option selected value="">- Please select -</option>
-													<option value="US">US</option>
-													<option value="Germany">Germany</option>	
+													<c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${nationalityEN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${nationalityCN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>	
 												</select>
 											</div>
 											<span class="error-msg" id="nationalityMessage"></span>
@@ -267,9 +289,16 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
-													<option selected value="">District</option>
-													<option value="US">US</option>
-													<option value="Germany">Germany</option>	
+													<c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${savieDistrictEN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${savieDistrictCN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>	
 												</select>
 											</div>
 											<span class="error-msg" id="resDistrictMessage"></span>
@@ -289,9 +318,16 @@
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
-													<option selected value="">District</option>
-													<option value="US">US</option>
-													<option value="Germany">Germany</option>	
+													<c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${savieDistrictEN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${savieDistrictCN}">
+													      <option value="${list.itemCode }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>		
 												</select>
 											</div>
 											<span class="error-msg" id="resDistrictMessage"></span>
@@ -339,9 +375,16 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
-										<option selected value="">- Please select -</option>
-										<option value="employed">Employed</option>
-										<option value="self-employed">Self Employed</option>	
+										<c:if test="${language == 'en'}">
+										   <c:forEach var="list" items="${employmentStatusEN}">
+										      <option value="${list.itemCode }">${list.itemDesc }</option>
+										   </c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+										   <c:forEach var="list" items="${employmentStatusCN}">
+										      <option value="${list.itemCode }">${list.itemDesc }</option>
+										   </c:forEach>
+										</c:if>	
 									</select>
 									<span class="error-msg" id="employmentStatusMessage"></span>
 								</div>
@@ -351,9 +394,16 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
-										<option selected value="">- Please select -</option>
-										<option value="it">IT</option>
-										<option value="others">Others</option>	
+										<c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${occupationEN}">
+											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${occupationCN}">
+											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>	
 									</select>
 									<span class="error-msg" id="occupationMessage"></span>
 								</div>
@@ -365,9 +415,16 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select">
-										<option selected value="">- Please select -</option>
-										<option value="it">IT</option>
-										<option value="others">Others</option>	
+										<c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${natureOfBusinessEN}">
+											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${natureOfBusinessCN}">
+											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
 									</select>
 									<span class="error-msg" id="natureOfBusinessMessage"></span>
 								</div>
@@ -377,9 +434,16 @@
 								<div class="selectEmployment">
 									<span class="icon-chevron-thin-down orange-caret"></span>
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
-										<option selected value="">- Please select -</option>
-										<option value="10,000">10,000</option>
-										<option value="others">Others</option>	
+										<c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
+											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
+											  <option value="${list.itemCode }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
 									</select>
 									<span class="error-msg" id="monthlyIncomeMessage"></span>
 								</div>
@@ -506,9 +570,16 @@
 										<div class="selectBeneficiary">
 											<span class="icon-chevron-thin-down orange-caret"></span>
 											<select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
-												<option selected value="">- Please select -</option>
-												<option value="father">Father</option>
-												<option value="mother">Mother</option>	
+												<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+													  <option value="${list.itemCode }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+													  <option value="${list.itemCode }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 										<span class="error-msg" id="relationshipMessage[0]"></span>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
@@ -41,8 +43,16 @@ public class SavieController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
+		
+	@RequestMapping(value="/{lang}/savie", method = RequestMethod.GET)
+	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
+	{
+		RedirectView rv = new RedirectView(request.getContextPath() + "/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
+		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
+		return rv;
+	}	
 
-	@RequestMapping(value = {"/{lang}/savings-insurance/landing","/{lang}/savings-insurance"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/landing"})
 	public ModelAndView getSavieLanding(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
@@ -65,6 +75,24 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/application"})
 	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
+		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
+		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
+		model.addAttribute("placeOfBirthEN", InitApplicationMessage.placeOfBirthEN);
+		model.addAttribute("placeOfBirthCN", InitApplicationMessage.placeOfBirthCN);
+		model.addAttribute("nationalityEN", InitApplicationMessage.nationalityEN);
+		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
+		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
+		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
+		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
+		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
+		model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
+		model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
+		model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
+		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
+		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
+		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
+		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
+		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_APPLICATION);
 	}
 	
@@ -131,7 +159,7 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SIGNATURE);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering","/{lang}/savings-insurance"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
 
 		String affiliate = (String) request.getAttribute("affiliate");
@@ -146,6 +174,9 @@ public class SavieController extends BaseController{
 		}else{
 			savieAns=InitApplicationMessage.savieAnsEN;
 		}
+		UserRestURIConstants.setController("Savie");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
@@ -171,8 +202,9 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
- 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName) {
+ 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName,@RequestParam String requestNo) {
 		request.getSession().setAttribute("pdfName", pdfName);
+		request.getSession().setAttribute("requestNo", requestNo);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);
  	}
 	

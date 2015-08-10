@@ -33,6 +33,7 @@ import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -412,7 +413,7 @@ public class SavieServiceImpl implements SavieService {
 				}
 			}
 			String name = null;
-			BaseResponse br = null;
+			SalesIllustrationResponse br = null;
 			String pdfTemplatePath = null;
 			String pdfGeneratePath = null;
 			try {
@@ -423,28 +424,37 @@ public class SavieServiceImpl implements SavieService {
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 				final Map<String,String> header = headerUtil.getHeader(request);
 				JSONObject parameters = new JSONObject();
-				parameters.put("lastName", "Lau");
-				parameters.put("firstName", "Andy");
-				parameters.put("chineseName", "劉德華");
-				parameters.put("dob", "1955-01-01");
-				parameters.put("gender", request.getParameter("gender"));
+				JSONObject applicant = new JSONObject();
+				applicant.put("lastName", "Lau");
+				applicant.put("firstName", "Andy");
+				applicant.put("chineseName", "劉德華");
+				applicant.put("dob", "1955-01-01");
+				applicant.put("gender", "M");
+				parameters.put("applicant", applicant);
+				parameters.put("planCode", "savie");
+				parameters.put("referralCode", "SAVIE123");
+				parameters.put("issueAge", 19);
+				parameters.put("paymentTerm", 82);
+				parameters.put("premium", 10000);
 				br = connector.generateSalesIllustration(parameters, header);
+				logger.info(br+"");
 			}catch(Exception e){
 				logger.info("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
 			resultJsonObject.accumulate("pdfName", name);
-			resultJsonObject.accumulate("Msgs", br.hasError()?br.getErrMsgs():"success");
+			resultJsonObject.accumulate("Msgs", br);
 		}
 		else{
 			resultJsonObject.accumulate("Msgs", "data error");
 		}
 		response.setContentType("text/json;charset=utf-8");
+		request.getRemoteUser();
 		//return data
 		try {
 			response.getWriter().print(resultJsonObject.toString());
-		}catch(Exception e) {
+		}catch(Exception e) {  
 			e.printStackTrace();
 		}
 	}
@@ -462,7 +472,8 @@ public class SavieServiceImpl implements SavieService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("fileType", ".pdf");
+			parameters.put("requestNo", request.getParameter("requestNo"));
+			parameters.put("fileType", "pdf");
 			parameters.put("documentType", "HKID");
 			parameters.put("originalFilePath", path);
 			parameters.put("base64", base64);
@@ -827,10 +838,10 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = request.getParameter("to");
-			String message = "Hi<br />您好,<br />Thank you for registering your email address at Savie Insurance Plan' s website. <br />多謝您成功於自助息理財壽險計劃網頁登記電郵地址.";
-			String subject = "Acknowledgement Email";// "html testing";
+			String message = "您好Hi,<br />您成功於自助息理財壽險計劃網頁登記電郵地址。<br />You have successfully registered your email address at the Savie Insurance Plan’s website.";
+			String subject = "Savie Registration Acknowledgement email from FWD";
 			String attachment = request.getParameter("attachment");
-			String from = "sit@ecomm.fwd.com";
+			String from = "Fanny Wing <i-info.hk@fwd.com>";
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();

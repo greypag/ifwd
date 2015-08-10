@@ -6,6 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -14,24 +15,27 @@ var language = "${language}";
 var affiliate = "${affiliate}";
 </script>
 
+<!-- reCAPTCHA widget -->
+<script type="text/javascript">
+	var onloadCallback = function() {
+		grecaptcha.render('captchaBox', {
+			'sitekey' : '6Lcs0AoTAAAAAMASZ3HsfT92CrOCHqQERi5ZV7wk',
+			'theme' : 'light',
+			'type' : 'audio image',
+			'language' : 'en'
+		});
+	};
+</script>
+
 
 <div class="text-center banner-widget container-fluid">
-	<div class="fwd-container container-fluid breadcrumbs">
-		<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-			<li><a href="#"><fmt:message key="savie.landing.home" bundle="${msg}" /></a></li>
-			<li class="divider"><i class="fa fa-play"></i></li>
-			<li><a href="#"><fmt:message key="savie.landing.save" bundle="${msg}" /></a></li>
-			<li class="divider last"><i class="fa fa-play"></i></li>
-			<li class="active-bc"><fmt:message key="savie.landing.savie" bundle="${msg}" />Savie</li>
-		</ol>
-	</div>
 
 	<div class="text-content">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
-			title="Savie is always sweeter" alt="Savie is always sweeter"
+			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
 			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner" bundle="${msg}" />"
-			title="Savie is always sweeter" alt="Savie is always sweeter"
+			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
 			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
 	</div>
 </div>
@@ -42,30 +46,30 @@ var affiliate = "${affiliate}";
 			<div class="money-div">
 				<img src="<%=request.getContextPath()%><fmt:message key="img.money.logo" bundle="${msg}" />" class="money">
 			</div>
-			<p class="additional top">Act now to grab the chance to enjoy guaranteed annual crediting rate: </p>
-			<ul class="crediting-rate-list">
-				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />1st policy year 3%</li>
-				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />2nd policy year 3%</li>
-				<li><img src="<%=request.getContextPath()%>/resources/images/savie/bullet.png" class="img-responsive" />3rd policy year 4%</li>
+			<p class="additional top"><fmt:message key="savie.interestGather.banner.header" bundle="${msg}" /></p>
+			<ul class="crediting-rate-list clearfix">
+				<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.interestGather.banner.list.header1" bundle="${msg}" /></span></li>
+				<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.interestGather.banner.list.header2" bundle="${msg}" /></span><div class="white right"></div></li>
+				<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.interestGather.banner.list.header3" bundle="${msg}" /></span></li>
 			</ul>
-			<p class="additional top">Limited Quota Offer, Sign up now and await our notification!</p>
-			<p class="additional top">For Limited Quota Offer, each Hong Kong ID card holder can apply for one Savie Insurance Plan policy with lump sum payment between HK$30,000 and HK$400,000.</p>
+			<p class="bottom-text upper"><fmt:message key="savie.interestGather.banner.paragraph1" bundle="${msg}" /></p>
+			<p class="bottom-text"><fmt:message key="savie.interestGather.banner.paragraph2" bundle="${msg}" /></p>
 		</div>
 	</div>
 </div>
 
 <div class="sign-up-teaser">
-	<p class="sign-up-header"><fmt:message key="savie.interestGather.coming.soon" bundle="${msg}" /></p>
+	<p class="sign-up-header"><fmt:message key="savie.interestGather.signupform.header.part1" bundle="${msg}" /></br><fmt:message key="savie.interestGather.signupform.header.part2" bundle="${msg}" /></p>
 
-	<p class="email-notification"><fmt:message key="savie.interestGather.email.notification.context1" bundle="${msg}" /></p>
-	<p class="email-notification"><fmt:message key="savie.interestGather.email.notification.context2" bundle="${msg}" /></p>
-	<p class="email-notification"><fmt:message key="savie.interestGather.email.notification.context3" bundle="${msg}" /></p>
+	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context1" bundle="${msg}" /></p>
+	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context2" bundle="${msg}" /></p>
+	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context3" bundle="${msg}" /></p>
 
 	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm" action="teaser.jsp">
 		<div class="form-group">
-			<input type="email" placeholder="<fmt:message key="savie.interestGather.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
+			<input type="email" placeholder="<fmt:message key="savie.interestGather.signupform.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input type="tel" placeholder="<fmt:message key="savie.interestGather.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
+			<input type="tel" placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 		</div>
 		<div class="clearfix">
@@ -81,13 +85,17 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="tc" id="tc-check" name="isTc" /> <label
 					for="tc-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.read.accept" bundle="${msg}" />
-			<a href=""><fmt:message key="savie.interestGather.terms.conditions" bundle="${msg}" /></a>.
-			</div>
+			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.tnc.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.tnc.read.accept2" bundle="${msg}" /></div>
 		</div>
+
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
-		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.sign.up" bundle="${msg}" /></button>
+		
+		<div id="captchaBox"></div>
+		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
+	<script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit"
+		async defer>
+	</script>
 </div>
 
 <div id="flux">
@@ -96,28 +104,27 @@ var affiliate = "${affiliate}";
 		<div class="row row-top text-center">
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
-					<h2><fmt:message key="savie.interestGather.save.earn" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.big.ease" bundle="${msg}" /></h3>
+					<h2><fmt:message key="savie.interestGather.feature1.header.part1" bundle="${msg}" /></h2>
+					<h3><fmt:message key="savie.interestGather.feature1.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />">
-					<p><fmt:message key="savie.interestGather.guarantees.earnings.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.guarantees.earnings.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.guarantees.earnings.context3" bundle="${msg}" /></p>
+					<p><fmt:message key="savie.interestGather.feature1.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature1.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature1.paragraph3" bundle="${msg}" /></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
-					<h2><fmt:message key="savie.interestGather.flexible.free" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.from.charges" bundle="${msg}" /></h3>
+					<h2><fmt:message key="savie.interestGather.feature2.header.part1" bundle="${msg}" /></h2>
+					<h3><fmt:message key="savie.interestGather.feature2.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />">
-					<p><fmt:message key="savie.interestGather.enjoy.flexibility.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.enjoy.flexibility.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.enjoy.flexibility.context3" bundle="${msg}" /></p>
+					<p><fmt:message key="savie.interestGather.feature2.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature2.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature2.paragraph3" bundle="${msg}" /></p>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content">
-					<h2><fmt:message key="savie.interestGather.make.most" bundle="${msg}" /></h2>
-					<h2 class="out-life"><fmt:message key="savie.interestGather.out.life" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.extra.protection" bundle="${msg}" /></h3>
+					<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
+					<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />">
-					<p><fmt:message key="savie.interestGather.death.benefit.context1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.death.benefit.context2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.death.benefit.context3" bundle="${msg}" /></p>
-					<p class="info-asterisk">*The accumulation of total premium paid plus interests<p>
+					<p><fmt:message key="savie.interestGather.feature3.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature3.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature3.paragraph3" bundle="${msg}" /></p>
+					<p class="info-asterisk"><fmt:message key="savie.interestGather.feature3.footnote" bundle="${msg}" /><p>
 				</div>
 			</div>
 		</div>
@@ -126,32 +133,29 @@ var affiliate = "${affiliate}";
 	<div class="fwd-container container-fluid">
 		<div id="other-benefits" class="row">
 			<div class="col-xs-12 col-md-8 pull-right">
-				<h2 class="text-center"><fmt:message key="savie.interestGather.other.features" bundle="${msg}" /></h2>
+				<h2 class="text-center"><fmt:message key="savie.interestGather.otherfeatures.header" bundle="${msg}" /></h2>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
 				<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />">
 			</div>
 			<div class="col-xs-12 col-md-8 fwd-col">
 				<ul>
-					<li><p><fmt:message key="savie.interestGather.other.features.context1" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.other.features.context2" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.other.features.context3" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.other.features.context4" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context4" bundle="${msg}" /></p></li>
 				</ul>
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
 		<div class="disclaimer-policy">
-			<p><fmt:message key="savie.interestGather.features.above" bundle="${msg}" /></p>
+			<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
 		</div>
 	</div>
 
 
 </div>
-
-<!--<button type="button" class="btn btn-full hidden-md hidden-lg">Read more</button>-->
-<a class="btn btn-full hidden-md hidden-lg"
-	href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.interestGather.read.more" bundle="${msg}" /></a>
 
 <div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"
 	id="teaserSurvery">
@@ -162,15 +166,15 @@ var affiliate = "${affiliate}";
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h2><fmt:message key="savie.interestGather.thank.you" bundle="${msg}" /></h2>
+				<h2><fmt:message key="savie.interestGather.survey.thank.you" bundle="${msg}" /></h2>
 			</div>
 			<div class="modal-body teaserSurvey">
-				<p class="registered"><fmt:message key="savie.interestGather.successfully.registered" bundle="${msg}" /></p>
-				<p class="registered"><fmt:message key="savie.interestGather.tell.more" bundle="${msg}" /></p>
+				<p class="registered"><fmt:message key="savie.interestGather.survey.successfully.registered" bundle="${msg}" /></p>
+				<p class="registered"><fmt:message key="savie.interestGather.survey.tell.more" bundle="${msg}" /></p>
 
 				<div class="modal-divider"></div>
 
-				<p class="question"><fmt:message key="savie.interestGather.plan.save" bundle="${msg}" /></p>
+				<p class="question"><fmt:message key="savie.interestGather.survey.plan.save" bundle="${msg}" /></p>
 
 				<form class="amount-to-save">
 					<div class="teaser-select">
@@ -178,14 +182,14 @@ var affiliate = "${affiliate}";
 							id="dropdown-caret"></span> 
 							<select class="form-control saveDropdown" name="amountToSave"
 							id="amountToSave">
-							<option selected disabled value=""><fmt:message key="savie.interestGather.please.select" bundle="${msg}" /></option>
+							<option selected disabled value=""><fmt:message key="savie.interestGather.survey.please.select" bundle="${msg}" /></option>
 							<c:forEach var="savieAns" items="${savieAns}" varStatus="theCount">
 								<option value="${savieAns.itemCode }">${savieAns.itemDesc }</option>
 							</c:forEach>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-white btn-thank-you"
-						id="teaser-mmodal-submit" onclick="sendStep2Email()"><fmt:message key="savie.interestGather.submit" bundle="${msg}" /></button>
+						id="teaser-mmodal-submit" onclick="sendStep2Email()"><fmt:message key="savie.interestGather.survey.submit" bundle="${msg}" /></button>
 				</form>
 			</div>
 		</div>

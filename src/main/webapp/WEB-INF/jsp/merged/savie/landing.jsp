@@ -297,7 +297,7 @@
                        </div>
                    </button>
                </div>
-               <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savie-plan-details"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
+               <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
            </div>
        </div>
 	
