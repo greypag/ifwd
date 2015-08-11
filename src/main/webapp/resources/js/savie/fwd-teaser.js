@@ -1,7 +1,16 @@
+	function checkChineseCharEmail(e) {
+		if(((e.keyCode >= 48 && e.keyCode<=57) || (e.keyCode >= 65  && e.keyCode<=90) || e.keyCode==64  || e.keyCode ==45 || e.keyCode == 95 || e.keyCode == 46)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 $(function() {
 	
 	if(lang=='tc'){
 		//Chinese
+		$('#teaserEmail').removeClass('email');
+		$('#teaserEmail').addClass('email-ch');
 		$('#hunger-selling-banner').removeClass('hunger-selling');
 		$('#hunger-selling-banner').addClass('hunger-selling-ch');
 		$('#banner-text-chinese').removeClass('hidden');
@@ -14,6 +23,8 @@ $(function() {
 		
 	}else{
 		//English
+		$('#teaserEmail').addClass('email');
+		$('#teaserEmail').removeClass('email-ch');
 		$('#hunger-selling-banner').removeClass('hunger-selling-ch');
 		$('#hunger-selling-banner').addClass('hunger-selling');
 		$('#banner-text-english').removeClass('hidden');
@@ -112,9 +123,9 @@ $(function() {
 
 	});
 
-	$("#teaserPhoneNo").keypress(function(event) {
+	/*$("#teaserPhoneNo").keypress(function(event) {
         return /\d/.test(String.fromCharCode(event.keyCode));
-    });
+    });*/
 
 
 });
