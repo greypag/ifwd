@@ -194,7 +194,7 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SIGNATURE);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering","/{lang}/savings-insurance"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering","/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
 
 		String affiliate = (String) request.getParameter("affiliate");
