@@ -197,7 +197,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<build>
-				<finalName>FWDHKPH1A</finalName>
+				<finalName>fwdhk</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -275,7 +275,7 @@
 		<profile>
 			<id>sit</id>
 			<build>
-				<finalName>FWDHKPH1A</finalName>
+				<finalName>fwdhk</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -353,7 +353,7 @@
 		<profile>
 			<id>uat</id>
 			<build>
-				<finalName>FWDHKPH1A</finalName>
+				<finalName>fwdhk</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -431,7 +431,7 @@
 		<profile>
 			<id>prd</id>
 			<build>
-				<finalName>FWDHKPH1A</finalName>
+				<finalName>fwdhk</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -509,7 +509,7 @@
 	</profiles>
 	
 	<build>
-		<finalName>FWDHKPH1A</finalName>
+		<finalName>fwdhk</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

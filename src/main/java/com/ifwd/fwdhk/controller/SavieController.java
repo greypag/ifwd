@@ -169,6 +169,7 @@ public class SavieController extends BaseController{
 		if(affiliate == null){
 			affiliate = "";
 		}
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
