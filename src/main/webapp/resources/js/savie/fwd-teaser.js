@@ -69,7 +69,7 @@ $(function() {
 			$('#emailAddrsMessage').addClass('hideSpan');
 			
 			// Email is not valid
-			if (email != "" && !validateEmail(email)) {
+			if (email != "" && !checkEmail(email)) {
 				$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.invalid.message")).removeClass('hideSpan');
 				isErrorFlag = true;
 			} else {
@@ -146,7 +146,7 @@ function duplicateEmail(){
 	
 }
 
-function validateEmail(email) {
+function checkEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }
