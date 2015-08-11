@@ -67,6 +67,14 @@
 
     });
   
+  function submitPlan(){
+	    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+	    
+	    setTimeout(function(){
+    		$("#frmFlightPlan").submit();
+	    }, 500);
+	}
+  
   function updateFlightQuote() {
 	  if(updateQuoteFlag){
 		  $('#loading-overlay').modal({
@@ -123,7 +131,7 @@
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form name="frmFlightPlan" id="frmFlightPlan" action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post" onsubmit="return flightValidateDesk()">
+			<form name="frmFlightPlan" id="frmFlightPlan" action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post">
 				<!-- <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveller" value="${planDetails.getTotalAdultTraveller()}"> --> 
 				<!-- <input type="hidden" name="totalChildTraveller" id="totalChildTraveller"value="${planDetails.getTotalChildTraveller()}"> -->
 				<!-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${planDetails.getTotalOtherTraveller()}"> -->
@@ -488,10 +496,10 @@
 	                            <div class="top35 pull-right pad-none" style="width:47%">
 	                                <c:choose>
 	<c:when test="${language=='en'}">
-	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	<input type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','USD');perventRedirect=false;submitPlan();" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 	</c:when>
 	<c:otherwise>
-	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	<input type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;submitPlan();" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 </c:otherwise>
 </c:choose>
 	                                
@@ -535,10 +543,10 @@
 	                        <div class="top35 pull-right pad-none" style="width:47%">
 	                            <c:choose>
 	<c:when test="${language=='en'}">
-	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	<input type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 EN','USD');perventRedirect=false;submitPlan();" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 	</c:when>
 	<c:otherwise>
-	<input type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+	<input type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;submitPlan();" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 </c:otherwise>
 </c:choose>
 	                            
