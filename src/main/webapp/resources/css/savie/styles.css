@@ -2462,7 +2462,7 @@ body {
   opacity: 0.8 !important;
 }
 .fwd-savie-wrapper .modal.fade {
-  font-family: 'Calibri';
+  font-family: Calibri;
   font-size: 24px;
   color: #061d2a;
 }
@@ -13340,3 +13340,12 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 .color1 {
  	color: #000 !important;
  }
+ 
+ .text-red {
+    color: red;
+}
+
+.form-container span{
+	font-size: 16px !important;
+	font-weight: normal !important;
+}

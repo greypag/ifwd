@@ -302,6 +302,8 @@ h4.margin-shift {
 .login-form h4 {
   color: #061d2a;
   font-size: 18px;
+  font-weight: normal !important;
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;
 }
 .login-form h4 a {
   color: #f68a1d;
@@ -385,6 +387,7 @@ h4.margin-shift {
   text-align: left;
   margin-top: 10px !important;
   text-decoration: underline;
+  font-weight: normal !important;
 }
 .sidepanel-menu li {
   border-bottom: 1px solid #f6871e;
@@ -736,4 +739,8 @@ ul.maintabs li a span.offer:hover{
 	.top-bar .navbar-right {
 	    margin-right: 0px;
 	}
+}
+
+.invalid-field {
+    border: 2px solid red !important;
 }
