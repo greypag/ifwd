@@ -7,6 +7,7 @@
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
+<c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -19,22 +20,29 @@ var affiliate = "${affiliate}";
 <script type="text/javascript">
 	var onloadCallback = function() {
 		grecaptcha.render('captchaBox', {
-			'sitekey' : '6Lcs0AoTAAAAAMASZ3HsfT92CrOCHqQERi5ZV7wk',
+			'sitekey' : '6LfP6QcTAAAAAHlgmCoww2R_FXgjmGOZawHB2lFZ',
 			'theme' : 'light',
-			'type' : 'audio image',
-			'language' : 'en'
+			'type' : 'audio image'
 		});
 	};
 </script>
 
 
-<div class="text-center banner-widget container-fluid">
+<div class="text-center banner-widget hunger-selling container-fluid" id="hunger-selling-banner">
 
-	<div class="text-content">
+	<div class="text-content hidden" id="banner-text-english">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
 			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner" bundle="${msg}" />"
+			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
+			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
+	</div>
+	<div class="text-content hidden" id="banner-text-chinese">
+		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile.ch" bundle="${msg}" />"
+			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
+			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
+		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner.ch" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
 			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
 	</div>
@@ -71,13 +79,14 @@ var affiliate = "${affiliate}";
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
 			<input type="tel" placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
+			<input type="hidden" name="affiliate" value="${affiliate}">
 		</div>
 		<div class="clearfix">
 			<div class="pull-left checkbox">
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 				<label for="pics-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.read.accept" bundle="${msg}" /><a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />"><fmt:message key="savie.interestGather.personal.collection" bundle="${msg}" /></a>. </div>
+            <div class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<div class="clearfix top">
@@ -85,7 +94,7 @@ var affiliate = "${affiliate}";
 				<input type="checkbox" value="tc" id="tc-check" name="isTc" /> <label
 					for="tc-check"></label>
 			</div>
-			<div class="pull-left text"><fmt:message key="savie.interestGather.signupform.tnc.read.accept1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/upload/${langLink}/LHK_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.tnc.read.accept2" bundle="${msg}" /></div>
+            <div class="pull-left text"><fmt:message key="savie.interestGather.signupform.tnc.read.accept1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.tnc.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
@@ -93,7 +102,7 @@ var affiliate = "${affiliate}";
 		<div id="captchaBox"></div>
 		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
-	<script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit"
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
 		async defer>
 	</script>
 </div>
@@ -175,8 +184,6 @@ var affiliate = "${affiliate}";
 
 				<form class="amount-to-save">
 					<div class="teaser-select">
-						<span class="icon-chevron-thin-down orange-caret"
-							id="dropdown-caret"></span> 
 							<select class="form-control saveDropdown" name="amountToSave"
 							id="amountToSave">
 							<option selected disabled value=""><fmt:message key="savie.interestGather.survey.please.select" bundle="${msg}" /></option>

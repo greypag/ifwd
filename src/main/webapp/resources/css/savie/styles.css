@@ -10964,25 +10964,33 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown {
-  background-color: #f1f3f5;
-  border-radius: 0;
-  height: 40px;
-  border: 0;
-  font-family: 'Calibri';
-  padding-left: 18px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-  font-size: 18px;
-  cursor: pointer;
-  border: 0;
-  /* Good browsers universal rule */
-  outline: none;
-  /* safari and its variants  */
-  outline-offset: 0;
-  /* IE and its variants  */
-  -webkit-appearance: none;
-  /* Chrome and its variants  */
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+	
+	background-color: transparent;
+    width: 400px;
+	border-radius: 0;
+	height: 40px;
+	border: 0;
+	font-family: 'Calibri';
+	padding-left: 18px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+	font-size: 18px;
+	cursor: pointer;
+	border: 0;      /* Good browsers universal rule */
+	outline: none;     /* safari and its variants  */
+	outline-offset: 0; /* IE and its variants  */
+	-webkit-appearance:none; /* Chrome and its variants  */
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
 }
+
+.form-control.saveDropdown::-ms-expand {
+	display: none;
+}
+ 
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .amount-to-save {
   text-align: center;
   margin: 0 auto;
@@ -11000,6 +11008,9 @@ span.dup-error-msg {
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .teaser-select {
   position: relative;
   margin-top: 15px;
+  overflow: hidden;
+  background: url('../../images/savie/orange-caret.png') no-repeat 94% 50%;
+  background-color: #f1f3f5;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .teaser-select {
@@ -11940,15 +11951,28 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper .banner-widget.hunger-selling {
-  background: url("../../images/savie/hunger-selling-banner-mobile.png") center center no-repeat;
+  background: url("../../images/savie/hunger-selling-banner-mobile.jpg") center center no-repeat;
   background-size: cover;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .banner-widget.hunger-selling {
-    background: url("../../images/savie/hunger-selling-banner-dsktop.png") center center no-repeat;
+    background: url("../../images/savie/hunger-selling-banner-dsktop.jpg") center center no-repeat;
     background-size: cover;
   }
 }
+
+.fwd-savie-wrapper .banner-widget.hunger-selling-ch {
+  background: url("../../images/savie/ifwd_savie-hero-banner_mobile_cn_background.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .banner-widget.hunger-selling-ch {
+    background: url("../../images/savie/ifwd_savie-hero-banner-background_cn.jpg") center center no-repeat;
+	background-size: cover;
+  }
+}
+
 .fwd-savie-wrapper .banner-widget .hunger-selling-text {
   font-size: 24px;
   font-family: 'Calibri-bold';
