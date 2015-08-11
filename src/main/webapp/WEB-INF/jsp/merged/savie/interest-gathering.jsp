@@ -7,6 +7,7 @@
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
+<c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -19,10 +20,9 @@ var affiliate = "${affiliate}";
 <script type="text/javascript">
 	var onloadCallback = function() {
 		grecaptcha.render('captchaBox', {
-			'sitekey' : '6Lcs0AoTAAAAAMASZ3HsfT92CrOCHqQERi5ZV7wk',
+			'sitekey' : '6LfP6QcTAAAAAHlgmCoww2R_FXgjmGOZawHB2lFZ',
 			'theme' : 'light',
-			'type' : 'audio image',
-			'language' : 'en'
+			'type' : 'audio image'
 		});
 	};
 </script>
@@ -101,7 +101,7 @@ var affiliate = "${affiliate}";
 		<div id="captchaBox"></div>
 		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
-	<script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit"
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
 		async defer>
 	</script>
 </div>
