@@ -351,14 +351,15 @@
                                                 name="emailAddress" class="form-control check-emp-forgotuserpassoword" id="emailAddress-forgotpassowrd"
                                                 onkeypress="return validationEmail(event);"
 												onblur="validForgetUserPassword();"
-                                                placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> <span id="errorEmptyEmailId" class="hide1"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>
+                                                placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />">
                                                 </div>
                                                 
                                                 
                                                 
 
                                                 
-                                                <!-- 電郵 Errror message -->                                             
+                                                <!-- 電郵 Errror message -->
+                                                <span id="errorEmptyEmailId" class="hide1 empHide"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>                                             
                                                 <span id="errorEmptyEmailId-forgotpassword" class="hide1 empHide">
                                                      <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
                                                 </span>

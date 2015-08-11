@@ -101,7 +101,7 @@
 															<p><fmt:message key="savie.summary.marital_status" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieApplicantBean.maritalStatus }</p>
+															<p>${savieDetail.savieApplicantBean.maritalStatusDesc }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
@@ -115,14 +115,14 @@
 															<p><fmt:message key="savie.summary.place_birth" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieApplicantBean.placeOfBirth }</p>
+															<p>${savieDetail.savieApplicantBean.placeOfBirthDesc }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.nationality" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieApplicantBean.nationality }</p>
+															<p>${savieDetail.savieApplicantBean.nationalityDesc }</p>
 														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
@@ -143,7 +143,7 @@
 															<p><fmt:message key="savie.summary.residential_address" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p class="line">Tung Hip building, Room 601, 248 Des Voeux Road, Sheung Wan.</p>
+															<p class="line">${savieDetail.savieApplicantBean.residentialAdress1 },${savieDetail.savieApplicantBean.residentialAdress2 },${savieDetail.savieApplicantBean.residentialAdress3 },${savieDetail.savieApplicantBean.residentialDistrictDesc }</p>
 														</div>
 													</div>
 												</div>
@@ -154,28 +154,28 @@
 															<p><fmt:message key="savie.summary.employment_status" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieEmploymentBean.employmentStatus }</p>
+															<p>${savieDetail.savieEmploymentBean.employmentStatusDesc }</p>
 														</div>	
 														<div class="clearfix"></div>                                
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.occupation" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieEmploymentBean.occupation }</p>
+															<p>${savieDetail.savieEmploymentBean.occupationDesc }</p>
 														</div>				        
 														<div class="clearfix"></div>                        
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.nature_business" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieEmploymentBean.natureOfBusiness }</p>
+															<p>${savieDetail.savieEmploymentBean.natureOfBusinessDesc }</p>
 														</div>				        
 														<div class="clearfix"></div>                        
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.monthly_personal" bundle="${msg}" /> <span class="p-monthly"><fmt:message key="savie.summary.income" bundle="${msg}" /></span></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.savieEmploymentBean.monthlyPersonalIncome }</p>
+															<p>${savieDetail.savieEmploymentBean.monthlyPersonalIncomeDesc }</p>
 														</div>
 													</div>
 												</div>
@@ -208,7 +208,7 @@
 																<p><fmt:message key="savie.summary.relationship" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
-																<p>${savieBeneficiaryBean.relationship }</p>
+																<p>${savieBeneficiaryBean.relationshipDesc }</p>
 															</div>	
 															<div class="clearfix"></div>    
 															<div class="col-xs-6 col-md-3">

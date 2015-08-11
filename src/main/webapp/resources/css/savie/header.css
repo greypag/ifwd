@@ -302,6 +302,8 @@ h4.margin-shift {
 .login-form h4 {
   color: #061d2a;
   font-size: 18px;
+  font-weight: normal !important;
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;
 }
 .login-form h4 a {
   color: #f68a1d;
@@ -385,6 +387,7 @@ h4.margin-shift {
   text-align: left;
   margin-top: 10px !important;
   text-decoration: underline;
+  font-weight: normal !important;
 }
 .sidepanel-menu li {
   border-bottom: 1px solid #f6871e;
@@ -621,8 +624,8 @@ ul.maintabs li a:hover{ color: #fff ;}
 
 ul.maintabs li .offer{
   background-image: url("../../images/iFwd_navigation-icon_desktop_default.png");
-  width: 57px;
-  height: 49px;
+  width: 56px;
+  height: 48px;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -657,6 +660,18 @@ ul.maintabs li a span.offer:hover{
 
 .chin .travel-and-home-tab{
     top:56px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .travel-special, .travel-and-home-tab{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    ul.maintabs li .offer{
+        top:5px;
+        right:5px;
+    }
 }
 
 /***** mobile side menu *****/
@@ -724,4 +739,8 @@ ul.maintabs li a span.offer:hover{
 	.top-bar .navbar-right {
 	    margin-right: 0px;
 	}
+}
+
+.invalid-field {
+    border: 2px solid red !important;
 }
