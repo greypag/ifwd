@@ -75,9 +75,9 @@ var affiliate = "${affiliate}";
 
 	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm" action="teaser.jsp">
 		<div class="form-group">
-			<input type="email" placeholder="<fmt:message key="savie.interestGather.signupform.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val=""> 
+			<input type="email" placeholder="<fmt:message key="savie.interestGather.signupform.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val="" maxlength="50" onkeypress="checkChineseCharEmail(event)"> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input type="tel" placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
+			<input placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="tel">
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 			<input type="hidden" name="affiliate" value="${affiliate}">
 		</div>
@@ -188,7 +188,7 @@ var affiliate = "${affiliate}";
 							id="amountToSave">
 							<option selected disabled value=""><fmt:message key="savie.interestGather.survey.please.select" bundle="${msg}" /></option>
 							<c:forEach var="savieAns" items="${savieAns}" varStatus="theCount">
-								<option value="${savieAns.itemCode }">${savieAns.itemDesc }</option>
+								<option value="${savieAns.itemCode }" class="options">${savieAns.itemDesc }</option>
 							</c:forEach>
 						</select>
 					</div>

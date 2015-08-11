@@ -156,7 +156,7 @@ public class SaviePageFlowControl {
 			 */
 			if(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING.equals(key)) {
 				to = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
-				current = "interest-gathering";
+				current = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
 			}else {
 				to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
 			}
