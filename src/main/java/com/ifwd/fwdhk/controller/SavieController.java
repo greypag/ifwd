@@ -197,7 +197,7 @@ public class SavieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering","/{lang}/savings-insurance"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
 
-		String affiliate = (String) request.getAttribute("affiliate");
+		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){
 			affiliate = "";
 		}

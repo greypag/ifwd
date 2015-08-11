@@ -79,6 +79,7 @@ var affiliate = "${affiliate}";
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
 			<input type="tel" placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)"> 
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
+			<input type="hidden" name="affiliate" value="${affiliate}">
 		</div>
 		<div class="clearfix">
 			<div class="pull-left checkbox">
