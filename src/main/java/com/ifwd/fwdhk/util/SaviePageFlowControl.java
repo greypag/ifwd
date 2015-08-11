@@ -151,7 +151,15 @@ public class SaviePageFlowControl {
 			break;
 		
 		case UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED:
-			to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+			/**
+			 * 通过savings-insurance才可以进入email-submitted页面，否则返回savings-insurance
+			 */
+			if(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING.equals(key)) {
+				to = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+				current = "interest-gathering";
+			}else {
+				to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
+			}
 			break;
 			
 		case UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF:

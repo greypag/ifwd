@@ -11,6 +11,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,9 +25,8 @@ public class TestController {
 	@Autowired
 	private RestServiceDao restService;
 	
-	@RequestMapping(value = {"/testPaymentStatus" })
-	@ResponseBody
-	public String testPaymentStatus(HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/testPaymentStatus" })
+	public ModelAndView testPaymentStatus(Model model,HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
 		String token = null, username = null;
@@ -57,13 +57,16 @@ public class TestController {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+		String result = null;
 		if(responseJsonObj.isEmpty()){
-			return "ISEMPTY";
+			result = "ISEMPTY";
 		}else if(responseJsonObj.get("errMsgs") == null){
-			return "OK";
+			result = "OK";
 		}else {
-			return "ERROR";
+			result = "ERROR";
 		}
+		model.addAttribute("result", result);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "testPaymentResult");
 	}
 	
 	@RequestMapping(value = {"/{lang}/testPaymentStatusView" })

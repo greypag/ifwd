@@ -274,6 +274,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<script src="<%=request.getContextPath()%>/resources/js/savie/placeholders.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 
 	<script type="text/javascript">
 		window.status = "Done";

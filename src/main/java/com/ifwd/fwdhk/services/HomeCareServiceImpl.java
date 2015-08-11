@@ -114,10 +114,10 @@ public class HomeCareServiceImpl implements HomeCareService {
 		String ans2 = "";
 		// answer1 = StringHelper.convertToUTF8(answer1);
 
-		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦")) {
+		if (answer1.equalsIgnoreCase("NO") || answer1.equals("å¦") || answer1.equals("否")) {
 			ans1 = "N";
 		}
-		if (answer2.equalsIgnoreCase("NO") || answer2.equals("å¦")) {
+		if (answer2.equalsIgnoreCase("NO") || answer2.equals("å¦") || answer2.equals("否")) {
 			ans2 = "N";
 		}
 		// NAT TEMPORARILY SET BEFORE THE LANGUAGE PROBLEM SOLVED IN API

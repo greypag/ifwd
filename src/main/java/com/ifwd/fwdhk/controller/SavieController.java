@@ -194,13 +194,14 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SIGNATURE);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering","/{lang}/savings-insurance"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering","/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
 
-		String affiliate = (String) request.getAttribute("affiliate");
+		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){
 			affiliate = "";
 		}
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
@@ -233,7 +234,15 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/interest-gathering/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
+		/**
+		 * 通过savings-insurance才可以进入email-submitted页面
+		 */
+		String referer = request.getHeader("referer");
+		if(referer != null && (referer.endsWith("savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1)) {
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
+		}else {
+			return getSavieEmailConfirmed(model, request);
+		}
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
