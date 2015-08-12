@@ -155,14 +155,14 @@ function checkEmail(email) {
 function sendStep1Email() {
 	var teaserEmail = $("#teaserEmail").val();
 	var teaserPhoneNo = $("#teaserPhoneNo").val();
-	sendlead(teaserEmail,teaserPhoneNo,"","1");
+	sendlead(teaserEmail,teaserPhoneNo,"","1",grecaptcha.getResponse());
 }
 
 function sendStep2Email() {
 	var teaserEmail = $("#teaserEmail").val();
 	var answer1 = $("#amountToSave").val();
 	if(answer1 != '' && answer1 != null){
-		sendlead(teaserEmail,"",answer1,"2");
+		sendlead(teaserEmail,"",answer1,"2","");
 	}
 }
 
@@ -184,7 +184,7 @@ function sendMessagesEmail(email,attachment) {
 	});
 }
 
-function sendlead(email,mobileNo,answer1,step) {
+function sendlead(email,mobileNo,answer1,step,captcha) {
 	if( affiliate == null){
 		affiliate = "";
 	}
@@ -196,11 +196,12 @@ function sendlead(email,mobileNo,answer1,step) {
 	    	"mobileNo":mobileNo,
 	        "answer1": answer1,
 	        "affiliate":affiliate,
-	        "step": step    
+	        "step": step,
+	        "captcha": captcha
    		},        
 	    error:function(){
 	    },     
-	    success:function(data){ 
+	    success:function(data){
 	    	if(data.errMsgs == null ){
 	    		if(step == '1'){
 	    			var attachment = "";
@@ -212,6 +213,8 @@ function sendlead(email,mobileNo,answer1,step) {
 		    		$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.used.message")).removeClass('hideSpan');
 		    	}else if(data.errMsgs == getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.non8digit.message")){
 		    		$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.non8digit.message")).removeClass('hideSpan');
+		    	}else if(data.errMsgs == "captcha error"){
+		    		$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "form.captcha.empty.message")).removeClass('hideSpan');
 		    	}else{
 		    		$('#checkboxErrorMessage').html(data.errMsgs).removeClass('hideSpan');
 		    	}
