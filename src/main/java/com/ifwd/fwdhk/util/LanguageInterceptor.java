@@ -15,11 +15,10 @@ public class LanguageInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();   
 		String url = request.getServletPath();   
         
-        if(url.indexOf("/en/")>=0)
-        {
+		if(url.indexOf("/en/")>=0) {
         	session.setAttribute("language", "en");
         	session.setAttribute("uiLocale", "en-US");
-        }else{
+        }else if(url.indexOf("/tc/")>=0){
         	session.setAttribute("language", "tc");
         	session.setAttribute("uiLocale", "zh-HK");        	
         }

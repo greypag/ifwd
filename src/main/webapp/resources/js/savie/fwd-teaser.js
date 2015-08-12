@@ -1,14 +1,27 @@
-	function checkChineseCharEmail(e) {
-		if(((e.keyCode >= 48 && e.keyCode<=57) || (e.keyCode >= 65  && e.keyCode<=90) || e.keyCode==64  || e.keyCode ==45 || e.keyCode == 95 || e.keyCode == 46)){
-			return true;
-		}else{
-			return false;
-		}
+function checkChineseCharEmail(e) {
+	if(((e.keyCode >= 48 && e.keyCode<=57) || (e.keyCode >= 65  && e.keyCode<=90) || e.keyCode==64  || e.keyCode ==45 || e.keyCode == 95 || e.keyCode == 46)){
+		return true;
+	}else{
+		return false;
 	}
+}
+	
+function isNumberKey(evt){
+	var charCode = (evt.which) ? evt.which : event.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57))
+		return false;
+	return true;
+}   
+	
+	
 $(function() {
 	
 	if(lang=='tc'){
 		//Chinese
+		$('#teaser-banner-mobile-ch').removeClass('hidden');
+		$('#teaser-banner-desktop-ch').removeClass('hidden');
+		$('#teaser-banner-mobile-en').addClass('hidden');
+		$('#teaser-banner-desktop-en').addClass('hidden');
 		$('#teaserEmail').removeClass('email');
 		$('#teaserEmail').addClass('email-ch');
 		$('#hunger-selling-banner').removeClass('hunger-selling');
@@ -23,6 +36,10 @@ $(function() {
 		
 	}else{
 		//English
+		$('#teaser-banner-mobile-ch').addClass('hidden');
+		$('#teaser-banner-desktop-ch').addClass('hidden');
+		$('#teaser-banner-mobile-en').removeClass('hidden');
+		$('#teaser-banner-desktop-en').removeClass('hidden');
 		$('#teaserEmail').addClass('email');
 		$('#teaserEmail').removeClass('email-ch');
 		$('#hunger-selling-banner').removeClass('hunger-selling-ch');

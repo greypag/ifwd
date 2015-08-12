@@ -28,23 +28,34 @@ var affiliate = "${affiliate}";
 </script>
 
 
-<div class="text-center banner-widget hunger-selling container-fluid" id="hunger-selling-banner">
-
+<div class="teaser-banner container-fluid" id="hunger-selling-banner">
+	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-desktop-en" bundle="${msg}" />"
+		id="teaser-banner-mobile-en" 
+		class="max hidden-xs hidden">
+	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-mobile-en" bundle="${msg}" />"
+		id="teaser-banner-desktop-en" 
+		class="max hidden-sm hidden-md hidden-lg hidden">
+	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-desktop-ch" bundle="${msg}" />"
+		id="teaser-banner-mobile-ch" 
+		class="max hidden-xs hidden">
+	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-mobile-ch" bundle="${msg}" />"
+		id="teaser-banner-desktop-ch" 
+		class="max hidden-sm hidden-md hidden-lg hidden">
 	<div class="text-content hidden" id="banner-text-english">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
-			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
+			class="img-responsive mobile teaser-banner-mobile">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
-			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
+			class="img-responsive desktop teaser-banner-desktop">
 	</div>
 	<div class="text-content hidden" id="banner-text-chinese">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile.ch" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
-			class="img-responsive hidden-md hidden-lg teaser-banner-mobile">
+			class="img-responsive mobile teaser-banner-mobile">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner.ch" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
-			class="img-responsive hidden-xs hidden-sm teaser-banner-desktop">
+			class="img-responsive desktop teaser-banner-desktop">
 	</div>
 </div>
 
@@ -79,7 +90,7 @@ var affiliate = "${affiliate}";
 		<div class="form-group">
 			<input type="email" placeholder="<fmt:message key="savie.interestGather.signupform.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val="" maxlength="50" onkeypress="checkChineseCharEmail(event)"> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="tel">
+			<input placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)" onkeyup="return isNumberKey(event)">
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 			<input type="hidden" name="affiliate" value="${affiliate}">
 		</div>
@@ -102,7 +113,7 @@ var affiliate = "${affiliate}";
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
 		
 		<div id="captchaBox"></div>
-		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn" ><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
+		<button type="submit" class="btn-orange-teaser" id="teaser-sign-up-btn"><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
 	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
 		async defer>

@@ -476,15 +476,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						</div>
 
 						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
-							value="${quoteDetails.toalDue[i]}"> <input
+							value="<%=travelQuote.getToalDue()[i]%>"> <input
 							type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
-							value="${quoteDetails.grossPremium[i]}"> <input
+							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
-							value="${quoteDetails.discountAmount[i]}"> <input
+							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
 							type="hidden" name="referralCode" id="referralCode<%=i%>"
-							value="${quoteDetails.referralCode}"> <input
+							value="<%=travelQuote.getReferralCode()%>"> <input
 							type="hidden" name="referralName" id="referralName<%=i%>"
-							value="${quoteDetails.referralName}">
+							value="<%=travelQuote.getReferralName()%>">
 						<%
 							}
 						%>
