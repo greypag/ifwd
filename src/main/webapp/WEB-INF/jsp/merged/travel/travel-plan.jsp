@@ -253,8 +253,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	     }else{
 	       traveller = personalTraveller;
 	     }
-	   
-	    submitPlan();
 	});
 </script>
 <style>
@@ -294,7 +292,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/${language}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" >
+			<form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/${language}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -1544,7 +1542,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		    </div>
 		</div>
 
-		</form:form>
+		</form>
 		
 	</div>
 	<!--/.row-->
