@@ -238,7 +238,10 @@ public class SavieController extends BaseController{
 		 * 通过savings-insurance才可以进入email-submitted页面
 		 */
 		String referer = request.getHeader("referer");
-		if(referer != null && (referer.endsWith("savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1)) {
+		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/interest-gathering/email-submitted")
+				|| referer.endsWith("/savings-insurance/interest-gathering") || referer.endsWith("/savings-insurance/")
+				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
+				|| referer.indexOf("/savings-insurance/interest-gathering?affiliate") > 1)) {
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
 		}else {
 			return getSavieEmailConfirmed(model, request);
