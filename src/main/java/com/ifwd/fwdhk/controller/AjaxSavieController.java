@@ -22,6 +22,7 @@ import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
+import com.ifwd.fwdhk.util.ValidationUtils;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -113,18 +114,33 @@ public class AjaxSavieController extends BaseController{
 			@RequestParam String email,
 			@RequestParam String mobileNo,
 			@RequestParam String answer1,
-			@RequestParam String step) {
+			@RequestParam String step,
+			@RequestParam String captcha) {
 		
 		if (Methods.isXssAjax(request))
 			return;
 		
 		try {
 			
-			BaseResponse br = savieService.sendLead(request);
-			
-			logger.info("apiJsonObj:"+br);
-			
-			ajaxReturn(response,br);
+			boolean isValidRequest = true;
+
+			if ("1".equals(step)) {
+				isValidRequest = ValidationUtils.verifyGoogleRecaptcha(captcha);
+			}
+			if (!isValidRequest) {
+				try {
+					response.setContentType("text/json;charset=utf-8");					
+					response.getWriter().print("{\"errMsgs\":\"captcha error\"}");
+				}catch(Exception e) {
+					e.printStackTrace();
+				}				
+			} else {
+				BaseResponse br = savieService.sendLead(request);
+				
+				logger.info("apiJsonObj:"+br);
+				
+				ajaxReturn(response,br);
+			}
 			
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());

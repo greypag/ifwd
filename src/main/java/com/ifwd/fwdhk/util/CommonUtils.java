@@ -52,6 +52,7 @@ public class CommonUtils {
 				
 			} catch (Exception e) {
 				logger.info("error : " + e.getMessage());
+				System.exit(0);
 			}
 		}
 		else
@@ -114,11 +115,16 @@ public class CommonUtils {
 							}
 							
 						}
+						else{
+							logger.info("something wrong");
+							System.exit(0);
+						}
 					}
 					
 					
 				} catch (Exception e) {
 					logger.info("error : " + e.getMessage());
+					System.exit(0);
 				}
 			}
 			
@@ -160,9 +166,14 @@ public class CommonUtils {
 							}
 						}
 						}
+					else{
+						logger.info("something wrong");
+						System.exit(0);
+					}
 				}
 			} catch (Exception e) {
 				logger.info("error : " + e.getMessage());
+				System.exit(0);
 			}
 		}
 		
@@ -211,11 +222,16 @@ public class CommonUtils {
 						}
 					}
 					}
+				else{
+					logger.info("something wrong");
+					System.exit(0);
+				}
 			}
 				
 			logger.info("***********responseJsonObj****************:"+responseJsonObj);
 		} catch (Exception e) {
 			logger.info("error : " + e.getMessage());
+			System.exit(0);
 		}
 		
 	}

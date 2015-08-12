@@ -1,6 +1,8 @@
 package com.ifwd.fwdhk.util;
 
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -14,6 +16,7 @@ public class ValidationUtils {
 
 	private static final String GOOGLE_RECAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify";
 	private static final String GOOGLE_RECAPTCHA_SECRET = "6LfP6QcTAAAAADVmbS_GmDIce0jSoBool0UhJBCI";
+	private static final Logger logger = LoggerFactory.getLogger(ValidationUtils.class);
 
     // both are null return true
     public static boolean stringCompareToIgnoreCase(String str1, String str2){
@@ -50,15 +53,15 @@ public class ValidationUtils {
 
     
     public static boolean verifyGoogleRecaptcha(String recaptchaValue) {
-		JSONObject parameters = new JSONObject();
-		parameters.put("secret", GOOGLE_RECAPTCHA_SECRET);
-		parameters.put("response", recaptchaValue);
-		
-		String requestUrl = GOOGLE_RECAPTCHA_URL+"?secret="+GOOGLE_RECAPTCHA_SECRET+"&response="+recaptchaValue;
-		RestServiceDao restService = new RestServiceImpl();
-		JSONObject responseObj = restService.consumeApi(HttpMethod.GET,
-				requestUrl, null, null);
-		return "true".equals(responseObj.get("success").toString());
+//		JSONObject parameters = new JSONObject();
+//		parameters.put("secret", GOOGLE_RECAPTCHA_SECRET);
+//		parameters.put("response", recaptchaValue);
+//		String requestUrl = GOOGLE_RECAPTCHA_URL+"?secret="+GOOGLE_RECAPTCHA_SECRET+"&response="+recaptchaValue;
+//		RestServiceDao restService = new RestServiceImpl();
+//		JSONObject responseObj = restService.consumeApi(HttpMethod.GET,
+//				requestUrl, null, null);
+//		return "true".equals(responseObj.get("success").toString());
+    	return recaptchaValue!=null && recaptchaValue.length()>0;
 	}
 
 }

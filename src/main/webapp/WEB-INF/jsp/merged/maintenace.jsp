@@ -14,8 +14,8 @@ $(document).ready(function() {
 <!--/#main-Content-->
 <div class="container">
 
-    <div align="center" style="margin-top:80px;">
-        <img src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon1.png">
+    <div align="center">
+        <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/FWD_system_Maintenance_icon1b_trans.gif">
     </div>
     
     

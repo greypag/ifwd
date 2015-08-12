@@ -1959,6 +1959,9 @@ function fPlanValid()
 		scrollToElement(firstErrorElementId);
 	}
 
+	if(!flag){
+		$('#loading-overlay').modal('hide');
+	}
 
 	return flag;
 
@@ -3791,10 +3794,6 @@ function tPlanValid()
     }else{
     	if(flag){
     		travelp_click = true;
-    		$('#loading-overlay').modal({
-	           backdrop: 'static',
-	           keyboard: false
-	        })
     	}else{
     		$('#loading-overlay').modal('hide');
     	}
@@ -3858,10 +3857,7 @@ function flightValidateDesk()
 {
 	var flag = true;
 	flag = flightValidateGetQuote("txtStartDateDesk", "startDateDeskIn", "txtEndDateDesk", "endDateDeskIn", "txtTravellersDesk", "lblPeopleDesk", "travelCountDeskIn");
-	
-	if(!flag){
-		$('#loading-overlay').modal('hide');
-	}
+
 	return flag;
 }
 function flightValidateMob() {
@@ -5289,10 +5285,6 @@ function hc_planValid() {
     	return false;
     }else{
     	if(flag){
-    		$('#loading-overlay').modal({
-                backdrop: 'static',
-                keyboard: false
-             })
              home_click = true;
     	}else{
     		$('#loading-overlay').modal('hide');

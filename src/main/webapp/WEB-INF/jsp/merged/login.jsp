@@ -577,6 +577,7 @@
 	<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
 	    <div class="modal-dialog modal-lg loading-dialog">
 	        <div class="modal-content plan-modal loading-modal">
+	           <img src="<%=request.getContextPath()%>/resources/images/loading.gif" width="200"/>
 	        </div>
 	    </div>
 	</div>
