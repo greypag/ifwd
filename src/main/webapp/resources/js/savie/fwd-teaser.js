@@ -120,7 +120,6 @@ $(function() {
 			$('#phoneErrMsg').addClass('hideSpan');
 			sendStep1Email();
 		}
-
 	});
 
 	/*$("#teaserPhoneNo").keypress(function(event) {
@@ -188,6 +187,7 @@ function sendlead(email,mobileNo,answer1,step,captcha) {
 	if( affiliate == null){
 		affiliate = "";
 	}
+	$('#teaser-sign-up-btn').prop('disabled', true);
 	$.ajax({     
 	    url: context+'/ajax/savie/interestGather/post',     
 	    type:'post',     
@@ -218,7 +218,8 @@ function sendlead(email,mobileNo,answer1,step,captcha) {
 		    	}else{
 		    		$('#checkboxErrorMessage').html(data.errMsgs).removeClass('hideSpan');
 		    	}
-	    	}     
+	    	}
+			$('#teaser-sign-up-btn').prop('disabled', false);
 	    }  
 	});
 }
