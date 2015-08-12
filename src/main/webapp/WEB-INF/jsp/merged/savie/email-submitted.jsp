@@ -41,11 +41,11 @@
 <script type="text/javascript">
 	$(function() {
 		var b = document.getElementById('wa-share');
-		var waShareUrl = window.location.protocol + "//"  + window.location.host + "<%=request.getContextPath()%>/${language}/savings-insurance";
+		var waShareUrl = 'https:' + "//"  + window.location.host + "<%=request.getContextPath()%>/${language}/savings-insurance";
 		var text = "?text=" + encodeURIComponent(b.getAttribute("data-text")) + (b.getAttribute("data-text") ? "%20" : "") + encodeURIComponent(waShareUrl);
 		b.setAttribute("href", b.getAttribute("href") + text);
 		
-		var fbShareUrl = window.location.protocol + "//"  + window.location.host + "<%=request.getContextPath()%>/${language}/savings-insurance";
+		var fbShareUrl = 'https:' + "//"  + window.location.host + "<%=request.getContextPath()%>/${language}/savings-insurance";
 		$('#fwd-fb-share').on('click', function() {
 			window.open('http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(fbShareUrl) + '&','', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');
 		});
