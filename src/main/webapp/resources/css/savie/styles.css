@@ -13436,3 +13436,11 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 .empHide{
 	font-size:16px;
 }
+
+body.chin .fwd-savie-wrapper .btn-white,
+body.chin .fwd-savie-wrapper .sign-up-teaser .pull-left.text,
+body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-menu-right,
+body.chin .fwd-savie-wrapper .modal.fade,
+body.chin .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown{
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
