@@ -37,7 +37,7 @@ $(document).ready(function() {
         </h3>
     </div>
     
-    <div align="center" style="margin-top:55px; margin-bottom:80px;" >
+    <div align="center" style="margin-top:55px; margin-bottom:80px;position: relative;" >
         <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;width:200px;" ><fmt:message key="system.back.to.me" bundle="${msg}" /></a>
         <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;width:200px;background-color: #F7662B;position: absolute;left:50%;margin-left:-95px;top:5px;" ><fmt:message key="system.back.to.me" bundle="${msg}" /></a>
         <a href="/" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;width:200px;background-color: #FBBA45;position: absolute;left:50%;margin-left:-100px;" ><fmt:message key="system.back.to.me" bundle="${msg}" /></a>
