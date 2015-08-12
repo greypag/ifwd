@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -19,6 +21,7 @@ import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxSavieController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieController.class);
@@ -31,6 +34,8 @@ public class AjaxSavieController extends BaseController{
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
 	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
+		if (Methods.isXssAjax(request))
+			return;
 		try {
 			savieService.getPlanDetails(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
@@ -71,7 +76,8 @@ public class AjaxSavieController extends BaseController{
 			@RequestParam float monthSavingsNoInterest,
 			@RequestParam float monthSavingsWithInterest,
 			@RequestParam String playerEmail) {
-		
+		if (Methods.isXssAjax(request))
+			return;
 		SendEmailInfo sei = new SendEmailInfo();
 		sei.setDreamName(dreamName);
 		sei.setDreamLevelDescription(dreamLevelDescription);
@@ -109,6 +115,9 @@ public class AjaxSavieController extends BaseController{
 			@RequestParam String answer1,
 			@RequestParam String step) {
 		
+		if (Methods.isXssAjax(request))
+			return;
+		
 		try {
 			
 			BaseResponse br = savieService.sendLead(request);
@@ -124,6 +133,8 @@ public class AjaxSavieController extends BaseController{
 
 	}
 	
+	
+
 	@RequestMapping(value = {"/ajax/savie/messages/email"} )
 	public void sendMessagesEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response) {

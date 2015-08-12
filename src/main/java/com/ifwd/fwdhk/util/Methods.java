@@ -16,6 +16,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -44,7 +45,15 @@ public class Methods {
 	public void setSimulator(boolean simulator) {
 		this.simulator = simulator;
 	}
-	
+	public static boolean isXssAjax(HttpServletRequest request) {
+		String referrer = request.getHeader("referer");
+		logger.info(referrer);
+		if (referrer.contains(request.getServerName()))
+			return false;
+		else
+			return true;
+		
+	}
 
 	public static boolean  isHkid(String hkid){
 		

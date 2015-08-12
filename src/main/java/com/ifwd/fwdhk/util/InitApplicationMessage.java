@@ -67,11 +67,13 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	
 	public static void init(CommonUtils commonUtils){
+		logger.info("init : start application");
+		
 		
 		try {
 			maritalStatusesEN = commonUtils.getOptionItemDescList("maritalStatus","EN");
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
+			logger.error("error : "+e.getMessage());
 			maritalStatusesEN=null;
 		}
 		logger.info("maritalStatusesEN : " + maritalStatusesEN);
