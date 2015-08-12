@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -28,7 +30,7 @@ public class CommonUtils {
 	private RestServiceDao restService;
 	
 	@SuppressWarnings("unchecked")
-	public String getToken() {
+	public String getToken(String type) {
 		
 		String token = "";
 		
@@ -49,24 +51,20 @@ public class CommonUtils {
 				}
 				
 			} catch (Exception e) {
-				logger.info("error : " + e.getMessage());
+				logger.error("error : "+e.getMessage());
+				if("start".equals(type)){
+					System.exit(0);
+				}
 			}
 		}
 		else
 		{
 			token = InitApplicationMessage.initToken ;
 		}
-		
-		
-		
-		
-	
 		return token;
 	}
 
-	
-	public List<OptionItemDesc> getOptionItemDescList(String param,String language) {
-		
+	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type) {
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		
 		if(param.equals("occupation")) {
@@ -78,7 +76,7 @@ public class CommonUtils {
 							COMMON_HEADERS);
 					
 					header.put("userName", "*DIRECTGI");
-					header.put("token", getToken());
+					header.put("token", getToken(type));
 					header.put("language", WebServiceUtils.transformLanaguage(language));
 					
 					JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
@@ -110,11 +108,18 @@ public class CommonUtils {
 							}
 							
 						}
+						else{
+							logger.error("error : "+responseJsonObj.get("errMsgs"));
+							if("start".equals(type)){
+								System.exit(0);
+							}
+						}
 					}
-					
-					
 				} catch (Exception e) {
-					logger.info("error : " + e.getMessage());
+					logger.error("error : " + e.getMessage());
+					if("start".equals(type)){
+						System.exit(0);
+					}
 				}
 			}
 			
@@ -126,7 +131,7 @@ public class CommonUtils {
 						COMMON_HEADERS);
 				
 				header.put("userName", "*DIRECTGI");
-				header.put("token", getToken());
+				header.put("token", getToken(type));
 				header.put("language", WebServiceUtils.transformLanaguage(language));
 				
 				JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
@@ -156,16 +161,25 @@ public class CommonUtils {
 							}
 						}
 						}
+					else{
+						logger.error("error : " + responseJsonObj.get("errMsgs"));
+						if("start".equals(type)){
+							System.exit(0);
+						}
+					}
 				}
 			} catch (Exception e) {
-				logger.info("error : " + e.getMessage());
+				logger.error("error : " + e.getMessage());
+				if("start".equals(type)){
+					System.exit(0);
+				}
 			}
 		}
 		
 		return OptionItemDescList;
 	}
 	
-	public void getImageConfig(){
+	public void getImageConfig(String type){
 		String configurationKey = "";
 		String configurationValue = "";
 		
@@ -175,7 +189,7 @@ public class CommonUtils {
 					COMMON_HEADERS);
 			
 			header.put("userName", "*DIRECTGI");
-			header.put("token", getToken());
+			header.put("token", getToken(type));
 			header.put("language", "EN");
 			
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
@@ -207,15 +221,21 @@ public class CommonUtils {
 						}
 					}
 					}
+				else{
+					logger.error("error : " + responseJsonObj.get("errMsgs"));
+					if("start".equals(type)){
+						System.exit(0);
+					}
+				}
 			}
 				
 			logger.info("***********responseJsonObj****************:"+responseJsonObj);
 		} catch (Exception e) {
-			logger.info("error : " + e.getMessage());
+			logger.error("error : " + e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		
 	}
-	
-	
-	
 }

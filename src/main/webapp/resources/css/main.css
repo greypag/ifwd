@@ -315,10 +315,11 @@ ul.maintabs li a:hover{ color: #fff ;}
 ul.maintabs li .offer{
   background-image: url("../images/iFwd_navigation-icon_desktop_default.png");
   width: 56px;
-  height: 48px;
+  height: 49px;
   position: absolute;
   top: 15px;
   right: 15px;
+  background-size:100%;
 }
 ul.maintabs li:hover .offer{
   background-image: url("../images/iFwd_navigation-icon_desktop_hover.png");
@@ -327,6 +328,26 @@ ul.maintabs li.active .offer{
   background-image: url("../images/iFwd_navigation-icon_desktop_hover.png");
 }
 ul.maintabs li a span.offer:hover{
+  color: #fff !important;
+  font-size: 18px;
+}
+
+ul.maintabs li .special-offer{
+  background-image: url("../images/ifwd_savie_navigation-icon_limited-offer_default.png");
+  width: 56px;
+  height: 49px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-size:100%;
+}
+ul.maintabs li:hover .special-offer{
+  background-image: url("../images/ifwd_savie_navigation-icon_limited-offer_hover.png");
+}
+ul.maintabs li.active .special-offer{
+  background-image: url("../images/ifwd_savie_navigation-icon_limited-offer_hover.png");
+}
+ul.maintabs li a span.special-offer:hover{
   color: #fff !important;
   font-size: 18px;
 }
@@ -5308,18 +5329,35 @@ input[type='radio']:checked:before {
 }
 
 .sidepanel-menu li .offer{
-  background-image: url("../images/iFwd_navigation-icon_mobile_default.png");
+  background-image: url("../images/iFwd_navigation-icon_desktop_default.png");
   width: 41px;
-  height: 36px;
+  height: 37px;
   position: absolute;
   top: 8px;
   right: 85px;
+  background-size:100%;
 }
 .sidepanel-menu li:hover .offer{
-  background-image: url("../images/iFwd_navigation-icon_mobile_hover.png");
+  background-image: url("../images/iFwd_navigation-icon_desktop_hover.png");
 }
 .sidepanel-menu li.active .offer{
-  background-image: url("../images/iFwd_navigation-icon_mobile_hover.png");
+  background-image: url("../images/iFwd_navigation-icon_desktop_hover.png");
+}
+
+.sidepanel-menu li .special-offer{
+  background-image: url("../images/ifwd_savie_navigation-icon_limited-offer_default.png");
+  width: 41px;
+  height: 37px;
+  position: absolute;
+  top: 35px;
+  right: 85px;
+  background-size:100%;
+}
+.sidepanel-menu li:hover .special-offer{
+  background-image: url("../images/ifwd_savie_navigation-icon_limited-offer_hover.png");
+}
+.sidepanel-menu li.active .special-offer{
+  background-image: url("../images/ifwd_savie_navigation-icon_limited-offer_hover.png");
 }
 
 .sidepanel-menu a {

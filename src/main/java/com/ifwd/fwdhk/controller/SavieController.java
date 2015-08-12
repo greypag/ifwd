@@ -52,7 +52,7 @@ public class SavieController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 		
-	@RequestMapping(value="/savie", method = RequestMethod.GET)
+	@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
 		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
@@ -238,7 +238,10 @@ public class SavieController extends BaseController{
 		 * 通过savings-insurance才可以进入email-submitted页面
 		 */
 		String referer = request.getHeader("referer");
-		if(referer != null && (referer.endsWith("savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1)) {
+		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/interest-gathering/email-submitted")
+				|| referer.endsWith("/savings-insurance/interest-gathering") || referer.endsWith("/savings-insurance/")
+				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
+				|| referer.indexOf("/savings-insurance/interest-gathering?affiliate") > 1)) {
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
 		}else {
 			return getSavieEmailConfirmed(model, request);
@@ -328,7 +331,7 @@ public class SavieController extends BaseController{
 	 */
 	@RequestMapping(value = {"/{lang}/reloadInitAppMsg"},method=RequestMethod.GET)
 	public ModelAndView reloadInitMsg(HttpServletRequest request,HttpServletResponse response){
-		InitApplicationMessage.init(commonUtils);
+		InitApplicationMessage.init(commonUtils, "reload");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "downloadTest");

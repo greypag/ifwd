@@ -85,213 +85,214 @@ var benHkidPlaceholder="<fmt:message key="flight.details.insured.beneficiary.hki
 
 
 function activateUserAccountJoinUs() {
-	//html change, change the submit input type to button, add a onclick function
-    //html change, added some error html note for user, so they know if the user name and email is not success
+    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
     
-    //basic logic(how it works)    
-    /*
-    1. if no username or password is filled, direct submit the form
-    2. if username field is filled, call the create user ajax and post data
-    3. if the data has something wrong, return and show msg.
-    4. if the data is correct, user created and will continue to submit the form.
-    5, If user is created and the normal form data is missing, 
-       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
-    */
-    
-    /*name = document.getElementById("Username").value;
-    password = document.getElementById("Password").value;
-    password2 = document.getElementById("Confirm-Password").value;*/
-  
-    name = $("#Username").val();
-    password = $("#Password").val();
-    password2 = $("#Confirm-Password").val();
-    
-    $("#UsernameError").text("");
-    $("#PasswordError").text("");
-    $("#Confirm-PasswordError").text("");
-    $("#Username").removeClass("invalid-field");
-    $("#Password").removeClass("invalid-field");
-    $("#Confirm-Password").removeClass("invalid-field");
-    
-    //first error element
-    var firstErrorElementId="";
-    
-            
-    if(name == "" && password == "" && password2 == ""){
-        $('#freeFlightForm').submit()
-    }else{
-    	
-    	if(name != "" && password != "" && password2 != ""){
-    		$('#chk1').html('');
-            $('#chk2').html('');
-            
-            $('#dobInvalid').html('');
-    		
-    		validateForm = true;
-    		if (!checkMembership("Username")){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Username";
-                }
-    			validateForm = false;	
-    		}
-    		if (!checkMembership("Password")){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Password";
-                }
-    			validateForm = false;	
-    		}
-    		if (!checkMembership("Confirm-Password")){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Confirm-Password";
-                }
-                validateForm = false;	
-    		}
-    		var applicantDob = $("#applicantDob").val();
-            if (applicantDob.trim() == "") {
-                
-                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
-                $("#input_dob").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="applicantDob";
-                }
-                validateForm = false;               
-            }
-    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="inputMobileNo";
-                }
-                validateForm = false;	
-    		}    		
-    		if (!validateEmail('inputEmailId','emailid')){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="inputEmailId";
-                }
-                validateForm = false;	
-    		}
-
-    		
-    		
-    		if(firstErrorElementId!=""){
-                scrollToElement(firstErrorElementId);
-            }
-    		
-    				
-        	if (!validateForm){
-        		return;
-        	}
-        	
-        	
-    		optIn1 = "false"
-   	        optIn2 = "false"
-   	        if($('#checkbox4').is(':checked')){
-   	            optIn2 = "true";    
-   	        }
-   	        if($('#checkbox3').is(':checked')){
-   	            optIn1 = "true";    
-   	        }
-   	        password = document.getElementById("Password").value; 
-   	        mobile = document.getElementById("inputMobileNo").value;
-   	        name = document.getElementById("inputFullName").value;
-   	        userName = document.getElementById("Username").value;
-   	        email = document.getElementById("inputEmailId").value;
-
-   	        $('#loading-overlay').modal({
-   	           backdrop: 'static',
-   	           keyboard: false
-   	        })
-   	        
-   	       $.ajax({
-   	                   type : 'POST',
-   	                    url : '<%=request.getContextPath()%>/${language}/joinus',
-   	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-   	                    async : false,
-   	                    success : function(data) {
-   	                        
-   	                        if (data == 'success') {                
-   	                             $(".error-hide").css("display", "none");
-   	                             $(".membership-wrap").css("display", "none"); 
-   	                             document.getElementById("Username").value = "";
-   	                             document.getElementById("Password").value = "";
-   	                             document.getElementById("Confirm-Password").value = "";
-   	                             
-   	                             $("#link-error").click();
-   	                          perventRedirect=false;
-   	                             $('#freeFlightForm').submit()
-   	                            return;                            
-   	                        } else {
-   	                            $("#link-error").click();
-   	                            $(".error-hide").css("display", "block");
-   	                            $('#loading-overlay').modal('hide');
-								if (data == 'This username already in use, please try again') {
-								    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
-								} else if (data == 'email address and mobile no. already registered') {
-								    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
-								} else {
-								    $('.error-hide').html(data);
-								}
-   	                            return;
-   	                        } 
-   	                    },
-   	                    error : function(xhr, status, error) {
-   	                        $('#loading-overlay').modal('hide');
-   	                    }
-   	        });
-    	}else{
-    		// not all the fields filled
-    		if (name == ""){
-    			$('#UsernameError').text(isValidUsername($("#Username").val().trim()));
-    			$("#Username").addClass("invalid-field");
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Username";
-                }
-    		}else{
-    			if (!checkMembership("Username")){
-                    if(firstErrorElementId==""){
-                        firstErrorElementId="Username";
-                    } 
-                }
-    		}
-    		
-    		if (password == ""){
-    			$('#PasswordError').text(isValidPassword($("#Password").val().trim()));
-    			$("#Password").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="Password";
-                }
-    		}else{
-    			if (!checkMembership("Password")){
-                    if(firstErrorElementId==""){
-                        firstErrorElementId="Password";
-                    } 
-                }
-    		}
-    		
-    		
-    		if (password2 == ""){
-    			$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
-    			$("#Confirm-Password").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="Confirm-Password";
-                }
-    		}else{
-    			if (!checkMembership("Confirm-Password")){
-                    if(firstErrorElementId==""){
-                        firstErrorElementId="Confirm-Password";
-                    }
-                }
-    		}
-    		
-    		
-    	}
-    	
-    }
-    
-    if(firstErrorElementId!=""){
-        scrollToElement(firstErrorElementId);
-    }
-    
-       return;
-       
+    setTimeout(function(){
+	
+		//html change, change the submit input type to button, add a onclick function
+	    //html change, added some error html note for user, so they know if the user name and email is not success
+	    
+	    //basic logic(how it works)    
+	    /*
+	    1. if no username or password is filled, direct submit the form
+	    2. if username field is filled, call the create user ajax and post data
+	    3. if the data has something wrong, return and show msg.
+	    4. if the data is correct, user created and will continue to submit the form.
+	    5, If user is created and the normal form data is missing, 
+	       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
+	    */
+	    
+	    /*name = document.getElementById("Username").value;
+	    password = document.getElementById("Password").value;
+	    password2 = document.getElementById("Confirm-Password").value;*/
+	  
+	    name = $("#Username").val();
+	    password = $("#Password").val();
+	    password2 = $("#Confirm-Password").val();
+	    
+	    $("#UsernameError").text("");
+	    $("#PasswordError").text("");
+	    $("#Confirm-PasswordError").text("");
+	    $("#Username").removeClass("invalid-field");
+	    $("#Password").removeClass("invalid-field");
+	    $("#Confirm-Password").removeClass("invalid-field");
+	    
+	    //first error element
+	    var firstErrorElementId="";
+	    
+	            
+	    if(name == "" && password == "" && password2 == ""){
+	        $('#freeFlightForm').submit()
+	    }else{
+	    	
+	    	if(name != "" && password != "" && password2 != ""){
+	    		$('#chk1').html('');
+	            $('#chk2').html('');
+	            
+	            $('#dobInvalid').html('');
+	    		
+	    		validateForm = true;
+	    		if (!checkMembership("Username")){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Username";
+	                }
+	    			validateForm = false;	
+	    		}
+	    		if (!checkMembership("Password")){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Password";
+	                }
+	    			validateForm = false;	
+	    		}
+	    		if (!checkMembership("Confirm-Password")){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Confirm-Password";
+	                }
+	                validateForm = false;	
+	    		}
+	    		var applicantDob = $("#applicantDob").val();
+	            if (applicantDob.trim() == "") {
+	                
+	                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+	                $("#input_dob").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="applicantDob";
+	                }
+	                validateForm = false;               
+	            }
+	    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="inputMobileNo";
+	                }
+	                validateForm = false;	
+	    		}    		
+	    		if (!validateEmail('inputEmailId','emailid')){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="inputEmailId";
+	                }
+	                validateForm = false;	
+	    		}
+	
+	    		
+	    		
+	    		if(firstErrorElementId!=""){
+	    			$('#loading-overlay').modal('hide');
+	                scrollToElement(firstErrorElementId);
+	            }
+	    		
+	    				
+	        	if (!validateForm){
+	        		return;
+	        	}
+	        	
+	        	
+	    		optIn1 = "false"
+	   	        optIn2 = "false"
+	   	        if($('#checkbox4').is(':checked')){
+	   	            optIn2 = "true";    
+	   	        }
+	   	        if($('#checkbox3').is(':checked')){
+	   	            optIn1 = "true";    
+	   	        }
+	   	        password = document.getElementById("Password").value; 
+	   	        mobile = document.getElementById("inputMobileNo").value;
+	   	        name = document.getElementById("inputFullName").value;
+	   	        userName = document.getElementById("Username").value;
+	   	        email = document.getElementById("inputEmailId").value;
+	   	        
+	   	       $.ajax({
+	   	                   type : 'POST',
+	   	                    url : '<%=request.getContextPath()%>/${language}/joinus',
+	   	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+	   	                    async : false,
+	   	                    success : function(data) {
+	   	                        
+	   	                        if (data == 'success') {                
+	   	                             $(".error-hide").css("display", "none");
+	   	                             $(".membership-wrap").css("display", "none"); 
+	   	                             document.getElementById("Username").value = "";
+	   	                             document.getElementById("Password").value = "";
+	   	                             document.getElementById("Confirm-Password").value = "";
+	   	                             
+	   	                             $("#link-error").click();
+	   	                          perventRedirect=false;
+	   	                             $('#freeFlightForm').submit()
+	   	                            return;                            
+	   	                        } else {
+	   	                            $("#link-error").click();
+	   	                            $(".error-hide").css("display", "block");
+	   	                            $('#loading-overlay').modal('hide');
+									if (data == 'This username already in use, please try again') {
+									    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+									} else if (data == 'email address and mobile no. already registered') {
+									    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+									} else {
+									    $('.error-hide').html(data);
+									}
+	   	                            return;
+	   	                        } 
+	   	                    },
+	   	                    error : function(xhr, status, error) {
+	   	                        $('#loading-overlay').modal('hide');
+	   	                    }
+	   	        });
+	    	}else{
+	    		// not all the fields filled
+	    		if (name == ""){
+	    			$('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+	    			$("#Username").addClass("invalid-field");
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Username";
+	                }
+	    		}else{
+	    			if (!checkMembership("Username")){
+	                    if(firstErrorElementId==""){
+	                        firstErrorElementId="Username";
+	                    }
+	                }
+	    		}
+	    		
+	    		if (password == ""){
+	    			$('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+	    			$("#Password").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="Password";
+	                }
+	    		}else{
+	    			if (!checkMembership("Password")){
+	                    if(firstErrorElementId==""){
+	                        firstErrorElementId="Password";
+	                    } 
+	                }
+	    		}
+	    		
+	    		
+	    		if (password2 == ""){
+	    			$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+	    			$("#Confirm-Password").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="Confirm-Password";
+	                }
+	    		}else{
+	    			if (!checkMembership("Confirm-Password")){
+	                    if(firstErrorElementId==""){
+	                        firstErrorElementId="Confirm-Password";
+	                    }
+	                }
+	    		}
+	    		
+	    		
+	    	}
+	    	
+	    }
+	    
+	    if(firstErrorElementId!=""){
+	    	$('#loading-overlay').modal('hide');
+	        scrollToElement(firstErrorElementId);
+	    }
+	    
+	    return;
+    }, 500);
 }
 </script>
 
@@ -299,7 +300,11 @@ function activateUserAccountJoinUs() {
 <script>
 function activateUserAccountJoinUs() {
 	perventRedirect=false;
-	$('#freeFlightForm').submit();
+    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+    
+    setTimeout(function(){
+   	   $('#freeFlightForm').submit();
+    }, 500);
 }
 
 </script>

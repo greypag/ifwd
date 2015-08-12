@@ -80,7 +80,20 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		return flag;
 	}
-	function chkDueAmount() {	
+	
+	function submitPlan(){
+		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+		
+		setTimeout(function(){
+			if(chkDueAmount()){
+				$("#frmTravelPlan").submit();
+			}else{
+				$('#loading-overlay').modal('hide');
+			}
+		}, 500);
+	}
+	
+	function chkDueAmount() {		
 		$(".errDue").html('');
 		var flag = false;
 		var amount = document.getElementById("amountdue").innerHTML;
@@ -94,10 +107,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	        }
 			flag = true;
 		}
-		
-		if(!flag){
-	        $('#loading-overlay').modal('hide');
-	    }
 
 		return flag;
 	}
@@ -244,6 +253,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	     }else{
 	       traveller = personalTraveller;
 	     }
+	   
+	    //submitPlan();
 	});
 </script>
 <style>
@@ -283,7 +294,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/${language}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
+			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/${language}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -467,15 +478,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						</div>
 
 						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
-							value="${quoteDetails.toalDue[i]}"> <input
+							value="<%=travelQuote.getToalDue()[i]%>"> <input
 							type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
-							value="${quoteDetails.grossPremium[i]}"> <input
+							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
 							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
-							value="${quoteDetails.discountAmount[i]}"> <input
+							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
 							type="hidden" name="referralCode" id="referralCode<%=i%>"
-							value="${quoteDetails.referralCode}"> <input
+							value="<%=travelQuote.getReferralCode()%>"> <input
 							type="hidden" name="referralName" id="referralName<%=i%>"
-							value="${quoteDetails.referralName}">
+							value="<%=travelQuote.getReferralName()%>">
 						<%
 							}
 						%>
@@ -1469,11 +1480,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="top35 pull-right pad-none" style="width:47%">
                                 <c:choose>
 	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
+	                                <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;submitPlan();">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:when>
 	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
+	                                <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;submitPlan();">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:otherwise>
                             </c:choose>
@@ -1516,11 +1527,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		        <div class="top35 pull-right pad-none" style="width:47%">
 		            <c:choose>
 	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
+	                                <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;submitPlan();">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:when>
 	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
+	                                <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;submitPlan();">
 	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
 	                            </c:otherwise>
                             </c:choose>
