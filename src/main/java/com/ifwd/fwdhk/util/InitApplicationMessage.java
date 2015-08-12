@@ -61,197 +61,220 @@ public class InitApplicationMessage implements ApplicationListener{
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
-			init(commonUtils);
+			init(commonUtils,"start");
 		}
 	}
 	
 	
-	public static void init(CommonUtils commonUtils){
+	public static void init(CommonUtils commonUtils, String type){
 		try {
-			maritalStatusesEN = commonUtils.getOptionItemDescList("maritalStatus","EN");
+			maritalStatusesEN = commonUtils.getOptionItemDescList("maritalStatus","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			maritalStatusesEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+			
 		}
 		logger.info("maritalStatusesEN : " + maritalStatusesEN);
 		
 		try {
-			maritalStatusesCN = commonUtils.getOptionItemDescList("maritalStatus","CH");
+			maritalStatusesCN = commonUtils.getOptionItemDescList("maritalStatus","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			maritalStatusesCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("maritalStatusesCN : " + maritalStatusesCN);
 
 		try {
-			savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN");
+			savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			savieDistrictEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("savieDistrictEN : " + savieDistrictEN);
 		
 		try {
-			savieDistrictCN = commonUtils.getOptionItemDescList("savieDistrict","CH");
+			savieDistrictCN = commonUtils.getOptionItemDescList("savieDistrict","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			savieDistrictCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("savieDistrictCH : " + savieDistrictCN);
 		
 		try {
-			employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN");
+			employmentStatusEN = commonUtils.getOptionItemDescList("employmentStatus","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			employmentStatusEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("employmentStatusEN : " + employmentStatusEN);
 		
 		try {
-			employmentStatusCN = commonUtils.getOptionItemDescList("employmentStatus","CH");
+			employmentStatusCN = commonUtils.getOptionItemDescList("employmentStatus","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			employmentStatusCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("employmentStatusCN : " + employmentStatusCN);
 		
 		try {
-			nationalityEN = commonUtils.getOptionItemDescList("nationality","EN");
+			nationalityEN = commonUtils.getOptionItemDescList("nationality","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			nationalityEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("nationalityEN : " + nationalityEN);
 		
 		try {
-			nationalityCN = commonUtils.getOptionItemDescList("nationality","CH");
+			nationalityCN = commonUtils.getOptionItemDescList("nationality","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			nationalityCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("nationalityCN : " + nationalityCN);
 		
 		try {
-			occupationEN = commonUtils.getOptionItemDescList("occupation","EN");
+			occupationEN = commonUtils.getOptionItemDescList("occupation","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			occupationEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("occupationEN : " + occupationEN);
 		
 		try {
-			occupationCN = commonUtils.getOptionItemDescList("occupation","CH");
+			occupationCN = commonUtils.getOptionItemDescList("occupation","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			occupationCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("occupationCN : " + occupationCN);
 		
 		try {
-			natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN");
+			natureOfBusinessEN = commonUtils.getOptionItemDescList("natureOfBusiness","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			natureOfBusinessEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("natureOfBusinessEN : " + natureOfBusinessEN);
 		
 		try {
-			natureOfBusinessCN = commonUtils.getOptionItemDescList("natureOfBusiness","CH");
+			natureOfBusinessCN = commonUtils.getOptionItemDescList("natureOfBusiness","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			natureOfBusinessCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
 		
 		try {
-			monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN");
+			monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			monthlyPersonalIncomeEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("monthlyPersonalIncomeEN : " + monthlyPersonalIncomeEN);
 		
 		try {
-			monthlyPersonalIncomeCN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH");
+			monthlyPersonalIncomeCN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			monthlyPersonalIncomeCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("monthlyPersonalIncomeCN : " + monthlyPersonalIncomeCN);
 		
 		try {
-			savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("beneficiaryInfo","EN");
+			savieBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("beneficiaryInfo","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			savieBeneficiaryRelationshipEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("savieBeneficiaryRelationshipEN : " + savieBeneficiaryRelationshipEN);
 		
 		try {
-			savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("beneficiaryInfo","CH");
+			savieBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("beneficiaryInfo","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			savieBeneficiaryRelationshipCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
 		
 		try {
-			placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN");
+			placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			placeOfBirthEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("placeOfBirthEN : " + placeOfBirthEN);
 		
 		try {
-			placeOfBirthCN = commonUtils.getOptionItemDescList("placeOfBirth","CH");
+			placeOfBirthCN = commonUtils.getOptionItemDescList("placeOfBirth","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			placeOfBirthCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("placeOfBirthCN : " + placeOfBirthCN);
 		
 		try {
-			savieAnsEN = commonUtils.getOptionItemDescList("SavieAns","EN");
+			savieAnsEN = commonUtils.getOptionItemDescList("SavieAns","EN",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			savieAnsEN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("savieAnsEN : " + savieAnsEN);
 		
 		try {
-			savieAnsCN = commonUtils.getOptionItemDescList("SavieAns","CH");
+			savieAnsCN = commonUtils.getOptionItemDescList("SavieAns","CH",type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
-			savieAnsCN=null;
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("savieAnsCN : " + savieAnsCN);
 	
 		try {
-			commonUtils.getImageConfig();
+			commonUtils.getImageConfig(type);
 		} catch (Exception e) {
-			logger.info("error : "+e.getMessage());
-			System.exit(0);
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
 		}
 		logger.info("signatureWidth : " + signatureWidth + "signatureHeight : " + signatureHeight);
 		

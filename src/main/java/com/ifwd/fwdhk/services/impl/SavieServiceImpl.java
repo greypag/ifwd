@@ -556,7 +556,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.maritalStatusesEN=commonUtils.getOptionItemDescList("maritalStatuses",language);
+				InitApplicationMessage.maritalStatusesEN=commonUtils.getOptionItemDescList("maritalStatuses",language,"reload");
 				return InitApplicationMessage.maritalStatusesEN;
 			}			
 		}
@@ -568,7 +568,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.maritalStatusesCN=commonUtils.getOptionItemDescList("maritalStatuses",language);
+				InitApplicationMessage.maritalStatusesCN=commonUtils.getOptionItemDescList("maritalStatuses",language,"reload");
 				return InitApplicationMessage.maritalStatusesCN;
 			}
 		}
@@ -588,7 +588,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.savieDistrictEN=commonUtils.getOptionItemDescList("savieDistrict",language);
+				InitApplicationMessage.savieDistrictEN=commonUtils.getOptionItemDescList("savieDistrict",language,"reload");
 				return InitApplicationMessage.savieDistrictEN;
 			}
 		}
@@ -600,7 +600,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.savieDistrictCN=commonUtils.getOptionItemDescList("savieDistrict",language);
+				InitApplicationMessage.savieDistrictCN=commonUtils.getOptionItemDescList("savieDistrict",language,"reload");
 				return InitApplicationMessage.savieDistrictCN;
 			}
 			
@@ -620,7 +620,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.employmentStatusEN=commonUtils.getOptionItemDescList("employmentStatus",language);
+				InitApplicationMessage.employmentStatusEN=commonUtils.getOptionItemDescList("employmentStatus",language,"reload");
 				return InitApplicationMessage.employmentStatusEN;
 			}
 		}
@@ -632,7 +632,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.employmentStatusCN=commonUtils.getOptionItemDescList("employmentStatus",language);
+				InitApplicationMessage.employmentStatusCN=commonUtils.getOptionItemDescList("employmentStatus",language,"reload");
 				return InitApplicationMessage.employmentStatusCN;
 			}
 			
@@ -651,7 +651,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.nationalityEN=commonUtils.getOptionItemDescList("nationality",language);
+				InitApplicationMessage.nationalityEN=commonUtils.getOptionItemDescList("nationality",language,"reload");
 				return InitApplicationMessage.nationalityEN;
 			}
 		}
@@ -663,7 +663,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.nationalityCN=commonUtils.getOptionItemDescList("employmentStatus",language);
+				InitApplicationMessage.nationalityCN=commonUtils.getOptionItemDescList("employmentStatus",language,"reload");
 				return InitApplicationMessage.nationalityCN;
 			}			
 		}
@@ -680,7 +680,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.natureOfBusinessEN=commonUtils.getOptionItemDescList("natureOfBusiness",language);
+				InitApplicationMessage.natureOfBusinessEN=commonUtils.getOptionItemDescList("natureOfBusiness",language,"reload");
 				return InitApplicationMessage.natureOfBusinessEN;
 			}
 		}
@@ -692,7 +692,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.natureOfBusinessCN=commonUtils.getOptionItemDescList("natureOfBusiness",language);
+				InitApplicationMessage.natureOfBusinessCN=commonUtils.getOptionItemDescList("natureOfBusiness",language,"reload");
 				return InitApplicationMessage.natureOfBusinessCN;
 			}			
 		}
@@ -709,7 +709,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.placeOfBirthEN=commonUtils.getOptionItemDescList("placeOfBirth",language);
+				InitApplicationMessage.placeOfBirthEN=commonUtils.getOptionItemDescList("placeOfBirth",language,"reload");
 				return InitApplicationMessage.placeOfBirthEN;
 			}
 		}
@@ -721,7 +721,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.placeOfBirthCN=commonUtils.getOptionItemDescList("placeOfBirth",language);
+				InitApplicationMessage.placeOfBirthCN=commonUtils.getOptionItemDescList("placeOfBirth",language,"reload");
 				return InitApplicationMessage.placeOfBirthCN;
 			}			
 		}
@@ -738,7 +738,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.monthlyPersonalIncomeEN=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
+				InitApplicationMessage.monthlyPersonalIncomeEN=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language,"reload");
 				return InitApplicationMessage.monthlyPersonalIncomeEN;
 			}
 		}
@@ -750,7 +750,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.monthlyPersonalIncomeCN=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language);
+				InitApplicationMessage.monthlyPersonalIncomeCN=commonUtils.getOptionItemDescList("monthlyPersonalIncome",language,"reload");
 				return InitApplicationMessage.monthlyPersonalIncomeCN;
 			}			
 		}
@@ -767,7 +767,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.savieBeneficiaryRelationshipEN=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
+				InitApplicationMessage.savieBeneficiaryRelationshipEN=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language,"reload");
 				return InitApplicationMessage.savieBeneficiaryRelationshipEN;
 			}
 		}
@@ -779,7 +779,7 @@ public class SavieServiceImpl implements SavieService {
 			}
 			else
 			{
-				InitApplicationMessage.savieBeneficiaryRelationshipCN=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language);
+				InitApplicationMessage.savieBeneficiaryRelationshipCN=commonUtils.getOptionItemDescList("savieBeneficiaryRelationship",language,"reload");
 				return InitApplicationMessage.savieBeneficiaryRelationshipCN;
 			}			
 		}
@@ -796,7 +796,7 @@ public class SavieServiceImpl implements SavieService {
 				}
 				else
 				{
-					InitApplicationMessage.occupationEN=commonUtils.getOptionItemDescList("occupation",language);
+					InitApplicationMessage.occupationEN=commonUtils.getOptionItemDescList("occupation",language,"reload");
 					return InitApplicationMessage.occupationEN;
 				}
 			}
@@ -808,7 +808,7 @@ public class SavieServiceImpl implements SavieService {
 				}
 				else
 				{
-					InitApplicationMessage.occupationCN=commonUtils.getOptionItemDescList("occupation",language);
+					InitApplicationMessage.occupationCN=commonUtils.getOptionItemDescList("occupation",language,"reload");
 					return InitApplicationMessage.occupationCN;
 				}			
 			}
@@ -1017,7 +1017,7 @@ public class SavieServiceImpl implements SavieService {
             String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
 			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", "*DIRECTGI");
-			header.put("token", commonUtils.getToken());
+			header.put("token", commonUtils.getToken("reload"));
 			header.put("language", WebServiceUtils.transformLanaguage(language));
 			
 			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);

@@ -328,7 +328,7 @@ public class SavieController extends BaseController{
 	 */
 	@RequestMapping(value = {"/{lang}/reloadInitAppMsg"},method=RequestMethod.GET)
 	public ModelAndView reloadInitMsg(HttpServletRequest request,HttpServletResponse response){
-		InitApplicationMessage.init(commonUtils);
+		InitApplicationMessage.init(commonUtils, "reload");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "downloadTest");
