@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -62,9 +64,7 @@ public class CommonUtils {
 		return token;
 	}
 
-	
 	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type) {
-		
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		
 		if(param.equals("occupation")) {

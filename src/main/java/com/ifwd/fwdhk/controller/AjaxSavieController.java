@@ -21,6 +21,7 @@ import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.ValidationUtils;
 @Controller
 public class AjaxSavieController extends BaseController{
@@ -34,6 +35,8 @@ public class AjaxSavieController extends BaseController{
 
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
 	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
+		if (Methods.isXssAjax(request))
+			return;
 		try {
 			savieService.getPlanDetails(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
@@ -74,7 +77,8 @@ public class AjaxSavieController extends BaseController{
 			@RequestParam float monthSavingsNoInterest,
 			@RequestParam float monthSavingsWithInterest,
 			@RequestParam String playerEmail) {
-		
+		if (Methods.isXssAjax(request))
+			return;
 		SendEmailInfo sei = new SendEmailInfo();
 		sei.setDreamName(dreamName);
 		sei.setDreamLevelDescription(dreamLevelDescription);
@@ -113,6 +117,9 @@ public class AjaxSavieController extends BaseController{
 			@RequestParam String step,
 			@RequestParam String captcha) {
 		
+		if (Methods.isXssAjax(request))
+			return;
+		
 		try {
 			
 			boolean isValidRequest = true;
@@ -142,6 +149,8 @@ public class AjaxSavieController extends BaseController{
 
 	}
 	
+	
+
 	@RequestMapping(value = {"/ajax/savie/messages/email"} )
 	public void sendMessagesEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response) {

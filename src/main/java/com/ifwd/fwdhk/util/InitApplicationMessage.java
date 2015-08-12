@@ -64,9 +64,14 @@ public class InitApplicationMessage implements ApplicationListener{
 			init(commonUtils,"start");
 		}
 	}
-	
-	
+
 	public static void init(CommonUtils commonUtils, String type){
+		if("start".equals(type)){
+			logger.info("init : start application");
+		}
+		else{
+			logger.info("init : reload api data");
+		}
 		try {
 			maritalStatusesEN = commonUtils.getOptionItemDescList("maritalStatus","EN",type);
 		} catch (Exception e) {
@@ -74,7 +79,6 @@ public class InitApplicationMessage implements ApplicationListener{
 			if("start".equals(type)){
 				System.exit(0);
 			}
-			
 		}
 		logger.info("maritalStatusesEN : " + maritalStatusesEN);
 		
