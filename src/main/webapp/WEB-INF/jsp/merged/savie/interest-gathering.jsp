@@ -69,9 +69,11 @@ var affiliate = "${affiliate}";
 <div class="sign-up-teaser">
 	<p class="sign-up-header"><fmt:message key="savie.interestGather.signupform.header.part1" bundle="${msg}" /></br><fmt:message key="savie.interestGather.signupform.header.part2" bundle="${msg}" /></p>
 
+	<!--
 	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context1" bundle="${msg}" /></p>
 	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context2" bundle="${msg}" /></p>
 	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context3" bundle="${msg}" /></p>
+	-->
 
 	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm" action="teaser.jsp">
 		<div class="form-group">
