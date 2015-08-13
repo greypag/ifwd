@@ -6049,10 +6049,13 @@ function checkMembership(field){
 		if(value == ''){
 			$('#UsernameError').text('');
 			$("#Username").removeClass("invalid-field");
-		}
-		else if(isValidUsername(value) !== true){
+		}else if(isValidUsername(value) !== true){
 			$("#Username").addClass("invalid-field");
 			$('#UsernameError').text(isValidUsername(value));
+			result = false;
+		}else if(checkUsername(value) !== true){
+			$("#Username").addClass("invalid-field");
+			$('#UsernameError').text(checkUsername(value));
 			result = false;
 		}else{
 			$('#UsernameError').text('');
@@ -6096,11 +6099,29 @@ function checkMembership(field){
 	}
 	return result;
 }
+
+/**
+ * 验证包含的"@"和".",各自只能有一个且不能为开头和结尾
+ */
+function checkUsername(el){
+	if(el.split('@').length-1 > 1){
+		return getBundle(getBundleLanguage, 'user.username.only64.message');
+	}else if (el.split('.').length-1 > 1){
+		return getBundle(getBundleLanguage, 'user.username.only46.message');
+	}else if (el.indexOf('@') == 0 || el.lastIndexOf('@') == el.length - 1){
+		return getBundle(getBundleLanguage, 'user.username.beginorover64.message');
+	}else if (el.indexOf('.') == 0 || el.lastIndexOf('.') == el.length - 1){
+		return getBundle(getBundleLanguage, 'user.username.beginorover46.message');
+	}
+	return true
+}
+
 $(function () {
 if($('#Username').length){
 	$cur = $('#Username');
 	$cur.on('blur', function(){
 		checkMembership("Username");
+		
 	})
 }
 if($('#Password').length){
