@@ -11122,7 +11122,8 @@ span.dup-error-msg {
   width: 315px;
 }
 .fwd-savie-wrapper .sign-up-teaser {
-  //top: 0;
+  background-color: #fff;
+  top: 0;
   width: 100%;
   position: relative;
   z-index: 10;
@@ -11131,11 +11132,11 @@ span.dup-error-msg {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser {
-   	background: rgba(0, 0, 0, 0.5);
-   	/* Here some time problem for Hover than you can use background color/image */
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
-  	/* Below IE7 supported */
-  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
+    background: rgba(0, 0, 0, 0.5);
+    /* Here some time problem for Hover than you can use background color/image */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+    /* Below IE7 supported */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
     width: 500px;
     //top: 352px;
@@ -11196,7 +11197,7 @@ span.dup-error-msg {
   margin: 0;
 }
 .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
-  color: #ff8200;
+  color: #f68a1d;
   font-size: 24px;
   font-family: 'Calibri-Bold';
   text-align: center;
@@ -11207,6 +11208,7 @@ span.dup-error-msg {
   .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
     color: #fff;
     text-align: left;
+    color: #fff;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser p.email-notification {
@@ -11220,6 +11222,7 @@ span.dup-error-msg {
   color: #fff;
   .fwd-savie-wrapper .sign-up-teaser p.email-notification {
     text-align: left;
+    color: #fff;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser .btn.btn-white.btn-sign-up {
@@ -11241,7 +11244,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label {
   width: 16px;
-  border: solid 1px #ff8200;
+  border: solid 1px #f68a1d;
   min-height: 16px;
   padding: 0;
   cursor: pointer;
@@ -13464,19 +13467,25 @@ body.chin .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-conte
   margin-top: 10px;
   width: 100%;
   height: 60px;
-  background-color: #ff8200;
-  color: #fff;
+  border: solid 1px #ff8200;
+  color: #ff8200;
+  background-color: #fff;
   font-size: 24px;
   font-family: 'Calibri-Bold';
   padding: 7px 40px;
-  border: 0;
 }
-
-.fwd-savie-wrapper .teaser-container{
-  padding: 0;
-  position: relative;
+.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:hover, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:focus, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:active {
+  background-color: #ff8200;
+  color: #fff;
+  outline: 0;
 }
-
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
+    background-color: #ff8200;
+    color: #fff;
+    border: 0;
+  }
+}
 .fwd-savie-wrapper .teaser-banner.container-fluid {
   padding: 0;
   position: relative;
