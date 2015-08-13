@@ -11122,7 +11122,7 @@ span.dup-error-msg {
   width: 315px;
 }
 .fwd-savie-wrapper .sign-up-teaser {
-  top: 0;
+  //top: 0;
   width: 100%;
   position: relative;
   z-index: 10;
@@ -11138,7 +11138,8 @@ span.dup-error-msg {
   	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
     width: 500px;
-    top: 352px;
+    //top: 352px;
+    bottom: 170px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
@@ -13469,6 +13470,11 @@ body.chin .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-conte
   font-family: 'Calibri-Bold';
   padding: 7px 40px;
   border: 0;
+}
+
+.fwd-savie-wrapper .teaser-container{
+  padding: 0;
+  position: relative;
 }
 
 .fwd-savie-wrapper .teaser-banner.container-fluid {

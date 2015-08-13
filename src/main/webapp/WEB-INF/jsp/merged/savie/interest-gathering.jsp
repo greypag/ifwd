@@ -29,6 +29,8 @@ var affiliate = "${affiliate}";
 </script>
  -->
 
+ <!-- teaser-container -->
+<div class="teaser-container">
 <div class="teaser-banner container-fluid" id="hunger-selling-banner">
 	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-desktop-en" bundle="${msg}" />"
 		id="teaser-banner-mobile-en" 
@@ -122,6 +124,8 @@ var affiliate = "${affiliate}";
 	</script>
  -->	
 </div>
+</div>
+<!-- End of teaser-container -->
 
 <div id="flux">
 	<div id="landing-three-column"
