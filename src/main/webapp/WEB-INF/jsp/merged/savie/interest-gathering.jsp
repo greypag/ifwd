@@ -90,7 +90,7 @@ var affiliate = "${affiliate}";
 		<div class="form-group">
 			<input type="email" placeholder="<fmt:message key="savie.interestGather.signupform.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val="" maxlength="50" onkeypress="checkChineseCharEmail(event)"> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
-			<input placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)" onkeyup="return isNumberKey(event)">
+			<input placeholder="<fmt:message key="savie.interestGather.signupform.enter.phone" bundle="${msg}" />" class="form-control email phone-no" id="teaserPhoneNo" name="teaserPhoneNo" maxlength="8" min="1" oninput="maxLengthReview(this)" onkeyup="return isNumberKey(event)" type="tel">
 			<span class="error-msg hideSpan" id="phoneErrMsg">&nbsp;</span>
 			<input type="hidden" name="affiliate" value="${affiliate}">
 		</div>
