@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
@@ -18,6 +17,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 
@@ -28,6 +29,9 @@ public class CommonUtils {
 	
 	@Autowired
 	private RestServiceDao restService;
+	
+	@Autowired 
+	protected ECommWsConnector connector;
 	
 	@SuppressWarnings("unchecked")
 	public String getToken(String type) {
@@ -230,6 +234,44 @@ public class CommonUtils {
 			}
 				
 			logger.info("***********responseJsonObj****************:"+responseJsonObj);
+		} catch (Exception e) {
+			logger.error("error : " + e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		
+	}
+	
+	public void getServiceCentre(String language, String type){
+		try {
+			String Url = UserRestURIConstants.SERVICE_CENTRE;
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			
+			header.put("userName", "*DIRECTGI");
+			header.put("token", getToken(type));
+			header.put("language", WebServiceUtils.transformLanaguage(language));
+			
+			ServiceCentreResponse apiResponse = connector.consumeECommWs(Url, HttpMethod.GET, null, ServiceCentreResponse.class, header);
+			if(apiResponse==null){
+			} 
+			else{
+				if (!apiResponse.hasError()) {
+					if("EN".equals(language)){
+						InitApplicationMessage.serviceCentreEN = apiResponse;
+					}
+					else{
+						InitApplicationMessage.serviceCentreCN = apiResponse;
+					}
+				}
+				else{
+					logger.error("error : " + apiResponse.getErrMsgs());
+					if("start".equals(type)){
+						System.exit(0);
+					}
+				}
+			}
+			logger.info("***********responseJsonObj****************:"+apiResponse);
 		} catch (Exception e) {
 			logger.error("error : " + e.getMessage());
 			if("start".equals(type)){

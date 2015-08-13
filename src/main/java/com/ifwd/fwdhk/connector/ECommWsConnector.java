@@ -114,7 +114,7 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.SEND_DOCUMENTS,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
-	private <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
+	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = wsUrl + path;
 		logger.debug("path:" + url);
