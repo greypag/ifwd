@@ -114,7 +114,7 @@ var affiliate = "${affiliate}";
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
 		
 		<div id="captchaBox"></div>
-		<button type="submit" class="btn-orange-teaser" id="teaser-sign-up-btn"><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
+		<button type="submit" class="btn btn-white btn-sign-up" id="teaser-sign-up-btn"><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
 <!-- 
 	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
