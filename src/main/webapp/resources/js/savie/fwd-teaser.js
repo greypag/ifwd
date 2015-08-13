@@ -7,10 +7,30 @@ function checkChineseCharEmail(e) {
 }
 	
 function isNumberKey(evt){
-	var charCode = (evt.which) ? evt.which : event.keyCode
+	/*var charCode = (evt.which) ? evt.which : event.keyCode
 	if (charCode > 31 && (charCode < 48 || charCode > 57))
 		return false;
-	return true;
+	return true;*/
+	
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	console.log(charCode);
+	// Allow: delete, backspace, tab, escape, enter
+	if ($.inArray(charCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+		 // Allow: Ctrl+A
+		(charCode == 65 && evt.ctrlKey === true) ||
+		 // Allow: Ctrl+C
+		(charCode == 67 && evt.ctrlKey === true) ||
+		 // Allow: Ctrl+X
+		(charCode == 88 && evt.ctrlKey === true) ||
+		 // Allow: home, end, left, right
+		(charCode >= 35 && evt.keyCode <= 39)) {
+			 // let it happen, don't do anything
+			 return;
+	}
+	// Ensure that it is a number and stop the keypress
+	if ((evt.shiftKey || (charCode < 48 || charCode > 57)) && (charCode < 96 || charCode > 105)) {
+		evt.preventDefault();
+	}
 }   
 	
 	
@@ -77,9 +97,9 @@ $(function() {
 		var email = $.trim($('#teaserEmail').val());
 		var phone = $('#teaserPhoneNo').val().length;
 		var isErrorFlag = false;
-		
+		var emailIe = ($.trim($('#teaserEmail').val())) =="Please enter your email address"? "":$.trim($('#teaserEmail').val());
 		// Email is required
-		if (email == "") {
+		if ((email == "") || (emailIe == "")) {
 			$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.notNull.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
