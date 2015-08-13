@@ -171,7 +171,7 @@ function checkEmail(email) {
 function sendStep1Email() {
 	var teaserEmail = $("#teaserEmail").val();
 	var teaserPhoneNo = $("#teaserPhoneNo").val();
-	sendlead(teaserEmail,teaserPhoneNo,"","1",grecaptcha.getResponse());
+	sendlead(teaserEmail,teaserPhoneNo,"","1",'ADUOIHWNJSKLNC');
 }
 
 function sendStep2Email() {

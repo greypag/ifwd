@@ -17,6 +17,7 @@ var affiliate = "${affiliate}";
 </script>
 
 <!-- reCAPTCHA widget -->
+<!-- 
 <script type="text/javascript">
 	var onloadCallback = function() {
 		grecaptcha.render('captchaBox', {
@@ -26,7 +27,7 @@ var affiliate = "${affiliate}";
 		});
 	};
 </script>
-
+ -->
 
 <div class="teaser-banner container-fluid" id="hunger-selling-banner">
 	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-desktop-en" bundle="${msg}" />"
@@ -115,9 +116,11 @@ var affiliate = "${affiliate}";
 		<div id="captchaBox"></div>
 		<button type="submit" class="btn-orange-teaser" id="teaser-sign-up-btn"><fmt:message key="savie.interestGather.signupform.signup" bundle="${msg}" /></button>
 	</form>
+<!-- 
 	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
 		async defer>
 	</script>
+ -->	
 </div>
 
 <div id="flux">
