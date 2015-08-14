@@ -1,15 +1,12 @@
 package com.ifwd.fwdhk.services;
 
 import java.text.ParseException;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.multipart.MultipartFile;
-import com.ifwd.fwdhk.model.DistrictBean;
+import org.springframework.web.servlet.ModelAndView;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 
 public interface AnnualTravelService {
@@ -19,5 +16,10 @@ public interface AnnualTravelService {
 	public String processPayment(HttpServletRequest request,HttpServletResponse response);
 	public String getPromoCode(HttpServletRequest request,HttpServletResponse response);
 	public String sendEmail(HttpServletRequest request);
-	
+	public ModelAndView getTravelPlan(TravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception;
+	public ModelAndView getTravelHomePage(final String promo, HttpServletRequest request, Model model, 
+			final String utm_source,
+			final String utm_medium,
+			final String utm_campaign,
+			final String utm_content) throws Exception;
 }
