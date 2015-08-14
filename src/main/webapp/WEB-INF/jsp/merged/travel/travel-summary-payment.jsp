@@ -25,7 +25,7 @@ var enablePayment=true;
 	            
 	            var gatewayUrlId = '#' + gatewayUrlId;
 	            var paymentFormId = '#' + paymentFormId;
-	            var method = "<%=request.getContextPath()%>/processTravePayment";
+	            var method = "<%=request.getContextPath()%>/ajax/annualTravel/processTravePayment/post";
 	            
 	            var geteWayUrl = $(gatewayUrlId).val();
 	            $.ajax({

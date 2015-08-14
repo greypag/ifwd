@@ -51,7 +51,7 @@
 	function getPromoCode(){
 	    $.ajax({
 	        type : "POST",
-	        url : '<%=request.getContextPath()%>/getPromoCode',
+	        url : '<%=request.getContextPath()%>/ajax/annualTravel/getPromoCode/get',
 	        async : false,
 	        success : function(data) {
 	            $("#agoda_promo_code").html(data);

@@ -350,7 +350,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
-				url : "<%=request.getContextPath()%>/sendEmail",
+				url : "<%=request.getContextPath()%>/ajax/annualTravel/sendEmail/send",
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
