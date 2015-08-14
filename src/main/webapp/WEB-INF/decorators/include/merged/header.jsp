@@ -235,7 +235,7 @@ function submitLoginForm(formID) {
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4 class="margin-shift">
-													<fmt:message key="header.login.username" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/forgotUserName"
+													<fmt:message key="header.login.username" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/${language}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -245,7 +245,7 @@ function submitLoginForm(formID) {
 												</div>
 												<span id="errUserName" style="color: red"></span>
 												<h4 class="margin-shift">
-													<fmt:message key="header.login.password" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/forgotPassword"
+													<fmt:message key="header.login.password" bundle="${msg}" />  <a href="${pageContext.request.contextPath}/${language}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
@@ -293,7 +293,7 @@ function submitLoginForm(formID) {
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
 												<h4>
-													<fmt:message key="header.login.username" bundle="${msg}" /><a href="${pageContext.request.contextPath}/forgotUserName"
+													<fmt:message key="header.login.username" bundle="${msg}" /><a href="${pageContext.request.contextPath}/${language}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -303,7 +303,7 @@ function submitLoginForm(formID) {
 												</div>
 												<span id="errUserName" style="color: red"></span>
 												<h4>
-													<fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotPassword"
+													<fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/${language}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">
@@ -472,7 +472,8 @@ function submitLoginForm(formID) {
 											<div id="login-err-msg" class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert" style="display: none;"></div>
 											<div class="form-container">
 												<h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
-												<h4 class="margin-shift"><fmt:message key="header.login.username" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotUserName"
+												<h4 class="margin-shift"><fmt:message key="header.login.username" bundle="${msg}" />
+												    <a href="${pageContext.request.contextPath}/${language}/forgotUserName"
 														class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 												</h4>
 
@@ -481,7 +482,7 @@ function submitLoginForm(formID) {
 														placeholder="" id="headerUserName">
 												</div>
 												<span id="errUserName" style="color: red"></span>
-												<h4 class="margin-shift"><fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/forgotPassword"
+												<h4 class="margin-shift"><fmt:message key="header.login.password" bundle="${msg}" /> <a href="${pageContext.request.contextPath}/${language}/forgotPassword"
 														class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 												</h4>
 												<div class="form-group">

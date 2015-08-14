@@ -428,7 +428,7 @@ public class UserController {
 		return "fail";
 	}
 
-	@RequestMapping(value = {"/forgotUserName", "/forgot-user-name"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/{lang}/forgotUserName", "/{lang}/forgot-user-name"}, method = RequestMethod.GET)
 	public String forgotUserNameFields(HttpServletRequest req) {
 		return UserRestURIConstants.getSitePath(req) + "forgot-username";
 	}
@@ -459,7 +459,7 @@ public class UserController {
 		return "fail";
 	}
 
-	@RequestMapping(value = {"/forgotPassword", "/forgot-password"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/{lang}/forgotPassword", "/{lang}/forgot-password"}, method = RequestMethod.GET)
 	public String forgotUserPasswordFields(HttpServletRequest req) {
 		return UserRestURIConstants.getSitePath(req) + "forgot-password";
 	}
