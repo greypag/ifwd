@@ -16,7 +16,6 @@ import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,7 +38,6 @@ import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
-import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class AnnualTravelController {
@@ -49,12 +47,6 @@ public class AnnualTravelController {
 	@Autowired
 	private RestServiceDao restService;
 
-	@Autowired
-	private SendEmailDao sendEmail;
-
-	@Autowired
-	private MessageSource messageSource;
-	
 	@Autowired
 	private AnnualTravelService annualTravelService;
 	
