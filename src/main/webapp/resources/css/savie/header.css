@@ -707,6 +707,11 @@ ul.maintabs li a span.special-offer:hover{
         top:5px;
         right:5px;
     }
+
+    ul.maintabs li .special-offer{
+        top:5px;
+        right:5px;
+    }
 }
 
 /***** mobile side menu *****/

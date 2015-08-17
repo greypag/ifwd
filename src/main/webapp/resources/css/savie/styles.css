@@ -751,7 +751,7 @@ body {
   height: 590px;
 }
 .fwd-savie-wrapper .navmenu, .fwd-savie-wrapper .navbar-offcanvas {
-  width: 320px !important;
+  width: 300px !important;
 }
 .fwd-savie-wrapper .header-nav-mobile {
   font-size: 24px;
@@ -11172,7 +11172,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .sign-up-teaser {
   background-color: #fff;
-  top: 0;
+  //top: 0;
   width: 100%;
   position: relative;
   z-index: 10;
@@ -11747,11 +11747,12 @@ span.dup-error-msg {
 .fwd-savie-wrapper .teaser-confirmation .wa_btn .whatsapp-icon {
   font-size: 24px;
   position: absolute;
-  left: 16px;
+  left: 33px;
   top: 6px;
 }
 .fwd-savie-wrapper .teaser-confirmation .fa.fa-facebook.fwd-fb {
-  padding-right: 10px;
+  padding-right: 18px;
+  margin-left: -10px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser-confirmation .fwd-div-btn {
@@ -13522,6 +13523,12 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
     border: 0;
   }
 }
+
+.fwd-savie-wrapper .teaser-container{
+  padding: 0;
+  position: relative;
+}
+
 .fwd-savie-wrapper .teaser-banner.container-fluid {
   padding: 0;
   position: relative;

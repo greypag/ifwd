@@ -97,6 +97,7 @@ $(function() {
 		var email = $.trim($('#teaserEmail').val());
 		var phone = $('#teaserPhoneNo').val().length;
 		var isErrorFlag = false;
+		var isPlaceholder = true;
 		var emailIe = ($.trim($('#teaserEmail').val())) =="Please enter your email address"? "":$.trim($('#teaserEmail').val());
 		// Email is required
 		if ((email == "") || (emailIe == "")) {
@@ -123,7 +124,10 @@ $(function() {
 		}
 		
 		// Phone is not empty and has 8 characters
-		if (phone > 0 && phone < 8) {
+		if ($('#teaserPhoneNo').val() == $('#teaserPhoneNo').attr('placeholder')) {
+			isPlaceholder=false;
+			
+		} else if (phone > 0 && phone < 8) {
 			$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
@@ -155,6 +159,9 @@ $(function() {
 			$('#emailAddrsMessage').addClass('hideSpan');
 			$('#checkboxErrorMessage').addClass('hideSpan');
 			$('#phoneErrMsg').addClass('hideSpan');
+			if(!isPlaceholder){
+				$('#teaserPhoneNo').val('')
+			}
 			sendStep1Email();
 		}
 	});
@@ -254,6 +261,9 @@ function sendlead(email,mobileNo,answer1,step,captcha) {
 		    		$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "form.captcha.empty.message")).removeClass('hideSpan');
 		    	}else{
 		    		$('#checkboxErrorMessage').html(data.errMsgs).removeClass('hideSpan');
+		    	}
+		    	if(!('placeholder' in document.createElement('input')) && $('#teaserPhoneNo').val() == '') {
+		    		$('#teaserPhoneNo').val($('#teaserPhoneNo').attr('placeholder'))
 		    	}
 	    	}
 			$('#teaser-sign-up-btn').prop('disabled', false);
