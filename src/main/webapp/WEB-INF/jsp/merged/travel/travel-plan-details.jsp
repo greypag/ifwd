@@ -313,7 +313,7 @@ function activateUserAccountJoinUs() {
         <div class="row">
         
 
-            <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="return tPlanValid();" modelAttribute="frmYourDetails" method="post" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" >
+            <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="return tPlanValid(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="" >
                 <ol class="breadcrumb pad-none">
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>

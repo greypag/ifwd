@@ -2622,7 +2622,7 @@ $(function () {
 
 //Travel plan details page validation
 var travelp_click = false;
-function tPlanValid()
+function tPlanValid(form,formId,language)
 {
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
@@ -3799,7 +3799,25 @@ function tPlanValid()
     		$('#loading-overlay').modal('hide');
     	}
     	
-    	return flag;
+    	var contextPath = window.location.pathname.split("/")[1];
+    	var result = false;
+    	var formId = '#' + formId;
+    	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
+    	$.ajax({
+    		type : "POST",
+    		url : method,
+    		data : $(formId).serialize(),
+    		async : false,
+    		success : function(data) {
+    			if (data == 'success') {
+    				form.action = '/'+contextPath+'/'+language+'/travel-insurance/travel-summary';
+    				result = true;
+    			} else {
+    				result = false;
+    			}
+    		}
+    	});
+    	return flag&&result;
     }	
 	
 
@@ -3932,9 +3950,9 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	return flag;
 }
 
-function flightValidateDeskTravel()
-{
+function flightValidateDeskTravel(form, formId,language){
 	var flag = true;
+	var contextPath = window.location.pathname.split("/")[1];
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
@@ -3995,8 +4013,25 @@ function flightValidateDeskTravel()
 		document.getElementById("travelCountDeskIn").style.display = "block";
 		flag = false;
 	}
-	return flag;
-
+	var result = false;
+	var formId = '#' + formId;
+	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+	$.ajax({
+		type : "POST",
+		url : method,
+		data : $(formId).serialize(),
+		async : false,
+		success : function(data) {
+			if (data == 'success') {
+				form.action = '/'+contextPath+'/'+language+'/travel-insurance/quote';
+				result = true;
+			} else {
+				$('#startDateDeskIn').html("api is Wrong");
+				result = false;
+			}
+		}
+	});
+	return flag&&result;
 }
 
 function flightValidateMobTravel() {

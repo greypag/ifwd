@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.services.AnnualTravelService;
-
 @Controller
 public class AjaxAnnualTravelController {
 	
@@ -90,5 +90,59 @@ public class AjaxAnnualTravelController {
 			e.printStackTrace();
 		}
 		return str;
+	}
+	
+	@RequestMapping(value = "/ajax/annualTravel/prepareTravelInsuranceQuote")
+	@ResponseBody
+	public String prepareTravelInsuranceQuote(@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+			BindingResult result, Model model, HttpServletRequest request) throws Exception {
+		try {
+			UserRestURIConstants urc = new UserRestURIConstants();
+			urc.updateLanguage(request);
+			UserRestURIConstants.setController("Travel");
+			request.setAttribute("controller", UserRestURIConstants.getController());
+			annualTravelService.getTravelPlan(travelQuote, model, request);
+			logger.info("api is Ok");
+			return "success";
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			logger.info("api is Wrong");
+			return "fail";
+		}
+	}
+	
+	@RequestMapping(value = "/ajax/annualTravel/prepareTravelInsuranceUserDetails")
+	@ResponseBody
+	public String prepareTravelInsuranceUserDetails(
+			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+			BindingResult result, Model model, HttpServletRequest request) throws Exception {
+		try {
+			annualTravelService.prepareTravelInsuranceUserDetails(travelQuote, result, model, request);
+			logger.info("api is Ok");
+			return "success";
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			logger.info("api is Wrong");
+			return "fail";
+		}
+	}
+	
+	@RequestMapping(value = "/ajax/annualTravel/prepareTravelInsuranceTravelSummary")
+	@ResponseBody
+	public String prepareTravelInsuranceTravelSummary(
+			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
+			BindingResult result, Model model, HttpServletRequest request) throws Exception {
+		try {
+			annualTravelService.prepareTravelInsuranceTravelSummary(planDetailsForm, result, model, request);
+			logger.info("api is Ok");
+			return "success";
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			logger.info("api is Wrong");
+			return "fail";
+		}
 	}
 }

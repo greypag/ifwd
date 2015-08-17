@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
+import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 
 public interface AnnualTravelService {
@@ -22,4 +23,8 @@ public interface AnnualTravelService {
 			final String utm_medium,
 			final String utm_campaign,
 			final String utm_content) throws Exception;
+	public ModelAndView prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
+			BindingResult result, Model model, HttpServletRequest request) throws Exception;
+	public ModelAndView prepareTravelInsuranceTravelSummary(PlanDetailsForm planDetailsForm,
+			BindingResult result, Model model, HttpServletRequest request) throws Exception;
 }

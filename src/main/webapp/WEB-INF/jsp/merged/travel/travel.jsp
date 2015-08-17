@@ -101,7 +101,6 @@
   
   var frm = document.getElementById("frmTravelGetQuote");
  }
-    
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
@@ -161,7 +160,7 @@ $(document).ready(function() {
     <!--/.carousel inner--> 
   </div>
   <!--/.carousel--> 
-  <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
+  <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateDeskTravel(this,'frmTravelGetQuote','${language}');">
 	<section id="middle" class="hidden-sm hidden-xs">
         <div class="container bmg_flighttravel_main_container">
 	    <div class="row">
