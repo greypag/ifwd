@@ -132,7 +132,7 @@ var affiliate = "${affiliate}";
 		class="fwd-container container-fluid three-column-widget">
 		<div class="row row-top text-center">
 			<div class="col-xs-12 col-md-4 fwd-col">
-				<div class="col-content">
+				<div class="col-content col-content-teaser">
 					<h2><fmt:message key="savie.interestGather.feature1.header.part1" bundle="${msg}" /></h2>
 					<h3><fmt:message key="savie.interestGather.feature1.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />">
@@ -140,7 +140,7 @@ var affiliate = "${affiliate}";
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
-				<div class="col-content">
+				<div class="col-content col-content-teaser">
 					<h2><fmt:message key="savie.interestGather.feature2.header.part1" bundle="${msg}" /></h2>
 					<h3><fmt:message key="savie.interestGather.feature2.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />">
@@ -148,7 +148,7 @@ var affiliate = "${affiliate}";
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
-				<div class="col-content">
+				<div class="col-content col-content-teaser">
 					<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
 					<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
 					<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />">
@@ -160,7 +160,7 @@ var affiliate = "${affiliate}";
 	</div>
 
 	<div class="fwd-container container-fluid">
-		<div id="other-benefits" class="row">
+		<div id="other-benefits-teaser" class="row">
 			<div class="col-xs-12 col-md-8 pull-right">
 				<h2 class="text-center"><fmt:message key="savie.interestGather.otherfeatures.header" bundle="${msg}" /></h2>
 			</div>
@@ -177,7 +177,7 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
-		<div class="disclaimer-policy teaser-policy">
+		<div class="disclaimer-policy-teaser teaser-policy">
 			<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
 		</div>
 	</div>
