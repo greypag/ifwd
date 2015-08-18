@@ -202,7 +202,7 @@ $('#myFWDropdown .dropdown-menu').on({
  flieght plan your details validation 
 
 function pageValidate() {
-	alert("validation");
+
     document.getElementById("fullname").style.display = "none";
     document.getElementById("emailid").style.display = "none";
     document.getElementById("mobileNo").style.display = "none";
@@ -213,7 +213,6 @@ function pageValidate() {
     document.getElementById("chk2").style.display = "none";
     document.getElementById("ageRange").style.display = "none";
     document.getElementById("mobilenoinvalid").style.display = "none";
-  alert(455);
     document.getElementById("errAppHkid").innerHTML = "";
     document.getElementById("errBenName").style.display = "none";
     document.getElementById("errInsuHkid").innerHTML = "";
@@ -230,10 +229,10 @@ function pageValidate() {
     var insuHkid = document.getElementById("txtInsuHkid").value;
     var spouseHkid = document.getElementById("txtSpouseHkid").value;
     var childHkid = document.getElementById("txtChildHkid").value;
-    alert(455);
+
     var selectBenificiary = document.getElementById("selectBenificiary").value;
     
-    if (appHkid.trim() == "") {  alert(455);
+    if (appHkid.trim() == "") {  
         document.getElementById("errAppHkid").innerHTML = "Please enter HKID No. in English";
         flag = false;
     }
@@ -368,7 +367,8 @@ function replaceAlpha(id) {
  Apply for now Top 
 function flightValidateDesk()
 {
-	alert("Validation");
+
+
     var flag = true;
     
     document.getElementById("startDateDeskIn").innerHTML = "";

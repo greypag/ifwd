@@ -624,7 +624,7 @@
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
-					alert(data);
+					console.log(data);
 					if (data == 'success') {
 					} else {
 					}

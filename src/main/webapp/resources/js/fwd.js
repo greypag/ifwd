@@ -5802,7 +5802,6 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 }
 function chkNotNullCreditCareName(element, errElementId)
 {
-	// alert ( element.value.trim().indexOf(" ") );
 	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
@@ -6353,7 +6352,6 @@ function hkidOnkeypress(evt) {
 	var eCode = evt.keyCode;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
 	var keychar = String.fromCharCode(charCode)
-	//alert("keychar:"+keychar+"\ncharCode:"+evt.charCode+"\nkeyCode:"+evt.keyCode);
 	// || (charCode == 37 && eCode==37) || (charCode == 39  && eCode==39)
 	// || (charCode == 37 && keychar != "%") || (charCode == 39  && keychar != "'")
 	if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8 
@@ -6385,7 +6383,7 @@ $(function () {
 	
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	var tillDate_from_home= new Date((new Date()).getTime() + 179*24*60*60*1000);
+	var tillDate_from_home= new Date((new Date()).getTime() + 59*24*60*60*1000);
 	
 	//Homecare Calender
 	var checkin = $('#homecareDp').datepicker({

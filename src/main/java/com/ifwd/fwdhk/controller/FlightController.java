@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -73,6 +74,8 @@ public class FlightController {
 			@RequestParam(required = false) final String utm_campaign,
 			@RequestParam(required = false) final String utm_content) {
 		
+		
+		SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
 		Date now = new Date();
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_YEAR, 90);
@@ -112,27 +115,13 @@ public class FlightController {
 		
 		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
-			//departureDate validation
-			if(deparDate != null && now.before(deparDate) && endDate.after(deparDate)){
-				if(retDate != null){					
-					if(deparDate.before(retDate)){					
-						planDetails.setDepartureDate(departureDate);
-					}
-				}else{
-					planDetails.setDepartureDate(departureDate);
-				}
+			if(deparDate != null && retDate != null && (deparDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && 
+					(retDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(deparDate)>=0 && endDate.compareTo(retDate)>=0 &&
+					retDate.compareTo(deparDate) >=0){
+				planDetails.setDepartureDate(departureDate);
+				planDetails.setReturnDate(returnDate);
 			}
-			//returnDate validation
-			if(retDate != null && now.before(retDate) && endDate.after(retDate)){
-				if(deparDate != null){
-					if(retDate.after(deparDate)){					
-						planDetails.setReturnDate(returnDate);
-					}
-				}else{
-					planDetails.setReturnDate(returnDate);
-				}
-				
-			}
+			
 			planDetails.setTotalPersonalTraveller(1);
 			planDetails.setTotalAdultTraveller(1);
 			planDetails.setTotalChildTraveller(1);
