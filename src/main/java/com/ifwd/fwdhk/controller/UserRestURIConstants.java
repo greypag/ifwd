@@ -128,6 +128,8 @@ public class UserRestURIConstants {
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
 	
+	public static final String SERVICE_CENTRE = "/appointment/serviceCentre";
+	
 	
 	
 	/* lang constants */

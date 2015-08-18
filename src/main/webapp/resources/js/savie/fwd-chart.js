@@ -256,8 +256,6 @@ function updateGuaranteedBubble() {
 			"margin-left": '-23px',
 			"top": top+'px'
 		});
-		
-		console.log('Top:	'+top);
 	}
 }
 

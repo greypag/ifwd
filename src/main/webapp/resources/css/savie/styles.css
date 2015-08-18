@@ -751,7 +751,7 @@ body {
   height: 590px;
 }
 .fwd-savie-wrapper .navmenu, .fwd-savie-wrapper .navbar-offcanvas {
-  width: 320px !important;
+  width: 300px !important;
 }
 .fwd-savie-wrapper .header-nav-mobile {
   font-size: 24px;
@@ -2051,7 +2051,7 @@ body {
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content {
   background-color: #fff;
   height: 438px;
-  max-width: 354px;
+ /* max-width: 354px;*/
   margin: 0 auto 10px auto;
   padding: 0 29px;
 }
@@ -3634,12 +3634,14 @@ body {
   height: 13px;
   border: 0;
   margin-left: 12px;
+  position: absolute;
+  bottom: 6px;
 }
 #illustration-filters span.error-msg-promo {
   font-family: 'Calibri';
   color: #e4002b;
   font-size: 14px;
-  position: absolute;
+  display: block;
   margin-top: 3px;
 }
 #illustration-filters span.error-msg-dob {
@@ -3656,6 +3658,7 @@ body {
   #illustration-filters form {
     padding: 0 20px;
     height: 261px;
+    background-color: #061d29;
   }
 }
 #illustration-filters .money {
@@ -3680,7 +3683,7 @@ body {
     height: 0;
     border-bottom: 22px solid #95a3a7;
     border-left: 23px solid transparent;
-    margin-left: -35px;
+    margin-left: -43px;
     position: relative;
     margin-top: -22px;
   }
@@ -3698,7 +3701,7 @@ body {
     padding: 80px 40px 57px;
     margin-top: -22px;
     max-width: 700px;
-    width: 67%;
+    width: 60%;
     margin-left: -12px;
     height: 261px;
     float: left;
@@ -3715,6 +3718,7 @@ body {
   font-size: 24px;
   text-align: left;
   margin: 0 0 5px;
+  position: relative;
 }
 #illustration-filters #investment-amount h3.saving {
   padding-left: 3px;
@@ -3754,6 +3758,7 @@ body {
   margin-top: 33px;
   clear: both;
   padding-left: 3px;
+  position: relative;
 }
 @media (min-width: 992px) {
   #illustration-filters #investment-amount #promo {
@@ -3763,25 +3768,6 @@ body {
 }
 #illustration-filters #investment-amount #add {
   margin-right: 10px;
-}
-#illustration-filters #investment-amount .promocode {
-  height: 40px;
-  border: none;
-  padding: 0;
-  color: #9ba5a7;
-  font-family: 'Calibri';
-  font-size: 17.92px;
-  padding-left: 20px;
-  margin-top: 5px;
-  width: 100%;
-  border-radius: 0;
-}
-@media (min-width: 992px) {
-  #illustration-filters #investment-amount .promocode {
-    margin-left: 0;
-    max-width: 250px;
-    position: relative;
-  }
 }
 #illustration-filters #investment-amount #crediting-rate {
   font-family: 'foco_bold';
@@ -3800,12 +3786,13 @@ body {
 @media (min-width: 992px) {
   #illustration-filters #investment-amount #desktop-left {
     max-width: 325px;
-    width: 50%;
+    width: 45%;
     float: left;
+    margin-right: 5%;
   }
   #illustration-filters #investment-amount #desktop-right {
-    width: 40%;
-    margin-left: 10%;
+    width: 45%;
+    margin-left: 5%;
     float: left;
   }
   #illustration-filters #investment-amount #desktop-right .promo-code {
@@ -3820,9 +3807,28 @@ body {
     padding-left: 8px;
   }
 }
+#illustration-filters .promocode {
+  height: 40px;
+  border: none;
+  padding: 0;
+  color: #9ba5a7;
+  font-family: 'Calibri';
+  font-size: 17.92px;
+  padding-left: 20px;
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 0;
+}
+@media (min-width: 992px) {
+  #illustration-filters .promocode {
+    margin-left: 0;
+    max-width: 250px;
+    position: relative;
+  }
+}
 #illustration-filters #information {
   background: #b6c2cc;
-  padding: 0 30px 20px;
+  padding: 0 30px;
   overflow: hidden;
 }
 #illustration-filters #information .i {
@@ -3830,7 +3836,7 @@ body {
 }
 @media (min-width: 992px) {
   #illustration-filters #information {
-    padding-left: 50px;
+    padding-left: 0;
     position: relative;
     padding-right: 0;
     padding-top: 0;
@@ -3838,7 +3844,7 @@ body {
     background: transparent;
     max-width: none;
     float: left;
-    width: 33%;
+    width: 20%;
   }
   #illustration-filters #information .i {
     display: inline-block;
@@ -3850,25 +3856,12 @@ body {
 }
 @media (min-width: 992px) {
   #illustration-filters #information #pictures {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     display: block;
   }
   #illustration-filters #information #pictures img {
     vertical-align: bottom;
   }
-}
-@media (min-width: 992px) {
-  #illustration-filters #information .apply .next {
-    min-width: 245px;
-    margin-top: 25px;
-  }
-}
-#illustration-filters #information .apply span {
-  font-size: 20px;
-  padding-left: 5px;
-}
-#illustration-filters #information .apply .next {
-  max-width: none;
 }
 #illustration-filters #information h2 {
   color: white;
@@ -3877,6 +3870,10 @@ body {
   text-align: left;
   padding: 18px 0 0 0;
   font-family: 'foco_bold';
+  position: relative;
+}
+#illustration-filters #information h2 .info-tip {
+  bottom: 10px;
 }
 @media (min-width: 992px) {
   #illustration-filters #information h2 {
@@ -3884,11 +3881,11 @@ body {
   }
 }
 @media (min-width: 992px) {
-  #illustration-filters #information #birthday {
+  #illustration-filters #birthday {
     position: relative;
   }
 }
-#illustration-filters #information #birthday #mobile-date {
+#illustration-filters #birthday #mobile-date {
   width: 100%;
   height: 46px;
   border: 0;
@@ -3898,13 +3895,13 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-#illustration-filters #information #birthday > div {
+#illustration-filters #birthday > div {
   display: inline-block;
   margin-top: 2px;
   width: 100%;
   position: relative;
 }
-#illustration-filters #information #birthday > div .date {
+#illustration-filters #birthday > div .date {
   height: 40px;
   background-image: url(../../images/savie/calendar.png);
   background-repeat: no-repeat;
@@ -3917,12 +3914,7 @@ body {
   width: 100%;
   border-radius: 0;
 }
-@media (min-width: 992px) {
-  #illustration-filters #information #birthday > div .date {
-    max-width: 245px;
-  }
-}
-#illustration-filters #information #birthday > div .add-on {
+#illustration-filters #birthday > div .add-on {
   width: auto;
   background-color: transparent;
   border: none;
@@ -3933,11 +3925,30 @@ body {
   top: 9px;
 }
 @media (min-width: 992px) {
-  #illustration-filters #information #birthday > div .add-on {
-    left: 202px;
-    right: inherit;
-    top: 9px;
+  #illustration-filters #birthday > div .add-on {
+    right: 0;
   }
+}
+#illustration-filters .apply {
+  padding: 0 30px 20px;
+}
+@media (min-width: 992px) {
+  #illustration-filters .apply {
+    width: 20%;
+    float: left;
+    padding: 0 0 0 3.5%;
+  }
+  #illustration-filters .apply .next {
+    width: 100%;
+    margin-top: 94px;
+  }
+}
+#illustration-filters .apply span {
+  font-size: 20px;
+  padding-left: 5px;
+}
+#illustration-filters .apply .next {
+  max-width: none;
 }
 
 /*
@@ -4151,6 +4162,37 @@ span.explanation {
 @media (min-width: 992px) {
   span.explanation {
     display: block;
+  }
+}
+
+.fwd-container.proceed-block {
+  color: #ff8200;
+}
+.fwd-container.proceed-block button.next {
+  max-width: 300px;
+  margin: 10px auto 38px auto;
+}
+
+.fwd-savie-wrapper #thankYouModal .modal-dialog {
+  width: 90%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
+  padding: 0;
+}
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content img {
+  width: 100%;
+}
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    width: 45%;
   }
 }
 
@@ -4503,6 +4545,7 @@ span.explanation {
   font-family: 'Calibri-Bold';
   font-size: 30px;
   padding-bottom: 15px;
+  position: relative;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .investment-table-desktop {
@@ -4562,6 +4605,12 @@ span.explanation {
     text-align: left;
     padding-top: 0px;
   }
+}
+.fwd-savie-wrapper .investment .investment-table-desktop h3.desktop-right {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  bottom: 25px;
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .credit-rate-dropdown {
   font-size: 18px;
@@ -4861,7 +4910,7 @@ span.explanation {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits .investment-summary {
-    margin-bottom: 90px;
+    margin-bottom: 30px;
   }
 }
 .fwd-savie-wrapper .investment .tab-content.credits .investment-summary #illustration-chart {
@@ -11122,16 +11171,21 @@ span.dup-error-msg {
   width: 315px;
 }
 .fwd-savie-wrapper .sign-up-teaser {
-  top: 0;
+  background-color: #fff;
+  //top: 0;
   width: 100%;
   position: relative;
   z-index: 10;
-  background-color: #fff;
   right: 0;
   padding: 40px 20px 40px 20px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser {
+    background: rgba(0, 0, 0, 0.5);
+    /* Here some time problem for Hover than you can use background color/image */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+    /* Below IE7 supported */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
     width: 500px;
     top: 352px;
@@ -11191,7 +11245,7 @@ span.dup-error-msg {
   margin: 0;
 }
 .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
-  color: #ff8200;
+  color: #f68a1d;
   font-size: 24px;
   font-family: 'Calibri-Bold';
   text-align: center;
@@ -11201,6 +11255,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
     text-align: left;
+    color: #fff;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser p.email-notification {
@@ -11213,6 +11268,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser p.email-notification {
     text-align: left;
+    color: #fff;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser .btn.btn-white.btn-sign-up {
@@ -11234,10 +11290,15 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label {
   width: 16px;
-  border: solid 1px #ff8200;
+  border: solid 1px #f68a1d;
   min-height: 16px;
   padding: 0;
   cursor: pointer;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label {
+    border: solid 1px #fff;
+  }
 }
 .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label:after {
   content: '';
@@ -11271,6 +11332,11 @@ span.dup-error-msg {
   font-size: 14px;
   line-height: 15px;
   padding-top: 1px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .pull-left.text {
+    color: #fff;
+  }
 }
 .fwd-savie-wrapper .sign-up-teaser .pull-left.text a {
   color: #ff8200;
@@ -11681,11 +11747,12 @@ span.dup-error-msg {
 .fwd-savie-wrapper .teaser-confirmation .wa_btn .whatsapp-icon {
   font-size: 24px;
   position: absolute;
-  left: 16px;
+  left: 33px;
   top: 6px;
 }
 .fwd-savie-wrapper .teaser-confirmation .fa.fa-facebook.fwd-fb {
-  padding-right: 10px;
+  padding-right: 18px;
+  margin-left: -10px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser-confirmation .fwd-div-btn {
@@ -13433,10 +13500,221 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
     color: #000;
 }
 
-body.chin .fwd-savie-wrapper .btn-white,
-body.chin .fwd-savie-wrapper .sign-up-teaser .pull-left.text,
-body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-menu-right,
-body.chin .fwd-savie-wrapper .modal.fade,
-body.chin .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown{
-  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
+  margin-top: 10px;
+  width: 100%;
+  height: 60px;
+  border: solid 1px #ff8200;
+  color: #ff8200;
+  background-color: #fff;
+  font-size: 24px;
+  font-family: 'Calibri-Bold';
+  padding: 7px 40px;
+}
+.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:hover, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:focus, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:active {
+  background-color: #ff8200;
+  color: #fff;
+  outline: 0;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
+    background-color: #ff8200;
+    color: #fff;
+    border: 0;
+  }
+}
+
+.fwd-savie-wrapper .teaser-container{
+  padding: 0;
+  position: relative;
+}
+
+.fwd-savie-wrapper .teaser-banner.container-fluid {
+  padding: 0;
+  position: relative;
+}
+.fwd-savie-wrapper .teaser-banner.container-fluid img.max {
+  width: 100%;
+  height: auto;
+  position: relative;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+}
+.fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.desktop.teaser-banner-desktop {
+  display: none;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.desktop.teaser-banner-desktop {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: 25%;
+    width: 500px;
+  }
+}
+.fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 500px;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
+    bottom: 25%;
+    margin: 0;
+    max-width: 327px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
+    display: none;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.fwd-savie-wrapper #other-benefits-teaser{
+    margin: auto;
+    background-color: #fff;
+    padding: 34px 32px 0 32px;
+	margin-left: 15px;
+    margin-right: 15px;
+}
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser{
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
+		max-width: none;
+		margin-top: 5px;
+		padding-top: 0px;
+	}
+}
+
+@media (min-width: 1200px){
+	.fwd-savie-wrapper #other-benefits-teaser{
+		  height: 340px;
+	}
+	  
+}
+
+
+.fwd-savie-wrapper #other-benefits-teaser img{
+	padding-top: 18px;
+    padding-bottom: 26px;
+}
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser img {
+		padding-right: 40px;
+		/* margin-top: -67px; */
+		margin-top: -33px;
+	}
+}
+
+.disclaimer-policy-teaser{
+    padding-top: 17px;
+    padding-bottom: 20px;
+    margin: auto;
+	margin-left: 15px;
+    margin-right: 15px;
+}
+
+.fwd-savie-wrapper .disclaimer-policy-teaser.teaser-policy{
+	padding-bottom: 17px;
+}
+
+@media (min-width: 992px){
+	.disclaimer-policy-teaser {
+		padding: 35px 0;
+		width: 100%;
+		max-width: none;
+	}
+}
+
+.disclaimer-policy-teaser p {
+    font-size: 12px;
+    margin-bottom: 11px;
+    line-height: 14px;
+}
+
+@media (min-width: 992px){
+	.disclaimer-policy-teaser p {
+		font-size: 14px;
+		margin-bottom: 0;
+		line-height: 19px;
+	}
+}
+
+
+
+
+.fwd-savie-wrapper #other-benefits-teaser .left-clear {
+    clear: both;
+}
+
+.fwd-savie-wrapper #other-benefits-teaser h2 {
+    color: #373a36;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser h2 {
+		padding-top: 33px;
+		margin-bottom: 26px;
+		text-align: left;
+		margin-left: -15px;
+	}
+}
+
+.fwd-savie-wrapper #other-benefits-teaser ul {
+    padding: 0 0 14px 4px;
+    margin: 0px;
+    list-style-image: url(../../images/savie/bullet.png);
+    font-size: 18px;
+    /* margin-left: 21px; */
+    /* margin-left: 380px; */
+}
+
+.fwd-savie-wrapper #other-benefits-teaser ul li {
+    color: #373a36;
+    padding-bottom: 13px;
+}
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser ul li {
+		padding-bottom: 7px;
+	}
+}
+
+.fwd-savie-wrapper #other-benefits-teaser ul li p {
+    margin: 0px 0px -2px;
+    line-height: 24px;
+}
+
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper .disclaimer-policy-teaser.teaser-policy {
+		padding-bottom: 35px;
+		margin-left: 0;
+	}
 }

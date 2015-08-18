@@ -60,35 +60,40 @@
 						</div>
 
 						<div id="desktop-right">
-							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
-							<h2 id="promo">Promo Code<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button></h2>
-							<input name="promocode" id="promocode" type="text" placeholder="eg: SAVIE50" class="promocode">
-							<span class="error-msg-promo hidden" id="promo-code-errmsg">Invalid promo code. Try again?</span>
+							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
+							<h2 id="promo"><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" />
+								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Your date of birth as per your HKID. You must be 19 and above to apply."></button>
+							</h2>
+							<div id="birthday">
+								<div class="hidden-md hidden-lg">
+									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
+								</div>
+								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
+									<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="28-05-1995" readonly />
+									<input type="hidden" id="birthOfDay" value="05/28/1995"/>
+									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
+								</div>
+								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
+								<span class="error-msg-promo hideSpan" id="promo-code-dateOfBirthEmpty">Please input date of birth.</span>
+							</div>
 						</div>
 
-					   <p id="crediting-rate" class="text-center"><fmt:message key="savie.planDetails.Guaranteed.rate" bundle="${msg}" /></p>
+					   <p id="crediting-rate"><fmt:message key="savie.planDetails.Guaranteed.rate" bundle="${msg}" /></p>
 					</div>
 
 					<div id="information">
 						<div id="pictures">
-							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/birthday.png">
+							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 						</div>
 
-						<h2><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Your date of birth as per your HKID. You must be 19 and above to apply."></button></h2>
-
-						<div id="birthday">
-							<div class="input-group input-append date" id="datePicker">
-								<input type="text" class="date" name="dob" id="dates" placeholder="28th May 1996" readonly />
-								<input type="hidden" id="birthOfDay" value="05/28/1995"/>
-								<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
-							</div>
-							<span class="error-msg-promo hidden" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
-							<span class="error-msg-promo hidden" id="promo-code-dateOfBirthEmpty">Please input date of birth.</span>
-						</div>
-						
-						<div class="apply">
-							<button onclick='getSaviePlanDetails()' class="next" type="button" id="sales-illu-apply-now">Apply now<span class="icon icon-chevron-thin-right"></span></button>
-						</div>
+						<h2>Promo code
+							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button>
+						</h2>
+						<input name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
+						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
+					</div>
+					<div class="apply">
+						<button onclick='getSaviePlanDetails()' class="next" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
 					</div>
 				</form>
 			</div>
@@ -102,6 +107,7 @@
 	                            <div class="investment-table-desktop">
 	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ 105,000 in the 3rd policy year</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
@@ -165,26 +171,12 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- Email Block -->
-			<!-- <div class="fwd-container container-fluid">     
-				<div class="row email-row">
-					<div class="col-xs-12 col-md-6 email-me pull-left">
-						<img src="<%=request.getContextPath()%>/resources/images/savie/email-mob.png">
-						<h5><fmt:message key="savie.planDetails.Email.table" bundle="${msg}" /><span class="hidden-xs hidden-sm">.</span></h5>
-					</div>
-					<div class="col-xs-12 col-md-6 email-input pull-right">
-						<form class="text-center">
-							<input name="email" type="email" class="email-text" onkeyup="return forceLower(this);" placeholder="Enter your email address" />
-							<button type="submit" class="email-btn"><fmt:message key="savie.planDetails.Submit" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
-							<input id="email-checkbox" name="email-disclaimer" type="checkbox" />
-							<label for="email-checkbox"></label>
-							<p>I have read, understand and accept the <a href="#">Personal Information Collection Statement</a></p>
-						</form>
-					</div>
-				</div>
-			</div>  -->
 			
+			<!-- Login, create account, Proceed buttons -->
+			<div class="fwd-container container-fluid proceed-block text-center">
+				<h3>Login or create an account to</h3>
+				<button id="made-decision-next-btn" type="button" class="btn next">Proceed</button>
+			</div>
 			
 			<!--Explanation Block-->
 			<div class="fwd-container container-fluid reset-padding explanation-block">
@@ -229,36 +221,19 @@
 						</li> -->
 					</ul>
 				</div>
-			</div>
+			</div>			
+
+			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a> 
 			
-			<!-- Mobile Next Button -->
-			<!--<div class="fwd-full-container container-fluid next-sales-block box-container hidden-md hidden-lg">
-				<div class="fwd-container-limit">
-					<button href="#" class="btn next-btn btn-orange">Next</button>
-				</div>
-			</div>-->
-			<div class="fwd-full-container container-fluid made-your-decision-section">
-				<div class="fwd-container-limit padding-to-zero">
-					<div class="clearfix">
-						<div class="pull-left left-width">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/explanation-image.png" class="img-responsive img-padding-left">
-						</div>
-						<div class="pull-left right-width">
-							<div class="row">
-								<div class="col-xs-12 col-md-8 text-padding">
-									<h6><fmt:message key="savie.planDetails.context9" bundle="${msg}" /></h6>
-									<p class="started"><fmt:message key="savie.planDetails.context10" bundle="${msg}" /></p>
-								</div>
-								<div class="col-xs-12 col-md-4 button-padding">
-									<button id="made-decision-next-btn" type="button" class="btn btn-orange btn-explanation"><fmt:message key="savie.planDetails.Next" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
-								</div>
-							</div>
-						</div>
+			<!-- Thank you -->
+			<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive">
+						<button id="thank-you-continue" class="btn next" onclick="gotoFna();">Continue</button>
 					</div>
 				</div>
 			</div>
-
-			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a> 
 	</div>
 		
 		<!--For Sales Illustration page js-->

@@ -11,6 +11,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
 
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @SuppressWarnings("rawtypes")
@@ -56,6 +57,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static String signatureHeight;
 	public static String signatureFileSize;
 	public static String applicationFileSize;
+	
+	public static ServiceCentreResponse serviceCentreEN;
+	public static ServiceCentreResponse serviceCentreCN;
 	
 
 	@Override
@@ -282,7 +286,25 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("signatureWidth : " + signatureWidth + "signatureHeight : " + signatureHeight);
 		
-	
+		try {
+			commonUtils.getServiceCentre("EN", type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("serviceCentreEN : " + serviceCentreEN);
+		
+		try {
+			commonUtils.getServiceCentre("CH", type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("serviceCentreCN : " + serviceCentreCN);
 	}
 	
 }

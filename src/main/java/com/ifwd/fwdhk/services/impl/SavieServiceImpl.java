@@ -846,7 +846,7 @@ public class SavieServiceImpl implements SavieService {
 			header.put("language", "ZH");
 			String to = request.getParameter("to");
 			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
-			if (request.getServerPort() != 80)
+			if (request.getServerPort() != 80 && request.getServerPort() != 443)
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}

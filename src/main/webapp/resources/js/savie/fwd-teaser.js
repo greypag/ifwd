@@ -1,14 +1,47 @@
-	function checkChineseCharEmail(e) {
-		if(((e.keyCode >= 48 && e.keyCode<=57) || (e.keyCode >= 65  && e.keyCode<=90) || e.keyCode==64  || e.keyCode ==45 || e.keyCode == 95 || e.keyCode == 46)){
-			return true;
-		}else{
-			return false;
-		}
+function checkChineseCharEmail(e) {
+	if(((e.keyCode >= 48 && e.keyCode<=57) || (e.keyCode >= 65  && e.keyCode<=90) || e.keyCode==64  || e.keyCode ==45 || e.keyCode == 95 || e.keyCode == 46)){
+		return true;
+	}else{
+		return false;
 	}
+}
+	
+function isNumberKey(evt){
+	/*var charCode = (evt.which) ? evt.which : event.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57))
+		return false;
+	return true;*/
+	
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	console.log(charCode);
+	// Allow: delete, backspace, tab, escape, enter
+	if ($.inArray(charCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+		 // Allow: Ctrl+A
+		(charCode == 65 && evt.ctrlKey === true) ||
+		 // Allow: Ctrl+C
+		(charCode == 67 && evt.ctrlKey === true) ||
+		 // Allow: Ctrl+X
+		(charCode == 88 && evt.ctrlKey === true) ||
+		 // Allow: home, end, left, right
+		(charCode >= 35 && evt.keyCode <= 39)) {
+			 // let it happen, don't do anything
+			 return;
+	}
+	// Ensure that it is a number and stop the keypress
+	if ((evt.shiftKey || (charCode < 48 || charCode > 57)) && (charCode < 96 || charCode > 105)) {
+		evt.preventDefault();
+	}
+}   
+	
+	
 $(function() {
 	
 	if(lang=='tc'){
 		//Chinese
+		$('#teaser-banner-mobile-ch').removeClass('hidden');
+		$('#teaser-banner-desktop-ch').removeClass('hidden');
+		$('#teaser-banner-mobile-en').addClass('hidden');
+		$('#teaser-banner-desktop-en').addClass('hidden');
 		$('#teaserEmail').removeClass('email');
 		$('#teaserEmail').addClass('email-ch');
 		$('#hunger-selling-banner').removeClass('hunger-selling');
@@ -23,6 +56,10 @@ $(function() {
 		
 	}else{
 		//English
+		$('#teaser-banner-mobile-ch').addClass('hidden');
+		$('#teaser-banner-desktop-ch').addClass('hidden');
+		$('#teaser-banner-mobile-en').removeClass('hidden');
+		$('#teaser-banner-desktop-en').removeClass('hidden');
 		$('#teaserEmail').addClass('email');
 		$('#teaserEmail').removeClass('email-ch');
 		$('#hunger-selling-banner').removeClass('hunger-selling-ch');
@@ -60,9 +97,10 @@ $(function() {
 		var email = $.trim($('#teaserEmail').val());
 		var phone = $('#teaserPhoneNo').val().length;
 		var isErrorFlag = false;
-		
+		var isPlaceholder = true;
+		var emailIe = ($.trim($('#teaserEmail').val())) =="Please enter your email address"? "":$.trim($('#teaserEmail').val());
 		// Email is required
-		if (email == "") {
+		if ((email == "") || (emailIe == "")) {
 			$('#emailAddrsMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.notNull.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
@@ -86,7 +124,10 @@ $(function() {
 		}
 		
 		// Phone is not empty and has 8 characters
-		if (phone > 0 && phone < 8) {
+		if ($('#teaserPhoneNo').val() == $('#teaserPhoneNo').attr('placeholder')) {
+			isPlaceholder=false;
+			
+		} else if (phone > 0 && phone < 8) {
 			$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
 			isErrorFlag = true;
 		} else {
@@ -118,6 +159,9 @@ $(function() {
 			$('#emailAddrsMessage').addClass('hideSpan');
 			$('#checkboxErrorMessage').addClass('hideSpan');
 			$('#phoneErrMsg').addClass('hideSpan');
+			if(!isPlaceholder){
+				$('#teaserPhoneNo').val('')
+			}
 			sendStep1Email();
 		}
 	});
@@ -154,7 +198,7 @@ function checkEmail(email) {
 function sendStep1Email() {
 	var teaserEmail = $("#teaserEmail").val();
 	var teaserPhoneNo = $("#teaserPhoneNo").val();
-	sendlead(teaserEmail,teaserPhoneNo,"","1",grecaptcha.getResponse());
+	sendlead(teaserEmail,teaserPhoneNo,"","1",'ADUOIHWNJSKLNC');
 }
 
 function sendStep2Email() {
@@ -217,6 +261,9 @@ function sendlead(email,mobileNo,answer1,step,captcha) {
 		    		$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "form.captcha.empty.message")).removeClass('hideSpan');
 		    	}else{
 		    		$('#checkboxErrorMessage').html(data.errMsgs).removeClass('hideSpan');
+		    	}
+		    	if(!('placeholder' in document.createElement('input')) && $('#teaserPhoneNo').val() == '') {
+		    		$('#teaserPhoneNo').val($('#teaserPhoneNo').attr('placeholder'))
 		    	}
 	    	}
 			$('#teaser-sign-up-btn').prop('disabled', false);

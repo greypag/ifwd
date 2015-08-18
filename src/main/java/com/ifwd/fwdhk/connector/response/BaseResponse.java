@@ -21,7 +21,7 @@ public class BaseResponse implements Serializable{
 	}
 
 	public boolean hasError(){
-		return (this.getErrMsgs() != null && this.getErrMsgs().length > 0 && !"".equals(this.getErrMsgs()[0]));
+		return (this.getErrMsgs() != null && this.getErrMsgs().length > 0 && !"".equals(this.getErrMsgs()[0]) && this.getErrMsgs()[0]!=null);
 	}
 	
 }

@@ -45,7 +45,7 @@
                                                     <input type="text" name="userName" class="form-control check-emp"
                                                         placeholder="" id="headerUserName" onkeypress="return validationUsername(event);">
                                                 </div>
-                                                <span id="errUserName" class="empHide" style="color: red"></span>
+                                                <span id="errUserName" class="empHide" style="color: red;font-size: 16px;"></span>
                                                 
                                                 
                                                 
@@ -60,7 +60,7 @@
                                                 <div class="form-group">
                                                     <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off" id="headerPassword">
                                                 </div>
-                                                <span id="errPass" class="empHide" style="color: red"></span> <br>
+                                                <span id="errPass" class="empHide" style="color: red;font-size: 16px;"></span> <br>
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6">
                                                         <button type="button" onclick="submitLoginForm('loginform-pop');"
