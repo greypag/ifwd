@@ -480,8 +480,8 @@ public class UserController {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		
-		String pageTitle = WebServiceUtils.getPageTitle("page.offers", UserRestURIConstants.getLanaguage(req));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.offers", UserRestURIConstants.getLanaguage(req));
+		String pageTitle = WebServiceUtils.getPageTitle("page.offers", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.offers", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
