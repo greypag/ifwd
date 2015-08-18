@@ -179,9 +179,10 @@ public class TravelController {
 				model.addAttribute("other", other);
 				return date;
 			}
+			result = false;
 		}
 		
-		if(travelQuote == null){
+		if(travelQuote == null || !result){
 			travelQuote = new TravelQuoteBean();
 			travelQuote.setTotalPersonalTraveller(1);
 			travelQuote.setTotalAdultTraveller(1);

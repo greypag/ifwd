@@ -184,7 +184,6 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		    
 			/* var applicantAreaCode = $('#applicantArea').checked */
 
-			//alert(applicantAreaCode);
 			// Set Values
 			$('#inputARoom').val(applicantRoom);
 			$('#inputAFloor').val(applicantFloor);
@@ -289,7 +288,6 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 			success : function(data) {
 				document.getElementById("errPromoCode").innerHTML = data;
 				var json = JSON.parse(data);
-				//  alert(json);
 				// setValue(json);
 			}
 

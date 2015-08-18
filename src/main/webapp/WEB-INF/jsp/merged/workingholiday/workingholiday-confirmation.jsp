@@ -196,7 +196,7 @@
 <script type=text/javascript>
    var params = new Array();
    params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-   params[1]='type=Registration';
+   params[1]='type=Registration_Working_Holiday';
    params[2]='val=${dueAmount}';
    params[3]='orderId=${transNo}';
    if ('${language}'==='en'){
@@ -214,10 +214,10 @@
 <noscript>
 	<c:choose>
 		<c:when test="${language=='en'}">
-   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Working_Holiday EN_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Working_Holiday&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Working_Holiday EN_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
    		</c:when>
    		<c:otherwise>
-   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Working_Holiday EN_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+   			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Working_Holiday&val=${dueAmount}&orderId=${transNo}&promoCode=Regis_Working_Holiday ZH_Sc&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
    		</c:otherwise>
    	</c:choose>
 </noscript>
