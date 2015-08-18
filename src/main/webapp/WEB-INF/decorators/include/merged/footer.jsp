@@ -87,11 +87,11 @@ $(function() {
   src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
-<script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/jquery.isotope.min.js"></script>
+<!-- <script type="text/javascript"
+  src="<%=request.getContextPath()%>/resources/js/jquery.isotope.min.js"></script> -->
 
-<script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/jquery.prettyPhoto.js"></script>
+<!-- <script type="text/javascript"
+  src="<%=request.getContextPath()%>/resources/js/jquery.prettyPhoto.js"></script> -->
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/respond.min.js"></script> --%>
