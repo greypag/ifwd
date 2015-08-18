@@ -300,11 +300,11 @@ $(document).ready(function() {
 			<div class="center wow fadeInDown">
 				<div class="spacer3"></div>
 				<!--desktop-->
-				<h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="home.main.desc" bundle="${msg}" /></h2>
+				<h1 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="home.main.desc" bundle="${msg}" /></h1>
 				<!--end desktop-->
 
 				<!--Mobile-->
-				<h2 class="hidden-lg hidden-md feature-ttl"><fmt:message key="home.main.desc" bundle="${msg}" /></h2>
+				<h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="home.main.desc" bundle="${msg}" /></h1>
 				<!--end Mobile-->
 			</div>
 			
@@ -313,11 +313,11 @@ $(document).ready(function() {
 		    <div class="center wow fadeInDown">
 		        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-		                <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
+		                <div style="border: 1px solid #D1D1D1; height:600px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+		                  <h2 class="landing-feature-title">
 		                    <fmt:message key="home.main.feature1.heading.part1" bundle="${msg}" /><fmt:message key="home.main.feature1.heading.part2" bundle="${msg}" />
-		                  </h3>
-		                  <div style="margin-top:25px;">
+		                  </h2>
+		                  <div style="margin-top:70px;">
 		                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon1.png" />
 		                  </div>
 		                  <div style="margin-top:10px;">
@@ -326,11 +326,11 @@ $(document).ready(function() {
 		                  </div>
 		              </div>
 		              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-		                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
+		                   <div style="border: 1px solid #D1D1D1; height:600px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+		                  <h2 class="landing-feature-title">
 		                     <fmt:message key="home.main.feature2.heading.part1" bundle="${msg}" /><fmt:message key="home.main.feature2.heading.part2" bundle="${msg}" />
-		                  </h3>
-		                  <div style="margin-top:25px;">
+		                  </h2>
+		                  <div style="margin-top:70px;">
 		                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon2.png" />
 		                  </div>
 		                  <div style="margin-top:10px;">
@@ -339,11 +339,11 @@ $(document).ready(function() {
 		                  </div>
 		              </div>
 		              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-		                  <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:30px; line-height:35px; height: 80px;">
+		                  <div style="border: 1px solid #D1D1D1; height:600px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+		                       <h2 class="landing-feature-title">
 		                         <fmt:message key="home.main.feature3.heading.part1" bundle="${msg}" /><fmt:message key="home.main.feature3.heading.part2" bundle="${msg}" />
-		                      </h3>
-		                      <div style="margin-top:25px;">
+		                      </h2>
+		                      <div style="margin-top:70px;">
 		                           <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_home_icon3.png" />
 		                      </div>
 		                      <div style="margin-top:10px;">

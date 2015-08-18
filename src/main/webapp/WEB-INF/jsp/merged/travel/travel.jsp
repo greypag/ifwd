@@ -494,15 +494,15 @@ $(document).ready(function() {
   <div class="container pad-none">
     <div class="center wow fadeInDown"> 
       <!--desktop-->
-		<h2 class="hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h2>
+		<h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h1>
 		<!--end desktop--> 
 		
 		<!--Mobile-->
-		<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
+		<h1 class="landing_h2 col-xs-12 hidden-lg hidden-md feature-ttl">
 		<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
 		<fmt:message key="travel.main.mobile.desc2" bundle="${msg}" />
 		<fmt:message key="travel.main.mobile.desc3" bundle="${msg}" />
-		</h2>
+		</h1>
 		<!--end Mobile-->
 	</div>
 	
@@ -512,9 +512,9 @@ $(document).ready(function() {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                 <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                  <h2 class="landing-feature-title">
                     <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
-                  </h3>
+                  </h2>
                   <div style="margin-top:25px;">
                        <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" />
                   </div>
@@ -525,9 +525,9 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                    <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                  <h2 class="landing-feature-title">
                      <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
-                  </h3>
+                  </h2>
                   <div style="margin-top:25px;">
                        <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" />
                   </div>
@@ -538,9 +538,9 @@ $(document).ready(function() {
               </div>
               <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                       <h2 class="landing-feature-title">
                          <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
-                      </h3>
+                      </h2>
                       <div style="margin-top:25px;">
                            <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" />
                       </div>
