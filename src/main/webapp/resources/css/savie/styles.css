@@ -3621,6 +3621,11 @@ body {
 #illustration-filters .btn-tooltip-clear {
   border: none;
 }
+
+#illustration-filters .tooltip {
+  width: 200px;
+}
+
 #illustration-filters .tooltip-inner {
   background-color: #ff8200;
 }
@@ -3823,13 +3828,13 @@ body {
   #illustration-filters .promocode {
     margin-left: 0;
     max-width: 250px;
+    margin-top: 2px;
     position: relative;
   }
 }
 #illustration-filters #information {
   background: #b6c2cc;
   padding: 0 30px;
-  overflow: hidden;
 }
 #illustration-filters #information .i {
   display: none;
@@ -4178,7 +4183,16 @@ span.explanation {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
 }
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #thankYouModal .modal-dialog {
+	    margin-top: 105px;
+	}
+}
+
+
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
   padding: 0;
 }

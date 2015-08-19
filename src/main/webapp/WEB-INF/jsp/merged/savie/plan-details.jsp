@@ -69,8 +69,8 @@
 									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 								</div>
 								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
-									<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="28-05-1995" readonly />
-									<input type="hidden" id="birthOfDay" value="05/28/1995"/>
+									<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
+									<input type="hidden" id="birthOfDay"  value="05/28/1995"/>
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
 								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
@@ -78,7 +78,7 @@
 							</div>
 						</div>
 
-					   <p id="crediting-rate"><fmt:message key="savie.planDetails.Guaranteed.rate" bundle="${msg}" /></p>
+					  <!--  <p id="crediting-rate"><fmt:message key="savie.planDetails.Guaranteed.rate" bundle="${msg}" /></p>-->
 					</div>
 
 					<div id="information">
@@ -229,7 +229,8 @@
 			<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive">
+						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive hidden-xs">
+						<img src="<%=request.getContextPath()%>/resources/images/savie/FWD_savie_o2o_offline-procedure_mobile.jpg" class="img-responsive hidden-md hidden-lg hidden-sm">
 						<button id="thank-you-continue" class="btn next" onclick="gotoFna();">Continue</button>
 					</div>
 				</div>

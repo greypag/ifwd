@@ -1,3 +1,31 @@
+//Plan Details Calendar
+//by: RMN
+function fnSetStyle(){
+	if($('.datepicker.datepicker-dropdown').length){
+		//datepicker exist
+		
+		var isVisible = $('.datepicker .datepicker-years table thead tr th:last-child').css("visibility");
+		
+		if(isVisible == "hidden"){
+			console.log('hidden');
+			$('.datepicker .datepicker-years table thead tr th:last-child').removeAttr('style');
+			$('.datepicker .datepicker-years table thead tr th:last-child').css(
+			{"visibility":'visible !important',
+			"cursor":"not-allowed"});
+		}else{
+			console.log('vivible');
+			$('.datepicker .datepicker-years table thead tr th:last-child').css(
+			{"visibility":'visible !important',
+			"cursor":"pointer"});
+		}
+		
+	
+	}else{
+		//console.log('doesnot exist');
+		//date picker does not exist
+	}
+}
+
 $(function() {
 	
 	
