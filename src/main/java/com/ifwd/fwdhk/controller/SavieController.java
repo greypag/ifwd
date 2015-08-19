@@ -336,4 +336,11 @@ public class SavieController extends BaseController{
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "downloadTest");
 	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
+	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
+		model.addAttribute("serviceCentreEN", InitApplicationMessage.serviceCentreEN);
+		model.addAttribute("serviceCentreCN", InitApplicationMessage.serviceCentreCN);
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
+	}
 }
