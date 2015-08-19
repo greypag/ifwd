@@ -1,19 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib uri="http://www.opensymphony.com/sitemesh/decorator"
+	prefix="dec"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
-	prefix="dec"%>
-
-<%-- <%
-	session.setAttribute("language", "EN");
-	session.setAttribute("page", request.getServletPath());
-%> --%>
 <!DOCTYPE HTML>
 <html>
-
 <head>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
@@ -24,7 +18,6 @@
 <meta name='description' content="${pageMetaDataDescription}" >
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="Cache-control" content="no-cache, no-store">
-
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <% boolean langFlag = false;
  if(session.getAttribute("language") != null){
@@ -34,21 +27,12 @@
  }
 %> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<!-- <meta name="robots" content="NOODP"> -->
 <meta name='keywords' content="meta keywords here"/>
-
-
 <!-- Schema.org markup for Google+ -->
 <meta itemprop="headline" content="${ogTitle}" />
 <meta itemprop="description" content="${ogDescription}"/>
 <meta itemprop="image" content="${ogImage}" />
-
-
-
-
 <!-- Open Graph data -->
 <meta property="og:title" content="${ogTitle}" />
 <meta property="og:type" content="${ogType}" />
@@ -57,27 +41,36 @@
 <meta property="og:image:secure_url" content="${ogImage}" />
 <meta property="og:description" content="${ogDescription}"/>
 <meta property="og:site_name" content="${ogSiteName}" />
-
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />
 <meta property="twitter:description" content="${ogDescription}"/>
 <meta property="twitter:card" content="${ogImage}" />
 <meta property="twitter:image:src" content="${ogImage}" />
-     
 <% String requestUri = request.getRequestURI(); %>
 <% if(!requestUri.endsWith("-insurance")) { %>
 <meta name="robots" content="noindex">
 <% }
-   if(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
+   
+	if(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
 		   || requestUri.endsWith("/tc") || requestUri.endsWith("/tc/")) {
 %>
-<link rel="alternate"  href="https://i.fwd.com.hk/en" hreflang="en" />
-<% }%>
+<link rel="alternate" hreflang="en" href="https://i.fwd.com.hk/en" />
+<% } else if(requestUri.endsWith("/en/home") || requestUri.endsWith("/en/home/") 
+		   || requestUri.endsWith("/en") || requestUri.endsWith("/en/")) {
+%>
+<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
+<% 
+    } else if (requestUri.indexOf("/en/") >= 0) { 
+%>
+<link rel="alternate" hreflang="zh-HK" href="<%= requestUri.replaceAll("/en/", "/tc/") %>" />
+<% 
+    } else if (requestUri.indexOf("/tc/") >= 0) { 
+%>
+<link rel="alternate" hreflang="en" href="<%= requestUri.replaceAll("/tc/", "/en/") %>" />
+<%
+    }
+%>
 <%@ include file="include/setup.jsp"%>
-<link rel="alternate" hreflang="en" href="" />
-<link rel="alternate" hreflang="zh-HK" href="" />
-<link rel="canonical" href=""/>
-
 <!-- Start Visual Website Optimizer Asynchronous Code -->
 <script type='text/javascript'>
 var _vwo_code=(function(){
@@ -165,8 +158,5 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 	<script type="text/javascript">
 		window.status = "Done";
 	</script>
-
-
-
 </body>
 </html>
