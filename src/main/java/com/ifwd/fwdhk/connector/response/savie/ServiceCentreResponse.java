@@ -9,7 +9,7 @@ public class ServiceCentreResponse extends BaseResponse {
 
 	private String status;
 	private String dateTime;
-	private List<ServiceCentreResult> result;
+	private List<ServiceCentreResult> serviceCentres;
 	public String getStatus() {
 		return status;
 	}
@@ -22,12 +22,13 @@ public class ServiceCentreResponse extends BaseResponse {
 	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
-	public List<ServiceCentreResult> getResult() {
-		return result;
+	public List<ServiceCentreResult> getServiceCentres() {
+		return serviceCentres;
 	}
-	public void setResult(List<ServiceCentreResult> result) {
-		this.result = result;
+	public void setServiceCentres(List<ServiceCentreResult> serviceCentres) {
+		this.serviceCentres = serviceCentres;
 	}
+	
 	
 	
 }

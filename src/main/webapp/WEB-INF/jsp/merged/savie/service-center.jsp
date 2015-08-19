@@ -14,12 +14,12 @@
 		CS center
 		<select name=""  id="">
 			<c:if test="${language == 'en'}">
-			   <c:forEach var="list" items="${serviceCentreEN.result}">
+			   <c:forEach var="list" items="${serviceCentreEN.serviceCentres}">
 			      <option value="${list.id }">${list.serviceCentreName }</option>
 			   </c:forEach>
 			</c:if>
 			<c:if test="${language == 'tc'}">
-			   <c:forEach var="list" items="${serviceCentreCN.result}">
+			   <c:forEach var="list" items="${serviceCentreCN.serviceCentres}">
 			      <option value="${list.id }">${list.serviceCentreName }</option>
 			   </c:forEach>
 			</c:if>
@@ -45,7 +45,6 @@ $('#datepicker').datepicker({
 	startDate: startDate,
 	endDate: endDate,
 	autoclose: true,
-	todayHighlight: true,
 	format: "mm-dd-yyyy",
 	daysOfWeekDisabled: [0],
 });
