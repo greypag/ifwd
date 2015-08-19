@@ -483,11 +483,11 @@ $(document).ready(function() {
   <div class="container pad-none">
     <div class="center wow fadeInDown"> 
       <!--desktop-->
-      <h2 class="col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
+      <h1 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h1>
       <!--end-desktop--> 
       
       <!--Mobile-->
-      <h2 class="hidden-lg hidden-md feature-ttl"><fmt:message key="flight.main.desc" bundle="${msg}" /></h2>
+      <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="flight.main.desc" bundle="${msg}" /></h1>
       <!--end mobile--> 
     </div>
     
@@ -496,9 +496,9 @@ $(document).ready(function() {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	        <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	            <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	              <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	              <h2 class="landing-feature-title">
 	                <fmt:message key="flight.main.feature1.heading" bundle="${msg}" />
-	              </h3>
+	              </h2>
 	              <div style="margin-top:25px;">
 	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" />
 	              </div>
@@ -509,9 +509,9 @@ $(document).ready(function() {
 	          </div>
 	          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	               <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	              <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	              <h2 class="landing-feature-title">
 	                 <fmt:message key="flight.main.feature2.heading" bundle="${msg}" />
-	              </h3>
+	              </h2>
 	              <div style="margin-top:25px;">
 	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" />
 	              </div>
@@ -522,9 +522,9 @@ $(document).ready(function() {
 	          </div>
 	          <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	              <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	                   <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	                   <h2 class="landing-feature-title">
 	                     <fmt:message key="flight.main.feature3.heading" bundle="${msg}" />
-	                  </h3>
+	                  </h2>
 	                  <div style="margin-top:25px;">
 	                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" />
 	                  </div>
@@ -641,7 +641,7 @@ $(document).ready(function() {
                   <div class="slide-margin">
                     <div class="other-benefits-wrap text-center">
                       <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
                       </div>
                     </div>
                   </div>

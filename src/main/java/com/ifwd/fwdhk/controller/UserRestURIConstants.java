@@ -107,6 +107,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
 	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_SAVIE_EMAIL_SUBMITTED = "email-submitted";
+	public static final String PAGE_SAVIE_SERVICE_CENTER = "service-center";
 
 	
 	public static final String PAGE_PROPERTIES_SAVIE_LANDING = "savie.landing";

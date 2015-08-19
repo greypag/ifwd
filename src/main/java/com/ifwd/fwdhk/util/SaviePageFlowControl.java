@@ -239,6 +239,9 @@ public class SaviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF)) {
 			return UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
 		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER)) {
+			return UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;
+		}
 		return "";
 		
 	}

@@ -148,6 +148,12 @@ a {
     
     color: #f68a1d;
 }
+.center .landing_h2 {
+      font-size: 40px !important;
+  margin-bottom: 30px !important;
+    
+    color: #f68a1d !important;
+}
 .floatingbox {
     position: relative;
 }
@@ -4007,6 +4013,14 @@ h2.feature-ttl {
     margin: 0 auto;
     font-weight: bold;
 }
+
+.landing_h2.feature-ttl {
+    font-size: 20px !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    font-weight: bold !important;
+}
 .mob-features img {
     margin-top: 30px;
 }
@@ -6892,7 +6906,16 @@ tr.product-landing-error-wrap {
 }
 
 .workingholiday-heading{
+	color: #fff;
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 700;
     padding-bottom:20px;
+}
+@media (max-width: 991px) {
+	.workingholiday-heading{
+        color: inherit;
+	}
 }
 
 #other-benefits-mob{
@@ -7689,6 +7712,15 @@ tr.product-landing-error-wrap {
   animation: rotating 30s linear infinite;
 }
 
+.landing-feature-title{
+    font-weight: bold !important;
+    color: black !important;
+    margin-top: 45px !important;
+    line-height: 35px !important;
+    height: 80px !important;
+    font-size: 30px !important;
+}
+
 @media (max-width: 991px) {
 	.circle_fake{
 	    margin-bottom: 50px;
@@ -7708,7 +7740,7 @@ tr.product-landing-error-wrap {
     }
     
     .landing-feature-title{
-        font-size: 24px;
+        font-size: 24px !important;
     }
 }
 /** home promo banner **/

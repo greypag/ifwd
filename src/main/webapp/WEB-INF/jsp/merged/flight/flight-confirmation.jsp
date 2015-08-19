@@ -553,7 +553,7 @@ data : $('#frmTravelPlan').serialize()
    params[2]='val=${dueAmount}';
    params[3]='orderId=<%=request.getSession().getAttribute("policyNo")%>';
    if ('${language}'==='en'){
-	   params[4]='promoCode= Regis_Flight EN_Sc';
+	   params[4]='promoCode=Regis_Flight EN_Sc';
    } else {
 	   params[4]='promoCode=Regis_Flight ZH_Sc';   
    }

@@ -490,12 +490,12 @@ public class UserController {
 	
 
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
-	public String faq(Model model, HttpServletRequest req, HttpServletRequest request) {	
+	public String faq(Model model, HttpServletRequest req) {	
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
 		
-		String pageTitle = WebServiceUtils.getPageTitle("page.faq", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.faq", UserRestURIConstants.getLanaguage(request));
+		String pageTitle = WebServiceUtils.getPageTitle("page.faq", UserRestURIConstants.getLanaguage(req));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.faq", UserRestURIConstants.getLanaguage(req));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		

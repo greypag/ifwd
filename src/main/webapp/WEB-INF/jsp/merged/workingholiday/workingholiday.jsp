@@ -50,7 +50,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 slide-form workingholiday-text-align-center">
-					<h2 class="workingholiday-heading"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
+					<h1 class="workingholiday-heading"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h1>
 					<table class="table activation-form3">
 						<tbody>
 							<tr>  
@@ -74,7 +74,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
 </form>
-<h2 style="text-align: center;"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h2>
+<h1 class="workingholiday-heading" style="text-align: center;"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h1>
 </div>
 <!--Mobileform--> 
 
@@ -88,9 +88,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
             <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-		      <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+		      <h2 class="landing-feature-title">
 		        <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
-		      </h3>
+		      </h2>
 	          <div style="margin-top:25px;">
 	               <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon1.png" />
 	          </div>
@@ -104,9 +104,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	      </div>
 	      <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	           <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	          <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	          <h2 class="landing-feature-title">
 	             <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
-	          </h3>
+	          </h2>
 	          <div style="margin-top:25px;">
                    <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon2.png" />
               </div>
@@ -117,9 +117,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	          <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-	               <h3 style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 70px;">
+	               <h2 class="landing-feature-title">
 	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
-	              </h3>
+	              </h2>
 	              <div style="margin-top:25px;">
 	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon3.png" />
 	              </div>
