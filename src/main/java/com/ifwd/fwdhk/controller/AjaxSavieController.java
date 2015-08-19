@@ -220,4 +220,15 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/verifyAccessCode"})
+	public void verifyAccessCode(Model model, HttpServletRequest request
+			,HttpServletResponse response) {
+		try {
+			savieService.verifyAccessCode(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

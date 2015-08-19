@@ -70,6 +70,8 @@ public interface SavieService {
 	
 	public void getOccupation(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	
+	public void verifyAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
+	
 	//fileUpload?
 	//signature?	
 	//1/check session, and redirect to savie landing page if session expired

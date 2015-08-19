@@ -1209,4 +1209,26 @@ public class SavieServiceImpl implements SavieService {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public void verifyAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		String language = request.getParameter("language");
+		String accessCode = request.getParameter("accessCode");
+		String Url = UserRestURIConstants.SERVICE_URL + "savie/accessCodes/validate?accessCode="+accessCode;
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(language));
+		
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
 }
