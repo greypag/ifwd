@@ -676,9 +676,9 @@ $(document).ready(function() {
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
-            <h1><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
+            <div class="recent-work-title"><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" />
-            </h1>
+            </div>
               <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
 
           </div>
@@ -687,8 +687,8 @@ $(document).ready(function() {
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
-            <h1><fmt:message key="travel.main.highlight2.heading.line1" bundle="${msg}" /><br/>
-              <fmt:message key="travel.main.highlight2.heading.line2" bundle="${msg}" /></h1>
+            <div class="recent-work-title"><fmt:message key="travel.main.highlight2.heading.line1" bundle="${msg}" /><br/>
+              <fmt:message key="travel.main.highlight2.heading.line2" bundle="${msg}" /></div>
               <p><fmt:message key="travel.main.highlight2.desc" bundle="${msg}" /><br>
               <br>
             </p>
@@ -698,8 +698,8 @@ $(document).ready(function() {
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
-            <h1><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /><br/>
-              <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h1>
+            <div class="recent-work-title"><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /><br/>
+              <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></div>
             <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
             <!--<img src="resources/images/agoda-logo.png" alt=""/>--> </div>
         </div>

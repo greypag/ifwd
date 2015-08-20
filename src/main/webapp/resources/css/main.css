@@ -575,6 +575,15 @@ width: 100%;
     padding: 20px 40px;
 }
 
+.recent-work-inner .recent-work-title{
+	margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 48px;
+    color: #fff;
+    line-height: 48px;
+    font-weight: bold;
+}
+
 .recent-work-wrap-mid .recent-work-inner h2 {
     color: #fff;
     font-size: 24px;
