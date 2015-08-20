@@ -5040,9 +5040,12 @@ span.explanation {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons button {
     float: right;
-    background-color: #b0bdbd;
+    /*background-color: #b0bdbd;
     border: none;
-    color: #fff;
+    color: #fff;*/
+    background-color: transparent;
+    border: solid 1px #ff8200;
+    color: #ff8200;
     margin: 0;
     height: 40px;
   }
@@ -13731,4 +13734,73 @@ input[type=number] {
 		padding-bottom: 35px;
 		margin-left: 0;
 	}
+}
+
+
+
+.fwd-savie-wrapper .investment .after-3-years-btn {
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .investment .after-3-years-btn {
+    padding-bottom: 58px;
+  }
+}
+.fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
+  height: 50px;
+  width: 80%;
+  text-align: center;
+  padding: 0;
+  margin-top: 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
+    height: 80px;
+    width: 535px;
+    font-size: 36px;
+    font-family: 'Calibri-Bold';
+  }
+}
+
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
+  height: 50px;
+  width: 60%;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
+    height: 80px;
+    font-size: 36px;
+    font-family: 'Calibri-Bold';
+    width: 220px;
+  }
+}
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
+  font-size: 24px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
+    font-size: 36px;
+    margin-bottom: 21px;
+  }
+}
+
+@media (min-width: 768px) {
+  button#thank-you-continue {
+    background: #ff8200;
+    color: white;
+    height: 50px;
+    font-family: "Calibri";
+  }
+}
+
+
+.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+    max-height: 800px;
+    overflow: scroll;
+}
+
+@media (min-width: 768px){
+.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+    overflow: hidden;
+}
 }

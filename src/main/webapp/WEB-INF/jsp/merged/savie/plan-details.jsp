@@ -129,7 +129,11 @@
 	                        </div>
 	                    </div>
 	                    <div>   
-	                        <div class="container-fluid summary-tab-max-width">
+	                   		<div class="after-3-years-btn" id="after-3-years-div">
+								<button type="button" class="btn btn-white see-more" id="see-more-3-years"><fmt:message key="savie.planDetails.SeeMoreAfter3Years" bundle="${msg}" /></button>
+							</div>
+							
+	                        <div class="container-fluid summary-tab-max-width hidden" id="after-3-years">
 	                            <div class="investment-summary-title-desktop">
 	                                <div class="row percent-buttons" >
 										<div class="col-md-6 col-xs-12 after-year-three">
@@ -157,7 +161,7 @@
 	                                    </div>
 	                                </div>                                
 	                            </div>
-	                            <div class="investment-summary">
+	                     <!--   <div class="investment-summary">
 									<p class="surrender-benefit"><fmt:message key="savie.planDetails.Surrender" bundle="${msg}" /> <span><fmt:message key="savie.planDetails.benefit" bundle="${msg}" /></span> (HK$ ‘000)</p>
 									<div id="illustration-chart"></div>
 									<div class="drag-more">
@@ -165,7 +169,46 @@
 											<span class="drag-more-text"><fmt:message key="savie.planDetails.Drag.to" bundle="${msg}" /><br /><fmt:message key="savie.planDetails.view.more" bundle="${msg}" /> <span class="glyphicon glyphicon-play"></span></span>
 										</div>
 									</div>
+	                            </div>-->
+	                            
+	                            <div class="rate-table">
+	                                <table class="table table-hover">
+	                                    <thead>
+	                                    <tr>
+	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-1'>5</td>  
+												<td class="black-text desktop-only" id="credit-rate-1">3</td> 
+												<td class="black-text" id="premium-change-1"><span>$</span> 100,000</td> 
+												<td class="black-text desktop-only" id="account-value-change-1"><span>$</span> 100,000</td>    
+												<td class="black-text right-border" id="surrender-change-1"><span>$</span> 100,000</td>    
+											</tr>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-2'>10</td> 
+												<td class="black-text desktop-only" id="credit-rate-2">3</td>  
+												<td class="black-text" id="premium-change-2"><span>$</span> 100,000</td> 
+												<td class="black-text desktop-only" id="account-value-change-2"><span>$</span> 100,000</td>    
+												<td class="black-text right-border" id="surrender-change-2"><span>$</span> 100,000</td>    
+											</tr>
+	                                        <tr class="bottom-border">  
+												<td class="left-border" id='policy-year-3'>Age 100</td>  
+												<td class="black-text desktop-only" id="credit-rate-3">3</td> 
+												<td class="black-text" id="premium-change-3"><span>$</span> 100,000</td> 
+												<td class="black-text desktop-only" id="account-value-change-3"><span>$</span> 100,000</td>    
+												<td class="black-text right-border" id="surrender-change-3"><span>$</span> 100,000</td>    
+												</tr>
+	                                    </tbody>
+	                                </table>
 	                            </div>
+	                            
+	                            
 	                        </div>
 	                    </div>
 					</div>
@@ -228,7 +271,7 @@
 			<!-- Thank you -->
 			<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">
 				<div class="modal-dialog">
-					<div class="modal-content">
+					<div class="modal-content thank-you-content">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive hidden-xs">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/FWD_savie_o2o_offline-procedure_mobile.jpg" class="img-responsive hidden-md hidden-lg hidden-sm">
 						<button id="thank-you-continue" class="btn next" onclick="gotoFna();">Continue</button>
@@ -242,3 +285,12 @@
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+		<script type="text/javascript">		
+			$(function () {	
+				$('#see-more-3-years').click(function(){
+					console.log('lksj');
+					$('#after-3-years-div').addClass('hidden');
+					$('#after-3-years').removeClass('hidden');
+				});
+			});
+		</script>
