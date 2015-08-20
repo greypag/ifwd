@@ -231,4 +231,26 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/getTimeSlot"})
+	public void getTimeSlot(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieService.getTimeSlot(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/upsertAppointment"})
+	public void upsertAppointment(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieService.upsertAppointment(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

@@ -242,6 +242,10 @@ public class SaviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER)) {
 			return UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;
 		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS)) {
+			return UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS;
+		}
+		
 		return "";
 		
 	}

@@ -1216,12 +1216,91 @@ public class SavieServiceImpl implements SavieService {
 		String language = request.getParameter("language");
 		String accessCode = request.getParameter("accessCode");
 		String Url = UserRestURIConstants.SERVICE_URL + "savie/accessCodes/validate?accessCode="+accessCode;
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", "*DIRECTGI");
 		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(language));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		String csCenter = request.getParameter("csCenter");
+		String perferredDate = request.getParameter("perferredDate");
+		String Url = UserRestURIConstants.SERVICE_URL + "appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		String csCenter = request.getParameter("csCenter");
+		String perferredDate = request.getParameter("perferredDate");
+		String perferredTime = request.getParameter("perferredTime");
+		String policyNumber = "";
+		String applicationNumber = "";
+		String userName = "";
+		String status = "";
+		String remarks = "";
+		String accessCode = "";
+		
+		String Url = UserRestURIConstants.SERVICE_URL + "appointment/make";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("serviceCentreCode", csCenter);
+		parameters.put("date", perferredDate);
+		parameters.put("timeSlot", perferredTime);
+		parameters.put("policyNumber", policyNumber);
+		parameters.put("applicationNumber", applicationNumber);
+		parameters.put("userName", userName);
+		parameters.put("status", status);
+		parameters.put("remarks", remarks);
+		parameters.put("accessCode", accessCode);
+		
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, parameters);
 		
 		response.setContentType("text/json;charset=utf-8");
 		try {
