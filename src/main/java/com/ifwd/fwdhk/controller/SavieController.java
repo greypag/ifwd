@@ -343,4 +343,17 @@ public class SavieController extends BaseController{
 		model.addAttribute("serviceCentreCN", InitApplicationMessage.serviceCentreCN);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
+	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
+		String csCenter = (String) request.getParameter("csCenter");
+		String perferredDate = (String) request.getParameter("perferredDate");
+		String perferredTime = (String) request.getParameter("perferredTime");
+		
+		model.addAttribute("csCenter", csCenter);
+		model.addAttribute("perferredDate", perferredDate);
+		model.addAttribute("perferredTime", perferredTime);
+			
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
+	}
 }

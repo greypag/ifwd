@@ -6035,6 +6035,7 @@ select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:1
         display:inline;
         width:60px;
         margin-top: 35px;
+        margin-right: -10px;
     }
 
 }
