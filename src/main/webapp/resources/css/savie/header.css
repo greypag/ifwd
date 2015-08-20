@@ -545,6 +545,7 @@ ul.maintabs li a:hover {
 	  display: inline;
 	  width: 60px;
 	  margin-top: 35px;
+	  margin-right: -10px;
 	}
 	.navmenu .btn-lg a {
 	  font-size: 16px;
