@@ -12144,19 +12144,12 @@ button#thank-you-continue {
     /* Below IE7 supported */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
-<<<<<<< HEAD
     max-width: 450px;
     width: 35%;
     top: 425px;
-=======
-    width: 500px;
-    //top: 352px;
-    bottom: 215px;
->>>>>>> branch 'fwdhk_savie' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
-<<<<<<< HEAD
     padding-top: 35px;
   }
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
@@ -12179,12 +12172,6 @@ button#thank-you-continue {
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
     font-size: 48px;
     padding-top: 5px;
-=======
-  }
-
-  body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 175px;    
->>>>>>> branch 'fwdhk_savie' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
   }
 }
 .fwd-savie-wrapper .sign-up-teaser .sign-up-teaser-form {
@@ -12248,15 +12235,6 @@ button#thank-you-continue {
   line-height: 28px;
   padding-bottom: 2px;
 }
-
-.fwd-savie-wrapper .sign-up-teaser .sign-up-header-msg1{
-  font-size: 40px;
-}
-
-.fwd-savie-wrapper .sign-up-teaser .sign-up-header-msg2{
-  font-size: 22px;
-}
-
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
     text-shadow: none;
@@ -12593,7 +12571,7 @@ button#thank-you-continue {
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.additional.top {
     padding: 30px 0 0 0;
-    width: 48%;
+    width: 46%;
     font-size: 35px;
     line-height: 40px;
   }
