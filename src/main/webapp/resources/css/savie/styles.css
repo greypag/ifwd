@@ -11205,10 +11205,15 @@ span.dup-error-msg {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
     width: 500px;
-    top: 352px;
+    //top: 352px;
+    bottom: 215px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
+  }
+
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 175px;    
   }
 }
 .fwd-savie-wrapper .sign-up-teaser .sign-up-teaser-form {
@@ -11578,7 +11583,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.additional.top {
     padding: 30px 0 0 0;
-    width: 46%;
+    width: 48%;
     font-size: 35px;
     line-height: 40px;
   }
