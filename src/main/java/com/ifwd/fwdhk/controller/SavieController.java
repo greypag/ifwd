@@ -362,4 +362,9 @@ public class SavieController extends BaseController{
 			
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
 	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline"})
+	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
+	}
 }

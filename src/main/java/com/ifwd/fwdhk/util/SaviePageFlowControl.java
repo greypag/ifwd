@@ -245,6 +245,9 @@ public class SaviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS)) {
 			return UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS;
 		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE)) {
+			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE;
+		}
 		
 		return "";
 		

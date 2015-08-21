@@ -92,6 +92,13 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/style.css">
 
+<!-- Bootstrap -->
+<link href="<%=request.getContextPath()%>/resources/css/thank-you-print.css" rel="stylesheet" media="print">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
+
+<!--Font Awesome Css-->
+<link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/bootstrapValidator.min.css">
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
