@@ -344,6 +344,12 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 	}
 	
+	/**
+	 * 预约成功跳转页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
 	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
 		String csCenter = (String) request.getParameter("csCenter");

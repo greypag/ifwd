@@ -380,10 +380,12 @@ $('#service_center_confrim').click(function(e){
 	    error:function(){       
 	    },     
 	    success:function(data){  
-	    	if(data.errMsgs != null){
+	    	if(data.errMsgs == null){
 		    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
 		    	$('#serviceCenterForm').submit();
-	    	}  
+	    	}else{
+	    		alert(data.errMsgs);
+	    	}
 	    }  
 	});
 });

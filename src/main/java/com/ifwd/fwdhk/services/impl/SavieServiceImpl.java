@@ -1213,8 +1213,8 @@ public class SavieServiceImpl implements SavieService {
 	@Override
 	public void verifyAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=utf-8");
-		String language = request.getParameter("language");
 		String accessCode = request.getParameter("accessCode");
+		//request.getSession().setAttribute("accessCode", accessCode);
 		String Url = UserRestURIConstants.SERVICE_URL + "savie/accessCodes/validate?accessCode="+accessCode;
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {
@@ -1237,6 +1237,9 @@ public class SavieServiceImpl implements SavieService {
 		}
 	}
 	
+	/**
+	 * 通过ajax获取时间段
+	 */
 	@Override
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=utf-8");
@@ -1264,6 +1267,9 @@ public class SavieServiceImpl implements SavieService {
 		}
 	}
 	
+	/**
+	 * 服务中心提交
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -1271,14 +1277,17 @@ public class SavieServiceImpl implements SavieService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
+		String planCode = "Savie";
 		String policyNumber = "";
-		String applicationNumber = "";
-		String userName = "";
-		String status = "";
-		String remarks = "";
-		String accessCode = "";
+		//String applicationNumber = "";
+		//String userName = "";
+		String status = "Active";
+		String remarks = "this is remarks";
+		String accessCode = (String)request.getSession().getAttribute("accessCode");
+		String servicingAgent = "Agent2";
 		
-		String Url = UserRestURIConstants.SERVICE_URL + "appointment/make";
+		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/savie/application";
+		String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {
 			lang = "CN";
@@ -1290,22 +1299,29 @@ public class SavieServiceImpl implements SavieService {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("planCode", planCode);
+		
+		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.POST, applicationUrl, header, parameters);
+		
+		parameters = new org.json.simple.JSONObject();
 		parameters.put("serviceCentreCode", csCenter);
 		parameters.put("date", perferredDate);
 		parameters.put("timeSlot", perferredTime);
+		parameters.put("planCode", planCode);
 		parameters.put("policyNumber", policyNumber);
-		parameters.put("applicationNumber", applicationNumber);
-		parameters.put("userName", userName);
+		parameters.put("applicationNumber", appJsonObj.get("applicationNumber"));
+		parameters.put("userName", appJsonObj.get("userName"));
 		parameters.put("status", status);
 		parameters.put("remarks", remarks);
 		parameters.put("accessCode", accessCode);
+		parameters.put("servicingAgent", servicingAgent);
 		
-		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, parameters);
+		org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
 		
 		response.setContentType("text/json;charset=utf-8");
 		try {
-			logger.info(responseJsonObj.toString());
-			response.getWriter().print(responseJsonObj.toString());
+			logger.info(makeJsonObj.toString());
+			response.getWriter().print(makeJsonObj.toString());
 		}catch(Exception e) {  
 			e.printStackTrace();
 		}
