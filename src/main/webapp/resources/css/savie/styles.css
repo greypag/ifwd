@@ -11269,6 +11269,15 @@ span.dup-error-msg {
   line-height: 28px;
   padding-bottom: 13px;
 }
+
+.fwd-savie-wrapper .sign-up-teaser .sign-up-header-msg1{
+  font-size: 40px;
+}
+
+.fwd-savie-wrapper .sign-up-teaser .sign-up-header-msg2{
+  font-size: 22px;
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
     text-align: left;

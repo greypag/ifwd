@@ -81,7 +81,7 @@ var affiliate = "${affiliate}";
 </div>
 
 <div class="sign-up-teaser">
-	<p class="sign-up-header"><fmt:message key="savie.interestGather.signupform.header.part1" bundle="${msg}" /></br><fmt:message key="savie.interestGather.signupform.header.part2" bundle="${msg}" /></p>
+	<p class="sign-up-header"><span class="sign-up-header-msg1"><fmt:message key="savie.interestGather.signupform.header.part1" bundle="${msg}" /></span></br><span class="sign-up-header-msg2"><fmt:message key="savie.interestGather.signupform.header.part2" bundle="${msg}" /></span></p>
 
 	<!--
 	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context1" bundle="${msg}" /></p>
@@ -172,6 +172,7 @@ var affiliate = "${affiliate}";
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
+					<li><p><fmt:message key="savie.interestGather.otherfeatures.context6" bundle="${msg}" /></p></li>
 					<li><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
 				</ul>
 			</div>
