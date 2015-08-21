@@ -332,62 +332,32 @@ function validationUsername(evt){
 	return false;
 }
 
-$('#csCenter').change(function(){
-	if($("#csCenter").val().trim() != "" && $("#datepicker").val().trim() != ""){
-		getTimeSlot();
-	}
-});
-
 function getTimeSlot(){
-	var csCenter = $("#csCenter").val();
-	var perferredDate = $("#datepicker").val();
-	$.ajax({     
-	    url:context+'/ajax/savie/savings-insurance/getTimeSlot',     
-	    type:'post',     
-	    data:{    
-	    	"csCenter": csCenter,
-	        "perferredDate":perferredDate
-   		},     
-	    error:function(){       
-	    },     
-	    success:function(data){
-	    	if(data.timeSlots != null){
-	    		$("#perferredTime option").remove(); 
-	    		$("#perferredTime").prepend("<option value=''>请选择</option>");
-		    	for(var i=0; i<data.timeSlots.length; i++) {
-		    		if(data.timeSlots[i].manPower>0) {
-		    			$("#perferredTime").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
-		    		}
+	if($("#csCenter").val().trim() != "" && $("#datepicker").val().trim() != ""){
+		var csCenter = $("#centre").val();
+		var perferredDate = $("#preferred-date").val();
+		$.ajax({     
+		    url:context+'/ajax/savie/savings-insurance/getTimeSlot',     
+		    type:'post',     
+		    data:{    
+		    	"csCenter": csCenter,
+		        "perferredDate":perferredDate
+	   		},     
+		    error:function(){       
+		    },     
+		    success:function(data){
+		    	if(data.timeSlots != null){
+		    		$("#perferredTime option").remove(); 
+		    		$("#perferredTime").prepend("<option value=''>请选择</option>");
+			    	for(var i=0; i<data.timeSlots.length; i++) {
+			    		if(data.timeSlots[i].manPower>0) {
+			    			$("#perferredTime").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
+			    		}
+			    	}
+		    	}else {
+		    		$('#pickAnotherCentre').modal('show');
 		    	}
-	    	}  
-	    }  
-	});
+		    }  
+		});
+	}
 }
-
-$('#service_center_confrim').click(function(e){
-	e.preventDefault();
-	
-	var csCenter = $("#csCenter").val();
-	var perferredDate = $("#datepicker").val();
-	var perferredTime = $("#perferredTime").val();
-	
-	$.ajax({     
-	    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
-	    type:'post',     
-	    data:{    
-	    	"csCenter": csCenter,
-	        "perferredDate":perferredDate,
-	        "perferredTime":perferredTime
-   		},     
-	    error:function(){       
-	    },     
-	    success:function(data){  
-	    	if(data.errMsgs == null){
-		    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
-		    	$('#serviceCenterForm').submit();
-	    	}else{
-	    		alert(data.errMsgs);
-	    	}
-	    }  
-	});
-});

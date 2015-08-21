@@ -24,7 +24,7 @@ var affiliate = "${affiliate}";
 						<div class="col-xs-12 orange-section">
 							<div class="clearfix position">
 								<div class="description-desktop">
-									<span>Make an appointment with us.</span>
+									<span><fmt:message key="savie.servicecenter.header" bundle="${msg}" /></span>
 								</div>
 							</div>
 						</div>
@@ -33,76 +33,61 @@ var affiliate = "${affiliate}";
 				
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
-						<h2>Please choose service centre</h2>
+						<h2><fmt:message key="savie.servicecenter.title" bundle="${msg}" /></h2>
 						<form>
 							<div class="row">
 								<div class="col-xs-12 col-md-6">
 									<div class="row">
-										<div class="col-xs-12 col-md-4"><label for="centre">CS center</label></div>
+										<div class="col-xs-12 col-md-4"><label for="centre"><fmt:message key="savie.servicecenter.center" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select name="centre" id="centre" class="form-control gray-dropdown">
-													<option value="1">Tsim Sha Tsui</option>
-													<option value="2">Quarry Bay</option>
-													<option value="3">Sheung Wan</option>
-													<option value="4">Kwun Tong</option>
-													<option value="5">Shatin</option>
+											        <c:forEach var="list" items="${serviceCentre.serviceCentres}">
+											            <option value="${list.serviceCentreCode }">${list.serviceCentreName }</option>
+											        </c:forEach>
 												</select>
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-xs-12 col-md-4"><label for="preferred-date">Preferred date</label></div>
+										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.servicecenter.preferreddate" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="09-09-2015" readonly="">
+												<input type="text" class="date" name="preferred-date" id="preferred-date" value="" readonly="">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-xs-12 col-md-4"><label for="preferred-time">Preferred time</label></div>
+										<div class="col-xs-12 col-md-4"><label for="preferred-time"><fmt:message key="savie.servicecenter.preferredtime" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv timeslot">
 												<span class="icon-chevron-thin-down orange-caret"></span>
-												<input type="text" name="preferred-time" id="preferred-time" value="10:30">
+												<input type="text" name="preferred-time" id="preferred-time" value="">
 											</div>
 										</div>
 									</div>
-									<p class="confirm-call">We will call you back to confirm your appointment.</p>
+									<p class="confirm-call"><fmt:message key="savie.servicecenter.callyouback" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-md-6 hidden-xs hidden-sm">
-									<div id="centre-1" class="centre-info">
-										<img src="assets/images/tsimshatsui.jpg" class="img-responsive" />
-										<h4>Address</h4>
-										<p>G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-									</div>
-									<div id="centre-2" class="centre-info hidden">
-										<img src="assets/images/quarry_bay.jpg" class="img-responsive" />
-										<h4>Address</h4>
-										<p>13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay</p>
-									</div>
-									<div id="centre-3" class="centre-info hidden">
-										<img src="assets/images/sheung_wan.jpg" class="img-responsive" />
-										<h4>Address</h4>
-										<p>1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan</p>
-									</div>
-									<div id="centre-4" class="centre-info hidden">
-										<img src="assets/images/kwuntong.jpg" class="img-responsive" />
-										<h4>Address</h4>
-										<p>Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong</p>
-									</div>
-									<div id="centre-5" class="centre-info hidden">
-										<img src="assets/images/shatin.jpg" class="img-responsive" />
-										<h4>Address</h4>
-										<p>Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin</p>
-									</div>
+							        <c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
+							            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
+										    <c:if test="${list.serviceCentreCode=='TST' }"><img src="<%=request.getContextPath()%>/resources/images/savie/tsimshatsui.jpg" class="img-responsive" /></c:if>
+										    <c:if test="${list.serviceCentreCode=='QB' }"><img src="<%=request.getContextPath()%>/resources/images/savie/quarry_bay.jpg" class="img-responsive" /></c:if>
+										    <c:if test="${list.serviceCentreCode=='SW' }"><img src="<%=request.getContextPath()%>/resources/images/savie/sheung_wan.jpg" class="img-responsive" /></c:if>
+										    <c:if test="${list.serviceCentreCode=='KT' }"><img src="<%=request.getContextPath()%>/resources/images/savie/kwuntong.jpg" class="img-responsive" /></c:if>
+										    <c:if test="${list.serviceCentreCode=='ST' }"><img src="<%=request.getContextPath()%>/resources/images/savie/shatin.jpg" class="img-responsive" /></c:if>
+										    
+										    <h4>Address</h4>
+										    <p>${list.address }</p>
+									    </div>
+							        </c:forEach>
 								</div>
 							</div>
 							
 							<div class="text-center">
-								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter">Confirm</button>
+								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="savie.servicecenter.confirm" bundle="${msg}" /></button>
 							</div>
 						</form>
 					</div>
@@ -132,13 +117,10 @@ var affiliate = "${affiliate}";
 				<div class="modal-dialog teaserSurvey" role="document">
 					<div class="modal-content teaserSurvey">
 						<div class="modal-header teaserSurvey">
-							<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
 							<h2>Sorry all the centers are fully booked at the moment.</h2>
 						</div>
 						<div class="modal-body teaserSurvey">
 							<p class="registered">Please come again tomorrow more  available timeslots.</p>
-							
-							<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
 							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn">Back to home</button>
 						</div>
 					</div><!-- /.modal-content -->
@@ -146,24 +128,31 @@ var affiliate = "${affiliate}";
 			</div><!-- /.modal -->
 	</form>
 </div>
-<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script> --%>
-<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
+<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
 <script src="<%=request.getContextPath()%>/resources/js/savie/jquery.timepicker.min.js"></script>
 
 <script>
+	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
 	$(function() {
-		$('#fullyBooked').modal('show');
+		$.ajax({     
+		    url:context+'/ajax/savie/savings-insurance/getAllAvailableTimeSlot',     
+		    type:'post',  
+		    error:function(){       
+		    },     
+		    success:function(data){
+		    	if(data.serviceCentres == null){
+					$('#fullyBooked').modal('show');
+		    	}
+		    	
+		    }  
+		});
 		
 		$('#pick-another-centre-btn').click(function(){
 			$('#pickAnotherCentre').modal('hide');
-		});
-		
-		$('#btn-cstmr-srvc-cnter').click(function(){
-			//window.location = "confirmation-offline";
-			console.log('ksdfj');
-			$('#pickAnotherCentre').modal('show');
 		});
 		
 		$('#preferred-time').timepicker({
@@ -173,15 +162,46 @@ var affiliate = "${affiliate}";
 		$('#preferred-date').datepicker({
 			format: "mm-dd-yyyy",
 			container: "#date",
-			startDate: new Date(),
+			startDate: startDate,
+			endDate: endDate,
 		});
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			// display corresponding info
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
-			//display modal 
-			$('#pickAnotherCentre').modal('show');
+			
+			getTimeSlot();
+		});
+		
+		$('#centre').change(function(){
+			getTimeSlot();
+		});
+		
+		$('#btn-cstmr-srvc-cnter').click(function(){
+			var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			
+			$.ajax({     
+			    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
+			    type:'post',     
+			    data:{    
+			    	"csCenter": csCenter,
+			        "perferredDate":perferredDate,
+			        "perferredTime":perferredTime
+		   		},     
+			    error:function(){       
+			    },     
+			    success:function(data){  
+			    	if(data.errMsgs == null){
+				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
+				    	$('#serviceCenterForm').submit();
+			    	}else{
+			    		alert(data.errMsgs);
+			    	}
+			    }  
+			});
 		});
 	});
 </script>

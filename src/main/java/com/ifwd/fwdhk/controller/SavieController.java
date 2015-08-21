@@ -339,8 +339,12 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
 	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
-		model.addAttribute("serviceCentreEN", InitApplicationMessage.serviceCentreEN);
-		model.addAttribute("serviceCentreCN", InitApplicationMessage.serviceCentreCN);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
+		}else {
+			model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
+		}
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 	}
 	
