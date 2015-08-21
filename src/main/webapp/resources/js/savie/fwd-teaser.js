@@ -354,8 +354,10 @@ function getTimeSlot(){
 	    	if(data.timeSlots != null){
 	    		$("#perferredTime option").remove(); 
 	    		$("#perferredTime").prepend("<option value=''>请选择</option>");
-		    	for(var i=0; i<data.timeSlots.length,data.timeSlots[i].manPower>0; i++) {
-		    		$("#perferredTime").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
+		    	for(var i=0; i<data.timeSlots.length; i++) {
+		    		if(data.timeSlots[i].manPower>0) {
+		    			$("#perferredTime").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
+		    		}
 		    	}
 	    	}  
 	    }  
