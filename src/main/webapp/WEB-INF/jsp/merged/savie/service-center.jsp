@@ -63,7 +63,10 @@ var affiliate = "${affiliate}";
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv timeslot">
 												<span class="icon-chevron-thin-down orange-caret"></span>
-												<input type="text" name="preferred-time" id="preferred-time" value="">
+												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
+												<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
+											        <option value="">请选择</option>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -78,6 +81,15 @@ var affiliate = "${affiliate}";
 										    <c:if test="${list.serviceCentreCode=='SW' }"><img src="<%=request.getContextPath()%>/resources/images/savie/sw.jpg" class="img-responsive" /></c:if>
 										    <c:if test="${list.serviceCentreCode=='KT' }"><img src="<%=request.getContextPath()%>/resources/images/savie/kt.jpg" class="img-responsive" /></c:if>
 										    <c:if test="${list.serviceCentreCode=='ST' }"><img src="<%=request.getContextPath()%>/resources/images/savie/st.jpg" class="img-responsive" /></c:if>
+										    
+										    <%-- <c:choose>
+										        <c:when test="${list.photo.toLocaleLowerCase().indexOf('http')}">
+										            <img src="${list.photo}" class="img-responsive" />
+										        </c:when>
+										        <c:otherwise>
+												    <img src="<%=request.getContextPath()%>/resources/images/savie/${list.photo}" class="img-responsive" />
+												</c:otherwise>
+										    </c:choose> --%>
 										    
 										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
 										    <p>${list.address }</p>
@@ -155,11 +167,11 @@ var affiliate = "${affiliate}";
 			$('#pickAnotherCentre').modal('hide');
 		});
 		
-		$('#preferred-time').timepicker({
+		/* $('#preferred-time').timepicker({
 			appendTo: '.timeslot',
 			disableTimeRanges: [['0:00', '24:00']],
 			timeFormat: 'H:i',
-		});
+		}); */
 		
 		$('#preferred-date').datepicker({
 			format: "mm-dd-yyyy",
