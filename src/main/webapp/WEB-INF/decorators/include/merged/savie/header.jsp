@@ -10,12 +10,6 @@
 
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 
-<script type="text/javascript">
-	function gotoFna(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre";
-	}
-</script>
-
 <header class="clearfix">
 	<!--Top Header-->
 	<nav class="navbar-fixed-top">
