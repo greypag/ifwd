@@ -332,8 +332,37 @@ function validationUsername(evt){
 	return false;
 }
 
-
 function getTimeSlot(){
+	var csCenter = $("#centre").val();
+	var perferredDate = $("#preferred-date").val();
+	$.ajax({     
+	    url:context+'/ajax/savie/savings-insurance/getTimeSlot',     
+	    type:'post',     
+	    data:{    
+	    	"csCenter": csCenter,
+	        "perferredDate":perferredDate
+   		},     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	
+	    	if(data.timeSlots != null && data.timeSlots.length > 0){
+	    		$("#preferred-time option").remove(); 
+	    		$("#preferred-time").prepend("<option value=''>请选择</option>");
+		    	for(var i=0; i<data.timeSlots.length; i++) {
+		    		if(data.timeSlots[i].manPower>0) {
+		    			$("#preferred-time").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
+		    		}
+		    	}
+	    	}else {
+	    		$('#pickAnotherCentre').modal('show');
+	    	}
+	    }  
+	});
+}
+
+
+/*function getTimeSlot(){
 	var csCenter = $("#centre").val();
 	var perferredDate = $("#preferred-date").val();
 	if(csCenter.trim() != "" && perferredDate.trim() != ""){
@@ -397,6 +426,6 @@ function getNextTime(time) {
 	}else {
 		return ar[0] + ":" + minute;
 	}
-}
+}*/
 
 

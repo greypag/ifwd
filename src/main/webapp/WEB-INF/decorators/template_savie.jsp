@@ -66,11 +66,7 @@
 <!-- Bootstrap -->
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
-<c:choose>
-	<c:when test="${nextPageFlow eq 'o2o-landing' || nextPageFlow eq 'email-submitted'}">
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
-	</c:when>
-</c:choose>
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
@@ -81,11 +77,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
 <link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
 
-<c:choose>
-	<c:when test="${nextPageFlow eq 'o2o-landing' || nextPageFlow eq 'email-submitted'}">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
-	</c:when>
-</c:choose>
 
 <!--Mini Calculator Css-->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
@@ -141,8 +133,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 
-<c:choose>
-	<c:when test="${nextPageFlow eq 'o2o-landing'}">
 		<script type=text/javascript>
 			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
 			document.write('<scr'+'ipt src="', hostProtocol+
@@ -189,11 +179,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<noscript>
 			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=0&promoCode=Regis_Savie ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
 		</noscript>
-	</c:when>
-</c:choose>
 
-<c:choose>
-	<c:when test="${nextPageFlow eq 'email-submitted'}">
 		<script type=text/javascript>
 			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
 			document.write('<scr'+'ipt src="', hostProtocol+
@@ -217,8 +203,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Savie_Survey&val=0.0&orderId=0&promoCode=Regis_Savie_Survey ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
 		</noscript>
 		
-	</c:when>
-</c:choose>
 <dec:head />
 </head>
 	<%
@@ -258,14 +242,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!--END -Google Code for SEO-->
 	
 	<div class="fwd-savie-wrapper">
-		<c:choose>
-			<c:when test="${nextPageFlow eq 'o2o-landing' || nextPageFlow eq 'email-submitted'}">
 				<%@ include file="include/merged/header.jsp"%>
-			</c:when>
-			<c:otherwise>
-				<%@ include file="include/merged/savie/header.jsp"%>
-			</c:otherwise>
-		</c:choose>
 		<dec:body />
 		<%@ include file="include/merged/savie/footer.jsp"%>
 	</div>
