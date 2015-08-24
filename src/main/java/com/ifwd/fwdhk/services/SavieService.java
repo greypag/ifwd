@@ -72,6 +72,8 @@ public interface SavieService {
 	
 	public void verifyAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	
+	public void getAllAvailableTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
