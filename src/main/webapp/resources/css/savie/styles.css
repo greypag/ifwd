@@ -4568,6 +4568,7 @@ span.explanation {
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .btn-tooltip-clear {
   border: none;
+  background-color: transparent;
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .tooltip-inner {
   background-color: #ff8200;

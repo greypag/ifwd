@@ -105,7 +105,11 @@
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
+	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" />
+	                                	<button type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary">
+	                                		<img src="<fmt:message key="savie.planDetails.info-image" bundle="${msg}" />">
+	                                	</button>
+	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
 	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ 105,000 in the 3rd policy year</h3>
 	                            </div>
@@ -217,8 +221,8 @@
 			
 			<!-- Login, create account, Proceed buttons -->
 			<div class="fwd-container container-fluid proceed-block text-center">
-				<h3>Login or create an account to</h3>
-				<button id="made-decision-next-btn" type="button" class="btn next">Proceed</button>
+				<h2>Login or create an account to</h2>
+				<button id="made-decision-next-btn" type="button" class="btn btn-orange proceed-btn">Proceed</button>
 			</div>
 			
 			<!--Explanation Block-->
@@ -281,6 +285,7 @@
 	</div>
 		
 		<!--For Sales Illustration page js-->
+		<!--  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>-->
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
@@ -288,7 +293,6 @@
 		<script type="text/javascript">		
 			$(function () {	
 				$('#see-more-3-years').click(function(){
-					console.log('lksj');
 					$('#after-3-years-div').addClass('hidden');
 					$('#after-3-years').removeClass('hidden');
 				});
