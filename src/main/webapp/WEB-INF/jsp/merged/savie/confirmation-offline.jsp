@@ -50,21 +50,21 @@ var affiliate = "${affiliate}";
 										<div class="offline-procedure text-center">
 											<span class="step">1</span>
 											<p><fmt:message key="savie.confirmation.offline.A.passport" bundle="${msg}" /></p>
-											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/offline-procedure-1.png" class="img-responsive" /></div>
+											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-1.png" class="img-responsive" /></div>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
 											<span class="step">2</span>
 											<p><fmt:message key="savie.confirmation.offline.A.address" bundle="${msg}" /></p>
-											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/offline-procedure-2.jpg" class="img-responsive" /></div>
+											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure procedure-3 text-center">
 											<span class="step">3</span>
 											<p><fmt:message key="savie.confirmation.offline.Cheque.in" bundle="${msg}" /></p>
-											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/offline-procedure-3.jpg" class="img-responsive" /></div>
+											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.jpg" class="img-responsive" /></div>
 										</div>
 									</div>
 								</div>
@@ -112,7 +112,7 @@ var affiliate = "${affiliate}";
 								</div>
 							</div>
 							<div class="col-xs-12 print-document">
-								<a href="" class="hidden-xs hidden-sm" id="print-this-page"><img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/print-icon.png" class="img-responsive" /><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></a>
+								<a href="" class="hidden-xs hidden-sm" id="print-this-page"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/print-icon.png" class="img-responsive" /><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>

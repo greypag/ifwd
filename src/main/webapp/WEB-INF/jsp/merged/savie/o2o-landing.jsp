@@ -39,8 +39,8 @@ var affiliate = "${affiliate}";
 			</div>-->
 			
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
-				<img class="mobile-banner" src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/hero-banner-mobile.jpg" />
-				<img class="desktop-banner" src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/hero-banner.jpg" />
+				<img class="mobile-banner" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/hero-banner-mobile.jpg" />
+				<img class="desktop-banner" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/hero-banner.jpg" />
 				<div class="fwd-container container-fluid breadcrumbs">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
@@ -52,7 +52,7 @@ var affiliate = "${affiliate}";
 				</div>
 
 				<div class="text-content hunger-img hidden-sm hidden-xs">
-					<img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/just-walk-the-talk.png" title="Just walk the talk" alt="Just walk the talk" class="img-responsive">
+					<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/just-walk-the-talk.png" title="Just walk the talk" alt="Just walk the talk" class="img-responsive">
 				</div>
 				
 				<!--<div class="hunger-text-section">
@@ -66,7 +66,7 @@ var affiliate = "${affiliate}";
 				<div class="fwd-container-limit">
 					<div class="teaser-banner-text">
 						<div class="money-div">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/money-logo-large.png" class="money">
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/money-logo-large.png" class="money">
 						</div>
 						<p class="additional top"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p>
 						<ul class="crediting-rate-list clearfix">
@@ -91,7 +91,7 @@ var affiliate = "${affiliate}";
 	                        <div class="col-content">
 	                            <h2><fmt:message key="savie.o2o.landing.Simple.yet" bundle="${msg}" /></h2>
 	                            <h3><fmt:message key="savie.o2o.landing.big.on.savings" bundle="${msg}" /></h3>
-	                            <img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/big-on-savings.png">
+	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/big-on-savings.png">
 	                            <p><fmt:message key="savie.o2o.landing.SAVIE.guarantees" bundle="${msg}" /></p>
 	                        </div>
 	                    </div>
@@ -99,7 +99,7 @@ var affiliate = "${affiliate}";
 	                        <div class="col-content">
 	                            <h2><fmt:message key="savie.o2o.landing.No.charges" bundle="${msg}" /></h2>
 	                            <h3><fmt:message key="savie.o2o.landing.no.commitment" bundle="${msg}" /></h3>
-	                            <img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/no-commitment.png">
+	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/no-commitment.png">
 	                            <p><fmt:message key="savie.o2o.landing.Enjoy.flexibility" bundle="${msg}" /></p>
 	                        </div>
 	                    </div>
@@ -107,7 +107,7 @@ var affiliate = "${affiliate}";
 	                        <div class="col-content">
 	                            <h2><fmt:message key="savie.o2o.landing.Free" bundle="${msg}" /></h2>
 	                            <h3><fmt:message key="savie.o2o.landing.additional.protection" bundle="${msg}" /></h3>
-	                            <img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/free-additional-2.png">
+	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/free-additional-2.png">
 	                            <p><fmt:message key="savie.o2o.landing.Receive.Accidental" bundle="${msg}" /></p>
 	                        </div>
 	                    </div>
@@ -120,7 +120,7 @@ var affiliate = "${affiliate}";
 	                    	<h2 class="text-center"><fmt:message key="savie.o2o.landing.Other.benefits" bundle="${msg}" /></h2>
 	                    </div>	                    
 	                    <div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
-	                        <img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/other-benefits-2-img.png">
+	                        <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/other-benefits-2-img.png">
 	                    </div>
 	                    <div class="col-xs-12 col-md-8 fwd-col">
 							<ul>
@@ -148,8 +148,8 @@ var affiliate = "${affiliate}";
 									<p><fmt:message key="savie.o2o.landing.Guaranteed.crediting" bundle="${msg}" /></p>
 								</div>
 								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/crediting-reates-mobile.jpg" />
-									<img class="desktop" src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/crediting-reates.jpg" />
+									<img class="mobile" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates-mobile.jpg" />
+									<img class="desktop" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates.jpg" />
 								</div>
 							</div>
 							<div class="item">
@@ -157,8 +157,8 @@ var affiliate = "${affiliate}";
 									<p><fmt:message key="savie.o2o.landing.Guaranteed.crediting" bundle="${msg}" /></p>
 								</div>
 								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/crediting-reates-mobile.jpg" />
-									<img class="desktop" src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/crediting-reates.jpg" />
+									<img class="mobile" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates-mobile.jpg" />
+									<img class="desktop" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates.jpg" />
 								</div>
 							</div>
 						</div>
@@ -240,15 +240,15 @@ var affiliate = "${affiliate}";
 					<h2 class="hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Our.blog" bundle="${msg}" /></h2>
 					<div class="row text-left">
 						<div class="col-xs-12 col-md-4 fwd-col">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/stay-connect.png"/>
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/stay-connect.png"/>
 							<h3><a href="#"><fmt:message key="savie.o2o.landing.Staying.connected" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/7-musts.png"/>
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/7-musts.png"/>
 							<h3><a href="#"><fmt:message key="savie.o2o.landing.7.musts" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/top-tips.png"/>
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/top-tips.png"/>
 							<h3><a href="#"><fmt:message key="savie.o2o.landing.Top.tips" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 					</div>
@@ -265,7 +265,7 @@ var affiliate = "${affiliate}";
 							<h2><fmt:message key="savie.o2o.landing.Getting.started" bundle="${msg}" /><br><fmt:message key="savie.o2o.landing.Just.follow" bundle="${msg}" /><br><fmt:message key="savie.o2o.landing.complete.your" bundle="${msg}" /></h2>
 						</div>
 						<div class="modal-body">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/interest-gathering/infographic-steps.jpg" />
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/infographic-steps.jpg" />
 						</div>
 						<div class="modal-footer">
 							<div class="top-section">
@@ -291,7 +291,7 @@ var affiliate = "${affiliate}";
 							<h4 class="hunger-selling-title"><fmt:message key="savie.o2o.landing.Please.enter" bundle="${msg}" /></h4>
 						</div>
 						<div class="modal-body hunger-selling-body">
-							<form>
+							<form id="o2o-landing-form" method="post">
 								<input placeholder="Access code" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
 								<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 								<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
@@ -338,12 +338,14 @@ var affiliate = "${affiliate}";
 				
 				var errorMsg = false;
 				var accessCodeVal = $('#accessCodeConfirm').val();
-				
-				if (accessCodeVal == "" || accessCodeVal != "") {
+				if (accessCodeVal == "") {
 					$('.validation-msg').removeClass('hidden-error-msg');
 					errorMsg = true;
 				} else {
 					$('.validation-msg').addClass('hidden-error-msg');
+					var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+					$("#o2o-landing-form").attr("action", url);
+					$('#o2o-landing-form').submit();
 				}	
 			});
 			

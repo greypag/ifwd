@@ -67,7 +67,7 @@
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
 <c:choose>
-	<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+	<c:when test="${nextPageFlow eq 'o2o-landing' || nextPageFlow eq 'email-submitted'}">
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
 	</c:when>
 </c:choose>
@@ -82,7 +82,7 @@
 <link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
 
 <c:choose>
-	<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+	<c:when test="${nextPageFlow eq 'o2o-landing' || nextPageFlow eq 'email-submitted'}">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
 	</c:when>
 </c:choose>
@@ -142,7 +142,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!-- End Visual Website Optimizer Asynchronous Code -->
 
 <c:choose>
-	<c:when test="${nextPageFlow eq 'interest-gathering'}">
+	<c:when test="${nextPageFlow eq 'o2o-landing'}">
 		<script type=text/javascript>
 			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
 			document.write('<scr'+'ipt src="', hostProtocol+
@@ -259,7 +259,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	
 	<div class="fwd-savie-wrapper">
 		<c:choose>
-			<c:when test="${nextPageFlow eq 'interest-gathering' || nextPageFlow eq 'email-submitted'}">
+			<c:when test="${nextPageFlow eq 'o2o-landing' || nextPageFlow eq 'email-submitted'}">
 				<%@ include file="include/merged/header.jsp"%>
 			</c:when>
 			<c:otherwise>

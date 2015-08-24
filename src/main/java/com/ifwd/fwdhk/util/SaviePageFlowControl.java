@@ -56,7 +56,7 @@ public class SaviePageFlowControl {
 		if (current != null) {
 			//current = current.substring(current.lastIndexOf("/") + 1);
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
-				current = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+				current = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 			} else {
 				current = getSaviePage(current);
 			}
@@ -146,8 +146,8 @@ public class SaviePageFlowControl {
 			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=Yes
 			break;
 		
-		case UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING:
-			to = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+		case UserRestURIConstants.PAGE_SAVIE_O2O_LANDING:
+			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
 			break;
 		
 		case UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED:
@@ -155,8 +155,8 @@ public class SaviePageFlowControl {
 			 * 通过savings-insurance才可以进入email-submitted页面，否则返回savings-insurance
 			 */
 			if(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING.equals(key)) {
-				to = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
-				current = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+				to = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
+				current = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 			}else {
 				to = UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
 			}
@@ -227,8 +227,8 @@ public class SaviePageFlowControl {
 			return UserRestURIConstants.PAGE_SAVIE_EMAIL_SUBMITTED;
 		}
 		
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING)) {
-			return UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_O2O_LANDING)) {
+			return UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
