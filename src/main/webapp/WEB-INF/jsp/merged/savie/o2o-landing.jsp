@@ -341,11 +341,25 @@ var affiliate = "${affiliate}";
 				if (accessCodeVal == "") {
 					$('.validation-msg').removeClass('hidden-error-msg');
 					errorMsg = true;
-				} else {
-					$('.validation-msg').addClass('hidden-error-msg');
-					var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
-					$("#o2o-landing-form").attr("action", url);
-					$('#o2o-landing-form').submit();
+				} 
+				else {
+					$.get(
+					    '${pageContext.request.contextPath}/ajax/savie/savings-insurance/verifyAccessCode',
+						{ accessCode : accessCodeVal },
+						function(data) {
+							if(data.errMsgs){
+								$('.validation-msg').removeClass('hidden-error-msg');
+								errorMsg = true;
+							}
+							else{
+								$('.validation-msg').addClass('hidden-error-msg');
+								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								$("#o2o-landing-form").attr("action", url);
+								$('#o2o-landing-form').submit();
+							}
+						})
+						.fail(function(data) {
+						});
 				}	
 			});
 			

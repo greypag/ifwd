@@ -129,9 +129,11 @@
 	                        </div>
 	                    </div>
 	                    <div>   
+	                    <!-- 
 	                   		<div class="after-3-years-btn" id="after-3-years-div">
 								<button type="button" class="btn btn-white see-more" id="see-more-3-years"><fmt:message key="savie.planDetails.SeeMoreAfter3Years" bundle="${msg}" /></button>
 							</div>
+					    -->
 							
 	                        <div class="container-fluid summary-tab-max-width hidden" id="after-3-years">
 	                            <div class="investment-summary-title-desktop">
