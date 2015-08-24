@@ -248,6 +248,9 @@ function getOccupation(value,language) {
 		}
 	})
 	.fail(function(data) {
-		alert(data.length);
 	});
 }
+
+$('#thankYouModal').on('hidden.bs.modal', function (e) {
+	window.location.href= '/'+contextPath+'/tc/savings-insurance/service-center'; 
+})
