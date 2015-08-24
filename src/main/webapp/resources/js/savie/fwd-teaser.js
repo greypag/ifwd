@@ -332,10 +332,11 @@ function validationUsername(evt){
 	return false;
 }
 
+
 function getTimeSlot(){
-	if($("#csCenter").val().trim() != "" && $("#datepicker").val().trim() != ""){
-		var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
+	var csCenter = $("#centre").val();
+	var perferredDate = $("#preferred-date").val();
+	if(csCenter.trim() != "" && perferredDate.trim() != ""){
 		$.ajax({     
 		    url:context+'/ajax/savie/savings-insurance/getTimeSlot',     
 		    type:'post',     
@@ -347,13 +348,37 @@ function getTimeSlot(){
 		    },     
 		    success:function(data){
 		    	if(data.timeSlots != null){
-		    		$("#perferredTime option").remove(); 
-		    		$("#perferredTime").prepend("<option value=''>请选择</option>");
-			    	for(var i=0; i<data.timeSlots.length; i++) {
+		    		var disableTimes = new Array();
+		    		var times;
+		    		var startTime = "00:00";
+		    		var endTime = "24:00";
+		    		for(var i=0; i<data.timeSlots.length; i++) {
 			    		if(data.timeSlots[i].manPower>0) {
-			    			$("#perferredTime").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
+			    			
+			    			var ar_begin = startTime.split(':');
+			    			var ar_end = data.timeSlots[i].timeSlot.split(':');
+			    			var before = parseInt(ar_begin[0]) * 60 * 60 + parseInt(ar_begin[1]) * 60;
+			    			var selected = parseInt(ar_end[0]) * 60 * 60 + parseInt(ar_end[1]) * 60;
+			    			if(selected - before != 0) {
+			    				times = new Array();
+			    				times.push(startTime);
+			    				times.push(data.timeSlots[i].timeSlot);
+			    				disableTimes.push(times)
+			    			}
+			    			startTime = getNextTime(data.timeSlots[i].timeSlot);
 			    		}
 			    	}
+		    		times = new Array();
+		    		times.push(startTime);
+		    		times.push(endTime);
+    				disableTimes.push(times)
+		    		
+		    		$('#preferred-time').timepicker('remove');
+		    		$('#preferred-time').timepicker({
+						appendTo: '.timeslot',
+						disableTimeRanges: disableTimes,
+					});
+					$('#preferred-time').timepicker('option', {'timeFormat': 'H:i' });
 		    	}else {
 		    		$('#pickAnotherCentre').modal('show');
 		    	}
@@ -361,3 +386,17 @@ function getTimeSlot(){
 		});
 	}
 }
+
+function getNextTime(time) {
+	var ar = time.split(':');
+	var minute = (parseInt(ar[1]) * 60 + 30 * 60)/60
+	if(minute > 60) {
+		return (parseInt(ar[0]) + 1) + ":" + (minute - 60);
+	}else if (minute == 60){
+		return (parseInt(ar[0]) + 1) + ":00";
+	}else {
+		return ar[0] + ":" + minute;
+	}
+}
+
+

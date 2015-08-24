@@ -1330,29 +1330,32 @@ public class SavieServiceImpl implements SavieService {
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("planCode", planCode);
 		
-		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.POST, applicationUrl, header, parameters);
+		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
 		
-		parameters = new org.json.simple.JSONObject();
-		parameters.put("serviceCentreCode", csCenter);
-		parameters.put("date", perferredDate);
-		parameters.put("timeSlot", perferredTime);
-		parameters.put("planCode", planCode);
-		parameters.put("policyNumber", policyNumber);
-		parameters.put("applicationNumber", appJsonObj.get("applicationNumber"));
-		parameters.put("userName", appJsonObj.get("userName"));
-		parameters.put("status", status);
-		parameters.put("remarks", remarks);
-		parameters.put("accessCode", accessCode);
-		parameters.put("servicingAgent", servicingAgent);
-		
-		org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
-		
-		response.setContentType("text/json;charset=utf-8");
-		try {
-			logger.info(makeJsonObj.toString());
-			response.getWriter().print(makeJsonObj.toString());
-		}catch(Exception e) {  
-			e.printStackTrace();
+		if(appJsonObj != null) {
+			parameters = new org.json.simple.JSONObject();
+			parameters.put("serviceCentreCode", csCenter);
+			parameters.put("date", perferredDate);
+			parameters.put("timeSlot", perferredTime);
+			parameters.put("planCode", planCode);
+			parameters.put("policyNumber", policyNumber);
+			parameters.put("applicationNumber", appJsonObj.get("applicationNumber"));
+			parameters.put("userName", appJsonObj.get("userName"));
+			parameters.put("status", status);
+			parameters.put("remarks", remarks);
+			parameters.put("accessCode", accessCode);
+			parameters.put("servicingAgent", servicingAgent);
+			
+			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
+			
+			response.setContentType("text/json;charset=utf-8");
+			try {
+				logger.info(makeJsonObj.toString());
+				response.getWriter().print(makeJsonObj.toString());
+			}catch(Exception e) {  
+				e.printStackTrace();
+			}
 		}
+		response.getWriter().print("application error!");
 	}
 }

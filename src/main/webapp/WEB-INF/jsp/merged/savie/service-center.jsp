@@ -132,7 +132,7 @@ var affiliate = "${affiliate}";
 <script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
-<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.timepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
 
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
@@ -157,25 +157,29 @@ var affiliate = "${affiliate}";
 		
 		$('#preferred-time').timepicker({
 			appendTo: '.timeslot',
+			disableTimeRanges: [['0:00', '24:00']],
 			timeFormat: 'H:i',
 		});
+		
 		$('#preferred-date').datepicker({
 			format: "mm-dd-yyyy",
 			container: "#date",
 			startDate: startDate,
 			endDate: endDate,
+			autoclose: true,
+		}).on('changeDate', function (ev) {
+			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+				getTimeSlot();
+			}
 		});
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			// display corresponding info
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
-			
-			getTimeSlot();
-		});
-		
-		$('#centre').change(function(){
-			getTimeSlot();
+			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+				getTimeSlot();
+			}
 		});
 		
 		$('#btn-cstmr-srvc-cnter').click(function(){
@@ -195,7 +199,7 @@ var affiliate = "${affiliate}";
 			    },     
 			    success:function(data){  
 			    	if(data.errMsgs == null){
-				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
+				    	$(".ui-timepicker-list").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
 				    	$('#serviceCenterForm').submit();
 			    	}else{
 			    		alert(data.errMsgs);
