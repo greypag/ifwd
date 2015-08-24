@@ -79,7 +79,7 @@ var affiliate = "${affiliate}";
 										    <c:if test="${list.serviceCentreCode=='KT' }"><img src="<%=request.getContextPath()%>/resources/images/savie/kwuntong.jpg" class="img-responsive" /></c:if>
 										    <c:if test="${list.serviceCentreCode=='ST' }"><img src="<%=request.getContextPath()%>/resources/images/savie/shatin.jpg" class="img-responsive" /></c:if>
 										    
-										    <h4>Address</h4>
+										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
 										    <p>${list.address }</p>
 									    </div>
 							        </c:forEach>
@@ -100,13 +100,13 @@ var affiliate = "${affiliate}";
 					<div class="modal-content teaserSurvey">
 						<div class="modal-header teaserSurvey">
 							<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-							<h2>Sorry the center you picked is fully booked at the moment.</h2>
+							<h2><fmt:message key="savie.servicecenter.pickedisfully" bundle="${msg}" /></h2>
 						</div>
 						<div class="modal-body teaserSurvey">
-							<p class="registered">Please pick another center or come again tomorrow more available timeslots.</p>
+							<p class="registered"><fmt:message key="savie.servicecenter.availabletimeslots" bundle="${msg}" /></p>
 							
 							<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn">Pick another center</button>
+							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="savie.servicecenter.pickanothercenter" bundle="${msg}" /></button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
@@ -117,11 +117,11 @@ var affiliate = "${affiliate}";
 				<div class="modal-dialog teaserSurvey" role="document">
 					<div class="modal-content teaserSurvey">
 						<div class="modal-header teaserSurvey">
-							<h2>Sorry all the centers are fully booked at the moment.</h2>
+							<h2><fmt:message key="savie.servicecenter.centersarefully" bundle="${msg}" /></h2>
 						</div>
 						<div class="modal-body teaserSurvey">
-							<p class="registered">Please come again tomorrow more  available timeslots.</p>
-							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn">Back to home</button>
+							<p class="registered"><fmt:message key="savie.servicecenter.availabletimeslots1" bundle="${msg}" /></p>
+							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="savie.servicecenter.backtohome" bundle="${msg}" /></button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
