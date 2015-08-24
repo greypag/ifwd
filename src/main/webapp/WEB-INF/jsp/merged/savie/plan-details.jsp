@@ -296,9 +296,16 @@
 				});
 			});
 			
-			$('#thankYouModal').on('hidden.bs.modal', function (e) {
-				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
-			})
+			//login
+			$("#made-decision-next-btn").on('click', function(){
+				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+					$("#thankYouModal").modal({backdrop:false});
+					$('#thankYouModal').modal('show');
+				}
+				else{
+					$('#loginpopup').modal('show');
+				}
+		    });	
 			
 			function goServiceCenter(){
 				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
