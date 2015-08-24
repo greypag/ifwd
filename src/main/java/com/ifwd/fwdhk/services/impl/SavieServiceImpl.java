@@ -1215,7 +1215,7 @@ public class SavieServiceImpl implements SavieService {
 		response.setContentType("text/json;charset=utf-8");
 		String accessCode = request.getParameter("accessCode");
 		//request.getSession().setAttribute("accessCode", accessCode);
-		String Url = UserRestURIConstants.SERVICE_URL + "savie/accessCodes/validate?accessCode="+accessCode;
+		String Url = UserRestURIConstants.SERVICE_URL + "/savie/accessCodes/validate?accessCode="+accessCode;
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {
 			lang = "CN";
@@ -1241,11 +1241,40 @@ public class SavieServiceImpl implements SavieService {
 	 * 通过ajax获取时间段
 	 */
 	@Override
+	public void getAllAvailableTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * 通过ajax获取时间段
+	 */
+	@Override
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=utf-8");
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
-		String Url = UserRestURIConstants.SERVICE_URL + "appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {
 			lang = "CN";

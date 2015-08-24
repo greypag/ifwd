@@ -231,6 +231,20 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	/**
+	 * 通过ajax获取可预约时间段
+	 */
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/getAllAvailableTimeSlot"})
+	public void getAllAvailableTimeSlot(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieService.getAllAvailableTimeSlot(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	/**
 	 * 通过ajax获取时间段
 	 */
 	@RequestMapping(value = {"/ajax/savie/savings-insurance/getTimeSlot"})
