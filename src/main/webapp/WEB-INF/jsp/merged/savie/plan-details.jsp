@@ -293,4 +293,8 @@
 					$('#after-3-years').removeClass('hidden');
 				});
 			});
+			
+			$('#thankYouModal').on('hidden.bs.modal', function (e) {
+				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
+			})
 		</script>
