@@ -349,6 +349,7 @@ var affiliate = "${affiliate}";
 						function(data) {
 							if(data.errMsgs){
 								$('.validation-msg').removeClass('hidden-error-msg');
+								$('.validation-msg').html(data.errMsgs);
 								errorMsg = true;
 							}
 							else{

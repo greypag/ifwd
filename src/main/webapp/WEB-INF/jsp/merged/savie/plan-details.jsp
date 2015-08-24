@@ -107,7 +107,7 @@
 	                            <div class="investment-table-desktop">
 	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ 105,000 in the 3rd policy year</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">105,000</span> in the 3rd policy year</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
