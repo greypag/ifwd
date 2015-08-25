@@ -300,7 +300,6 @@
 			//login
 			$("#made-decision-next-btn").on('click', function(){
 				var savingAmount = $("input[name='amount']").val();
-				alert(savingAmount)
 				$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
 				    type:'post',     
