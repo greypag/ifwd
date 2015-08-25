@@ -76,20 +76,14 @@ var affiliate = "${affiliate}";
 								<div class="col-md-6 hidden-xs hidden-sm">
 							        <c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
 							            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
-										    <c:if test="${list.serviceCentreCode=='TST' }"><img src="<%=request.getContextPath()%>/resources/images/savie/tst.jpg" class="img-responsive" /></c:if>
-										    <c:if test="${list.serviceCentreCode=='QB' }"><img src="<%=request.getContextPath()%>/resources/images/savie/qb.jpg" class="img-responsive" /></c:if>
-										    <c:if test="${list.serviceCentreCode=='SW' }"><img src="<%=request.getContextPath()%>/resources/images/savie/sw.jpg" class="img-responsive" /></c:if>
-										    <c:if test="${list.serviceCentreCode=='KT' }"><img src="<%=request.getContextPath()%>/resources/images/savie/kt.jpg" class="img-responsive" /></c:if>
-										    <c:if test="${list.serviceCentreCode=='ST' }"><img src="<%=request.getContextPath()%>/resources/images/savie/st.jpg" class="img-responsive" /></c:if>
-										    
-										    <%-- <c:choose>
-										        <c:when test="${list.photo.toLocaleLowerCase().indexOf('http')}">
+										    <c:choose>
+										        <c:when test="${list.photo != null && list.photo.toLowerCase().startsWith('http')}">
 										            <img src="${list.photo}" class="img-responsive" />
 										        </c:when>
 										        <c:otherwise>
 												    <img src="<%=request.getContextPath()%>/resources/images/savie/${list.photo}" class="img-responsive" />
 												</c:otherwise>
-										    </c:choose> --%>
+										    </c:choose>
 										    
 										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
 										    <p>${list.address }</p>

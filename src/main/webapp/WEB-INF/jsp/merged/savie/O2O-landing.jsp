@@ -14,6 +14,7 @@
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var affiliate = "${affiliate}";
+var home_url = "<%=request.getContextPath()%>";
 </script>
 <%!
 			boolean isSaleActiveClass = false;
@@ -340,6 +341,7 @@ var affiliate = "${affiliate}";
 				var accessCodeVal = $('#accessCodeConfirm').val();
 				if (accessCodeVal == "") {
 					$('.validation-msg').removeClass('hidden-error-msg');
+					$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.validation.msg"));
 					errorMsg = true;
 				} 
 				else {
