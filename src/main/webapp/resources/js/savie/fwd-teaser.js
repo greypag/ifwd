@@ -348,7 +348,6 @@ function getTimeSlot(){
 	    	
 	    	if(data.timeSlots != null && data.timeSlots.length > 0){
 	    		$("#preferred-time option").remove(); 
-	    		$("#preferred-time").prepend("<option value=''>请选择</option>");
 		    	for(var i=0; i<data.timeSlots.length; i++) {
 		    		if(data.timeSlots[i].manPower>0) {
 		    			$("#preferred-time").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");

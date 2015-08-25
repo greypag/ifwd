@@ -65,7 +65,7 @@ var affiliate = "${affiliate}";
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
 												<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-											        <option value="">请选择</option>
+											        <option value=""></option>
 												</select>
 											</div>
 										</div>
@@ -150,22 +150,23 @@ var affiliate = "${affiliate}";
 		    error:function(){       
 		    },     
 		    success:function(data){
-		    	if(data == null || data.serviceCentres == null || data.serviceCentres == ''){
-					$('#fullyBooked').modal('show');
-		    	}else {
-		    		/* var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
+		    	if(data != null && data.serviceCentres != null && data.serviceCentres != ''){
+		    		var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
 		    		var date = data.serviceCentres[0].dates[0].date;
 		    		var timeSlot = data.serviceCentres[0].dates[0].timeSlots[0].timeSlot;
-		    		alert(serviceCentreCode + "||" + date + "||" + timeSlot)
-		    		
-		    		var dateFormat = new Date().format("yyyy-MM-dd"); 
 		    		var preferred_date = new Date()
-		    		preferred_date.setTime(date)
 		    		
-		    		alert()
+		    		preferred_date.setTime(date)
+		    		var year = preferred_date.getFullYear();
+		    		var month = preferred_date.getMonth() + 1;
+		    		var date = preferred_date.getDate();
+		    		month = (month < 10) ? '0' + month : month;
+		    		date = (date < 10) ? '0' + date : date;
 		    		$("#centre").val(serviceCentreCode);
-		    		$("#preferred-date").val(preferred_date);
-		    		$("#preferred-time").val(timeSlot-time); */
+		    		$("#preferred-date").val(month +'-'+ date + '-' + year);
+		    		getTimeSlot();
+		    	}else {
+					$('#fullyBooked').modal('show');
 		    	}
 		    	
 		    }  
