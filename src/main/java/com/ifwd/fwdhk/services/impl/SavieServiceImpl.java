@@ -1305,13 +1305,14 @@ public class SavieServiceImpl implements SavieService {
 	@Override
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=utf-8");
+		HttpSession session = request.getSession();
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
 		String planCode = "Savie";
 		String policyNumber = "";
-		//String applicationNumber = "";
-		//String userName = "";
+		String applicationNumber = "";
+		String userName = (String)session.getAttribute("username");
 		String status = "Active";
 		String remarks = "this is remarks";
 		String accessCode = (String)request.getSession().getAttribute("accessCode");
@@ -1324,7 +1325,6 @@ public class SavieServiceImpl implements SavieService {
 			lang = "CN";
 		}
 		
-		HttpSession session = request.getSession();
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", "*DIRECTGI");
@@ -1335,6 +1335,8 @@ public class SavieServiceImpl implements SavieService {
 		parameters.put("planCode", planCode);
 		
 		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
+		applicationNumber = (String)appJsonObj.get("applicationNumber");
+		session.setAttribute("applicationNumber", applicationNumber);
 		
 		if(appJsonObj != null) {
 			parameters = new org.json.simple.JSONObject();
@@ -1343,8 +1345,8 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("timeSlot", perferredTime);
 			parameters.put("planCode", planCode);
 			parameters.put("policyNumber", policyNumber);
-			parameters.put("applicationNumber", appJsonObj.get("applicationNumber"));
-			parameters.put("userName", session.getAttribute("username"));
+			parameters.put("applicationNumber", applicationNumber);
+			parameters.put("userName", userName);
 			parameters.put("status", status);
 			parameters.put("remarks", remarks);
 			parameters.put("accessCode", accessCode);
@@ -1381,10 +1383,13 @@ public class SavieServiceImpl implements SavieService {
 		String centre = (String) request.getParameter("centre");
 		String preferred_date = (String) request.getParameter("preferred-date");
 		String preferred_time = (String) request.getParameter("preferred-time");
+		String applicationNumber = (String)request.getSession().getAttribute("applicationNumber");
 		
 		model.addAttribute("centre", centre);
 		model.addAttribute("preferred_date", preferred_date);
 		model.addAttribute("preferred_time", preferred_time);
+		model.addAttribute("applicationNumber", applicationNumber);
+		
 		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		ServiceCentreResponse serviceCentreResponse;

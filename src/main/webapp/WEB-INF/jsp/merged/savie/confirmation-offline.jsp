@@ -99,7 +99,7 @@ var affiliate = "${affiliate}";
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Reference.no" bundle="${msg}" /></label>
-										<span class="pull-left">XXXXXX</span>
+										<span class="pull-left">${applicationNumber }</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Phone.no" bundle="${msg}" /></label>
