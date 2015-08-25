@@ -354,31 +354,22 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 	}
 	
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
+	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
+	}
+	
 	/**
 	 * 预约成功跳转页面
 	 * @param model
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
-	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
-		String csCenter = (String) request.getParameter("csCenter");
-		String perferredDate = (String) request.getParameter("perferredDate");
-		String perferredTime = (String) request.getParameter("perferredTime");
-		
-		model.addAttribute("csCenter", csCenter);
-		model.addAttribute("perferredDate", perferredDate);
-		model.addAttribute("perferredTime", perferredTime);
-		
-		//清空储蓄金额
-		HttpSession session = request.getSession();
-		session.removeAttribute("savingAmount");
-			
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
-	}
-	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline"})
 	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
+		
+		savieService.confirmationOffline(model, request);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
 	}
 	

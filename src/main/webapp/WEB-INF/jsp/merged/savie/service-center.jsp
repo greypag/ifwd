@@ -150,8 +150,22 @@ var affiliate = "${affiliate}";
 		    error:function(){       
 		    },     
 		    success:function(data){
-		    	if(data.serviceCentres == null){
+		    	if(data == null || data.serviceCentres == null || data.serviceCentres == ''){
 					$('#fullyBooked').modal('show');
+		    	}else {
+		    		/* var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
+		    		var date = data.serviceCentres[0].dates[0].date;
+		    		var timeSlot = data.serviceCentres[0].dates[0].timeSlots[0].timeSlot;
+		    		alert(serviceCentreCode + "||" + date + "||" + timeSlot)
+		    		
+		    		var dateFormat = new Date().format("yyyy-MM-dd"); 
+		    		var preferred_date = new Date()
+		    		preferred_date.setTime(date)
+		    		
+		    		alert()
+		    		$("#centre").val(serviceCentreCode);
+		    		$("#preferred-date").val(preferred_date);
+		    		$("#preferred-time").val(timeSlot-time); */
 		    	}
 		    	
 		    }  
@@ -203,10 +217,10 @@ var affiliate = "${affiliate}";
 		   		},     
 			    error:function(){       
 			    },     
-			    success:function(data){  
+			    success:function(data){
 			    	if(data.errMsgs == null){
-				    	$(".ui-timepicker-list").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
-				    	$('#serviceCenterForm').submit();
+				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation-offline");
+				    	$("#serviceCenterForm").submit();
 			    	}else{
 			    		alert(data.errMsgs);
 			    	}
@@ -215,19 +229,3 @@ var affiliate = "${affiliate}";
 		});
 	});
 </script>
-
-<!-- <script type="text/javascript">
-var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
-var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
-$('#datepicker').datepicker({
-	startDate: startDate,
-	endDate: endDate,
-	autoclose: true,
-	format: "mm-dd-yyyy",
-	daysOfWeekDisabled: [0],
-}).on('changeDate', function (ev) {
-	if($("#csCenter").val().trim() != "" && $("#datepicker").val().trim() != ""){
-		getTimeSlot();
-	}
-});
-</script> -->
