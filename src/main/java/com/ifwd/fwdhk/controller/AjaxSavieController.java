@@ -271,4 +271,20 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 保存储蓄金额
+	 * @return 
+	 */
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/saveAmount"})
+	public void saveAmount(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieService.saveAmount(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+	}
 }

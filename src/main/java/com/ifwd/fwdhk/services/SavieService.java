@@ -78,6 +78,8 @@ public interface SavieService {
 	
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
 	//fileUpload?
 	//signature?	
 	//1/check session, and redirect to savie landing page if session expired

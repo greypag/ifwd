@@ -365,6 +365,10 @@ public class SavieController extends BaseController{
 		model.addAttribute("csCenter", csCenter);
 		model.addAttribute("perferredDate", perferredDate);
 		model.addAttribute("perferredTime", perferredTime);
+		
+		//清空储蓄金额
+		HttpSession session = request.getSession();
+		session.removeAttribute("savingAmount");
 			
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
 	}
