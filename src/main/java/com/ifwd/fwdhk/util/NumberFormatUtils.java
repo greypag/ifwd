@@ -9,4 +9,10 @@ public class NumberFormatUtils {
 	    String s = format.format(new BigDecimal(str));
 	    return s;
 	}
+	
+	public static final String formatNumber(String str){
+		DecimalFormat format = new DecimalFormat("#,###");
+	    String s = format.format(new BigDecimal(str));
+	    return s;
+	}
 }

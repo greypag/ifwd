@@ -53,9 +53,9 @@
 								<p>$400,000</p>
 							</div>
 
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
-							<h3 class="pull-right total"><span id="range">60,000</span></h3>
+							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="savie.planDetails.HK" bundle="${msg}" /></label>
 						</div>
 
@@ -299,6 +299,19 @@
 			
 			//login
 			$("#made-decision-next-btn").on('click', function(){
+				var savingAmount = $("input[name='amount']").val();
+				$.ajax({     
+				    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
+				    type:'post',     
+				    data:{    
+				    	"savingAmount": savingAmount,
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){  
+				    }  
+				});
+				
 				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 					$("#thankYouModal").modal({backdrop:false});
 					$('#thankYouModal').modal('show');

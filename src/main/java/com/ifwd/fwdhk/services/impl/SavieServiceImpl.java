@@ -1358,4 +1358,15 @@ public class SavieServiceImpl implements SavieService {
 		}
 		response.getWriter().print("application error!");
 	}
+	
+	/**
+	 * 保存储蓄金额
+	 */
+	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		String savingAmount = (String) request.getParameter("savingAmount");
+		HttpSession session = request.getSession();
+		session.setAttribute("savingAmount", savingAmount);
+		session.setAttribute("formatSavingAmount", NumberFormatUtils.formatNumber(savingAmount));
+	}
 }
