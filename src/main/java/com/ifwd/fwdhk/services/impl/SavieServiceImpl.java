@@ -1373,9 +1373,14 @@ public class SavieServiceImpl implements SavieService {
 	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String savingAmount = (String) request.getParameter("savingAmount");
+		String savingDob = (String) request.getParameter("savingDob");
+		String savingPromocode = (String) request.getParameter("savingPromocode");
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("savingAmount", savingAmount);
 		session.setAttribute("formatSavingAmount", NumberFormatUtils.formatNumber(savingAmount));
+		session.setAttribute("savingDob", savingDob);
+		session.setAttribute("savingPromocode", savingPromocode);
 	}
 	
 	public void confirmationOffline(Model model, HttpServletRequest request) {
