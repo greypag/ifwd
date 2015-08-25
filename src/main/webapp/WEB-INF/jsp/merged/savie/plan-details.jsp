@@ -308,6 +308,14 @@
 				}
 		    });	
 			
+			$(document).ready(function(){
+				var thankyou = "${thankyou }";
+				if(thankyou == "thankyou" && "${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+					$("#thankYouModal").modal({backdrop:false});
+					$('#thankYouModal').modal('show');
+				}
+			});
+			
 			function goServiceCenter(){
 				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
 			}
