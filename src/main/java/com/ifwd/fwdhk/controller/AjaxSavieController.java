@@ -19,8 +19,6 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.SavieService;
-import com.ifwd.fwdhk.util.CommonUtils;
-import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.ValidationUtils;
 @Controller
@@ -232,6 +230,23 @@ public class AjaxSavieController extends BaseController{
 		}
 	}
 	
+	/**
+	 * 通过ajax获取可预约时间段
+	 */
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/getAllAvailableTimeSlot"})
+	public void getAllAvailableTimeSlot(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieService.getAllAvailableTimeSlot(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 通过ajax获取时间段
+	 */
 	@RequestMapping(value = {"/ajax/savie/savings-insurance/getTimeSlot"})
 	public void getTimeSlot(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -243,6 +258,9 @@ public class AjaxSavieController extends BaseController{
 		}
 	}
 	
+	/**
+	 * 预约服务中心提交时调用
+	 */
 	@RequestMapping(value = {"/ajax/savie/savings-insurance/upsertAppointment"})
 	public void upsertAppointment(Model model, HttpServletRequest request,
 			HttpServletResponse response) {

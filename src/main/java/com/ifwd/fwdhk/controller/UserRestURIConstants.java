@@ -93,7 +93,7 @@ public class UserRestURIConstants {
 	
 	/* Page Flow Control For Savie */
 	
-	public static final String PAGE_SAVIE_LANDING = "landing";
+	//public static final String PAGE_SAVIE_LANDING = "landing";
 	public static final String PAGE_SAVIE_PLAN_DETAILS = "plan-details";	
 	public static final String PAGE_SAVIE_ACCOUNT_ACTIVATION = "account-activation";	
 	public static final String PAGE_SAVIE_FNA = "financial-needs-analysis";
@@ -105,10 +105,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "document-upload";	
 	public static final String PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE = "customer-service-centre";	
 	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
+	public static final String PAGE_SAVIE_O2O_LANDING = "O2O-landing";
 	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_SAVIE_EMAIL_SUBMITTED = "email-submitted";
 	public static final String PAGE_SAVIE_SERVICE_CENTER = "service-center";
 	public static final String PAGE_SAVIE_APPOINTMENT_SUCCESS = "appointment-success"; 
+	public static final String PAGE_SAVIE_CONFIRMATION_OFFLINE = "confirmation-offline";
 	
 	public static final String PAGE_PROPERTIES_SAVIE_LANDING = "savie.landing";
 	public static final String PAGE_PROPERTIES_SAVIE_PLAN_DETAILS = "savie.planDetails";

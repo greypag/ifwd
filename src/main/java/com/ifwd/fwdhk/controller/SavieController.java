@@ -66,7 +66,9 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
-	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request) {		
+	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
+		httpSession.setAttribute("accessCode", request.getParameter("accessCodeConfirm"));
+		logger.info(request.getParameter("accessCodeConfirm"));
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 	}	
 	
@@ -218,7 +220,7 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering/{affiliate}"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/o2o-landing/{affiliate}"})
 	public void getSavieEmailConfirmedId(Model model, HttpServletRequest request,HttpServletResponse response,@PathVariable int affiliate) {
 		try {
 			request.setAttribute("affiliate", affiliate+"");
@@ -232,16 +234,16 @@ public class SavieController extends BaseController{
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/interest-gathering/email-submitted"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
 		/**
 		 * 通过savings-insurance才可以进入email-submitted页面
 		 */
 		String referer = request.getHeader("referer");
-		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/interest-gathering/email-submitted")
-				|| referer.endsWith("/savings-insurance/interest-gathering") || referer.endsWith("/savings-insurance/")
+		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
+				|| referer.endsWith("/savings-insurance/o2o-landing") || referer.endsWith("/savings-insurance/")
 				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
-				|| referer.indexOf("/savings-insurance/interest-gathering?affiliate") > 1)) {
+				|| referer.indexOf("/savings-insurance/o2o-landing?affiliate") > 1)) {
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
 		}else {
 			return getSavieEmailConfirmed(model, request);
@@ -339,11 +341,21 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
 	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
-		model.addAttribute("serviceCentreEN", InitApplicationMessage.serviceCentreEN);
-		model.addAttribute("serviceCentreCN", InitApplicationMessage.serviceCentreCN);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
+		}else {
+			model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
+		}
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 	}
 	
+	/**
+	 * 预约成功跳转页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
 	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
 		String csCenter = (String) request.getParameter("csCenter");
@@ -355,5 +367,15 @@ public class SavieController extends BaseController{
 		model.addAttribute("perferredTime", perferredTime);
 			
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline"})
+	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/O2O-landing"})
+	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 	}
 }

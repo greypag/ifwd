@@ -459,9 +459,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
 							<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="" />
-							<h1>
+							<div class="recent-work-title">
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
-							</h1>
+							</div>
 							<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /> <a
 									href="<fmt:message key="app.download.link" bundle="${msg}" />"
@@ -474,7 +474,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap-mid wrap text-center">
 						<div class="recent-work-inner">
 							<img src="<%=request.getContextPath()%>/resources/images/secure.png" alt="" />
-							<h1><fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" /></h1>
+							<div class="recent-work-title"><fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" /></div>
 							<p>
 								<fmt:message key="home.main.highlight2.desc" bundle="${msg}" /><br>
 							</p>
@@ -485,7 +485,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
 							<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="" />
-							<h1><fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" /></h1>
+							<div class="recent-work-title"><fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" /></div>
 							<p>
 								<fmt:message key="home.main.highlight3.desc" bundle="${msg}" /><br>
 							</p>
@@ -511,9 +511,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<div class="recent-work-inner">
 									<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="" />
 									
-									<h1>
-								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
-							</h1>
+									<h2>
+								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
+							</h2>
 									
 								<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
@@ -533,9 +533,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="recent-work-wrap-mid text-center">
 								<div class="recent-work-inner">
 									<img src="<%=request.getContextPath()%>/resources/images/secure.png" alt="" />
-										<h1>
-								<fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" />
-							</h1>
+										<h2>
+								<fmt:message key="home.main.highlight2.heading.line1" bundle="${msg}" /> <fmt:message key="home.main.highlight2.heading.line2" bundle="${msg}" />
+							</h2>
 									<p>
 										<fmt:message key="home.main.highlight2.desc" bundle="${msg}" /><br>
 									</p>
@@ -551,9 +551,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
 									<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="" />
-									<h1>
-										<fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" />
-									</h1>
+									<h2>
+										<fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" />
+									</h2>
 									<p><fmt:message key="home.main.highlight3.desc" bundle="${msg}" /><br></p>
 
 								</div>

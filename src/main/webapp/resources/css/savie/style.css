@@ -1523,3 +1523,6 @@ body{
 #landscapeWarningDiv div.divContent div.startButton:active{
 	background: url("../../images/mini-calculator/start_btn.png") right no-repeat;
 }
+.color1 {
+    color: #000 !important;
+}

@@ -91,6 +91,9 @@ function getSaviePlanDetails() {
 								var rowCtr = i+1;
 								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
 								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
+								if(i == 2) {
+									$("#3rd_policy_year").html(Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'))
+								}
 								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
 							}*/
 							
@@ -278,7 +281,6 @@ function getOccupation(value,language) {
 		}
 	})
 	.fail(function(data) {
-		alert(data.length);
 	});
 }
 
