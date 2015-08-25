@@ -34,20 +34,20 @@ var affiliate = "${affiliate}";
 <div class="teaser-banner container-fluid" id="hunger-selling-banner">
 	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-desktop-en" bundle="${msg}" />"
 		id="teaser-banner-mobile-en" 
-		class="max hidden-xs hidden">
+		class="max hidden-xs hidden-sm hidden">
 	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-mobile-en" bundle="${msg}" />"
 		id="teaser-banner-desktop-en" 
-		class="max hidden-sm hidden-md hidden-lg hidden">
+		class="max hidden-md hidden-lg hidden">
 	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-desktop-ch" bundle="${msg}" />"
 		id="teaser-banner-mobile-ch" 
 		class="max hidden-xs hidden">
 	<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner-mobile-ch" bundle="${msg}" />"
-		id="teaser-banner-desktop-ch" 
-		class="max hidden-sm hidden-md hidden-lg hidden">
+		id="teaser-banner-desktop-ch hidden-sm " 
+		class="max hidden-md hidden-lg hidden">
 	<div class="text-content hidden" id="banner-text-english">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
-			class="img-responsive mobile teaser-banner-mobile">
+			class="img-responsive mobile teaser-banner-mobile hidden">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
 			class="img-responsive desktop teaser-banner-desktop">
@@ -55,7 +55,7 @@ var affiliate = "${affiliate}";
 	<div class="text-content hidden" id="banner-text-chinese">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.mobile.ch" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />" 
-			class="img-responsive mobile teaser-banner-mobile">
+			class="img-responsive mobile teaser-banner-mobile hidden">
 		<img src="<%=request.getContextPath()%><fmt:message key="img.teaser.banner.ch" bundle="${msg}" />"
 			title="<fmt:message key="savie.interestGather.sologan" bundle="${msg}" />"
 			class="img-responsive desktop teaser-banner-desktop">
@@ -68,14 +68,27 @@ var affiliate = "${affiliate}";
 			<div class="money-div">
 				<img src="<%=request.getContextPath()%><fmt:message key="img.money.logo" bundle="${msg}" />" class="money">
 			</div>
-			<p class="additional top"><fmt:message key="savie.interestGather.banner.header" bundle="${msg}" /></p>
+			<!--  <p class="additional top"><fmt:message key="savie.interestGather.banner.header" bundle="${msg}" /></p>-->
+			<p class="additional top"><fmt:message key="savie.interestGather.banner.Uppertext.part1" bundle="${msg}" /></p>
+			<p class="additional top lower"><fmt:message key="savie.interestGather.banner.Uppertext.part2" bundle="${msg}" /></p>
+			<p class="top"><fmt:message key="savie.interestGather.banner.Uppertext.part3" bundle="${msg}" /></p>
+			
 			<ul class="crediting-rate-list clearfix">
 				<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.interestGather.banner.list.header1" bundle="${msg}" /></span></li>
 				<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.interestGather.banner.list.header2" bundle="${msg}" /></span><div class="white right"></div></li>
 				<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.interestGather.banner.list.header3" bundle="${msg}" /></span></li>
 			</ul>
+			<!--  
 			<p class="bottom-text upper"><fmt:message key="savie.interestGather.banner.paragraph1" bundle="${msg}" /></p>
 			<p class="bottom-text"><fmt:message key="savie.interestGather.banner.paragraph2" bundle="${msg}" /></p>
+			-->
+			<p class="bottom-text upper"><fmt:message key="savie.interestGather.banner.Lowertext.part1" bundle="${msg}" /></p>
+			<p class="bottom-text lower"><span class="asterisk">*</span><fmt:message key="savie.interestGather.banner.Lowertext.part2" bundle="${msg}" /></p>
+			
+			<div class="product-downloads">
+				<a href="#" class="product"><img src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.banner.download.img" bundle="${msg}" />" class="dl-img"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a>
+				<a href="#" class="product lower"><img src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.banner.download.img" bundle="${msg}" />" class="dl-img lower"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -100,17 +113,17 @@ var affiliate = "${affiliate}";
 		<div class="clearfix">
 			<div class="pull-left checkbox">
 				<input type="checkbox" value="pics" id="pics-check" name="isPics" />
-				<label for="pics-check"></label>
+				<label id="pics-check-label-top" for="pics-check"></label>
 			</div>
-            <div class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
+            <div id="pics-check-label" class="pull-left text"><fmt:message key="savie.interestGather.signupform.PICS.read.accept1" bundle="${msg}" /> <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.personal.collection" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.PICS.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<div class="clearfix top">
 			<div class="pull-left checkbox">
-				<input type="checkbox" value="tc" id="tc-check" name="isTc" /> <label
-					for="tc-check"></label>
+				<input type="checkbox" value="tc" id="tc-check" name="isTc" /> 
+				<label for="tc-check" id="tc-check-label-top"></label>
 			</div>
-            <div class="pull-left text"><fmt:message key="savie.interestGather.signupform.tnc.read.accept1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.tnc.read.accept2" bundle="${msg}" /></div>
+            <div id="tc-check-label" class="pull-left text"><fmt:message key="savie.interestGather.signupform.tnc.read.accept1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.interestGather.signupform.terms.conditions" bundle="${msg}" /></a><fmt:message key="savie.interestGather.signupform.tnc.read.accept2" bundle="${msg}" /></div>
 		</div>
 
 		<span class="error-msg chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
@@ -126,34 +139,62 @@ var affiliate = "${affiliate}";
 </div>
 </div>
 <!-- End of teaser-container -->
-
-<div id="flux">
+<div class="yellow-stick-btn hidden-md hidden-lg hidden" id="sign-me-up-btn">
+	<button type="button" class="yellow-btn">
+		<h3><fmt:message key="savie.interestGather.signmeup.text.part1" bundle="${msg}" /></h3>
+		<h4><fmt:message key="savie.interestGather.signmeup.text.part2" bundle="${msg}" /></h4>
+	</button>
+				
+	<img src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.signmeup.img" bundle="${msg}" />" class="caret-triangle">
+</div>
+<div id="usps" class="teaser-three-column">
 	<div id="landing-three-column"
 		class="fwd-container container-fluid three-column-widget">
 		<div class="row row-top text-center">
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content col-content-teaser">
-					<h2><fmt:message key="savie.interestGather.feature1.header.part1" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.feature1.header.part2" bundle="${msg}" /></h3>
-					<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />">
-					<p><fmt:message key="savie.interestGather.feature1.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature1.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature1.paragraph3" bundle="${msg}" /></p>
+					<div class="clearfix">
+						<div class="pull-left mobile-image hidden-md hidden-lg">
+							<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="img-responsive">
+						</div>
+						<div class="right">
+							<h2><fmt:message key="savie.interestGather.feature1.header.part1" bundle="${msg}" /></h2>
+							<h3><fmt:message key="savie.interestGather.feature1.header.part2" bundle="${msg}" /></h3>
+							<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />" class="hidden-xs hidden-sm">
+							<p><fmt:message key="savie.interestGather.feature1.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature1.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature1.paragraph3" bundle="${msg}" /></p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content col-content-teaser">
-					<h2><fmt:message key="savie.interestGather.feature2.header.part1" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.feature2.header.part2" bundle="${msg}" /></h3>
-					<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />">
-					<p><fmt:message key="savie.interestGather.feature2.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature2.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature2.paragraph3" bundle="${msg}" /></p>
+					<div class="clearfix">
+						<div class="pull-left mobile-image hidden-md hidden-lg">
+							<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="img-responsive">
+						</div>
+						<div class="right">
+							<h2><fmt:message key="savie.interestGather.feature2.header.part1" bundle="${msg}" /></h2>
+							<h3><fmt:message key="savie.interestGather.feature2.header.part2" bundle="${msg}" /></h3>
+							<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />" class="hidden-xs hidden-sm">
+							<p><fmt:message key="savie.interestGather.feature2.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature2.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature2.paragraph3" bundle="${msg}" /></p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-4 fwd-col">
 				<div class="col-content col-content-teaser">
-					<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
-					<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
-					<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />">
-					<p><fmt:message key="savie.interestGather.feature3.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature3.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature3.paragraph3" bundle="${msg}" /></p>
-					<p class="info-asterisk"><fmt:message key="savie.interestGather.feature3.footnote" bundle="${msg}" /><p>
+					<div class="clearfix">
+						<div class="pull-left mobile-image hidden-md hidden-lg">
+							<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="img-responsive">
+						</div>
+						<div class="right">
+							<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
+							<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
+							<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />" class="hidden-xs hidden-sm">
+							<p><fmt:message key="savie.interestGather.feature3.paragraph1" bundle="${msg}" /><span><fmt:message key="savie.interestGather.feature3.paragraph2" bundle="${msg}" /></span><fmt:message key="savie.interestGather.feature3.paragraph3" bundle="${msg}" /></p>
+							<p class="info-asterisk"><fmt:message key="savie.interestGather.feature3.footnote" bundle="${msg}" /><p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -161,19 +202,27 @@ var affiliate = "${affiliate}";
 
 	<div class="fwd-container container-fluid">
 		<div id="other-benefits-teaser" class="row">
-			<div class="col-xs-12 col-md-8 pull-right">
-				<h2 class="text-center"><fmt:message key="savie.interestGather.otherfeatures.header" bundle="${msg}" /></h2>
-			</div>
-			<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
-				<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />">
-			</div>
-			<div class="col-xs-12 col-md-8 fwd-col">
-				<ul>
-					<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
-					<li><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
-				</ul>
+			<div class="clearfix">
+				<div class="pull-left mobile-image hidden-md hidden-lg">
+					<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits-mobile" bundle="${msg}" />">
+				</div>
+				<div class="right">
+					<div class="col-xs-12 col-md-8 pull-right">
+						<h2 class="text-center"><fmt:message key="savie.interestGather.otherfeatures.header" bundle="${msg}" /></h2>
+					</div>
+					<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
+						<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />" class="hidden-xs hidden-sm">
+					</div>
+					<div class="col-xs-12 col-md-8 fwd-col">
+						<ul>
+							<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
+							<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits">Read more</a>
+							<li class="hidden-xs hidden-sm" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
+							<li class="hidden-xs hidden-sm" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
+							<li class="hidden-xs hidden-sm" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- Disclaimer and Policy Provisions -->
@@ -224,3 +273,33 @@ var affiliate = "${affiliate}";
 <!-- /.modal -->
 
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	$('#sign-me-up-btn').click(function(){
+		$('html, body').animate({
+			scrollTop: $('.sign-up-teaser-form').offset().top -  ($('.navbar-fixed-top').height())
+		}, 1000);
+	});
+	
+	
+	$('#read-more-other-benefits').click(function(){
+		//console.log('kjshfd');
+		$('#read-more-other-benefits').addClass('hidden');
+		$('#other-benefits-list-0').removeClass('hidden-xs');
+		$('#other-benefits-list-0').removeClass('hidden-sm');
+		$('#other-benefits-list-1').removeClass('hidden-xs');
+		$('#other-benefits-list-1').removeClass('hidden-sm');
+		$('#other-benefits-list-2').removeClass('hidden-xs');
+		$('#other-benefits-list-2').removeClass('hidden-sm');
+	});
+
+	$("#pics-check-label").click(function(e) {
+		$("#pics-check-label-top").trigger('click');
+	});
+
+	$("#tc-check-label").click(function(e) {
+		$("#tc-check-label-top").trigger('click');
+	});
+});
+</script>

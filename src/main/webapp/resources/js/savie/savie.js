@@ -106,6 +106,7 @@ function getSaviePlanDetails() {
 							
 							if (i == 0 || i == 1 || i == 2) {
 								var rowCtr = i+1;
+								$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
 								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
 								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
 								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
@@ -123,6 +124,14 @@ function getSaviePlanDetails() {
 						if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
 							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 							items[0][i] = rateIsZero;
+							if(i==2){
+								var rowCtr = 3;
+								$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
+								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
+								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
+								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+							}
+							
 							
 
 						}
