@@ -281,6 +281,7 @@
 				</div>
 			</div>
 	</div>
+	<jsp:include page="/WEB-INF/jsp/merged/savie/savie-plan-details-login.jsp" />
 		
 		<!--For Sales Illustration page js-->
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
@@ -303,7 +304,7 @@
 					$('#thankYouModal').modal('show');
 				}
 				else{
-					$('#loginpopup').modal('show');
+					$('#p-loginpopup').modal('show');
 				}
 		    });	
 			

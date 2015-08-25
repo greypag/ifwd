@@ -40,7 +40,10 @@
 // 								setTimeout(function() {document.joinus_form.action= "useraccount";								
 // 								}, 3000);
  								if(window.top.document.referrer.indexOf("savings-insurance/plan-details")>0){
- 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+ 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details';
+ 									setTimeout(3000);
+ 									$("#thankYouModal").modal({backdrop:false});
+ 									$('#thankYouModal').modal('show');
  								} else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';
  								}
