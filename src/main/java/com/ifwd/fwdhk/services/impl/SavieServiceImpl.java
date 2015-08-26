@@ -943,7 +943,7 @@ public class SavieServiceImpl implements SavieService {
                     "                                              </span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">此致</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
                     "Yours sincerely,<br>" +
                     "&nbsp;<br>" +
-                    "Fanny Wing<br>" +
+                    "Fanny<br>" +
                     "&nbsp;<br>" +
                     "</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">富衛人壽保險</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">(</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">百慕達</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">)</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">有限公司</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
                     "FWD Life Insurance Company (Bermuda) Limited<br>" +
@@ -1014,7 +1014,7 @@ public class SavieServiceImpl implements SavieService {
 			
 			String subject = "Savie Registration Acknowledgement email from FWD";
 			String attachment = request.getParameter("attachment");
-			String from = "Fanny Wing <i-info.hk@fwd.com>";
+			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
