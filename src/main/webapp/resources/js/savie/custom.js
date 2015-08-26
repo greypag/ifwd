@@ -162,6 +162,9 @@ $(function() {
 	});
 	
 	// Sales Illustration Page to FNA Page
+	$("#made-decision-next-btn").on('click', function(){
+		$('#loginModal').modal('show');
+    });	
 
 	// FNA Page to Application Page
 	$("#fna-next-btn").on('click', function(){
@@ -678,6 +681,16 @@ $(function() {
 	 			$('#sticky-buy-now').removeClass('sticky-button');			
 	 		}
 	 	}
+	 	
+	 	//check if usps div exists
+	 	//by: RMN
+		if($('#usps').length > 0){
+			if ($(window).scrollTop() >= $('#usps').offset().top - window.innerHeight){
+				$('#sign-me-up-btn').removeClass('hidden');
+			}else{
+				$('#sign-me-up-btn').addClass('hidden');
+			}
+		}
 		
 		madeDecisionSticky();
 	});

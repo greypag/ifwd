@@ -4,15 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<script type="text/javascript">
-var context = "${pageContext.request.contextPath}";
-var language = "${language}";
-var affiliate = "${affiliate}";
-</script>
 <%!
 	boolean isSaleActiveClass = true;
 %>
@@ -65,7 +58,7 @@ var affiliate = "${affiliate}";
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
 												<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-											        <option value=""></option>
+											        <option value="">请选择</option>
 												</select>
 											</div>
 										</div>
@@ -150,22 +143,7 @@ var affiliate = "${affiliate}";
 		    error:function(){       
 		    },     
 		    success:function(data){
-		    	if(data != null && data.serviceCentres != null && data.serviceCentres != ''){
-		    		var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
-		    		var date = data.serviceCentres[0].dates[0].date;
-		    		var timeSlot = data.serviceCentres[0].dates[0].timeSlots[0].timeSlot;
-		    		var preferred_date = new Date()
-		    		
-		    		preferred_date.setTime(date)
-		    		var year = preferred_date.getFullYear();
-		    		var month = preferred_date.getMonth() + 1;
-		    		var date = preferred_date.getDate();
-		    		month = (month < 10) ? '0' + month : month;
-		    		date = (date < 10) ? '0' + date : date;
-		    		$("#centre").val(serviceCentreCode);
-		    		$("#preferred-date").val(month +'-'+ date + '-' + year);
-		    		getTimeSlot();
-		    	}else {
+		    	if(data.serviceCentres == null){
 					$('#fullyBooked').modal('show');
 		    	}
 		    	
@@ -218,10 +196,10 @@ var affiliate = "${affiliate}";
 		   		},     
 			    error:function(){       
 			    },     
-			    success:function(data){
+			    success:function(data){  
 			    	if(data.errMsgs == null){
-				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation-offline");
-				    	$("#serviceCenterForm").submit();
+				    	$(".ui-timepicker-list").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
+				    	$('#serviceCenterForm').submit();
 			    	}else{
 			    		alert(data.errMsgs);
 			    	}
@@ -230,3 +208,15 @@ var affiliate = "${affiliate}";
 		});
 	});
 </script>
+
+<!-- <script type="text/javascript">
+var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
+$('#datepicker').datepicker({
+	startDate: startDate,
+	endDate: endDate,
+	autoclose: true,
+	format: "mm-dd-yyyy",
+	daysOfWeekDisabled: [0],
+});
+</script> -->

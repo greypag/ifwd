@@ -20,7 +20,7 @@
 						<li class="active-bc"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
 					</ol>
 				</div>
-				<div id="questions" class="text-center pull-right">
+				<!--  <div id="questions" class="text-center pull-right">
 					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
 					<a href="${nextPageFlow}">
 						<div class="right">                 
@@ -28,6 +28,7 @@
 						</div>
 					</a>
 				</div>
+				-->
 			</div>
 
 			<div class="fwd-full-container container-fluid text-center sales-head">
@@ -53,9 +54,9 @@
 								<p>$400,000</p>
 							</div>
 
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
-							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
+							<h3 class="pull-right total"><span id="range">60,000</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="savie.planDetails.HK" bundle="${msg}" /></label>
 						</div>
 
@@ -69,7 +70,7 @@
 									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 								</div>
 								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
-									<input type="text" class="date" value="${savingDob }" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
+									<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
 									<input type="hidden" id="birthOfDay"  value="05/28/1995"/>
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
@@ -89,11 +90,11 @@
 						<h2>Promo code
 							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button>
 						</h2>
-						<input value="${savingPromocode }" name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
+						<input name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">
-						<button onclick='getSaviePlanDetails()' class="next" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
+						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
 					</div>
 				</form>
 			</div>
@@ -105,31 +106,35 @@
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
+	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" />
+	                                	<button type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary">
+	                                		<img src="<fmt:message key="savie.planDetails.info-image" bundle="${msg}" />">
+	                                	</button>
+	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">105,000</span> in the 3rd policy year</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ 105,000 in the 3rd policy year</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Annual.Crediting.Rate" bundle="${msg}" /></th>
 	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
 	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <tr>    <td class="left-border">1</td>  <td class="black-text" id="premium-1"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 100,000</td>    </tr>
-	                                        <tr>    <td class="left-border">2</td>  <td class="black-text" id="premium-2"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 100,000</td>    </tr>
-	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text" id="premium-3"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 100,000</td>    </tr>
+	                                        <tr>    <td class="left-border">1</td>  <td class="black-text desktop-only" id="credit-rate-change-1"><span>3%</span></td>   <td class="black-text" id="premium-1"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 100,000</td>    </tr>
+	                                        <tr>    <td class="left-border">2</td>  <td class="black-text desktop-only" id="credit-rate-change-2"><span>3%</span></td>   <td class="black-text" id="premium-2"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 100,000</td>    </tr>
+	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text desktop-only" id="credit-rate-change-3"><span>4%</span></td>   <td class="black-text" id="premium-3"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 100,000</td>    </tr>
 	                                    </tbody>
 	                                </table>
 	                            </div>
 	                        </div>
 	                    </div>
 	                    <div>   
-	                     
 	                   		<div class="after-3-years-btn" id="after-3-years-div">
 								<button type="button" class="btn btn-white see-more" id="see-more-3-years"><fmt:message key="savie.planDetails.SeeMoreAfter3Years" bundle="${msg}" /></button>
 							</div>
@@ -218,8 +223,8 @@
 			
 			<!-- Login, create account, Proceed buttons -->
 			<div class="fwd-container container-fluid proceed-block text-center">
-				<h3>Login or create an account to</h3>
-				<button id="made-decision-next-btn" type="button" class="btn next">Proceed</button>
+				<h2>Login or create an account to</h2>
+				<button id="made-decision-next-btn" type="button" class="btn btn-orange proceed-btn">Proceed</button>
 			</div>
 			
 			<!--Explanation Block-->
@@ -275,14 +280,14 @@
 					<div class="modal-content thank-you-content">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive hidden-xs">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/FWD_savie_o2o_offline-procedure_mobile.jpg" class="img-responsive hidden-md hidden-lg hidden-sm">
-						<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();">Continue</button>
+						<button id="thank-you-continue" class="btn next" onclick="gotoFna();">Continue</button>
 					</div>
 				</div>
 			</div>
 	</div>
-	<jsp:include page="/WEB-INF/jsp/merged/savie/savie-plan-details-login.jsp" />
 		
 		<!--For Sales Illustration page js-->
+		<!--  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>-->
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
@@ -290,49 +295,8 @@
 		<script type="text/javascript">		
 			$(function () {	
 				$('#see-more-3-years').click(function(){
-					console.log('lksj');
 					$('#after-3-years-div').addClass('hidden');
 					$('#after-3-years').removeClass('hidden');
 				});
 			});
-			
-			//login
-			$("#made-decision-next-btn").on('click', function(){
-				var savingAmount = $("input[name='amount']").val();
-				var savingDob = $("input[name='dob']").val();
-				var savingPromocode = $("input[name='promocode']").val();
-				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
-				    type:'post',     
-				    data:{    
-				    	"savingAmount": savingAmount,
-				    	"savingDob": savingDob,
-				    	"savingPromocode": savingPromocode,
-			   		},     
-				    error:function(){       
-				    },     
-				    success:function(data){  
-				    }  
-				});
-				
-				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					$("#thankYouModal").modal({backdrop:false});
-					$('#thankYouModal').modal('show');
-				}
-				else{
-					$('#p-loginpopup').modal('show');
-				}
-		    });	
-			
-			$(document).ready(function(){
-				var thankyou = "${thankyou }";
-				if(thankyou == "thankyou" && "${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					$("#thankYouModal").modal({backdrop:false});
-					$('#thankYouModal').modal('show');
-				}
-			});
-			
-			function goServiceCenter(){
-				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
-			}
 		</script>

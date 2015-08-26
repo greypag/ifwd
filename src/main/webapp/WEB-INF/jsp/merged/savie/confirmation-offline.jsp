@@ -83,31 +83,31 @@ var affiliate = "${affiliate}";
 									<h2><fmt:message key="savie.confirmation.offline.Appointment.details" bundle="${msg}" /></h2>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Date" bundle="${msg}" /></label>
-										<span class="pull-left">${preferred_date }</span>
+										<span class="pull-left">09-06-2015</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Time" bundle="${msg}" /></label>
-										<span class="pull-left">${preferred_time }</span>
+										<span class="pull-left">10:30am</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Branch" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.serviceCentreName }</span>
+										<span class="pull-left">Sheung Wan</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Address" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.address }</span>
+										<span class="pull-left">1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Reference.no" bundle="${msg}" /></label>
-										<span class="pull-left">${applicationNumber }</span>
+										<span class="pull-left">XXXXXX</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Phone.no" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.phone }</span>
+										<span class="pull-left">063-2323-123</span>
 									</div>
 									<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Operating.hours" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.operationHours }</span>
+										<span class="pull-left">Mon - Sat 8:00am to 8:00pm<br />Closed on Sun & Public Holidays</span>
 									</div>
 								</div>
 							</div>
