@@ -68,9 +68,10 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
-		
+		HttpSession session = request.getSession();
 		String accessCode = (String)request.getParameter("accessCodeConfirm");
-		if(org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
+				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
 			if("thankyou".equals(request.getParameter("thankyou"))){
 				model.addAttribute("thankyou", request.getParameter("thankyou"));
@@ -190,10 +191,10 @@ public class SavieController extends BaseController{
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
+	/*@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-	}
+	}*/
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
 	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
@@ -378,7 +379,7 @@ public class SavieController extends BaseController{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();

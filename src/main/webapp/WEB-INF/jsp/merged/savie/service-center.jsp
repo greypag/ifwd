@@ -220,7 +220,7 @@ var affiliate = "${affiliate}";
 			    },     
 			    success:function(data){
 			    	if(data.errMsgs == null){
-				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation-offline");
+				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
 				    	$("#serviceCenterForm").submit();
 			    	}else{
 			    		alert(data.errMsgs);
