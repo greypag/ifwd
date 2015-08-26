@@ -163,7 +163,7 @@ var affiliate = "${affiliate}";
 		    		month = (month < 10) ? '0' + month : month;
 		    		date = (date < 10) ? '0' + date : date;
 		    		$("#centre").val(serviceCentreCode);
-		    		$("#preferred-date").val(month +'-'+ date + '-' + year);
+		    		$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
 		    		getTimeSlot();
 		    	}else {
 					$('#fullyBooked').modal('show');
