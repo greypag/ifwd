@@ -89,8 +89,8 @@ var home_url = "<%=request.getContextPath()%>";
 				.</p>
 			</div>
 			
-	        <div id="flux" class="teaser-three-column">
-					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget">
+	        <div class="teaser-three-column O2O-landing">
+					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
 						<div class="row row-top text-center">
 							<div class="col-xs-12 col-md-4 fwd-col">
 								<div class="col-content col-content-teaser">
@@ -141,7 +141,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 	          
-					<div class="fwd-container container-fluid other-benefits-teaser">
+					<div class="fwd-container container-fluid other-benefits-teaser O2O-landing">
 						<div id="other-benefits" class="row">
 							<div class="clearfix">
 								<div class="pull-left mobile-image hidden-md hidden-lg">
@@ -268,7 +268,7 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<!-- OUR BLOG -->
 			<div id="landing-page-blog" class="fwd-container blog-widget container-fluid text-center">
-				<div class="read-blog-desktop three-column-widget">
+				<div class="read-blog-desktop three-column-widget O2O-landing">
 					<h2 class="hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Read.more" bundle="${msg}" /></h2>
 					<h2 class="hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Our.blog" bundle="${msg}" /></h2>
 					<div class="row text-left">

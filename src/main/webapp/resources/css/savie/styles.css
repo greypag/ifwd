@@ -13970,7 +13970,7 @@ input[type=number] {
 }
 
 .fwd-savie-wrapper .teaser-three-column {
-  background-color: #f1f3f5 !important;
+  background-color: #f1f3f5;
 }
 .fwd-savie-wrapper .other-benefits-teaser {
   background-color: #f1f3f5;
@@ -14735,4 +14735,16 @@ input[type=number] {
   #signup-now-modal .fwd-checkbox label {
     border: solid 1px black;
   }
+}
+
+.fwd-savie-wrapper .three-column-widget.O2O-landing {
+    background-color: #fff;
+}
+
+.fwd-savie-wrapper .teaser-three-column.O2O-landing {
+    background-color: #fff;
+}
+
+.fwd-savie-wrapper .other-benefits-teaser.O2O-landing {
+    background-color: #fff;
 }
