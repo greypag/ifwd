@@ -68,9 +68,7 @@ public class SavieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
 		httpSession.setAttribute("accessCode", request.getParameter("accessCodeConfirm"));
-		logger.info(request.getParameter("accessCodeConfirm"));
 		if("thankyou".equals(request.getParameter("thankyou"))){
-			logger.info(request.getParameter("thankyou"));
 			model.addAttribute("thankyou", request.getParameter("thankyou"));
 		}
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
