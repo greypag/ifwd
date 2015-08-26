@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,11 +68,18 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
-		httpSession.setAttribute("accessCode", request.getParameter("accessCodeConfirm"));
-		if("thankyou".equals(request.getParameter("thankyou"))){
-			model.addAttribute("thankyou", request.getParameter("thankyou"));
+		
+		String accessCode = (String)request.getParameter("accessCodeConfirm");
+		if(org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
+			httpSession.setAttribute("accessCode", accessCode);
+			if("thankyou".equals(request.getParameter("thankyou"))){
+				model.addAttribute("thankyou", request.getParameter("thankyou"));
+			}
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
+		}else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 		}
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 	}	
 	
 	
@@ -230,7 +238,6 @@ public class SavieController extends BaseController{
 			url = url.substring(0,url.lastIndexOf("/"));
 			request.getRequestDispatcher(url).forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -343,13 +350,20 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
 	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")) {
-			model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
-		}else {
-			model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
+		HttpSession session = request.getSession();
+		//savingAmount为空时返回首页
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc")) {
+				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
+			}else {
+				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
+			}
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
+		} else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 		}
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 	}
 	
 	
@@ -367,8 +381,16 @@ public class SavieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline"})
 	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
 		
-		savieService.confirmationOffline(model, request);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
+		HttpSession session = request.getSession();
+		//savingAmount为空时返回首页
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
+			savieService.confirmationOffline(model, request);
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
+		}else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+		}
+		
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/O2O-landing"})
