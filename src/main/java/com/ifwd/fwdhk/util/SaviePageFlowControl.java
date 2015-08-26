@@ -232,7 +232,7 @@ public class SaviePageFlowControl {
 			return UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)) {
-			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;
+			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)) {
 			return UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;

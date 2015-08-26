@@ -66,12 +66,14 @@
 								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Your date of birth as per your HKID. You must be 19 and above to apply."></button>
 							</h2>
 							<div id="birthday">
+							<!-- 
 								<div class="hidden-md hidden-lg">
 									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 								</div>
-								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
-									<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
-									<input type="hidden" id="birthOfDay"  value="05/28/1995"/>
+								hidden-xs hidden-sm
+								 -->
+								<div class="input-group input-append date" id="datePicker">
+									<input type="text" class="date" value="${savingDob!=null ? savingDob:'08/25/1997' }" name="dob" id="sales-illu-dob" placeholder="08/25/1997" onfocusin="fnSetStyle()" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
 								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
@@ -112,7 +114,7 @@
 	                                	</button>
 	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ 105,000 in the 3rd policy year</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">0</span> in the 3rd policy year</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
@@ -126,9 +128,9 @@
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <tr>    <td class="left-border">1</td>  <td class="black-text desktop-only" id="credit-rate-change-1"><span>3%</span></td>   <td class="black-text" id="premium-1"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 100,000</td>    </tr>
-	                                        <tr>    <td class="left-border">2</td>  <td class="black-text desktop-only" id="credit-rate-change-2"><span>3%</span></td>   <td class="black-text" id="premium-2"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 100,000</td>    </tr>
-	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text desktop-only" id="credit-rate-change-3"><span>4%</span></td>   <td class="black-text" id="premium-3"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 100,000</td>    </tr>
+	                                        <tr>    <td class="left-border">1</td>  <td class="black-text" id="premium-1"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 0</td>    </tr>
+	                                        <tr>    <td class="left-border">2</td>  <td class="black-text" id="premium-2"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 0</td>    </tr>
+	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text" id="premium-3"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 0</td>    </tr>
 	                                    </tbody>
 	                                </table>
 	                            </div>
@@ -152,16 +154,16 @@
 	                                                <p class="rate-text"><fmt:message key="savie.planDetails.Crediting.rate" bundle="${msg}" /></p>
 	                                            </div>
 	                                            <div class="left-side chart-button-left">
-	                                                <button id="zero-rate" type="button">0%</button>
+	                                                <button id="rate-0" type="button">0%</button>
 	                                            </div>
 	                                            <div class="left-side chart-button-left">
-	                                                <button id="two-rate" type="button" >2%</button>
+	                                                <button id="rate-2" type="button" >2%</button>
 	                                            </div>
 	                                            <div class="left-side chart-button-right">
-	                                                <button id="three-rate" class="active" type="button">3%</button>
+	                                                <button id="rate-3" class="active" type="button">3%</button>
 	                                            </div>
 	                                            <div class="left-side chart-button-right">
-	                                                <button id="four-rate" type="button">4%</button>
+	                                                <button id="rate-4" type="button">4%</button>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -177,7 +179,7 @@
 									</div>
 	                            </div>-->
 	                            
-	                            <div class="rate-table">
+	                            <div id="rate-table-0" class="rate-table">
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
@@ -190,25 +192,136 @@
 	                                    </thead>
 	                                    <tbody>
 	                                        <tr>    
-												<td class="left-border" id='policy-year-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-1">3</td> 
-												<td class="black-text" id="premium-change-1"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-1"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-1"><span>$</span> 100,000</td>    
+												<td class="left-border" id='policy-year-0-1'>5</td>  
+												<td class="black-text desktop-only" id="credit-rate-0-1">0</td> 
+												<td class="black-text" id="premium-change-0-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-0-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-0-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
-												<td class="left-border" id='policy-year-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-2">3</td>  
-												<td class="black-text" id="premium-change-2"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-2"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-2"><span>$</span> 100,000</td>    
+												<td class="left-border" id='policy-year-0-2'>10</td> 
+												<td class="black-text desktop-only" id="credit-rate-0-2">0</td>  
+												<td class="black-text" id="premium-change-0-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-0-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-0-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
-												<td class="left-border" id='policy-year-3'>Age 100</td>  
-												<td class="black-text desktop-only" id="credit-rate-3">3</td> 
-												<td class="black-text" id="premium-change-3"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-3"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-3"><span>$</span> 100,000</td>    
+												<td class="left-border" id='policy-year-0-3'>Age 100</td>  
+												<td class="black-text desktop-only" id="credit-rate-0-3">0</td> 
+												<td class="black-text" id="premium-change-0-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-0-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-0-3"><span>$</span> 0</td>    
+												</tr>
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                            
+	                            <div id="rate-table-2" class="rate-table">
+	                                <table class="table table-hover">
+	                                    <thead>
+	                                    <tr>
+	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-2-1'>5</td>  
+												<td class="black-text desktop-only" id="credit-rate-2-1">2</td> 
+												<td class="black-text" id="premium-change-2-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-2-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-2-1"><span>$</span> 0</td>    
+											</tr>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-2-2'>10</td> 
+												<td class="black-text desktop-only" id="credit-rate-2-2">2</td>  
+												<td class="black-text" id="premium-change-2-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-2-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-2-2"><span>$</span> 0</td>    
+											</tr>
+	                                        <tr class="bottom-border">  
+												<td class="left-border" id='policy-year-2-3'>Age 100</td>  
+												<td class="black-text desktop-only" id="credit-rate-2-3">2</td> 
+												<td class="black-text" id="premium-change-2-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-2-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-2-3"><span>$</span> 0</td>    
+												</tr>
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                            
+	                            <div id="rate-table-3" class="rate-table">
+	                                <table class="table table-hover">
+	                                    <thead>
+	                                    <tr>
+	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-3-1'>5</td>  
+												<td class="black-text desktop-only" id="credit-rate-3-1">3</td> 
+												<td class="black-text" id="premium-change-3-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-3-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-3-1"><span>$</span> 0</td>    
+											</tr>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-3-2'>10</td> 
+												<td class="black-text desktop-only" id="credit-rate-3-2">3</td>  
+												<td class="black-text" id="premium-change-3-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-3-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-3-2"><span>$</span> 0</td>    
+											</tr>
+	                                        <tr class="bottom-border">  
+												<td class="left-border" id='policy-year-3-3'>Age 100</td>  
+												<td class="black-text desktop-only" id="credit-rate-3-3">3</td> 
+												<td class="black-text" id="premium-change-3-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-3-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-3-3"><span>$</span> 0</td>    
+												</tr>
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                            
+	                            <div id="rate-table-4" class="rate-table">
+	                                <table class="table table-hover">
+	                                    <thead>
+	                                    <tr>
+	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-4-1'>5</td>  
+												<td class="black-text desktop-only" id="credit-rate-4-1">4</td> 
+												<td class="black-text" id="premium-change-4-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-4-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-4-1"><span>$</span> 0</td>    
+											</tr>
+	                                        <tr>    
+												<td class="left-border" id='policy-year-4-2'>10</td> 
+												<td class="black-text desktop-only" id="credit-rate-4-2">4</td>  
+												<td class="black-text" id="premium-change-4-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-4-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-4-2"><span>$</span> 0</td>    
+											</tr>
+	                                        <tr class="bottom-border">  
+												<td class="left-border" id='policy-year-4-3'>Age 100</td>  
+												<td class="black-text desktop-only" id="credit-rate-4-3">4</td> 
+												<td class="black-text" id="premium-change-4-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-4-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-4-3"><span>$</span> 0</td>    
 												</tr>
 	                                    </tbody>
 	                                </table>
@@ -297,6 +410,79 @@
 				$('#see-more-3-years').click(function(){
 					$('#after-3-years-div').addClass('hidden');
 					$('#after-3-years').removeClass('hidden');
+					
+					$('#rate-table-0').addClass('hidden');
+					$('#rate-table-2').addClass('hidden');
+					$('#rate-table-3').removeClass('hidden');
+					$('#rate-table-4').addClass('hidden');
+				});
+				
+				$('#rate-0').click(function(){
+					$('#rate-3').removeClass('active');
+					$('#rate-table-0').removeClass('hidden');
+					$('#rate-table-2').addClass('hidden');
+					$('#rate-table-3').addClass('hidden');
+					$('#rate-table-4').addClass('hidden');
+				});
+				$('#rate-2').click(function(){
+					$('#rate-3').removeClass('active');
+					$('#rate-table-0').addClass('hidden');
+					$('#rate-table-2').removeClass('hidden');
+					$('#rate-table-3').addClass('hidden');
+					$('#rate-table-4').addClass('hidden');
+				});
+				$('#rate-3').click(function(){
+					$('#rate-table-0').addClass('hidden');
+					$('#rate-table-2').addClass('hidden');
+					$('#rate-table-3').removeClass('hidden');
+					$('#rate-table-4').addClass('hidden');
+				});
+				$('#rate-4').click(function(){
+					$('#rate-3').removeClass('active');
+					$('#rate-table-0').addClass('hidden');
+					$('#rate-table-2').addClass('hidden');
+					$('#rate-table-3').addClass('hidden');
+					$('#rate-table-4').removeClass('hidden');
 				});
 			});
+			
+			//login
+			$("#made-decision-next-btn").on('click', function(){
+				var savingAmount = $("input[name='amount']").val();
+				var savingDob = $("input[name='dob']").val();
+				var savingPromocode = $("input[name='promocode']").val();
+				$.ajax({     
+				    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
+				    type:'post',     
+				    data:{    
+				    	"savingAmount": savingAmount,
+				    	"savingDob": savingDob,
+				    	"savingPromocode": savingPromocode,
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){  
+				    }  
+				});
+				
+				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+					$("#thankYouModal").modal({backdrop:false});
+					$('#thankYouModal').modal('show');
+				}
+				else{
+					$('#loginpopup').modal('show');
+				}
+		    });	
+			
+			$(document).ready(function(){
+				var thankyou = "${thankyou }";
+				if(thankyou == "thankyou" && "${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+					$("#thankYouModal").modal({backdrop:false});
+					$('#thankYouModal').modal('show');
+				}
+			});
+			
+			function goServiceCenter(){
+				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
+			}
 		</script>

@@ -70,11 +70,17 @@ function submitLoginForm(formID) {
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
-						
-						perventRedirect=false;
-						//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
-						ga('send', 'event', 'Login', 'Click', 'Login success');
-						location.reload();
+						if(window.location.href.indexOf("savings-insurance/plan-details")>0){
+							$('#loginpopup').modal('hide');
+							$("#thankYouModal").modal({backdrop:false});
+							$('#thankYouModal').modal('show');
+						}
+						else {
+							perventRedirect=false;
+							///////window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+							ga('send', 'event', 'Login', 'Click', 'Login success');
+							location.reload();
+						}
 					} else if (data == 'Provided User Account Details Does Not Exist') {
 						try{$('.login-ajax-loading').hide();}catch(error){}
 		                $('#ajax-loading').hide();

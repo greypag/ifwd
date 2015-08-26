@@ -143,7 +143,22 @@
 		    error:function(){       
 		    },     
 		    success:function(data){
-		    	if(data.serviceCentres == null){
+		    	if(data != null && data.serviceCentres != null && data.serviceCentres != ''){
+		    		var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
+		    		var date = data.serviceCentres[0].dates[0].date;
+		    		var timeSlot = data.serviceCentres[0].dates[0].timeSlots[0].timeSlot;
+		    		var preferred_date = new Date()
+		    		
+		    		preferred_date.setTime(date)
+		    		var year = preferred_date.getFullYear();
+		    		var month = preferred_date.getMonth() + 1;
+		    		var date = preferred_date.getDate();
+		    		month = (month < 10) ? '0' + month : month;
+		    		date = (date < 10) ? '0' + date : date;
+		    		$("#centre").val(serviceCentreCode);
+		    		$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
+		    		getTimeSlot();
+		    	}else {
 					$('#fullyBooked').modal('show');
 		    	}
 		    	
@@ -198,8 +213,8 @@
 			    },     
 			    success:function(data){  
 			    	if(data.errMsgs == null){
-				    	$(".ui-timepicker-list").attr("action", context + "/" + language + "/savings-insurance/appointment-success");
-				    	$('#serviceCenterForm').submit();
+				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
+				    	$("#serviceCenterForm").submit();
 			    	}else{
 			    		alert(data.errMsgs);
 			    	}

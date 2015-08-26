@@ -1412,8 +1412,8 @@ public class SavieServiceImpl implements SavieService {
 		}
 		
 		//清空储蓄金额
-		HttpSession session = request.getSession();
-		session.removeAttribute("savingAmount");
+		/*HttpSession session = request.getSession();
+		session.removeAttribute("savingAmount");*/
 	}
 	
 }
