@@ -65,12 +65,14 @@
 								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Your date of birth as per your HKID. You must be 19 and above to apply."></button>
 							</h2>
 							<div id="birthday">
+							<!-- 
 								<div class="hidden-md hidden-lg">
 									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 								</div>
-								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
-									<input type="text" class="date" value="${savingDob }" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
-									<input type="hidden" id="birthOfDay"  value="05/28/1995"/>
+								hidden-xs hidden-sm
+								 -->
+								<div class="input-group input-append date" id="datePicker">
+									<input type="text" class="date" value="${savingDob!=null ? savingDob:'08/25/1997' }" name="dob" id="sales-illu-dob" placeholder="08/25/1997" onfocusin="fnSetStyle()" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
 								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>

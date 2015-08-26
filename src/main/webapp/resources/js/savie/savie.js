@@ -50,7 +50,7 @@ function getSaviePlanDetails() {
 	
 	var amount = $('#R').val();
 	var promocode = $('#promocode').val();
-	var birthOfDay = $('#birthOfDay').val();
+	var birthOfDay = $('#sales-illu-dob').val();
 	
 	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
