@@ -112,7 +112,7 @@
 	                                	</button>
 	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">105,000</span> in the 3rd policy year</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ 105,000 in the 3rd policy year</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
@@ -135,11 +135,9 @@
 	                        </div>
 	                    </div>
 	                    <div>   
-	                    <!-- 
 	                   		<div class="after-3-years-btn" id="after-3-years-div">
 								<button type="button" class="btn btn-white see-more" id="see-more-3-years"><fmt:message key="savie.planDetails.SeeMoreAfter3Years" bundle="${msg}" /></button>
 							</div>
-					    -->
 							
 	                        <div class="container-fluid summary-tab-max-width hidden" id="after-3-years">
 	                            <div class="investment-summary-title-desktop">
@@ -282,7 +280,7 @@
 					<div class="modal-content thank-you-content">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive hidden-xs">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/FWD_savie_o2o_offline-procedure_mobile.jpg" class="img-responsive hidden-md hidden-lg hidden-sm">
-						<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();">Continue</button>
+						<button id="thank-you-continue" class="btn next" onclick="gotoFna();">Continue</button>
 					</div>
 				</div>
 			</div>
@@ -301,19 +299,4 @@
 					$('#after-3-years').removeClass('hidden');
 				});
 			});
-			
-			//login
-			$("#made-decision-next-btn").on('click', function(){
-				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					$("#thankYouModal").modal({backdrop:false});
-					$('#thankYouModal').modal('show');
-				}
-				else{
-					$('#loginpopup').modal('show');
-				}
-		    });	
-			
-			function goServiceCenter(){
-				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
-			}
 		</script>

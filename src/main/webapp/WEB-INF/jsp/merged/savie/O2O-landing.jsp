@@ -81,7 +81,9 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<div class="sign-up-teaser">
 				<p class="sign-up-header"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
-				<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				<div class="get-started-holder text-center">
+					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				</div>
 				<p class="sign-up-header hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Haven't.applied" bundle="${msg}" /><a href="#"><fmt:message key="savie.o2o.landing.here" bundle="${msg}" /></a>.</p>
 			</div>
 
@@ -90,6 +92,7 @@ var home_url = "<%=request.getContextPath()%>";
 	                <div class="row row-top text-center">
 	                    <div class="col-xs-12 col-md-4 fwd-col">
 	                        <div class="col-content">
+	                        	
 	                            <h2><fmt:message key="savie.o2o.landing.Simple.yet" bundle="${msg}" /></h2>
 	                            <h3><fmt:message key="savie.o2o.landing.big.on.savings" bundle="${msg}" /></h3>
 	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/big-on-savings.png">

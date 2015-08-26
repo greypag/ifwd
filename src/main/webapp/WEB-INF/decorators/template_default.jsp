@@ -97,8 +97,6 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 
 
 <dec:head />
-
-<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 </head>
 	<%
 	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {

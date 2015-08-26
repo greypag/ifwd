@@ -323,8 +323,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
-            <div class="recent-work-title"><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" />
-            </div>
+            <h1><fmt:message key="workingholiday.main.highlight1.heading" bundle="${msg}" />
+            </h1>
               <p><fmt:message key="workingholiday.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="workingholiday.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.highlight1.desc.part3" bundle="${msg}" /></p>
 
           </div>
@@ -333,7 +333,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap-mid wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
-            <div class="recent-work-title"><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></div>
+            <h1><fmt:message key="workingholiday.main.highlight2.heading" bundle="${msg}" /></h1>
               <p><fmt:message key="workingholiday.main.highlight2.desc" bundle="${msg}" /><br>
               <br>
             </p>
@@ -343,7 +343,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
-            <div class="recent-work-title"><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></div>
+            <h1><fmt:message key="workingholiday.main.highlight3.heading" bundle="${msg}" /></h1>
             <p><fmt:message key="workingholiday.main.highlight3.desc" bundle="${msg}" /></p>
             <!--<img src="resources/images/agoda-logo.png" alt=""/>--> </div>
         </div>

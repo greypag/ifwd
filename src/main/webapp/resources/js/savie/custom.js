@@ -162,6 +162,9 @@ $(function() {
 	});
 	
 	// Sales Illustration Page to FNA Page
+	$("#made-decision-next-btn").on('click', function(){
+		$('#loginModal').modal('show');
+    });	
 
 	// FNA Page to Application Page
 	$("#fna-next-btn").on('click', function(){

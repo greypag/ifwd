@@ -94,7 +94,7 @@ var affiliate = "${affiliate}";
 </div>
 
 <div class="sign-up-teaser">
-	<p class="sign-up-header"><span class="sign-up-header-msg1"><fmt:message key="savie.interestGather.signupform.header.part1" bundle="${msg}" /></span></br><span class="sign-up-header-msg2"><fmt:message key="savie.interestGather.signupform.header.part2" bundle="${msg}" /></span></p>
+	
 
 	<!--
 	<p class="email-notification"><fmt:message key="savie.interestGather.signupform.notification.context1" bundle="${msg}" /></p>
@@ -103,6 +103,7 @@ var affiliate = "${affiliate}";
 	-->
 
 	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm" action="teaser.jsp">
+		<p class="sign-up-header"><fmt:message key="savie.interestGather.signupform.header.part1" bundle="${msg}" /></br><fmt:message key="savie.interestGather.signupform.header.part2" bundle="${msg}" /></p>
 		<div class="form-group">
 			<input type="email" placeholder="<fmt:message key="savie.interestGather.signupform.enter.email" bundle="${msg}" />" class="form-control email" id="teaserEmail" name="teaserEmail" val="" maxlength="50" onkeypress="checkChineseCharEmail(event)"> 
 			<span class="error-msg hideSpan" id="emailAddrsMessage">&nbsp;</span>
@@ -143,9 +144,10 @@ var affiliate = "${affiliate}";
 	<button type="button" class="yellow-btn">
 		<h3><fmt:message key="savie.interestGather.signmeup.text.part1" bundle="${msg}" /></h3>
 		<h4><fmt:message key="savie.interestGather.signmeup.text.part2" bundle="${msg}" /></h4>
+		<img src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.signmeup.img" bundle="${msg}" />" class="caret-triangle">
 	</button>
 				
-	<img src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.signmeup.img" bundle="${msg}" />" class="caret-triangle">
+	
 </div>
 <div id="usps" class="teaser-three-column">
 	<div id="landing-three-column"
@@ -200,8 +202,8 @@ var affiliate = "${affiliate}";
 		</div>
 	</div>
 
-	<div class="fwd-container container-fluid">
-		<div id="other-benefits-teaser" class="row">
+	<div class="fwd-container container-fluid other-benefits-teaser">
+		<div id="other-benefits" class="row">
 			<div class="clearfix">
 				<div class="pull-left mobile-image hidden-md hidden-lg">
 					<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits-mobile" bundle="${msg}" />">
