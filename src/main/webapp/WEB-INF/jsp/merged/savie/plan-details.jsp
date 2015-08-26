@@ -69,7 +69,7 @@
 									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 								</div>
 								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
-									<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
+									<input type="text" class="date" value="${savingDob }" name="dob" id="sales-illu-dob" placeholder="28-05-1995" onfocusin="fnSetStyle()" readonly />
 									<input type="hidden" id="birthOfDay"  value="05/28/1995"/>
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
@@ -89,7 +89,7 @@
 						<h2>Promo code
 							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button>
 						</h2>
-						<input name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
+						<input value="${savingPromocode }" name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">
@@ -442,11 +442,15 @@
 			//login
 			$("#made-decision-next-btn").on('click', function(){
 				var savingAmount = $("input[name='amount']").val();
+				var savingDob = $("input[name='dob']").val();
+				var savingPromocode = $("input[name='promocode']").val();
 				$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
 				    type:'post',     
 				    data:{    
 				    	"savingAmount": savingAmount,
+				    	"savingDob": savingDob,
+				    	"savingPromocode": savingPromocode,
 			   		},     
 				    error:function(){       
 				    },     

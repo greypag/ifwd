@@ -80,6 +80,8 @@ public interface SavieService {
 	
 	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	public void confirmationOffline(Model model, HttpServletRequest request);
+	
 	//fileUpload?
 	//signature?	
 	//1/check session, and redirect to savie landing page if session expired

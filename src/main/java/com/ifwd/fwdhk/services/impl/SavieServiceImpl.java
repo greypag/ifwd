@@ -41,6 +41,8 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.BankBean;
@@ -1303,13 +1305,14 @@ public class SavieServiceImpl implements SavieService {
 	@Override
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=utf-8");
+		HttpSession session = request.getSession();
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
 		String planCode = "Savie";
 		String policyNumber = "";
-		//String applicationNumber = "";
-		//String userName = "";
+		String applicationNumber = "";
+		String userName = (String)session.getAttribute("username");
 		String status = "Active";
 		String remarks = "this is remarks";
 		String accessCode = (String)request.getSession().getAttribute("accessCode");
@@ -1322,6 +1325,7 @@ public class SavieServiceImpl implements SavieService {
 			lang = "CN";
 		}
 		
+		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", "*DIRECTGI");
 		header.put("token", commonUtils.getToken("reload"));
@@ -1331,6 +1335,8 @@ public class SavieServiceImpl implements SavieService {
 		parameters.put("planCode", planCode);
 		
 		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
+		applicationNumber = (String)appJsonObj.get("applicationNumber");
+		session.setAttribute("applicationNumber", applicationNumber);
 		
 		if(appJsonObj != null) {
 			parameters = new org.json.simple.JSONObject();
@@ -1339,8 +1345,8 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("timeSlot", perferredTime);
 			parameters.put("planCode", planCode);
 			parameters.put("policyNumber", policyNumber);
-			parameters.put("applicationNumber", appJsonObj.get("applicationNumber"));
-			parameters.put("userName", appJsonObj.get("userName"));
+			parameters.put("applicationNumber", applicationNumber);
+			parameters.put("userName", userName);
 			parameters.put("status", status);
 			parameters.put("remarks", remarks);
 			parameters.put("accessCode", accessCode);
@@ -1354,9 +1360,11 @@ public class SavieServiceImpl implements SavieService {
 				response.getWriter().print(makeJsonObj.toString());
 			}catch(Exception e) {  
 				e.printStackTrace();
+				response.getWriter().print("application error!");
 			}
+		}else {
+			response.getWriter().print("application error!");
 		}
-		response.getWriter().print("application error!");
 	}
 	
 	/**
@@ -1365,8 +1373,47 @@ public class SavieServiceImpl implements SavieService {
 	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String savingAmount = (String) request.getParameter("savingAmount");
+		String savingDob = (String) request.getParameter("savingDob");
+		String savingPromocode = (String) request.getParameter("savingPromocode");
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("savingAmount", savingAmount);
 		session.setAttribute("formatSavingAmount", NumberFormatUtils.formatNumber(savingAmount));
+		session.setAttribute("savingDob", savingDob);
+		session.setAttribute("savingPromocode", savingPromocode);
 	}
+	
+	public void confirmationOffline(Model model, HttpServletRequest request) {
+		
+		String centre = (String) request.getParameter("centre");
+		String preferred_date = (String) request.getParameter("preferred-date");
+		String preferred_time = (String) request.getParameter("preferred-time");
+		String applicationNumber = (String)request.getSession().getAttribute("applicationNumber");
+		
+		model.addAttribute("centre", centre);
+		model.addAttribute("preferred_date", preferred_date);
+		model.addAttribute("preferred_time", preferred_time);
+		model.addAttribute("applicationNumber", applicationNumber);
+		
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		ServiceCentreResponse serviceCentreResponse;
+		if (lang.equals("tc")) {
+			serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+		}else {
+			serviceCentreResponse = InitApplicationMessage.serviceCentreEN;
+		}
+		
+		for(ServiceCentreResult entity : serviceCentreResponse.getServiceCentres()) {
+			if(entity.getServiceCentreCode().equals(centre)) {
+				model.addAttribute("centreDetails", entity);
+				break;
+			}
+		}
+		
+		//清空储蓄金额
+		HttpSession session = request.getSession();
+		session.removeAttribute("savingAmount");
+	}
+	
 }
