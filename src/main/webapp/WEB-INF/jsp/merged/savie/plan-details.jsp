@@ -109,7 +109,7 @@
 	                            <div class="investment-table-desktop">
 	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">105,000</span> in the 3rd policy year</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">0</span> in the 3rd policy year</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
@@ -122,9 +122,9 @@
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                        <tr>    <td class="left-border">1</td>  <td class="black-text" id="premium-1"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 100,000</td>    </tr>
-	                                        <tr>    <td class="left-border">2</td>  <td class="black-text" id="premium-2"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 100,000</td>    </tr>
-	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text" id="premium-3"><span>$</span> 100,000</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 100,000</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 100,000</td>    </tr>
+	                                        <tr>    <td class="left-border">1</td>  <td class="black-text" id="premium-1"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 0</td>    </tr>
+	                                        <tr>    <td class="left-border">2</td>  <td class="black-text" id="premium-2"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 0</td>    </tr>
+	                                        <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text" id="premium-3"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 0</td>    </tr>
 	                                    </tbody>
 	                                </table>
 	                            </div>
@@ -189,23 +189,23 @@
 	                                        <tr>    
 												<td class="left-border" id='policy-year-0-1'>5</td>  
 												<td class="black-text desktop-only" id="credit-rate-0-1">0</td> 
-												<td class="black-text" id="premium-change-0-1"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-0-1"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-0-1"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-0-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-0-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-0-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-0-2'>10</td> 
 												<td class="black-text desktop-only" id="credit-rate-0-2">0</td>  
-												<td class="black-text" id="premium-change-0-2"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-0-2"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-0-2"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-0-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-0-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-0-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-0-3'>Age 100</td>  
 												<td class="black-text desktop-only" id="credit-rate-0-3">0</td> 
-												<td class="black-text" id="premium-change-0-3"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-0-3"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-0-3"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-0-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-0-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-0-3"><span>$</span> 0</td>    
 												</tr>
 	                                    </tbody>
 	                                </table>
@@ -226,23 +226,23 @@
 	                                        <tr>    
 												<td class="left-border" id='policy-year-2-1'>5</td>  
 												<td class="black-text desktop-only" id="credit-rate-2-1">2</td> 
-												<td class="black-text" id="premium-change-2-1"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-2-1"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-2-1"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-2-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-2-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-2-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-2-2'>10</td> 
 												<td class="black-text desktop-only" id="credit-rate-2-2">2</td>  
-												<td class="black-text" id="premium-change-2-2"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-2-2"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-2-2"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-2-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-2-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-2-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-2-3'>Age 100</td>  
 												<td class="black-text desktop-only" id="credit-rate-2-3">2</td> 
-												<td class="black-text" id="premium-change-2-3"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-2-3"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-2-3"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-2-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-2-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-2-3"><span>$</span> 0</td>    
 												</tr>
 	                                    </tbody>
 	                                </table>
@@ -263,23 +263,23 @@
 	                                        <tr>    
 												<td class="left-border" id='policy-year-3-1'>5</td>  
 												<td class="black-text desktop-only" id="credit-rate-3-1">3</td> 
-												<td class="black-text" id="premium-change-3-1"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-3-1"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-3-1"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-3-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-3-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-3-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-3-2'>10</td> 
 												<td class="black-text desktop-only" id="credit-rate-3-2">3</td>  
-												<td class="black-text" id="premium-change-3-2"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-3-2"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-3-2"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-3-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-3-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-3-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-3-3'>Age 100</td>  
 												<td class="black-text desktop-only" id="credit-rate-3-3">3</td> 
-												<td class="black-text" id="premium-change-3-3"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-3-3"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-3-3"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-3-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-3-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-3-3"><span>$</span> 0</td>    
 												</tr>
 	                                    </tbody>
 	                                </table>
@@ -300,23 +300,23 @@
 	                                        <tr>    
 												<td class="left-border" id='policy-year-4-1'>5</td>  
 												<td class="black-text desktop-only" id="credit-rate-4-1">4</td> 
-												<td class="black-text" id="premium-change-4-1"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-4-1"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-4-1"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-4-1"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-4-1"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-4-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-4-2'>10</td> 
 												<td class="black-text desktop-only" id="credit-rate-4-2">4</td>  
-												<td class="black-text" id="premium-change-4-2"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-4-2"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-4-2"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-4-2"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-4-2"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-4-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-4-3'>Age 100</td>  
 												<td class="black-text desktop-only" id="credit-rate-4-3">4</td> 
-												<td class="black-text" id="premium-change-4-3"><span>$</span> 100,000</td> 
-												<td class="black-text desktop-only" id="account-value-change-4-3"><span>$</span> 100,000</td>    
-												<td class="black-text right-border" id="surrender-change-4-3"><span>$</span> 100,000</td>    
+												<td class="black-text" id="premium-change-4-3"><span>$</span> 0</td> 
+												<td class="black-text desktop-only" id="account-value-change-4-3"><span>$</span> 0</td>    
+												<td class="black-text right-border" id="surrender-change-4-3"><span>$</span> 0</td>    
 												</tr>
 	                                    </tbody>
 	                                </table>
