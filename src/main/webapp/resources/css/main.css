@@ -1383,9 +1383,9 @@ input.search-form:hover {
     padding: 7px 12px;
     border-color: #f2f2f2;
     box-shadow: none;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 .slider-form h4 {
     color: #061d2a;
@@ -1402,14 +1402,16 @@ input.search-form:hover {
 }
 .slider-form .form-group {
     border: 1px solid #bdc4c4;
-    border-radius: 6px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .slider-form .drop-down {
-        -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    }
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
 
 
 
@@ -5588,7 +5590,9 @@ border-left: 7px solid transparent;}
 .marg-t2{ margin-top:7px;}
 .marg-b2{ margin-bottom:0px !important;}
 #txtStartDateDesk, 
-#txtEndDateDesk {
+#txtEndDateDesk,
+#txtStartDateBtm,
+#txtEndDateBtm {
     border: none;
 }
 /*CN*/
@@ -7636,3 +7640,55 @@ tr.product-landing-error-wrap {
     }
 }
 /** home promo banner **/
+
+/** annual travel **/
+.product_landing_custom_selectbox{
+    font-size: 23px;
+    padding:10px;
+}
+.product_landing_custom_selectbox:hover{
+    color:#fff;
+    background-color:#1E90FF;
+    cursor: default;
+}
+
+.product_landing_custom_fa-caret-down{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 15px;
+    height: 48px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product_landing_download_button{
+    margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+    .product_landing_download_button{
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+	.product_landing_download_button{
+	    width: 100%;
+	    text-align: center;
+	}
+}
+
+.annualTrave_policy_item{
+    height:180px;
+}
+
+.annualTrave_policy_item img{
+    width:80px;
+}
+
+.annualTrave_policy_item h5{
+    color: #f68a1d;
+    margin-top:20px;
+}
+/** annual travel **/

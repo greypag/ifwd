@@ -181,20 +181,40 @@ $(document).ready(function() {
 	                  </div></td>
 	                </tr>
 	                  <tr>
-	                  <td class="col-md-3 col-lg-3 pad-none">
+	                  <td class="col-md-2 pad-none">
+                        <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropdown">
+                          <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
+                             <label id="travel_type" class="select-label" style="cursor: pointer;white-space: nowrap;">Please select</label>
+                             <span class="product_landing_custom_fa-caret-down">
+                                <i class="fa fa-caret-down"></i>
+                             </span>
+                          </a>
+                          <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">
+                            <div class="drop-content pad-none">
+                                <div class="product_landing_custom_selectbox">Single Trip Travel</div>
+                                <div class="product_landing_custom_selectbox">Annual Travel</div>
+                             </div>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                     </td>
+	                  
+	                  <td class="col-md-3 pad-none">
 	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="col-md-3 col-lg-3 pad-none">
+	                  <td class="col-md-3 pad-none">
 	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="col-md-4 col-lg-3 pad-none">
-	                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
-	                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown"> <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right"></i> </a>
-	                      <div class="dropdown-menu bdr1">
+	                  <td class="pad-none">
+	                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown" style="min-width:190px;">
+	                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
+                               <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right"></i>
+                          </a>
+	                      <div class="dropdown-menu bdr1" style="width: 355px;">
 	                        <div class="drop-content">
 	                          <div class="col-lg-6 col-md-6">
 	                            <label class="radio radio-warning radio-inline">
@@ -202,13 +222,12 @@ $(document).ready(function() {
 	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label>
 	                            </label>
 	                          </div>
-	                          <div class="col-lg-6 col-md-6">
+	                          <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
 	                            <label class="radio radio-warning radio-inline">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
-	                              <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" />
+	                              <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label>
 	                                <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
 			                        <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
-			                      </label>
 			                    </label>
 	                          </div>
 	                          <div class="clearfix"></div>
@@ -289,7 +308,7 @@ $(document).ready(function() {
 	                 </div>
 	                 </td>
 	               <td class="col-md-2 pad-none">
-	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:30px;" onclick="reset_desktop_submit()">
+	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:32px;margin-left: 4%;" onclick="reset_desktop_submit()">
 	                   <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
 	                </button>
 	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
@@ -317,45 +336,65 @@ $(document).ready(function() {
 </section>
 
 
+
+
+
+
+
+
+
+
 <!--Mobileform-->
-<div class="slider-form hidden-lg hidden-md">
+<div class="slider-form hidden-lg hidden-md" style="background-color:#383A37;padding-bottom: 30px;">
 <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateMobTravel();">
   <div class="form-container">
-    <h2><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
-    <h4><fmt:message key="travel.main.quote.q1" bundle="${msg}" /> </h4>
+    <h2 style="text-align: center;color: #f6871e;padding-top: 10px;padding-bottom: 10px;"><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
+    <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
+    <div class="dropdown  form-group drop-down" style="background-color: #fff;">
+      
+      <a class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label" style="cursor: pointer;font-size: 23px !important;">Please select</label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
+    <div class="dropdown-menu bdr1 pad-none" style="width: 100%;">
+      <div class="drop-content pad-none">
+          <div class="product_landing_custom_selectbox">Single Trip Travel</div>
+          <div class="product_landing_custom_selectbox">Annual Travel</div>
+       </div>
+     </div>
+     <div class="clearfix"></div>
+      
+      </div>
+    <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" value="${corrTravelQuote.trLeavingDate}" readonly>
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" style="font-size: 23px !important;" value="${corrTravelQuote.trLeavingDate}" readonly>
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
-    <h4><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h4>
+    <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" value="${corrTravelQuote.trBackDate}" readonly>
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" style="font-size: 23px !important;" value="${corrTravelQuote.trBackDate}" readonly>
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
-    <h4><fmt:message key="travel.main.quote.q3" bundle="${msg}" /></h4>
-    <div class="dropdown  form-group drop-down" id="myFWDropdownMob">
+    <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q3" bundle="${msg}" /></h4>
+    <div class="dropdown  form-group drop-down" id="myFWDropdownMob" style="background-color: #fff;">
       
       <a href="#" class="dropdown-toggle col-sm-12 col-xs-12" data-toggle="dropdown"> <label id="lblCountMob"></label> <i class="fa fa-caret-down pull-right"></i> </a>
-      <div class="dropdown-menu bdr1 wd2">
+      <div class="dropdown-menu bdr1">
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
              <input type="radio" name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
           <label for="personal_plan_mob"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
           </div>
-          <div class="col-xs-6 col-sm-6">
+          <div class="col-xs-6 col-sm-6" style="margin-top: -3px;">
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
-             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label> </label>
+             <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label>
+                <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
+                   <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt="">
+                </a>
+             </label>
           </div>
           <div class="clearfix"></div>
           <hr>
@@ -466,7 +505,7 @@ $(document).ready(function() {
 <!--     <span id="travelCountMobIn" style="display:none"> -->
 <!--     <label style="color:red">Traveller count which is blank</label> -->
 <!--     </span> -->
-    <div class="text-center" id="divPersonsMob" style="visibility:hidden;">
+    <div class="text-center" id="divPersonsMob" style="visibility:hidden;display:none;">
       <small>
       <label id="lblPeopleMob">0</label>
         <fmt:message key="travel.main.quote.total.people" bundle="${msg}" />
@@ -552,11 +591,63 @@ $(document).ready(function() {
           </div>
           <div class="clearfix"></div>
       </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
+        <div class="hidden-xs hidden-sm"><span style="color: #f68a1d;">*</span> Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trips</div>
+        <h4 class="product_landing_download_button h4-4 pull-left">
+	          <i class="fa fa-download"></i> <a
+	              href="<fmt:message key="travel.brochure.link" bundle="${msg}" />"
+	              target="_blank"><fmt:message key="travel.quote.fullDetails.download" bundle="${msg}" /></a>
+	      </h4>
+	      <h4 class="product_landing_download_button h4-4 pull-left">
+	          <i class="fa fa-download"></i> <a
+	              href="<fmt:message key="travel.brochure.link" bundle="${msg}" />"
+	              target="_blank"><fmt:message key="travel.quote.fullDetails.download" bundle="${msg}" /></a>
+	      </h4>
+      </div>
+      <div class="clearfix"></div>
+   </div>
+</section>
+      
+<div style="background-color:#071D2A;text-align:center;padding-top: 20px;padding-bottom: 20px;">
+    <div class="container pad-none">
+        <h2 style="color:#fff;">Policy coverage</h2>
+        <h4 style="color:#fff;"><span style="color: #f68a1d;">TravelCare</span> provides you with comprehensive travel protection for leisure and business trips, coverage including:</h4>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:40px;">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
+                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+                <h5>Medical Expenses</h5>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
+                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+                <h5>Medical Expenses</h5>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
+                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+                <h5>Medical Expenses<br/>Medical Expenses</h5>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
+                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+                <h5>Medical Expenses</h5>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
+                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+                <h5>Medical Expenses</h5>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
+                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+                <h5>Medical Expenses</h5>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
 
-<div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
+<section style="margin-top:40px;margin-bottom:40px;">
+  <div class="container pad-none">
+<div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-left:10px;">
   <h2><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
-    <li>
+    <!-- <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc1" bundle="${msg}" /></p>
     </li>
     <li>
@@ -564,7 +655,7 @@ $(document).ready(function() {
     </li>
     <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc3" bundle="${msg}" /></p>
-    </li>
+    </li> -->
   <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
     </li>
@@ -573,7 +664,7 @@ $(document).ready(function() {
     </li>
   </ul>
   
-  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
+  <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 main-partner pad-none" style="">
   	<div class="main-partner-1">
     	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
     </div>
@@ -581,13 +672,14 @@ $(document).ready(function() {
     	<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
     </div>
   </div>
-  <div class="spacer3"></div>
+  <div class="clearfix"></div>
+  <!-- <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
-  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p> -->
 </div>
 
-<div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+<!-- <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
   <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
   <div class="carousel slide">
     <div class="carousel-inner">
@@ -600,7 +692,6 @@ $(document).ready(function() {
             </div>
           </div>
       </div>
-      <!--/.item-->
       <div class="item" >
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
@@ -610,7 +701,6 @@ $(document).ready(function() {
             </div>
           </div>
       </div>
-      <!--/.item-->
       <div class="item" >
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
@@ -620,7 +710,6 @@ $(document).ready(function() {
             </div>
           </div>
       </div>
-      <!--/.item-->
       <div class="item" >
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
@@ -630,7 +719,6 @@ $(document).ready(function() {
             </div>
           </div>
       </div>
-      <!--/.item-->
       <div class="item" >
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
@@ -640,13 +728,10 @@ $(document).ready(function() {
             </div>
           </div>
       </div>
-      <!--/.item-->
     </div>
-    <!--/.carousel-inner--> 
     <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
     <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
   </div>
-  <!--/.carousel-->
   <div class="clearfix"></div>
   
   <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
@@ -662,8 +747,7 @@ $(document).ready(function() {
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
-<!--/.container-->
-</div>
+</div> -->
 
 <!--/.container-->
 </div>
@@ -915,21 +999,39 @@ $(document).ready(function() {
              </td>
           </tr>
             <tr>
-              <td class="col-md-3 col-lg-3 pad-none">
+                <td class="col-md-2 pad-none">
+                   <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropdown">
+                     <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
+                        <label id="travel_type" class="select-label" style="cursor: pointer;white-space: nowrap;">Please select</label>
+                        <span class="product_landing_custom_fa-caret-down">
+                           <i class="fa fa-caret-down"></i>
+                        </span>
+                     </a>
+                     <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">
+                       <div class="drop-content pad-none">
+                           <div class="product_landing_custom_selectbox">Single Trip Travel</div>
+                           <div class="product_landing_custom_selectbox">Annual Travel</div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                   </div>
+                </td>
+            
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 col-lg-3 pad-none">
+              <td class="col-md-3 pad-none">
                 <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-4 col-lg-3 pad-none">
-                <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
+              <td class="pad-none">
+                <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm" style="min-width:190px;">
                  
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
-                  <div class="dropdown-menu bdr1">
+                  <div class="dropdown-menu bdr1" style="width:355px;">
                     <div class="drop-content">
                       <div class="col-lg-6 col-md-6">
                          <label class="radio radio-warning radio-inline">
@@ -937,14 +1039,14 @@ $(document).ready(function() {
 
 
                       </div>
-                      <div class="col-lg-6 col-md-6">
+                      <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
                           <label class="radio radio-warning radio-inline">
-                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /><a
+                          <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label><a
                         class="tool-tip show-inline-md"
                         data-toggle="tooltip" data-placement="bottom"
                         title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label></label>
+                        alt=""></a></label>
 
 
                       </div>
@@ -1031,8 +1133,8 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-              <td class="col-md-2 col-lg-2 pad-none">
-                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:30px;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
+              <td class="col-md-2 pad-none">
+                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:32px;margin-left: 4%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">
